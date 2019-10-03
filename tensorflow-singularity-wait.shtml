@@ -1,0 +1,123 @@
+<!--#set var="title" value="Running Tensorflow Jobs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This guide describes how to use a pre-built Tensorflow environment 
+(implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
+to run Tensorflow jobs in CHTC and on the Open Science Grid (OSG).</p>
+
+<h2>Overview</h2>
+
+<p>Typically, software in CHTC jobs is installed or compiled locally by 
+individual users and then brought along to each job, either using the 
+default file transfer or our SQUID web server.  However, another option 
+is to use a <i>container</i> system, where the software is installed in a <i>container 
+image</i>.  CHTC (and the OSG) have capabilities to access and start  
+containers and run jobs inside them.  One container option available in CHTC is 
+<a href="/docker-jobs.shtml">Docker</a>; another is Singularity.  </p>
+
+<p>In CHTC, our Singularity support consists of running jobs inside a 
+pre-made Singularity container with an installation of Tensorflow.  
+This Singularity set up is very flexible: it is accessible both 
+in CHTC and on the Open Science Grid, 
+and can be used to run Tensorflow either with CPUs or GPUs.  This guide 
+starts with a basic CPU example, but then goes on to describe how to use 
+the Singularity Tensorflow container for GPUs, and also how to run on 
+the Open Science Grid.  </p>
+
+<ol>
+  <li><a href="#template">Basic Tensorflow Job Template</a></li>
+  <li><a href="#gpus">Using Tensorflow on GPUs</a></li>
+  <li><a href="#osg">Using Tensorflow on the OSG</a></li>
+</ol>
+
+<a name="template"></a>
+<h2>1. Basic Tensorflow Job Template</h2>
+
+<p>The submit file for jobs that use the Tensorflow singularity container 
+will look similar to other CHTC jobs, except for the additional Singularity 
+options seen below.</p>
+
+<b>Submit File</b></br>
+
+<pre class="sub">
+# Typical submit file options
+universe = vanilla
+log = <i>$(Cluster).$(Process)</i>.log
+error = <i>$(Cluster).$(Process)</i>.err
+output = <i>$(Cluster).$(Process)</i>.out
+
+# Fill in with your own script, arguments and input files
+# Note that you don't need to transfer any software
+executable = <i>run_tensorflow</i>.sh
+arguments =
+transfer_input_files = 
+
+# Singularity settings
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
+Requirements = HAS_SINGULARITY == True
+
+# Resource requirements
+request_cpus = <i>1</i>
+request_memory = <i>2GB</i>
+request_disk = <i>4GB</i>
+
+# Number of jobs
+queue 1
+</pre>
+
+<b>Sample Executable (Wrapper Script)</b>
+
+<p>Your job will be running inside a container that has Tensorflow installed, 
+so there should be no need to set any environment variables.  </p>
+
+<pre class="file">
+#!/bin/bash
+
+# your own code here 
+python <i>test.py</i>
+</pre>
+
+<a name="gpus"></a>
+<h2>2. CPUs vs GPUs</h2>
+
+<p>The submit file above use a CPU-enabled version of Tensorflow.  In order 
+to take advantage of GPUs, make the following changes to the submit file above: </p>
+
+<ul>
+  <li>Request GPUs in addition to CPUs: 
+  <pre class="sub">request_gpus = 1</pre></li>
+  <li>Change the Singularity image to tensorflow with GPUs: 
+  <pre class="sub">+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow-gpu:latest"</pre></li>
+  <li>Add a GPU card requirement to the requirements line: 
+  <pre class="sub">requirements = HAS_SINGULARITY == True && CUDACapability >= 3</pre></li>
+</ul>
+
+<p>For more information about GPUs and how GPU jobs work in CHTC, see our 
+<a href="/gpu-jobs.shtml">GPU Jobs guide</a>. 
+
+<blockquote>
+<b>Limited GPU availablity in CHTC</b> <br>
+This Singularity/Tensorflow functionality is not yet available on
+CHTC's newer GPUs with a sufficiently high CUDA Capability.  Therefore, 
+for now, the best way to use this Singularity/Tensorflow environment with GPUs is by 
+running jobs on the Open Science Grid (see below).  We are working on having Singularity 
+support on all CHTC GPUs soon.  
+</blockquote>
+
+<a name="osg"></a>
+<h2>3. Running on OSG</h2>
+
+<p>This Tensorflow environment can also be run on the Open Science Grid, 
+or OSG, either as the CPU or GPU version.</p>
+
+<p>For more details on accessing the OSG, see 
+<a href="/scaling-htc.shtml">our guide for running outside CHTC, sections
+3 and 4,</a>.
+<!-- and for GPUs on the OSG, 
+see the final section of <a href="/gpu-jobs.shtml">our GPU guide.</a>.-->
+ </p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

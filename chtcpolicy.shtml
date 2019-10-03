@@ -1,0 +1,41 @@
+<!--#set var="title" value="CHTC Job Policy Description"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!-- If you need to include additional information in the [head], do so here -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<P>
+These policies relate to the general resources which were funded by <b>WARF</b>
+to which <b>UW</b> researchers have equal access. There are additional <b>OWNED</b>
+resources in the center which are made available for Opportunistics use.
+</P>
+<ul>
+<li>
+A user may recycle a slot for up to 12 hours without having to renegotiate
+for the slot. No single job will be interrupted before it has run for 24 hours. If(for any reason)
+a job is suspended, this does not count against its run time.
+</li>
+<li>
+A user may request a whole machine for use (ie a whole machine slot). 
+~45 of the current 200 machines are available in this capcity. When 
+a user claims a machine, their job will be initially suspended while
+jobs on any single-core slots complete. Like single-core slots, no 
+whole machine job will be interrupted before it has run for 24 hours.
+</li>
+<li>
+Groups of users are identified by their associated project. (One user
+working on one project, counts as one group). This is used tp make accounting more readable.
+</li>
+<li>
+User Priority Factors in this pool are adjusted to attempt to avoid a group getting a larger
+share of resources only because it has more users (or logical identities) submitting jobs. This
+policy currently weights all identified groups equal to the weight of one individual user.
+</li>
+<li> 
+User priority is calculated with a 3 day half life.
+</li>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,0 +1,301 @@
+<!--#set var="title" value="Using Gluster for Large Data and Software"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>CHTC maintains a Gluster file share, which should only be used for
+files or software that are too large for HTCondor file transfer or SQUID. 
+The below guide discusses how to use CHTC's Gluster option for jobs that
+use or produce very large files.</p>
+
+<!--#include virtual="/includes/template-file-avail.shtml"-->
+<p><h2>Contents</h2>
+<ol>
+  <li><a href="#policy">Policies and Intended Use</a></li> 
+    <li><a href="#staging">Practices for Files within Gluster</a></li> 
+	<li><a href="#submit">Submit File Implications</a></li> 
+	<li><a href="#input">Using Gluster-staged Files and Software for Jobs</a>
+	<ul>
+	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a>
+	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a>
+		</ul></li> 
+	<li><a href="#within">Copying large output files to Gluster from within a job</a>
+		<ul>
+	<li><a href="#working">Write output files to the working directory, 
+then move these to Gluster</a>	
+	<li><a href="#also">ALSO consider: Large standard output ("screen output") produced 
+by your jobs</a>
+		</ul></li> 
+	
+	<li><a href="#after">Removing files from Gluster after jobs complete</a>
+		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a>
+</ol>
+
+<a name="policy"></a>
+<h2>1. Policies and Intended Use:</h2>
+
+<dl>
+        <dt>Intended Use:</dt> <dd>Gluster is a staging area for input files,
+        output files, and software that are individually too large for file transfer or SQUID. 
+	Files and software within Gluster will be available only to jobs running in the CHTC Pool, 
+	and only a portion of the pool.</dd>
+        <dt>Access to Gluster:</dt> <dd>is granted upon request to chtc@cs.wisc.edu and consultation with a Research Computing Facilitator. 
+	</dd>
+        <dt>Limitations: </dt> <dd><ul>
+                <li><b>Access outside of CHTC?</b> Jobs relying on Gluster will only run in CHTC's HTCondor Pool,
+		and data in Gluster is not accessible to HTCondor jobs running outside
+		of this pool.</li>
+		<li><b>Not all files ...</b> Gluster should ONLY be used for individual data and software files
+		that are larger than the values in the table, above. Files placed in /mnt/gluster 
+		should NEVER be listed in the submit file (for example, as the "executable", 
+		"output", "error", or "log" 
+		files, or for files listed in "transfer_input_files"). Only files in the user's home 
+		directory should ever be listed in these lines of the submit file.</li>
+                <li><b>Capacity</b> Each user is allowed a certain amount of space in Gluster,
+                though we can increase this space for special requests to chtc@cs.wisc.edu</li>
+        </ul></dd>
+        <dt>Data Security:</dt> <dd>Files placed in Gluster are owned by the
+        user, and only the user's own jobs can access these files (unless the
+        user specifically modifies unix file permissions to make certain files
+        available for other users).</dd>
+	<dt>Data Cleanup:</dt> <dd>As for all CHTC file space, data should be removed from
+        /mnt/gluster AS SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if 
+	it will be used it the future, it should be deleted from Gluster and copied back at a later date.</dd>
+	<dt>Allowed Data Amounts:</dt> <dd>As of July 25, 2017, initial quotas of 10GB of 100 files have been 
+	implemented for every folder within Gluster. Request to chtc@cs.wisc.edu and consultation with an RCF 
+	will be necessary for increasing this quota.</dd>
+	<dt>KEEP COPIES:</dt> <dd>of ANY and ALL data or software in Gluster in another, non-CHTC location. 
+	The HTC Gluster is not backed up and is prone to data loss over time. CHTC staff reserve the 
+	right to remove any data from the HTC Gluser (or any CHTC file system) at any time.
+	</br></br>
+	<dt><b>USERS VIOLATING ANY OF THE POLICIES (also below) IN THIS GUIDE WILL HAVE THEIR GLUSTER ACCESS
+	AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE MEASURES ARE TAKEN. CHTC STAFF RESERVE THE
+	RIGHT TO REMOVE ANY PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</b></dd>
+</dl>
+
+<b>The examples and information in the below guide are useful ONLY if:</b><br>
+<ul>
+	<li>you already have an account on a CHTC-administered submit server</li>
+	<li>you already have a user directory in the HTC Gluster system, after 
+	requesting it via email discussion to chtc@cs.wisc.edu</li>
+</ul>
+
+<b>To best understand the below information, users 
+should already be familiar with:</b><br>
+<ol>
+	<li>Using the command-line to: navigate directories, 
+	create/edit/copy/move/delete files and directories, 
+	and run intended programs (aka "executables").</li>
+	<li>CHTC's <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's guide for 
+	<a href="/file-availability.shtml">Typical File Transfer</a></li>
+</ol>
+
+<a name="staging"></a>
+<h1>2. Practices for Files within Gluster:</h1>
+Data in Gluster should be stored in as few files as possible (ideally, one file per job), and will be used by a job 
+only after being copied from /mnt/gluster into the job working directory (see #3, below). 
+Similarly, large output requiring Gluster should first be written to the job working directory 
+then compressed in to a single file before being copied to /mnt/gluster at the end of the job (see #4, below).
+</br> </br>
+To prepare job-specific data that is large enough to require Gluster and exists as multiple 
+files or directories (or a directory of multiple files), first create a compressed tar package before
+placing the file in /mnt/gluster (either before submitting jobs, or within jobs before moving output to /mnt/gluster). 
+For example:
+<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir <file2> <directory> <etc.></pre>
+
+<p> Movement of data into/out of /mnt/gluster before and after jobs should 
+only be performed via CHTC's transfer server, as below, and <b>not via a CHTC submit server.</b>
+After obtaining a user directory within <code>/mnt/gluster</code> and an account on 
+the transfer server, copy relevant files directly 
+into this user directory from your own computer:</p>
+
+<p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
+<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/</pre>
+
+<p>If using a Windows computer:</p>
+<p>Using a file transfer application, like WinSCP, directly drag the large 
+file from its location on your computer to a location within 
+<code>/mnt/gluster/username/</code> on transfer.chtc.wisc.edu.</p>
+
+<a name="submit"></a>
+<h1>3. Submit File Implications</h1>
+
+<p>In order to properly submit jobs using Gluster, always do the following:</p>
+<ul>
+	<li>ONLY submit Gluster-dependent jobs from within your home 
+	directory (<code>/home/username</code>), and NEVER from within 
+	<code>/mnt/gluster</code>. </li>
+
+	<li>Do NOT list any <code>/mnt/gluster</code> files in any 
+	of the submit file lines, 
+	including: <code>executable, log, output, error, transfer_input_files</code>. 
+	Rather, your job's ENTIRE interaction with files in <code>/mnt/gluster</code> 
+	needs to occur WITHIN each job's executable, when it runs within the job. </li>
+
+	<li>Request an adequate amount of disk space with "<code>request_disk</code>", 
+	to include the total amount of input data that each job will copy into the job working 
+	directory from /mnt/gluster, and any output that will be created in the job working
+	directory.</li>
+
+	<li>Make sure to use a submit file "Requirements" line so that	
+	your jobs only run on execute servers that have access to Gluster.</li>
+</ul>
+
+<p>See the below submit file, as an example, which would be submitted 
+from within the user's home directory:</p>
+
+<pre class="sub">### Example submit file for a single Gluster-dependent job
+# Files for the below lines MUST all be somewhere within /home/username,
+# and not within /mnt/gluster/username
+
+log = myprogram.log
+executable = run_myprogram.sh
+output = $(Cluster).out
+error = $(Cluster).err
+transfer_input_files = myprogram
+
+# IMPORTANT! Require execute servers that have Gluster:
+Requirements = (Target.HasGluster == true)
+
+# Make sure to still include lines like "request_memory", "request_disk", "request_cpus", etc. 
+
+queue
+</pre>
+
+<a name="input"></a>
+<h1>4. Using Gluster-staged Files and Software for Jobs</h1>
+
+<p>As stated in <a href="#submit">#2</a>, all interaction with 
+files and software in <code>/mnt/gluster</code> 
+should occur within your job's main executable, when it runs. 
+Therefore, there are two options for jobs depending on on Gluster-staged software (larger than 
+a few GB) and input (larger than 100 MB per file).</p>
+
+<a name="copy"></a>
+<h2>A. Copy files from Gluster into the working directory, from within the job</h2>
+
+<p>The recommended method is to have your job executable copy input or software from /mnt/gluster into the working directory of the job, and use it from there, being careful to remove such files from the working directory before the completion of the job (so that they're not copied back to the submit server as perceived output).
+
+An example is below:
+
+<pre class="file">
+#!/bin/bash
+#
+# First, copy the compressed tar file from /mnt/gluster into the working directory,
+#  and un-tar it to reveal your large input file(s) or directories:
+cp /mnt/gluster/username/large_input.tar.gz ./
+tar -xzvf large_input.tar.gz
+#
+# Command for myprogram, which will use files from the working directory
+./myprogram large_input.txt myoutput.txt
+#
+# Before the script exits, make sure to remove the file(s) from the working directory
+rm large_input.tar.gz large_input.txt
+#
+# END</pre>
+
+
+<a name="large"></a>
+<h2>B. Software that is too large for or doesn't work with file transfer</h2>
+
+<p>
+If your software will ONLY work if it remains in the same location where it was 
+first installedi, and there are barriers to installing it within the working directory 
+of every job (install-on-the-fly), please contact us for assistance. DO NOT PLACE SOFTWARE
+IN GLUSTER WITHOUT PERMISSION AND INPUT FROM CHTC STAFF: chtc@cs.wisc.edu
+
+<a name="within"></a>
+<h1>5. Copying large output files to Gluster from within a job</h1>
+
+<p>As stated in <a href="#submit">#2</a>, all 
+interaction with files in <code>/mnt/gluster</code> 
+should occur within your designated "executable", when it runs. 
+Therefore, there are two options for having steps within your 
+executable write files to Gluster, as well as a consideration 
+for large standard output.</p>
+<a name="working"></a>
+<h2>A. Write output files to the working directory, 
+then move these to Gluster</h2>
+
+<p>If your jobs write any data directly to Gluster from 
+within a job, your jobs will run slower AND will cause Gluster to be slower for other users.  
+Instead, have your executable write the file 
+to a location within the working directory, and then make sure to move 
+this large file to Gluster (or copy to Gluster, and then remove from 
+the working directory), so that it's not transferred back to the home 
+directory, as all other "new" files in the working directory will be. </p>
+
+<p>Example, if executable is a shell script:</p>
+<pre class="file">#!/bin/bash
+# 
+# Command to save output to the working directory:
+./myprogram myinput.txt large_output.txt
+#
+# Tar and copy output to Gluster, then delete from the job working directory:
+tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
+mv large_output.tar.gz /mnt/gluster/username/<subdirectory>
+rm large_output.txt
+#
+# END</pre>
+<a name="also"></a>
+<h2>B. ALSO consider: Large standard output ("screen output") produced 
+by your jobs</h2>
+
+<p>In some instances, your software may produce very large standard 
+output (what would typically be output to the command screen, if you 
+ran the command for yourself, instead of having HTCondor do it). Because 
+such standard output from your software will usually be captured by 
+HTCondor in the submit file "output" file, this "output" file WILL 
+still be transferred by HTCondor back to your home directory on the 
+submit server, which may be very bad for you and others, if that captured 
+standard output is very large.</p>
+
+<p>In these cases, it is useful to redirect the standard output 
+of commands in your executable to a file in the working directory, and then 
+move it into Gluster at the end of the job.</p>
+
+<p>Example, if "<code>myprogram</code>" produces very large standard output, and 
+is run from a script (bash) executable:</p>
+
+<pre class="file">#!/bin/bash
+#
+# script to run myprogram,
+# 
+# redirecting large standard output to a file in the working directory:
+./myprogram myinput.txt myoutput.txt > large_std.out
+# 
+# tar and move large files to Gluster so they're not copied to the submit server:
+tar -czvf large_stdout.tar.gz larg_stdout
+cp large_stdout.tar.gz /mnt/gluster/username/<subdirectory>
+rm large_std.out large_stdout.tar.gz
+# END</pre>
+
+<a name="after"></a>
+<h1>6. Removing files from Gluster after jobs complete</h1>
+
+<p>Similar to the procedures from transferring files into Gluster,
+you can directly copy files out of Gluster using command-line <code>scp</code>
+or file-transfer applications like WinSCP.</p>
+<a name="check"></a>
+<h1>7. Checking your Quota, Data Use, and File Counts in Gluster</h1>
+
+<p>To check your total data usage and quota, run <code>df -h</code> for your Gluster directory. Example:
+<pre>
+$ df -h /mnt/gluster/alice
+</pre>
+
+<p>To check data usage and file counts, run <code>ncdu</code> from within 
+the directory you'd like to query. Example:
+<pre>
+$ cd /mnt/gluster/alice
+$ ncdu
+</pre>
+When <code>ncdu</code> has finished running, 
+the output will give you a total file count and allow you to navigate between 
+subdirectories for even more details. Type <code>q</code> when you're ready to 
+exit the output viewer. More info here: 
+<a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
+<!--#include virtual="/includes/template-5-finish.shtml" -->

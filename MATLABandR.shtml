@@ -1,0 +1,325 @@
+<!--#set var="title" value="Compiling Matlab, Python and R Code"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<style type="text/css"><!--
+li {
+	margin-top: 0.5em;
+}
+.tight li {
+	margin-top: 0;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<p>
+Running MATLAB, Python, or R under CHTC almost always requires a two-step process.
+ The first step, described here, compiles or builds the executable code (R libraries, Python modules, 
+or MATLAB m files) specific to the job. The second
+ step allows you to submit many jobs using the built program or program components
+ you've created here. For this 
+second step, see our guide for setting up and submitting multiple jobs with the 
+<a href="DAGenv.shtml">ChtcRun Package</a>.
+<br />
+<h2>When and Why to Compile Code for CHTC Jobs</h2>
+R jobs must be compiled if additional 
+R libraries not in the basic R environment are needed. Simiarly, Python code will 
+need to be compiled if additional modules not in our supported Python environment are needed.
+All MATLAB jobs run at the CHTC must be compiled in order to be run on multiple 
+machines (per Matlab's license requirements). 
+<br /><b>All other code compiling for CHTC jobs needs to be completed 
+on one of our designated "build machines" using an interactive submit file and 
+instructions that you can find <a href="inter-submit.shtml">here</a>.</b> 
+</br></br>
+The tools below (chtc_mcc, chtc_buildRlibs, and chtc_buildPythonmodules) are
+ part of the "chtc-utils" suite of tools. These are installed on all CHTC-owned
+ submit nodes, but may also be installed on YOUR submit node.
+ See the bottom of the page for more details.
+</p>
+
+<h1>-R-</h1>
+
+<p>
+From any submit node in the CHTC, run the script <code>chtc_buildRlibs</code>, 
+using command line arguments to specify to the needed R libraries and
+version of R required.
+This script produces a compressed tar file, <code>sl6-RLIBS.tar.gz</code>, which
+ will contain the R library files necessary for running R code with the ChtcRun
+ package or <code>chtcjobwrapper</code>.
+</br></br>
+There are two necessary arguments to <code>chtc_buildRlibs</code>:
+
+<ul>
+
+<li>
+<code>--rversion</code> allows you to specify the needed version of R.
+The current list of versions available is
+
+  <ul class="tight">
+  <li> sl6-R-2.10.1 (version R-2.10.1 on Scientific Linux) </li>
+  <li> sl6-R-2.13.1 (version R-2.13.1 on Scientific Linux) </li>
+  <li> sl6-R-2.14.1 (version R-2.14.1 on Scientific Linux) </li>
+  <li> sl6-R-2.15.1 (version R-2.15.1 on Scientific Linux) </li>
+  <li> sl6-R-2.15.2 (version R-2.15.1 on Scientific Linux) </li>
+  <li> sl6-R-2.15.3 (version R-2.15.1 on Scientific Linux) </li>
+  <li> sl6-R-3.0.1 (version R-3.0.1 on Scientific Linux) </li>
+  <li> sl6-R-3.1.0 (version R-3.1.0 on Scientific Linux) </li>
+  <li> sl6-R-3.2.0 (version R-3.2.0 on Scientific Linux) </li>
+ </ul>
+</br>
+If you are using an unlisted version, you will likely be able to use the next
+ version down out of the list above. If a necessary version of R is not listed here,
+please request it by email to 
+<a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.
+</li>
+</br>
+R-2.15.2/3 and 3.0.1 contain extended libraries such that you may not need to
+buid them with this tool. They both have the same library list, including:
+ base, codetools, graphics, lattice, mgcv, rpart, stats4, utils, boot, compiler,
+ grDevices, MASS, nlme, spatial, survival, class, datasets, grid, Matrix, nnet,
+ splines, tcltk, cluster, foreign, KernSmooth, methods, parallel, stats, tools.
+<li>
+<code>--rlibs</code> lists the R source packages to be included, comma-separated.
+ <b>You will need to have copied the source ".tar.gz" files for each library to the
+ submit node in the same folder where you run the "chtc_buildRlibs" command.</b>
+</br></br>
+<b>The ordering of libraries in the list matters:</b>
+ Libraries that are called by other libraries should be listed first.
+</li>
+
+</ul>
+
+As an example that will produce the necessary <code>tar</code> packages of R 
+libraries (always produced as <code>sl6-RLIBS.tar.gz</code>):
+
+<pre>
+chtc_buildRlibs --rversion=sl6-R-2.10.1 --rlibs=lme4_0.999375-39.tar.gz,pedigreemm_0.2-4.tar.gz
+</pre>
+
+Usage information for the <code>chtc_buildRlibs</code> script can be listed
+with the command:
+
+<pre>
+chtc_buildRlibs --help
+</pre>
+</p>
+
+<h1>-Python-</h1>
+
+<p>
+Our NEW supported Python version (2.7.7) includes the full SciPy Stack
+ except for iPython, as iPython (interactive) is not compatible with batch
+ jobs. The following modules and their dependiences are included by default
+ in our Python 2.7.7 capabilities (when using
+ <a href="http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun</a>):
+<ul>
+<li>numpy-1.8.1</li>
+<li>scipy-0.14.0</li>
+<li>matplotlib-1.3.1</li>
+<li>pandas-0.14.0</li>
+<li>sympy-0.7.5</li>
+<li>nose-1.3.1</li>
+</ul>
+
+If you need additional modules, you can use 
+<code>chtc_buildPythonmodules</code> to create a portable 
+package suitable for use in the CHTC.
+</p>
+
+<p>
+<h2>Here are the steps to prepare your python code</h2>
+</br>
+<b>1. Modify your main python script.</b></br>
+</br>
+It is essential that the first line of your Python script be:</br>
+<code>#!./python277/bin/python</code>
+</b>
+</p>
+
+<p>
+<b>2. From any submit node in the CHTC, run the script
+ <code>chtc_buildPythonmodules</code>,</b> as shown below,
+ using command line arguments to specify necessary modules. 
+
+<p>As an example, to build additional Python modules not listed above in our
+default list:
+</p>
+<pre>
+chtc_buildPythonmodules --pversion=2.7.7 --pmodules=mymodule-1.1.0.tar.gz,othermodule-1.1.0.tar.gz
+</pre>
+
+<p><b>
+The output will be one package named <code>sl6-SITEPACKS.tar.gz</code>
+ and one named <code>SLIBS.tar.gz</code> (NEW).</b> NOTE: It may take
+ up to 5 minutes, or so, for the command to complete.
+</br></br>
+The <code>chtc_buildPythonmodules</code> has two required arguments:
+</p>
+
+<ul>
+
+<li> <code>--pversion</code> specifies the required version of Python.
+The current list of versions available is
+
+<ul class="tight">
+<li> "2.7.7" (we may add more versions in the future) </li>
+</ul>
+<li><code>--pmodules</code> is a comma seperated list of module source
+	packages in the xxxxxx.tar.gz format.
+</li>
+</ul>
+
+<p>
+The ordering of modules in the list matters.
+The first one listed may not contain any references to modules
+specified by the remainder of modules in the list.
+As the modules get built, they become available in the
+site packages in the build python.
+This ordering presumes that there may be no equivalent to 
+a forward declaration in the list.
+</p>
+</li>
+
+</ul>
+
+<p>Usage information for the <code>chtc_buildPythonmodules</code> script can be listed
+with the command
+</p>
+
+<pre>
+chtc_buildPythonmodules --help
+</pre>
+
+<h2>Setting up your built Python code in the
+ <a href = "http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun package</a>.</h2>
+<p>
+The ChtcRun folder includes a <code>Pythonin</code> directory, which has it's
+ own <code>SLIBS.tar.gz</code> file included. You'll need both this
+ file <i>AND</i> the <code>SLIBS.tar.gz</code> file created by
+ <code>chtc_buildPythonmodules</code>, above, when you set up your own
+ data directory in <code>ChtcRun</code> (similar to the
+ <code>Pythonin</code> directory): 
+</p>
+ <UL>
+ <li>In your own <code>shared</code> directory, copy
+ <code>SLIBS.tar.gz</code> from <code>Pythonin/shared/</code> and un-tar it
+ (<code>tar -zxvf SLIBS.tar.gz</code>) to produce an <code>SS</code>
+ directory.</li>
+ <li>Copy in the <code>SLIBS.tar.gz</code> produced in the build
+ step above to your own <code>shared</code> directory and un-tar it to add
+ in your desired built modules to the <code>SS</code> directory.</li>
+ <li>Create a new enhanced <code>SLIBS.tar.gz</code> from the combined
+ <code>SS</code> directory (<code>tar -zcvf SLIBS.tar.gz SS</code>).
+ <li>Copy the <code>ENV</code> and <code>URLS</code> files
+ into your <code>shared</code> directory from the <code>Pythonin/shared/</code>
+ directory, and finish setting up your data directory in <code>ChtcRun</code>.
+ </UL>
+
+<h1>-Matlab-</h1>
+
+<p>
+From any submit machine in CHTC, run the script <code>chtc_mcc</code>, 
+specifying required command line arguments with values
+specific to the MATLAB job.
+There are two required arguments:
+
+<ul>
+
+<li> <code>--mtargets</code> specifies the entry point into the compiled MATLAB
+executable(s).  This is the file normally passed to MATLAB.  The
+executable produced will have the same file name, but without the
+<code>.m</code> extension.  </li>
+
+<li> <code>--mfiles</code> is a comma-separated list of all <i>m</i> and <i>mex</i>
+ files needed by your program, including the file listed in <code>--mtargets</code>.
+ <b>You will need to have copied these files to the submit node for the chtc_mcc script
+ to use them.</b></li>
+
+<li> <code>--version=R2013b</code> should be used to specify our newer
+ supported Matlab version instead of the default R2011b. We will soon
+ be changing this tool to default to "R2013b" instead, and will email users
+ when that change has been made. NOTE: If you are using a non-CHTC submit
+ node, you'll need to update your version of chtc-utils to get the latest
+ version of <code>chtc_mcc</code> that is consistent with this guide.
+ (See the bottom of this web page.) </li>
+
+</ul>
+
+
+The below example will produce a compiled MATLAB executable
+called <code>target1</code> using
+five <i>m</i> files.
+
+<pre>
+chtc_mcc --mtargets=target1.m --mfiles=a.m,b.m,c.m,d.m,target1.m 
+</pre>
+
+Full usage information for the <code>chtc_mcc</code> script can be listed
+with the command.
+
+<pre>
+chtc_mcc --help
+</pre>
+
+There are additional options available using the <code>--moptions</code>
+ argument as well. For example:
+<ul>
+<li><code>--moptions=java</code> turns on java runtime support </li>
+<li><code>--moptions=mex</code> builds a mex file from c files listed as
+ <code>mfiles</code> list from entry point in <code>mtargets</code> list</li>
+<li><code>--moptions=deep</code> turns on deep compiling into multiple folders
+ of <i>m</i> files. </li>
+</ul>
+<b>Detailed examples of all options are now within the program's help file.</b>
+</p>
+
+
+<h1>Obtaining and Updating the <code>chtc_mcc</code>,
+ <code>chtc_buildRlibs</code>, and <code>chtc_buildPythonmodules</code>
+ Scripts for Your Group Submit Node</h1>
+<p>
+The scripts <code>chtc_mcc</code>, <code>chtc_buildRlibs</code>,
+and <code>chtc_buildPythonmodules</code>
+are installed on all CHTC submit nodes.
+These scripts (and other supporting files) are distributed for use on 
+other computers as a YUM RPM. It is important to update these RPMs at least twice a year as we improve the build scripts.
+</p>
+
+<p>
+To determine whether the scripts are already installed on your submit node, try
+</p>
+
+<pre>
+which chtc_mcc
+</pre>
+
+<p>The message <code>Command not found</code> indicates that the scripts
+are <i>not</i> installed.
+</p>
+
+<p>
+The scripts must be obtained and installed as root.
+From directory <code>/etc/yum.repos.d/</code>, issue the command 
+</p>
+
+<pre>
+wget http://chtc.cs.wisc.edu/repo/chtc-packages.repo
+</pre>
+
+<p>
+To install the <code>chtc-utils</code> package, issue the command
+</p>
+
+<pre>
+yum install chtc-utils
+</pre>
+
+<p>
+After installation, the scripts will be in <code>/usr/bin</code>.
+</p>
+
+
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

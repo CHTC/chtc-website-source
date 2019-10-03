@@ -1,0 +1,314 @@
+<!--#set var="title" value="HPC Cluster Scheduled Downtime"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p><i>... if you only use CHTC's high-throughput computing (HTC) system via HTCondor 
+submission, you can ignore the following information ...</i></p>
+</br>
+<p>In order to upgrade the file system version and modify configurations 
+to improve filesystem performance </p>
+<h1>The HPC Cluster will be down for upgrade starting on Tuesday, Nov. 17</h1>
+<p>with a return of functionality by <b>Friday, Nov. 20</b></p>
+</br>
+<h2>To Prepare for and Reduce Cluster Downtime,</h2>
+<a name="data"></a><h3>we ask ALL users to do the following by Friday, Nov. 6:</h3>
+<ol>
+  <li>remove all data from the <code>/scratch</code> directory (otherwise, it will be 
+  deleted for you; see below)</li>
+  <li>remove AS MUCH DATA AS POSSIBLE from the entire filesystem 
+  (<b>the more data removed, the shorter the downtime</b>)</li>
+  <li>remember: we have no backups, and filesystem downtime may lead to 
+  file loss/corruption, so have a copy of essential files, elsewhere</li>
+</ol>
+
+<h2>The Below Policy Changes Will Take Effect after Nov. 17</h2>
+<ol>
+  <li><b>The entire <code>/scratch</code> location will be deleted</b>, so make 
+  sure to delete ALL data in <code>/scratch/user</code> off of the cluster 
+  and/or copy it to another location. Only the <code>/home</code> location will persist. 
+  (Neither <code>/home</code> nor <code>/scratch</code> have ever been automatically 
+  cleaned, and we don't intend to do so for <code>/home</code> in the future.)</li>
+  <li><b>A default disk quota of 100 GB will be set for all users. </b>
+  Though, <u>current users with more than 200 GB</u> will be contacted individually 
+  prior to Nov. 6 to discuss extra measures and quota arrangements. In the 
+  future, users needing more than their quota for <u><i>current and active compute 
+  jobs</i></u> may ask for a quota increase by 
+  emailing <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> and explaining 
+  the situation. Based upon past filesystem performance issues, we must all be 
+  committed to reducing the amount of leftover data and the overall <i>number of files</i> 
+  on the HPC Cluster filesystem, both of which impact filesystem performance for 
+  running jobs and for users who are logged in. </li>
+  <li><b>The new quota will <i>not</i> delete any of your data in <code>/home</code></b>, 
+  but <i>will</i> keep you and your jobs from adding new data until you are using 
+  less than your quota.</li>
+</ol>
+
+<h2>CHTC Staff Are:</h2>
+<ol>
+  <li>updating the <a href="HPCuseguide.shtml">HPC Cluster Use Guide</a> to
+   reflect the above 
+  policy changes. (already done)</li>
+  <li>emailing researchers who have significant <i>total data</i> and/or a <i>large 
+  numbers of files</i> on the filesystem, in preparation for the upgrade.</li>
+</ol>
+</br>
+<p>Please understand that all of the above changes are aimed at improving 
+filesystem performance for everyone, based upon common complaints in the 
+last 6 months. We do our best to minimize cluster downtime (including 
+quick response after recent power outages<a href="#power">*</a>) and have come to the above 
+decision after considerable conversation with specific users and based 
+upon suggestions from other cluster-providing organizations.</p>
+
+<p>We appreciate your cooperation and feedback. As always, please send 
+any questions or comments to <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  </p>
+
+<a name="power"></a>
+<p>* While we would have preferred to perform this upgrade sooner, the three 
+campus power outages this fall created significant delays, and we wanted 
+to give you time to get some work done, before yet another interruption.</p>
+
+
+<!-- OLD NEWS BELOW THIS LINE
+<hr>
+<h2>Send us publications impacted by CHTC!</h2>
+Monday July 21st, 2014
+<p>
+Greetings CHTC Users,
+<br>
+<br>
+As we work with the <a href="http://aci.wisc.edu/">Advanced Computing Infrastructure (ACI)</a>, we are wondering if you can help us to demonstrate the value of CHTC to campus researchers in ACI's annual report. <b>If you have any publications you're excited about that were made possible by access the CHTC computing, please send us the references to these publications ASAP</b> so that we can include them in ACI's annual report as examples of work impacted. Please also indicate which compute resources (HTC, HPC, or both) were used in each publication, as we are especially excited to announce publications from the HPC Cluster for the first time.
+<br>
+<br>
+Furthermore, please feel free to share such exciting publication news with us in the future as you have new articles published. We are always interested to learn of the research enabled by CHTC services, and thank you for helping us make a case to our funding entities in order to continue improving our work. 
+<br>
+<br>
+As always, we welcome any and all feedback you have. Please don't hesitate to email us about any questions or issues at <a href = "chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>
+<br>
+<br>
+Many Thanks,
+<br>
+Lauren Michael
+<br>
+Research Computing Facilitator, CHTC
+</p>
+<hr>
+<h2>HTCondor Tutorial taping, July 17, 2-4:15pm</h2>
+Tuesday July 15th, 2014
+<p>
+Hi Everyone,
+<br>
+<br>
+Please continue to let us know how you are doing with CHTC compute resources. We're writing to let you know about the following opportunity:
+<br>
+<br>
+We'll be presenting and filming <b>basic introductions to HTCondor and DAGMan this Thursday, July 17</b>. See details below:
+<br>
+<br>
+<b>HTCondor and DAGMan tutorials</b><br>
+Thursday, July 17  
+<br>
+2:00pm - 4:15pm
+<br>
+314 Pyle Center
+<br>
+<br>
+<b>There is limited capacity in the room, so please respond ASAP</b> if you would like to be in the audience. We hope to cover information that you may not yet be aware of and to guage audience understandings of these tutorials, which are meant for all users of HTCondor around the world. We really appreciate feedback from users like you!
+<br>
+<br>
+I hope to see you there,
+<br>
+Lauren Michael
+</p>
+<hr>
+<h2>Upcoming Linux Courses for Researchers! (ACI-discounted DoIT PTE)</h2>
+Wednesday July 9th, 2014
+<p>
+Greetings CHTC Users,
+<br>
+<br>
+We've recently been made aware of the below opportunities for learning how to run and use Linux on your own computer or server, which have been discounted with funds from the Advanced Computing Infrastructure. Please forward this announcement to anyone you know who may be interested.
+<br>
+<br>
+We think these sessions would be really useful to many of you! You may also wish to subscribe to ACI's mailing list <a href = "http://aci.wisc.edu/stay-up-to-date-with-aci-updates/">here</a>.
+<br>
+<br>
+Best Wishes,
+<br>
+The CHTC Team
+<br>
+(care of Lauren Michael, Research Computing Facilitator)
+<br>
+<h3>Forwarded message:</h3>
+<p style = "margin: 1em 2em;">
+Greetings!
+<br>
+<br>
+We hope your summer is going well, and bring you this special announcement:
+<br>
+<br>
+<a href = "http://pte.doit.wisc.edu/search.aspx?type=116">Linux Courses for Researchers!</a>
+<br>
+ACI-subsidized DoIT Professional Training and Education (DoIT PTE)
+<br>
+<br>
+<b>Recommended for:</b> graduate students, post-docs, faculty, and staff who:
+<br>
+-are interested in running Linux on their own computer
+<br>
+-want to run a Linux server for shared use (perhaps, by a research group)
+<br>
+-already run shared-use Linux servers
+<br>
+<br>
+<b>SIGN UP NOW</b> as the first two-day course is quickly approaching. Usual costs are $315 for each course, but ACI has contributed funds to reduce the cost of these useful summer sessions. More info is available at the links below:
+<br>
+<br>
+<a href = "http://aci.wisc.edu/beginner-linux-aci-contributed-doit-pte-course-aug-17-18/">Linux: Beginners (ACI-discounted DoIT PTE), July 17-18, $265</a>
+<br>
+<a href = "http://aci.wisc.edu/linux-intermediate-aci-contributed-doit-pte-course-aug-17-18/">Linux: Intermediate (ACI-discounted DoIT PTE), Aug 7-8, $215</a>
+<br>
+<br>
+<b>Help us spread the word!</b> Please forward this message to anyone you think would be interested.
+</p>
+</p>
+<hr>
+<h2>Open Positions with the CHTC and partners; Office Hours Wednesdays, 10am-12pm, Discovery room 1158</h3>
+Tuesday, June 3rd 2014
+<p>
+Greetings,
+<br>
+<br>
+The CHTC is hiring a <a href = "http://www.ohr.wisc.edu/WebListing/Unclassified/PVLSummary.aspx?pvl_num=78987">Systems Integration Developer</a>,
+and the <a href = "http://aci.wisc.edu/">Advanced Computing Infrastructure</a> is seeking to hire <a href = "http://www.ohr.wisc.edu/WebListing/Unclassified/PVLSummary.aspx?pvl_num=79437">Research Computing Facilitators</a> who will work closely with CHTC staff. If you are interested in these positions, please visit the linked Position Vacancy Listings for more details and application submission information.
+<br>
+<br>
+As a reminder, <b>CHTC campus office hours</b> will be held tomorrow and every Wednesday from 10am-12pm in room 1158 of the Discovery (WID) building.
+<br>
+<br>
+Happy Computing!
+<br>
+The CHTC Team
+<br>
+(care of Lauren Michael, Research Computing Faciliator)
+<hr>
+<h2>CHTC Office Hours: Wednesdays, 10am-12pm!</h2>
+Wednesday, May 28th 2014
+<p>
+Greetings CHTC Users,
+<br>
+<br>
+We're writing to let you know that we're now hosting CHTC Office Hours on Wednesdays from 10am-12pm in Room 1158 of the Discovery (WID) building, starting today! This additional support service is now offered based upon feedback from YOU.
+<br>
+<br>
+<b>CHTC Office Hours</b>
+<br>
+Wednesdays, 10am-12pm
+<br>
+Discovery (WID) building, room 1158*
+<br>
+(*west end of the building, first floor)
+<br>
+<br>
+Spread the word! We hope to see you there.
+<br>
+<br>
+Best Wishes,
+<br>
+Your CHTC Team
+</p>
+<hr>
+<h2>Please Remove Data from CHTC submit-1.chtc.wisc.edu	ASAP!</h2>
+Wednesday, April 23rd 2014
+<p>
+Hi Everyone,
+<br>
+<br>
+The filesystem on <a href = "http://submit-1.chtc.wisc.edu/">submit-1.chtc.wisc.edu</a> is rapidly approaching saturation. (currently at >91%)<br>
+<b>PLEASE IMMEDIATELY DELETE ANY FILES ON SUBMIT-1 THAT YOU NO LONGER NEED.</b>
+<br>
+<br>
+If we do not see the disk usage on submit-1 drop to below 80% within short order,<br>
+<b>WE WILL BEGIN REMOVING FILES ACCORDING TO WHICH HAVE GONE THE LONGEST WITHOUT BEING EDITED.</b>
+<br>
+<br>
+To determine how much disk space you are using:
+<br>
+<pre> quota -vs </pre>
+To determine how much data any folder contains:
+<br>
+<pre> du -sh &lt;folder&gt; </pre>
+We appreciate your efforts to help us maintain a functional submit environment for all users. Please let us know if you have any questions, by responding to <a href = "chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>
+<br>
+<br>
+Best Wishes,
+<br>
+The CHTC Team
+<br>
+(care of Lauren Michael, Research Computing Facilitator)
+</p>
+<hr>
+<h2>Users of submit-1: switch to our newer, FASTER submit node!</h2>
+Wednesday, April 23rd 2014
+<p>
+Hello everyone,
+<br>
+<br>
+For those of you actively working on submit-1, you've probably noticed that performance has recently been slow and that you may have had repeated difficulty in viewing the queue (condor_q).
+<br>
+<br>
+<b>There's good news! We have a newer, faster submit node (submit-3), and you can move to this submit node NOW!</b>
+<br>
+<br>
+Submit-3 has all of the great things about submit-1, including the /squid location for staging large files. But, it also has better overall performance, a better-performing queue, and is more resilient when handling the large job loads of multiple users.
+<br>
+<br>
+<b>Please contact us ASAP (<a href = "chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>) if you would like to switch to submit-3</b>, which will require that you use your NetID for your username and password.
+<br>
+<br>
+The process of switching is basically as follows:
+<br>
+1. You indicate to us that you'd like to switch to submit-3 by sending an email to <a href = "chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with your submit-1 username and you NetID (they may already be the same).
+<br>
+2. We create your account on submit-3, and you move necessary files to that location.
+<br>
+3. We remove your data and account from submit-1 when you've indicated that you no longer need any files on submit-1.
+<br>
+<br>
+After eventually moving everyone to submit-3, we will be rebuilding and upgrading submit-1 to have better performance as well. So you might as well make the move NOW, as you'll have to do so at some point in the future, anyway.
+<br>
+<br>
+We're looking forward to hearing from you! 
+<br>
+<br>
+Best Wishes,
+<br>
+Your CHTC Team
+</p>
+
+<hr>
+<h2>Benefit for self-checkpointing jobs: Use "is_resumable = true"</h2>
+Friday, March 28th 2014
+<p>
+Hello self-checkpointing HTCondor users,
+<br>
+<br>
+Self-checkpointing works when your code is capable of resuming from a previous progress step after detecting something from output that was produced when it last ran (and was potentially interrupted, or "evicted" by HTCondor). It also means that your submit files include "<a href = "http://research.cs.wisc.edu/htcondor/manual/v7.6/2_5Submitting_Job.html#SECTION00354200000000000000">when_to_transfer_output = ON_EXIT_OR_EVICT</a>" to make sure that output from the last run instance is delivered to the job when HTCondor re-matches it, so that the job can resume from a previous step, and not have to start over.
+<br>
+<br>
+<b>In order to provide an even greater benefit to users who have taken these steps</b>, we are offering you a way to indicate that your code can resume after a previous eviction. In return, we will match your jobs, with priority, to a large group of more than 1000 cores in the CHTC's HTCondor pool that are otherwise less useful for long, non-checkpointing jobs due to the potential for eviction.
+<br>
+<br>
+USE THE FOLLOWING SUBMIT FILE LINE IF YOUR JOBS ARE SELF-CHECKPOINTING OR OTHERWISE 'RESUMABLE':<br>
+<pre>is_resumable = true</pre>
+Best Wishes,
+<br>
+The CHTC Team, chtc@cs.wisc.edu
+<br>
+(care of Lauren Michael, Research Computing Facilitator)
+</p>
+END OF OLD NEWS-->
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

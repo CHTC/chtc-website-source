@@ -1,0 +1,81 @@
+<!--#set var="title" value="Checking Disk Quota and Usage"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<style type="text/css"><!--
+li {
+	margin-top: 0.5em;
+}
+.tight li {
+	margin-top: 0;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>
+The following commands will allow you to monitor the amount of disk
+ space you are using on our (or another) submit node and to determine
+ the amount of disk space you have been allotted (your quota).
+<br /><br />
+The default quota allotment on CHTC submit nodes is 20 GB with a hard
+ limit of 30 GB (at which point you cannot write more files).
+<br /><br />
+<b>Note: The CHTC submit nodes are not backed up, so you will want to
+ copy completed jobs to a secure location as soon as a batch completes,
+ and then delete them on the submit node in order to make room for
+ future jobs.</b>
+If you need more disk space to run a single batch or concurrent batches
+of jobs, please send an email to the address at the bottom of the page. 
+We have multiple ways of dealing with large disk space requirements to 
+make things easier for you.
+<br /><br />
+</p>
+
+<h2>1. Checking Your User Quota and Usage</h2>
+<p>From any directory location within your home directory, type 
+<code>quota -vs</code>. See the example below:
+<pre class="term">[alice@submit]$ quota -vs
+Disk quotas for user alice (uid 20384): 
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
+</pre>
+The output will list your total data usage
+under <code>blocks</code>, your soft <code>quota</code>, and your 
+hard <code>limit</code> at which point your jobs will no longer be 
+allowed to save data. Each of the values given are in 1-kilobyte
+blocks, so you can divide each number by 1024 to get megabytes (MB), 
+and again for gigabytes (GB). (It also lists information for <code>
+files</code>, but we don't typically allocate disk space by file count.)
+</p>
+<h2>2. Checking the Size of Directories and Contents</h2>
+<p>
+Move to the directory you'd like to check and type <code>du</code>
+. After several moments (longer if you're directory contents are large), 
+the command will add up the sizes of directory contents and output 
+the total size of each contained directory in units of kilobytes with the
+total size of that directory listed last. See the example below:
+<pre class="term">
+[alice@submit]$ du ./
+4096    ./dir/subdir/file.txt
+4096    ./dir/subdir
+7140    ./dir
+74688   .
+</pre>
+As for quota usage above, you can divide each value by 1024 to get 
+megabytes, and again for gigabytes.
+<br /><br />
+Using <code>du</code> with the <code>-h</code> or <code>
+--human-readable</code> flags will display the same values with only
+two significant digits and a K, M, or G to denote the byte units. The
+<code>-s</code> or <code>--summarize</code> flags will total up the size 
+of the current directory without listing the size of directory contents
+. You can also specify which directory you'd like to query, without 
+moving to it, by adding the relative filepath after the flags. See the 
+below example from the <code>home</code> directory which contains the 
+directory <code>dir</code>:
+<pre class="term">
+[alice@submit]$ du -sh <i>dir</i>
+7.1K    dir
+</pre>
+</p>
+<!--#include virtual="/includes/template-5-finish.shtml" -->

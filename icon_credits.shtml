@@ -1,0 +1,22 @@
+<!--#set var="title" value="Icon Credits"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>All icons are from the <a href="https://thenounproject.com/">Noun Project</a>.</p>
+
+<p>On our <a href="/guides.shtml">user guide page</a>:
+<ul>
+<li>Check Box by iconomania from the Noun Project</li>
+<li>Laptop by joe pictos from the Noun Project</li>
+<li>computer programmer by Θ R I M Λ T from the Noun Project</li>
+<li>development by Jasfart from the Noun Project</li>
+<li>Data by amante de icono from the Noun Project</li>
+<li>processor by Delta from the Noun Project</li>
+<li>Warning by arjuazka from the Noun Project</li>
+<li>servers by b farias from the Noun Project</li>
+</ul>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

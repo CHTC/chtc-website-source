@@ -1,0 +1,117 @@
+<!--#set var="title" value="File Availability with Squid Web Proxy"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<!--#include virtual="/includes/template-file-avail.shtml"-->
+
+<h1>SQUID Web Proxy</h1>
+
+<p>CHTC maintains a SQUID web proxy from which pre-staged input files 
+and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
+<p><h2>Contents</h2>
+<ol>
+  <li><a href="#Appli">Applicability</a></li> 
+    <li><a href="#use">Using SQUID to Deliver Input Files</a>
+	<ul>
+	<li><a href="#request">Request a directory in SQUID</a>
+	<li><a href="#place">Place files within your home directory</a>
+	<li><a href="#have">Have HTCondor download the file to the working job</a>
+		</ul></li> 
+</ol>
+
+
+<a name="Appli"></a>
+<h2>1. Applicability</h2>
+
+<dl>
+<dt>Intended Use:</dt> <dd>The SQUID web proxy is best for cases where many jobs will use 
+the same large file (or few files), including large software. It 
+is not good for cases when each of many jobs needs a <i>different</i> large input file, 
+in which case <a href="/file-avail-gluster">"Gluster"</a> 
+should be used. Remember that you're always better off by pre-splitting a 
+large input file into smaller job-specific files if each job only needs some of 
+the large files's data. If each job needs a large set of many files, you should create a 
+<code>.tar.gz</code> file containing all the files, and this file will still need to be less than 1 GB.</dd>
+<dt>Access to SQUID:</dt> <dd>is granted upon request to chtc@cs.wisc.edu.  A user on CHTC submit
+ servers may will be granted a user directory within <code>/squid</code>, which users should transfer
+ data into via the CHTC transfer server (transfer.chtc.wisc.edu). As for all CHTC
+ file space, users should minimize the amount of data on the SQUID web proxy,
+ and should clean files from the <code>/squid</code> location regularly. CHTC staff reserve
+ the right to remove any file from <code>/squid</code> when needed to preserve availability
+ and performance for all users.</dd>
+<dt>Advantages:</dt> <dd>Files placed on the SQUID web proxy can be downloaded by 
+jobs running anywhere, because the files are world-readable.</dd>
+<dt><b>Limitations and Policies</b>:</dt> <dd><ul> 
+	<li>SQUID cannot be used for job output, as there is 
+		no way to change files in SQUID from within a job. </li>
+	<li>SQUID is also only capable of delivering individual files up to 
+	1 GB in size. </li>
+	<li>A change you make to a file within your <code>/squid</code> directory 
+	may not take effect immediately on the SQUID web proxy if you use the same 
+	filename. Therefore, it is important to use a <b>new filename</b> when 
+	replacing a file in your <code>/squid</code> directory.</li>
+	<li>Jobs should still ALWAYS and ONLY be submitted from within the 
+	user's <code>/home</code> location.</li>	
+	<li>Only the "http" address should be listed in the 
+	"<code>transfer_input_files</code>" line of the submit file. File locations 
+	starting with "<code>/squid</code>" should NEVER be listed in the submit file.</li>
+	<li>Users should only have data in /squid that is being use for currently-queued jobs; 
+	CHTC provides no back ups of any data in CHTC systems, and our staff reserve the right 
+	to remove any data causing issues. It is the responsibility of users to keep copies of 
+	all essential data in preparation for potential data loss or file system corruption.</li> </ul>
+	</dd>
+<dt>Data Security:</dt> <dd>Files placed in SQUID can only be edited by the owner 
+of the user directory within <code>/squid</code>, but will end up being world-readable on the 
+SQUID web proxy in order to be readily downloadable by jobs (with the proper 
+HTTP address); thus, large files that should be "private" should not be placed 
+in your user directory in <code>/squid</code>, and should instead use CHTC's <a 
+href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
+</dl>
+
+<a name="use"></a>
+<h2>2. Using SQUID to Deliver Input Files</h2>
+
+<ol type="A">
+	<a name="request"></a>
+	<li> <b>Request a directory in SQUID</b>. Write to chtc@cs.wisc.edu describing 
+	the data you'd like to place in SQUID, and indicating your username and 
+	submit server hostname (i.e. submit-5.chtc.wisc.edu).</li>
+
+	<a name="place"></a>
+	<li> <b>Place files within your <code>/squid/username</code> directory</b> via a CHTC transfer server (if 
+	from your laptop/desktop) or on the submit server.
+</br></br>
+	From your laptop/desktop:
+	<pre class="term">[username@computer]$ scp <i>large_file.tar.gz</i> <i>username</i>@transfer.chtc.wisc.edu:/squid/<i>username</i>/</pre>
+	 
+	If the file already exists within your /home directory on a submit server:	
+	<pre class="term">[username@submit]$ cp <i>large_file.tar.gz</i> /squid/<i>username</i>/</pre>
+
+	Check the file from the submit server:
+
+	<pre class="term">[username@submit]$ ls /squid/<i>username</i>/</pre>
+	</li>
+
+
+	<a name="have"></a>
+	<li><b>Have HTCondor download the file to the working job</b> using 
+	the <code>http://proxy.chtc.wisc.edu/SQUID</code> address in the
+	transfer_input_files line of your submit file: <br>
+
+	<pre class="sub">transfer_input_files = <i>other_file1</i>,<i>other_file2</i>,http://proxy.chtc.wisc.edu/SQUID/<i>username</i>/lg_file.txt</pre>
+	<b>Important:</b>Make sure to replace "username" with your username in the above address.
+	 All other files should be staged
+	before job submission.<br>
+	<br>
+	If your large file is a <code>.tar.gz</code> file that untars to 
+	include other <i>files</i>, remember to remove such files before the end 
+	of the job; otherwise, HTCondor will think that such files are new
+	output that needs to be transferred back to the submit server. 
+	(HTCondor will not automatically transfer back <i>directories</i>.)
+	</li>
+
+</ol>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

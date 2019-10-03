@@ -1,0 +1,117 @@
+<!--#set var="title" value="File Availability Options"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<!--#include virtual="/includes/template-file-avail.shtml"-->
+<h1>HTCondor File Transfer</h1>
+
+<p>HTCondor file transfer is the standard solution for file portability, and is 
+built in to HTCondor job scheduling. You can see HTCondor file transfer as introduced 
+in our "Intro to Running HTCondor Jobs" and in the 
+<a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
+
+<p><h2>Contents</h2>
+<ol>
+  <li><a href="#Appli">Applicability</a></li> 
+    <li><a href="#input">Transferring Input Files</a>
+	<li><a href="#output">Transferring Output Files</a>
+</ol>
+
+
+<a name="Appli"></a>
+<h2>1. Applicability</h2>
+
+<dl>
+<dt>Intended use:</dt> <dd>Good for delivering any type of data to jobs, but with file-size 
+limitations (see below). Remember that you can/should split up a large input file 
+into many smaller files for cases where each job only needs a portion of the data. 
+By default, the submit file "executable", "output", "error", and "log" files are ALWAYS 
+transferred.</dd>
+<dt>Advantages:</dt> <dd>HTCondor's file transfer is robust and is available on 
+ANY of CHTC's accessible HTC resources (including the UW Grid of campus pools, and the 
+Open Science Grid).</dd>
+<dt>Input File Limitations:</dt> <dd>HTCondor's file transfer can cause issues 
+for submit server performance when too many jobs are transferring too much data 
+at the same time. Therefore, HTCondor file transfer is only good for input files 
+up to ~20 MB per file IF the number of concurrently-queued jobs will be 100 or greater. 
+Even when individual files are small, there are issues when the total amount of input 
+data per-job approaches 500 MB. For cases beyond these limitations, one of our 
+other CHTC file delivery methods should be used. Remember that creating a *.tar.gz 
+file of directories and files can give your input and output data a useful amount 
+of compression.</dd>
+<dt>Output File Limitations:</dt> <dd>Because jobs are less likely to be completing at 
+the same time, total job output size of up to 1 GB will not cause submit server 
+performance issues, but it's always advantageous to create a *.tar.gz file of all 
+desired output before job completion (and to also delete the un-tar'd files so 
+they are not also transferred back).</dd>
+<dt>Data Security:</dt> <dd>Files transferred with HTCondor transfer are owned by the 
+job and protected by user permissions in the CHTC pool. When signaling your jobs to 
+run on the UW Grid (Flocking) or the Open Science Grid (Glidein), your files will 
+exist on someone else's computer only for the duration of each job. Please feel free 
+to email us if you have data security concerns regarding HTCondor file transfer, as 
+encryption options are available.</dd>
+
+	
+<a name="input"></a>
+<h2>2. Transferring Input Files</h2>
+
+<p>Simply add the "transfer_input_files" line to your submit file, like so:</p>
+<pre class="sub">transfer_input_files = file1,../file2,/home/username/file3,dir1,dir2/</pre>
+
+<p>Note: By default, the submit file "executable", "output", and "error" files are 
+ALWAYS transferred.</p>
+
+<h3>Notes:</h3>
+<ul>
+	<li>DO NOT use "transfer_input_files" for files within /squid or /mnt/gluster, 
+	as doing so will create severe performance issues for your jobs and those of 
+	other users. (Similarly, you should never submit jobs from within /squid 
+	or /mnt/gluster.)</li>
+	<li>Comma-separated files and directories to-be-transferred should be listed 
+	with a path relative to the submit directory, or can be listed with the 
+	absolute path(s), as shown above for "file3". The submit file "executable" 
+	is automatically transferred and does not need to be listed in 
+	"transfer_input_files".</li>
+	<li>All files that are transferred to a job will appear within the top of 
+	the working directory of the job, regardless of how they are arranged within 
+	directories on the submit server.</li>
+	<li>A whole directory and it's contents will be transferred when listed without 
+	the "/" after the directory name. When a directory is listed with the "/" 
+	after the directory name, only the directory contents will be transferred.</li>
+	<li>Jobs will be placed on hold by HTCondor if any of the files or directories 
+	do not exist (or if you have a typo).</li>
+	<li>See more about <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">
+	file transfer in the HTCondor Manual.</a></li>
+</ul>
+
+<a name="output"></a>
+<h2>3. Transferring Output Files</h2>
+
+<p><b>HTCondor will automatically transfer back ALL new or modified files to the 
+submit directory.</b> This automatically includes the "output" and "error" files 
+indicated in the submit file.</p>
+
+<h3>Notes:</h3>
+<ul>
+	<li>Output files transferred back to the submit server will appear in the initial 
+	submit directory of the job.</li>
+	<li>HTCondor does not automatically transfer back new directories. Therefore, 
+	it is a best practice to have your job(s) create a *.tar.gz file for desired 
+	output directories, so that the *.tar.gz file gets transferred AND so that it 
+	is compressed. </li>
+	<li>It is important to have your job remove all unwanted "new" files before 
+	job completion, so that these are NOT transferred back as perceived output. 
+	This includes files that have arrived in the job working directory via an 
+	alternate file delivery method.</li>
+	<li>It is possible to list only your desired output files by using 
+	"transfer_output_files" in the submit file; however, if you have a typo in a 
+	filename or if any of the files are not created during the job, the job 
+	will be placed on hold and ALL output lost (which can be a pain). Therefore, 
+	"transfer_output_files" should be used with caution, or for jobs that always 
+	first create these output files (perhaps empty), even if the job later exits 
+	early with an error.</li>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

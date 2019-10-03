@@ -1,0 +1,81 @@
+<!--#set var="title" value="Available Positions"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<p>
+If advancing the state of the art of distributed computing in an academic environment interests you, 
+the Center for High Throughput Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a 
+unique working environment. Our project&rsquo;s home is in the UW Department of Computer Sciences, an 
+internationally recognized department consistently ranked in the top ten across the USA. A position with 
+CHTC will provide you the opportunity to interact with both department faculty and students to translate 
+novel ideas into real-world solutions. The software and infrastructure you will be working on is used by
+scientists and engineers at hundreds of institutions, from universities to national laboratories and from
+large high tech corporations to small animation teams.
+<p>
+The CHTC is home to a large distributed campus infrastructure that helps scientists on and off campus advance
+their research. We also develop the <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Software</a> for
+managing large-scale distributed computing, which we refer to as high-throughput distributed computing.
+HTCondor powers the CHTC and is used by scientists and businesses around the world. We are involved
+in many collaborations, including (but not limited to) <a href="http://www.opensciencegrid.org/">The Open Science Grid</a>.
+<p>
+<h2>Benefits</h2>
+<P>
+The University of Wisconsin-Madison is a great place to work. You can
+<a href="http://www.bussvc.wisc.edu/ecbs/benefits/newemp-introduction-reg.html">read about the benefits in detail elsewhere</a>.
+(Note that CHTC Staff are considered as <i>Unclassified</i> academic staff, and have different benefits from
+<i>Classified</i> staff.) In short, we have five weeks of vacation/personal time per year, very good health
+insurance (and cost effective for entire families), and a good retirement plan. Please note that the minimum
+salary in our job listings are just that - the minimum. Compensation will increase with experience.
+<P>
+In addition to the official benefits, there are many side benefits:
+<ol>
+<li>You will work with the CHTC team. We are world leaders in solving interesting distributed computing problems!
+<li>You can attend interesting talks in the department
+<li>Relatively flexible working hours &mdash; we value work-life balance.
+<li>A free bus pass!
+<li>You get staff access to
+<a href="http://www.union.wisc.edu/">the Union</a>,
+<a href="http://www.recsports.wisc.edu/">the UW athletic facilities</a>, and
+<a href="http://www.library.wisc.edu/">the UW library system</a>.
+<li>We're in a lively neighborhood with great restaurants in easy walking distance.
+</ol>
+<hr>
+If you are interested in a position with CHTC, explore the job listings below! If you would like to apply,
+send your resume and cover letter to <a href="htcondor-jobs@cs.wisc.edu">htcondor-jobs@cs.wisc.edu</a>,
+and indicate which job you would like to apply for.
+<P>
+<strong>Please note:</strong>
+<ul>
+<li>A criminal background check will be conducted prior to hiring.
+<li>A period of evaluation will be required.
+<li>UW-Madison is an equal opportunity/affirmative action employer. We promote excellence through diversity and
+encourage all qualified individuals to apply.
+</ul>
+<P>
+<h2>Full Time Positions</h2>
+<P>
+Details about our open full-time positions are typically provided below.
+ Positions pertaining to "HTCondor" and "CHTC" search terms can also be
+ found on the <a href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&search-keyword=chtc">University's Position Vacancy List (PVL)</a>.
+<P>
+<h2>Student Hourly Positions (Undergrad and Grad)</h2>
+<P>
+We're always looking for smart motivated students to partner with software developer and system administrator mentors.
+We expect students to work between 10 and 20 hours a week, with 10 of those being during business hours, with some
+flexibility on remaining hours. During the summer and breaks, it is possible to work up to 40 hours per week. We typically
+pay between $10 and $15 per hour, depending on experience.
+<P>
+<h2>Graduate Student Research and Project Assistantship (RA, PA) Openings</h2>
+<P>
+Interested graduate students should contact Professor Livny directly to inquire about working with the project.
+<P>
+
+In addition to positions within the CHTC, other departments and centers on the UW campus regularly hire people to
+work with HTCondor. Searching for "HTCondor" in the link above, may turn up 
+full-time CHTC-related jobs in other departments
+
+<P>
+<!-- #include virtual="/includes/Jobstext.htm" -->
+<hr>
+<!--#include virtual="/includes/template-5-finish.shtml" -->

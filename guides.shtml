@@ -1,0 +1,178 @@
+<!--#set var="title" value="Computing Guides"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the resources at the CHTC. 
+Some of these are general computing solutions; others are specific to HTCondor
+or to the configuration of CHTC computing resources.
+<br />
+Guides will be added to the list as we can provide them. Please contact us
+(email at bottom of page) if you find any of the information to be incorrect.
+</p>
+
+<table width="100%"><tr>
+	<td width="25%"><a href="#gen">General Computing</a></td>
+	<td width="25%"><a href="#htc">HTC System</a></td>
+	<td width="25%"><a href="#hpc">HPC Cluster</a></td>
+	<td width="25%"><a href="#ext">External Resources</a></td>
+</tr></table>
+</br>
+<hr>
+<a name="gen"></a>
+<h1>General Computing</h1>
+<ul>
+    <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
+High Performance Computing</a></li>
+</ul>
+
+<hr>
+<a name="htc"></a>
+<h1>Use the HTC System</h1>
+
+<!-- <h2>HTC Roadmap</h2>
+
+<p>If you are new to high throughput computing, our <a href="/roadmap.shtml">HTC roadmap</a> walks you 
+through the process of creating your own large-scale job submission, step-by-step.</p> -->
+
+<h2>Guides by Topic</h2>
+
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Basics and Policies</h2>
+
+		<img src = "guide-icons/checkmark.png">
+
+		<ul>
+  	   	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
+  	   	<li><a href="/connecting.shtml">Connecting to CHTC</a></li>
+		<li><a href="/check-quota.shtml">Checking Disk Quota and Usage</a></li>
+		<li><a href="/get-help.shtml">Get Help</a></li>
+		<!--<li><a href="/reading-guides.shtml">How to Read Our User Guides</a></li>-->
+		</ul>
+	</blockquote>
+</div>
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Job Submission</h2>
+
+		<img src = "guide-icons/laptop_arrow.png">
+
+  		<ul>
+		<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
+		<li><a href="/condor_q.shtml">Learning About Your Jobs Using <code>condor_q</code></a></li>
+        <li><a href="/multiple-jobs.shtml">Submitting Multiple Jobs</a></li>
+        <li><a href="/multiple-job-dirs.shtml">Submitting Multiple Jobs in Different Directories</a></li>
+        <li><a href="/os-transition.shtml">Opting Into a Specific Operating System</a></li>
+        </ul>
+	</blockquote>
+</div>
+
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Software Solutions</h2>
+
+		<img src = "guide-icons/gear.png">
+
+ 	<ul>
+  	   <li><a href="/inter-submit.shtml">Compiling Software in an Interactive Job</a></li>
+  	   <li><a href="/matlab-jobs.shtml">Running Matlab Jobs</a></li>
+        <li><a href="/python-jobs.shtml">Running Python Jobs</a></li>
+	  <li><a href="/r-jobs.shtml">Running R Jobs</a></li>
+	<li><a href="/java-jobs.shtml">Running Java jobs</a></li>
+	   <li><a href="/docker-jobs.shtml">Using Software Installed in a Docker Container</a></li>
+		<!--<li><a href="/docker-build.shtml">Installing Software into a Docker Container</a></li>-->
+<!--		<li><a href="/tensorflow-singularity.shtml">Running Tensorflow Jobs</a></li> -->
+		<li><a href="/licensed-software.shtml">Licensed Software on the HTC system</a></li>
+		<li><a href="/mpi-jobs.shtml">Submitting Jobs that use MPI</a></li>
+
+  	 </ul>
+	</blockquote>
+</div>
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Handling Data in Jobs</h2>
+
+		<img src = "guide-icons/data.png">
+
+  	<ul>
+        <li><a href="/file-availability.shtml">HTCondor File Transfer</a></li>
+        <li><a href="/file-avail-squid.shtml">File Availability with Squid Web Proxy</a></li>
+        <li><a href="/file-avail-gluster.shtml">File Availability with Gluster</a></li>
+    </ul>
+	</blockquote>
+</div>
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Special Use Cases</h2>
+
+		<img src = "guide-icons/processor.png">
+
+  		<ul>
+  		<li><a href="/scaling-htc.shtml">Scaling Beyond Local HTC Capacity</a></li> 
+  	<li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
+    	<li><a href="/gpu-jobs.shtml">Submitting Jobs that use GPUs</a></li>
+    	<li><a href="/mpi-jobs.shtml">Submitting Jobs that use MPI</a></li>
+	</ul>
+	</blockquote>
+</div>
+
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>Troubleshooting</h2>
+
+		<img src = "guide-icons/trouble.png">
+
+  		<ul>
+<!--        <li><a href="/testing.shtml">Testing Jobs</a></li>
+		<li><a href="/troubleshooting.shtml">Troubleshooting</a></li>-->
+<!--        <li><a href="/chtcrun_troubleshooting.shtml">Troubleshooting in ChtcRun</a></li>-->
+        <li><a href="/dos-unix.shtml">Windows/Linux Incompatibility</a></li>
+        </ul>
+	</blockquote>
+</div>
+
+<hr>
+<a name="hpc"></a>
+<h1>Use the HPC Cluster</h1>
+
+<!--<h2>HPC Roadmap</h2>
+
+<p>Our <a href="/roadmap.shtml">HPC Cluster roadmap</a> walks you 
+through the process of using the cluster, step-by-step.</p> -->
+
+<h2>Guides by Topic</h2>
+
+<div id = "tile-wrapper">
+	<blockquote class = "tile2">
+		<h2>All Cluster Guides</h2>
+
+		<img src = "guide-icons/servers.png">
+	<ul>
+  	   	<li><a href="/connecting.shtml">Connecting to CHTC</a></li>
+      <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
+      <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
+      </ul>
+	</blockquote>
+</div>
+
+<hr>
+<a name="ext"></a>
+<h1>External Resources</h1>
+<ul>
+    <li><a href="http://software-carpentry.org/lessons/">
+	Software Carpentry</a> (online courses and videos; readings)</li>
+    <li><a href="http://research.cs.wisc.edu/htcondor/manual/">HTCondor Manual</a></li>
+    <li><a href="http://slurm.schedmd.com/">Slurm Manual</a></li>
+    <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
+	Training for Students</a> (free on-campus courses) </li>
+	</ul>
+<br />
+
+<hr>
+<a href="/icon_credits.shtml">Icon Credits</a>
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

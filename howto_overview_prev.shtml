@@ -1,0 +1,43 @@
+<!--#set var="title" value="CHTC Tools for Matlab, R, and Python Portability"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<style type="text/css"><!--
+li {
+	margin-top: 0.5em;
+}
+.tight li {
+	margin-top: 0;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<p>The following pages are user guides for our previous set of software 
+portability tools, in the ChtcRun directory package.  If you are running 
+Matlab, Python or R jobs, we highly recommend using our new portability 
+instructions on <a href="/howto_overview.shtml">this page</a>.  These guides 
+remain posted for any users who may still be using these particular tools. </p>
+
+<h2>CHTC Tools for Software Portability</h2>
+
+<p>There is a two-step process for setting up your jobs to run with our portability tools:</p>
+</br>
+1. Use our scripts to package up your specific libraries
+ so that they'll be transported with your jobs.</p>
+<ul>
+<li><a href="MATLABandR.shtml">Building dependencies</a>.
+</ul>
+
+<p>
+2. After completing step #1, you'll set up the compiled dependency file(s) and
+ other job inputs within our ChtcRun job submission tool, before submitting
+ the batch of jobs to run. For each job, the version of software
+ specified AND your dependencies will be set up before your code is run.
+</p>
+<ul>
+<li><a href="DAGenv.shtml">Submitting Jobs Using our ChtcRun DAG Tool</a>.
+</ul>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

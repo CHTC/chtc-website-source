@@ -1,0 +1,291 @@
+<!--#set var="title" value="Learning About Your Jobs Using condor_q"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+The <code>condor_q</code> command can be used for much more than 
+just checking on whether your jobs are running or not!  Read on 
+to learn how you can use <code>condor_q</code> to answer many 
+common questions about running jobs.  
+
+<ol>
+<li><a href="#default">Default <code>condor_q</code> output, in "batches"</a></li>
+<li><a href="#nobatch">View all of your jobs (old condor_q output).</a></li>
+<li><a href="#all">View jobs from all users.</a></li>
+<li><a href="#hold">Determine why jobs are on hold.</a></li>
+<li><a href="#bet">Determine why a job is not running</a></li>
+<li><a href="#run">Find out where jobs are running.</a></li>
+<li><a href="#dag">View jobs by DAG.</a></li>
+<li><a href="#long">View all details about a job.</a> </li>
+<li><a href="#af">View specific details about a job using auto-format.</a> </li>
+<li><a href="#constraint">View only specific types of jobs using a constraint</a></li>
+</ol>
+
+<h1>Summary</h1>
+
+<ul><li><code>condor_q</code>: Show my jobs that have been submitted on this server.<br>
+Useful options:
+  <ul>
+    <li><code>-nobatch</code>: Starting in version HTCondor 8.6.0 installed in 
+    July 2016, data is displayed in a compact mode (one line per cluster). With 
+    this option output will be displayed in the old format (one line per process)</li>
+	<li><code>-all</code>: Show all the jobs submitted on the submit server. </li> 
+    <li><code>-hold</code>: Show only jobs in the "on hold" state and the reason for 
+    that. Held jobs are those that got an error so they could not finish. An action 
+    from the user is expected to solve the problem.</li>
+    <li><code>-better-analyze JobId</code>: -better-analyze <job_id>: Analyse a 
+    specific job and show the reason why it is in its current state. </li>
+    <li><code>-run</code>: Show your running jobs and related info, like how much time 
+    they have been running, in which machine, etc.</li>
+    <li><code>-dag</code>: Organize condor_q output by DAG.
+    <li><code>-long JobId</code>: Show all information related to that job.</li>
+    <li><code>-af Attr1 Attr2 ...</code>: List specific attributes of jobs, using autoformat.</li>
+  </ul>
+</li>
+</ul>
+
+<h1>Examples and Further Explanation</h1>
+
+<a name="default"></a>
+<h2>1. Default condor_q output</h2>
+
+<p>As of July 19, 2016, the default <code>condor_q</code> output will show  
+a single user's jobs, grouped in "batches", as shown below: </p>
+
+<pre class="term">[alice@submit]$ condor_q
+OWNER   BATCH_NAME        SUBMITTED   DONE   RUN    IDLE   HOLD  TOTAL JOB_IDS
+alice   CMD: sb          6/22 13:05      _     32      _      _      _ 14297940.23-99
+alice   DAG: 14306351    6/22 13:47     27    113     65      _    205 14306411.0 ...
+alice   CMD: job.sh      6/22 13:56      _      _     12      _      _ 14308195.6-58
+alice   DAG: 14361197    6/22 16:04    995      1      _      _   1000 14367836.0
+</pre>
+
+<p>HTCondor will automatically group jobs into "batches" for this display.  
+However, it's also possible for you 
+to specify groups of jobs as a "batch" yourself.  You can either:</p>
+<ul>
+<li>Add the following line to your submit file: 
+<pre class="sub"> batch_name = "<i>CoolJobs</i>" </pre>
+</li>
+<li>Use the <code>-batch-name</code> option with condor_submit: 
+<pre class="term">[alice@submit]$ condor_submit <i>submit_file.sub</i> -batch-name <i>CoolJobs</i></pre>
+</li>
+</ul>
+<p>Either option will create a batch of jobs with the label "CoolJobs".</p>
+
+<a name="nobatch"></a>
+<h2>2. View all jobs.</h2>
+
+<p>To display more detailed condor_q output (where each job is 
+listed on a separate line), you can use the batch name or any 
+existing grouping constraint (<code>ClusterId</code> or other "-constraint" 
+options - see <a href="#constraint">below</a> for more 
+on constraints) and the <code>-nobatch</code> flag. </p>
+
+<p>Looking at a batch of jobs with the same 
+<code>ClusterId</code> would look like this:</p>
+
+<pre class="term">[alice@submit]$ condor_q -nobatch <i>195</i>
+
+ ID     OWNER    SUBMITTED     RUN_TIME ST PRI SIZE CMD
+195.10  alice    6/22 13:00   0+00:00:00 H  0    0.0 job.sh
+195.14  alice    6/22 13:00   0+00:01:44 R  0    0.0 job.sh
+195.16  alice    6/22 13:00   0+00:00:26 R  0    0.0 job.sh
+195.39  alice    6/22 13:00   0+00:00:05 R  0    0.0 job.sh
+195.40  alice    6/22 13:00   0+00:00:00 I  0    0.0 job.sh
+195.41  alice    6/22 13:00   0+00:00:00 I  0    0.0 job.sh
+195.53  alice    6/22 13:00   0+00:00:00 I  0    0.0 job.sh
+195.57  alice    6/22 13:00   0+00:00:00 I  0    0.0 job.sh
+195.58  alice    6/22 13:00   0+00:00:00 I  0    0.0 job.sh
+
+9 jobs; 0 completed, 0 removed, 5 idle, 3 running, 1 held, 0 suspended
+</pre>
+
+<!--<p>Other 'nobatch' options, for a DAG or batch name would look like this:</p>
+
+<pre class="term">[alice@submit]$ condor_q -nobatch -dag 123457 </pre>
+
+<pre class="term">[alice@submit]$ condor_q -nobatch -constraint 'JobBatchName == "mybatchname"'</pre>-->
+
+<p>This was the default view for <code>condor_q</code> from January 2016 
+until July 2016.</p>
+
+<a name="all"></a>
+<h2>3. View jobs from all users.</h2>
+
+<p>By default, <code>condor_q</code> will just show you information about 
+<b>your</b> jobs.  To get information about all jobs in the queue, type: 
+
+<pre class="term">[alice@submit]$ condor_q -all</pre> </p>
+
+<p>This will show a list of all job batches in the queue. 
+To see a list of all jobs (individually, not in batches) 
+for all users, combine the <code>-all</code> and 
+<code>-nobatch</code> options with <code>condor_q</code>.  This was the 
+default view for <code>condor_q</code> before January 2016.</p>
+
+<a name="hold"></a>
+<h2>4. Determine why jobs are on hold.</h2>
+
+<p>If your jobs have gone on hold, you can see the hold reason by 
+running: </p>
+
+<pre class="term">[alice@submit]$ condor_q -hold</pre>
+<p> or</p>
+<pre class="term">[alice@submit]$ condor_q -hold <i>JobId</i> </pre>
+
+
+<p>The first will show you the hold reasons for <b>all</b> of your jobs that 
+are on hold; the second will show you the hold reason for a specific 
+job.  The hold reason is sometimes cut-off; try the following to see 
+the entire hold reason: </p>
+
+<pre class="term">[alice@submit]$ condor_q -hold -af HoldReason</pre>
+
+<p>If you aren't sure what your hold reason means, see our 
+<a href="/troubleshooting#hold">troubleshooting guide</a> 
+or email chtc@cs.wisc.edu. </p>
+
+<a name="bet"></a>
+<h2>5. Find out why jobs are idle</h2>
+
+<p><code>condor_q</code> has an option to describe why a job hasn't 
+matched and started running.  Find the JobId of a job that hasn't 
+started running yet and use the following command:</p>
+
+<pre class="term">$ condor_q -better-analyze <i>JobId</i></pre>
+
+<p>After a minute or so, this command should print out some information 
+about why your job isn't matching and starting.  This information is 
+not always easy to understand, so please email us with the output of 
+this command if you have questions about what it means.</p>
+
+<a name="run"></a>
+<h2> 6. Find out where jobs are running.</h2>
+
+<p>To see which computers your jobs are running on, use: </p>
+<pre class="term">[alice@submit]$ condor_q -nobatch -run
+428.0   alice        6/22  17:27   0+00:07:17 slot1_12@e313.chtc.wisc.edu
+428.1   alice        6/22  17:27   0+00:07:11 slot1_8@e376.chtc.wisc.edu
+428.2   alice        6/22  17:27   0+00:07:16 slot1_15@e451.chtc.wisc.edu
+428.3   alice        6/22  17:27   0+00:07:16 slot1_17@e277.chtc.wisc.edu
+428.5   alice        6/22  17:27   0+00:07:16 slot1_9@e351.chtc.wisc.edu
+428.7   alice        6/22  17:27   0+00:07:16 slot1_1@e373.chtc.wisc.edu
+428.8   alice        6/22  17:27   0+00:07:16 slot1_5@e264.chtc.wisc.edu
+</pre>
+
+<a name="dag"></a>
+<h2>7. View jobs by DAG.</h2>
+
+<p>If you have submitted multiple DAGs to the queue, it can be hard to 
+tell which jobs belong to which DAG.  The <code>-dag</code> option to 
+<code>condor_q</code> will sort your queue output by DAG: </p>
+
+<pre class="term">[alice@submit]$ condor_q -nobatch -dag
+ ID      OWNER/NODENAME   SUBMITTED     RUN_TIME ST PRI SIZE CMD               
+460.0   alice        11/18 16:51   0+00:00:17 R  0   0.3  condor_dagman -p 0
+462.0    |-0           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+463.0    |-1           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+464.0    |-2           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+461.0   alice        11/18 16:51   0+00:00:09 R  0   0.3  condor_dagman -p 0
+465.0    |-0           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+466.0    |-1           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+467.0    |-2           11/18 16:51   0+00:00:00 I  0   0.0  print.sh
+
+8 jobs; 0 completed, 0 removed, 6 idle, 2 running, 0 held, 0 suspended
+</pre>
+
+<a name="long"></a>
+<h2>8. View all details about a job.</h2>
+
+<p>Each job you submit has a series of attributes that are tracked 
+by HTCondor.  You can see the full set of attributes for a single 
+job by using the "long" option for <code>condor_q</code> like so:</p>
+
+<pre class="term">[alice@submit]$ condor_q -l <i>JobId</i> 
+...
+Iwd = "/home/alice/analysis/39909"
+JobPrio = 0
+RequestCpus = 1
+JobStatus = 1
+ClusterId = 19997268
+JobUniverse = 5
+RequestDisk = 10485760
+RequestMemory = 4096
+DAGManJobId = 19448402
+...
+</pre>
+
+<p>Attributes that are often useful for checking on jobs are: </p>
+
+<ul>
+  <li><code>Iwd</code>: the job's submission directory on the submit node</li>
+  <li><code>UserLog</code>: the log file for a job</li>
+  <li><code>RequestMemory, RequestDisk</code>: how much memory and disk you've requested per job</li>
+  <li><code>MemoryUsage</code>: how much memory the job has used so far</li>
+  <li><code>JobStatus</code>: numerical code indicating whether a job is idle, running, or held</li>
+  <li><code>HoldReason</code>: why a job is on hold</li>
+  <li><code>DAGManJobId</code>: for jobs managed by a DAG, this is the JobId of the parent DAG</li>
+
+</ul>
+
+<a name="af"></a>
+<h2>9. View specific details about a job using auto-format</h2>
+
+<p>If you would like to see specific attributes (see above) for a job or group of 
+jobs, you can use 
+the "auto-format" (<code>-af</code>) option 
+to <code>condor_q</code> which will print out 
+only the attributes you name for a single job or group of jobs.  </p>
+
+<p>For example, if I would like to see the amount of memory and disk I've 
+requested for all of my jobs, and how much memory is currently behing used, 
+I can run: </p>
+
+<pre class="term">[alice@submit]$ condor_q -af RequestMemory RequestDisk MemoryUsage
+1 325 undefined
+1 325 undefined
+2000 1000 245
+2000 1000 220
+2000 1000 245
+</pre>
+
+<a name="constraint"></a>
+<h2>10. Constraining the output of condor_q.</h2>
+
+<p>If you would like to find jobs that meet certain conditions, you can use 
+<code>condor_q</code>'s "constraint" option.  For example, suppose you want 
+to find all of the jobs associated with the DAGMan Job ID "234567".  You 
+can search using: </p>
+
+<pre class="term">[alice@submit]$ condor_q -constraint "DAGManJobId == <i>234567</i>" </pre>
+
+To use a name (for example, a batch name) as a constraint, you'll 
+need to use multiple sets of quotation marks:
+
+<pre class="term">[alice@submit]$ condor_q -constraint 'JobBatchName == "<i>MyJobs</i>"'</pre>
+
+<p>One common use of constraints is to find all
+jobs that are running, held, or idle.  To do this, use 
+a constraint with the <code>JobStatus</code> attribute and the appropriate 
+status number - the status codes can be found in 
+<a href="http://research.cs.wisc.edu/htcondor/manual/current/12_Appendix_A.html">Appendix 
+A</a> of the HTCondor Manual. </p>
+
+<p>Remember <a href="#hold"><code>condor_q -hold</code></a> from before?  
+In the background, the <code>-hold</code> option is constraining the list of jobs 
+to jobs that are on hold (using the <code>JobStatus</code> attribute) and then 
+printing out the <code>HoldReason</code> attribute. Try running: 
+<pre class="term">[alice@submit]$ condor_q -constraint "JobStatus == 5" -af ClusterId ProcId HoldReason</pre>
+
+You should see something very similar to running <code>condor_q -hold</code>!</p>
+
+<hr>
+<p>This page takes some of its content and formatting 
+from <a href="http://vivaldi.ll.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorUsefulCommands">this 
+HTCondor reference page</a>.</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

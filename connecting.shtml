@@ -1,0 +1,248 @@
+<!--#set var="title" value="Connecting to CHTC"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+This guide assumes that you have already gotten a CHTC account for either 
+our high throughput or high performance compute systems.  If you haven't, 
+see our <a href="/get-started.shtml">getting started</a> page.  
+
+<h1>Contents</h1>
+
+<ol>
+  <li><a href="">Accessing the Submit Servers</a></li>
+  <li><a href="#login">Logging In</a>
+    <ul>
+    <li><a href="#login-ssh">On the command line (Mac/Linux)</a></li>  
+    <li><a href="#login-putty">Using an SSH program (Windows/Mac)</a></li>
+    <li><a href="#ssh-keys">Logging in Automatically</a></li>
+    </ul></li>
+  <li><a href="#transfer">Transferring Files</a>
+    <ul>
+    <li><a href="#transfer-scp">On the command line (Mac/Linux)</a></li>
+    <li><a href="#transfer-winscp">Using a file transfer program (Windows/Mac)</a></li>
+    <li><a href="#transfer-winscp">Transferring Multiple Files</a></li>
+    </ul></li>
+  <li><a href="#files">Creating and Editing Files</a></li>
+  <li><a href="#learn">Learning about the command line</a></li>
+</ol>
+
+<a name="access"></a>
+<h1>1. Accessing the Submit Servers</h1>
+
+<p>You will need the following information to log into our CHTC submit 
+servers or head nodes: </p>
+
+<b>Username and Password</b></br>
+    <ul>
+    	<li>UW Madison users: Wisconsin NetId and password</li>
+    	<li>Off-campus users: varies, by request</li>
+    </ul>
+
+<b>Hostname</b></br>
+
+<table class="gtable">
+ <tr>
+   <th>HTC System</th>
+ </tr>
+ <tr>
+   <td><code>submit-1.chtc.wisc.edu</code> - typically for accounts created between Aug 2018 - June 2019</td>
+ </tr>
+ <tr>
+   <td><code>submit2.chtc.wisc.edu</code> - typically for accounts created prior to Aug 2018 or after June 2019</td>
+ </tr>
+</table>
+
+<table class="gtable">
+ <tr>
+   <th>HPC Cluster</th>
+ </tr>
+ <tr>
+   <td><code>aci-service-1.chtc.wisc.edu</code> and/or <code>aci-service-2.chtc.wisc.edu</code></td>
+ </tr>
+</table>
+
+<blockquote>
+<b>Are you off-campus?</b> </br>
+All of our CHTC submit servers and head nodes are firewalled 
+to block log-ins from off-campus.  If you are off-campus and want to log in, 
+you can either:
+<ul>
+<li>Activate the campus VPN (more details on how to set this up
+<a href="https://it.wisc.edu/services/wiscvpn/">here</a>).</li>
+<li>Log into another computer that is on campus.</li>
+</ul>
+In either case, it will appear like you are on-campus, and you should then be able 
+to log into CHTC as usual.  
+</blockquote>
+
+<a name="login"></a>
+<h1>2. Logging In</h2>
+
+<p>Using the information described above, you can log in to servers 
+two different ways -- from the command line or using an SSH program: </p>
+
+<a name="login-ssh"></a>
+<h2>A. On the command line (Mac/Linux)</h2>
+
+<p>On a Mac or Linux system, you can use the "Terminal" application to 
+log in.  Open a terminal window and use the following command to 
+connect to the appropriate server:</p>
+<pre class="term">$ ssh <i>username</i>@<i>hostname</i></pre>
+<p>You will be prompted for your password.</p>
+
+<a name="login-putty"></a>
+<h2>B. Using an SSH program (Windows)</h2>
+
+<p>There are multiple programs to connect to remote servers for Windows.  
+We recommend "PuTTy", which can be downloaded <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.  To 
+log in, click on the PuTTy executable (<code>putty.exe</code>).  You should 
+see a screen like this: </p>
+
+<img src="/images/putty-7.jpeg">
+
+<p>Fill in the hostname as described in part 1.  You should use Port 22
+ and connect using "ssh" -- these are usually the defaults.  After
+you click "connect" 
+you will be prompted to fill in your username and password.  </p>
+
+<p>Note that once you have submitted jobs to the queue, you can leave your 
+logged in session (by typing <code>exit</code>).  Your jobs will run 
+and return output without you needing to be connected.  </p>
+
+<a name="ssh-keys"></a>
+<h2>C. Logging in automatically </h2>
+
+<p>Tired of typing your password everytime you log in?  It's possible to set 
+up a file on your local computer called an ssh key, that allows you to log 
+into CHTC and transfer files without entering your password.  
+<a href="http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/"> See
+this guide</a> for instructions on how to do this, starting at the section titled 
+<b>"SSH and SCP Without Passwords"</b>.  </p>
+
+<a name="transfer"></a>
+<h1>3. Transferring Files</h1>
+
+<p>To transfer files to and from CHTC, you will need the same username 
+and hostname information for <a href=#login>logging in</a>, as well 
+as understanding where your files are and where you would like them to go.  </p>
+
+<a name="transfer-scp"></a>
+<h2>A. On the command line (Mac/Linux)</h2>
+
+<p>On a Mac or Linux system, you can use the "Terminal" application and 
+the <code>scp</code> command to copy files between your computer and 
+CHTC servers.</p>
+
+<b>Your computer to CHTC</b></br>
+
+<p>First, open the "Terminal" application and navigate to the 
+directory with the files or directories you want to transfer.  Then, 
+use this command to copy these files to CHTC: </p>
+
+<pre class="term">$ scp <i>file username@hostname:/home/username</i></pre>
+
+<p>If you would like these files to end up in a different directory inside your 
+home directory, just add it to the path at the end of the command.  </p>
+
+<b>CHTC to your computer</b></br>
+
+<p>Open the "Terminal" application.  Do NOT log into CHTC.  Instead, 
+navigate to where you want the files to go on your computer.  Then, 
+use this command to copy these files there:</p>
+
+<pre class="term">$ scp <i>username@hostname:/home/username/file</i> ./</pre>
+
+Again, for many files, it will be easiest to create a compressed tarball (.tar.gz file)
+of your files and transfer that instead of each file individually.  
+
+<a name="transfer-winscp"></a>
+<h2>B. Using a file transfer program (Windows/Mac)</h2>
+
+<p>Windows and Mac users can also use special programs to help them 
+transfer files between their computers and CHTC.  For Windows, we 
+recommend <a href="https://winscp.net/eng/download.php">WinSCP</a>.  It requires the same information as 
+Putty (hostname, username), and once it's set up, looks like this: </p>
+
+<img src="/images/WinSCPPortable.png">
+
+<p>The left window is a directory on your computer, the right window is 
+your home directory in CHTC.  To move files between the two, simply drag and drop.  </p>
+
+<p>There are other programs besides WinSCP that do this.  Another that 
+works on Mac and Windows is called <a href="https://cyberduck.io">Cyberduck</a>.</p>
+
+<a name="transfer-many"></a>
+<h2>C. Transferring Multiple Files </h2>
+
+<p>If you are transferring many files, it is advantageous to compress 
+them into a single compressed file, in order to facilitate transferring 
+them.  Place all the files you need in a directory, and then either 
+zip it or use the "tar" command to compress them: </p>
+
+<pre class="term">
+$ tar czf data_files.tar.gz <i>file_directory/</i>
+</pre>
+
+To untar or unzip files on the submit server or head nodes, you can use either: 
+
+<pre class="term">[alice@submit]$ tar xzf data_files.tar.gz</pre>
+or
+<pre class="term">[alice@submit]$ unzip data_files.zip</pre>
+
+</blockquote>
+
+<a name="files"></a>
+<h1>4. Creating and Editing Files in CHTC</h1>
+
+<p>Once you have logged in to a CHTC server, you can edit files from 
+the command line, by using a command line file editor. Some 
+common editing programs are:</p>
+<ul>
+<li>nano</li>
+<li>vi</li>
+<li>emacs</li>
+</ul>
+
+<p><code>nano</code> is the most beginner-friendly, and <code>emacs</code> is the 
+most advanced.  <a href="http://swcarpentry.github.io/shell-novice/03-create/">This
+Software Carpentry lesson</a> describes how to use <code>nano</code>, and there are 
+many other resources online with instructions for these text editors.  </p>
+
+<p>Some of the file transfer programs mentioned <a href="#transfer-winscp">above</a>
+allow you to edit files on CHTC servers through the interface.</p>
+
+<a name="learn"></a>
+<h1>5. Learning About the Command Line</h1>
+
+<p><b>Why learn about the command line?</b>
+If you haven't used the command line before, it might seem like a big 
+challenge to get started, and easier to use other tools, especially if 
+you have a Windows computer.  However, we strongly recommend learning more 
+about the command line for multiple reasons: </p>
+<ul>
+  <li>You can do most of what you need to do in CHTC by learning a few basic commands.</li>
+  <li>With a little practice, typing on the command line is significantly faster 
+  and much more powerful than using a point-and-click graphic interface.</li>
+  <li>Command line skills are useful for more than just large-scale computing.</li>
+</ul>
+
+<p>For a good overview of command line tools, see the
+<a href="http://swcarpentry.github.io/shell-novice/">Software Carpentry
+Unix Shell</a> lesson.  In particular, we recommend the sections on: </p>
+
+<ul>
+<li>understanding the filesystem and how to navigate it 
+(<a href="http://swcarpentry.github.io/shell-novice/02-filedir/">Navigating Files and Directories</a>)</li>
+<li>tab-completion 
+(section entitled "Nelle's Pipeline, Organizing Files", in <a href="http://swcarpentry.github.io/shell-novice/02-filedir/">Navigating Files and Directories</a>)</li>
+<li>creating files (<a href="http://swcarpentry.github.io/shell-novice/03-create/">Working With Files and Directories</a>)</li>
+<li>using the star wildcard (first part of 
+<a href="http://swcarpentry.github.io/shell-novice/04-pipefilter/">Pipes and Filters</a>)</li>
+<li>writing shell scripts (<a href="http://swcarpentry.github.io/shell-novice/06-script/">Shell Scripts</a>) </li>
+</ul>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,0 +1,57 @@
+<!--#set var="title" value="Using Java Code in CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<h1>Overview</h1>
+
+<p>If your code uses Java via a <code>.jar</code> file, it is easy to run 
+on CHTC and beyond.  There are two ways to run Java code from a CHTC 
+submit server: 
+<ul>
+	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.7)</a></li>
+	<li><a href="#portable">Use a newer version of Java (1.8) and/or run jobs beyond 
+	CHTC (on the UW Grid or Open Science Grid) (recommended)<a></li>
+</ul>
+
+<p>You should only use *one* of these options to run Java code, not both.</p>
+
+<a name="default"></a>
+<h1>Pre-installed Java</h1>
+
+<p>To run in CHTC only, using the default version of java (1.7): </p>
+
+<ol>
+<li>Add this line to your submit file:
+  <pre class="sub">requirements = (Target.HasJava == true) </pre> </li>
+<li>Your executable should be a wrapper script that executes your program. </li>
+
+</ol>
+
+<a name="portable"></a>
+<h1>Portable Java</h1>
+
+<p>To use a newer version of Java and/or to run outside of CHTC on the UW Grid 
+and/or Open Science Grid: </p>
+
+<ol>
+<li>Download the Linux x64 Java/JDK tar file (the .tar.gz ending *not* .rpm) from the 
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a>. 
+You'll need to click on a button to "Accept License Agreement" to download. 
+<li> Add the downloaded tar file to the <code>transfer_input_files</code> line of your 
+submit file: 
+ <pre class="sub">transfer_input_files = <i>jdk-8u121-linux-x64.tar.gz</i></pre></li>
+<li>Write a script that unpacks the jdk tar file, sets the environment to find 
+the java software, and then runs your program.  This script will be your job's 
+executable.  See this example for what the script should look like: 
+<pre class="file">#!/bin/bash
+
+tar -xzf jdk-8u121-linux-x64.tar.gz
+export PATH=$(pwd)/jdk-8u121-linux-x64/bin:$PATH
+export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
+java -jar <i>program.jar</i></pre>
+As in Step 2 above, the final line will vary, depending on your program.  </li>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

@@ -1,0 +1,256 @@
+<!--#set var="title" value="Projects Using the CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<table>
+<tr>
+<td>Many researchers are currently using the CHTC for computational tasks.
+Here are descriptions of some of the researchers and research groups
+at the University of Wisconsin that work closely with the CHTC.
+<a href="/map">See where CHTC users are located on campus</a>.
+</td>
+<td>
+<table class="gtable">
+<tr><th>CHTC Quick Facts</th><th>Jul'10-Jun'11</th><th>Jul'11-Jun'12</th><th>Jul'12-Jun'13</th></tr>
+<tr><td>Million Hours Served</td><td>45</td><td>70</td><td>97</td></tr>
+<tr><td>Research Projects</td><td>54</td><td>106</td><td>126</td></tr>
+<tr><td>Departments</td><td>35</td><td>52</td><td>52</td></tr>
+<tr><td>Off-Campus</td><td>10</td><td>13</td><td>15</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<P>
+<table class = "gtable" width="100%">
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/LHC.jpg">
+</td>
+<td>
+
+<strong>CMS LHC Compact Muon Solenoid</strong> - The UW team participating in the Compact Muon Solenoid (CMS) 
+experiment analyzes petabytes of data from proton-proton collisions in the Large Hadron Collider (LHC).  We use 
+the unprecedented energies of the LHC to study Higgs Boson signatures, Electroweak Physics, and the possibility 
+of exotic particles beyond the Standard Model of Particle Physics.  Important calculations are also performed to 
+better tune the experiment's trigger system, which is responsible for making nanosecond-scale decisions about 
+which collisions in the LHC should be recorded for further analysis.
+</td>
+</tr>
+<!--------------------------------------------------------------------------------> 
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/icecube.jpg">
+</td>
+<td>
+
+<strong>Steve Barnet</strong> uses the CHTC in conjunction with the <A HREF="http://icecube.wisc.edu">IceCube South Pole Neutrino Observatory</A>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/depablo.jpg">
+</td>
+<td>
+
+<strong>Juan de Pablo</strong> and the <A HREF="http://www.engr.wisc.edu/groups/mtsm/">Molecular Thermodynamics and Statistical
+Mechanics Research Group</A> use computational resources provided by the CHTC to predict the motions of
+macroscopic objects through simulations of what their microscopic particles are doing.
+</td>
+</tr>
+<!------------------------------------------------------------------------------------>
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/schwartz.jpg">
+</td>
+<td>
+
+<strong>David C. Schwartz</strong> uses the CHTC to comprehensively analyze human and cancer genomes. CHTC
+provices enough throughput for this project to map data representing the equivalent of one human genome
+in 90 minutes. See the 
+<A HREF="http://www.lmcg.wisc.edu/">LMCG (Laboratory for molecular and Computational Genomics) web site</A>
+for project details.
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/markley.jpg">
+</td>
+<td>
+
+<strong>John L. Markley</strong> uses the CHTC for research in connection with the <A HREF="http://www.bmrb.wisc.edu">Biological Magnetic Resonance Data Bank</A> (BMRB).
+</td>
+</tr>
+<!--------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/vanveen.jpg">
+</td>
+<td>
+
+<strong>Barry Van Veen</strong> - Electrical / Computer Engineering - Brain Connectivity
+<p><i> The bio-signal processing laboratory develops statistical signal processing methods for biomedical problems.  We use CHTC for casual network modeling of brain electrical activity.  We develop methods for identifying network models from noninvasive measures of electric/ magnetic fields at the scalp, or invasive measures of the electric fields at or in the cortex, such as electrocorticography.  Model identification involves high throughput computing applied to large datasets consisting of hundreds of spatial channels each containing thousands of time samples.</i></p>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/perkins.jpg">
+</td>
+<td>
+
+<strong>Natalia B. Perkins</strong> The abstract from the first paper which is based on this research is "Critical Properties of the Kitaev-Heisenberg Model", Craig C. Price and Natalia B. Perkins, Phys. Rev. Lett. 190, 187201.
+<p>
+We study the critical properties of the Kitaev-Heisenberg model on the honeycomb lattice at finite temperatures that might describe the physics of the quasi-two-dimensional compounds, Na2IrO3 and Li2IrO3.  The model undergoes two phase transitions as a function of temperature.  At low temperature, thermal fluctuations induce magnetic long-range order by the order-by-disorder mechanism.  This magnetically ordered state with a spontaneously broken Z6 symmetry persists up to a certain critical temperature.  We find that there is an intermediate phase between the low-temperature, ordered phase and the high-temperature, disordered phase.  Finite-sized scaling analysis suggests that the intermediate phase is a critical Kosterlitz-Thouless phase with continuously variable exponents.
+<p> We argue that the intermediate phase has been observed above the low-temperature, magnetically ordered phase in Na2IrO3, and also, likely exists in Li2IrO3. 
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/hazy.jpg">
+</td>
+<td>
+
+The <strong>Hazy Research Group</strong> of the department of Computer Sciences is led by <strong>Christopher M. Re</strong>, with interests in large-scale, and deep data analytics.
+<p><i>A machine reading system is a large software system that extracts information and knowledge 
+buried in raw data such as text, tables, figures, and scanned documents.  For example, it can extract 
+facts like "Barack Obama wins the 2012 election" from news articles, or "Barnett Formation contains 6% 
+Carbon" from geology journal articles.  To extract this kind of information, a machine reading system 
+requires deep understanding and statistical analytics over large document corpora.  In the Hazy Research 
+Group, we are building a machine reading system that supports scientific applications like 
+<a href="http://hazy.cs.wisc.edu/hazy/geo">GeoDeepDive</a>, and many other projects.  Please visit our 
+<a href="http://www.youtube.com/HazyResearch">YouTube Channel</a> for video overviews of our projects.</i></p>
+<p><i>We leverage the resources of the CHTC, and the national Open Science Grid to enable our machine reading 
+system to quickly perform a whole host of computationally expensive tasks like statistical linguistic 
+processing, speech-to-text transcription, and optical character recognition (OCR).  For example, on a crawl of 
+500 million web pages, we estimated that our deep linguistic parsing would take more than 5 years on a single 
+machine.  With the help of CHTC, we were able to do it in just 1 week!  Similarly, on a recent batch of 
+30,000 geology journal articles, we estimated that the OCR task would take 34 years on a single machine.  
+With CHTC, it took about 2 weeks.  Thanks CHTC!</i></p>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/townsend.jpg">
+</td>
+<td>
+
+Professor <strong>Phil Townsend</strong> of Forestry and Wildlife Ecology says
+<i>
+Our research (NASA & USDA Forest Service funded) strives to understand the outbreak
+dynamic of major forest insect pests in North America through simulation modeling. 
+As part of this effort, we map forest species and their abundance using multi-temporal
+Landsat satellite data. My colleagues have written an automatic variable selection
+routine in MATLAB to preselect the most important image variables to model and map
+forest species abundance. However, depending on the number of records and the initial
+variables, this process can take weeks to run.  Hence, we seek resources to speed up
+this process.
+</i></td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/atlas.jpg">
+</td>
+<td valign="top">
+
+<A HREF="http://atlas.ch"><strong>Atlas Experiment</strong></A>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/heinz.jpg">
+</td>
+<td>
+
+Professor <strong>Sebastian Heinz</strong> of the Astronomy Department works in theoretical astrophysics:
+<p><i>
+We are working on investigating the impact that astrophysical jets have on the
+intergalactic medium (IGM) in galaxy clusters. These jets, eminating from supermassive
+black holes at the centers of galaxies, can significantly impact the IGM, which in turn
+impacts galaxy evolution. Computer simulations permit us to test various scenarios like
+determining how to heat the IGM. 
+</i></td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/deleon.jpg">
+</td>
+<td>
+
+<p>From Professor <b>Natalia de Leon</b>, Department of Agronomy:
+<p><i>
+Ethanol per acre is determined by the amount of biomass per acre and the quality of
+that biomass. Quality includes the concentration of fermentable sugars, the availability 
+of those sugars for fermentation, and the concentration of inhibitors to the fermentation
+process. We are using maize (Zea mays L.) as a model grass to identify genes and pathways
+underlying these traits. Maize is an excellent model both because it is a potential
+source of biomass for the lignocellulosic ethanol industry, and also because it is closely
+related to other important dedicated-bioenergy species including Miscanthus (Miscanthus
+giganteus) and switchgrass (Panicum virgatum). Our approach is to genetically dissect
+endogenous variation for biomass quantity and quality in maize, utilizing genetic mapping, 
+association analysis and transcriptional profiling to identify genes and alleles that
+underlie phenotypic variation among maize genotypes. This forward genetic analysis
+provides an entry point into genes and pathways that could be further studied and
+manipulated to maximize ethanol production. For that end, we utilize cutting-edge genomic
+technologies, such as novel high throughput approaches to sequencing and genome-wide
+expression profiling technologies, as well as advanced computational procedures which
+utilize genomic information to understand the molecular basis of quantitative variation.
+This research is part of the Department of Energy-supported Great Lakes Bioenergy Research
+Center at the University of Wisconsin, Madison.
+</i></td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/gandhi.jpg">
+</td>
+<td>
+
+<strong>Amit Gandhi</strong> - Economics - Understanding Markets Through Auctions
+<p><i>I use CHTC to do structural estimation of economic models.  These problems boil down to finding a value in a parameter space that best satisfies some objective criterion that is derived from economic theory and is a function of the data.  The difficulty is that the criterion is typically a complicated non-linear function of the parameter that requires some intensive computations for each observation in the data.  For problems with lots of data, this can become unwieldy!  Rather than work with an MPI model for distributed computing, I have found that exploring the landscape of the objective function with the high throughput CHTC approach allows me to much more quickly gain an understanding of the likely parameter values.  This greatly facilitates the econometric estimation of problems that otherwise would not be feasible.</i></p>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/cui.jpg">
+</td>
+<td>
+
+<strong>Qiang Cui</strong> - Chemistry - <a href="http://www.chem.wisc.edu/~cui/">Applications using CHARM and GROMACS</a>
+<p><i>We use CHTC machines to carry out molecular dynamics simulations to study chemical reactions in solution and biomolecules.  By using a semi-empirical QM/MM methods developed in our group, these calculations can run efficiently in a largely uncoupled fashion with the CHTC system.  This type of computing environment is ideal for many studies that require running a large number of independent computations, such as constructing the free energy landscape of chemical reactions in the condensed phase.</i></p>
+</td>
+</tr>
+<!-------------------------------------------------------------------------------->
+<tr>
+<td width="20%" align="center" valign="top">
+<img src="./images/hagness.jpg">
+</td>
+<td>
+
+<p>Professor <b>Susan Hagness</b> of the Electrical and Computer Engineering
+department says:
+<p><i>
+In our research we're working on a novel computational tool for THz-frequency 
+characterization of materials with high carrier densities, such as highly-doped 
+semiconductors and metals. The numerical technique tracks carrier-field dynamics by 
+combining the ensemble Monte Carlo simulator of carrier dynamics with the finite-difference
+time-domain technique for Maxwell's equations and the molecular dynamics technique for
+close-range Coulomb interactions. This technique is computationally intensive and each test
+runs long enough (12-20 hours) that our group's cluster isn't enough. This is why we think
+CHTC can help, to let us run more jobs than we're able to run now.
+</i></td>
+</tr>
+
+</table>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

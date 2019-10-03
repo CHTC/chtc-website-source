@@ -1,0 +1,230 @@
+<!--#set var="title" value="Running MPI Jobs in CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+This guide describes when and how to run multi-core jobs, programmed 
+with MPI, in CHTC's high throughput compute (HTC) system.  
+
+<p><b>To best understand the below information, users should already have 
+an understanding of:</b>
+</p>
+
+<ul>
+	<li>Using the command line to: navigate within directories, 
+	create/copy/move/delete files and directories, and run their 
+	intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's 
+	Intro to Running HTCondor Jobs</a></li>
+</ul>
+
+<h1>Overview</h1>
+
+<p>Before you begin, review our below discussion of <a href="#require">MPI requirements 
+and use 
+cases</a>, to make sure that our multi-core MPI capabilities are the right 
+solution for your computing problem. If you have any questions, 
+contact a CHTC facilitator at 
+<a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  </p>
+
+<p>Once you know that you need to run multi-core jobs that use  
+MPI on our HTC system, you will 
+need to do the following: 
+<ol>
+	<li> <a href="#compile">Compile your code using our MPI module system</a></li>
+	<li> <a href="#script">Create a script to that 
+	loads the MPI module you used for compiling, and
+	then runs your code</a></li>
+	<li> <a href="#submit">Make sure your submit file has 
+	certain key requirements</a></li>
+</ol>
+</p>
+
+<p>If your MPI program is especially large (more than 100 MB, compiled), 
+or if it can <i>only</i> run from the exact location to which it was installed, 
+you may also need to take advantage of CHTC's Gluster file share just for your 
+software - see our additional notes
+on <a href="#gluster">Using Gluster for software</a>, below for more details. 
+Otherwise, all software and input files less than 100 MB should use 
+HTCondor's "transfer_input_files" feature in the submit file.</p>
+
+<a name="require"></a>
+<h1>A. Requirements and Use Cases</h1>
+
+<p>Most jobs on CHTC's HTC system are 
+run on one CPU (sometimes called a "processor", or "core") 
+and can be executed without any special system libraries.  
+However, in some cases, it may be advantageous to run a single program on 
+multiple CPUs (also called multi-core), in order to speed up single computations 
+that cannot be broken up as independent jobs.  
+If you have questions about the advantages and disadvantages of running 
+multi-core jobs versus single-core jobs, contact one of CHTC's facilitators at 
+<a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
+
+<p>Running on multiple CPUs is often enabled by two special 
+types of programming called OpenMP or MPI. For MPI jobs to
+compile and run, CHTC has a certain set of MPI packages installed 
+to a shared location, that can be accessed from within jobs (see below). 
+To see which MPI packages are supported, you can type the following 
+on a an HTC submit server:</p>
+
+<pre class="term">[alice@submit]$ module avail</pre>
+
+<p>(Make sure to compile according to the below instructions, and to not do so 
+on a submit server.)
+
+<h1>B. Submitting MPI jobs</h1>
+
+<a name="compile"></a>
+<h2>1. Compiling Code</h2>
+
+<p>You can compile your program
+yourself within an interactive job on one of our compiling servers. (Do not 
+compile code on the submit server, as doing so may cause performance issues.)  
+The interactive job is essentially a regular HTCondor job, but <i>without</i> 
+an executable; <b>you</b> are the one running the commands instead (in this case, 
+to compile the program). 
+</p>
+
+<p><b>Instructions for submitting an interactive build/compile job</b> are here: 
+<a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+The only line in the submit file that you need to change is <code>transfer_input_files</code> 
+to reflect all the source files on which your program depends.  
+</p>
+
+<p>Once your interactive job begins on one of our compiling servers, you 
+can find which MPI modules are available to you by typing:</p>
+
+<pre class="term">[alice@build]$ module avail</pre>
+
+<p>Choose the module you want to use and load 
+it with the following command: </p>
+<pre class="term">[alice@build]$ module load <i>mpi_module</i></pre>
+<p>where <code>mpi_module</code> is replaced with the name of the
+MPI module you'd like to use.  </p>
+ 
+<p>After loading the module, compile your program. If your program is organized 
+in directories, <b>make sure to create a tar.gz file of anything you want copied 
+back to the submit server</b>. Once typing <code>exit</code> the interactive job 
+will end, and any *files* created during the interactive job will be copied back 
+to the submit location for you. 
+
+<a name="script"></a>
+<h2>2. Script For Running MPI Jobs</h2>
+
+<p>To run your newly compiled program within a job, you need to write a 
+script that loads an MPI module and then runs the program, like so: </p>
+
+<pre class="file">
+#!/bin/bash
+
+# Extra command to make the PATH work across operating system versions        
+export PATH=/bin:$PATH
+
+# Command to enable modules, and then load an appropriate MP/MPI module
+. /etc/profile.d/modules.sh
+module load <i>mpi_module</i>
+
+# Untar your program installation, if necessary
+tar -xzf <i>my_install.tar.gz</i>
+
+# Command to run your OpenMP/MPI program
+# (This example uses mpirun, other programs
+# may use mpiexec, or other commands)
+mpirun -np 8 <i>./path/to/myprogram</i>
+</pre>
+
+<p>Replace <code>mpi_module</code> with the name of the module you used 
+to compile your code, <code>myprogram</code> with the name of your program, and 
+<code>X</code> with the number of CPUs you want the program to use.  There may 
+be additional options or flags necessary to run your particular program; make sure 
+to check the program's documentation about running multi-core processes.
+</p>
+
+<a name="submit"></a>
+<h2>3. Submit File Requirements</h2>
+
+<p>There are several important requirements to consider when writing 
+a submit file for multicore jobs.  They are shown in the sample submit 
+file below and include: </p>
+
+<ul>
+	<li><b>Require access to MPI modules.</b> There is a special requirements statement
+	that ensures a computer has access to Gluster (where the MPI modules live) and 
+	that the module command is working. </li>
+	<li>Use the <b>getenv = true</b> statement to set up the job's 
+	running environment.</li>
+	<!--<li><b>Require Scientific Linux 6.</b> At the moment, our MPI modules are 
+	only fully functional on our older operating system, Scientific Linux 6.</li>-->
+	<li><b>Request *accurate* CPUs and memory</b> Run at least one test job 
+	and look at the log file produced by HTCondor to determine how much memory 
+	and disk space your multi-core jobs actually use. Requesting too much memory 
+	will cause two issues: your jobs will match more slowly and they will be wasting 
+	resources that could be used by others. Also, the fewer CPUs your jobs require,
+ 	the sooner you'll have more jobs running. Jobs requesting 16 CPUs or less 
+	will do best, as nearly all of CHTC's servers have at least that many, but 
+	you can request and use up to 36 CPUs per job.</li>
+	<li><b>The script you wrote above (shown as <code>run_mpi.sh</code> below)
+	should be your submit file "executable"</b>, and your compiled program and any 
+	 files should be listed in <b>transfer_input_files</b>.</li>
+</ul>
+
+<p>A sample submit file for multi-core jobs is given below: </p>
+
+<pre class="sub">
+# multicore.sub
+# A sample submit file for running a single multicore (8 cores) job
+
+## General submit file options
+universe = vanilla
+log = <i>mc_$(Cluster)</i>.log
+output = <i>mc_$(Cluster)</i>.out
+error = <i>mc_$(Cluster)</i>.err
+
+## Submit file options for running your program
+executable = <i>run_mpi</i>.sh
+# arguments = (if you want to pass any to the shell script)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = <i>input_files</i>, <i>myprogram</i>
+
+## Required options for accessing modules
+requirements = ( Target.HasModules == true )
+getenv = true
+
+## Request resources needed by your job
+request_cpus = <i>8</i>
+request_memory = <i>8GB</i>
+request_disk = <i>2GB</i>
+
+queue
+</pre>
+
+<p>After the submit file is complete, you can 
+submit your jobs using <code>condor_submit</code>.  </p>
+
+<h1>C. Software Installation Considerations</h1>
+
+<a name="gluster"></a>
+<h2>1. Using Gluster for Software</h2>
+
+<p>If your compiled program is large (over 100 MB) or requires that it run 
+from the same location within which it was installed, you may need to use
+our web proxy (large software) or Gluster file share (install location) 
+instead of being transferred with every job though these should be used only as 
+last resorts.  See our 
+<a href="http://chtc.cs.wisc.edu/file-availability.shtml">File Availability</a> guide 
+for more details.  If your software is larger than a few GB or will not run correctly 
+if moved to a different directory from where it was first installed, request a 
+Gluster directory from CHTC, by emailing <a href="chtc@cs.wisc.edu">
+chtc@cs.wisc.edu</a> with a description of why you need it. </p>
+
+<h2>2. Other Installations</h2>
+
+<p> Your software may require newer versions of MPI libraries than those 
+available via our modules.  If this is the case, send an email to <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, 
+to find out if we can install that library into the module system.
+</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

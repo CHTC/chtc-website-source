@@ -1,0 +1,274 @@
+<!--#set var="title" value="Running R Jobs on CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p><b>To best understand the below information, users 
+should already have an understanding of:</b>
+</p>
+<ul>
+	<li>Using the command line to: navigate within directories, 
+	create/copy/move/delete files and directories, and run their 
+	intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	to Running HTCondor Jobs</a></li>
+</ul>
+
+<h1>Overview</h1>
+
+<p>Many CHTC users have R programs requiring R versions and 
+specialized packages that are not installed 
+on CHTC's high throughput system, which includes the CHTC Pool, the UW Grid 
+(flocking) and the Open Science Grid (GlideIn).  In order to run R 
+jobs, you can build a version of R with the packages you want and use it 
+within your jobs.  
+
+<p>This guide details the steps needed to: 
+<ol>
+	<li><a href="#build">Build an R installation for use in your jobs</a></li>
+	<li><a href="#script">Write a script that unpacks your R installation and 
+		runs your R code</a></li>
+	<li><a href="#submit">Submit jobs</a></li>
+</ol>
+</p>
+
+<a name="build"></a>
+<h1>1. Building an R Installation</h1>
+
+<p>To run R jobs, you will first need to build a portable R installation
+ that will later go along with each of your R jobs.</p> 
+
+<a name="version"></a>
+<h2>A. Get the Source Code for the R Version You Want</h2>
+
+<p>Before running any commands on CHTC, use a browser to get the source code 
+for your desired version of R from <a href="https://cran.r-project.org/">CRAN</a>. 
+(See the note below on supported versions.)  
+Under "Source Code for all Platforms", find the R-#.#.#.tar.gz file for your 
+desired version of R and download it to your computer before copying to the submit 
+server. </p>
+
+<a name="installing"></a>
+<h2>B. Create a Portable R Installation in an Interactive Job</h2>
+
+<p>Make sure you know which major packages are used in your code (anything loaded using the              
+<code>library()</code> command), before getting started.
+</br></br>
+Because creating an R installation can be computationally intensive, it should not be 
+performed on the submit server. Instead, you will create your installation 
+on a CHTC build server by using an interactive job.  
+The interactive job is essentially a job without an executable; 
+you will be the one running the commands, instead (in this case, to install R).
+Like a regular HTCondor job, once you finish your R installation on the build server, 
+the output files (your completed portable R installation) will be transferred back to 
+the submit server (so that you can use the R installation for later jobs). </p>
+
+<ol>
+<a name="interactive"></a>
+<li><p><b>Submit an Interactive Build Job</b></p>
+<p>Instructions for submitting an interactive build job are 
+here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+You'll need to do Step 2.  
+Note that you should replace the contents of the "transfer_input_files" line
+with the name of the R source tarball that you downloaded.</p>
+
+<p>Submit the interactive job and wait for it to start (this is Step 3
+of the guide above).</p>
+</li>
+
+<a name="install"></a>
+<li><p><b>Install R</b></p>
+
+<p>Once the interactive job starts, we can install R.  
+To install R, we will run a configuration script that includes 
+an option to set the installation location.  We will set the location 
+to our current directory, and then complete the installation by 
+running <code>make</code>.  (In what follows, <code>R-3.x.x.</code> 
+should always be replaced by the name/version of the R code 
+that you chose in <a href="#version">Part A</a>.)</p>
+
+<p>Un-tar and move into the untarred R source directory:
+<pre class="term">[alice@build]$ tar -xzf R-3.x.x.tar.gz
+[alice@build]$ cd R-3.x.x</pre>
+
+From that directory, type the following commands. The middle one may take a while!: 
+<pre class="term">[alice@build]$ ./configure --prefix=$(pwd)
+[alice@build]$ make
+[alice@build]$ make install
+</pre>
+
+After the last command finishes, move back to the 
+main working directory: 
+<pre class="term">[alice@build]$ cd ..</pre>
+</p></li>
+
+<li><p><b>Install Packages</b></p>
+<p> The installation steps above should have generated an R installation 
+in the <code>lib64</code> subdirectory of the installation directory. We 
+can start R by typing the path to that installation, like so: 
+<pre class="term">[alice@build]$ R-3.x.x/lib64/R/bin/R </pre>
+</p>
+
+<p>This should open up an R console, which is how we're going to 
+install any extra R libraries. Install each of the library packages your 
+code needs by using R's <code>install.packages</code>
+command: 
+<pre class="term"> > install.packages('package_name')</pre>
+You only need to install the major packages needed by your 
+code; if you install a package that depends on other packages, 
+those will automatically be installed.</p>
+
+<p>The first time you will be prompted to choose a "CRAN mirror" - this is 
+where R is downloading the package. <b>Choose any <code>http</code> (not 
+<code>https</code>!) option</b>.</p>
+
+<p>Once you've installed all the packages, type <code>quit()</code> to 
+exit the R session. You don't need to save the workspace.</p>
+</li> 
+
+<a name="path"></a>
+<li><p><b>Edit the R executable</b></p>
+<p>
+Once you've added the packages you need, you need to edit the R executable 
+that you used in the previous section.  You can do this with a command line 
+text editor - this example uses the <code>nano</code> text editor: 
+<pre class="term">[alice@build]$ nano R-3.x.x/lib64/R/bin/R</pre>
+The above will open up the main R executable. You will need to change the first line, 
+from something like: 
+<pre class="file">R_HOME_DIR=/var/lib/condor/execute/slot1/dir_554715/R-3.1.0/lib64/R</pre>
+to
+<pre class="file">R_HOME_DIR=$(pwd)/R</pre>
+Save and close the file. (In <code>nano</code>, this will be CTRL-O, followed 
+by CTRL-X.)  
+</p></li>
+
+<a name="tarball"></a>
+<li><p><b>Exit the Interactive Job</b></p>
+<p>Right now, if we exit the interactive job, nothing will be transferred back 
+because we haven't created any new <b>files</b> in the working directory, just 
+<b>sub-directories</b>. In order to transfer back our installation, we will 
+need to compress it into a tarball - not only will HTCondor then transfer 
+back the resulting file, it is generally easier to transfer 
+a single, compressed tarball file than an uncompressed set of directories.</p>
+
+<p>Move the directory with your R installation to the main working directory: 
+<pre class="term">[alice@build]$ mv R-3.x.x/lib64/R ./</pre>
+</p>
+
+<p>Run the following command to create your own tarball of the installation: 
+<pre class="term">[alice@build]$ tar -czvf R.tar.gz R/</pre></p>
+
+<p>The installation is complete!  You can now exit the interactive job and your 
+R installation tarball will return to the submit server.  </p>
+<pre class="term">[alice@build]$ exit </pre>
+</li>
+</ol>
+
+<a name="script"></a>
+<h1>2. Creating a Script</h1>
+
+<p> We now have an <code>R.tar.gz</code> file that contains our entire R 
+installation. In order to use this installation in our HTCondor jobs, we will need 
+to write a script that unpacks our R installation and then runs our R 
+code. We will use this script as the <code>executable</code> of our HTCondor 
+submit file.  </p>
+
+<p>A sample script appears below. After the first line, the lines starting 
+with hash marks are comments.  
+
+<pre class="file">
+#!/bin/bash
+
+# untar your R installation
+tar -xzf R.tar.gz
+
+# make sure the script will use your R installation
+export PATH=$(pwd)/R/bin:$PATH
+export RHOME=$(pwd)/R
+
+# run R, with the name of your  R script
+Rscript <i>myscript.R</i>
+</pre>
+</p>
+
+<p>If you have additional commands you would like to be run within the job, you 
+can add them to this base script.  </p>
+
+<blockquote>
+<h2>Arguments in R</h2>
+<p>To pass arguments to an R script within a job, you'll need to use the following 
+syntax in your main executable script, in place of the generic command above: 
+<pre class="file">
+Rscript <i>myscript.R</i> $1 $2
+</pre>
+Here, <code>$1</code> and <code>$2</code> are the first and second 
+arguments passed to the bash script from the submit file (see below), 
+which are then sent on to the R script.  For more (or fewer) arguments, 
+simply add more (or fewer) arguments and numbers.</p>
+
+<p>In addition, your R script will need to be able to accept arguments from the 
+command line.  There is sample code for doing this on 
+<a href="https://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/">this 
+r-bloggers.com page</a> and about a quarter of the way into this 
+<a href="https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/">Software
+Carpentry lesson</a> (look for <code>print-args-trailing.R</code>). 
+</p>
+</blockquote>
+
+<!--<blockquote>
+<h2>Arguments in R</h2>
+<p>To pass arguments to an R script within a job, you'll need to use the following 
+syntax in your main executable script, in place of the generic command above: 
+<pre class="file">
+R CMD BATCH "--args $1 $2" myscript.R
+</pre>
+Here, <code>$1</code> and <code>$2</code> are the first and second 
+arguments passed to the bash script from the submit file (see below), 
+which are then sent on to the R script.  For more (or fewer) arguments, 
+simply add more (or fewer) arguments and numbers.</p>
+
+<p>In addition, your R script will need to be able to accept arguments from the 
+command line.  There is sample code for doing this on 
+<a href="http://www.r-bloggers.com/including-arguments-in-r-cmd-batch-mode/">this 
+r-bloggers.com page</a>.  </p>
+</blockquote>-->
+
+<a name="submit"></a>
+<h1>3. Submitting Jobs</h1>
+
+The submit file you use for submitting your R jobs will be different from 
+the one you created in <a href="#build">part 1</a> for building your 
+R installation.  You'll want to create a new submit file; a good starting 
+point is the sample submit filee on our <a href="/helloworld.shtml">hello world
+</a> example page.  You should make the following changes in order to run 
+R jobs: 
+<ul>
+	<li> Your <code>executable</code> should be the script that you wrote 
+<a href="#script">above</a>.  </li>
+	<li> Change <code>transfer_input_files</code> to include your 
+	R installation tarball (<code>R.tar.gz</code>), your 
+	R scripts, and any input files your job needs.  </li>
+	
+<a name="squid"></a>
+<blockquote>
+<h3>How big is your installation tarball?</h3>
+
+<p>If your installation tarball is larger than 100 MB, you should NOT transfer 
+the tarball using <code>transfer_input_files</code>.  Instead, you should use 
+CHTC's web proxy, <code>squid</code>.  In order to request space 
+on <code>squid</code>, email the research computing facilitators at 
+<a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
+</p>
+</blockquote>
+	<li>If your script takes arguments (see the box from the 
+        previous section), include those in the arguments line: 
+        <pre class="sub">arguments = value1 value2</pre></li>
+	<li>Test a few jobs for disk space/memory usage in 
+order to make sure your requests for a large batch are accurate!  
+Disk space and memory usage can be found in the log file after jobs complete. </li>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+
+

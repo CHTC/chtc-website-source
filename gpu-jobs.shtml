@@ -1,0 +1,260 @@
+<!--#set var="title" value="Jobs That Use GPUs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<h1>Overview</h1>
+
+<p>GPUs (Graphical Processing Units) are a special kind of computer processor 
+that are optimized for running very large numbers of simple calculations in 
+parallel, which often can be applied to problems related to image processing or 
+machine learning. Well-crafted GPU programs for suitable applications can 
+outperform implementations running on CPUs by a factor of ten or more, <i>but 
+only when the program is written and designed explicitly to run on GPUs using 
+special libraries like CUDA</i>. For researchers who have problems that are 
+well-suited to GPU processing, it is possible to run jobs that use GPUs in CHTC.   
+Read on to determine:</p>
+
+<ol>
+  <li><a href="#gpus">GPUs available in CHTC</a></li>
+  <li><a href="#software">Software Considerations</a></li>
+  <li><a href="#submit">Submit File Considerations</a></li>
+  <li><a href="#osg">Using GPUs on the Open Science Grid</a></li>
+</ol>
+
+<blockquote>
+This is the initial version of a guide about running GPU jobs in CHTC.  If 
+you have any suggestions for improvement, or any questions about using GPUs 
+in CHTC, please email the research computing facilitators at chtc@cs.wisc.edu.
+</blockquote>
+
+<a name="gpus"></a>
+<h1>1. GPUs Available in CHTC</h1>
+
+<p>CHTC's high throughput (HTC) system 
+has the following servers with GPU capabilities that are available to 
+any CHTC user (as of 6/13/2019):</p>
+<br>
+
+<table class="gtable">
+  <tr>
+    <th>Server </th>
+    <th>No. of GPUs </th>
+    <th>GPU Type</th>
+    <th>Current OS (as of 2019-06-13)</th>
+    <th>HasGluster</th>
+  </tr>
+<!--  <tr>
+    <td>gpu-3.chtc.wisc.edu</td> 
+    <td>1 </td>
+    <td>Tesla K40c</td>
+  </tr>   -->  
+<tr>
+    <td>gzk-1.chtc.wisc.edu </td>
+    <td>8 </td>
+    <td>GeForce GTX 1080</td>
+    <td>SL 6</td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td>gzk-2.chtc.wisc.edu </td>
+    <td>8 </td>
+    <td>GeForce GTX 1080</td>
+    <td>SL 6</td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td>gzk-3.chtc.wisc.edu </td>
+    <td>8 </td>
+    <td>GeForce GTX 1080</td>
+    <td>SL 6</td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td>gzk-4.chtc.wisc.edu </td>
+    <td>8 </td>
+    <td>GeForce GTX 1080</td>
+    <td>SL 6</td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td>gpu2000.chtc.wisc.edu</td>
+    <td>2</td>
+    <td>Tesla P100-PCIE-16GB</td>
+    <td>CentOS 7</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <td>gpu2001.chtc.wisc.edu</td>
+    <td>2</td>
+    <td>Tesla P100-PCIE-16GB</td>
+    <td>CentOS 7</td>
+    <td>yes</td>
+  </tr>
+</table>
+
+<p>You can also find out information about GPUs in CHTC through the 
+<code>condor_status</code> command.  All of our servers with GPUs have 
+a <code>TotalGPUs</code> attribute that is greater than zero; thus we can 
+query the pool to find GPU-enabled servers by running: </p>
+
+<pre class="term">[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'</pre>
+
+<p>To print out specific information, you can use the "auto-format" option and the 
+names of specific server attributes.  The table above can be recreated using the 
+attributes
+<code>Machine</code>, <code>TotalGpus</code> and <code>CUDADeviceName</code>: 
+
+<pre class="term">[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' -af Machine TotalGpus CUDADeviceName
+</pre>
+
+<p>In addition, HTCondor tracks other GPU-related attributes for each 
+server, including: </p>
+<ul>
+<li><code>Gpus</code>: Number of GPUs in an individual job slot on a server 
+(one server can be divided into slots to run multiple jobs)</li>
+<li><code>CUDARuntimeVersion</code>: Version of the CUDA software 
+libraries available on the server. </li>
+</ul>
+
+<p>For highly optimized codes, the following attributes may be helpful: </p>
+<ul>
+<li><code>CUDACapability</code>: Represents how new 
+the GPU is -- higher numbers are newer GPUs.  </li>
+<li><code>CUDAGlobalMemoryMb</code>: Amount of global memory available on the GPU</li>
+<li><code>CUDAComputeUnits, CUDACoresPerCU</code>: Multiplied together, the 
+number of GPU cores available on the GPU card</li>
+</ul>
+
+<p>To see this information printed out, add the attributes you want to the 
+<code>condor_status</code> command shown above.  A sample command (and output) 
+might look like this: </p>
+
+<pre class="term">[alice@submit]$ condor_status -constraint 'TotalGpus > 0' -af Name Gpus CUDADeviceName Cpus Memory
+slot1@gpu0000.chtc.wisc.edu 2 Tesla C2050 0 1411
+slot1@gpu3000.chtc.wisc.edu 2 Tesla C2050 0 1155
+slot1@gzk-1.chtc.wisc.edu 7 GeForce GTX 1080 0 63291
+slot1_1@gzk-1.chtc.wisc.edu 1 GeForce GTX 1080 16 1024
+slot1_1@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_2@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_3@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_4@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_5@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_6@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_7@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_8@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+</pre>
+
+<p>In the output above "slot1" represents the remaining available resources on 
+a server; if a server isn't running any jobs, this slot will show the total 
+resources available on that server.  As jobs start, their resources are taken 
+away from "slot1" to run individual jobs, which you can see in "slot1_1" etc. 
+above.</p>
+
+<p>To see all possible attributes for a particular server, you can use the "long" option with 
+<code>condor_status</code> and the name of the server/slot you want to see: 
+<pre class="term">[alice@submit]$ condor_status -l slot1@gpu-0000.chtc.wisc.edu</pre>
+</p>
+
+
+<a name="software"></a>
+<h1>2. Software Considerations</h1>
+
+<p>Before using GPUs in CHTC you should ensure that the use of GPUs will 
+actually help your program run faster.  This means that the code or software 
+you are using has the special programming required to use GPUs and that 
+your particular task will use this capability.</p>
+
+<p>If this is the case, there are several ways to run GPU-enabled software
+in CHTC: </p>
+
+<h2>A. Compiled Code</h2>
+
+<p>You can use our conventional methods of creating a portable installation 
+of a software package (as in our R/Python guides) to run on GPUs.  Most 
+software needs to be compiled on a machine with GPUs in order to use them 
+correctly.  To build your code on a GPU server, create a submit file that 
+requests GPUs (see <a href="#submit">below</a>) and submit it to run 
+interactively by using the "-i" option with <code>condor_submit</code>:
+<pre class="term">[alice@submit]$ condor_submit -i gpu.sub</pre>
+</p>
+
+<p>Some software will automatically detect the 
+GPU capability of the server and use that information to compile; for 
+other programs you may need to set specific flags or options.</p>
+
+<h2>B. Docker</h2>
+
+<p>Some of CHTC's GPU servers have "nvidia-docker" installed, a specific 
+version of Docker that integrates Docker containers with GPUs.  If you 
+can find or create a Docker image with your software that is based on 
+the nvidia-docker container, you can use this to run your jobs in 
+CHTC.  See our <a href="/docker-jobs.shtml">Docker guide</a> for 
+how to use Docker in CHTC.</p>
+
+<blockquote>
+<p>Docker is not supported on the operating system version (Scientific Linux 
+6) that is running on most of our GPU servers.  We hope to have more GPUs 
+with a current operating system/support for Docker in the future.  </p>
+</blockquote>
+
+<h2>C. Singularity (for Tensorflow)</h2>
+
+<p>If you are running jobs using Tensorflow, you can use a pre-made environment 
+(in a Singularity container) to run jobs.  See <a href="/tensorflow-singularity.shtml">this guide</a> for details.  
+
+<a name="submit"></a>
+<h1>3. Submit File Considerations</h1>
+<br>
+<b>Required</b> <br>
+
+<p>All jobs that use GPUs must request GPUs in their submit file (along with 
+the usual requests for CPUs, memory and disk). </p>
+
+<pre class="sub">request_gpus = 1</pre>
+
+<p>It is important to still request at least one CPU per job to do the processing 
+that is not well-suited to the GPU.</p>
+
+<p>Note that HTCondor will make sure your job has access to the GPU -- you shouldn't 
+need to set any environmental variables or other options related to the GPU, except 
+what is needed inside your code.</p>
+
+<b>Optional</b><br>
+
+<p>If your software or code requires a specific version of CUDA, a certain type of 
+GPU, or has some other special requirement, you will need to add a "requirements" 
+statement to your submit file that uses one of the attributes shown above. </p>
+
+<p>For example, if your code needs to use at least version 4.0 of 
+the CUDA libraries: </p>
+
+<pre class="sub">requirements = (CUDARuntimeVersion >= 4.0)</pre>
+
+<p>If you want a certain class of GPU, use CUDACapability:</p>
+
+<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
+
+<blockquote>
+<p>It may be tempting to add requirements for specific machines or types 
+of GPU cards.  However, when possible, it is best to write your code 
+so that it can run across 
+GPU types and without needing the latest version of CUDA.  </p>
+</blockquote>
+
+<p>The default operating system for jobs in CHTC is now CentOS 7. If you 
+want to use the <code>gzk-*</code> GPU nodes, you'll need to specifically 
+request the use of Scientific Linux 6 as an operating system. There is 
+an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
+</p>
+
+<a name="osg"></a>
+<h1>4. Using GPUs on the Open Science Grid</h1>
+
+<p>CHTC, as a member of the Open Science Grid (OSG) can access GPUs that 
+are available on the OSG.  See <a href="/scaling-htc.shtml">this guide</a> to know whether your jobs are 
+good candidates for the OSG and then get in touch with CHTC's Research Computing 
+Facilitators to discuss details. </p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

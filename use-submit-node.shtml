@@ -1,0 +1,80 @@
+<!--#set var="title" value="Using CHTC's HTC Submit Servers"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<p><b>If you have not yet requested a CHTC account and met with a 
+Research Computing Facilitator, please fill out <a href="/form.shtml">
+this form</a>.</b></p>
+
+<p>Recently created CHTC accounts will use our submit server <i>submit2.chtc.wisc.edu</i>. 
+Access to other submit servers is granted
+ for specific purposes and will have been indicated to you by CHTC staff. 
+<h2>Connecting to CHTC Submit Servers</h2>
+When your CHTC account is active, you can connect to one of our submit servers
+ with an SSH connection ("Putty" for Windows, putty.org; "Terminal" for Linux/Max).
+ Note, however, that our submit servers only accept connections from campus
+ networks. Off-campus connections have been disabled for security purposes. 
+If you need to connect from off campus, you can first SSH to a computer in your department, and then SSH to our 
+submit server. You may also be able to use a Virtual Private Network (VPN) to join the campus network when working off-campus. 
+DoIT provides <a href="https://it.wisc.edu/services/wiscvpn/">information on using a VPN</a>.</p>
+
+<p>For more detailed information on connecting to CHTC services, both logging in and 
+transferring files, see our <a href="/connecting.shtml">Connecting to CHTC guide</a>.</p>
+
+<h2>Data Practices</h2>
+<strong>We do not back up data on CHTC submission points</strong>, and users
+ should treat CHTC compute systems as temporary storage locations for
+ <i>active</i>, currently-queued computational work. Users should remove data from
+ CHTC systems upon completion
+ of a batch computational work and keep copies of all essential files in a non-CHTC
+ location. CHTC staff reserve the right to delete data from any CHTC file systems at
+ at any time, to preserve performance, and are not responsible for data loss for file
+ system corruption, which are possible, especially in the absence of back-ups.
+<h2>Submit Server User Policies</h2>
+Because our submit servers are shared by many CHTC users, anyone with an
+ account on CHTC's submit servers should follow the below policies, in order
+ to keep the submit servers functional and usable by everyone:
+<ul>
+<li><strong>Do not share accounts</strong>. We are happy to make new a new account for any user. Sharing accounts
+ is against campus policy and, therefore, CHTC policy. Accounts that we notice being shared will be immediately disabled
+ and a meeting with the PI (faculty advisor) will be necessary to reinstate the account.
+<li><strong>Do not run programs on the submit server.</strong> The submit server
+ is kept plenty busy just managing HTCondor jobs. Computational work,
+ like compiling code, should be submitted as HTCondor jobs. See our
+ <a href="http://chtc.cs.wisc.edu/guides.shtml">online guides</a>
+ for the best compiling practices. Small scripts and commands (to compress data,
+ create directories, etc.) that run within a
+ few minutes on the submit server are okay, but their use should be minimized when possible.
+<li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72 hours for each job 
+queued in the HTC System, once it starts running. Jobs longer than this will be placed in 
+HTCondor's "hold" state. If your jobs will be longer, please 
+<a href="mailto:chtc@cs.wisc.edu">email us</a>, and we'll help you to determine the best solution. </u>
+<li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed 
+to submit thousands of jobs from one submit file.  However, submitting too many 
+jobs at once provides no extra benefit to the submitter and can make the queue 
+work more slowly. If you are submitting <u>over 10,000 jobs per submit file</u> or have 
+submitted over <u>50,000 jobs at once as a single user</u>, 
+please <a href="mailto:chtc@cs.wisc.edu">email us</a> as we have strategies to submit 
+that many jobs in a way that will ensure you have as many jobs running 
+as possible without also compromising the queue.</li>
+<li><strong>There is a 20 GB disk quota</strong> in your <code>/home</code>
+ directory, by default. You can track your use of disk space, and your quota
+ value, using our <a href="http://chtc.cs.wisc.edu/check-quota.shtml">Quota
+ Guide</a>. If you need more space for concurrent work, please send an email
+ to chtc@cs.wisc.edu.
+<li><strong>Submitting jobs with "large" files:</strong> Please do not
+ submit jobs that require single input files larger than 100 MB using
+ HTCondor's normal file transfer mechanism ("transfer_input_files"),
+ or that produce output files greater than a few GB. For such jobs
+ with large files, please see our guide on
+ <a href="http://chtc.cs.wisc.edu/file-availability.shtml">File Availability</a>
+ Options, and contact us to make arrangements.
+<li><strong>No scheduled jobs.</strong> Local execution and job
+ submission should be manual, or use a DAG. Do not use cron to
+ schedule jobs, and do not submit jobs with a script that uses "sleep"
+ or otherwise doesn't complete while you are logged in. Contact us
+ if you need job scheduling.
+</ul>
+</p>
+<!--#include virtual="/includes/template-5-finish.shtml" -->

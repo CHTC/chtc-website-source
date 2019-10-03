@@ -1,0 +1,28 @@
+<!--#set var="title" value="Our Staff"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Miron_Livny">Miron Livny</a>, Director</li>
+  
+<!--  <li>CHTC Steering Committee
+  <ul>
+	<li>Jeff Naughton, CS Department Chair</li>
+	<li>Miron Livny, HTCondor Project PI</li>
+	<li>Todd Tannenbaum, HTCondor Project Technical Lead</li>
+	<li>Juan de Pablo, Professor of Chemical Engineering</li>
+	<li>David C. Schwartz, Professor of Genetics/Chemistry</li>
+	<li>Wesley Smith, Professor of Physics</li>
+  </ul> </li>
+-->  
+  <li>Lauren Michael, Lead Research Computing Facilitator <a href="http://wid.wisc.edu/profile/lauren-michael/">WID Profile</a></li>
+  <li>Christina Koch, Research Computing Facilitator <a href="http://wid.wisc.edu/profile/christina-koch/">WID Profile</a></li>
+  <li>Aaron Moate, Lead HTC Systems Administrator</li>
+  <li>Tim Slauson, Lead HPC Systems Administrator</li>
+
+  <li>Photo of <a href="http://research.cs.wisc.edu/htcondor/people.html">The Full CHTC Team</a> (2018)</li>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

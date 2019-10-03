@@ -1,0 +1,109 @@
+<!--#set var="title" value="Docker Jobs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>Linux containers are a way to build a self-contained environment that includes 
+software, libraries, and other tools.  This 
+guide shows how to submit jobs that use Docker containers.  </p>
+
+<h1>Overview</h1>
+
+<p>Typically, software in CHTC jobs is installed or compiled locally by 
+individual users and then brought along to each job, either using the 
+default file transfer or our SQUID web server.  However, another option 
+is to use a <i>container</i> system, where the software is installed in a <i>container 
+image</i>.  Using a container to handle software can be advantageous if the 
+software installation 1) has many dependencies, 2) requires installation to a specific 
+location, or 3) "hard-codes" paths into the installation. </p>
+
+<p>CHTC (and the OSG) have capabilities to access and start 
+containers and run jobs inside them.  This guide shows how to do this 
+for <a href="https://www.docker.com/what-docker">Docker</a> containers.</p>
+
+<p>In order to run your job inside a Docker container, you will need to: </p>
+<ol>
+<li><a href="#image">Find or prepare a Docker container image for your jobs to use</a></li>
+<li><a href="#submit">Make a few changes to your submit file</a></li>
+</ol>
+
+<a name="image"></a>
+<h1>1. Getting a Docker Container Image</h1>
+
+<p>To run a Docker job, you will first need access to a Docker container image that 
+has been built and placed onto the <a href="https://hub.docker.com/">DockerHub</a> website.  
+There are two primary ways to do this.  <!--No matter where you get your image, 
+we strongly recommend exploring it interactively on your own computer before using 
+it to submit a job:--> </p>
+
+<a name="dockerhub"></a>
+<h2>A. Pre-existing Images</h2>
+
+<p>The easiest way to get a Docker container image for running a job 
+is to use a public or pre-existing 
+image on DockerHub.  You can find images by getting an account 
+on DockerHub and searching for the software you want to use.  </p>
+
+<p>Sample images:</p>
+<ul>
+<li><a href="https://hub.docker.com/_/python/">Python</a></li>
+<li><a href="https://hub.docker.com/r/rocker/r-ver/">R</a></li>
+<li><a href="https://hub.docker.com/r/tensorflow/tensorflow/">TensorFlow</a></li>
+<li>...and <a href="https://hub.docker.com/explore/">more</a></li>
+</ul>
+
+<p>An image supported by a group will be continuously updated and the versions 
+will be indicated by "tags".  <b>We recommend choosing a specific tag (or 
+tags) of the container to use in CHTC.</b></p>
+
+<a name="build"></a>
+<h2>B. Build Your Own Image</h2>
+
+<p>You can also build your own Docker container image and upload it to DockerHub.  
+See the <a href="https://docs.docker.com/engine/getstarted/">Docker 
+documentation</a> for more information.</p>  
+<!-- <p>You can also build your own Docker image and upload it to DockerHub.  
+See <a href="/docker-build.shtml">our guide for building Docker containers</a>, 
+which includes examples of building containers based on python and R.  You can 
+also check out the official <a href="https://docs.docker.com/engine/getstarted/">Docker 
+documentation</a>.  -->
+
+<p>As with pre-existing containers, we recommend using the specific tag, rather than
+ 'latest', due to the fact that CHTC locally caches prior container downloads. Using a
+ new tag will ensure that newly-submitted jobs only get the new container (and/or that
+ previously-submitted jobs will not suddenly get a new container).</p>
+
+<a name="submit"></a>
+<h1>2. Submit File Customization</h1>
+
+<p>Jobs that run inside a Docker container will be almost exactly the 
+same as "vanilla" HTCondor jobs.  There are two needed customizations 
+to the submit file: indicated that the job is a Docker job, and which 
+Docker container to use.  </p>
+
+<h2>A. Using a Docker Image</h2>
+
+Start with a usual CHTC submit file like the one shown in our 
+<a href="/helloworld.shtml">Hello World</a> guide.  Then, make the following
+two changes: 
+<ol>
+<li>Change the universe from "vanilla" to "docker": 
+<pre class="sub">universe = docker</pre></li>
+<li>Add a line to indicate which Docker image you want to use for running your job: 
+<pre class="sub">docker_image = <i>user_name</i>/<i>image_name</i>:<i>tag</i></pre></li>
+</ol>
+
+<p>When your job starts, HTCondor will pull the indicated image from DockerHub, 
+and use it to run your job.  </p>
+
+<h2>B. Executable and Input Files</h2>
+
+<p>Other pieces of the job (your 
+executable and input files) should be just like a non-Docker job submission;
+the only change may be that your executable no longer needs to 
+install or unpack your software, since it will already be present in 
+the Docker container.</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

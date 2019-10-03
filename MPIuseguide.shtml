@@ -1,0 +1,120 @@
+<!--#set var="title" value="MPI Use Guide"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<h1>Contents</h1>
+<ol>
+	<li><a href="#overview">Overview of installed MPI libraries</a></li>
+	<li><a href="#lib">Using the MPI libraries to compile your code</a></li>
+    <li><a href="#run">Running your job</a></li>
+</ol>
+
+<p>
+This page describes how to use the MPI libraries installed on the HPC cluster.
+</p>
+<a name="overview"></a>
+<h1>1. Overview of Installed MPI Libraries</h1>
+<p>
+There are multiple MPI libraries installed on the cluster, many compiled in 
+at least two ways (see below). The SLURM scheduler also has integrated libraries for 
+most MPI versions, which you can read about 
+<a href="https://computing.llnl.gov/linux/slurm/mpi_guide.html">here</a>.
+</br></br>
+There are ten different MPI libraries installed:
+</p>
+<ul>
+<li>OpenMPI version 1.6.4</li>
+<li>OpenMPI version 1.10.2</li>
+<li>OpenMPI version 2.0.1</li>
+<li>OpenMPI version 2.1.0</li>
+<li>OpenMPI version 3.1.1</li>
+<li>MPICH version 3.0.4</li>
+<li>MPICH version 3.1</li>
+<li>MPICH2 version 1.5</li>
+<li>MVAPICH2 version 1.9</li>
+<li>MVAPICH2 version 2.1</li>
+</ul>
+
+<p>
+<b>IMPORTANT: If your software can use OpenMPI or MVAPICH2, these are the recommended MPI libraries
+ for CHTC's HPC Cluster and will perform the fastest on the cluster's Infiniband networking.</b>
+ MPICH and MPICH2 do not use Infiniband, by default, and will perform slower than OpenMPI or MVAPICH2,
+ though we've configured them to work as well as for ethernet-only clusters, so they'll still work if your
+ software will <i>only</i> run with MPICH or MPICH2.</p>
+<p>
+Note that many of our MPI libraries have been compiled with different base compilers, 
+to accommodate codes that require these base compilers to be built successfully.  The 
+compiler used to build MPI can be seen in the names of our software modules 
+(see <a href="#lib">below</a>) and include: 
+<ul>
+<li><code>gcc</code> - the base system version of <code>gcc</code></li>
+<li><code>intel</code> - compiled with Intel Composer XE and Intel MPI Library Development Kit 4.1 compilers</li>
+<li><code>intel-2016</code> - </li>
+<li><code>2.1.0-GCC-7.3.0-2.30</code> - version 7.3 of <code>gcc</code></li>
+</ul>
+</p>
+
+
+<a name="lib"></a>
+<h1>2. Using the MPI Libraries to Compile Your Code</h1>
+<p>
+In order to successfully compile and run your code using these MPI libraries you need to set a few environmental variables. To set these variables you will be using the Environmental Modules package (<a href="http://modules.sourceforge.net">http://modules.sourceforge.net</a>). This package is very easy to use and it will automatically set the environmental variables necessary to use the flavor and version of MPI that you need.
+</p>
+<p>
+First, you are going to want to run the following command to see the available modules:
+</p>
+<pre class="term">[alice@service]$ module avail</pre>
+<p>
+When you run the above command you will receive output similar to this:
+</p>
+
+<pre class="term">[alice@service]$ module avail
+---------------------------------------- /etc/modulefiles ----------------------------------------
+mpi/gcc/mpich-3.0.4                 mpi/gcc/openmpi-1.6.4               mpi/intel/mvapich2-1.9
+mpi/gcc/mvapich2-1.9                mpi/intel/mpich-3.0.4               mpi/intel/openmpi-1.6.4
+matlab-r2015b   		    compile/intel-2016  		mpi/gcc/openmpi/2.1.0-GCC-7.3.0-2.30
+</pre>
+
+<p>
+As you can see, the MPI libraries compiled with GCC compilers are listed under <tt>mpi/gcc/</tt> and the MPI libraries compiled with Intel compilers are listed under <tt>mpi/intel/</tt>. 
+</p>
+
+<p>
+To load a module (for example, OpenMPI compiled with GCC compilers), simply run this command:
+</p>
+
+<pre class="term">[alice@service]$ module load mpi/gcc/openmpi-1.6.4
+</pre>
+
+<p>
+Now all necessary environmental variables are set correctly and you can go ahead and compile your code!
+</p>
+
+<p>
+If you loaded the wrong module, let's say MPICH compiled with Intel compilers, you can unload it by running:
+</p>
+<pre class="term">[alice@service]$ module unload mpi/intel/mpich-3.0.4</pre>
+
+<p>You can see what modules you already have loaded by running:</p>
+<pre class="term">[alice@service]$ module list</pre>
+
+<p>
+<strong>NOTE:</strong> Before using any of the MPI libraries under <tt> mpi/intel/</tt> you first need to load the <tt>compile/intel</tt> module.
+</p>
+
+<a name="run"></a>
+<h1>3. Running Your Job</h1>
+<p>
+<strong>NOTE:</strong> To run your job you need the same module loaded as 
+when you compiled your code. When you log out of your terminal all loaded 
+modules are automatically unloaded.  
+</p>
+<p>In order to ensure that your job has the appropriate modules loaded when 
+it runs, we recommend adding the <code>module load</code> command to your 
+submit file, with the appropriate modules.  See our sample submit file in 
+the <a href="/HPCuseguide.shtml#batch-job">HPC Use Guide</a> to see what this looks like.
+</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

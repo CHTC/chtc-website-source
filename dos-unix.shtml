@@ -1,0 +1,44 @@
+<!--#set var="title" value="Windows/Linux Incompatibility"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>If your job is running a bash or shell script (includes the header 
+<code>#!/bin/bash</code>), and it goes on hold, you might be experiencing 
+a Windows/Linux incompability error.  
+Files written in Windows (based on the DOS operating system) and 
+files written in Mac/Linux (based on the UNIX operating system) use 
+different invisible characters to mean "end of a line" in a file.  
+Normally this isn't a problem, <i>except</i> when writing bash scripts; 
+bash will not be able to run scripts if they have the Windows/DOS 
+line endings.  </p>
+
+<p>To find why the job went on hold, look for the hold reason, 
+either by running
+<pre class="term">[alice@submit]$ condor_q -af HoldReason</pre>
+or by looking in the log file. </p>
+
+<p>If a Windows/Linux incompatibility is the problem, the hold 
+reason will look something like this: 
+<pre class="file">Error from slot1_11@e189.chtc.wisc.edu: Failed to execute 
+'/var/lib/condor/execute/slot1/dir_4086540/condor_exec.exe' with 
+arguments 2: (errno=2: 'No such file or directory')</pre></p>
+
+<p>To check if this is the problem, you can open the script in 
+the vi text editor, using its "binary" mode:
+ <pre class="term">[alice@submit]$ vi -b hello-chtc.sh</pre>
+(Replace <code>hello-chtc.sh</code> with the name of your script.)  
+If you see <code>^M</code> characters at the end of each line, those 
+are the DOS line endings and that's the problem.  <br>
+(Type <code>:q</code> to quit vi)</p>
+
+<p>Luckily, there is an easy fix!  To convert the script to 
+unix line endings so that it will run correctly, you can run: 
+<pre class="term">[alice@submit]$ dos2unix hello-chtc.sh</pre>
+on the submit node and it will change the format for you.  If you 
+release your held jobs (using <code>condor_release</code>) or 
+re-submit the jobs, you should no longer get the same error.  
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

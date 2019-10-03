@@ -1,0 +1,85 @@
+<!--#set var="title" value="Computing Guides"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<style type="text/css"><!--
+li {
+	margin-top: 0.5em;
+}
+.tight li {
+	margin-top: 0;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the resources at the CHTC. 
+Some of these are general computing solutions; others are specific to HTCondor
+or to the configuration of CHTC computing resources.
+<br />
+<ul>
+   <li><a href="#gen">General Computing</a></li>
+   <li><a href="#htc">Use the HTC System</a> </li>
+   <li><a href="#hpc">Use the HPC Cluster</a> </li>
+   <li><a href="#ext">External Resources</a> </li>
+</ul>
+<br />
+Guides will be added to the list as we can provide them. Please contact us
+(email at bottom of page) if you find any of the information to be incorrect.
+</p>
+
+<a name="gen"></a>
+<h1>General Computing</h1>
+<ul>
+    <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
+High Performance Computing</a></li>
+</ul>
+
+<a name="htc"></a>
+<h1>Use the HTC System</h1>
+<ul>
+    <li>Getting Started<ul>
+	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
+	<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
+        <li><a href="/submit_variations.shtml">Submit file Variations</a></li>
+        <li><a href="/inter-submit.shtml">Compiling Code with an Interactive Job</a></li>
+	<li><a href="/check-quota.shtml">Checking Disk Quota and Usage</a></li>
+    </ul></li>
+    <li>How to handle your files and data within HTCondor jobs<ul>
+        <li><a href="/file-availability.shtml">File Availability Options</a></li>
+        <li><a href="/file-avail-squid.shtml">File Availability with Squid Web Proxy</a></li>
+        <li><a href="/file-avail-gluster.shtml">File Availability with Gluster</a><ul>
+            <li><a href="/gluster-large-files.shtml">Using Gluster to Stage 
+Large Files</a></li>
+    </ul></li>
+    </ul></li>
+    <li>How to Handle Your Software<ul>
+        <li><a href="/matlab-jobs.shtml">Running Matlab Jobs</a></li>
+	<li><a href="/python-jobs.shtml">Running Python Jobs</a></li>
+	<li><a href="/r-jobs.shtml">Running R Jobs</a></li>
+        <li><a href="/howto_overview_prev.shtml">Old CHTC Portability Tools (archived)</a></li>
+        <!-- <li><a href="/gluster-software.shtml">Software in Gluster</a></li>-->
+    </ul></li>
+    <li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
+</ul>
+
+<a name="hpc"></a>
+<h1>Use the HPC Cluster</h1>
+<ul>
+    <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
+    <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
+</ul>
+
+<a name="ext"></a>
+<h1>External Resources</h1>
+<ul>
+    <li><a href="http://software-carpentry.org/4_0/index.html">
+	Software Carpentry</a> (online courses and videos; readings)</li>
+    <li><a href="http://research.cs.wisc.edu/htcondor/manual/">HTCondor Manual</a></li>
+    <li><a href="http://slurm.schedmd.com/">Slurm Manual</a></li>
+    <li><a href="http://www.doit.wisc.edu/training/student/">DoIT Software 
+	Training for Students</a> (free on-campus courses) </li>
+<br />
+<!--#include virtual="/includes/template-5-finish.shtml" -->

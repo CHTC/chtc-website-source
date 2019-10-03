@@ -1,0 +1,172 @@
+<!--#set var="title" value="Using Licensed Software in CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+This guide describes when and how to run jobs that use licensed software
+in CHTC's high throughput compute (HTC) system.  
+
+<p><b>To best understand the below information, users should already have 
+an understanding of:</b>
+</p>
+
+<ul>
+	<li>Using the command line to: navigate within directories, 
+	create/copy/move/delete files and directories, and run their 
+	intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's 
+	Intro to Running HTCondor Jobs</a></li>
+</ul>
+
+<blockquote>
+This is the initial version of a guide about running jobs that use licensed 
+software in CHTC's high throughput (HTC) system.  If
+you have any suggestions for improvement, or any questions, please 
+email the research computing facilitators at chtc@cs.wisc.edu.
+</blockquote>
+
+<h1>Overview</h1>
+
+<p>Before you begin, review our <a href="#about">below discussion</a> to understand 
+what types of licensed software we support and who can access them. </p>
+
+<p>Once you know that you to use a licensed software program on our HTC system, you will 
+need to do the following: 
+<ol>
+	<li> <a href="#script">Create a script to that 
+	loads the correct software module.</a></li>
+	<li> <a href="#submit">Make sure your submit file has 
+	certain key requirements</a></li>
+</ol>
+</p>
+
+<a name="about"></a>
+<h1>A. About Licensed Software in CHTC's High Throughput System</h1>
+
+<a name="policies"></a>
+<h2>1. What Are Our Licensed Software Policies?</h2>
+
+<p>Our typical practice for software support in CHTC is for users to 
+install and manage their own software installations.  We have multiple 
+guides to help users with <a href="/howto_overview.shtml">common software programs</a> 
+and additional support is always available through <a href="/get-help.shtml">CHTC's 
+research computing facilitators</a>.
+
+<p>However, for certain software programs which require paid licenses, we provide limited 
+support for software installation and use on our high throughput system, as it is 
+challenging for individual users to install the software and use the licenses correctly.  
+Installation of licensed programs is by request to and at the discretion of CHTC staff.</p>
+
+<p>We always recommend using a free or open-source software alternative whenever possible, 
+as certain software licenses restrict the amount of computing that can contribute 
+to your research.  </p>
+
+<a name="access"></a>
+<h2>2. Accessing Licensed Software</h2>
+
+<p>Software with paid licenses that has been installed on the high throughput (HTC) system 
+is accessible through software "modules", which 
+are tools to access and activate a software installation.  To see which 
+software programs are available on the HTC system, run the following command 
+on an HTC submit server: </p>
+
+<pre class="term">[alice@submit]$ module avail</pre>
+
+<p>Not all programs listed from this command are available to all CHTC users!  Some programs 
+like <code>ansys</code> and <code>nbo</code> have a campus or shared license which 
+makes them available to all CHTC users.  Other software, like <code>lumerical</code> and <code>abaqus</code>, 
+is licensed to a specific group and is only available to members of that group.</p>
+
+<p>Note: you should never run a program directly on the submit server.  Jobs that 
+use licensed software/modules should always be submitted as HTCondor jobs as 
+<a href="#submission">described below</a>.</p>
+
+<p>If you have questions about gaining access to a specific software program, 
+please email the CHTC facilitators at chtc@cs.wisc.edu.</p>
+
+<a name="submission"></a>
+<h1>B. Submitting Jobs with Licensed Software</h1>
+
+<p>The following sections describe how to create a bash script executable and 
+HTCondor submit file to run jobs that use software accessible via the modules.</p>
+
+<a name="script"></a>
+<h2>1. Script For Running Jobs with Modules</h2>
+
+<p>To run a job that uses a licensed software installation on the HTC system, you need to write a 
+script that loads the software module and then runs the program, like so: </p>
+
+<pre class="file">
+#!/bin/bash
+
+# Extra command to make the PATH work across operating system versions
+export PATH=/bin:$PATH
+
+# Command to enable modules, and then load an appropriate software module
+. /etc/profile.d/modules.sh
+module load <i>software</i>
+
+# Command to run your software from the command line
+<i>cmd -options input.file</i>
+</pre>
+
+<p>Replace <code>software</code> with the name of the software module you want to use, and 
+the final command with the syntax to run your software, with the appropriate options.  
+</p>
+
+<a name="submit"></a>
+<h2>2. Submit File Requirements</h2>
+
+<p>There are several important requirements to consider when writing 
+a submit file for jobs that use our licensed software modules.  
+They are shown in the sample submit file below and include: </p>
+
+<ul>
+	<li><b>Require access to the modules.</b> There is a special requirements statement
+	that ensures a computer has access to Gluster (where the modules live) and 
+	that the module command is working. </li>
+	<li>Use the <b>getenv = true</b> statement to set up the job's 
+	running environment.</li>
+	<li><b>Request accurate CPUs and memory.</b> Run at least one test job 
+	and look at the log file produced by HTCondor to determine how much memory 
+	and disk space your jobs actually use.  We recommend requesting the smallest 
+	number of CPUs where your job will finish in 1-2 days.  </li>
+	<li><b>The script you wrote above (shown as <code>run_job.sh</code> below)
+	should be your submit file "executable"</b>, and any input 
+	 files should be listed in <b>transfer_input_files</b>.</li>
+</ul>
+
+<p>A sample submit file is given below: </p>
+
+<pre class="sub">
+# software.sub
+# A sample submit file for running a single job using software modules
+
+universe = vanilla
+log = job_$(Cluster).log
+output = job_$(Cluster).out
+error = job_$(Cluster).err
+
+# the executable should be the script you wrote above
+executable = run_job.sh
+# arguments = (if you want to pass any to the shell script)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = <i>input_files</i>
+
+getenv = true
+requirements = ( Target.HasModules == true ) 
+
+request_cpus = 1
+request_memory = 2GB
+request_disk = 2GB
+
+queue
+</pre>
+
+<p>After the submit file is complete, you can 
+submit your jobs using <code>condor_submit</code>.  </p>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

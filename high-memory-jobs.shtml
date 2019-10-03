@@ -1,0 +1,268 @@
+<!--#set var="title" value="Submitting High Memory Jobs on CHTC's HTC System"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<b>The examples and information in the below guide are useful ONLY if:</b><br>
+<ul>
+	<li>you already have an account on a CHTC-administered submit server</li>
+	<li>your jobs will use more than ~120 GB of memory</li>
+	</li>
+</ul>
+<b>To best understand the below information, users should already be familiar with:</b><br>
+<ol>
+	<li>Using the command-line to: navigate directories, create/edit/copy/move/delete 
+	files and directories, and run intended programs (aka "executables").</li>
+	<li><a href="/helloworld.shtml">
+	CHTC's Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's guides for using Gluster to handle <a href="/gluster-large-files.shtml">
+	large data</a> and software installation.</li>
+</ol>
+
+<h2>Overview</h2>
+
+<p>A high-memory job is one that 
+requires a significantly larger amount of memory (also known as RAM) than a typical 
+high throughput job usually over 
+200 GB and up to 1-4 TB.  
+In the following guide, we cover resources and recommendations for 
+running high-memory work in CHTC. <b>However, please make sure to email us if you believe you 
+will need to run "high-memory" work for the first time, or are planning the execution of new 
+"high-memory" work that is different from what you've run before.</b> We'll happily help you 
+with some personalized tips and considerations for getting your work done most efficiently.</p>
+
+<ol>
+<li><a href="#resources">High Memory Resources in CHTC</a></li>
+<li><a href="#get-started">Getting Started</a></li>
+<li><a href="#running">Running High Memory Jobs</a></li>
+</ol>
+
+<a name="resoures"></a>
+<h1>1. High Memory Resources in CHTC</h1>
+
+<p>Our high memory machines have the following specs: </p>
+
+<table class="gtable">
+    <tr>
+        <th>Machine name</th>
+        <th>Amount of memory</th>
+        <th>Number of CPUs</th>
+        <th>Local disk space on machine</th>
+    </tr>
+    <tr>
+        <td><code>mem1.chtc.wisc.edu</code></td>
+        <td>1 TB</td>
+        <td>80</td>
+        <td>1 TB</td>
+    </tr>
+    <tr>
+        <td><code>mem2.chtc.wisc.edu</code> </td>
+        <td>2 TB  </td>
+        <td>80  </td>
+        <td>1 TB  </td>
+    </tr>
+    <tr>
+        <td><code>mem3.chtc.wisc.edu</code> </td>
+        <td>4 TB  </td>
+        <td>80  </td>
+        <td>6 TB  </td>
+    </tr>
+    <tr>
+        <td><code>wid-003.chtc.wisc.edu</code>  </td>
+        <td>512 GB </td>
+        <td>16 </td>
+        <td>2.5 TB </td>
+    </tr>
+</table>
+
+<a name="get-started"></a>
+<h1>2. Getting Started</h1>
+
+<a name="id"></a>
+<h2>A. Identifying High Memory Jobs</h2>
+
+<p>Jobs that request over 200GB of memory in their 
+	<a href="#submit">submit file</a> can run on our dedicated high memory machines.  
+	However, if your job doesn't need quite that much memory, it's good to 
+	request less, as doing so will allow your job(s) to run on more servers, 
+	since CHTC has hundreds of servers with up to 100 GB of memory and dozens of 
+	servers with up to 250 GB of memory.</p>
+
+<a name="testing"></a>
+<h2>B. Testing</h2>
+
+<p>Before running a full-size high-memory job, make sure to 
+use a small subset of data in a test job.  
+Not only will this give you a chance to try out the submit file 
+syntax and make sure your job runs, but it can help you estimate 
+how much memory and/or disk you will need for a job using your full data. </p> 
+	
+<p>You can also use interactive jobs to test commands that will end up in your 
+	"executable" script.  To run an interactive job, prepare 
+	your submit file as usual.  Note that for an interactive 
+	job, you should use a smaller memory request (and possibly lower CPU 
+	and disk as well) than for the final job 
+	(so that the interactive job starts) and plan to simply test commands, 
+	not run the entire program.  To submit interactive job, 
+	use the <code>-i</code> flag with <code>condor_submit</code>: 
+		<pre class="term">[alice@submit]$ condor_submit -i submit.file</pre>
+	After waiting for the interactive job to start, this 
+	should open a bash session on an execute machine, which will allow 
+	you to test your commands interactively.  Once your testing is done, 
+	make the appropriate changes to your executable, adjust your resource 
+	requests, and submit the job normally.</p>
+
+<a name="consult"></a>
+<h2>C. Consult with Facilitators</h2>
+
+<p>If you are unsure how to run high-memory jobs on CHTC, or  
+if you're not sure if everything in this guide applies to you, get in touch 
+with a research computing facilitator by emailing chtc@cs.wisc.edu.</p>
+
+<a name="running"></a>
+<h1>3. Running High Memory Jobs</h1>
+
+<a name="submit"></a>
+<h2>A. Submit File</h2>
+
+<p>The submit file shown in our <a href="/helloworld.shtml">Hello World example</a> 
+is a good starting point for building your high memory job submit file.  The following 
+are places where it's important to customize:</p>
+
+<ul>
+	<li class="spaced"><b><code>request_memory</code></b>: It is crucial 
+	to make this request as accurate as you can by <a href="#testing">testing</a> at a small scale if 
+	possible (see above).  Online documentation/help pages or your colleagues' experience is 
+	another source of information about required memory.  </br></li>
+	<li class="spaced"><b><code>request_cpus</code></b>: Sometimes, programs that use a large 
+	amount of memory can also take advantage of multiple CPUs.  If this 
+	is the case for your program, you can request multiple CPUs.
+	However, <b>it is always easier to start jobs that request 
+	fewer number of cores, rather than more</b>.  We recommend: </br></br>
+	<table class="gtable">
+	  <tr>
+	  	<th>Requesting ___ of memory?</th> <th>Request fewer than ___ CPUs</th>
+	  </tr>
+	  <tr>
+	  	<td>up to 100 GB</td> <td> 4</td>
+	  </tr>	  
+	  <tr>
+	  	<td>100-500 GB</td> <td>8</td>
+	  </tr>	  
+	  <tr>
+	  	<td>500GB-1TB</td> <td>16</td>
+	  </tr>	  
+	  <tr>
+	  	<td>1-1.5TB</td> <td>20</td>
+	  </tr>	  
+	  <tr>
+	  	<td>1.5-2TB</td> <td>20</td>
+	  </tr>
+	  <tr>
+	  	<td>2TB or greater</td> <td>32</td>
+	  </tr>
+	</table>
+	If you think a higher CPU request would significantly improve your job's 
+	performance, contact a facilitator. </br>
+	 </li>
+	<li class="spaced"><b><code>request_disk</code></b>: Request the maximum amount of data
+	your job will ever have within the job working directory 
+	on the execute node, including all output and input (which will take up space before 
+	some of it is removed from the job working directory at the end of the job). </br> </li>
+	<li class="spaced"><b>If your software requires newer Linux</b> request our
+        <a href="/os-transition.shtml">newer operating system (CentOS7)</a>:
+	<pre class="sub">requirements = (OpSysMajorVer == 7)</pre></li>
+	<li class="spaced"><b>Other requirements</b>: if your job uses files from 
+	<a href="/file-avail-gluster.shtml">Gluster</a>, or 
+	<a href="/docker-jobs.shtml">Docker for software</a>, 
+	add the necessary requirements for these resources to your submit file.   </br></li>
+</ul>
+
+<p>Altogether, a sample submit file may look something like this: </p>
+
+<pre class="sub">### Example submit file for a single Gluster-dependent job
+
+universe = vanilla
+
+# Files for the below lines will all be somewhere within /home/username,
+# and not within /mnt/gluster/username
+log = run_myprogram.log
+executable = run_Trinity.sh
+output = $(Cluster).out
+error = $(Cluster).err
+transfer_input_files = trinityrnaseq-2.0.1.tar.gz
+should_transfer_files = YES
+
+# Require execute servers that have Gluster
+Requirements = (Target.HasGluster == true)
+
+# Memory, disk and CPU requests
+request_memory = 200GB
+request_disk = 100GB
+request_cpus = 4
+
+# Submit 1 job
+queue 1
+### END</pre>
+
+<a name="software"></a>
+<h2>B. Software</h2>
+
+<p>Like any other job, the best option for high memory work is to create a portable
+installation of your software.  We have guides for
+<a href="/howto_overview.shtml">scripting languages</a> and 
+<a href="/docker-jobs.shtml">using Docker</a>, 
+and can otherwise provide individual support for program installation 
+<a href="/get-help.shtml">during office hours or over email</a>. </p>
+
+<a name="executable"></a>
+<h2>C. "Executable" script</h2>
+
+<p>As described in many of our guides (for <a href="/howto_overview.shtml">software</a> or for 
+using <a href="/file-avail-gluster.shtml">Gluster</a>), you will need to write 
+a script that will run your software commands for you and that will serve 
+as the submit file "executable".  Things to note are: </p>
+<ul>
+	<li>If using files from Gluster, follow the recommendations in our 
+	<a href="/file-avail-gluster.shtml">Gluster guide</a>.  </li>
+	<li>If using multiple cores, make sure that you request the same number of 
+	"threads" or "processes" in your command as you requested in your 
+	<a href="#submit">submit file</a>.</li>
+</ul>
+
+<p>
+Altogether, a sample script may look something like this 
+(perhaps called <code>run_Trinity.sh</code>): </p>
+
+<pre class="file">#!/bin/bash
+# Copy input data from Gluster to the present directory of the job
+# and un-tar/un-zip them.  
+cp /mnt/gluster/usename/reads.tar.gz ./
+tar -xzvf reads.tar.gz
+rm reads.tar.gz
+
+# Set up the software installation in the job working directory, and 
+# add it to the job's PATH
+tar -xzvf trinityrnaseq-2.0.6-installed.tar.gz
+rm trinityrnaseq-2.0.6-installed.tar.gz
+export PATH=$(pwd)/trinityrnaseq-2.0.6:$PATH
+
+# Run software command, referencing input files in the working directory and 
+# redirecting "stdout" to a file.  Backslashes are line continuation.
+Trinity --seqType fq --left reads_1.fq \
+--right /mnt/gluster/username/path/to/reads_2.fq --CPU 4 --max_memory \
+20G > trinity_stdout.txt
+
+# Trinity will write output to the working directory by default, 
+# so when the job finishes, it needs to be moved back to gluster
+tar -czvf trinity_out_dir.tar.gz trinity_out_dir
+cp trinity_out_dir.tar.gz trinity_stdout.txt /mnt/gluster/username/
+rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
+
+### END</pre>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,0 +1,64 @@
+<!--#set var="title" value="HTC System Use Guides"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<style type="text/css"><!--
+li {
+	margin-top: 0.5em;
+}
+.tight li {
+	margin-top: 0;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<p>This page lists all of our online resources for running work on the 
+CHTC's high throughput system.  </p>
+
+<!--If you are a newcomer to high throughput 
+and would like an overview of what high throughput computing is, how to 
+get the most from high throughput computing, and how to get started on our 
+system, see our <a href="#roadmap">Roadmap to HTC</a>.  Our individual guides are listed 
+by topics <a href="#topics">here</a>.  Finally, if you have a specific question, see 
+our <a href="#faq">FAQs</a>.  </p>
+
+<a name="roadmap"></a>
+<h2>Roadmap for Running HTC Jobs</h2>
+
+<ul><li>In progress</li></ul>
+
+<a name="topics"></a>
+<h2>List of Guides by Topic</h2>
+-->
+
+<ul>
+    <li>Getting Started<ul>
+	<li><a href="/helloworld.shtml">Running your first CHTC jobs</a></li>
+	<li><a href="/submit_variations.shtml">Submit file variations</a></li>
+	<li><a href="/inter-submit.shtml">Compiling all other code (interactive jobs)</a></li>
+    </ul></li>
+    <li>How to handle your files and data<ul>
+	<li><a href="/file-availability.shtml">File Availability options</a></li>
+	<li><a href="/file-avail-squid.shtml">File availability with Squid proxy</a></li>
+	<li><a href="/file-avail-gluster.shtml">File availability with Gluster</a><ul>
+	    <li><a href="/gluster-large-files.shtml">Using Gluster to 
+						    stage large files</a></li>
+	</ul></li>
+    </ul></li>
+    <li>How to handle your software<ul>
+	<li><a href="/howto_overview.shtml">Submitting Matlab, Python and R jobs using the ChtcRun environment</a></li>
+	<li><a href="/matlab-jobs.shtml">Submitting Matlab jobs</a></li>
+	<li><a href="/gluster-software.shtml">Software in Gluster</a></li>
+    </ul></li>
+    <li><a href="/high-memory-jobs.shtml">Running high memory jobs</li>
+</ul>
+
+<!--
+<a name="faq"></a>
+<h2>FAQ</h2>
+
+<ul><li>Coming soon!</li></ul>
+-->
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

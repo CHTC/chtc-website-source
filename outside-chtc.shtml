@@ -1,0 +1,122 @@
+<!--#set var="title" value="Accessing Additional Resources by Running Outside of CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This guide provides an introduction to running jobs outside of CHTC: 
+what resources are available, why using these resources is beneficial, 
+and how to use them.</p>
+
+<h1>1. What resources are available outside CHTC?</h1>
+
+<h2>A. The UW Grid</h2>
+
+<p>What we call the "UW Grid" is a collection of all the groups and centers 
+on campus that run their own high throughput computing pool that uses HTCondor.  
+Some of these groups include departments (Biochemistry, Statistics) or large 
+physics projects (IceCube, CMS).  Through agreements with these groups, jobs 
+submitted in CHTC can opt into running on these other campus pools if there
+is space.</p>
+
+<p>We call sending jobs to other pools on campus <i>flocking</i>.</p>
+
+<h2>B. The Open Science Grid (OSG)</h2>
+
+<p>The Open Science Grid (OSG) is a group of universities and research labs who have 
+agreed to share their unused computational resources with each other.  If a job is 
+submitted from an OSG submission point, it can run in the OSG pool associated with 
+that submission point.  This OSG pool is the result of going out to other members of 
+the OSG and finding if they have any unused computers that are available to run jobs. 
+These unused computers then form a pool of resources where jobs 
+can go run.</p>
+
+<p>CHTC is a member of the Open Science Grid, so our submit servers, besides sending 
+jobs to CHTC computers (the default), can send jobs to the OSG.  
+We call sending jobs to other institutions <i>gliding</i>.</p>
+
+<!--<h2>What is available in the OSG?</h2>
+
+<p>The computers available in the OSG change from day-to-day, even hour-to-hour, 
+as they're basically whatever computers are not being used by other universities 
+or labs or centers that belong to the OSG.</p>
+
+<p>However, there is a command to see what's available:</p>-->
+
+<h1>2. Why run on additional resources outside CHTC?</h1>
+
+<p>Running on other resources in addition to CHTC has one huge benefit: size!  
+The UW Grid and Open Science Grid include thousands of computers, addition to 
+what's already available in CHTC.  
+Most CHTC users who run on CHTC, the UW Grid, 
+and the OSG can get more than 100,000 computer hours in a single day.</p>
+
+<h1>3. Job Qualifications</h1>
+
+<p>Not all jobs will run well outside of CHTC.  Because these jobs are running all over 
+the campus or country, on computers that don't belong to us, 
+they have two major requirements: <p>
+
+<ul>
+  <li><b>No "large" data</b>: All of the files for your jobs are 
+  in your home directory and/or in SQUID, and 
+  output files are small enough to return to your home directory (less than 2 GB). We 
+  normally handle larger files in our Gluster filesystem which is only available 
+  from CHTC.  </li>
+  <li><b>Short or interruptable jobs</b>: Your job can run in under 8 hours -- 
+  either it finishes in that amount of 
+  time, or it self-checkpoints at least that frequently.  </li>
+</ul>
+
+<h1>4. Submitting Jobs to run outside CHTC</h1>
+
+<p>If your jobs meet the characteristics above and you would like to use either the 
+UW Grid or OSG to run jobs, in addition to CHTC, follow the following steps: </p>
+
+<h2>A. Test Your Jobs</h2>
+
+<p>You should run a small test (anywhere from 10-100 jobs) outside CHTC before 
+submitting your full workflow.  To do this, take a job submission that you 
+know runs successfully on CHTC.  Then add the following options: </p>
+
+<ol>
+  <li>To run on the UW Grid: <pre class="sub">+WantFlocking = true</pre></li>
+  <li>To run on the OSG: <pre class="sub">+WantGlidein = true</pre></li>
+  <li>To force your jobs outside of CHTC (for test purposes only!): <pre class="sub">requirements = (Poolname =!= "CHTC")</pre></li>
+<li><b>For jobs running R</b> do the following:
+<ol>
+<li><u>In your submit file</u>, add a link that will download a package of extra libraries:
+<pre class="sub">transfer_input_files = <i>other files</i>, http://proxy.chtc.wisc.edu/SQUID/SLIBS.tar.gz</pre>
+</li>
+<li><u>In your executable script</u>, add these lines that unzip the library package 
+and set it up in the job environment: 
+<pre class="file">tar -xzf SLIBS.tar.gz
+export LD_LIBRARY_PATH=$(pwd)/SS:$LD_LIBRARY_PATH
+</pre>
+</li>
+</ol></li>
+</ol>
+
+<p>We recommend that you run a separate test for the UW Grid and OSG if
+you are planning to use both. 
+If your submit file already has a <code>requirements = </code> line, you 
+can appending the <code>Poolname</code> requirement by using a double ampersand 
+(<code>&&</code>) and then the additional requirement</p>
+
+<p>Set the job submission to run anywhere from 10 - 100 jobs, and then submit.</p>
+
+<h2>B. Scaling Up</h2>
+
+<p>Once you have tested your jobs and they seem to be running successfully, 
+you are ready to submit a full batch of jobs that uses CHTC and the UW Grid/OSG.  Make sure your
+ submit file(s) has: </p>
+
+<ol>
+  <li>If using the UW Grid: 
+  <pre class="sub">+WantFlocking = true</pre></li>
+  <li>If using the OSG: 
+  <pre class="sub">+WantGlidein = true</pre></li>
+  <li><b>REMOVE</b> the <code>Poolname</code> requirement from the test jobs.</li>
+</ol>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

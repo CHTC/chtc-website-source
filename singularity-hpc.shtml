@@ -1,0 +1,82 @@
+<!--#set var="title" value="Using Software in a Container on the HPC Cluster"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>Software that is packaged in a "container" (Docker or Singularity) can 
+be run on the HPC cluster.  </p>
+
+<ol>
+	<li><a href="#container">Put the container on the cluster</a></li>
+	<li><a href="#command">Run a job that uses the container</a></li>
+</ol>
+
+<a name="container"></a>
+<h2>1. Downloading Containers</h2>
+
+<blockquote>
+<b>Note:</b> Until the HPC Cluster can be upgraded to a new version of 
+Singularity, the container that you use on the HPC cluster <b>must</b>
+contain a home directory with your username.  For now this means that 
+you'll need to create your own container that includes a command to 
+create this folder.  
+</blockquote>
+
+<p> We assume that there is a Docker or Singularity container (either 
+found or created by you) online that you want to use.  We recommend 
+downloading the container you want to use to your home directory in 
+the HPC cluster.</p>
+
+<p>To do this:
+
+<ol>
+ <li>Log in to <code>aci-service-2.chtc.wisc.edu</code>.</li>
+ <li>Download the container into a file.
+  <ul>
+  <li>To download a container that's on DockerHub, run: 
+  <pre class="term">[alice@service-2]$ singularity build <i>name</i>.simg docker://<i>user</i>/<i>image</i>:<i>version</i></pre></li>
+  <!--<li>To download a container that's on SingularityHub:  </li>-->
+  </ul>
+ </li>
+</ol>
+</p>
+
+<p>For example, if user "Alice" wanted to use 
+the <a href="https://hub.docker.com/r/fenicsproject/stable">"Fenics" container provided on DockerHub</a>, 
+and save it to a file named <code>fenics.simg</code>, she would run: 
+<pre class="term">[alice@service-2]$ singularity build fenics.simg docker://fenicsproject/stable:latest</pre>
+</p>
+
+<a name="lib"></a>
+<h1>2. Using Containers</h1>
+
+<p>To use a container in a job, the submit file will remain mostly the same; 
+what will change is the job's primary command at the end of the file.  This 
+command will run your primary program inside the container file 
+you've downloaded.</p>
+
+<pre class="sub">
+#!/bin/sh
+#SBATCH --partition=univ
+#SBATCH --time=0-04:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=16
+#SBATCH --mem-per-cpu=4000
+#SBATCH --error=job.%J.err
+#SBATCH --output=job.%J.out
+
+singularity exec <i>/path/to/container/file</i> <i>command-to-run</i>
+</pre>
+
+<p>For example, if Alice wanted to run a script she had written (<code>poisson.py</code>) inside 
+the downloaded fenics container, she would use the following command 
+at the end of her submit file: 
+
+<pre class="sub">
+singularity exec /home/alice/containers/fenics.simg poisson.py
+</pre>
+
+</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

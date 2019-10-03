@@ -1,0 +1,274 @@
+<!--#set var="title" value="Running Python Jobs on CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p><b>To best understand the below information, users 
+should already have an understanding of:</b>
+</p>
+<ul>
+	<li>Using the command line to: navigate within directories, 
+	create/copy/move/delete files and directories, and run their 
+	intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	to Running HTCondor Jobs</a></li>
+</ul>
+
+<h1>Overview</h1>
+
+<p>Many CHTC users have Python programs requiring Python versions that 
+are not installed 
+on CHTC's high throughput system, which includes the CHTC Pool, the UW Grid 
+(flocking) and the Open Science Grid (GlideIn).  Instead, you get to choose 
+the version of Python you want, and bring it along with your jobs.  
+
+<p>This guide details the steps needed to: 
+<ol>
+	<li><a href="#build">Build a Python installation for use in your jobs</a></li>
+	<li><a href="#script">Write a script that unpacks your Python installation and 
+		runs your Python code</a></li>
+	<li><a href="#submit">Submit jobs</a></li>
+</ol>
+</p>
+
+<a name="build"></a>
+<h1>1. Building a Python Installation</h1>
+
+<p>To run Python jobs, you will first need to build a Python installation for your 
+jobs to use.</p> 
+
+<a name="version"></a>
+<h2>A. Get the Python Version You Need</h2>
+
+<p>Before starting, locate the version of Python that you want to use 
+from <a href="https://www.python.org/downloads/source/">python.org</a>.  Transfer 
+or download the 
+appropriate source <code>.tgz</code> file to the submit server. 
+</p>
+
+<blockquote>
+<h3>Using Distributions</h3>
+
+<p>Instead of installing Python from source, it is also possible to create a Python 
+installation using a Python distribution.  Examples include 
+<a href="https://store.continuum.io/cshop/anaconda/">Anaconda and miniconda</a> (from 
+Continuum Analytics) and 
+<a href="https://www.enthought.com/products/canopy/">Enthought Canopy</a> 
+(from Enthought).  The only change to the instructions 
+below will be the source file (the distribution's install script, instead of 
+source code) and the exact commands required to create a local installation 
+(<a href="#install">Step 3</a> below).  Otherwise, 
+the process is nearly identical - install the Python distribution locally and 
+create a tarball of the installed directory.  </p>
+
+<p>One major drawback of using a distribution is the size of the installation - the 
+full Anaconda distribution is over 300 MB, whereas a Python installation from source
+with a few packages is less than 40 MB.</p>
+</blockquote>
+
+<a name="installing"></a>
+<h2>B. Create a Python Installation in an Interactive Job</h2>
+
+<p>Because a python installation can be computationally intensive, it should not be 
+performed on the submit server.  Instead, you can create your installation 
+on a build server (dedicated), by using an interactive job.  
+The interactive job is essentially a job without an executable; 
+you are the one running the commands instead (in this case, to install Python).
+Like a regular HTCondor job, once you finish our installation on the build server, 
+the output files (for us, our Python installation) will be transferred back to 
+the submit server so that you can use it to submit your jobs. </p>
+
+<ol>
+<a name="interactive"></a>
+<li><p><b>Submit an Interactive Build Job</b></p>
+<p>Instructions for submitting an interactive build job are 
+here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+Note that you should replace <code>source_code.tar.gz</code> with the name of 
+the Python source tarball that you downloaded.  If you downloaded additional source 
+code for modules in <a href="#version">part A</a>, you should list those in the 
+<code>transfer_input_files</code> line as well.</p>
+
+<p>Submit the interactive job and wait for it to start.</p>
+</li>
+
+<a name="install-dir"></a>
+<li><p><b>Prepare the Installation Directory</b></p>
+<p>Once the interactive job starts, create a directory 
+for the installation, which can be done with the <code>mkdir</code> command: 
+<pre class="term">[alice@build]$ mkdir python</pre>
+<p>Next, untar the source code that you transferred over.  
+In the command below, replace <code>python_source.tgz</code> 
+with the name of your Python tarball.  </p>
+<pre class="term">[alice@build]$ tar -xzf python_source.tgz</pre>
+</li>
+
+<a name="install"></a>
+<li><p><b>Install Python</b></p>
+
+<p>To install Python, we will run a configuration script that includes 
+an option to set the installation location.  We will set the location 
+to the directory we created above, and then complete the installation by 
+running <code>make</code>.  
+
+<p>Move into the untarred Python source directory 
+(it should be named something like "Python-#.#").</p>
+
+<pre class="term">[alice@build]$ cd Python-#.#</pre>
+
+<p>From that directory, type the following commands to compile and 
+install Python to the directory you created in step <a href="#install-dir">2</a>: 
+<pre class="term">[alice@build]$ ./configure --prefix=$(pwd)/../python
+[alice@build]$ make
+[alice@build]$ make install
+</pre></p>
+</li>
+
+<a name="check"></a>
+<li><p><b>Check the Installation</b></p>
+<p>Once these commands have finished executing, move back into the main working directory.  
+<pre class="term">[alice@build]$ cd ..</pre>
+Then, check the contents of your <code>python</code> directory.  It should 
+look like this: 
+<pre class="term">[alice@build]$ ls python 
+bin  include  lib  share</pre>
+</p>
+
+<p>Finally, make sure you have a python exectuable.  Run: 
+<pre class="term">[alice@build]$ ls python/bin </pre>
+You should see something like this: </p>
+<pre class="term">
+2to3              idle3    pydoc3     python3.4-config   pyenv
+2to3-3.4          idle3.4  pydoc3.4   python3.4m         pyenv-3.4
+easy_install-3.4  pip3.4   python3    python3.4m-config  
+f2py3.4           pip3     python3.4  python3-config
+</pre>
+
+<p>The number of items may vary, depending on which version of Python you 
+used. <b>If you do not see the plain <code>python</code> exectuable, 
+(as above), do the following:</b>
+<pre class="term">$ cp python/bin/python3 python/bin/python</pre>
+Replace "python3" with "python2", if that's the version you've installed.  Similarly, 
+if you see <code>pip3</code> but not just <code>pip</code>, do: 
+<pre class="term">$ cp python/bin/pip3 python/bin/pip</pre>
+</p>
+
+</li>
+
+<li><p><b>Install Modules</b></p>
+<p>If you are installing any additional modules, do so now: </p>
+
+<ol>
+   <li><p>Set your <code>PATH</code> variable to include your Python 
+installation: 
+<pre class="term">[alice@build]$ export PATH=$(pwd)/python/bin:$PATH </pre> </p>
+   </li>
+
+   <li>Make sure <code>pip</code> is installed.  If you saw it listed in 
+   <code>python/bin</code> in the previous step, you can move on to the next step.  If you 
+   don't see a version of <code>pip</code>, follow these steps to install 
+   it: 
+   
+   <blockquote>Go to <a href="https://pip.pypa.io/en/stable/installing/">the pip
+    documentation page</a> and follow the directions under 
+    "Installing with get-pip.py".  
+    You can download the <code>get-pip.py</code>
+    script by copying the link to the script and then typing: 
+    <pre class="term">[alice@build]$ wget http://link.to.get-pip.py
+[alice@build]$ python get-pip.py</pre></blockquote></li>
+
+   <li> <p>For each module needed by your code, run: 
+    <pre class="term">[alice@build]$ pip install module_name</pre>
+   pip should download all dependent packages and install them.  Certain
+   modules may take longer than others. </p>
+   </li>
+</ol>
+
+</li>
+
+<a name="tarball"></a>
+<li><p><b>Exit the Interactive Job</b></p>
+<p>Right now, if we exit the interactive job, nothing will be transferred back 
+because we haven't created any new <b>files</b> in the working directory, just 
+<b>sub-directories</b>.  In order to transfer back our installation, we will 
+need to compress it into a tarball file - not only will HTCondor then transfer 
+back the file, it is generally easier to transfer 
+a single, compressed tarball file than an uncompressed set of directories.</p>
+
+<p>Run the following command to create your own tarball of the installation: 
+<pre class="term">[alice@build]$ tar -czvf python.tar.gz python/</pre></p>
+
+<p>The installation is complete!  You can now exit the interactive job and the 
+tarball of your Python installation will return to the submit server with you.  </p>
+<pre class="term">[alice@build]$ exit </pre>
+</li>
+</ol>
+
+<a name="script"></a>
+<h1>2. Creating a Script</h1>
+
+<p> We now have a <code>python.tar.gz</code> file that contains our entire Python 
+installation.  In order to use this installation in our HTCondor jobs, we will need 
+to write a script that unpacks our Python installation and then runs our Python 
+code.  We will use this script as as the <code>executable</code> of our HTCondor 
+submit file.  </p>
+
+<p>A sample script appears below.  After the first line, the lines starting 
+with hash marks are comments . You should replace "myscript.py" with the name of
+the script you would like to run.  
+
+<pre class="file">
+#!/bin/bash
+
+# untar your Python installation
+tar -xzf python.tar.gz
+# make sure the script will use your Python installation, 
+# and the working directory as it's home location
+export PATH=$(pwd)/python/bin:$PATH
+mkdir home
+export HOME=$(pwd)/home
+# run your script
+python <i>my_script.py</i>
+</pre>
+</p>
+
+<p>If you have additional commands you would like to be run within the job, you 
+can add them to this base script.  Once your script does what you would like, give 
+it executable permissions by running: 
+<pre class="term">
+[alice@submit] chmod +x run_python.sh
+</pre>
+</p>
+
+<a name="submit"></a>
+<h1>3. Submitting Jobs</h1>
+
+A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+</a> example page.  You should make the following changes in order to run 
+Python jobs: 
+<ul>
+	<li> Your <code>executable</code> should be the script that you wrote 
+<a href="#script">above</a>.  </li>
+	<li> Change <code>transfer_input_files</code> to include your 
+	Python installation tarball (<code>python.tar.gz</code>), your 
+	Python scripts, and any input files your job needs.  </li>
+	
+<a name="squid"></a>
+<blockquote>
+<h3>How big is your installation tarball?</h3>
+
+<p>If your installation tarball is larger than 100 MB, you should NOT transfer 
+the tarball using <code>transfer_input_files</code>.  Instead, you should use 
+CHTC's web proxy, <code>squid</code>.  In order to request space 
+on <code>squid</code>, email the research computing facilitators at 
+<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
+</p>
+</blockquote>
+
+	<li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
+order to make sure your requests for a large batch are accurate!  
+Disk space and memory usage can be found in the log file after the job completes. </li>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

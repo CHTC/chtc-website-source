@@ -1,0 +1,466 @@
+<!--#set var="title" value="Submitting Jobs Using chtcjobwrapper"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!-- If you need to include additional information in the [head], do so here -->
+<style type="text/css"><!--
+div.arguments {
+	margin-left: 2em;
+}
+div.arguments h5 {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: -2em;
+	font-family: monospace;
+	font-size: 100%;
+}
+
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<p class="underconstruction">This page is under construction</p>
+
+<p>
+Getting your job to run requires submitting an HTCondor job.
+All HTCondor jobs specify details about the job
+in a file called a submit description file.
+These details include the executable's name, 
+file names of input files to the job, and where to place the output,
+Thus, job submission will require a submit description file that
+you construct to specify details of the job.
+</p>
+
+<p>It may be helpful to have an example submit file.  
+You can follow the directions given at 
+<a href="DAGenv.shtml">Submitting Jobs Using the DAG Environment</a>
+through step 4, 
+which runs the script <code>mkdag</code>.
+Running this script creates HTCondor submit description files.
+There are four working examples in that environment which combine
+the 4 most common jobs types and thus submit files for each.
+There are Matlab, R, Python or some Binary. Downloading this
+environment will also get you the needed perl script, called
+<code>chtcjobwrapper</code>.
+</p>
+
+<p>
+Since the submitted job may run on a machine at a site elsewhere
+in the world, and managed by OSG, there are quite a few
+details that need to be taken care of.
+As a job submitter, these details are taken care of on your behalf,
+such that you will never see them or need to be aware of them.
+But, in order to do so, a level of abstraction is introduced
+into the specification.
+Instead of directly submitting your executable as an HTCondor job,
+you submit a Perl script, 
+called <code>chtcjobwrapper</code> as an HTCondor job,
+and this Perl script does all the right things to get your job to run.
+The submit description file tells the <code>chtcjobwrapper</code> script
+everything it needs to know to be able to run your executable.
+</p>
+
+<p>
+Once the submit description file has been generated,
+and all needed files associated with the job have been staged,
+job submission is accomplished by issuing a command of the form
+</p>
+
+<pre>condor_submit jobwrapper.submit
+</pre>
+
+<p>
+where <code>jobwrapper.submit</code> is substituted
+with the name of the submit description file.
+</p>
+
+
+<h3>Example Submit Description File</h3>
+
+<p class="underconstruction">This section is under construction</p>
+
+<p>
+The submit description file that goes with the
+the <code>chtcjobwrapper</code> script
+specifies details about the HTCondor job.
+Here is a simple but complete submit description file that may be  
+copied and altered for a specific job. 
+Examples specific to Matlab, R, Python, and other uses can be 
+</p>
+
+<pre>
+# Assume the location is in the current directory.
+executable = chtcjobwrapper
+
+# Lots of information is specified as command line arguments to chtcjobwrapper:
+# The executable to be run is "smalljob".
+# This is a MATLAB job.
+# The --unique value helps to to ensure that output files for multiple jobs 
+# do not overwrite each other.  
+# The value of $(Cluster).$(Process) given is a reasonable default.
+arguments = --type=Matlab --version=r2011b --cmdtorun=smalljob --unique=$(Cluster).$(Process)
+
+# If I wanted to pass the argument "--my-argument=foo" to my program, 
+# I could do this.  Anything after the bare "--" is handed off to my
+# program unmodified.
+#arguments = --type=Matlab --version=r2011b --cmdtorun=smalljob --unique=$(Cluster).$(Process) -- --myargument=foo
+
+# Need to specify the executable and all other input files
+transfer_input_files = smalljob,sample_file.txt
+
+universe = vanilla
+
+# A file name for where stdout output of the job will go.
+output = myjob.out
+# A file name for where stderr output of the job will go.
+error = myjob.err
+# A file name for where a list of logged events about the job will go.
+log = myjob.log
+
+# Invoke the HTCondor file transfer mechanism, because there will not
+# be support for a shared file system.
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+notification = never
+
+# While optional, this makes it easier for CHTC staff to monitor 
+# our workload and make policy decisions based on what our users
+# are doing.
++Matlab = "r2011b"
+# Similarly, for R it would be something like this:
+#+R = "R-2.10.1"
+
+queue
+</pre>
+
+
+<h3>chtcjobwrapper details</h3>
+
+<p>
+You get the chtcjobwrapper by downloading the ChtcRun
+environment from the URL above. Don't be fooled by the
+simplicity of that script. All that the chtcjobwrapper
+does is collect the arguments, download the real wrapper
+(chtcinnerwrapper) and call it with the collected arguments.
+You can see a short amount of help by going:
+
+<code>chtcjobwrapper --help</code>
+</p>
+<p>
+<b>Why do we use nested wrappers like this?</b>
+This question came up recently and the answer is simple.
+The logistics of getting everyone who is currently using
+chtcjobwrapper a new improved version is a tough problem.
+When one considers the thousands of jobs using it at any
+one moment, this makes it even harder. This way we can replace
+the inner wrapper at anytime and the next time
+you use chtcjobwrapper the new functionality will be there.
+</p>
+<p>
+Once you have created the submit files for the kind 
+of jobs you want to run using the ChtcRun environment
+you can either use that environment of submit your
+jobs some other way. Below are explanations for 
+advanced usage of the chtcjobwrapper:
+</p>
+
+<h4>Arguments</h4>
+
+<div class="arguments">
+
+<h5>--</h5>
+
+<p>
+This argument is first because it is <b>very important</b>.
+There is a lot of command line processing within <b>chtcjobwrapper</b>.
+Yet there are times the program you want to run requires its 
+own very specific argument syntax.
+</p>
+
+<p>
+This argument is placed after the last chtcjobwrapper argument
+and this turns off its argument parsing and passes everything
+which follws directly to your program.
+
+<pre>chtcjobwrapper --type=Other --cmdtorun=bowtie --unique=666 -- -q  -n 2 -e 99999999 -l 25 -p 1 -a -m 200</pre>
+</p>
+<h5>--help</h5>
+
+<p>Print a short description of the accepted arguments.
+
+<h5>--type=xxxxxx</h5>
+<p>
+Required. This command allows changing the environment for the different types of jobs.
+</p>
+
+<ul>
+<li><code>--type=Matlab</code>
+<br>For MATLAB jobs. <code>chtcjobwrapper</code> will fetch and set up a MATLAB runtime environment for your job.
+</li>
+
+<li><code>--type=R</code>
+<br>For R jobs. <code>chtcjobwrapper</code> will fetch and set up an R runtime environment for your job.
+</li>
+
+<li><code>--type=Other</code>
+<br>For jobs that are neither MATLAB or R.
+<code>chtcjobwrapper</code> will set up a basic environment for your job.
+Python jobs are use the Other type.
+Note: the capital O in Other is mandatory.
+</li>
+
+</ul>
+
+<h5>--cmdtorun=xxxxxx</h5>
+
+<p>
+Required. The executable invoked by the <code>chtcjobwrapper</code> script.
+</p>
+
+<ul>
+<li><code>--cmdtorun=compiledmatlabprogram</code>
+<br>For Matlab jobs, this is your compiled Matlab program.
+<a href="http://chtc.cs.wisc.edu/MATLABandR.shtml">Documentation on
+compiling your Matlab program is available here.</a>
+</li>
+
+<li><code>--cmdtorun=myRentryscript.R</code>
+<br>For R jobs,  
+this will be your entry script which may call
+other R files.
+</li>
+
+<li><code>--cmdtorun=myPythonscript</code>
+<br>For Python jobs,  
+this will be your entry script which may call
+other Python files.
+<br>
+The entry script <em>must</em> start with this line:
+<br>
+<code>#!./python273/bin/python</code>
+</li>
+</ul>
+<p>
+You will have to add the file specified with --cmdtorun to the transfer_input_files list.
+</p>
+
+
+<h5>--version=xxxxxx</h5>
+<p>
+Require for MATLAB and R jobs; unused otherwise. This identifies the
+version of MATLAB or R your job requires.
+
+<p>
+For MATLAB jobs, the only currently supported version is specified
+with the argument 
+
+<pre>--version=r2011b</pre>
+
+<p>For R jobs, there are currently 4 versions supported;
+identify the correct one with one of these arguments:
+
+<ul>
+<li> <pre>--version=sl5-R-2.10.1</pre> </li>
+<li> <pre>--version=sl5-R-2.13.1</pre> </li>
+<li> <pre>--version=sl5-R-2.14.0</pre> </li>
+<li> <pre>--version=sl5-R-2.15.0</pre> </li>
+</ul>
+</p>
+
+<h5>--unique=xxxxxx</h5>
+<p>
+Optional. Specify a unique identifier for your job, used to avoid multiple jobs
+writing to the same file and potentially losing information.
+You can use $(Cluster).$(Process) as a reasonable default:
+
+<pre>--unique=$(Cluster).$(Process)</pre>
+
+<p>
+The <code>chtcjobwrapper</code> creates a log of everything that
+happens on the execute node. It creates a file called
+<code>ChtcWrapper.out</code>. Should you have more then one job 
+submitted from the same folder, the last job to return this file
+wins and the information from the other jobs is lost.
+<pre>--unique=1</pre>
+
+<p>Using this would have this job write the file <b>ChtcWrapper1.out</b>.
+
+<h5>--locateto=xxxxxx</h5>
+<p>
+Optional. If specified, chtjobwrapper will change to this directory
+before starting the program specified with cmdtorun. Most jobs will not use this option.
+
+<p>For example, if you need to run your job inside of the subdirectory
+<code>./myrunenv</code>, then you would use:
+
+<pre>--locateto=myrunenv</pre>
+
+<h5>--prescript=xxxxxx</h5>
+<p>
+Optional. Specifies an additional command to run on the execution computer before launching the program specified in cmdtorun.  Provides a last moment opportunity to do setup for your job.
+
+<pre>--prescript=myprescript</pre>
+
+<p>
+You will have to add the file specified with --prescript to the transfer_input_files list.
+</p>
+
+<h5>--prearg=xxxxxx</h5>
+<p>
+Optional. Specifies an additional argument to be passed to your prescript. You can pass multiple arguments by specifying --prearg multiple times.  For example, to invoke <code>myprescript 1 2 3</code> you could use:
+<pre>--prescript=myprescript --prearg=1 --prearg=2 --prearg=3</pre>
+
+<h5>--postscript=xxxxxx</h5>
+<p>
+Optional. Specifies an additional command to run on the execution computer after running the program specified in cmdtorun. Provides a final opportunity to do work like compressing results.
+
+<pre>--postscript=mypostscript</pre>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>--postarg=xxxxxx</h5>
+<p>
+Optional. Specifies an additional argument to be passed to your postscript. You can pass multiple arguments by specifying --postarg multiple times.  For example, to invoke <code>mypostscript 1 2 3</code> you could use:
+If your postscript needs arguments, they will be given in
+the order in which you use --postarg.
+<pre>--postscript=mypostscript --postarg=1 --postarg=2 --postarg=3</pre>
+
+</div><!-- arguments -->
+
+<h4>Special Files</h4>
+
+<p>Special files will need to be added to the transfer_input_files list.
+
+<div class="arguments">
+
+<h5>URLS</h5>
+
+<p>A list of relative URLs for files on our web cache to be downloaded before your job starts.
+
+<p>
+We offload the movement of large files to a proxy server
+so that the file can be requested from the execute node.
+Files that get used over and over might even get cached
+at a remote site for reuse. If your user name were <code>friendly</code>
+and we had given you a directory in /squid called <code>friendly</code>
+and you wanted access to the file <code>bigfile</code>
+The entry in the file <b>URLS</b> would be:
+<pre>friendly/bigfile</pre> 
+
+The above will get the file, bigfile, to the execute node before
+your job runs and before the prescript would be called. Every line in the file
+will generate a fetch of a file.
+</p>
+<p>
+NOTE: files fetched in this manner are added to the remove
+list and deleted before your results come back. See <b>REMOVE</b> file
+below for how to keep other files from coming back
+</p>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>REMOVE</h5>
+
+<p>A list of files, one per line, that will be deleted after you jobs finishes.
+
+<p>
+Frequently jobs generate files, some very big, which we do not
+need back. Or it may generate a file that we can run a postscript on
+to cut from the file all we care about from the file. These large files
+which you don't want can cause you to lack enough space for the data
+you do care about. So to get rid of the file <code>bigunwantedfile</code>,
+the entry in the file <b>REMOVE</b> would be:
+<pre>bigunwantedfile</pre>
+As with URLS, multiple lines can be used to remove 
+multiple files.
+</p>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>SLIBS.tar.gz</h5>
+
+<p>Additional libraries used by your program.  This archive must contain
+a single directory named "SS" containing the libraries needed. If present, chtcjobwrapper will extract the archive and automatically add the directory SS to your library search path (LD_LIBRARY_PATH).
+
+<p>To create an SLIBS.tar.gz, place all of the required libraries in a directory called "SS", then from the directory above run this command:
+<pre>tar -zcvf SLIBS.tar.gz SS</pre>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>CONTROL</h5>
+
+<p>A list of programs and arguments, one per line, to be run.
+
+<p>
+Sometimes we want to do either a number of short jobs
+on an execute node or perhaps three different processing steps.
+We can explicitly place a program to run and its arguments
+on each line. This works for each <code>--type</code>.
+</ul>
+As with URLS and REMOVE, multiple lines can be used to run 
+multiple programs.
+</p>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>ENV</h5>
+
+<p>
+Some software requires changes to the environment space on the execute
+node. This is often true of the <b>--type=Other</b> so we have a file
+which lets you set things directly in the environment. One of the methods 
+lets you set these variables relative to the HTCondor sandbox where
+your jobs run on an execute node. The syntax is like this:
+<ul>
+<li>
+<b>ENVVAR1,DIR-path/to/set</b>:	This sets this variable to sub directory on
+the execute node via a full path from / on the execute node.
+<li>
+<b>ENVVAR2,ENV-settothis</b>: This sets the variable exacly as set
+</ul>
+If you set the environment variable <b>PATH</b>, this new path will be added
+at the beginning of your default path on the execute node.
+
+
+A good example is Python. Below is the ENV file we use for our Python runtime:
+</p>
+<pre>
+PYTHONHOME,DIR-python273
+PYTHONPATH,DIR-python273
+PATH,DIR-python273/bin
+</pre>
+
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+<h5>RLIBS.tar.gz</h5>
+
+<p>
+This file is produced by <b>chtc_buildRlibs</b> which prepares non-standard
+R libraries to run with your R in our runtime for R. When chtcjobwrapper
+sees this file, it untars it and places the resulting folder into the places our R runtime
+is looking for R Libraries.
+</p>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<h5>SITEPACKS.tar.gz</h5>
+
+<p>
+This file is produced by <b>chtc_buildPythonmodules</b> which prepares non-standard
+Python modules. When chtcjobwrapper
+sees this file, it untars it and places those built modules into the site-packages
+of our Python runtime.
+</p>
+<p>
+You will have to add this file to the transfer_input_files list.
+</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

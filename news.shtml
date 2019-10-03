@@ -1,0 +1,15 @@
+<!--#set var="title" value="CHTC News"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!-- If you need to include additional information in the [head], do so here -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<P>
+The following links reference news-making events from the CHTC:
+<P>
+<ul>
+<li>July 31, 2012 <a href="http://www.news.wisc.edu/20913?utm_source=iUW&utm_medium=email&utm_campaign=iUW2012-07-31">Collaborative computing, pioneered at UW-Madison helped drive LHC analysis</a>
+<li>May 9, 2011 <a href="http://www.news.wisc.edu/19384">Red Hat honors UW-Madison partnership, contributes to research computing</a>
+</ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

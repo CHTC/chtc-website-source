@@ -1,0 +1,17 @@
+<!--#set var="title" value="Getting Started With the CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<script type="text/javascript">
+var RecaptchaOptions = {
+  theme: 'white'
+};
+</script>
+Anyone on the UW-Madison campus, and even off-campus collaborators, 
+may use the CHTC. In order to get started, we need some information 
+to understand how best to help you.
+<a href="http://chtc.cs.wisc.edu/form">Please fill out the form here</a>, 
+being as thorough as you can. 
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

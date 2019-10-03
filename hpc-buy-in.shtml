@@ -1,0 +1,49 @@
+<!--#set var="title" value="HPC Cluster Buy In Options"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>The <a href="http://chtc.cs.wisc.edu/">Center for High 
+Throughput Computing (CHTC)</a> now offers a buy-in 
+option for the campus-shared <a href="http://chtc.cs.wisc.edu/HPCuseguide.shtml">high 
+performance computing (HPC) Cluster</a>, 
+which includes a large, freely available portion initially funded with 
+support from the <a href="http://aci.wisc.edu/">Advanced Computing Initiative (ACI)</a>.</p>
+
+<p><b>Please contact <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, 
+if you would like to discuss 
+purchase options (especially if for a significant number of servers), 
+perhaps including hardware to be added to CHTC's HTC System.</b></p>
+
+<p>Purchases of a chassis of four homogeneous servers (each server with 128 
+GB RAM and 20 cores of 2.5 GHz) costs ~$23,000 and includes a minimum of 3 years 
+of support with priority access on a dedicated queue partition with many other support and hardware 
+hosting benefits, including:</p>
+
+<ul>
+<li>continued access to the freely-available cluster partitions</li>
+<li>fast Infiniband networking (56 Gbit/s) and the SLURM queueing system</li>
+<li>use of the cluster's shared Gluster file system with a starting value 
+of 100 GB of storage space, per user, and options for space increases</li>
+<li>server hosting: server room space, rack costs, power and cooling costs</li>
+<li>cluster administration and human support through the CHTC (Systems 
+Administrators and Research Computing Facilitators)</li>
+<li>free access to commonly-used software covered by campus licenses and the CHTC</li>
+<li>multi-group, license-sharing options for research-specific software</li>
+<li>resource sharing options for temporary, on-demand access to more cores</li>
+<li>automatic hardware upgrades when deemed necessary for the cluster*</li>
+</ul>
+
+<p>All chassis purchases are considered capitol equipment. To learn more 
+about the buy-in option, please contact the CHTC (chtc@cs.wisc.edu) or ACI 
+(ContactACI@lists.wisc.edu). Typically, prior use of the HPC Cluster 
+and a consultation with CHTC staff are required prior to pursuing a purchase.</p>
+
+<p>*Changes of hardware will always be for equivalent or better hardware 
+specifications with respect to RAM, processor speed, etc. "Owners" will 
+have priority on at least the number of cores they initially purchased.</p>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

@@ -1,0 +1,97 @@
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<title>The Center for High Throughput Computing</title>
+<style type="text/css"><!--
+div.announcement {
+	border: 1px solid black;
+	background-color: #FFFF88;
+	color: black;
+	padding: 0 1em;
+	margin: 1em 5em 1em 5em;
+}
+div.announcement h2 {
+	margin: 0;
+}
+div.announcement p {
+	background-color: transparent;
+	margin: 0.5em 0;
+}
+p.bigpara {
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0 2em;
+}
+--></style>
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<P>
+The Center for High Throughput Computing (CHTC) offers computing resources for use by researchers.
+Approved in August 2006, the CHTC provides the numerous resources at its disposal to keep up with the
+computational needs of UW-Madison. These resources are funded by the National Institute of Health (NIH),
+the Department of Energy (DOE), the National Science Foundation (NSF), and various grants from the University itself.  
+<p class="bigpara">
+These resources are provided to <em>all</em> UW-Madison researchers, <em>free of charge</em>.
+Even external collaborators with an on-campus sponsor may be given access to resources.
+</p>
+<p>
+<a href="http://research.cs.wisc.edu/htcondor/htc.html">High throughput computing (HTC)</a>
+is the shared utilization of autonomous resources toward a common goal,
+where all the elements are optimized for maximizing computational 
+throughput 
+(<a href="http://en.wikipedia.org/wiki/High-throughput_computing">Wikipedia entry</a>).
+View a <a href="includes/chtc_footage.wmv">Windows Media movie</a> interview with Miron Livny and other
+collaborators on the benefits of high throughput computing, or a <a href="includes/chtc.mov">Quicktime movie</a>
+that highlights several applications of HTC on the UW-Madison campus.
+You can also <a href="includes/chtc.mp3">listen</a> to an interview with Miron Livny and Brooklin Gore
+on the impact of High Throughput Computing to campus researchers, an excerpt from the
+<a href="http://itunes.apple.com/itunes-u/wid-challenge-transdisciplinary/id531782587?mt=2">Wisconsin Institutes for
+Discovery: Challenge of Transdisciplinary Science</a> pod cast series.
+
+<p>
+The CHTC facilitates access to an ever-growing set of resources. The UW campus computing grid is comprised of pools of
+machines approaching a total of 10,000 cores. From July 2011 to June 2012, the CHTC provided <strong>70 Million CPU hours</strong>
+to campus researchers and off-campus collaborators. Learn more in our
+<a href='includes/CHTC-Engagement-Report-2011-2012.pdf'>2011-2012 Engagement Report</a>
+ (<a href='includes/CHTC-Engagement-Report-2010-2011.pdf'>2010-2011 Report</a>).
+
+<p>
+<strong>The CHTC is home to or supports the following projects:</strong>
+<ul>
+<li>The <a href="http://research.cs.wisc.edu/htcondor/">HTCondor project</a> 
+provides the globally-used HTCondor software that powers the CHTC. HTCondor enables the CHTC to
+maximize job throughput for many simultaneous users, each with different needs. It supports
+complex workflows, the ability to take checkpoints and then resume jobs, and it enables access
+to additional computing resources across the globe.
+</li>
+<li> The <a href="http://www.batlab.org/">UW Build and Test Lab</a>
+ (BaTLab) is a multi-platform facility that promotes continuous building 
+and testing of software. HTCondor is built in the BaTLab, and the BaTLab helps us work toward our goal
+of deploying error-free, high quality software for the CHTC. The BaTLab is available to the general
+public.
+</li>
+<li>
+The <a href="http://www.opensciencegrid.org">Open Science Grid</a> 
+(OSG) is a high-throughput computing infrastructure that supports science. 
+It is an expanding alliance of more than 80 universities, national laboratories, 
+scientific collaborations, and software developers. 
+CHTC users can access OSG's considerable computing and storage resources.
+</li>
+<li>
+The <a href="http://www.neos-server.org">NEOS Online Optimization Service</a> 
+is a high-throughput computing infrastructure that provides solvers for a variety of
+optimization problems. It also provides a background on the field of optimization
+in general and includes several case studies that provide beginners with an understanding
+of optimization problems and approaches to solving them. NEOS is available to the general
+public.
+</li>
+</ul>
+
+<p>
+<a href="projects.shtml">Learn more</a>
+about how the CHTC has helped advance a diverse body of research on campus.
+</p>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,0 +1,189 @@
+<!--#set var="title" value="Large-Scale Computing Request Form"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<script type="text/javascript">
+  var onloadCallback = function() {
+    captcha_widget = grecaptcha.render('captcha_div', {
+      'sitekey' : '6Lf7h6sUAAAAAOEC0HhSCMg6I5enVQ8NbL-vv1KI'
+    });
+  };
+
+  function verifyCaptcha() {
+    if (grecaptcha.getResponse(captcha_widget) === "") {
+      alert("You must verify that you are not a bot before submitting this form");
+      return false;
+    } else {
+      document.chtcform.captcha.value = grecaptcha.getResponse(captcha_widget);
+      return true;
+    };
+  };
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+<p><b>Please fill out the below form in order to provide us with 
+information about the large-scale computing work you would like 
+to do</b> (to the best of your knowledge). Your request will be 
+received by a Research Computing Facilitator with the 
+Center for High Throughput Computing (CHTC), who will 
+contact you to set up a consultation, during which time 
+the relevant server accounts will be created. A faculty 
+sponsor (usually, a faculty advisor or project PI) will 
+need to be present for only the first meeting that CHTC has 
+with a new research group.</p>
+
+<p>New accounts for researchers in the same group (after that group 
+is initially set up) can be requested by filling out the below 
+form again. CHTC staff meet with all new users, and 
+meetings with multiple new users at the same time are even better, 
+in which case, a single form can be completed.</p>
+
+<p><b>Please note that if you are unsure of an answer to a 
+below question, you can answer 'I don't know'.</b> One of 
+CHTC's Research Computing Facilitators would be happy to help 
+you work out the details.</p>
+
+<FORM name="chtcform" action="http://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="return verifyCaptcha()">
+
+<h2>About you and your research:</h2>
+
+<table>
+<tr>
+	<td width="25%">Full Name:</td>
+	<td><INPUT type="text" name="FullName" size=24></td>
+</tr>
+<tr>
+	<td>UW NetID:</td>
+	<td><INPUT type="text" name="NetID" size=12>@wisc.edu (<a href="http://helpdesk.wisc.edu/page.php?id=4966" target="NetID">What is a NetID?</a>)</td>
+</tr>
+<tr>
+	<td>Preferred Email:</td>
+	<td><INPUT type="text" name="PrimaryEmail" size=24></td>
+</tr>
+<tr>
+	<td>Department:</td>
+	<td><INPUT type="text" name="Department" size=24></td>
+</tr>
+<tr>
+	<td>UW-Madison Faculty Sponsor (Principal Investigator) for
+your research:<br>
+<small>(Please enter "Self" if you are a faculty member and PI)</small></td>
+	<td><INPUT type="text" name="PIName" size=24></td>
+</tr>
+<tr><td colspan="2">
+	How did you hear about us? <br>
+	<TEXTAREA name="HowHeardAbout" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Best times to schedule an initial consultation? (The PI will need to be present 
+        if we haven't met with them before.) <br>
+	<TEXTAREA name="MeetTime" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Briefly describe your research to help us answer the question, "What research does CHTC help with?": <br>
+	<TEXTAREA name="ResearchDescription" rows="5" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Why do you need to use large-scale computing for this research? <br>
+	<TEXTAREA name="WhyCHTC" rows="5" cols="120">
+	</TEXTAREA>
+</td></tr>
+
+</table>
+
+<h2>About Your Computing Work</h2>
+
+<table>
+<tr><td colspan="2">
+	Program name(s) and coding language(s) <br>
+	<TEXTAREA name="Program" rows="3" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Are there any special dependencies or compiling considerations you've had to deal with? <br>
+	<TEXTAREA name="Dependencies" rows="5" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Tell us where you've run similar computing work before: desktop, shared cluster, etc.? Linux, Windows, Mac?  <br>
+	<TEXTAREA name="PreviousWork" rows="3" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+        Do you have interest in using GPUs, and/or have you used GPUs for similar work in the past?  <br>
+        <TEXTAREA name="GPUs" rows="3" cols="120">
+        </TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Do you typically run your program(s) with multiple processors working/communicating with one another? If so, how have you accomplished that? (OpenMP/MPI, etc?): <br>
+	<TEXTAREA name="Multicore" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Could your computing work be broken up into many separate, but complete 'pieces' that don't rely on one another? If so, how many pieces can this computing work be broken into? <br>
+	<TEXTAREA name="BreakApart" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Typical input and output size for each 'piece' (can be a range): <br>
+	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Typical RAM and number of CPU cores (or GPU model) you've used for each 'piece'? <br>
+	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	How long does one piece run in your typical setup? <br>
+	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Is there anything else you'd like to share about your computing practices or methods? <br>
+	<TEXTAREA name="WhyCHTC" rows="3" cols="120">
+	</TEXTAREA>
+</td></tr>
+<tr><td colspan="2">
+	Based upon information on our <a href="http://chtc.cs.wisc.edu/approach.shtml">
+	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br>
+	<dl>
+	<dd><input type="radio" name="computingtype">High-throughput</input></dd>
+	<dd><input type="radio" name="computingtype">High-performance</input></dd>
+	<dd><input type="radio" name="computingtype">Both</input></dd>
+	<dd><input type="radio" name="computingtype">I'm not sure</input></dd>
+	</dl>
+	</td></tr>
+</table>
+
+</br>
+
+<table>
+<tr>
+<td align="center">
+
+<INPUT type="hidden" name="captcha" value="">
+<div id="captcha_div"></div>
+
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<INPUT type="submit" value="SUBMIT">
+</td>
+</tr>
+</table>
+
+</form>
+
+<h2>
+If you do not receive an automated email from chtc@cs.wisc.edu within a few hours of completing the form,
+ OR if you do not receive a response from a human within two business days (M-F), please email chtc@cs.wisc.edu.
+</h2>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

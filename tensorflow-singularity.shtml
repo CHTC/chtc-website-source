@@ -1,0 +1,13 @@
+<!--#set var="title" value="Running Tensorflow Jobs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>The contents of the guide previously at this page are not 
+currently supported in CHTC, although there are plans to 
+re-integrate them in the future. For questions about running 
+Tensorflow in CHTC, email CHTC's Research Computing Facilitators 
+at chtc@cs.wisc.edu</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

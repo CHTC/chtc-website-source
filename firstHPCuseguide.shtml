@@ -1,0 +1,177 @@
+<!--#set var="title" value="Old HPC Cluster Basic Use Guide"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>
+<b>Please note that this guide version was retired on 2013-08-14 when the cluster 
+configuration, compiling instructions, and job submission instructions were 
+significantly changed. Please see the new guide 
+<a href="http://chtc.cs.wisc.edu/HPCuseguide.shtml">here</a>.</b></br>
+</br>
+The CHTC has partnered with the UW-Madison <a href="http://aci.wisc.edu/">
+Advanced Computing Infrastructure</a>  
+(ACI) in order to provide support for using the campus high-performance computing
+(HPC) cluster. Before using the campus-shared HPC Cluster, <b>you will need to 
+obtain access</b> by 
+filling out the <a href="http://aci.wisc.edu/large-scale-request/">
+Large-Scale Computing Request Form</a> on the ACI website.
+</p>
+<h1>Information About the Cluster</h1>
+<h2>Hardware</h2>
+<p>
+The HPC Cluster is made up of multiple 
+nodes, each with 16 cores and 4 GB of memory (RAM) per core. All 
+users log in at the "head node", and all nodes share a file sytem 
+(Gluster), which means that your programs and files will be accessible 
+on all of the nodes when your computing jobs run. Additionally, all 
+nodes are tightly connected so that they work together as a single 
+"supercomputer" depending on the number of cores you specify. You 
+can read more about the hardware configuration on the 
+<a href="http://aci.wisc.edu/services/large-scale/">ACI website</a>.
+</p>
+<h2>Logging In</h2>
+<p>
+You may log in to the cluster and transfer/move data through either head node 
+(aci-service-1.chtc.wisc.edu, or aci-service-2.chtc.wisc.edu). However, 
+you may only submit jobs from aci-service-1, and compiling should only be 
+performed on aci-service-2, where all compilers (including node-locked compilers) 
+are located.
+</p>
+<h2>Data Storage</h2>
+<p>
+<b>Storage space in the HPC file system is not 
+backed-up and should be treated as temporary by users</b>. Only files 
+necessary for actively-running jobs should be kept on the file system, 
+and files should be removed when they're no longer necessary for active 
+jobs. A copy of any essential files should be kept in an alternate 
+storage location. 
+</br></br>
+Each user is allocated 1 TB of storage space in their home directory 
+(/home/NetID/) and additional space for running jobs 
+in a scratch directory (/scratch/NetID/). <b>Inputs for 
+jobs should be copied from home to scratch, and output should be written to 
+that location while a job is running</b> so as not to overfill the user's quota 
+in their home directory with temporary files or with output that won't be 
+necessary after the job is completed. 
+</br></br>
+<b>When a job finishes, the scratch 
+directory should be cleaned out</b>. Input copies and unnecessary output 
+data should be deleted from the scratch location and necessary output 
+should be moved (not copied) to the user's home directory. When files are no 
+longer needed for active jobs, they should be copied to another location and 
+removed from the HPC file system.
+</p>
+<h2>Job Scheduling</h2>
+<p>
+The job scheduler on the HPC Cluster is SLURM. You can read more about 
+submitting jobs to the queue on 
+<a href="https://computing.llnl.gov/linux/slurm/documentation.html">
+SLURM's website</a>, but we have provided a simple guide below for getting 
+started.
+</p>
+<h1>Basic Use of the Cluster</h1>
+<h2>1. Log in to the cluster head node</h2>
+<p>
+Create an ssh connection to aci-service-1.chtc.wisc.edu using your UW-Madison 
+NetID and associated password.
+</p>
+<h2>2. Staging data</h2>
+<p>
+Necessary inputs for compiling code and running jobs should be initially 
+copied into the user's home directory (/home/NetID/). Prior to compiling 
+code or running jobs, necessary files should be copied to a suitable 
+location in the user's scratch directory (/scratch/NetID/).
+</p>
+<h2>3. Compiling code</h2>
+<p>All compiling should be performed on aci-service-2.chtc.wisc.edu (which you
+can ssh to from aci-service-1). The necessary compilers should all be accessible
+from this head node, and your files will still be accessible on the gluster
+file system.</br>
+</br>
+<b>If you're compiling MPI code</b></br>
+When compiling MPI code to run on the HPC Cluster, it is 
+necessary to use SLURM's MPI libraries by specifying a <code>-lpmi</code> 
+argument as shown in the following command-line examples using gcc and mpi 
+compilers:</br>
+</br>
+<code>$ gcc [args] -lpmi <i>executable</i></code></br>
+<code>$ mpicc [args] -lpmi <i>executable</i></code></br>
+<code>$ mpicc++ [args] -lpmi <i>executable</i></code></br>
+</br>
+In these examples, <code>[args]</code> indicates where your usual compiling 
+arguments go, and <code><i>executable</i></code> indicates where the executable 
+is named. When specifying the executable, it is best to use the absolute 
+location, as in <code>/scratch/lmichael/myjob/mpi.exe</code>. Otherwise, 
+make sure you have navigated to the location of the executable within your 
+scratch directory.</br>
+</br>
+Using the <code>-lpmi</code> argument will link your code with SLURM's built-in 
+MPI libraries, such that you will not need to specify an MPI executable (mpirun, 
+mpiexec, etc.) when submitting jobs to the queue. You can read more about SLURM's 
+MPI compatibility in the software's 
+<a href="https://computing.llnl.gov/linux/slurm/mpi_guide.html">MPI Use Guide</a>.
+</br>
+</br>
+<b>If you're compiling code without MPI</b></br>
+Compile as you normally would after copying necessary files to a suitable 
+location in your scratch directory.</br>
+</br>
+<b>In either case</b></br>
+If you get an error indicating that a suitable library was not found, try 
+compiling again with an additional <code>-static</code> argument. If you're 
+still having issues compiling (or need a compiler/version not already installed), 
+please send us an email at chtc@cs.wisc.edu. 
+</p>
+<h2>4. Submitting jobs</h2>
+<p>
+To submit your computing job to the SLURM queue, issue one of the following 
+commands:</br>
+</br>
+<code>$ srun -n <i>#cores</i> <i>executable</i> [args]</code></br>
+<code>$ srun -N <i>#nodes</i> <i>executable</i> [args]</code></br>
+</br>
+In the first example, <code>-n</code> is used to indicate an integer number of 
+cores (<code><i>#cores</i></code>) you'd like your executable to run on. 
+Alternatively, you may wish to run on a set number of nodes (16 cores per node, 
+4 GB RAM per core, 64 GB RAM per node) as indicated in the second example with 
+the <code>-N</code> argument. Remember that because you compiled with SLURM's MPI
+libraries, you do not need to indicate an MPI executable (mpirun, mpiexec, etc.).
+</br></br>
+<b>If you would like to run a single job using 
+64 cores or more, please contact us first</b> by sending an email to 
+chtc@cs.wisc.edu so that we may help determine the best way to run your job.</br>
+</br>
+If you would first like to test or debug your code on a single node (16 cores or 
+less), you can initiate an interactive shell on a worker node by issuing the 
+following command from the head node:</br>
+</br>
+<code>$ srun --pty bash</code></br>
+</br>
+After the interactive shell is created, you'll have access to files in your 
+home and scratch directories on the shared file system for interactive work. 
+<b>It is important to exit the interactive shell when you're done working by 
+typing <code>exit</code></b>.
+</p>
+<h2>5. Viewing jobs in the queue</h2>
+<p>
+To view jobs in the SLURM queue as they run, enter the following:</br>
+</br><code>$ squeue [-u <i>NetID</i>]</code></br>
+</br>
+In this example, including <code>-u <i>NetID</i></code> will produce 
+output showing only your jobs. Issuing <code>squeue</code> alone 
+will show all user jobs in the queue.
+</p>
+<h2>6. Killing jobs</h2>
+<p>
+After running <code>squeue</code>, you can kill your job with the following:</br>
+</br>
+<code>$ scancel <i>job#</i></code></br>
+</br>
+where <code><i>job#</i></code> is the number shown for your job in the <code>
+squeue</code> output.
+</p>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

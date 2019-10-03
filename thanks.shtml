@@ -1,0 +1,15 @@
+<!--#set var="title" value="Account Request Submitted"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+<script type="text/javascript">
+var RecaptchaOptions = {
+  theme: 'white'
+};
+</script>
+
+Thank you for your account request! A <a href="get-help.shtml">research 
+computing facilitator</a> will get in touch with you soon.
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
