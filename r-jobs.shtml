@@ -1,8 +1,8 @@
+---
+layout: default
+title: Running R Jobs on CHTC
+---
 <!--#set var="title" value="Running R Jobs on CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
 
 <p><b>To best understand the below information, users 
 should already have an understanding of:</b>
@@ -11,7 +11,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="/helloworld.shtml">The CHTC's Intro 
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -268,7 +268,4 @@ on <code>squid</code>, email the research computing facilitators at
 order to make sure your requests for a large batch are accurate!  
 Disk space and memory usage can be found in the log file after jobs complete. </li>
 </ul>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
-
 

@@ -1,8 +1,7 @@
-<!--#set var="title" value="Citing CHTC Resources"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Citing CHTC Resources
+---
 
 <h2>In a Publication</h2>
 	
@@ -93,5 +92,3 @@ Science Grid, and runs a Tier-2 computing center for the international CMS LHC e
 <br /><br />
 (Last updated Feb 27, 2016)</p>
 <br />
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,8 +1,8 @@
-<!--#set var="title" value="Available Positions"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Available Positions
+---
+
 <p>
 If advancing the state of the art of distributed computing in an academic environment interests you, 
 the Center for High Throughput Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a 
@@ -76,6 +76,5 @@ work with HTCondor. Searching for "HTCondor" in the link above, may turn up
 full-time CHTC-related jobs in other departments
 
 <P>
-<!-- #include virtual="/includes/Jobstext.htm" -->
 <hr>
-<!--#include virtual="/includes/template-5-finish.shtml" -->
+

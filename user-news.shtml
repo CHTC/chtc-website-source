@@ -1,8 +1,7 @@
-<!--#set var="title" value="User News"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: User News
+---
 
 <p>
 Below is a list of important user news updates, sorted by date.
@@ -235,6 +234,3 @@ actively-running jobs.</div><div><br></div><div>Thank you,</div><div>Your CHTC T
 <hr>
 <center><a class="twitter-timeline" data-width="800" data-height="500" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/CHTC_UW?ref_src=twsrc%5Etfw">Tweets by CHTC_UW</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
 </hr>
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

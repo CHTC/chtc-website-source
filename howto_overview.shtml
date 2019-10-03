@@ -1,17 +1,7 @@
-<!--#set var="title" value="CHTC Tools for R and Python Portability"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: CHTC Tools for R and Python Portability
+---
 
 <p>
 Software like Matlab, R, and Python may or may not exist on CHTC-accessible
@@ -23,18 +13,18 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 <h2>Running Matlab Jobs</h2>
 If you are running Matlab jobs, the following guide will explain how to compile your code and 
 edit the scripts necessary to run your jobs on the CHTC pool: <br> 
-<ul><li><a href="http://chtc.cs.wisc.edu/matlab-jobs.shtml">Running Matlab Jobs in CHTC</a></li></ul>
+<ul><li><a href="/matlab-jobs.shtml">Running Matlab Jobs in CHTC</a></li></ul>
 <h2>Running Python Jobs</h2>
 If you are running Python jobs, the following guide will explain how to 
 prepare your code and write a script to run your jobs 
 on the CHTC pool: <br> 
-<ul><li><a href="http://chtc.cs.wisc.edu/python-jobs.shtml">Running Python Jobs in CHTC</a></li></ul>
+<ul><li><a href="/python-jobs.shtml">Running Python Jobs in CHTC</a></li></ul>
 
 <h2>Running R Jobs</h2>
 If you are running R jobs, the following guide will explain how to 
 prepare your code and write a script to run your jobs 
 on the CHTC pool: <br> 
-<ul><li><a href="http://chtc.cs.wisc.edu/r-jobs.shtml">Running R Jobs in CHTC</a></li></ul>
+<ul><li><a href="/r-jobs.shtml">Running R Jobs in CHTC</a></li></ul>
 
 <h2>ChtcRun Portability Tools</h2>
 
@@ -42,5 +32,3 @@ on the CHTC pool: <br>
 in ChtcRun, and are looking for our previous user guides, see
 <a href="/howto_overview_prev.shtml">this page</a>.  
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

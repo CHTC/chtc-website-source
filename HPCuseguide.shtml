@@ -1,8 +1,7 @@
-<!--#set var="title" value="HPC Cluster Basic Use Guide"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: HPC Cluster Basic Use Guide
+---
 
 <p>
 The CHTC has partnered with the UW-Madison <a href="http://aci.wisc.edu/">
@@ -453,5 +452,3 @@ directory called "to_delete" in your home directory and move the problematic dir
 there.  Then send an email to chtc@cs.wisc.edu and we can remove the contents of 
 that folder. 
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
