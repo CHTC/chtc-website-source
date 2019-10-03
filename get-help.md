@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Get Help!
+redirect_from:
+  - /get-help.shtml
 ---
 
 <h3>There are multiple ways to get help from CHTC staff. See below:</h3>

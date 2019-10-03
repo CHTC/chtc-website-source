@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Running Your First CHTC Jobs
+redirect_from:
+   - /helloworld.shtml
 ---
 
 <p>
@@ -14,22 +16,15 @@ developed at the UW-Madison.
 </p>	
 	
 <h1>Contents</h1>
-<ol>
-	<li><a href="#first">Let's first do, and then ask why</a></li>
-  <li><a href="#else">What Else?</a>
+1.  <a href="#first">Let's first do, and then ask why</a>
+2.  <a href="#else">What Else?</a>
     <ul>
     <li><a href="#remove">Removing Jobs</a></li>	
     <li><a href="#importance">The Importance of Testing</a></li>
-    <li><a href="#resource">Getting the Right Resources</a></li>
-	
-	<li><a href="#homework">Time for a little homework</a>
-	  </ul></li>
-</ol>
+    <li><a href="#resource">Getting the Right Resources</a></li>	
+    <li><a href="#homework">Time for a little homework</a></li>
+    </ul>
 
-
-	
-	
-	
 <a name="first"></a>
 <h1>1. Let's first do, and then ask why</h1>
 <p>

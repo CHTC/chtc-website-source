@@ -10,3 +10,6 @@ defaults:
     values:
       layout: "default"
 
+plugins:
+  - jekyll-redirect-from
+
