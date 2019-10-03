@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+set -e
 
 BRANCH=master
 TARGET_REPO=chtc/chtc.github.io
@@ -8,6 +9,13 @@ JEKYLL_OUTPUT_FOLDER=_site
 echo "$TRAVIS_PULL_REQUEST"
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+    mkdir -p ~/.ssh
+    echo "github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
+    openssl aes-256-cbc -K $encrypted_641cbba37704_key -iv $encrypted_641cbba37704_iv -in deploy_key.enc -out deploy_key -d
+    mv deploy_key ~/.ssh/id_rsa
+    chmod 0600 ~/.ssh/id_rsa
+
     echo -e "Starting to deploy to Github Pages\n"
 
     if [ "$TRAVIS" == "true" ]; then
@@ -18,6 +26,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     #using token clone target repository
     git clone --quiet --branch=$BRANCH https://${GITHUB_TOKEN}@github.com/$TARGET_REPO built_website > /dev/null
     #go into directory and copy data we're interested in to that directory
+    mkdir -p built_website
     cd built_website
     rsync -rv --exclude=.git  ../_site/* .
     #add, commit and push files
