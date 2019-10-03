@@ -1,8 +1,7 @@
-<!--#set var="title" value="About CHTC Resources"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: About CHTC Resources
+---
 
 <p>As you saw from the <a href="approach.shtml">About Our Approach</a> document,
 the CHTC's resources are distributed across
@@ -43,11 +42,7 @@ machine resources.
 <strong>How many slots are available in the CHTC, and with how much RAM?</strong>
 <p>
 Because of the way we can configure slots with arbitrary amounts of available memory, this is a bit of a tricky question. 
-We try to maximize the number of available slots given <i>most</i> jobs' needs. The following table gives an <i>idea</i>
-of the relative number of slots with given memory for a typical day.
-<P>
-<!--#include virtual="/includes/cron-generated/dynamic-resources-noedit.html" -->
-<p>
+We try to maximize the number of available slots given _most_ jobs' needs.
 We can adjust, so if you have needs beyond what is currently offered, please get in touch with us. Speaking of adjustments, 
 we are working on an automated way to configure machine resources to match current job needs.  We use a technique that we
 call <i>dynamic slots</i>. Hopefully in the near future, you will not have to ask this question, because we will just make
@@ -83,4 +78,3 @@ We monitor the use of all our campus pools, as well as the OSG, to see if we are
 need. When total demand exceeds total supply, we will add resources. We also add resources when researchers have additional
 requirements that cannot be met with our current resources.
 <P>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

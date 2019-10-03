@@ -1,30 +1,7 @@
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<title>The Center for High Throughput Computing</title>
-<style type="text/css"><!--
-div.announcement {
-	border: 1px solid black;
-	background-color: #FFFF88;
-	color: black;
-	padding: 0 1em;
-	margin: 1em 5em 1em 5em;
-}
-div.announcement h2 {
-	margin: 0;
-}
-div.announcement p {
-	background-color: transparent;
-	margin: 0.5em 0;
-}
-p.bigpara {
-	font-size: 120%;
-	font-weight: bold;
-	margin: 0 2em;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: The Center for High Throughput Computing
+---
 
 <P>
 The Center for High Throughput Computing (CHTC) offers computing resources for use by researchers.
@@ -93,5 +70,3 @@ public.
 about how the CHTC has helped advance a diverse body of research on campus.
 </p>
 
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

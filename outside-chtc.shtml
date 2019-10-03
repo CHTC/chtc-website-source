@@ -1,8 +1,7 @@
-<!--#set var="title" value="Accessing Additional Resources by Running Outside of CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Accessing Additional Resources by Running Outside of CHTC
+---
 
 <p>This guide provides an introduction to running jobs outside of CHTC: 
 what resources are available, why using these resources is beneficial, 
@@ -119,4 +118,3 @@ you are ready to submit a full batch of jobs that uses CHTC and the UW Grid/OSG.
   <li><b>REMOVE</b> the <code>Poolname</code> requirement from the test jobs.</li>
 </ol>
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->

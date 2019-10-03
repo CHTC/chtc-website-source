@@ -1,9 +1,7 @@
-<!--#set var="title" value="CHTC News"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!-- If you need to include additional information in the [head], do so here -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: CHTC News
+---
 <P>
 The following links reference news-making events from the CHTC:
 <P>
@@ -12,4 +10,3 @@ The following links reference news-making events from the CHTC:
 <li>May 9, 2011 <a href="http://www.news.wisc.edu/19384">Red Hat honors UW-Madison partnership, contributes to research computing</a>
 </ul>
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->

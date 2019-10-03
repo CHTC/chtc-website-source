@@ -1,9 +1,7 @@
-<!--#set var="title" value="Submitting Multiple Jobs Using HTCondor"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Submitting Multiple Jobs Using HTCondor
+---
 
 <b>To best understand the below information, users should already have an understanding of:</b>
 <ol>
@@ -405,5 +403,3 @@ input.data  job.out
 [alice@submit]$ ls -F iowa/
 input.data  job.out
 </pre>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

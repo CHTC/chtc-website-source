@@ -1,8 +1,7 @@
-<!--#set var="title" value="Running MPI Jobs in CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Running MPI Jobs in CHTC
+---
 
 This guide describes when and how to run multi-core jobs, programmed 
 with MPI, in CHTC's high throughput compute (HTC) system.  
@@ -227,4 +226,3 @@ available via our modules.  If this is the case, send an email to <a href="chtc@
 to find out if we can install that library into the module system.
 </p>
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->

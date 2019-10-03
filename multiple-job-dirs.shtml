@@ -1,9 +1,7 @@
-<!--#set var="title" value="Submitting Multiple Jobs In Individual Directories"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Submitting Multiple Jobs in Individual Directories
+---
 
 </br>
 This guide demonstrates how to submit multiple jobs, using a specific 
@@ -115,6 +113,4 @@ word they share in the final queue statement in place of "job".  </p>
 
 <p>Jobs can then be submitted as described in our <a href="http://chtc.cs.wisc.edu/helloworld.shtml">
 Introduction to HTC Guide</a>, using <code>condor_submit</code>.  
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 
