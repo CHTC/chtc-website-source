@@ -4,6 +4,7 @@ rvm:
   - 2.6.3
 
 script: ./script/cibuild
+after_success: ./script/cideploy
 
 branches:
   only:
