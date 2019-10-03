@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BRANCH=master
 TARGET_REPO=chtc/chtc.github.io
