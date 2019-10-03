@@ -1,16 +1,13 @@
-<!--#set var="title" value="Using Gluster for Large Data and Software"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: file_avail
+title: Using Gluster for Large Data and Software
+---
 
 <p>CHTC maintains a Gluster file share, which should only be used for
 files or software that are too large for HTCondor file transfer or SQUID. 
 The below guide discusses how to use CHTC's Gluster option for jobs that
 use or produce very large files.</p>
 
-<!--#include virtual="/includes/template-file-avail.shtml"-->
 <p><h2>Contents</h2>
 <ol>
   <li><a href="#policy">Policies and Intended Use</a></li> 
@@ -298,4 +295,3 @@ the output will give you a total file count and allow you to navigate between
 subdirectories for even more details. Type <code>q</code> when you're ready to 
 exit the output viewer. More info here: 
 <a href="https://lintut.com/ncdu-check-disk-usage/">https://lintut.com/ncdu-check-disk-usage/</a>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

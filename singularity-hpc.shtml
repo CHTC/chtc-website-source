@@ -1,8 +1,7 @@
-<!--#set var="title" value="Using Software in a Container on the HPC Cluster"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Using Software in a Container on the HPC Cluster
+---
 
 <p>Software that is packaged in a "container" (Docker or Singularity) can 
 be run on the HPC cluster.  </p>
@@ -78,5 +77,3 @@ singularity exec /home/alice/containers/fenics.simg poisson.py
 </pre>
 
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

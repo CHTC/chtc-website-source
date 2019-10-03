@@ -1,8 +1,7 @@
-<!--#set var="title" value="Running Tensorflow Jobs"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Running Tensorflow Jobs
+---
 
 <p>This guide describes how to use a pre-built Tensorflow environment 
 (implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
@@ -119,5 +118,3 @@ or OSG, either as the CPU or GPU version.</p>
 <!-- and for GPUs on the OSG, 
 see the final section of <a href="/gpu-jobs.shtml">our GPU guide.</a>.-->
  </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

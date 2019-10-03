@@ -1,9 +1,7 @@
-<!--#set var="title" value="Learning About Your Jobs Using condor_q"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Learning About Your Jobs Using condor_q
+---
 
 The <code>condor_q</code> command can be used for much more than 
 just checking on whether your jobs are running or not!  Read on 
@@ -286,6 +284,4 @@ You should see something very similar to running <code>condor_q -hold</code>!</p
 <p>This page takes some of its content and formatting 
 from <a href="http://vivaldi.ll.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorUsefulCommands">this 
 HTCondor reference page</a>.</p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 

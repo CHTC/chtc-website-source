@@ -1,10 +1,7 @@
-<!--#set var="title" value="File Availability with Squid Web Proxy"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-<!--#include virtual="/includes/template-file-avail.shtml"-->
+---
+layout: file_avail
+title: File Availability with Squid Web Proxy
+---
 
 <h1>SQUID Web Proxy</h1>
 
@@ -113,5 +110,3 @@ href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 	</li>
 
 </ol>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

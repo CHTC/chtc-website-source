@@ -1,9 +1,7 @@
-<!--#set var="title" value="2011 Fall CHTC Showcase"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!-- If you need to include additional information in the [head], do so here -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: 2011 Fall CHTC Showcase
+---
 
 <h2>Free to all UW-Madison Campus Researchers</h2>
 
@@ -37,5 +35,3 @@
   <li>Jeff Klukas, Graduate Student in Physics, UW&ndash;Madison</li>
   <li>Jeff Nie, Computational Biologist, Morgridge Institute for Research</li>
 </ul>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

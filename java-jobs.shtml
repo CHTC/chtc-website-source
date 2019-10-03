@@ -1,8 +1,7 @@
-<!--#set var="title" value="Using Java Code in CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Using Java Code in CHTC
+---
 
 <h1>Overview</h1>
 
@@ -52,6 +51,4 @@ export PATH=$(pwd)/jdk-8u121-linux-x64/bin:$PATH
 export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
 java -jar <i>program.jar</i></pre>
 As in Step 2 above, the final line will vary, depending on your program.  </li>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 

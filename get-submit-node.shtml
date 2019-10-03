@@ -1,8 +1,8 @@
-<!--#set var="title" value="Getting a Submit Node"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Getting a Submit Node
+---
+
 <p>
 In order to submit jobs to our campus-wide collection of resources, you will need access
 to a submit node. There are several options for getting access to a submit node:
@@ -53,4 +53,3 @@ in our initial consultation.  To schedule an initial consultation, fill out our
 <a href="get-started.shtml">getting started</a> form.
 </p>
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->

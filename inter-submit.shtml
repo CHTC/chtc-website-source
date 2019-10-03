@@ -1,16 +1,7 @@
-<!--#set var="title" value="Compiling or Testing Code with an Interactive Job"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Compiling or Testing Code with an Interactive Job
+---
 
 <p>
 The CHTC has two "build" machines configured for compiling code 
@@ -175,4 +166,3 @@ location on the submit node from which you submitted the interactive
 job. Any new files (your new tarball) will have been copied back to 
 this location.
 </p>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

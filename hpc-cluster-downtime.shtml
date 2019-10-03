@@ -1,8 +1,7 @@
-<!--#set var="title" value="HPC Cluster Scheduled Downtime"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: HPC Clsuter Scheduled Downtime
+---
 
 <p><i>... if you only use CHTC's high-throughput computing (HTC) system via HTCondor 
 submission, you can ignore the following information ...</i></p>
@@ -310,5 +309,3 @@ The CHTC Team, chtc@cs.wisc.edu
 </p>
 END OF OLD NEWS-->
 
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

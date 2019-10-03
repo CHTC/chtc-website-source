@@ -1,12 +1,11 @@
-<!--#set var="title" value="HPC Cluster Buy In Options"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: HPC Clsuter Buy In Options
+---
 
-<p>The <a href="http://chtc.cs.wisc.edu/">Center for High 
+<p>The <a href="/">Center for High 
 Throughput Computing (CHTC)</a> now offers a buy-in 
-option for the campus-shared <a href="http://chtc.cs.wisc.edu/HPCuseguide.shtml">high 
+option for the campus-shared <a href="/HPCuseguide.shtml">high 
 performance computing (HPC) Cluster</a>, 
 which includes a large, freely available portion initially funded with 
 support from the <a href="http://aci.wisc.edu/">Advanced Computing Initiative (ACI)</a>.</p>
@@ -43,7 +42,4 @@ and a consultation with CHTC staff are required prior to pursuing a purchase.</p
 <p>*Changes of hardware will always be for equivalent or better hardware 
 specifications with respect to RAM, processor speed, etc. "Owners" will 
 have priority on at least the number of cores they initially purchased.</p>
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 

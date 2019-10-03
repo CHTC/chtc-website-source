@@ -1,8 +1,7 @@
-<!--#set var="title" value="Jobs That Use GPUs"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Jobs That Use GPUs
+---
 
 <h1>Overview</h1>
 
@@ -256,5 +255,3 @@ an example of how to do this in our <a href="/os-transition.shtml">Operating Sys
 are available on the OSG.  See <a href="/scaling-htc.shtml">this guide</a> to know whether your jobs are 
 good candidates for the OSG and then get in touch with CHTC's Research Computing 
 Facilitators to discuss details. </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,8 +1,7 @@
-<!--#set var="title" value="CHTC Projects"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: CHTC Projects
+---
 
 <b>As part of it's many services to UW-Madison and beyond, the CHTC is home to or supports the following projects:</b>
 
@@ -57,5 +56,3 @@
 
 <p><a href="/projects.shtml">Learn more</a>
 about how the CHTC has helped advance a diverse body of research on campus.</p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

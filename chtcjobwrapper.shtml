@@ -1,23 +1,7 @@
-<!--#set var="title" value="Submitting Jobs Using chtcjobwrapper"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!-- If you need to include additional information in the [head], do so here -->
-<style type="text/css"><!--
-div.arguments {
-	margin-left: 2em;
-}
-div.arguments h5 {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: -2em;
-	font-family: monospace;
-	font-size: 100%;
-}
-
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Submitting Jobs Using chtcjobwrapper
+---
 
 <p class="underconstruction">This page is under construction</p>
 
@@ -462,5 +446,3 @@ of our Python runtime.
 <p>
 You will have to add this file to the transfer_input_files list.
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

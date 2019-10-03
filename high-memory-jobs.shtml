@@ -1,10 +1,7 @@
-<!--#set var="title" value="Submitting High Memory Jobs on CHTC's HTC System"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Submitting High Memory Jobs on CHTC's HTC System
+---
 
 <b>The examples and information in the below guide are useful ONLY if:</b><br>
 <ul>
@@ -263,6 +260,3 @@ cp trinity_out_dir.tar.gz trinity_stdout.txt /mnt/gluster/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END</pre>
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
