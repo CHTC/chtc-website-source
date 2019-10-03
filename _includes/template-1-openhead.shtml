@@ -18,6 +18,4 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
-<!--#if expr="x$title != x"-->
-<title><!--#echo var="title"--> - Center for High Throughput Computing</title>
-<!--#endif-->
+<title>{{ page.title }}</title>

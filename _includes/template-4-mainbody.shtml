@@ -28,6 +28,4 @@ Click for details
 
 <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
-<!--#if expr="x$title != x"-->
-<h1><!--#echo var="title"--></h1>
-<!--#endif-->
+<h1>{{ page.title }}</h1>
