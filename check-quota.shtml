@@ -1,16 +1,7 @@
-<!--#set var="title" value="Checking Disk Quota and Usage"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Checking Disk Quota and Usage
+---
 
 <p>
 The following commands will allow you to monitor the amount of disk
@@ -78,4 +69,3 @@ directory <code>dir</code>:
 7.1K    dir
 </pre>
 </p>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

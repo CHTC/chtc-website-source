@@ -1,8 +1,7 @@
-<!--#set var="title" value="Large-Scale Computing Request Form"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Large-Scale Computing Request Form
+---
 
 <script type="text/javascript">
   var onloadCallback = function() {
@@ -150,7 +149,7 @@ your research:<br>
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
-	Based upon information on our <a href="http://chtc.cs.wisc.edu/approach.shtml">
+	Based upon information on our <a href="/approach.shtml">
 	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br>
 	<dl>
 	<dd><input type="radio" name="computingtype">High-throughput</input></dd>
@@ -185,5 +184,3 @@ your research:<br>
 If you do not receive an automated email from chtc@cs.wisc.edu within a few hours of completing the form,
  OR if you do not receive a response from a human within two business days (M-F), please email chtc@cs.wisc.edu.
 </h2>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

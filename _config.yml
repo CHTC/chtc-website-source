@@ -1,3 +1,3 @@
 
-exclude: [vendor]
+exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
 

@@ -1,8 +1,7 @@
-<!--#set var="title" value="Running Python Jobs on CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Running Python Jobs on CHTC
+---
 
 <p><b>To best understand the below information, users 
 should already have an understanding of:</b>
@@ -11,7 +10,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="/helloworld.shtml">The CHTC's Intro 
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -83,7 +82,7 @@ the submit server so that you can use it to submit your jobs. </p>
 <a name="interactive"></a>
 <li><p><b>Submit an Interactive Build Job</b></p>
 <p>Instructions for submitting an interactive build job are 
-here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+here: <a href="/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
 Note that you should replace <code>source_code.tar.gz</code> with the name of 
 the Python source tarball that you downloaded.  If you downloaded additional source 
 code for modules in <a href="#version">part A</a>, you should list those in the 
@@ -269,6 +268,3 @@ on <code>squid</code>, email the research computing facilitators at
 order to make sure your requests for a large batch are accurate!  
 Disk space and memory usage can be found in the log file after the job completes. </li>
 </ul>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
-

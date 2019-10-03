@@ -1,8 +1,8 @@
-<!--#set var="title" value="Using CHTC's HTC Submit Servers"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Using CHTC's HTC Submit Servers
+---
+
 <p><b>If you have not yet requested a CHTC account and met with a 
 Research Computing Facilitator, please fill out <a href="/form.shtml">
 this form</a>.</b></p>
@@ -42,7 +42,7 @@ Because our submit servers are shared by many CHTC users, anyone with an
 <li><strong>Do not run programs on the submit server.</strong> The submit server
  is kept plenty busy just managing HTCondor jobs. Computational work,
  like compiling code, should be submitted as HTCondor jobs. See our
- <a href="http://chtc.cs.wisc.edu/guides.shtml">online guides</a>
+ <a href="/guides.shtml">online guides</a>
  for the best compiling practices. Small scripts and commands (to compress data,
  create directories, etc.) that run within a
  few minutes on the submit server are okay, but their use should be minimized when possible.
@@ -60,7 +60,7 @@ that many jobs in a way that will ensure you have as many jobs running
 as possible without also compromising the queue.</li>
 <li><strong>There is a 20 GB disk quota</strong> in your <code>/home</code>
  directory, by default. You can track your use of disk space, and your quota
- value, using our <a href="http://chtc.cs.wisc.edu/check-quota.shtml">Quota
+ value, using our <a href="/check-quota.shtml">Quota
  Guide</a>. If you need more space for concurrent work, please send an email
  to chtc@cs.wisc.edu.
 <li><strong>Submitting jobs with "large" files:</strong> Please do not
@@ -68,7 +68,7 @@ as possible without also compromising the queue.</li>
  HTCondor's normal file transfer mechanism ("transfer_input_files"),
  or that produce output files greater than a few GB. For such jobs
  with large files, please see our guide on
- <a href="http://chtc.cs.wisc.edu/file-availability.shtml">File Availability</a>
+ <a href="/file-availability.shtml">File Availability</a>
  Options, and contact us to make arrangements.
 <li><strong>No scheduled jobs.</strong> Local execution and job
  submission should be manual, or use a DAG. Do not use cron to
@@ -77,4 +77,3 @@ as possible without also compromising the queue.</li>
  if you need job scheduling.
 </ul>
 </p>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

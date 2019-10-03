@@ -1,9 +1,7 @@
-<!--#set var="title" value="Connecting to CHTC"-->
-
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Connecting to CHTC
+---
 
 This guide assumes that you have already gotten a CHTC account for either 
 our high throughput or high performance compute systems.  If you haven't, 
@@ -244,5 +242,3 @@ Unix Shell</a> lesson.  In particular, we recommend the sections on: </p>
 <li>writing shell scripts (<a href="http://swcarpentry.github.io/shell-novice/06-script/">Shell Scripts</a>) </li>
 </ul>
 
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,10 +1,7 @@
-<!--#set var="title" value="CHTC Job Policy Description"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!-- If you need to include additional information in the [head], do so here -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: CHTC Job Policy Description
+---
 
 <P>
 These policies relate to the general resources which were funded by <b>WARF</b>
@@ -37,5 +34,3 @@ policy currently weights all identified groups equal to the weight of one indivi
 User priority is calculated with a 3 day half life.
 </li>
 </ul>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,8 +1,7 @@
-<!--#set var="title" value="Running Your First CHTC Job"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Running Your First CHTC Job
+---
 
 <p>
 So, you have access to a submit machine, 
@@ -298,5 +297,3 @@ Remember, we are here to help.
 Don't hesitate to contact us at
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with questions.
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

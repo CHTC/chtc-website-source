@@ -1,10 +1,7 @@
-<!-- Set the [title] of your page here. -->
-<!--#set var="title" value="SET THE TITLE OF THE PAGE HERE"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!-- If you need to include additional information in the [head], do so here -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: TEMPLATE PAGE
+---
 
 <!-- The body of your page goes here -->
 
@@ -12,4 +9,3 @@
 
 <p>In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis fringilla elit et felis consectetur dictum. Aliquam libero neque, tempor a elementum eu, vestibulum at tortor. Praesent lectus eros, bibendum a euismod vel, mattis eget dolor. Pellentesque metus est, luctus sit amet mollis eu, mollis vehicula orci. Nulla imperdiet tempor quam, id fringilla augue interdum sit amet. Donec lectus leo, ultrices ac laoreet ac, venenatis at tortor. Pellentesque lobortis nunc eget justo condimentum ornare.
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->

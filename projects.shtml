@@ -1,8 +1,7 @@
-<!--#set var="title" value="Projects Using the CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Projects Using the CHTC
+---
 
 <table>
 <tr>
@@ -252,5 +251,3 @@ CHTC can help, to let us run more jobs than we're able to run now.
 </tr>
 
 </table>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

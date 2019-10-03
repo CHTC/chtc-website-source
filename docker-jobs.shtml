@@ -1,8 +1,7 @@
-<!--#set var="title" value="Docker Jobs"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Docker Jobs
+---
 
 <p>Linux containers are a way to build a self-contained environment that includes 
 software, libraries, and other tools.  This 
@@ -104,6 +103,4 @@ executable and input files) should be just like a non-Docker job submission;
 the only change may be that your executable no longer needs to 
 install or unpack your software, since it will already be present in 
 the Docker container.</p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 

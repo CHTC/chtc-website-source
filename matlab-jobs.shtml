@@ -1,8 +1,7 @@
-<!--#set var="title" value="Running Matlab Jobs on CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Running Matlab Jobs on CHTC
+---
 
 <p><b>The examples and information in this guide work best for the below cases*:</b>
 </p>
@@ -16,7 +15,7 @@
 </p>
 <ul>
 	<li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
+	<li><a href="/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
 </ul>
 
 <h1>Overview</h1>
@@ -54,7 +53,7 @@ The session is essentially a job without an executable;
 <h2>A. Start an Interactive Build Job</h2>
 
 <p>Instructions for submitting an interactive build 
-job are here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
+job are here: <a href="/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
 to do Step 2 (Creating Interactive Submit Files), and the first command of Step 3
 (Submitting and Working Interactively).<br>
 For Step 2, you'll need to change <code>transfer_input_files</code> to 
@@ -245,6 +244,4 @@ generator so that it produces different random values when Matlab
 runs for the first time.  Deliberately choosing your own different
 random seed values for each job can be another way to ensure different 
 results.</p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 

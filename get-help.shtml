@@ -1,8 +1,7 @@
-<!--#set var="title" value="Get Help!"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Get Help!
+---
 
 <h3>There are multiple ways to get help from CHTC staff. See below:</h3>
 <a name="research"></a>
@@ -91,4 +90,3 @@ Office hours are cancelled on <b>Wednesday, August 28</b>.
 <!--
 <h2>Other resources on campus</h2>
 -->
-<!--#include virtual="/includes/template-5-finish.shtml" -->

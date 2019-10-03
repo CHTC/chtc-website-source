@@ -1,8 +1,7 @@
-<!--#set var="title" value="Computing Guides"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Computing Guides
+---
 
 <p>
 Below is a list of guides for some of the most common tasks our users need to
@@ -174,5 +173,3 @@ through the process of using the cluster, step-by-step.</p> -->
 
 <hr>
 <a href="/icon_credits.shtml">Icon Credits</a>
-<!--#include virtual="/includes/template-5-finish.shtml" -->
-

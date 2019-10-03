@@ -1,17 +1,7 @@
-<!--#set var="title" value="HTC System Use Guides"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: HTC System Use Guides
+---
 
 <p>This page lists all of our online resources for running work on the 
 CHTC's high throughput system.  </p>
@@ -60,5 +50,3 @@ our <a href="#faq">FAQs</a>.  </p>
 
 <ul><li>Coming soon!</li></ul>
 -->
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

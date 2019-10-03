@@ -1,8 +1,7 @@
-<!--#set var="title" value="Importance of Testing"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Importance of Testing
+---
 
 <p>Running your code in test jobs before submitting large job batches 
 is CRUCIAL to effective high-throughput computing.  </p>
@@ -173,5 +172,3 @@ used and can be used to fine-tune your requests for memory and disk.
 If you didn't keep track yourself, the log file also lists when the 
 job started to execute, and when it ended, thus the length of time 
 required for completion.  </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

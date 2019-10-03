@@ -1,8 +1,8 @@
-<!--#set var="title" value="About Our Approach"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: About Our Approach
+---
+
 <P>
 CHTC supports a variety of computation modes, but our specialty is
  High <i>Throughput</i> Computing (HTC), which involves
@@ -47,4 +47,3 @@ thing we offer is, well, us.  We have a small, yet dedicated team of professiona
 Simply <a href="get-started.shtml">request an account</a>, and one of our dedicated Research Computing Facilitators will follow 
 up to provide specific recommendations to accelerate YOUR science.
 <P>
-<!--#include virtual="/includes/template-5-finish.shtml" -->

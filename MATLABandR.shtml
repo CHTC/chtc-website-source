@@ -1,17 +1,7 @@
-<!--#set var="title" value="Compiling Matlab, Python and R Code"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Compiling Matlab, Python, and R Code
+---
 
 <p>
 Running MATLAB, Python, or R under CHTC almost always requires a two-step process.
@@ -319,7 +309,3 @@ yum install chtc-utils
 After installation, the scripts will be in <code>/usr/bin</code>.
 </p>
 
-
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

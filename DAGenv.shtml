@@ -1,17 +1,7 @@
-<!--#set var="title" value="Submitting Jobs Using the ChtcRun Package"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Submitting Jobs Using the ChtcRun Package
+---
 
 <p>To facilitate the submission of large batches of jobs, especially
  batches for Matlab, Python, and R, the CHTC has created the ChtcRun
@@ -29,7 +19,7 @@ li {
 
 <li>From within your home directory on the submit node, in a directory of your choice, 
 download the ChtcRun package:
-<pre>wget <a href="http://chtc.cs.wisc.edu/downloads/ChtcRun.tar.gz">http://chtc.cs.wisc.edu/downloads/ChtcRun.tar.gz</a></pre>
+<pre>wget <a href="/downloads/ChtcRun.tar.gz">http://chtc.cs.wisc.edu/downloads/ChtcRun.tar.gz</a></pre>
 
 <p>Unpack the ChtcRun package.  
 This will create a <code>ChtcRun</code> subdirectory.
@@ -319,7 +309,3 @@ This submits and runs the batch of job(s) you setup in the
 </li>
 
 </ol>
-
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

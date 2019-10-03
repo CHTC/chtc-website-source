@@ -1,8 +1,7 @@
-<!--#set var="title" value="MPI Use Guide"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: MPI Use Guide
+---
 
 <h1>Contents</h1>
 <ol>
@@ -116,5 +115,3 @@ it runs, we recommend adding the <code>module load</code> command to your
 submit file, with the appropriate modules.  See our sample submit file in 
 the <a href="/HPCuseguide.shtml#batch-job">HPC Use Guide</a> to see what this looks like.
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->

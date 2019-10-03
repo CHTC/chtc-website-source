@@ -1,14 +1,12 @@
-<!--#set var="title" value="Running Your First CHTC Jobs"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
-
+---
+layout: default
+title: Running Your First CHTC Jobs
+---
 
 <p>
 So, you have an account on a submit node,
 and you are ready to run your first job in the CHTC. 
-As we described in <a href="http://chtc.cs.wisc.edu/approach.shtml">Our Approach</a>, 
+As we described in <a href="/approach.shtml">Our Approach</a>, 
 the CHTC is a collection of distributed resources. 
 The magic that enables you to run jobs on these resources is software, 
 called <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>,
@@ -384,5 +382,3 @@ Remember, we are here to help.
 Don't hesitate to contact us at
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with questions.
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
