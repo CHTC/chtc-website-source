@@ -10,7 +10,7 @@ built in to HTCondor job scheduling. You can see HTCondor file transfer as intro
 in our "Intro to Running HTCondor Jobs" and in the 
 <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
 
-{% include _include/template-file-avail.shtml %}
+{% include _includes/template-file-avail.shtml %}
 
 <p><h2>Contents</h2>
 <ol>
