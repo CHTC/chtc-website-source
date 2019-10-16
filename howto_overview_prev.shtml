@@ -1,16 +1,7 @@
-<!--#set var="title" value="CHTC Tools for Matlab, R, and Python Portability"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<style type="text/css"><!--
-li {
-	margin-top: 0.5em;
-}
-.tight li {
-	margin-top: 0;
-}
---></style>
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: CHTC Tools for Matlab, R, and Python Portability
+---
 
 
 <p>The following pages are user guides for our previous set of software 
@@ -40,4 +31,3 @@ remain posted for any users who may still be using these particular tools. </p>
 </ul>
 
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->
