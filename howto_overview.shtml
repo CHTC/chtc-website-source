@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: CHTC Tools for R and Python Portability
@@ -45,5 +44,3 @@ on the CHTC pool: <br>
 in ChtcRun, and are looking for our previous user guides, see
 <a href="/howto_overview_prev.shtml">this page</a>.  
 </p>
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
