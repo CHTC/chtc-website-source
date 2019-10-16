@@ -1,0 +1,109 @@
+<!--#set var="title" value="Using Gluster for Large Input Files"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>The below guide discusses how to use CHTC's Gluster option for jobs that 
+use or produce very large files.</p>
+
+<b>To best understand the below information, users 
+should already be familiar with:</b><br>
+<ol>
+	<li>Using the command-line to: navigate directories, 
+	create/edit/copy/move/delete files and directories, 
+	and run intended programs (aka "executables").</li>
+	<li>CHTC's <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's guides for In-job File Handling and 
+	<a href="/file-availability.shtml">File Availability Options</a></li>
+</ol>
+
+<h2>Knowing When/Why to Use Gluster</h2>
+<p> Make sure to see our <a href="/file-avail-gluster.shtml">
+File Availability guide</a>, for additional discussion 
+of Gluster, as compared to other CHTC options.</p>
+
+
+<a name="staging"></a>
+<h1>1. Staging files within Gluster:</h1>
+<p> After obtaining a user directory within <code>/mnt/gluster</code> on a 
+CHTC-administered submit server, copy relevant files directly 
+into this user directory from your own computer:</p>
+
+<p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
+<pre>$ scp large.file username@submit-5.chtc.wisc.edu:/mnt/gluster/username/</pre>
+
+<p>If using a Windows computer:</p>
+<p>Using a file transfer application, like WinSCP, directly drag the large 
+file from its location on your computer to a location within 
+<code>/mnt/gluster/username/</code> on the submit server.</p>
+
+<a name="submit"></a>
+<h1>2. Submission and Submit File Implications</h1>
+
+<!--#include virtual="/dev_website/gluster-sub-template.shtml" -->
+
+<a name="input"></a>
+<h1>3. Using files in Gluster from within a job</h1>
+
+<p>As stated in <a href="#submit">#2</a>, all interaction with 
+files in <code>/mnt/gluster</code> 
+should occur within your designated "executable", when it runs. 
+Therefore, there are two options for having steps within your 
+executable read from Gluster-staged files.</p>
+
+<a name="input-direct"></a>
+<h2>A. Option 1: Read input files DIRECTLY from their location in Gluster 
+(best option, if possible)</h2>
+
+<p>Essentially, your executable to should refer to Gluster-located files 
+using the ABSOLUTE PATH (e.g. <code>/mnt/gluster/username/large_input.txt</code>)</p>
+
+<p>Example, if executable is a unix shell (bash) script:</p>
+
+<pre>#!/bin/bash
+#
+# script to run myprogram, 
+# which was transferred from my home directory and reads in a large file from Gluster
+./myprogram /mnt/gluster/username/large_input.txt myoutput.txt
+# END</pre>
+
+<a name="input-copy"></a>
+<h2>B. Option 2: Copy files from Gluster into the working directory (only if needed)</h2>
+
+<p>In rare instances, the software you're using may not be able to 
+read files from an absolute path like <code>/mnt/gluster</code>, and may only 
+be able to read files from within or relative to the job's working 
+directory (on the execute server). Please feel free to write to us 
+if you think your software cannot read files directly from 
+<code>/mnt/gluster</code>. We're happy to help you know for sure. </p>
+
+<p>In such cases, you can simply copy the large file into the 
+working directory, have your executable use it from the working 
+directory location, and then make sure to remove this large 
+file from the working directory so that it's not transferred 
+back to the home directory, like all other "new" files in 
+the working directory will be.</p>
+
+<p>Example, if "<code>myprogram</code>" cannot read files from <code>/mnt/gluster</code>:</p>
+<pre>#!/bin/bash
+# 
+# First, copy the large file from /mnt/gluster into the working directory:
+cp /mnt/gluster/username/large_input.txt ./
+# Command for myprogram
+./myprogram large_input.txt myoutput.txt
+# Before the script exits, make sure to remove the large file from the working directory
+rm large_input.txt
+# END</pre>
+
+<h1>4. Removing files from Gluster after jobs complete</h1>
+
+<p>Similar to the procedures from transferring files into Gluster in 
+<a href="staging">#1</a>, 
+you can directly copy files out of Gluster using command-line <code>scp</code>
+or file-transfer applications like WinSCP.</p>
+
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

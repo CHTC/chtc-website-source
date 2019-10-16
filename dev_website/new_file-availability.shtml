@@ -1,0 +1,145 @@
+<!--#set var="title" value="File Availability Options"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+It is important to manage your data well, in order to optimize your 
+use of high throughput computing.  Our default method of delivering 
+files and data to a job is <a href="/file-avail-transfer.shtml">HTCondor file 
+transfer</a>, however, this method becomes inefficient for large files and 
+it is important to use CHTC's other two methods (<a href="/file-avail-squid.shtml">
+SQUID web proxy</a> and <a href="/file-avail-gluster.shtml">Gluster file share</a>)
+when appropriate.  This table contains a summary of appropriate data 
+management options, and there is a full description of each below the table.  
+
+<!--#include virtual="/includes/template-file-avail.shtml"-->
+
+<h1>HTCondor File Transfer</h1>
+
+<p>HTCondor file transfer is the standard solution for file portability, and is 
+built in to HTCondor job scheduling. You can see HTCondor file transfer as introduced 
+in our "Intro to Running HTCondor Jobs" and in the 
+<a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
+
+<h2>Applicability</h2>
+
+<dl>
+<dt>Intended use:</dt> <dd>Good for delivering any type of data to jobs, but with file-size 
+limitations (see below). Remember that you can/should split up a large input file 
+into many smaller files for cases where each job only needs a portion of the data. 
+By default, the submit file "executable", "output", "error", and "log" files are ALWAYS 
+transferred.</dd>
+<dt>Advantages:</dt> <dd>HTCondor's file transfer is robust and is available on 
+ANY of CHTC's accessible HTC resources (including the UW Grid of campus pools, and the 
+Open Science Grid).</dd>
+<dt>Input File Limitations:</dt> <dd>HTCondor's file transfer can cause issues 
+for submit server performance when too many jobs are transferring too much data 
+at the same time. Therefore, HTCondor file transfer is only good for input files 
+up to ~20 MB per file IF the number of concurrently-queued jobs will be 100 or greater. 
+Even when individual files are small, there are issues when the total amount of input 
+data per-job approaches 500 MB. For cases beyond these limitations, one of our 
+other CHTC file delivery methods should be used. Remember that creating a *.tar.gz 
+file of directories and files can give your input and output data a useful amount 
+of compression.</dd>
+<dt>Output File Limitations:</dt> <dd>Because jobs are less likely to be completing at 
+the same time, total job output size of up to 1 GB will not cause submit server 
+performance issues, but it's always advantageous to create a *.tar.gz file of all 
+desired output before job completion (and to also delete the un-tar'd files so 
+they are not also transferred back).</dd>
+<dt>Data Security:</dt> <dd>Files transferred with HTCondor transfer are owned by the 
+job and protected by user permissions in the CHTC pool. When signaling your jobs to 
+run on the UW Grid (Flocking) or the Open Science Grid (Glidein), your files will 
+exist on someone else's computer only for the duration of each job. Please feel free 
+to email us if you have data security concerns regarding HTCondor file transfer, as 
+encryption options are available.</dd>
+
+<h1>SQUID Web Proxy</h1>
+
+<p>CHTC maintains a SQUID web proxy from which pre-staged input files 
+and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
+
+<h2>Applicability</h2>
+
+<dl>
+<dt>Intended Use:</dt> <dd>The SQUID web proxy is best for cases where many jobs will use 
+the same large file (or few files), including large software. It 
+is not good for cases when each of many jobs needs a <i>different</i> large input file, 
+in which case <a href="/file-avail-gluster">"Gluster"</a> 
+should be used. Remember that you're always better off by pre-splitting a 
+large input file into smaller job-specific files if each job only needs some of 
+the large files's data. If each job needs a large set of many files, you should create a 
+<code>.tar.gz</code> file containing all the files, and this file will still need to be less than 4 GB.</dd>
+<dt>Access to SQUID:</dt> <dd>is granted upon request to <a 
+href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  A user on CHTC submit
+ servers may will be granted a user directory within <code>/squid</code>, which is only
+ accessible via the CHTC submit server. As for all CHTC
+ file space, users should minimize the amount of data on the SQUID web proxy,
+ and should clean files from the <code>/squid</code> location regularly. CHTC staff reserve
+ the right to remove any file from <code>/squid</code> when needed to preserve availability
+ and performance for all users.</dd>
+<dt>Advantages:</dt> <dd>Files placed on the SQUID web proxy can be downloaded by 
+jobs running anywhere, because the files are world-readable.</dd>
+<dt><b>Limitations and Policies</b>:</dt> <dd><ul> <li>SQUID cannot be used for job output, as there is 
+		no way to change files in SQUID from within a job. </li>
+	<li>SQUID is also only capable of delivering individual files up to 
+	4 GB in size. </li>
+	<li>A change you make to a file within your <code>/squid</code> directory 
+	may not take effect immediately on the SQUID web proxy if you use the same 
+	filename. Therefore, it is important to use a <b>new filename</b> when 
+	replacing a file in your <code>/squid</code> directory.</li>
+	<li>Jobs should still ALWAYS and ONLY be submitted from within the 
+	user's <code>/home</code> location.</li>	
+	<li>Only the "http" address should be listed in the 
+	"<code>transfer_input_files</code>" line of the submit file. File locations 
+	starting with "<code>/squid</code>" should NEVER be listed in the submit file.</li> </ul>
+	</dd>
+<dt>Data Security:</dt> <dd>Files placed in SQUID can only be edited by the owner 
+of the user directory within <code>/squid</code>, but will end up being world-readable on the 
+SQUID web proxy in order to be readily downloadable by jobs (with the proper 
+HTTP address); thus, large files that should be "private" should not be placed 
+in your user directory in <code>/squid</code>, and should instead use CHTC's <a 
+href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
+</dl>
+
+<h1>Gluster File Share</h1>
+
+<p>CHTC maintains a Gluster file share, which should only be used for
+files or software that are too large for HTCondor file transfer or SQUID. </p>
+
+<h2>Applicability</h2>
+
+<dl>
+        <dt>Intended Use:</dt> <dd>Gluster is a staging area for input files,
+        output files, and software that are too large for file transfer or SQUID. 
+	Files and software within Gluster will be available
+        to jobs running in the CHTC Pool, only.</dd>
+        <dt>Access to Gluster:</dt> <dd>is granted upon request to <a 
+        href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>. As for all CHTC
+        file space, users should minimize the amount of data in their own
+        directory within /mnt/gluster, and should clean files from 
+        /mnt/gluster location regularly.</dd>
+        <dt>Limitations: </dt> <dd><ul>
+                <li><b>Access outside of CHTC?</b>Jobs relying on Gluster will only run in CHTC's HTCondor Pool,
+		and data in Gluster is not accessible to HTCondor jobs running outside
+		of this pool. It is always better to split large
+		input files if only some of the input data is needed by each job,
+		in order to avoid depending on Gluster.</li>
+		<li><b>Not all files ... </b>Gluster should ONLY be used for files and software
+		that cannot leverage another data accessibility mode. Files placed in /mnt/gluster 
+		should NOT be listed in the submit 
+		file (for example, as the "executable", "output", "error", or "log" 
+		files, or for files listed in "transfer_input_files").</li>
+                <li><b>Capacity</b>Each user is allowed a certain amount of space in Gluster,
+                though we can increase this space for special requests to
+                <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></li>
+        </ul></dd>
+        <dt>Data Security:</dt> <dd>Files placed in Gluster are owned by the
+        user, and only the user's own jobs can access these files (unless the
+        user specifically modifies unix file permissions to make certain files
+        available for other users).</dd>
+</dl>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

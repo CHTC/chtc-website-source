@@ -1,0 +1,65 @@
+<!--#set var="title" value="Receiving an Email When Jobs Complete"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+HTCondor has an option that will send you an email when your jobs 
+complete.  However, if you are submitting multiple jobs from one 
+submit file, it will send you an email for every single job, which 
+most people don't want.  There is a work around to receive one email 
+after a batch of jobs completes, that requires creating two 
+extra files.  To do this, keep reading.  
+
+<h2>Main Submit File</h2>
+
+First, set up the submit file that will submit all of your jobs.  
+In this example, I have called this file <code>main.sub</code>, but you can 
+use whatever name you want - in what follows, replace <code>main.sub</code> 
+with whatever name you've chosen.  
+
+<h2>Notification Job</h2>
+
+Next, we will create a special job, whose main purpose is to
+send a notification email.  To do this, create a submit file 
+exactly like the one below, replacing <code>username@wisc.edu</code>
+with your own email.  
+
+<pre>
+# notification.sub
+
+universe = local
+executable = true
+notification = Complete
+notify_user = username@wisc.edu
+
+queue 1
+</pre>
+
+When submitted, this job will run briefly on the submit server, 
+then send an email.  
+
+<h2>Create a DAG</h2>
+
+We will now combine these two files, so that the notification job 
+runs after your main batch of jobs has finished.  We will do this 
+using HTCondor's workflow system, called DAGMan.  
+
+Create a text file with the following lines: 
+<pre>
+JOB main main.sub
+JOB notify notification.sub
+PARENT main CHILD notify
+</pre>
+
+You will submit this DAG file instead of the two submit files.  To 
+do this, enter: 
+
+<pre>
+$ condor_submit_dag dag_file
+</pre>
+
+Where <code>dag_file</code> is the name of the file you just created.  
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

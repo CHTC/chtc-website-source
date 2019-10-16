@@ -1,0 +1,289 @@
+<!--#set var="title" value="Running Python Jobs on CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p><b>To best understand the below information, users 
+should already have an understanding of:</b>
+</p>
+<ul>
+	<li>Using the command line to: navigate within directories, 
+	create/copy/move/delete files and directories, and run their 
+	intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	to Running HTCondor Jobs</a></li>
+</ul>
+
+<h1>Overview</h1>
+
+<p>CHTC provides several copies of Python that can be used to run Python 
+code in jobs. See our list of supported versions here: <a href="#supported">CHTC Supported Python</a></p>
+
+<p>This guide details the steps needed to: 
+<ol>
+	<li><a href="#build">Create a portable copy of your Python packages</a></li>
+	<li><a href="#script">Write a script that uses Python and your packages</a></li>
+	<li><a href="#submit">Submit jobs</a></li>
+</ol>
+</p>
+
+<p>If you want to build your own copy of base Python or use the miniconda 
+Python distribution see these pages: 
+<ul>
+	<li><a href="/python-jobs.shtml">Building a Python installation</a></li>
+	<!--<li>Using miniconda to install Python</li>-->
+</ul>
+</p>
+
+<a name="supported"></a>
+<h1>Supported Python Installations</h1>
+
+<br>
+
+<table class="gtable">
+<tr>
+  <th>Python version</th><th>Name of Python installation file</th>
+</tr>
+<tr>
+  <td>Python 3.6</td><td>python36.tar.gz</td>
+</tr>
+<tr>
+  <td>Python 3.7</td><td>python37.tar.gz</td>
+</tr>
+</table>
+
+<a name="build"></a>
+<h1>1. Adding Python Packages</h1>
+
+<p>If your code uses specific Python packages (like <code>numpy</code>, 
+<code>matplotlib</code>, <code>sci-kit learn</code>, etc) follow the directions 
+below to download and prepare the packages you need for job submission.  <b>If your 
+job does not require any extra Python packages, skip to parts 2 and 3.</b> </p>
+
+<p>You are going to start an interactive job that runs on the HTC build servers
+and that downloads a copy of Python.  You will then install your packages to a 
+folder and zip those files to return to the submit server.</p>
+
+<blockquote>These instructions are primarily about adding packages to a fresh 
+install of Python; if you want to add packages to a pre-existing package folder, there 
+will be notes below in boxes like this one. 
+</blockquote>
+
+<a name="version"></a>
+<h2>A. Submit an Interactive Job</h2>
+
+<p>Create the following special submit file on the submit server, calling it 
+something like <code>build.sub</code>. </p>
+
+<pre class="sub">
+# Python build file
+
+universe = vanilla
+log = interactive.log
+
+# Choose a version of Python from the table above
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python<i>##</i>.tar.gz
+
++IsBuildJob = true
+requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+request_cpus = 1
+request_memory = 2GB
+request_disk = 2GB
+
+queue
+</pre>
+
+<p>The only thing you should need to change in the above file is the name of 
+the <code>python##.tar.gz</code> file - in the "transfer_input_files" line. We 
+have two versions of Python available to build from -- see the table above.</p>
+
+<blockquote>If you want to add packages to a pre-existing package directory, add
+the <code>tar.gz</code> file with the packages to the <code>transfer_input_files</code> line:
+<pre class="sub">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python<i>##</i>.tar.gz, <i>packages.tar.gz</i></pre>
+</blockquote>
+
+<p>Once this submit file is created, you will start the interactive job by 
+running the following command: </p>
+<pre class="term">
+[alice@submit]$ condor_submit -i <i>build.sub</i>
+</pre>
+
+<p>It may take a few minutes for the build job to start.</p>
+
+<h2>B. Install the Packages</h2>
+
+<p>Once the interactive build job starts, 
+you should see the Python that you specified inside the working 
+directory: 
+<pre class="term">
+[alice@build]$ ls -lh
+-rw-r--r-- 1 alice alice  78M Mar 26 12:24 python<i>##</i>.tar.gz
+drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
+drwx------ 3 alice alice 4.0K Mar 26 12:24 var
+</pre>
+</p> 
+
+<p>We'll now unzip the copy of Python and set the <code>PATH</code> 
+variable to reference that version of Python:
+<pre class="term">
+[alice@build]$ tar -xzf python<i>##</i>.tar.gz
+[alice@build]$ export PATH=$PWD/python/bin:$PATH
+</pre></p>
+
+<p>To make sure that your setup worked, try running: 
+ <pre class="term">
+[alice@build]$ python3 --version
+</pre></p>
+
+<p>You can also try running this command to make sure the copy of python 
+that is now active is the one you just installed: 
+<pre class="term">
+[alice@build]$ which python3
+</pre></p>
+
+<p>The command above should return a path that includes the prefix 
+<code>/var/lib/condor/</code>, indicating that it is installed in your 
+job's working directory.  
+</p>
+
+<p>If you're using Python 2, use <code>python2</code> instead of 
+<code>python3</code> above (and in what follows). 
+The output should match the version number that you want to be using!
+</p>
+
+<blockquote>
+If you brought along your own package directory, un-tar it here and skip 
+the directory creation step below. 
+</blockquote>
+
+<p> First, create, a directory to put your packages into: 
+<pre class="term">
+[alice@build]$ mkdir <i>packages</i>
+</pre>
+
+You can choose what name to use for this directory -- if you have different 
+sets of packages that you use for different jobs, you could use a more 
+descriptive name than "packages"
+</p>
+
+<p>To install the Python packages run the following command: 
+<pre class="term">[alice@build]$ python3 -m pip install --target=$PWD/<i>packages</i> <i>package1</i> <i>package2</i> <i>etc.</i></pre>
+Replace <i>package1</i> <i>package2</i> with the names of packages you want to 
+install. <code>pip</code> should download all dependent packages and install them.  Certain
+   packages may take longer than others. </p>
+
+<h2>C. Finish Up</h2>
+
+<p>Right now, if we exit the interactive job, nothing will be transferred back 
+because we haven't created any new <b>files</b> in the working directory, just 
+<b>sub-directories</b>.  In order to transfer back our installation, we will 
+need to compress it into a tarball file - not only will HTCondor then transfer 
+back the file, it is generally easier to transfer 
+a single, compressed tarball file than an uncompressed set of directories.</p>
+
+<p>Run the following command to create your own tarball of your packages: 
+<pre class="term">[alice@build]$ tar -czf <i>packages</i>.tar.gz <i>packages/</i></pre>
+
+Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
+
+<p>We now have our packages bundled and ready for CHTC!  
+You can now exit the interactive job and the 
+tar.gz file with your Python packages will return to the submit server with you (this 
+sometimes takes a few extra seconds after exiting).</p>
+<pre class="term">[alice@build]$ exit </pre>
+
+<a name="script"></a>
+<h1>2. Creating a Script</h1>
+
+<p>In order to use CHTC's copy of Python and the packages you have prepared 
+in an HTCondor job, we will need to write a script that unpacks both Python 
+and the packages and then runs our Python 
+code.  We will use this script as as the <code>executable</code> of our HTCondor 
+submit file. </p>
+
+<p>A sample script appears below.  After the first line, the lines starting 
+with hash marks are comments . You should replace "my_script.py" with the name of
+the script you would like to run, and modify the Python version numbers to be the 
+same as what you used above to install your packages.</p>
+
+<pre class="file">
+#!/bin/bash
+
+# untar your Python installation. Make sure you are using the right version!
+tar -xzf python<i>##</i>.tar.gz
+# (optional) if you have a set of packages (created in Part 1), untar them also
+tar -xzf <i>packages</i>.tar.gz
+
+# make sure the script will use your Python installation, 
+# and the working directory as its home location
+export PATH=$PWD/python/bin:$PATH
+export PYTHONPATH=$PWD/<i>packages</i>
+
+# run your script
+python3 <i>my_script.py</i>
+</pre>
+</p>
+
+<p>If you have additional commands you would like to be run within the job, you 
+can add them to this base script.  Once your script does what you would like, give 
+it executable permissions by running: 
+<pre class="term">
+[alice@submit] chmod +x run_python.sh
+</pre>
+</p>
+
+<blockquote>
+<h2>Arguments in Python</h2>
+<p>To pass arguments to an R script within a job, you'll need to use the following 
+syntax in your main executable script, in place of the generic command above: 
+<pre class="file">
+python3 <i>my_script.py</i> $1 $2
+</pre>
+Here, <code>$1</code> and <code>$2</code> are the first and second 
+arguments passed to the bash script from the submit file (see below), 
+which are then sent on to the Python script.  For more (or fewer) arguments, 
+simply add more (or fewer) arguments and numbers.</p>
+
+<p>In addition, your Python script will need to be able to accept arguments from the 
+command line.  There is an explanation of how to do this in 
+<a href="http://swcarpentry.github.io/python-novice-inflammation/10-cmdline/index.html">this
+Software Carpentry lesson</a>. 
+</p>
+</blockquote>
+
+</p>
+
+<a name="submit"></a>
+<h1>3. Submitting Jobs</h1>
+
+<p>A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+</a> example page.  You should make the following changes in order to run 
+Python jobs: </p>
+<ul>
+	<li> Your <code>executable</code> should be the script that you wrote 
+<a href="#script">above</a>. <pre class="sub">executable = run_py.sh</a></li>
+	<li>Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
+order to make sure your requests for a large batch are accurate!  
+Disk space and memory usage can be found in the log file after the job completes. </li>
+	<li> Change <code>transfer_input_files</code> to include: 
+	<pre class="sub">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python<i>##</i>.tar.gz, <i>packages</i>.tar.gz, <i>my_script.py</i></pre></li>
+		<li>If your script takes arguments (see the box from the 
+        previous section), include those in the arguments line: 
+        <pre class="sub">arguments = value1 value2</pre></li>
+	</ul>
+	</ul>
+<a name="squid"></a>
+<blockquote>
+<h3>How big is your package tarball?</h3>
+
+<p>If your package tarball is larger than 100 MB, you should NOT transfer 
+the tarball using <code>transfer_input_files</code>.  Instead, you should use 
+CHTC's web proxy, <code>squid</code>.  In order to request space 
+on <code>squid</code>, email the research computing facilitators at 
+<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
+</p>
+</blockquote>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

@@ -1,0 +1,46 @@
+
+<p>In order to properly submit jobs using Gluster, please make sure 
+to do the following:</p>
+<ul>
+	<li>ONLY submit Gluster-dependent jobs from within your home 
+	directory (<code>/home/username</code>), and NOT from within 
+	<code>/mnt/gluster</code>. </li>
+	<li>Do NOT list any <code>/mnt/gluster</code> files in any 
+	the submit file lines, 
+	including: <code>executable, log, output, error, transfer_input_files</code>. 
+	Rather, your job's ENTIRE interaction with files in <code>/mnt/gluster</code> 
+	needs to occur WITHIN your executable, when it runs. </li>
+	<li>In order for jobs to run on CHTC servers that have access 
+	to the <code>/mnt/gluster</code> location, require execute servers marked 
+	with "HasGluster" using a "Requirements" line in the submit file. </li>
+	<li>Even though your job will internally use files in Gluster 
+	(that should NOT otherwise be transferred by HTCondor), it is 
+	still important to have "<code>should_transfer_files = YES</code>" (the default) 
+	in the submit file so that the job will run AT ALL, because the 
+	"executable", "log", "output", and "error" files still need to use 
+	HTCondor file transfer, as usual. </li>
+	<li>Request an adequate amount of disk space with "<code>request_disk</code>", 
+	which will only pertain to the maximum amount of data within the 
+	job working directory on the execute node, and not to files that 
+	only ever exist within <code>/mnt/gluster</code>.</li>
+</ul>
+
+<p>See the below submit file, as an example, which would be submitted 
+from within the user's home directory:</p>
+
+<pre>### Example submit file for a single Gluster-dependent job
+universe = vanilla
+# Files for the below lines will all be somewhere within /home/username,
+# and not within /mnt/gluster/username
+log = myprogram.log
+executable = /home/username/run_myprogram.sh
+output = $(Cluster).out
+error = $(Cluster).err
+transfer_input_files = myprogram
+# Require execute servers that have Gluster:
+Requirements = (Target.HasGluster == true)
+# The below line needs to be set to "YES"
+should_transfer_files = YES
+# Make sure to still include lines like "request_memory", "request_disk", "request_cpus", etc. 
+queue
+### END</pre>

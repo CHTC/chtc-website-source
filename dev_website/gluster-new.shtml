@@ -1,0 +1,116 @@
+<!--#set var="title" value="Using Gluster for Large Job Files"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>The below guide discusses how to use CHTC's Gluster option for jobs that 
+use or produce very large files.</p>
+
+<b>To best understand the below information, users 
+should already be familiar with:</b><br>
+<ol>
+	<li>Using the command-line to: navigate directories, 
+	create/edit/copy/move/delete files and directories, 
+	and run intended programs (aka "executables").</li>
+	<li>CHTC's <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's guides for In-job File Handling and 
+	<a href="/file-availability.shtml">File Availability Options</a></li>
+</ol>
+
+<h2>Knowing When/Why to Use Gluster</h2>
+<p> Make sure to see our <a href="/file-avail-gluster.shtml">
+File Availability guide</a>, for additional discussion 
+of Gluster, as compared to other CHTC options.</p>
+
+<h1>Overview</h1>
+
+<p>Our Gluster file share is a way to deliver large files to your jobs, without 
+using HTCondor's default method of transferring files.  For reference, a job 
+using HTCondor's file transfer would look like this: </p>
+
+<ol>
+  <li>Upload your files to your home directory on the submit server. </br></br>
+  <img src="transfer_01.png">
+  </br></br></li>
+  <li>Create a submit file that lists your program and needed files.</br></br>
+  <img src="transfer_02.png">
+  </br></br></li>
+  <li>When your job runs, HTCondor transfers the program and files to
+  the execute server assigned to the job.  </br></br>
+  <center><img src="transfer_03.png"></center>
+  </br></br></li>
+  <li>HTCondor runs your program, which produces output files.</br></br>
+  <img src="transfer_04.png" style="text-align:right;">
+  </br></br></li>
+  <li>HTCondor transfers the output back to your directory on the submit server</br></br>
+  <center><img src="transfer_05.png"></center>
+  </br></br></li>
+</ol>
+
+<p>The two major changes to this model when using Gluster are </br>
+a) you don't transfer your input files (they're in Gluster)</br>
+b) instead of running the program directly, use a script (the easiest kind 
+for will be a <a href="#bash">bash script</a>) 
+that runs your program as the executable.  </br>
+</p>
+
+<p>This process means that running a job will look like this: </p>
+
+<ol>
+  <li>Upload your big data files to your Gluster 
+  directory (via the submit server).</li>
+  <li>Write a script that runs your program.  See details about the script at 5.</li>
+  <li>Create a submit file with your script 
+  as the executable and your program
+  in <code>transfer_input_files</code>.</li>
+  <li>When your job runs, HTCondor transfers your script and program to 
+  the execute server assigned to the job.  </li>
+  <li>HTCondor runs your script, which may do several things
+  in addition to running your program: </a>
+  <ul>
+     <li><a href="gluster-input.shtml#input">Handles your input data</a></li>
+     <li><a href="gluster-output.shtml#output">Handles your output data</a></li>
+     <li><a href="">Uses a program installed in Gluster</a></li>
+     <li><a href="">Loads MPI modules to run MPI code</a></li>
+  </ul></li>
+  <li>HTCondor transfers the output back to your directory on the submit server.  
+  <a href="#output">If you have large output data, it should either 
+  be copied to Gluster when 
+  the program completes, or even better, written there directly.</a></li>
+</ol>
+</br>
+<blockquote>
+<a name="bash"></a></br><b>A bash script?</b>  If you don't know what a 
+bash script is, don't worry!  
+It's very simple.  Any commands that you run on the submit node, like 
+<pre>$ ls
+$ cd</pre> 
+or any command that runs your code, like 
+<pre>$ ./runprog</pre>
+are all considered "bash" commands (because you run them in a bash shell), 
+and can be put into a file, which will become your bash script.  
+
+In order to run the script, you simply need to add the header
+<code>#!/bin/bash</code> 
+at the start of the file, so that the computer knows that this is a bash script.  
+If you make the script executable: 
+<pre>$ chmod +x my_script</pre>
+it can be run like so: 
+<pre>$ ./my_script</pre>
+and will run all the commands that you listed inside.  
+
+</blockquote>
+
+<h1>Detailed Instructions</h1>
+
+<p>See our individual guides for using Gluster to handle: </p>
+<ol>
+   <li><a href="gluster-input.shtml">Large Input Files</a></li>
+   <li><a href="gluster-output.shtml">Large Output Files</a></li>
+   <li><a href="">Software</a></li>
+   <li><a href="">MPI Programs</a></li>
+</ol>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

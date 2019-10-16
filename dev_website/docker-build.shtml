@@ -1,0 +1,252 @@
+<!--#set var="title" value="Building Docker Container Images"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>Linux containers are a way to build a self-contained environment that includes 
+software, libraries, and other tools.  CHTC 
+currently supports running jobs inside 
+<a href="https://www.docker.com/what-docker">Docker</a> containers.  This guide 
+describes how to build a Docker container image that you can use for running 
+jobs in CHTC.</p>
+
+<h1>Overview</h1>
+
+<p>Docker container images can be created using a special file format 
+called a "Dockerfile".  This file has keywords that allow you to: </p>
+
+<ul>
+<li>use a pre-existing container as a base</li>
+<li>copy files into the container</li>
+<li>run installation commands</li>
+<li>set environment variables</li>
+</ul>
+
+<p>Using a Docker command, you can then "build" a container image from this file, 
+test it locally, and push it to a central Docker location where HTCondor can then 
+use it to run jobs.  Different versions of the container image can be labeled with 
+different version "tags".  This 
+guide has: 
+<ol type="A">
+  <li><a href="#instructions">Step by Step Instructions</a></li>
+  <li><a href="#examples">Examples</a></li>
+</ol>
+
+<b>Note that all the steps below should be run on your own computer, not in CHTC. </b>
+
+</p>
+
+<a name="instructions"></a>
+<h1>A. Step by Step Instructions</h1>
+
+<h2>1. Install Docker and get a Docker Hub account</h2>
+
+<p>Download, install, and start the <a href="https://store.docker.com/search?type=edition&offering=community">
+Docker Community Edition</a> for your operating system.  
+It sometimes takes some 
+time for Docker to start, especially the first time. </p>
+
+<p>Later, you'll need to push your new image to <a href="https://hub.docker.com/">DockerHub</a>.  In preparation, 
+create an account there. </p>
+
+<h2>2. Create a Dockerfile</h2>
+
+<p>It's easiest to create a Docker container image by using a Dockerfile. This 
+is just a plain text file with keywords that add elements to your Docker 
+container.  You can call the file whatever you want, but the convention is to 
+use the name <code>Dockerfile</code>, with no file extension.  </p>
+
+<p>There are many keywords that can be used in a Dockerfile (documented on 
+the Docker website here: <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile keywords</a>), but for 
+most scientific software, the options listed below should be a good starting point.  
+
+<br><b>A. Choose a "base" container image</b><br>
+
+<p>Often you don't want to start building your container image from scratch; you'll 
+want to choose a base container image to add things to.</p>
+
+<p>You can find a base container image by searching 
+DockerHub. If you're using a scripting language 
+like Python, R or perl, you could start with the official image from these languages.  
+If you're not sure what to start with, using a basic Ubuntu image is often a good 
+place to start.</p>
+
+<p>Container images often have tagged versions.  Besides choosing the image you want, 
+make sure to choose a version by clicking on the "Tags" tab of the image.</p>
+
+<p>Once you've decided on a base image and version, add it as the first line of your 
+Dockerfile, like this: 
+<pre class="file">FROM username/imagename:tag</pre>
+</p>
+
+<b>B. Copy files and install software</b><br>
+
+<p>The next step is the most challenging.  We need to add commands to the 
+Dockerfile to install the software.  There are a few standard 
+ways to to do this: </p>
+<ul>
+<li>Use a Linux package manager (usually <code>apt-get</code> or <code>yum</code>)</li>
+<li>Use a software-specific package manager (like <code>pip</code>, or <code>conda</code>)</li>
+<li>Use installation instructions (usually a progression of <code>configure</code>, <code>make</code>, <code>make install</code>)</li>
+</ul>
+
+<p>Each of these options will be prefixed by the <code>RUN</code> keyword. You can 
+join together linked commands with the <code>&&</code> symbol; to break lines, put 
+a backslash <code>\</code> at the end of the line. </p>
+
+<p>If you need to copy specific files (like source code) into the container, you can 
+do so by placing the files in the same folder as the Dockerfile, and using the 
+<code>COPY</code> keyword. </p>
+
+
+<p>In the example below, we show all these options: From a base ubuntu image, 
+we copy in the Python source code, update system libraries with Ubuntu 
+installer "apt-get", install 
+Python from source, and then use pip to install the Python package numpy.  Note that 
+the Python source code (<code>Python-3.2.1.tgz</code>) has been downloaded to 
+the directory with the Dockerfile in advance.  </p>
+<pre class="file">
+FROM ubuntu/ubuntu:tag
+
+COPY Python-3.5.2.tgz /tmp
+
+RUN apt-get update
+
+RUN cd /tmp
+	&& tar -xzf Python-3.2.1.tgz \
+	&& cd Python-3.2.1 \
+	&& ./configure \
+	&& make \
+	&& make install
+
+RUN pip3 install numpy
+</pre>
+
+<b>C. Set the environment</b>
+
+<p>If you're installing a program to a custom location (like a home directory), 
+you may need to add that directory to the container's system PATH. 
+
+<pre class="file">
+ENV PATH="/home/software/bin:${PATH}"
+</pre></p>
+
+<h2>3. Build and Tag</h2>
+
+<p>So far we haven't actually created the container -- we've just been 
+listing instructions for the container in the Dockerfile.  
+But we are now ready to build the container image!</p>
+
+<p>First, decide on a name 
+for the image, as well as a tag.  Tags are important for tracking which version 
+of the image you've created (and are using).  A simple tag scheme would be to use 
+numbers (e.g. v0, v1, etc.), but you can use any system that makes sense to you. </p>
+
+<p>To build and tag your image, open a Terminal (Mac/Linux) or Command Prompt
+(Windows) and navigate to the folder 
+that contains your Dockerfile: 
+<pre class="term">$ cd <i>directory</i></pre>
+(Replace "directory" with the path to the appropriate folder.)
+</p>
+
+<p>Then make sure Docker is running (there should be a small icon on either your 
+top or bottom status bar) and run: 
+<pre class="term">$ docker build -t <i>username</i>/<i>imagename</i>:<i>tag</i> -f <i>dockerfile</i> .</pre>
+Replacing <code>username</code>, <code>imagename</code> and 
+<code>tag</code> with the appropriate values.  
+</p>
+
+<p>If you get errors, try to determine what you may need to add or change 
+to your Dockerfile and then run the build command again.</p>
+
+<h2>4. Test Locally</h2>
+
+<p>This page describes how to interact with your new Docker image on your 
+own computer, before trying to run a job with it in CHTC: 
+<ul><li><a href="/dev_website/docker-test.shtml">Exploring Docker Containers</a> </li></ul>
+</p>
+
+<h2>5. Push to DockerHub</h2>
+
+<p>Once your container image has been successfully built and tested, you can 
+push it to DockerHub so that it will be available to run jobs in CHTC.  To do 
+this, run the following command: </p>
+
+<pre class="term">$ docker push <i>username</i>/<i>imagename</i>:<i>tag</i></pre>
+
+<p>The first time you push an image to DockerHub, you may need to run this 
+command first: </p>
+
+<pre class="term">$ docker login</pre>
+
+<p>It should ask for your DockerHub username and password.</p>
+
+<p>To complete the process of running jobs using a Docker container on CHTC, see
+this guide: 
+<ul><li><a href="/docker-jobs.shtml">Running Docker Jobs in CHTC</a></li></ul>
+</p>
+
+<a name="examples"></a>
+<h1>B. Examples</h1>
+
+<p>The following is a non-exhaustive list of sample Dockerfiles</p>
+
+<h2>cutadapt</h2>
+
+<p>Sample Dockerfile for installing 
+<a href="https://github.com/marcelm/cutadapt/">cutadapt</a> with Python 3.4.  </p>
+
+<pre class="file">
+FROM python:3.4-wheezy
+RUN pip3 install cutadapt
+</pre>
+
+<h2>JAGS + rjags</h2>
+
+<p>Sample Dockerfile for installing the 
+<a href="http://mcmc-jags.sourceforge.net/">JAGS program</a> and 
+<a href="">rjags package for R.</a>.  It assumes that the 
+<a href="https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Source/">JAGS source</a>
+has been downloaded into the directory with the Dockerfile.</p>
+
+<pre class="file">
+FROM rocker/r-ver:3.4.0
+
+COPY JAGS-4.3.0.tar.gz /tmp
+RUN cd /tmp \
+    && tar -xzf JAGS-4.3.0.tar.gz \
+    && cd JAGS-4.3.0 \
+    && ./configure \
+    && make \
+    && make install
+
+RUN install2.r --error \ 
+        rjags
+</pre>
+
+<h2>QIIME</h2>
+
+<p>Sample Dockerfile for installing <a href="https://qiime2.org/">QIIME2</a> based 
+on <a href="https://docs.qiime2.org/2017.11/install/native/">these instructions</a>.
+It assumes that the 
+<a href="https://conda.io/miniconda.html">Linux 64-bit miniconda installer</a>
+has been downloaded into the directory with the Dockerfile.</p>
+
+<pre class="file">
+FROM python:3.6-stretch
+
+COPY Miniconda3-latest-Linux-x86_64.sh /tmp
+
+RUN mkdir /home/qiimeuser
+ENV HOME /home/qiimeuser
+
+RUN cd /tmp && \
+    ./Miniconda3-latest-Linux-x86_64.sh -b -p /home/qiimeuser/minconda3 && \
+    export PATH=/home/qiimeuser/minconda3/bin:$PATH && \
+    conda update conda && \
+    conda create -n qiime2-2017.10 \
+    --file https://data.qiime2.org/distro/core/qiime2-2017.10-conda-linux-64.txt
+</pre>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

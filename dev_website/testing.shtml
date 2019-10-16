@@ -1,0 +1,173 @@
+<!--#set var="title" value="Testing Job Submissions and Scaling Up"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This guide assumes that you have an account on CHTC's high 
+throughput compute system and have gone through steps 1-3 in 
+our <a href="/roadmap.shtml#htc">HTC Roadmap</a>.  You should go 
+through the following steps every time you are planning to 
+submit jobs that are 
+different than your previous submissions. </p>
+
+<h2>Overview</h2>
+
+<p>Once you've prepared your scripts and code, your software, 
+and your data, it's time to submit a job!  But how do you know 
+everything will work?  We recommend the following four-step 
+process in order to ensure that your final job submission will 
+run successfully:</p>
+
+<ol>
+<li><a href="#interactive">Test your setup using an interactive job</a></li>
+<li><a href="#one">Submit a single job</a></li>
+<li><a href="#several">Submit 4-10 test jobs</a></li>
+<li><a href="#production">Submit all of your jobs</a></li>
+</ol>
+
+<a name="interactive"></a>
+<h2>1. Testing in an Interactive Job</h2>
+
+<p>Our first task will be to run a single job interactively, to make sure 
+everything is running smoothly.  </p>
+
+<ol type="A"><li>We'll start with the submit file you've already written to submit a 
+job.  <u>Make sure that the submit file is only submitting *one* job.</u>  If 
+you want to test out a pre-written or compiled <code>executable</code>, 
+add the name of your job's executable to the list of <code>transfer_input_files</code>.
+
+<pre class="sub">transfer_input_files = other_files, my_exec</pre></li>
+
+<li>Then, submit the job using the <code>-i</code> option: 
+<pre class="term">[alice@submit]$ condor_submit -i submit_file</pre>
+You should see a message like: 
+<pre class="term">Submitting job(s).
+1 job(s) submitted to cluster 4347054.
+Waiting for job to start... </pre></li>
+
+<li>After a few minutes, the job should match and open an interactive 
+   session on an execute server, with all the files you 
+   listed in <code>transfer_input_files</code>.  You will 
+know that it has started by seeing this message:
+
+<pre class="term">Welcome to slot1_1@e000.chtc.wisc.edu!</pre>
+
+And having your prompt change to look like this:
+
+<pre class="term">[alice@e000 dir_0]$</pre> </li>
+
+<li>Now we can test!  You are now on an execute 
+   server, much like one your jobs will be running on when you 
+   submit them to HTCondor.  From here you can do a few different things, including 
+running commands yourself, or trying to run a pre-written script or executable. 
+
+<ul>
+<li>First, look 
+in your job directory to make sure that 
+all the files you need are there: 
+<pre class="term">[alice@e000 dir_0]$ ls</pre> </li>
+
+<li>If you already have a written executable, run the executable 
+yourself, and remember to add the arguments that are listed in the 
+submit file. 
+
+<pre class="term">[alice@e000 dir_0]$ ./my_exec arg1 arg2 </pre> </li>
+
+<li>Another strategy is to print out your executable using a tool like <code>cat</code> 
+and then run each line of the executable one-by-one until you encounter an error or 
+all the commands run successfully.</li>
+</ul>
+
+If everything works on the first try, great!  You can move on.  
+If you encounter any errors, see our <a href="/troubleshooting.shtml">troubleshooting guide</a>.</li>
+
+<li class="spaced">Before leaving the interactive session, make sure that you've removed any 
+new files that you don't want to return to the submit server (this may include 
+files you've downloaded to the job or files copied from Gluster or output files).  
+You may also want to edit your executable or take notes on the commands you ran 
+if you need to make changes to what your job is doing.  
+
+<blockquote>
+If you want to save a record of the commands you ran in the interactive 
+job, use the <code>history</code> command.  You can save your history of 
+commands to a file by using the following syntax: 
+     <pre class="term">$ history > history.txt </pre>
+</blockquote>
+
+</li>
+
+<li class="spaced">Once you are ready to leave the interactive job, you 
+   can type <code>exit</code>.  </li>
+
+<li class="spaced">Back on the submit server, make any needed changes to your files.  Before 
+submitting a regular job, remove your executable from the list of 
+<code>transfer_input_files</code> if you added it earlier.</li>
+
+</ol>
+
+
+<a name="one"></a>
+<h2>2. Submit One Job</h2>
+
+<p>We're now ready to test the job in batch mode.  Go back into your 
+submit file, and make sure your executable is correctly listed in 
+the submit file, to prepare for normal 
+job submission.  You may also want to remove output files from your 
+interactive test so that it's clear if this test is successful.  </p>
+
+<p>We are still only going to submit one job.  
+Submit your submit file, using <code>condor_submit</code>: </p>
+
+<pre class="term">[alice@submit]$ condor_submit submit_file.sub</pre>
+
+<p>Monitor the job using <code>condor_q</code>.  Also consider 
+the following questions:</p>
+
+<ul>
+<li class="spaced">Did you get the output files that you would expect?  Do they have the 
+right names?  Did they end up in the right place (sub-directories, Gluster)?</li>
+<li class="spaced">How long did the job run?  Was it much longer than expected?  
+Was it close to our limit of 72 hours?  If the answer to either of the 
+last two questions is yes, contact a research computing facilitator.  </li>
+<li class="spaced">Check the log file when the job completes.  Are your disk and memory 
+requests reflective of what the job is using?</li>
+<li class="spaced">Did your job go on hold?  Two of the main reasons a job goes on hold are 
+for overusing memory (in which case you should increase your memory request) 
+or running out of quota space. </li>
+</ul>
+
+<p>If your job completes successfully, produces output as expected, 
+and you have no issues like those described above,  
+move on to the next step. </p>
+
+<a name="several"></a>
+<h2>3. Submit 4-10 Test Jobs</h2>
+
+<p>The next thing to test is the submission of multiple jobs.  There 
+are different ways to submit multiple jobs in HTCondor -- see our 
+guides here to choose a way that works for your jobs: </p>
+<ul>
+<li><a href="/multiple-jobs.shtml">Submit File Variations</a> - different HTCondor options for submitting multiple jobs</li>
+<li><a href="/multiple-job-dirs.shtml">Organizing Files in Multiple Directories</a> - how to implement a particular job submission directory structure</li>
+</ul>
+
+<p>Once you've changed your submit file to handle multiple jobs, 
+set it to submit 4-10 jobs.  Submit 
+these and monitor them.  If these jobs complete successfully, check 
+all the information from the previous single job test (how long each 
+job ran, how many resources it used, where data went) to make sure 
+that everything is working correctly.  </p>
+
+<a name="production"></a>
+<h2>4. Submit everything</h2>
+
+<p>Once you've successfully completed all these steps, your jobs should be ready
+to go.  Change your submit file so that it submits all of your jobs and then 
+submit them! </p>
+
+<blockquote><b>Note: if you are submitting more than 10,000 jobs at once, 
+you'll need to use an extra file to submit. Please email the CHTC Research 
+Computing Facilitators at chtc@cs.wisc.edu if this is the case!</b></blockquote>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

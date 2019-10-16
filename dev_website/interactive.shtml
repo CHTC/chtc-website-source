@@ -1,0 +1,61 @@
+<!--#set var="title" value="Interactive Jobs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This guide shows how to run an interactive job in CHTC</p>
+
+<h2> Interactive Jobs </h2>
+
+<p>One of the most useful tools for testing is HTCondor's interactive 
+job feature.  An interactive job is essentially a job without an executable; 
+you are the one running the commands instead, through a bash shell session.  </p>
+
+<p>To request an interactive job:</p>
+<ol>
+   <li>Create a submit file as if you were submitting the job normally, with one change.  
+   Don't include an executable line; instead, list your executable file in the <code>
+   transfer_input_files</code> line.  
+<pre class="sub"># sample submit file
+universe = vanilla
+log = interactive.log
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = data_file,myprogram
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+      
+queue
+</pre>
+      </li>
+   <li>Then, submit the job using the <code>-i</code> option: 
+       <pre class="term">[alice@submit]$ condor_submit -i submit_file</pre>
+       You should see a message like: 
+       <pre class="term">Submitting job(s).
+1 job(s) submitted to cluster 4347054.
+Waiting for job to start... </pre>
+       </li>
+   <li>After a few minutes, the job should match and open an interactive 
+   session on an execute server, with all the files you 
+   listed in <code>transfer_input_files</code>  
+   <pre class="term">Welcome to!
+[alice@e000 dir0]$ </pre></li>
+   
+   
+   <li>You are now on an execute 
+   server, much like one your jobs will be running on when you 
+   submit them to HTCondor.  Here, you can try running your executable.  
+   		</li>
+   <li>Once you are done, you can type <code>exit</code> to leave the 
+   interactive session.  <b>Note that any files you created during the 
+   session will be transferred back with you!</b>  Another useful tool 
+   can be to save your history to a file, using the following command: 
+     <pre class="term">$ history > history.txt </pre>
+    	</li>
+</ol>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

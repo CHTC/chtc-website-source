@@ -1,0 +1,140 @@
+<!--#set var="title" value="Testing Jobs Interactively"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This guide shows how to run an interactive job in CHTC. </p>
+
+<h2>Overview</h2>
+
+<p>One of the most useful tools for testing jobs is HTCondor's interactive 
+job feature.  An interactive job is essentially a job without an executable; 
+you are the one running the commands instead, through a bash shell session.  
+This guide discusses how to use interactive jobs to either create or test 
+a job to make sure that it's working correctly.  </p>
+
+<blockquote>
+If you are interested in using an interactive job to compile or build 
+code specifically on our build machines, see our guide on <a href="/inter-submit.shtml">
+Compiling Code with an Interactive Job</a>
+</blockquote>
+
+<h2>1. Starting an Interactive Job</h2>
+
+<b>A. Submit File</b></br>
+
+<p>We'll start with the submit file you've already written to submit a 
+job.  <u>Make sure that the submit file is only submitting *one* job.</u>  If 
+you want to test out a pre-written or compiled <code>executable</code>, 
+add the name of your job's executable to the list of <code>transfer_input_files</code>.</p>
+
+<pre class="sub">transfer_input_files = other_files, my_exec</pre>
+
+<b>B. Submitting the Interactive Job</b></br>
+
+<p>Then, submit the job using the <code>-i</code> option: 
+<pre class="term">[alice@submit]$ condor_submit -i submit_file</pre>
+You should see a message like: 
+<pre class="term">Submitting job(s).
+1 job(s) submitted to cluster 4347054.
+Waiting for job to start... </pre></p>
+
+<p>After a few minutes, the job should match and open an interactive 
+   session on an execute server, with all the files you 
+   listed in <code>transfer_input_files</code>.  You will 
+know that it has started by seeing this message:
+
+<pre class="term">Welcome to slot1_1@e000.chtc.wisc.edu!</pre>
+
+And having your prompt change to look like this:
+
+<pre class="term">[alice@e000 dir_0]$</pre> </p>
+   
+<h2>2. Using an Interactive Job to Test</h2>
+
+<p>Now we can test!  Once the interactive job has started, you are now on an execute 
+   server, much like one your jobs will be running on when you 
+   submit them to HTCondor.  From here you can do a few different things, including 
+running commands yourself, or trying to run a pre-written script or executable.</p>
+
+<p>First, look 
+in your job directory to make sure that 
+all the files you need are there: 
+<pre class="term">[alice@e000 dir_0]$ ls</pre> </p>
+
+<p>If you already have a written executable, run the executable 
+yourself, and remember to add the arguments that are listed in the 
+submit file.  </p>
+
+<pre class="term">[alice@e000 dir_0]$ ./my_exec arg1 arg2 </pre>
+
+<p>Another strategy is to print out your executable using a tool like <code>cat</code> 
+and then run each line of the executable one-by-one until you encounter an error or 
+all the commands run successfully.</p>
+
+<p>If everything works on the first try, great!  You can exit (<a href="#exit">see below</a>) 
+and move on.  If you encounter some errors, keep reading for common problems. </p>
+
+
+<h2>3. Troubleshooting Common Errors</h2>
+
+<p>Here are some common errors that may come up while testing your job:</p>
+
+<ul>
+<li>Is your executable not running?  <ul>
+ 	 <li>Make sure the executable has the right permissions by running: 
+ 	 <pre class="term">[alice@e000 dir_0]$ chmod +x my_exec</pre></li>
+	<li>If you have a shell (or other script) 
+	as your executable, make sure you have the appropriate header, like: 
+  	<pre class="file">#!/bin/bash</pre>
+ 	 as the very first line of your script.  </li>
+</ul></li>
+<li>What does the error message say? <ul>
+	<li>One common error is that the script can't find a program 
+	or library.  If this is the case, you can email the research 
+	computing facilitators at chtc@cs.wisc.edu or search for the 
+	error yourself and try to fix it in the interactive session.</li>
+</ul></li>
+<li>Are you missing a file you need?  <ul>
+	<li>If it's on the submit server, you 
+	can copy it into the directory using scp: 
+	<pre class="term">[alice@e000 dir_0]$ scp alice@submit.chtc.wisc.edu:/home/alice/dir/input_file</pre>
+	Change "alice" to your username and "submit.chtc.wisc.edu" to the submit 
+	node you normally use.  The path after the colon should be the full path to 
+	the file you want to transfer.  
+	Once you exit the interactive session, don't forget to add this file to 
+	your list of <code>transfer_input_files</code></li>
+	<li>If the file is on Gluster, copy the file from Gluster to the directory 
+	and try running the executable again.  If it works, remember to add 
+	that copy statement to your job's executable and to remove the file 
+	from the working directory before you leave the interactive session.  </li>
+</ul></li>
+</ul>
+
+<a name="exit"></a>
+<h2>4. Ending the Interactive Job</h2>
+
+<p>Before leaving the interactive session, make sure that you've removed any 
+new files that you don't want to return to the submit server (this may include 
+files you've downloaded to the job or files copied from Gluster or output files).  
+You may also want to edit your executable or take notes on the commands you ran 
+if you need to make changes to what your job is doing.  See the note below for 
+one trick for doing this.  
+</p>
+
+<p>Once you are ready to leave the interactive job, you 
+   can type <code>exit</code>.  </p>
+
+<p>Back on the submit server, make any needed changes to your files.  Before 
+submitting a regular job, remove your executable from the list of 
+<code>transfer_input_files</code> if you added it earlier.</p>
+
+<blockquote>
+If you want to save a record of the commands you ran in the interactive 
+job, use the <code>history</code> command.  You can save your history of 
+commands to a file by using the following syntax: 
+     <pre class="term">$ history > history.txt </pre>
+</blockquote>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

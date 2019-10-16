@@ -1,0 +1,201 @@
+<!--#set var="title" value="Running Matlab Jobs on CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p><b>The examples and information in this guide work best for the below cases*:</b>
+</p>
+<ul>
+	<li>Submission to an HTCondor System with file transfer (rather than a shared filesystem).</li>
+	<li>Submission to an HTCondor System that is unix-based (Linux or Mac operating system, as Windows may have important differences). </li>
+</ul>
+(*see the HTCondor software manual and online examples from other organizations for cases outside of those we cover on the CHTC website)
+
+<p><b>To best understand the below information, users should already have an understanding of:</b>
+</p>
+<ul>
+	<li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
+	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
+</ul>
+
+<h1>Overview</h1>
+
+<p>Like most programs, Matlab is not installed on CHTC's high throughput compute system.  
+One way to run Matlab where it isn't installed is to compile Matlab <code>.m</code> 
+files into a binary file and run the binary by using a set of files called the Matlab 
+runtime.  In order to run Matlab in CHTC, it is therefore necessary to perform the 
+following steps which will be detailed in the guide below (click on the links to go 
+to the relevant section): 
+<ol>
+	<li> <a href="#compile">Compile your Matlab code</a></li>
+	<li><a href="#script">Edit the script that runs Matlab</a></li>
+	<li><a href="#submit">Write a submit file that uses the compiled code and script</a></li>
+
+</ol>
+
+<p>If your Matlab code depends on random number generation, using 
+a function like <code>rand</code> or <code>randperm</code>, please see 
+the section on <a href="#random">ensuring randomness</a> below.</p>
+
+<a name="compile"></a>
+<h1>Compiling Code</h1>
+
+<p>You can compile <code>.m</code> files into a Matlab binary 
+yourself by requesting an interactive session on one of our build machines.  The session is essentially a job without an executable; <b>you</b> are the one running the commands instead (in this case, to compile the code). 
+</p>
+
+<p>Instructions for submitting an interactive build 
+job are here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
+to do Step 2 (Creating Interactive Submit Files), and the first command of Step 3
+(Submitting and Working Interactively).<br>
+For Step 2, you'll need to change <code>transfer_input_files</code> to 
+reflect all the <code>.m</code> files on which your program depends.  
+These files need to be uploaded to the submit server before you submit 
+the interactive job for compiling.  
+If you have many files or directories that are part of your code, 
+we recommend compressing them into a tarball (<code>.tar.gz</code>) and 
+transferring that.  </p>
+
+<p>Once you've done Steps 2 and 3 of the <a href="/inter-submit.shtml">interactive job</a>
+guide, and the interactive job has started, you can compile your code.  
+In this example, <code>foo.m</code> represents the 
+name of the primary Matlab script; you should replace <code>foo.m</code> 
+with the name of your own primary script.  Note that if your main 
+script references other <code>.m</code> files, they will all be compiled 
+together with the main script into one binary.  
+</p>
+
+<p>Choose one of the following compile commands, based on the version of Matlab you'd like to use:  
+
+<pre>$ /usr/local/MATLAB/R2014b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm foo.m</pre>
+<pre>$ /usr/local/MATLAB/R2013b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm foo.m</pre>
+<pre>$ /usr/local/MATLAB/R2011b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm foo.m</pre>
+</p>
+
+<p>There are other options for the <code>mcc</code> Matlab compiler.  If you have questions about your particular code, <a href="chtc@cs.wisc.edu">contact a facilitator</a> or see the <a href="http://www.mathworks.com/help/compiler/mcc.html">Matlab documentation</a>.  
+</p>
+
+<p>Just type <code>exit</code> after the compile completes.  Condor will transfer your compiled code and its scripts back automatically.  You should get back the following files: 
+<pre>
+$ ls -l 
+
+-rw-rw-r-- 1 user user 581724 Feb 19 14:21 mccExcludedFiles.log
+-rwxrw-r-- 1 user user  94858 Feb 19 14:21 foo
+-rw-rw-r-- 1 user user   3092 Feb 19 14:21 readme.txt
+-rwxrw-r-- 1 user user   1195 Feb 19 14:21 run_foo.sh
+</pre>
+
+The file <code>foo</code> is the compiled Matlab binary.  You will not need the <code>mccExcludedFiles.log</code> or <code>readme.txt</code> to run your jobs.  
+</p>
+
+<p>Note that sometimes the compiled Matlab binary will lose its "executable"
+permissions.  When that happens, they can be restored by running the following command: </p>
+
+<pre>$ chmod +x foo</pre>
+
+<p> Again, where <code>foo</code> is the name of your own compiled binary.  
+
+<h1>Running Matlab Jobs</h1>
+
+<p>In order for your Matlab code to run, you will need to use 
+a Matlab runtime.  The runtime is easily downloaded from CHTC's web proxy; the 
+version <b>must</b> match the version you used to compile 
+your code.  Options available on our proxy include: </p>
+<ul>
+	<li><code>r2014b.tar.gz</code></li>
+	<li><code>r2013b.tar.gz</code></li>
+	<li><code>r2011b.tar.gz</code></li>
+</ul>
+
+<a name="script"></a>
+<h2>Modifying the executable</h2>
+
+<p>The <code>mcc</code> command should have returned a script called 
+<code>run_*.sh</code> (where * is the name of your Matlab script; our 
+example uses the name <code>foo</code>).  This <code>run_*.sh</code> 
+script will be the executable for your Matlab jobs and already has 
+almost all the necessary commands for running your Matlab code. You'll need 
+to add one line at the beginning of the <code>run_*.sh</code> script that unpacks 
+the Matlab runtime.  </p>
+
+<p>The command that needs to be added at the start of this script looks like this: 
+</p>
+
+<pre>
+#!/bin/bash
+
+# Add this line to run_foo.sh
+#
+tar xzf r2014b.tar.gz
+#
+# Rest of script follows</pre>
+
+<p>Replace <code>r2014b.tar.gz</code> with the appropriate version 
+of Matlab, if you used something different to compile. </p>
+
+<a name="submit"></a>
+<h2>Submit file</h2>
+
+<p>This section shows the important elements of 
+a submit file for Matlab jobs.  The submit file for your job will be 
+different than the one used 
+to compile your code.  As a starting point for a submit file, 
+see our "hello world" example: <a href="/helloworld.shtml">http://chtc.cs.wisc.edu/helloworld.shtml</a>.  
+In what follows, replace our example <code>foo</code> and <code>run_foo.sh</code> 
+with the name of your binary and scripts.  </p>
+<ol>
+	<li>Transfer input files and your compiled binary, transfer 
+	our copy of the Matlab runtime: <br>
+		<pre>transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/r2014b.tar.gz,foo,input_files</pre>
+		Make sure to use the same version of Matlab that you used to compile your scripts.  
+		</br></li>
+	<li>Use <code>run_foo.sh</code> as the executable: <br>
+		<pre>executable = run_foo.sh</pre>
+		</li>
+	<li> Include the appropriate arguments for <code>run_foo.sh</code> 
+	(as described in <code>readme.txt</code>).  This will be the name of the Matlab runtime 
+	directory and any arguments your Matlab code needs to run.  The name of the Matlab 
+	directories for the different versions are as follows: 
+	<center><table class="gtable">
+	<tr><th>Matlab version</th> <th>Runtime directory name</th></tr>
+	<tr><td><code>r2014b.tar.gz</code></td> <td><code>v84 </code></td></tr>
+	<tr><td><code>r2013b.tar.gz</code></td> <td><code>v82</code></td></tr>
+	<tr><td><code>r2011b.tar.gz</code></td> <td><code>v716</code></td></tr>
+	</table></center>
+	<br>
+	So to run a Matlab job using <code>r2014b</code> and no additional arguments, the 
+	arguments line should read: <br>
+		<pre>arguments = v84</pre>
+
+</li>
+</ol>
+
+<p>As always, test a few jobs for disk space/memory usage in order to 
+make sure your requests for a large batch are accurate!  Disk space and 
+memory usage can be found in the log file after the job completes.  </p>
+
+
+<a name="random"></a>
+<h1>Ensuring Randomness</h1>
+
+<p>This section is only relevant for Matlab scripts that 
+use Matlab's random number functions like <code>rand</code>.</p>
+
+<p>Whenever Matlab is started for the first time on a new computer, 
+the random number generator begins from the same state.  When you 
+run multiple Matlab jobs, each job is using a copy of Matlab that 
+is being used for the first time -- thus, every job will start with 
+the same random number generator and produce identical results. </p>
+
+<p>There are different ways to ensure that each job is using different 
+randomly generated numbers. 
+<a href="http://www.mathworks.com/help/matlab/math/why-do-random-numbers-repeat-after-startup.html?refresh=true">This
+Mathworks page</a> describes one way to "reset" the random number 
+generator so that it produces different random values when Matlab 
+runs for the first time.  Deliberately choosing your own different
+random seed values for each job can be another way to ensure different 
+results.</p>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

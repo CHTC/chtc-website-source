@@ -1,0 +1,235 @@
+<!--#set var="title" value="Using Gluster for Large Data and Software"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>CHTC maintains a Gluster file share, which should only be used for
+files or software that are too large for HTCondor file transfer or SQUID. 
+The below guide discusses how to use CHTC's Gluster option for jobs that
+use or produce very large files.  See the table below, or our 
+<a href="/file-availability.shtml">comprehensive file availability page</a> 
+to make sure Gluster is the right option for your jobs.  </p>
+
+<!--#include virtual="/includes/template-file-avail.shtml"-->
+
+<b>To best understand the below information, users 
+should already be familiar with:</b><br>
+<ol>
+	<li>Using the command-line to: navigate directories, 
+	create/edit/copy/move/delete files and directories, 
+	and run intended programs (aka "executables").</li>
+	<li>CHTC's <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's guide for 
+	<a href="/file-availability.shtml">File Availability Options</a></li>
+</ol>
+
+<a name="staging"></a>
+<h1>1. Staging files within Gluster:</h1>
+<p> After obtaining a user directory within <code>/mnt/gluster</code> on a 
+CHTC-administered submit server, copy relevant files directly 
+into this user directory from your own computer:</p>
+
+<p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
+<pre class="term">$ scp large.file username@submit-5.chtc.wisc.edu:/mnt/gluster/username/</pre>
+
+<p>If using a Windows computer:</p>
+<p>Using a file transfer application, like WinSCP, directly drag the large 
+file from its location on your computer to a location within 
+<code>/mnt/gluster/username/</code> on the submit server.</p>
+
+<a name="submit"></a>
+<h1>2. Submit File and Job Submission</h1>
+
+<p>In order to properly submit jobs using Gluster, please make sure 
+to do the following:</p>
+<ul>
+	<li>ONLY submit Gluster-dependent jobs from within your home 
+	directory (<code>/home/username</code>), and NOT from within 
+	<code>/mnt/gluster</code>. </li>
+
+	<li>Do NOT list any <code>/mnt/gluster</code> files in any 
+	of the submit file lines, 
+	including: <code>executable, log, output, error, transfer_input_files</code>. 
+	Rather, your job's ENTIRE interaction with files in <code>/mnt/gluster</code> 
+	needs to occur WITHIN your executable, when it runs. </li>
+
+	<li>Request an adequate amount of disk space with "<code>request_disk</code>", 
+	which will only pertain to the maximum amount of data within the 
+	job working directory on the execute node, and not to files that 
+	only ever exist within <code>/mnt/gluster</code>.</li>
+
+	<li>Make sure to use a submit file "Requirements" line to make sure 
+	your jobs only run on execute servers that have access to Gluster</li>
+</ul>
+
+<p>See the below submit file, as an example, which would be submitted 
+from within the user's home directory:</p>
+
+<pre class="sub">### Example submit file for a single Gluster-dependent job
+# Files for the below lines MUST all be somewhere within /home/username,
+# and not within /mnt/gluster/username
+
+log = myprogram.log
+executable = /home/username/run_myprogram.sh
+output = $(Cluster).out
+error = $(Cluster).err
+transfer_input_files = myprogram
+
+# IMPORTANT! Require execute servers that have Gluster:
+Requirements = (Target.HasGluster == true)
+
+# Make sure to still include lines like "request_memory", "request_disk", "request_cpus", etc. 
+
+queue
+</pre>
+
+<a name="files"></a>
+<h1>2. Using Large Files Within a Job</h1>
+
+<p>As stated in <a href="#submit">2</a> above, all interaction with 
+files and software in <code>/mnt/gluster</code> 
+should occur within your job's main executable, when it runs.  This 
+section shows different sample bash scripts that handle large 
+<a href="#files-input">input</a> and <a href="#files-output">output</a>, 
+which would serve as the job's "executable" in the submit file.  </p>
+
+<a name="files-input"></a>
+<h2>A. Managing Large Input Files Within a Job's Executable</h2>
+
+<p>There are two options for having steps within your 
+executable manage large input files.</p>
+
+<h3>Option 1: Copy files from Gluster into the working directory (best, if possible)</h3>
+
+<p>The recommended method is to copy input or software into the working directory of the job, and use it from there, being careful to remove such files from the working directory before the completion of the job (so that they're not copied back to the submit server as perceived output).
+
+An example executable script is below:
+
+<pre class="file">
+#!/bin/bash
+#
+# First, copy the large file from /mnt/gluster into the working directory:
+cp /mnt/gluster/username/large_input.txt ./
+#
+# Command for myprogram, which will us the file from the working directory
+./myprogram large_input.txt myoutput.txt
+#
+# Before the script exits, make sure to remove the large file from the working directory
+rm large_input.txt
+#
+# END</pre>
+
+<h3>Option 2: Refer to files and software DIRECTLY from their location in Gluster 
+(only if needed)</h3>
+
+<p>
+If your data or software package is larger than ~50 GB, or your software will only work 
+if it remains in the same location where it was first installed, you will instead have your 
+jobs use these files or software from where they are located in <code>/mnt/gluster</code>. 
+Otherwise, Option 1 should ALWAYS be used.
+</br></br>
+Essentially, your job executable should refer to Gluster-located files 
+and software using the <i>absolute</i> path (e.g.
+ <code>/mnt/gluster/username/large_input.txt</code>).</p>
+
+<p>Example, if your job executable is a unix shell (bash) script:</p>
+
+<pre class="file">#!/bin/bash
+#
+# script to run myprogram, 
+# which reads in a large file directly from Gluster
+./myprogram /mnt/gluster/username/large_input.txt myoutput.txt
+#
+# END</pre>
+
+<a name="files-output"></a>
+<h2>B. Managing Large Output Files Within a Job's Executable</h1>
+
+<p>There are two options for having steps within your 
+executable write files to Gluster, as well as a consideration 
+for large standard output.</p>
+
+<h3>Option 1: Write output files to the working directory, 
+then move these to Gluster</h3>
+
+<p>It can be detrimental to the Gluster filesystem (and cause your 
+jobs to run more slowly) to write files directly to Gluster from 
+within a job.  Instead, have your executable write the file 
+to a location within the working directory, and then make sure to move 
+this large file to Gluster (or copy to Gluster, and then remove from 
+the working directory), so that it's not transferred back to the home 
+directory, like all other "new" files in the working directory will be. </p>
+
+<p>Example, if executable is a shell script:</p>
+<pre class="file">#!/bin/bash
+# 
+# Command to save output to the working directory:
+./myprogram myinput.txt large_output.txt
+#
+# Move large output to Gluster:
+mv large_output.txt /mnt/gluster/username/large_output.txt
+#
+# END</pre>
+
+<h3>Option 2: Write output files directly to Gluster</h3>
+
+<p>Essentially, your executable to should refer to files it will produce 
+using the ABSOLUTE PATH (e.g. <code>/mnt/gluster/username/large.file</code>)</p>
+
+<p>Example, if executable is a shell script:</p>
+<pre class="file">#!/bin/bash
+#
+# script to run myprogram, 
+# which writes a large file directly to Gluster
+#
+./myprogram myinput.txt /mnt/gluster/username/large_output.txt
+#
+# END</pre>
+
+<h3>ALSO consider: Large standard output ("screen output") produced 
+within your executable</h3>
+
+<p>In some instances, your software may produce very large standard 
+output (what would typically be output to the command screen, if you 
+ran the command for yourself, instead of having HTCondor do it). Because 
+such standard output from your software will usually be captured by 
+HTCondor in the submit file "output" file, this "output" file WILL 
+still be transferred by HTCondor back to your home directory on the 
+submit server, which may be very bad for you and others, if that captured 
+standard output is very large.</p>
+
+<p>In these cases, it is useful to redirect the standard output 
+of commands in your executable to a file in the working directory, and then 
+move it into Gluster at the end of the job.</p>
+
+<p>Example, if "<code>myprogram</code>" produces very large standard output, and 
+is run from a script (bash) executable:</p>
+
+<pre class="file">#!/bin/bash
+#
+# script to run myprogram,
+# 
+# redirecting large standard output to a file in Gluster:
+./myprogram myinput.txt myoutput.txt > large_std.out
+# 
+# move large files to Gluster so they're not copied to the submit server:
+mv large_std.out /mnt/gluster/username/large_std.out
+# END</pre>
+
+<h1>4. Removing files from Gluster after jobs complete</h1>
+
+<p>Similar to the procedures from transferring files into Gluster,
+you can directly copy files out of Gluster using command-line <code>scp</code>
+or file-transfer applications like WinSCP.</p>
+
+<h1>5. Software in Gluster</h1>
+
+While it is possible to install software into Gluster, we recommend it 
+<b>only as a last resort</b>.  If you think you may need Gluster for your 
+software, <a href="mailto:chtc@cs.wisc.edu">email a research computing 
+facilitator</a> to ask for installation protocol.  
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

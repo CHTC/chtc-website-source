@@ -1,0 +1,238 @@
+<!--#set var="title" value="Troubleshooting Condor Jobs"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+<p>This page lists some tips and tricks for troubleshooting jobs submitted 
+in CHTC using HTCondor.  You can either jump to the section 
+below that describes your problem, or, if you are not sure where 
+to begin, 
+see <a href="#email">this section</a> for how to email us or follow our 
+directions for <a href="#interactive">interactive testing</a>.</p>
+
+<b>Potential issues</b>
+<ol>
+  <li><a href="#start">My job isn't starting.</a></li>
+  <li><a href="#hold">My job is on hold.</a></li>
+  <li><a href="#long">I want to check on a running job.</a></li>
+  <li><a href="#complete">My job ran and completed, but I think something went wrong.</a></li>
+  <li><a href="#dag">I need to troubleshoot a DAG</a></li>
+</ol>
+
+<a name="email"></a>
+<h1>Emailing Us</h1>
+
+<p>It can be hard to figure out why jobs aren't working!  Don't hesitate to email 
+<a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with questions.  We can 
+help you most effectively if your email to us contains the following information: </p>
+
+<ul>
+<li>Tell us which submit server you log into</li>
+<li>Describe your problem: 
+  <ul><li>What are you trying to do?</li>
+      <li>What did you expect to see?</li>
+      <li>What was different than what you expected?</li>
+      <li>What error messages have you received (if any)?</li>
+  </ul></li>
+<li>Attach any relevant files (output, error, log, submit files, scripts) or 
+tell us the directory on the submit server where we can find these files.</li>
+</ul>
+
+<a name="start"></a>
+<h1>1. My job isn't starting.</h1>
+
+<p><code>condor_q</code> has an option to describe why a job hasn't 
+matched and started running.  Find the JobId of a job that hasn't 
+started running yet and use the following command:</p>
+
+<pre class="term">[alice@submit]$ condor_q -better-analyze <i>JobId</i></pre>
+
+<p>After a minute or so, this command should print out some information 
+about why your job isn't matching and starting.  This information is 
+not always easy to understand, so please email us with the output of 
+this command if you have questions about what it means.</p>
+
+<a name="hold"></a>
+<h1>2. My job is on hold.</h1>
+
+<p>If your jobs have gone on hold, you can see the hold reason by 
+running: </p>
+
+<pre class="term">[alice@submit]$ condor_q -hold -af HoldReason</pre>
+
+<p>The list below has some common hold reasons and their solutions.  </p>
+
+<ul>
+<li>"Disk quota exceeded": Output files can't be returned to the submit node if you 
+have reached your quota.  See <a href="/check-quota.shtml">our 
+quota guide</a> for instructions on managing your quota.</li>
+<li>"Job has gone over memory limit of X": Look at the resource usage table in your log 
+files - are you requesting enough memory for your jobs? </li>
+<li>"errno=8: 'Exec format error'": Often, this is a Windows/Linux compatibility issue, 
+addressed in <a href="/dos-unix.shtml">this guide</a>.  It can also happen if your 
+executable is a bash script and doesn't have this exact heading on the first line: 
+<pre class="file">#!/bin/bash</pre> </li>
+<li>"Job failed to complete in 72 hrs": If your job ran past our 3 day time limit, 
+it goes on hold and all progress is lost.  Get in touch with the CHTC facilitators 
+for strategies to avoid this issue. </li>
+</ul>
+
+<a name="long"></a>
+<h1>3. I want to check on a running job.</h1>
+
+To log into a running job, you can use the <code>condor_ssh_to_job</code> 
+command with the job's ID.  
+
+<pre class="term">[alice@submit]$ condor_ssh_to_job <i>JobId</i> </pre>
+
+This will log you into the running job, so you can look at its working 
+directory.  Typing <code>exit</code> will log you out of the job without 
+causing it to stop running.  Jobs that are running on the UW Grid or Open 
+Science Grid may be inaccessible using <code>condor_ssh_to_job</code>.  
+
+<a name="complete"></a>
+<h1>4. My job ran and completed, but I think something went wrong.</h1>
+
+<a name="interactive"></a>
+<h2>A. Test Interactively</h2>
+
+<p>One way to see why a job didn't work is to run a sample job as an 
+interactive test.  We have a guide for doing this <a href="/testing.shtml#interactive">here</a>.  
+
+<a name="submit"></a>
+<h2>B. Check Support Files</h2>
+
+<p>If your submit file includes the lines: </p>
+
+<pre class="sub">
+log = <i>logfile.log</i>
+output = <i>outfile.out</i>
+error = <i>errfile.err</i>
+</pre>
+
+<p>HTCondor will produce these files and they can be used for troubleshooting.  
+Here is the kind of information you can find in each file. </p>
+
+<b>Output</b>
+
+<p>The "output" file contains any information that would normally have been 
+printed to the terminal if you were running the script/program yourself 
+from the command line.  It can be useful for figuring out what went right/wrong 
+inside your program, or simply to measure a job's progress. </p>
+
+<blockquote><b>Tips for troubleshooting</b>: If you have jobs that are failing and your job's 
+main executable is a script, you can add the following information to help debug: 
+  <ul>
+    <li>Use a command that prints the <i>hostname</i>, or name of the machine 
+    where the job is running.  In a bash script, this is simply the command 
+    <code>hostname</code>.</li>
+    <li>Print out the contents of the working directory (in bash, this is 
+    <code>ls -l</code>). </li>
+    <li>Add "print" statements where appropriate in your code, to determine 
+    what your program is doing as it runs.</li>
+  </ul>
+  </blockquote>
+
+<b>Error</b>
+
+<p>The error file contains any errors that would normally have been 
+printed to the terminal if you were running the script/program yourself 
+from the command line.  This is a good place to look first if you think 
+your code triggered an error. </p>
+
+<b>Log</b>
+
+<p>The log file contains information that HTCondor tracks for each job, including 
+when it was submitted, started, and stopped.  It also describes resource use, 
+and where the job ran. </p>
+
+  <ul>
+    <li>When jobs were submitted, started, and stopped: 
+    <pre class="file">000 (16173120.000.000) 03/16 09:50:48 Job submitted from host: 
+    <128.104.101.92:9618?addrs=128.104.101.92-9618</pre>
+    <pre class="file">001 (16173120.000.000) 03/16 09:53:10 Job executing on host: 
+    <128.105.244.92:9618?addrs=128.105.244.92-9618&noUDP&sock=7150_4f71_3></pre>
+    <pre class="file">005 (16173120.000.000) 03/16 09:58:12 Job terminated.</pre></li>
+    <li>Resources used
+    <pre class="file">Partitionable Resources :    Usage  Request Allocated
+Cpus                 :                 1         1
+Disk (KB)            :       15  1048576  11053994
+Memory (MB)          :        1   102400    102400</pre></li>
+    <li>Exit status
+    <pre class="file">(1) Normal termination (return value 0)</pre>
+    A return value of "0" is normal; non-zero values indicate an error.</li>
+    <li>Where the job ran: 
+    <pre class="file">Job executing on host: <128.105.244.92:</pre>
+    You can get the "name" of the machine where a job ran by running the command 
+    <code>host</code>, followed by the 4-part IP address.  Using the above 
+    example, this would look like: 
+    <pre class="term">[alice@submit]$ host 128.105.244.92</pre> </li>
+  </ul>
+
+<h2>3. Troubleshooting Common Errors</h2>
+
+<p>Here are some common errors that may come up while testing your job:</p>
+
+<ul>
+<li>Is your executable not running?  <ul>
+ 	 <li>Try adding executable permissions: 
+ 	 <pre class="term">[alice@submit]$ chmod +x my_exec</pre></li>
+	<li>If you have a shell (or other script) 
+	as your executable, make sure you have the appropriate header, like: 
+  	<pre class="file">#!/bin/bash</pre>
+ 	 as the very first line of your script.  </li>
+</ul></li>
+<li>What does the error message say? <ul>
+	<li>One common error is that the script can't find a program 
+	or library.  If this is the case, you can email the research 
+	computing facilitators at chtc@cs.wisc.edu or search for the 
+	error yourself and try to fix it in the interactive session.</li>
+</ul></li>
+<li>Are you missing a file you need?  <ul>
+	<li>If you are in an interactive job and the file you need is on the submit server, you 
+	can copy it into the directory using scp: 
+	<pre class="term">[alice@e000 dir_0]$ scp <i>alice</i>@<i>submit</i>.chtc.wisc.edu:/home/<i>alice/dir/input_file</i></pre>
+	Change "alice" to your username and "submit.chtc.wisc.edu" to the submit 
+	node you normally use.  The path after the colon should be the full path to 
+	the file you want to transfer.  
+	Once you exit the interactive session, don't forget to add this file to 
+	your list of <code>transfer_input_files</code>.</li>
+	<li>If you aren't testing in an interactive job, add the file to <code>transfer_input_files</code>
+	in your submit file and resubmit.</li>
+	<li>If the file is on Gluster, either copy the file from Gluster to the directory 
+	(if testing interactively) or add a copy statement to the job's executable and try 
+	running again.  If it works, make sure the the file is copied to the working 
+	directory and then removed during the job by adding to the job's executable.  </li>
+</ul></li>
+</ul>
+
+<a name="dag"></a>
+<h1>5. Troubleshooting DAGs</h1>
+
+<h2>A. Test the Pieces</h2>
+
+<p>The first step to troubleshooting a DAG is to test the component pieces by 
+either running them manually or running a small test DAG.  </p>
+
+<h2>B. DAG Support Files</h2>
+
+<p>A DAG will automatically create its own output and log files in its submission 
+directory, in addition to any log/output/error files created by the submitted jobs.  The 
+most useful file is typically the <code>name_of_dag.dagman.out</code> file.  This 
+file contains information about when various jobs were submitted by the DAG, and it 
+keeps a running tally of completed/running/idle jobs (look near the bottom 
+of the file for the latest update): </p>
+
+<pre class="file">
+03/09/16 11:36:16  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+03/09/16 11:36:16   ===     ===      ===     ===     ===        ===      ===
+03/09/16 11:36:16     1       0        4       0      10          0        0
+</pre>
+
+<!--<a name="chtcrun"></a>
+<h2>ChtcRun</h2>
+<p>If you use our "ChtcRun" tools to submit jobs, see <a href="/dev_website/ChtcRun_troubleshooting">this guide</a> for 
+troubleshooting tips.  </p>-->
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

@@ -1,0 +1,52 @@
+	<ul class="sidebar">
+        <li><a href="/">CHTC Home</a></li>
+	<li>	Campus Computing
+		<ul>
+		<li><a href="/approach.shtml">Overview</a> </li>
+		<li><a href="/get-started.shtml">Get an account</a></li>
+		<li><a href="/use-submit-node.shtml">Policies</a> </li>
+		<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Metrics</a> </li>
+		<li><a href="/projects.shtml">Researchers Using CHTC</a> </li>
+		</ul>
+	</li>
+
+	<li>How To
+		<ul>
+		<li><a href="/guides.shtml">Basic Computing Skills</a></li>
+                <li><a href="/HTC-guides.shtml">HTC Guides</a></li>
+		<li><a href="/HPCuseguide.shtml">HPC Guides</a></li>
+		<!--<li><a href="">FAQs</a></li>-->		
+		</ul>
+	</li>
+
+	<li>	CHTC Research
+		<ul>
+		<li><a href="/chtc-projects.shtml">CHTC Projects</a></li>
+		<li><a href="/people.shtml">Our Staff</a></li>
+		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		</ul>
+	</li>
+
+	<li>	Other Resources
+		<ul>
+		<li><a href="">HTCondor Project</a></li>
+		<li><a href="">HTCondor Manual</a></li>
+		<li><a href="">Advanced Computing Initiative</a></li>
+		<li><a href="">Open Science Grid</a></li>
+		<li><a href="">Wisconsin Institute for Discovery (WID)</a></li>
+		<li><a href="">Morgridge Institue for Research (MIR)</a></li>
+		</ul>
+	</li>
+
+	</ul>
+
+	</td>
+
+<td width="97%" valign="top"> 
+
+
+	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+<TR ALIGN="left"> 
+  <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
+    <A  name="body"></a> 
+	<div id = "main">

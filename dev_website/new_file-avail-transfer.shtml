@@ -1,61 +1,18 @@
----
-layout: file_avail
-title: File Availability Options
----
+<!--#set var="title" value="File Availability: HTCondor File Transfer"-->
 
-<h1>HTCondor File Transfer</h1>
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
 
 <p>HTCondor file transfer is the standard solution for file portability, and is 
 built in to HTCondor job scheduling. You can see HTCondor file transfer as introduced 
 in our "Intro to Running HTCondor Jobs" and in the 
 <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
 
-{% include _include/template-file-avail.shtml %}
+<!--#include virtual="/includes/template-file-avail.shtml"-->
 
-<p><h2>Contents</h2>
-<ol>
-  <li><a href="#Appli">Applicability</a></li> 
-    <li><a href="#input">Transferring Input Files</a>
-	<li><a href="#output">Transferring Output Files</a>
-</ol>
-
-
-<a name="Appli"></a>
-<h2>1. Applicability</h2>
-
-<dl>
-<dt>Intended use:</dt> <dd>Good for delivering any type of data to jobs, but with file-size 
-limitations (see below). Remember that you can/should split up a large input file 
-into many smaller files for cases where each job only needs a portion of the data. 
-By default, the submit file "executable", "output", "error", and "log" files are ALWAYS 
-transferred.</dd>
-<dt>Advantages:</dt> <dd>HTCondor's file transfer is robust and is available on 
-ANY of CHTC's accessible HTC resources (including the UW Grid of campus pools, and the 
-Open Science Grid).</dd>
-<dt>Input File Limitations:</dt> <dd>HTCondor's file transfer can cause issues 
-for submit server performance when too many jobs are transferring too much data 
-at the same time. Therefore, HTCondor file transfer is only good for input files 
-up to ~20 MB per file IF the number of concurrently-queued jobs will be 100 or greater. 
-Even when individual files are small, there are issues when the total amount of input 
-data per-job approaches 500 MB. For cases beyond these limitations, one of our 
-other CHTC file delivery methods should be used. Remember that creating a *.tar.gz 
-file of directories and files can give your input and output data a useful amount 
-of compression.</dd>
-<dt>Output File Limitations:</dt> <dd>Because jobs are less likely to be completing at 
-the same time, total job output size of up to 1 GB will not cause submit server 
-performance issues, but it's always advantageous to create a *.tar.gz file of all 
-desired output before job completion (and to also delete the un-tar'd files so 
-they are not also transferred back).</dd>
-<dt>Data Security:</dt> <dd>Files transferred with HTCondor transfer are owned by the 
-job and protected by user permissions in the CHTC pool. When signaling your jobs to 
-run on the UW Grid (Flocking) or the Open Science Grid (Glidein), your files will 
-exist on someone else's computer only for the duration of each job. Please feel free 
-to email us if you have data security concerns regarding HTCondor file transfer, as 
-encryption options are available.</dd>
-
-	
-<a name="input"></a>
-<h2>2. Transferring Input Files</h2>
+<h2>1. Transferring Input Files</h2>
 
 <p>Simply add the "transfer_input_files" line to your submit file, like so:</p>
 <pre class="sub">transfer_input_files = file1,../file2,/home/username/file3,dir1,dir2/</pre>
@@ -86,8 +43,7 @@ ALWAYS transferred.</p>
 	file transfer in the HTCondor Manual.</a></li>
 </ul>
 
-<a name="output"></a>
-<h2>3. Transferring Output Files</h2>
+<h2>2. Transferring Output Files</h2>
 
 <p><b>HTCondor will automatically transfer back ALL new or modified files to the 
 submit directory.</b> This automatically includes the "output" and "error" files 
@@ -113,3 +69,6 @@ indicated in the submit file.</p>
 	first create these output files (perhaps empty), even if the job later exits 
 	early with an error.</li>
 </ul>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
+

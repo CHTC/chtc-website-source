@@ -1,0 +1,51 @@
+<!--#set var="title" value="How to Read These User Guides"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
+
+<h1>Organization</h1>
+
+Our guides each cover a distinct topic.  Some are more of a "how-to", with a list 
+of specific instructions; others include suggestions but not explicit instructions, 
+and others simply contain general or reference information. 
+
+<h1>Pre-formatted text</h1>
+
+<p>There are different kinds of pre-formatted text in our guides.  </p>
+
+<ul>
+<li>This text box: 
+<pre class="sub">universe = docker</pre>
+Indicates information that should be placed into a submit file</li>
+
+<li>This text box: 
+<pre class="file">#!/bin/bash</pre>
+Indicates any other file -- a text file, user code, or a script.</li>
+
+<li>This text box: 
+<pre class="term">[alice@submit]$ condor_q</pre>
+Shows commands that should be entered in the command line or terminal interface 
+that appears when you have logged into a submit server or head node.  Note that 
+the first part of the text, up to the <code>$</code> is what is called the 
+"prompt".  This isn't something that you type, but standard text that appears 
+at the start of each line waiting for a new command.  </li>
+</ul>
+
+<blockquote>
+We use blocks like this to indicate instructions that may be relevant to some
+people, but not all, or to offer general advice.  
+</blockquote>
+
+<h1>Customization</h1>
+
+<p>Certain commands or files in our guides can (and should!) be copied verbatim.  
+However, most commands or files will need some changes, using information like 
+your username, your file or script name, or your job's ID.  This information 
+is noted in italicized text, like so: </p>
+
+<pre class="term">[alice@submit]$ condor_q <i>JobId</i></pre>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

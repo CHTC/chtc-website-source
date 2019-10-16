@@ -1,0 +1,18 @@
+<!-- Top of Page Body -->
+<table BORDER="0" WIDTH="100%">
+<!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
+<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+
+<div id="hours"> <span style="height: 20px">
+<b>CHTC Office Hours!</b>
+<br>
+Every Wednesday, 9:30am-11:30am
+<br>
+Discovery (WID), room 1157</span></div>
+
+<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+
+
+<!--#if expr="x$title != x"-->
+<h1><!--#echo var="title"--></h1>
+<!--#endif-->
