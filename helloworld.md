@@ -27,7 +27,9 @@ Contents
 
 Rather than having you read a bunch of stuff before hand, let\'s just
 run some jobs so you can see what happens, and we\'ll provide some
-additional discussion along the way. We are going to run the traditional
+additional discussion along the way. 
+
+We are going to run the traditional
 \'hello world\' program with a CHTC twist. In order to demonstrate the
 distributed resource nature of the CHTC, we will produce a \'Hello
 CHTC\' message 3 times, where each time is its own job. Since you are
@@ -222,12 +224,10 @@ Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 ```
 
 **Congratulations.** You\'ve run your first jobs in the CHTC!\
-[]{#else}
 
-2. What Else?
+
+**2. What Else?**
 =============
-
-[]{#remove}
 
 A. Removing Jobs
 ----------------
@@ -240,22 +240,23 @@ To remove a specific job, specify the job ID nubmer from the queue
 ```
 
 You can even remove all of the jobs of the same cluster by specifying
-only the Cluster value for that batch. To remove **all of your jobs**:
+only the Cluster value for that batch. 
+To remove **all of your jobs**:
 
 ``` {.term}
 [alice@submit]$ condor_rm $USER
 ```
 
-[]{#importance}
-
-B. The Importance of Testing
+**B. The Importance of Testing**
 ----------------------------
 
 1\. **Examining Job Success.** Within the log file, you can see
 information about the completion of each job, including a system error
 code (as seen in \"return value 0\"). You can use this code, as well as
 information in your \".err\" file and other output files, to determine
-what issues your job(s) may have had, if any. 2. **Determining Memory
+what issues your job(s) may have had, if any. 
+
+2. **Determining Memory
 and Disk Requirements.** The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
@@ -264,6 +265,7 @@ running on, and HTCondor will have to try to rerun them (maybe many
 times) until it requests enough for you. When you request too much, your
 jobs may not match to as many available \"slots\" as they could
 otherwise, and your overall throughput will suffer in that case as well.
+
 3. **Determining Run Time.** Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
 completed), you can send your jobs to even more computers than are in
@@ -271,15 +273,15 @@ the CHTC Pool (where your jobs will run, by default). Refer to the table
 below for tips on how to send your jobs to the rest of the UW Grid and
 to the national [Open Science Grid](http://www.opensciencegrid.org/).
 
-[]{#resource}
 
-C. Getting the Right Resources
+
+**C. Getting the Right Resources**
 ------------------------------
 
 Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.
 
-  
+  {:.gtable}
   | Submit file entry  | Resources your jobs will run on |
   | --- | --- |
   | `request\_cpus = `*`cpus`*  |  Matches each job to a computer \"slot\" with at least this many CPU cores. |
@@ -288,22 +290,23 @@ files, as appropriate, and after running a few tests.
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
   |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
-Learn more about sending jobs to the UW Grid and OSG in our [Scaling
-Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
+Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
 
-[]{#homework}
 
 D. Now, time for a little homework
 ----------------------------------
 
 To get the most of the CHTC, you will want to have a good understanding
 of how HTCondor works. **We HIGHLY recommend browsing the latest
-[HTCondor User
-Tutorial](https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed)
-from the international HTCondor Week conference.** [Our full set of CHTC
+[HTCondor User Tutorial](https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed)
+from the international HTCondor Week conference.** 
+
+[Our full set of CHTC
 online guides is available here.](guides.shtml) Remember to [Get
 Help](get-help.shtml) whenever you have questions or issues. That\'s
-what CHTC staff are here for. The full HTCondor manual is comprehensive
+what CHTC staff are here for. 
+
+The full HTCondor manual is comprehensive
 and lengthy, and Googling \"HTCondor examples\" may lead you to examples
 that really only work on another campus\'s HTCondor system. You can
 always dig into more details as you become more experienced, but the
@@ -323,7 +326,7 @@ manuals:
 -   [Matchmaking with
     ClassAds](https://htcondor.readthedocs.io/en/latest/users-manual/matchmaking-with-classads.html)
 
-Now you are ready for some real work
+**Now you are ready for some real work**
 ====================================
 
 Ok, you have the basics! This should be enough background to get you
