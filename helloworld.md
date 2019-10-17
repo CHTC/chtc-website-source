@@ -109,7 +109,7 @@ above.
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
-``` {.term}
+``` {:.term}
 [alice@submit]$ condor_submit hello-chtc.sub
 ```
 
@@ -117,14 +117,14 @@ The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
 appears as:
 
-``` {.term}
+``` {:.term}
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
 
 **4.** To check on the status of your jobs, run the following command:
 
-``` {.term}
+``` {:.term}
 [alice@submit]$ condor_q
 ```
 
@@ -256,7 +256,7 @@ code (as seen in \"return value 0\"). You can use this code, as well as
 information in your \".err\" file and other output files, to determine
 what issues your job(s) may have had, if any. 
 
-2. **Determining Memory
+2\. **Determining Memory
 and Disk Requirements.** The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
@@ -266,7 +266,7 @@ times) until it requests enough for you. When you request too much, your
 jobs may not match to as many available \"slots\" as they could
 otherwise, and your overall throughput will suffer in that case as well.
 
-3. **Determining Run Time.** Depending on how long each of your jobs are
+3\. **Determining Run Time.** Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
 completed), you can send your jobs to even more computers than are in
 the CHTC Pool (where your jobs will run, by default). Refer to the table
