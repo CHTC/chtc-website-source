@@ -147,6 +147,7 @@ guide](/condor_q.shtml).
 > desktop, please see [this page](/dos-unix.shtml) for a potential
 > diagnosis and solution.
 
+
 **5.** When your jobs complete after a few minutes, they\'ll leave the
 queue. If you do a listing of your home directory with the command
 `ls -l`, you should see something like:
