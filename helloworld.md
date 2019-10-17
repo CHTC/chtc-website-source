@@ -109,9 +109,9 @@ above.
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
-``` {:.term}
-[alice@submit]$ condor_submit hello-chtc.sub
-```
+``` {.term}
+[alice@submit]$ condor_submit hello-chtc.sub {.term}
+``` 
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
@@ -119,7 +119,7 @@ appears as:
 
 ``` {:.term}
 Submitting job(s).....
-3 job(s) submitted to cluster 436950.
+3 job(s) submitted to cluster 436950. {:.term}
 ```
 
 **4.** To check on the status of your jobs, run the following command:
