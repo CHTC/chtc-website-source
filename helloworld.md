@@ -281,13 +281,9 @@ Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.
 
   
-| Submit file entry  | Resources your jobs will run on |
-| --- | --- |
-| `request\_cpus = `*`cpus`* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
-| `request\_disk = `*_`kilobytes`_* | Matches each job to a slot with at least this much disk space, in units of KB. |
-|`request\_memory = `*_`megabytes`_* | Matches each job to a slot with at least this much memory (RAM), in units of MB.|
-|`+WantFlocking = true` | Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
-|`+WantGlideIn = true` | Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
+  | Submit file entry  | Resources your jobs will run on |
+  | --- | --- |
+  | `request\_cpus = `*`cpus`* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Learn more about sending jobs to the UW Grid and OSG in our [Scaling
