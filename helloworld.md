@@ -280,9 +280,16 @@ C. Getting the Right Resources
 Be sure to always add or modify the following lines in your submit
 files, as appropriate, and after running a few tests.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Submit file entry               Resources your jobs will run on
-  ------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+```
+| Submit file entry  | Resources your jobs will run on |
+| --- | --- |
+| request\_cpus = *_cpus_* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
+| git diff | Show file differences that haven't been staged |
+```
+
+
+
   request\_cpus = *cpus*          Matches each job to a computer \"slot\" with at least this many CPU cores.
 
   request\_disk = *kilobytes*     Matches each job to a slot with at least this much disk space, in units of KB.\
