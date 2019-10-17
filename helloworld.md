@@ -20,8 +20,7 @@ Contents
     -   [The Importance of Testing](#importance)
     -   [Getting the Right Resources](#resource)
     -   [Time for a little homework](#homework)
-
-
+[]{#first}
 
 1. Let\'s first do, and then ask why
 ====================================
@@ -284,7 +283,6 @@ files, as appropriate, and after running a few tests.
   | Submit file entry  | Resources your jobs will run on |
   | --- | --- |
   | `request\_cpus = `*`cpus`* | Matches each job to a computer \"slot\" with at least this many CPU cores. |
- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Learn more about sending jobs to the UW Grid and OSG in our [Scaling
 Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
