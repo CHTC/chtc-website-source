@@ -110,9 +110,10 @@ above.
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
-``````{:.term}
+{:.term}
+```
 [alice@submit]$ condor_submit hello-chtc.sub 
-``````
+```
 
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
