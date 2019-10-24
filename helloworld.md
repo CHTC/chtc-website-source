@@ -110,8 +110,9 @@ above.
 **3.** Now, submit your job to the queue using `condor_submit`:
 
 ``` 
-[alice@submit]$ condor_submit hello-chtc.sub 
-``` {:.term}
+[alice@submit]$ condor_submit hello-chtc.sub {.term}
+``` 
+{.term}
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
@@ -125,21 +126,23 @@ Submitting job(s).....
 
 **4.** To check on the status of your jobs, run the following command:
 
-``` {:.term}
+``` 
 [alice@submit]$ condor_q
 ```
+{:.pre.term}
 
 (If you want to see everyone\'s jobs, use `condor_q -all`.)
 
 The output of `condor_q` should look like this:
 
-``` {.term}
+``` 
 -- Schedd: submit-2.chtc.wisc.edu : <128.104.101.92:9618?... @ 04/05/19 15:35:17
 OWNER  BATCH_NAME     SUBMITTED   DONE   RUN    IDLE  TOTAL  JOB_IDS
 alice  ID: 436950     4/5  15:34     _     _       3      3  436950.0-2
 
 3 jobs; 0 completed, 0 removed, 3 idle, 0 running, 0 held, 0 suspended
 ```
+{:pre.term}
 
 You can run the `condor_q` command periodically to see the progress of
 your jobs. By default, `condor_q` shows jobs grouped into batches by
