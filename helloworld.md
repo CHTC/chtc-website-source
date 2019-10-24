@@ -117,10 +117,11 @@ The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
 appears as:
 
-``` {:.term}
+``` 
 Submitting job(s).....
 3 job(s) submitted to cluster 436950. {:.term}
 ```
+{:.term}
 
 **4.** To check on the status of your jobs, run the following command:
 
