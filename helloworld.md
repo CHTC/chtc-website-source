@@ -110,9 +110,9 @@ above.
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
-{:.term}
+``````{:.term}
 [alice@submit]$ condor_submit hello-chtc.sub 
- 
+``````
 
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
@@ -228,7 +228,7 @@ like this:
 Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 ```
 
-**Congratulations.** You\'ve run your first jobs in the CHTC!\
+**Congratulations.** You\'ve run your first jobs in the CHTC!
 
 
 **2. What Else?**
