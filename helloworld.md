@@ -110,11 +110,11 @@ above.
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
-{:.term}
+
 ```
 [alice@submit]$ condor_submit hello-chtc.sub 
 ```
-
+{:.term}
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
@@ -128,10 +128,10 @@ Submitting job(s).....
 
 **4.** To check on the status of your jobs, run the following command:
 
-``` {:.term}
+``` 
 [alice@submit]$ condor_q
 ```
-
+{:.term}
 
 (If you want to see everyone\'s jobs, use `condor_q -all`.)
 
@@ -185,7 +185,7 @@ jobs. Looking at the log file is very useful for debugging problems that
 may arise. An excerpt from `hello-chtc_845638.log` produced due the
 submission of the 3 jobs will look something like this:
 
-``` {.file}
+``` 
 
 000 (436950.000.000) 04/05 15:34:33 Job submitted from host: <128.104.101.92:9618?addrs=128.104...>
 ...
@@ -221,6 +221,7 @@ submission of the 3 jobs will look something like this:
        Memory (MB)          :        1     1024      1024 
 ...
 ```
+{:.file}
 
 And, if you look at one of the output files, you should see something
 like this:
@@ -241,17 +242,19 @@ A. Removing Jobs
 To remove a specific job, specify the job ID nubmer from the queue
 (format: Cluster.Process). Example:
 
-``` {.term}
+``` 
 [alice@submit]$ condor_rm 845638.0
 ```
+{:.term}
 
 You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
 To remove **all of your jobs**:
 
-``` {.term}
+``` 
 [alice@submit]$ condor_rm $USER
 ```
+{:.term}
 
 **B. The Importance of Testing**
 ----------------------------
