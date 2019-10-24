@@ -3,7 +3,6 @@ layout: default
 title: Running Your First CHTC Jobs
 ---
 
-<link href="web.css" rel="stylesheet"></link> 
 
 So, you have an account on a submit node, and you are ready to run your
 first job in the CHTC. As we described in [Our
@@ -122,7 +121,7 @@ appears as:
 
 ``` 
 Submitting job(s).....
-3 job(s) submitted to cluster 436950. {:.term}
+3 job(s) submitted to cluster 436950.
 ```
 {:.term}
 
