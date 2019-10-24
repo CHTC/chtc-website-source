@@ -124,7 +124,7 @@ appears as:
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
-{:.term}
+{:.file}
 
 **4.** To check on the status of your jobs, run the following command:
 
