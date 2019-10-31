@@ -1,6 +1,8 @@
 ---
+layout: file_avail
 title: Using Gluster for Large Data and Software
 ---
+
 
 
 <p>CHTC maintains a Gluster file share, which should only be used for

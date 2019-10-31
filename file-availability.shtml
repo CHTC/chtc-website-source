@@ -4,6 +4,7 @@ title: File Availability Options
 ---
 
 
+
 <h1>HTCondor File Transfer</h1>
 
 <p>HTCondor file transfer is the standard solution for file portability, and is 
@@ -11,7 +12,6 @@ built in to HTCondor job scheduling. You can see HTCondor file transfer as intro
 in our "Intro to Running HTCondor Jobs" and in the 
 <a href="http://research.cs.wisc.edu/htcondor/manual/v7.8/2_5Submitting_Job.html#SECTION00354000000000000000">HTCondor Manual.</a></p>
 
-{% include template-file-avail.shtml %}
 
 <p><h2>Contents</h2>
 <ol>
