@@ -1,14 +1,16 @@
 ---
-layout: file_avail
+layout: default
 title: File Availability with Squid Web Proxy
 ---
-
-{% include_relative _includes/template-file-avail.shtml %}
 
 <h1>SQUID Web Proxy</h1>
 
 <p>CHTC maintains a SQUID web proxy from which pre-staged input files 
 and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
+
+
+{% include_relative _includes/template-file-avail.shtml %}
+
 <p><h2>Contents</h2>
 <ol>
   <li><a href="#Appli">Applicability</a></li> 
