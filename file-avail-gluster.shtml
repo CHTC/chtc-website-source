@@ -2,7 +2,9 @@
 title: Using Gluster for Large Data and Software
 ---
 
-<!--#include virtual="/includes/template-file-avail.shtml"-->
+{% include_relative _includes/template-file-avail.shtml %}
+
+<!--#include virtual="/_includes/template-file-avail.shtml"-->
 
 <p>CHTC maintains a Gluster file share, which should only be used for
 files or software that are too large for HTCondor file transfer or SQUID. 
