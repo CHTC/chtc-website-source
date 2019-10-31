@@ -3,6 +3,8 @@ layout: file_avail
 title: File Availability Options
 ---
 
+{% include_relative _includes/template-file-avail.shtml %}
+
 <h1>HTCondor File Transfer</h1>
 
 <p>HTCondor file transfer is the standard solution for file portability, and is 

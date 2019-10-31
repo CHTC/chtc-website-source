@@ -3,7 +3,11 @@ layout: default
 title: Running Your First CHTC Jobs
 ---
 
+ <link rel = "stylesheet"
+   type = "text/css"
+   href = "web.css" />
 
+   
 So, you have an account on a submit node, and you are ready to run your
 first job in the CHTC. As we described in [Our
 Approach](http://chtc.cs.wisc.edu/approach.shtml), the CHTC is a
