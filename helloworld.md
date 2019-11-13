@@ -129,7 +129,7 @@ appears as:
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
-{:.file}
+{:.term}
 
 **4.** To check on the status of your jobs, run the following command:
 
@@ -232,10 +232,10 @@ submission of the 3 jobs will look something like this:
 And, if you look at one of the output files, you should see something
 like this:
 
-``` {.file}
+``` 
 Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
-```
-
+```{:.file}
+  
 **Congratulations.** You\'ve run your first jobs in the CHTC!
 
 
