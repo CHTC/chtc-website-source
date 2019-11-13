@@ -226,15 +226,16 @@ submission of the 3 jobs will look something like this:
        Ioheavy              :                           0 
        Memory (MB)          :        1     1024      1024 
 ...
-```{:.file}
+```
+{:.file}
 
 And, if you look at one of the output files, you should see something
 like this:
 
-``` {:.file}
+``` 
 Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 ```
-
+{:.file}
   
 **Congratulations.** You\'ve run your first jobs in the CHTC!
 
