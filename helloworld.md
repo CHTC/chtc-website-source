@@ -51,7 +51,7 @@ following example to work***
 `hello-chtc.sub`, the submit file, in your home directory on the submit
 machine.
 
-``` {.sub}
+``` 
 # hello-chtc.sub
 # My very first HTCondor submit file
 #
@@ -89,6 +89,7 @@ request_disk = 1MB
 # Tell HTCondor to run 3 instances of our job:
 queue 3
 ```
+{:.sub}
 
 > For a \"template\" version of this submit file without the comments,
 > [click here](/files/template.sub).
@@ -96,7 +97,7 @@ queue 3
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
 
-``` {:.file}
+``` 
 #!/bin/bash
 #
 # hello-chtc.sh
@@ -108,6 +109,7 @@ echo "Hello CHTC from Job $1 running on `whoami`@`hostname`"
 # keep this job running for a few minutes so you'll see it in the queue:
 sleep 180
 ```
+{:.file}
 
 When HTCondor runs this executable, it will pass the \$(Process) value
 for each job and `hello-chtc.sh` will insert that value for \"\$1\",
@@ -116,19 +118,21 @@ above.
 **3.** Now, submit your job to the queue using `condor_submit`:
 
 
-```{:.term}
+```
 [alice@submit]$ condor_submit hello-chtc.sub 
 ```
+{:.term}
 
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
 appears as:
 
-``` {:.term}
+``` 
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
+{:.term}
 
 
 **4.** To check on the status of your jobs, run the following command:
@@ -301,9 +305,9 @@ files, as appropriate, and after running a few tests.
   {:.gtable}
   | Submit file entry  | Resources your jobs will run on |
   | --- | --- |
-  | `request\_cpus = `*`cpus`*  |  Matches each job to a computer \"slot\" with at least this many CPU cores. |
-  | `request\_disk = `*_`kilobytes`_*  |  Matches each job to a slot with at least this much disk space, in units of KB. |
-  |`request\_memory = `*_`megabytes`_*  |  Matches each job to a slot with at least this much memory (RAM), in units of MB.|
+  | `request_cpus = `*`cpus`*  |  Matches each job to a computer \"slot\" with at least this many CPU cores. |
+  | `request_disk = `*_`kilobytes`_*  |  Matches each job to a slot with at least this much disk space, in units of KB. |
+  |`request_memory = `*_`megabytes`_*  |  Matches each job to a slot with at least this much memory (RAM), in units of MB.|
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
   |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
