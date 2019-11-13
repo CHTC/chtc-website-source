@@ -96,7 +96,7 @@ queue 3
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
 
-``` {.file}
+``` {:.file}
 #!/bin/bash
 #
 # hello-chtc.sh
@@ -116,20 +116,20 @@ above.
 **3.** Now, submit your job to the queue using `condor_submit`:
 
 
-```
+```{:.term}
 [alice@submit]$ condor_submit hello-chtc.sub 
 ```
-{:.term}
+
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
 all goes well, you will see output from the `condor_submit` command that
 appears as:
 
-``` 
+``` {:.term}
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
-{:.term}
+
 
 **4.** To check on the status of your jobs, run the following command:
 
@@ -170,7 +170,7 @@ guide](/condor_q.shtml).
 queue. If you do a listing of your home directory with the command
 `ls -l`, you should see something like:
 
-``` {.term}
+``` {:.term}
 [alice@submit]$ ls -l
 total 28
 -rw-r--r-- 1 alice alice    0 Apr  5 15:37 hello-chtc_436950_0.err
@@ -231,9 +231,10 @@ submission of the 3 jobs will look something like this:
 And, if you look at one of the output files, you should see something
 like this:
 
-``` 
+``` {:.file}
 Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
-```{:.file}
+```
+
   
 **Congratulations.** You\'ve run your first jobs in the CHTC!
 
