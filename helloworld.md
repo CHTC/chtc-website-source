@@ -226,8 +226,7 @@ submission of the 3 jobs will look something like this:
        Ioheavy              :                           0 
        Memory (MB)          :        1     1024      1024 
 ...
-```
-{:.file}
+```{:.file}
 
 And, if you look at one of the output files, you should see something
 like this:
