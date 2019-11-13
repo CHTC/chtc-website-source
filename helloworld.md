@@ -159,7 +159,7 @@ on individual lines, add the `-nobatch` option. For more details on this
 option, and other options to `condor_q`, see our [condor\_q
 guide](/condor_q.shtml).
 
-> **Potential Failures**\
+> **Potential Failures**
 >
 > If your jobs go on hold and you usually use a Windows laptop or
 > desktop, please see [this page](/dos-unix.shtml) for a potential
@@ -170,7 +170,7 @@ guide](/condor_q.shtml).
 queue. If you do a listing of your home directory with the command
 `ls -l`, you should see something like:
 
-``` {:.term}
+``` 
 [alice@submit]$ ls -l
 total 28
 -rw-r--r-- 1 alice alice    0 Apr  5 15:37 hello-chtc_436950_0.err
@@ -183,6 +183,7 @@ total 28
 -rw-rw-r-- 1 alice alice  241 Apr  5 15:33 hello-chtc.sh
 -rw-rw-r-- 1 alice alice 1387 Apr  5 15:33 hello-chtc.sub
 ```
+{:.term}
 
 **Useful information is provided in the user log and the output files.**
 
