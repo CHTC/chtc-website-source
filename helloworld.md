@@ -1,4 +1,5 @@
 ---
+highlighter: none
 layout: default
 title: Running Your First CHTC Jobs
 ---
