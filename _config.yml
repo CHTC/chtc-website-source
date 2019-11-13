@@ -1,9 +1,17 @@
-@@ -3,6 +3,8 @@ exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
- 
+
+exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
+
 markdown_ex : "md,shtml"
- 
+
 highlighter: none
 
 defaults:
- -
-   scope:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-redirect-from
+
