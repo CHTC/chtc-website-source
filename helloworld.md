@@ -119,7 +119,7 @@ above.
 
 
 ```
-[alice@submit]$ condor_submit hello-chtc.sub 
+[alice@submit]$ condor_submit *hello-chtc.sub*
 ```
 {:.term}
 
@@ -306,8 +306,8 @@ files, as appropriate, and after running a few tests.
   | Submit file entry  | Resources your jobs will run on |
   | --- | --- |
   | `request_cpus = `*`cpus`*  |  Matches each job to a computer \"slot\" with at least this many CPU cores. |
-  | `request_disk = `*_`kilobytes`_*  |  Matches each job to a slot with at least this much disk space, in units of KB. |
-  |`request_memory = `*_`megabytes`_*  |  Matches each job to a slot with at least this much memory (RAM), in units of MB.|
+  | `request_disk = `*`kilobytes`*  |  Matches each job to a slot with at least this much disk space, in units of KB. |
+  |`request_memory = `*`megabytes`*  |  Matches each job to a slot with at least this much memory (RAM), in units of MB.|
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
   |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
@@ -353,4 +353,4 @@ manuals:
 Ok, you have the basics! This should be enough background to get you
 started using the CHTC for the *real* problems you came to us for.
 Remember, we are here to help. Don\'t hesitate to contact us at
-[chtc\@cs.wisc.edu](chtc@cs.wisc.edu) with questions.
+[chtc@cs.wisc.edu](chtc@cs.wisc.edu) with questions.
