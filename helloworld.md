@@ -119,7 +119,7 @@ above.
 
 
 ```
-[alice@submit]$ condor_submit *`hello-chtc.sub`*
+[alice@submit]$ condor_submit `*hello-chtc.sub*`
 ```
 {:.term}
 
