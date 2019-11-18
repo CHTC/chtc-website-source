@@ -1,4 +1,9 @@
-\-\-- layout: default title: Running Python Jobs on CHTC \-\--
+---
+highlighter: none
+layout: default
+title: Running Python Jobs on CHTC
+---
+
 
 **To best understand the below information, users should already have an
 understanding of:**
