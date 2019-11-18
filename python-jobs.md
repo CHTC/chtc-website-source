@@ -46,7 +46,7 @@ Supported Python Installations
   | Python 3.8 | python38.tar.gz |
 
 
-1. Adding Python Packages
+**1. Adding Python Packages**
 =========================
 
 If your code uses specific Python packages (like `numpy`, `matplotlib`,
@@ -104,9 +104,10 @@ above.
 Once this submit file is created, you will start the interactive job by
 running the following command:
 
-``` {.term}
+``` 
 [alice@submit]$ condor_submit -i build.sub
 ```
+{:.term}
 
 It may take a few minutes for the build job to start.
 
@@ -116,33 +117,37 @@ B. Install the Packages
 Once the interactive build job starts, you should see the Python that
 you specified inside the working directory:
 
-``` {.term}
+``` 
 [alice@build]$ ls -lh
 -rw-r--r-- 1 alice alice  78M Mar 26 12:24 python##.tar.gz
 drwx------ 2 alice alice 4.0K Mar 26 12:24 tmp
 drwx------ 3 alice alice 4.0K Mar 26 12:24 var
 ```
+{:.term}
 
 We\'ll now unzip the copy of Python and set the `PATH` variable to
 reference that version of Python:
 
-``` {.term}
+``` 
 [alice@build]$ tar -xzf python##.tar.gz
 [alice@build]$ export PATH=$PWD/python/bin:$PATH
 ```
+{:.term}
 
 To make sure that your setup worked, try running:
 
-``` {.term}
+``` 
 [alice@build]$ python3 --version
 ```
+{:.term}
 
 You can also try running this command to make sure the copy of python
 that is now active is the one you just installed:
 
-``` {.term}
+``` 
 [alice@build]$ which python3
 ```
+{:.term}
 
 The command above should return a path that includes the prefix
 `/var/lib/condor/`, indicating that it is installed in your job\'s
@@ -157,9 +162,10 @@ want to be using!
 
 First, create, a directory to put your packages into:
 
-``` {.term}
+``` 
 [alice@build]$ mkdir packages
 ```
+{:.term}
 
 You can choose what name to use for this directory \-- if you have
 different sets of packages that you use for different jobs, you could
@@ -167,9 +173,10 @@ use a more descriptive name than \"packages\"
 
 To install the Python packages run the following command:
 
-``` {.term}
+``` 
 [alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
 ```
+{:.term}
 
 Replace *package1* *package2* with the names of packages you want to
 install. `pip` should download all dependent packages and install them.
@@ -188,9 +195,10 @@ directories.
 
 Run the following command to create your own tarball of your packages:
 
-``` {.term}
+``` 
 [alice@build]$ tar -czf packages.tar.gz packages/
 ```
+{:.term}
 
 Again, you can use a different name for the `tar.gz` file, if you want.
 
@@ -199,13 +207,13 @@ the interactive job and the tar.gz file with your Python packages will
 return to the submit server with you (this sometimes takes a few extra
 seconds after exiting).
 
-``` {.term}
+``` 
 [alice@build]$ exit 
 ```
+{:.term}
 
-[]{#script}
 
-2. Creating a Script
+**2. Creating a Script**
 ====================
 
 In order to use CHTC\'s copy of Python and the packages you have
