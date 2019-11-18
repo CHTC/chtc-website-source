@@ -32,19 +32,19 @@ page:
 
 -   [Building a Python installation](archived/python-jobs.shtml)
 
-[]{#supported}
 
 Supported Python Installations
 ==============================
 
-\
 
-  Python version   Name of Python installation file
-  ---------------- ----------------------------------
-  Python 3.6       python36.tar.gz
-  Python 3.7       python37.tar.gz
+{:.gtable}
+  | Python version  | Name of Python installation file |
+  | --- | --- |
+  | Python 2.7 | python27.tar.gz |
+  | Python 3.6 | python36.tar.gz |
+  | Python 3.7 | python37.tar.gz |
+  | Python 3.8 | python38.tar.gz |
 
-[]{#build}
 
 1. Adding Python Packages
 =========================
@@ -62,7 +62,6 @@ packages to a folder and zip those files to return to the submit server.
 > install of Python; if you want to add packages to a pre-existing
 > package folder, there will be notes below in boxes like this one.
 
-[]{#version}
 
 A. Submit an Interactive Job
 ----------------------------
@@ -70,7 +69,7 @@ A. Submit an Interactive Job
 Create the following special submit file on the submit server, calling
 it something like `build.sub`.
 
-``` {.sub}
+```
 # Python build file
 
 universe = vanilla
@@ -87,6 +86,7 @@ request_disk = 2GB
 
 queue
 ```
+ {:.sub}
 
 The only thing you should need to change in the above file is the name
 of the `python##.tar.gz` file - in the \"transfer\_input\_files\" line.
