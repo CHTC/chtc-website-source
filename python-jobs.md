@@ -227,7 +227,7 @@ the name of the script you would like to run, and modify the Python
 version numbers to be the same as what you used above to install your
 packages.
 
-``` {.file}
+``` 
 #!/bin/bash
 
 # untar your Python installation. Make sure you are using the right version!
@@ -243,14 +243,16 @@ export PYTHONPATH=$PWD/packages
 # run your script
 python3 my_script.py
 ```
+{:.file}
 
 If you have additional commands you would like to be run within the job,
 you can add them to this base script. Once your script does what you
 would like, give it executable permissions by running:
 
-``` {.term}
+``` 
 [alice@submit] chmod +x run_python.sh
 ```
+{:.term}
 
 > Arguments in Python
 > -------------------
@@ -259,9 +261,10 @@ would like, give it executable permissions by running:
 > following syntax in your main executable script, in place of the
 > generic command above:
 >
-> ``` {.file}
+> ``` 
 > python3 my_script.py $1 $2
 > ```
+> {:.file}
 >
 > Here, `$1` and `$2` are the first and second arguments passed to the
 > bash script from the submit file (see below), which are then sent on
@@ -273,9 +276,8 @@ would like, give it executable permissions by running:
 > this in [this Software Carpentry
 > lesson](http://swcarpentry.github.io/python-novice-inflammation/10-cmdline/index.html).
 
-[]{#submit}
 
-3. Submitting Jobs
+**3. Submitting Jobs**
 ==================
 
 A sample submit file can be found in our [hello
@@ -285,14 +287,18 @@ changes in order to run Python jobs:
 -   Your `executable` should be the script that you wrote
     [above](#script).
 
-    ``` {.sub}
+    ``` 
     executable = run_py.sh
-        Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
+    ```
+    {.sub}
+-   Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
     order to make sure your requests for a large batch are accurate!  
     Disk space and memory usage can be found in the log file after the job completes. 
-         Change transfer_input_files to include: 
-        transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
+-   Change transfer_input_files to include: 
     ```
+    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
+    ```
+    {:.sub}
 
 -   If your script takes arguments (see the box from the previous
     section), include those in the arguments line:
@@ -300,8 +306,6 @@ changes in order to run Python jobs:
     ``` {.sub}
     arguments = value1 value2
     ```
-
-[]{#squid}
 
 > ### How big is your package tarball?
 >
