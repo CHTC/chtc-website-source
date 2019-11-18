@@ -45,9 +45,10 @@ Supported Python Installations
   | Python 3.7 | python37.tar.gz |
   | Python 3.8 | python38.tar.gz |
 
-<a name="build"></a>
+
 **1. Adding Python Packages**
 =========================
+<a name="build"></a>
 
 If your code uses specific Python packages (like `numpy`, `matplotlib`,
 `sci-kit learn`, etc) follow the directions below to download and
@@ -62,10 +63,10 @@ packages to a folder and zip those files to return to the submit server.
 > install of Python; if you want to add packages to a pre-existing
 > package folder, there will be notes below in boxes like this one.
 
-<a name="version"></a>
+
 A. Submit an Interactive Job
 ----------------------------
-
+<a name="version"></a>
 Create the following special submit file on the submit server, calling
 it something like `build.sub`.
 
@@ -212,10 +213,10 @@ seconds after exiting).
 ```
 {:.term}
 
-<a name="script"></a>
+
 **2. Creating a Script**
 ====================
-
+<a name="script"></a>
 In order to use CHTC\'s copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
@@ -276,10 +277,10 @@ would like, give it executable permissions by running:
 > this in [this Software Carpentry
 > lesson](http://swcarpentry.github.io/python-novice-inflammation/10-cmdline/index.html).
 
-<a name="submit"></a>
+
 **3. Submitting Jobs**
 ==================
-
+<a name="submit"></a>
 A sample submit file can be found in our [hello
 world](/helloworld.shtml) example page. You should make the following
 changes in order to run Python jobs:
