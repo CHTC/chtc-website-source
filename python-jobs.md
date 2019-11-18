@@ -32,6 +32,7 @@ page:
 
 -   [Building a Python installation](archived/python-jobs.shtml)
 
+<a name="supported"></a>
 
 Supported Python Installations
 ==============================
