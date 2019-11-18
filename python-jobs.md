@@ -45,7 +45,7 @@ Supported Python Installations
   | Python 3.7 | python37.tar.gz |
   | Python 3.8 | python38.tar.gz |
 
-
+<a name="build"></a>
 **1. Adding Python Packages**
 =========================
 
@@ -62,7 +62,7 @@ packages to a folder and zip those files to return to the submit server.
 > install of Python; if you want to add packages to a pre-existing
 > package folder, there will be notes below in boxes like this one.
 
-
+<a name="version"></a>
 A. Submit an Interactive Job
 ----------------------------
 
@@ -212,7 +212,7 @@ seconds after exiting).
 ```
 {:.term}
 
-
+<a name="script"></a>
 **2. Creating a Script**
 ====================
 
@@ -276,7 +276,7 @@ would like, give it executable permissions by running:
 > this in [this Software Carpentry
 > lesson](http://swcarpentry.github.io/python-novice-inflammation/10-cmdline/index.html).
 
-
+<a name="submit"></a>
 **3. Submitting Jobs**
 ==================
 
@@ -290,7 +290,7 @@ changes in order to run Python jobs:
     ``` 
     executable = run_py.sh
     ```
-    {.sub}
+    {:.sub}
 -   Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
     order to make sure your requests for a large batch are accurate!  
     Disk space and memory usage can be found in the log file after the job completes. 
