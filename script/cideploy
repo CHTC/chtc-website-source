@@ -30,7 +30,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     cd built_website
     rsync -rv --delete --exclude=.git  ../_site/* .
     # Rename .html -> .shtml for generated files
-    rename 's/\.shtml$/.html/' *.shtml
+    rename --force --verbose 's/\.html$/.shtml/' *.html
     #add, commit and push files
     git add -f -A
     git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
