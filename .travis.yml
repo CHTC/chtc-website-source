@@ -1,6 +1,11 @@
 language: ruby
 dist: bionic
 
+addons:
+  apt:
+    packages:
+      - rename
+
 rvm:
   - 2.6.3
 

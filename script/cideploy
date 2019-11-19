@@ -28,11 +28,11 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     #go into directory and copy data we're interested in to that directory
     mkdir -p built_website
     cd built_website
-    rsync -rv --exclude=.git  ../_site/* .
+    rsync -rv --delete --exclude=.git  ../_site/* .
     # Rename .html -> .shtml for generated files
-    rename .html .shtml *.html
+    rename 's/\.shtml$/.html/' *.html
     #add, commit and push files
-    git add -f .
+    git add -f -A
     git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
     git push -fq origin $BRANCH > /dev/null
     echo -e "Deploy completed\n"
