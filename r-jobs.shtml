@@ -15,7 +15,8 @@ should already have an understanding of:</b>
 	to Running HTCondor Jobs</a></li>
 </ul>
 
-<h1>Overview</h1>
+Overview
+--------
 
 <p>CHTC provides several copies of R that can be used to run R 
 code in jobs. See our list of supported versions here: <a href="#supported">CHTC Supported R</a></p>

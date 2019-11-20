@@ -1,7 +1,7 @@
 
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
 
-markdown_ex : "md,shtml"
+markdown_ext : "md,shtml"
 
 highlighter: none
 
