@@ -1,8 +1,8 @@
-<!--#set var="title" value="Running Matlab Jobs on CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+highlighter: none
+layout: default
+title: Running Matlab Jobs on CHTC
+---
 
 <p><b>To best understand the below information, users should already have an understanding of:</b>
 </p>

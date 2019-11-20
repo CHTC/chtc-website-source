@@ -1,8 +1,10 @@
-<!--#set var="title" value="About Our Approach"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: About Our Approach
+---
+
+
+
 <P>
 CHTC supports a variety of computation modes, but our specialty is
  High <i>Throughput</i> Computing (HTC), which involves

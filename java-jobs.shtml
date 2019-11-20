@@ -1,8 +1,7 @@
-<!--#set var="title" value="Using Java Code in CHTC"-->
-<!--#include virtual="/includes/template-1-openhead.shtml" -->
-<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-<!--#include virtual="/includes/template-3-sidebar.shtml" -->
-<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+---
+layout: default
+title: Using Java Code in CHTC
+---
 
 <h1>Overview</h1>
 
