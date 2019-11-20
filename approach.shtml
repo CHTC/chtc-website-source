@@ -1,8 +1,8 @@
----
-layout: default
-title: About Our Approach
----
-
+<!--#set var="title" value="About Our Approach"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
 <P>
 CHTC supports a variety of computation modes, but our specialty is
  High <i>Throughput</i> Computing (HTC), which involves
@@ -37,7 +37,7 @@ design with millions of constraints, aligning genomes, and performing deep lingu
 are a few of the applications that campus researchers run every day in the CHTC.  If you are not sure if your application is a good fit
 for CHTC resources, <a href="chtc@cs.wisc.edu">get in touch</a> and we will be happy to help you figure it out. </p>
 Within a single compute system, we also support GPUs, high-memory servers, and specialized hardware owned by individual research 
-groups. For tightly-coupled computationa (e.g. MPI and similar programmed parallelization), our resources include an HPC Cluster, with 
+groups. For tightly-coupled computations (e.g. MPI and similar programmed parallelization), our resources include an HPC Cluster, with 
 faster inter-node networking.
 <p>
 <b>How to get access.</b>
@@ -47,3 +47,4 @@ thing we offer is, well, us.  We have a small, yet dedicated team of professiona
 Simply <a href="get-started.shtml">request an account</a>, and one of our dedicated Research Computing Facilitators will follow 
 up to provide specific recommendations to accelerate YOUR science.
 <P>
+<!--#include virtual="/includes/template-5-finish.shtml" -->

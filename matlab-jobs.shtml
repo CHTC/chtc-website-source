@@ -1,8 +1,8 @@
----
-layout: default
-title: Running Matlab Jobs on CHTC
----
-
+<!--#set var="title" value="Running Matlab Jobs on CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
 
 <p><b>To best understand the below information, users should already have an understanding of:</b>
 </p>
@@ -233,10 +233,8 @@ in your <code>transfer_input_files</code> line, as
 well as your compiled binary and any necessary input files:
 		<pre class="sub">transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/<i>r2015b</i>.tar.gz,script,input_data</pre>
 	</li>
-	<li> Include the appropriate arguments for <code>run_script.sh</code> 
-	(as described in <code>readme.txt</code>).  This will be the name of the Matlab runtime 
-	directory and any arguments your Matlab code needs to run.  The name of the Matlab 
-	directories for the different versions are as follows: 
+	<li> The <code>run_script.sh</code> will expect the runtime directory name to be provided
+	as an argument specified in the submit file (as described in <code>readme.txt</code>). 
 	<table class="gtable">
 	<tr><th>Matlab version</th> <th>Runtime directory name</th></tr>
 	<tr><td><code>r2015b.tar.gz</code></td> <td><code>v90</code></td></tr>
@@ -244,7 +242,7 @@ well as your compiled binary and any necessary input files:
 	</table>
 	<br>
 	So to run a Matlab job using <code>r2015b</code> and no additional arguments, the 
-	arguments line should read: <br>
+	arguments line in the submit file should read: <br>
 		<pre class="sub">arguments = v90</pre>
 	If you <i>are</i> passing additional arguments to the script, they can 
 	go after the first "runtime" argument: 
@@ -282,4 +280,5 @@ results.</p>
 <blockquote>
 For older version of this guide, see out <a href="archived/matlab-jobs.shtml">archived page</a>.
 </blockquote>
+<!--#include virtual="/includes/template-5-finish.shtml" -->
 

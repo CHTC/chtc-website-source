@@ -1,7 +1,10 @@
----
-layout: default
-title: Submitting High Memory Jobs on CHTC's HTC System
----
+<!--#set var="title" value="Submitting High Memory Jobs on CHTC's HTC System"-->
+
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
+
 
 <b>The examples and information in the below guide are useful ONLY if:</b><br>
 <ul>
@@ -134,6 +137,10 @@ are places where it's important to customize:</p>
 	to make this request as accurate as you can by <a href="#testing">testing</a> at a small scale if 
 	possible (see above).  Online documentation/help pages or your colleagues' experience is 
 	another source of information about required memory.  </br></li>
+	<li class="spaced"><b>Long running jobs</b>: If your high memory job is likely to run 
+	longer than our 3-day time limit, please email us for options on how to run for longer. 
+	In the past, high memory jobs received an extra time allowance automatically but this is 
+	no longer the case.</li>
 	<li class="spaced"><b><code>request_cpus</code></b>: Sometimes, programs that use a large 
 	amount of memory can also take advantage of multiple CPUs.  If this 
 	is the case for your program, you can request multiple CPUs.
@@ -169,9 +176,6 @@ are places where it's important to customize:</p>
 	your job will ever have within the job working directory 
 	on the execute node, including all output and input (which will take up space before 
 	some of it is removed from the job working directory at the end of the job). </br> </li>
-	<li class="spaced"><b>If your software requires newer Linux</b> request our
-        <a href="/os-transition.shtml">newer operating system (CentOS7)</a>:
-	<pre class="sub">requirements = (OpSysMajorVer == 7)</pre></li>
 	<li class="spaced"><b>Other requirements</b>: if your job uses files from 
 	<a href="/file-avail-gluster.shtml">Gluster</a>, or 
 	<a href="/docker-jobs.shtml">Docker for software</a>, 
@@ -260,3 +264,6 @@ cp trinity_out_dir.tar.gz trinity_stdout.txt /mnt/gluster/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END</pre>
+
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->

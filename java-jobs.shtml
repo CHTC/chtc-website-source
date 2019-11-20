@@ -1,7 +1,8 @@
----
-layout: default
-title: Using Java Code in CHTC
----
+<!--#set var="title" value="Using Java Code in CHTC"-->
+<!--#include virtual="/includes/template-1-openhead.shtml" -->
+<!--#include virtual="/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/includes/template-4-mainbody.shtml" -->
 
 <h1>Overview</h1>
 
@@ -9,8 +10,8 @@ title: Using Java Code in CHTC
 on CHTC and beyond.  There are two ways to run Java code from a CHTC 
 submit server: 
 <ul>
-	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.7)</a></li>
-	<li><a href="#portable">Use a newer version of Java (1.8) and/or run jobs beyond 
+	<li><a href="#default">Run jobs in CHTC only, using the default Java version (1.8)</a></li>
+	<li><a href="#portable">Use a newer version of Java and/or run jobs beyond 
 	CHTC (on the UW Grid or Open Science Grid) (recommended)<a></li>
 </ul>
 
@@ -19,12 +20,18 @@ submit server:
 <a name="default"></a>
 <h1>Pre-installed Java</h1>
 
-<p>To run in CHTC only, using the default version of java (1.7): </p>
+<p>To run in CHTC only, using the default version of java (1.8): </p>
 
 <ol>
 <li>Add this line to your submit file:
   <pre class="sub">requirements = (Target.HasJava == true) </pre> </li>
-<li>Your executable should be a wrapper script that executes your program. </li>
+<li>Your executable should be a wrapper script that executes your program. 
+
+<pre class="file">
+#!/bin/bash
+
+java -jar <i>program.jar</i></pre>
+</pre></li>
 
 </ol>
 
@@ -51,4 +58,6 @@ export PATH=$(pwd)/jdk-8u121-linux-x64/bin:$PATH
 export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
 java -jar <i>program.jar</i></pre>
 As in Step 2 above, the final line will vary, depending on your program.  </li>
+
+<!--#include virtual="/includes/template-5-finish.shtml" -->
 
