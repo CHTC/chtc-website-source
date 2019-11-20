@@ -4,7 +4,7 @@ layout: default
 title: User News
 ---
 
-TEST Below is a list of important user news updates, sorted by date. Please
+Below is a list of important user news updates, sorted by date. Please
 stay up to date with news which is relevant to you, as CHTC policy
 changes may affect the jobs of users.
 
