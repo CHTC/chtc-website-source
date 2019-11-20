@@ -58,5 +58,4 @@ export JAVA_HOME=$(pwd)/jdk-8u121-linux-x64
 java -jar <i>program.jar</i></pre>
 As in Step 2 above, the final line will vary, depending on your program.  </li>
 
-<!--#include virtual="/includes/template-5-finish.shtml" -->
 
