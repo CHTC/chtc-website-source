@@ -7,7 +7,7 @@ title: Submitting High Memory Jobs on CHTC's HTC System
 <ul>
 	<li>you already have an account on a CHTC-administered submit server</li>
 	<li>your jobs will use more than ~120 GB of memory</li>
-	</li>
+	
 </ul>
 <b>To best understand the below information, users should already be familiar with:</b><br>
 <ol>
@@ -142,7 +142,7 @@ are places where it's important to customize:</p>
 	amount of memory can also take advantage of multiple CPUs.  If this 
 	is the case for your program, you can request multiple CPUs.
 	However, <b>it is always easier to start jobs that request 
-	fewer number of cores, rather than more</b>.  We recommend: </br></br>
+	fewer number of cores, rather than more</b>.  We recommend: <br></br>
 	<table class="gtable">
 	  <tr>
 	  	<th>Requesting ___ of memory?</th> <th>Request fewer than ___ CPUs</th>
@@ -167,16 +167,16 @@ are places where it's important to customize:</p>
 	  </tr>
 	</table>
 	If you think a higher CPU request would significantly improve your job's 
-	performance, contact a facilitator. </br>
+	performance, contact a facilitator. <br></br>
 	 </li>
 	<li class="spaced"><b><code>request_disk</code></b>: Request the maximum amount of data
 	your job will ever have within the job working directory 
 	on the execute node, including all output and input (which will take up space before 
-	some of it is removed from the job working directory at the end of the job). </br> </li>
+	some of it is removed from the job working directory at the end of the job). <br></br> </li>
 	<li class="spaced"><b>Other requirements</b>: if your job uses files from 
 	<a href="/file-avail-gluster.shtml">Gluster</a>, or 
 	<a href="/docker-jobs.shtml">Docker for software</a>, 
-	add the necessary requirements for these resources to your submit file.   </br></li>
+	add the necessary requirements for these resources to your submit file.   <br></br></li>
 </ul>
 
 <p>Altogether, a sample submit file may look something like this: </p>

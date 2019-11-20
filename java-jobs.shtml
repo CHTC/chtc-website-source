@@ -29,8 +29,9 @@ submit server:
 <pre class="file">
 #!/bin/bash
 
-java -jar <i>program.jar</i></pre>
-</pre></li>
+java -jar <i>program.jar</i>
+</pre>
+</li>
 
 </ol>
 
