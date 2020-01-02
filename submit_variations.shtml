@@ -10,8 +10,8 @@ title: HTCondor Submit File Variations
 <li>Submission to an HTCondor System that is unix-based (Linux or Mac operating system, as Windows may have important differences).</li>
 </ol>
 <small>(*see the HTCondor software manual and online examples from other organizations for cases outside of those we cover on the CHTC website)</small>
-</br>
-</br>
+<br>
+<br>
 <b>To best understand the below information, users should already have an understanding of:</b>
 <ol>
 <li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
@@ -45,7 +45,7 @@ when_to_transfer_output = ON_EXIT    # or other
 
 <!-- Submitting Many Jobs with a Single Submit File -->
 
-</br>
+<br>
 <a name="int-files"></a>
 <h1> 1. Organizing many jobs with integer-numbered filenames: </h1>
 
@@ -102,7 +102,7 @@ queue 3
 		(other HTCondor tracking files)
 </pre>
 
-</br>
+<br>
 <a name="int-dir"></a>
 <h1>2. Organizing job files within integer-numbered sub-directories</h1>
 
@@ -166,7 +166,7 @@ queue 3
  HTCondor's "InitialDir"
  variable is used to set the initial directory of <i>each</i> job, establishing
  the location for log/output/error, as well as input files needed by the job and
- any files produced by the job.</br>
+ any files produced by the job.<br>
 <b>NOTE that HTCondor still expects the executable to exist relative to
  submission directory.</b></p>
 
@@ -218,7 +218,7 @@ queue 3
 		(other HTCondor tracking files)
 </pre>
 
-</br>
+<br>
 <a name="own-variables"></a>
 <h1>3. Using your own non-HTCondor variables in the submit file </h1>
 
@@ -274,7 +274,7 @@ queue 3
 		(other HTCondor tracking files)
 </pre>
 
-</br>
+<br>
 <a name="notint"></a>
 <h1>4. Jobs with non-numbered data</h1>
 

@@ -16,14 +16,14 @@ To this end, we support thousands of multi-core computers and use task
  scheduling software called HTCondor, developed right here in Madison, to run thousands of
 independent jobs on as many total processors as possible that can all be shared between groups of users.
 These computers, or "machines", are distributed across several collections that we call <i>pools</i> (similar to "clusters"). 
-</br></br>
+<br><br>
 The diagram below shows some of the largest pools on campus and also shows
  our connection to the US-wide Open Science Grid where UW computing work
  can "backfill" available computers all over the country. The number under
  each resource name shows an approximate number of computing hours available to campus researchers for a typical week in Fall 2013. As demonstrated in the diagram, 
 we help users to submit their work not only to our CHTC-owned machines, but to improve their throughput even further by seamlessly accessing 
 as many available computers as possible, all over campus <i>AND</i> all over the country.
-</br></br>
+<br><br>
 The vast majority of the computational work that campus researcher have is HTC, though we
  are happy to support researchers with a variety of beyond-the-desktop needs, including
  tightly-coupled computations (e.g. MPI) and high-memory work (e.g. metagenomics), as well

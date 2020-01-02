@@ -68,7 +68,7 @@ by your jobs</a>
 	<dt>KEEP COPIES:</dt> <dd>of ANY and ALL data or software in Gluster in another, non-CHTC location. 
 	The HTC Gluster is not backed up and is prone to data loss over time. CHTC staff reserve the 
 	right to remove any data from the HTC Gluser (or any CHTC file system) at any time.
-	</br></br>
+	<br><br>
 	<dt><b>USERS VIOLATING ANY OF THE POLICIES (also below) IN THIS GUIDE WILL HAVE THEIR GLUSTER ACCESS
 	AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE MEASURES ARE TAKEN. CHTC STAFF RESERVE THE
 	RIGHT TO REMOVE ANY PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.</b></dd>
@@ -98,7 +98,7 @@ Data in Gluster should be stored in as few files as possible (ideally, one file 
 only after being copied from /mnt/gluster into the job working directory (see #3, below). 
 Similarly, large output requiring Gluster should first be written to the job working directory 
 then compressed in to a single file before being copied to /mnt/gluster at the end of the job (see #4, below).
-</br> </br>
+<br> <br>
 To prepare job-specific data that is large enough to require Gluster and exists as multiple 
 files or directories (or a directory of multiple files), first create a compressed tar package before
 placing the file in /mnt/gluster (either before submitting jobs, or within jobs before moving output to /mnt/gluster). 

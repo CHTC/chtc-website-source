@@ -129,7 +129,7 @@ Once the module is loaded, run the compilation command:
 </p>
 
 <blockquote>
-<b>Compilation Options</b></br>
+<b>Compilation Options</b><br>
 
 <p>There are other options for the <code>mcc</code> Matlab compiler 
 that might be necessary for specific 

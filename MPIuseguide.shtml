@@ -20,7 +20,7 @@ There are multiple MPI libraries installed on the cluster, many compiled in
 at least two ways (see below). The SLURM scheduler also has integrated libraries for 
 most MPI versions, which you can read about 
 <a href="https://computing.llnl.gov/linux/slurm/mpi_guide.html">here</a>.
-</br></br>
+<br><br>
 There are ten different MPI libraries installed:
 </p>
 <ul>

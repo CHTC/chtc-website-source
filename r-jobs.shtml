@@ -112,7 +112,7 @@ running the following command: </p>
 
 <h2>B. Install the Packages</h2>
 
-<b>1. Set up R</b></br>
+<b>1. Set up R</b><br>
 
 <p>Once the interactive build job starts, 
 you should see the R installation that you specified inside the working 
@@ -145,7 +145,7 @@ If you brought along your own package directory, un-tar it here and skip
 the directory creation step below. 
 </blockquote>
 
-<b>2. Install packages</b></br>
+<b>2. Install packages</b><br>
 
 <p> First, create, a directory to put your packages into: 
 <pre class="term">
@@ -184,7 +184,7 @@ R is downloading the package. Choose any <code>http</code> (not <code>https</cod
 
 <h2>C. Finish Up</h2>
 
-<b>1. Create a <code>tar.gz</code> file of your packages</b></br>
+<b>1. Create a <code>tar.gz</code> file of your packages</b><br>
 
 <p>Right now, if we exit the interactive job, nothing will be transferred back 
 because we haven't created any new <b>files</b> in the working directory, just 
@@ -198,7 +198,7 @@ a single, compressed tarball file than an uncompressed set of directories.</p>
 
 Again, you can use a different name for the <code>tar.gz</code> file, if you want.</p>
 
-<b>2. Finish the interactive build job</b></br>
+<b>2. Finish the interactive build job</b><br>
 
 <p>We now have our packages bundled and ready for CHTC!  
 You can now exit the interactive job and the 

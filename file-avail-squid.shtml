@@ -83,7 +83,7 @@ href="file-avail-gluster">Gluster</a> location for large-file staging.</dd>
 	<a name="place"></a>
 	<li> <b>Place files within your <code>/squid/username</code> directory</b> via a CHTC transfer server (if 
 	from your laptop/desktop) or on the submit server.
-</br></br>
+<br><br>
 	From your laptop/desktop:
 	<pre class="term">[username@computer]$ scp <i>large_file.tar.gz</i> <i>username</i>@transfer.chtc.wisc.edu:/squid/<i>username</i>/</pre>
 	 

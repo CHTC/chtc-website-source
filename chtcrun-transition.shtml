@@ -3,7 +3,7 @@ layout: default
 title: Emulating ChtcRun Job Submission
 ---
 
-</br>
+<br>
 This guide demonstrates how to submit multiple jobs, using a specific 
 directory structure.  It is relevant to: 
 <ul>

@@ -33,13 +33,13 @@ see our <a href="/get-started.shtml">getting started</a> page.
 <p>You will need the following information to log into our CHTC submit 
 servers or head nodes: </p>
 
-<b>Username and Password</b></br>
+<b>Username and Password</b><br>
     <ul>
     	<li>UW Madison users: Wisconsin NetId and password</li>
     	<li>Off-campus users: varies, by request</li>
     </ul>
 
-<b>Hostname</b></br>
+<b>Hostname</b><br>
 
 <table class="gtable">
  <tr>
@@ -63,7 +63,7 @@ servers or head nodes: </p>
 </table>
 
 <blockquote>
-<b>Are you off-campus?</b> </br>
+<b>Are you off-campus?</b> <br>
 All of our CHTC submit servers and head nodes are firewalled 
 to block log-ins from off-campus.  If you are off-campus and want to log in, 
 you can either:
@@ -134,7 +134,7 @@ as understanding where your files are and where you would like them to go.  </p>
 the <code>scp</code> command to copy files between your computer and 
 CHTC servers.</p>
 
-<b>Your computer to CHTC</b></br>
+<b>Your computer to CHTC</b><br>
 
 <p>First, open the "Terminal" application and navigate to the 
 directory with the files or directories you want to transfer.  Then, 
@@ -145,7 +145,7 @@ use this command to copy these files to CHTC: </p>
 <p>If you would like these files to end up in a different directory inside your 
 home directory, just add it to the path at the end of the command.  </p>
 
-<b>CHTC to your computer</b></br>
+<b>CHTC to your computer</b><br>
 
 <p>Open the "Terminal" application.  Do NOT log into CHTC.  Instead, 
 navigate to where you want the files to go on your computer.  Then, 

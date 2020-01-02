@@ -21,7 +21,7 @@ machines (per Matlab's license requirements).
 <br /><b>All other code compiling for CHTC jobs needs to be completed 
 on one of our designated "build machines" using an interactive submit file and 
 instructions that you can find <a href="inter-submit.shtml">here</a>.</b> 
-</br></br>
+<br><br>
 The tools below (chtc_mcc, chtc_buildRlibs, and chtc_buildPythonmodules) are
  part of the "chtc-utils" suite of tools. These are installed on all CHTC-owned
  submit nodes, but may also be installed on YOUR submit node.
@@ -37,7 +37,7 @@ version of R required.
 This script produces a compressed tar file, <code>sl6-RLIBS.tar.gz</code>, which
  will contain the R library files necessary for running R code with the ChtcRun
  package or <code>chtcjobwrapper</code>.
-</br></br>
+<br><br>
 There are two necessary arguments to <code>chtc_buildRlibs</code>:
 
 <ul>
@@ -57,13 +57,13 @@ The current list of versions available is
   <li> sl6-R-3.1.0 (version R-3.1.0 on Scientific Linux) </li>
   <li> sl6-R-3.2.0 (version R-3.2.0 on Scientific Linux) </li>
  </ul>
-</br>
+<br>
 If you are using an unlisted version, you will likely be able to use the next
  version down out of the list above. If a necessary version of R is not listed here,
 please request it by email to 
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.
 </li>
-</br>
+<br>
 R-2.15.2/3 and 3.0.1 contain extended libraries such that you may not need to
 buid them with this tool. They both have the same library list, including:
  base, codetools, graphics, lattice, mgcv, rpart, stats4, utils, boot, compiler,
@@ -73,7 +73,7 @@ buid them with this tool. They both have the same library list, including:
 <code>--rlibs</code> lists the R source packages to be included, comma-separated.
  <b>You will need to have copied the source ".tar.gz" files for each library to the
  submit node in the same folder where you run the "chtc_buildRlibs" command.</b>
-</br></br>
+<br><br>
 <b>The ordering of libraries in the list matters:</b>
  Libraries that are called by other libraries should be listed first.
 </li>
@@ -119,10 +119,10 @@ package suitable for use in the CHTC.
 
 <p>
 <h2>Here are the steps to prepare your python code</h2>
-</br>
-<b>1. Modify your main python script.</b></br>
-</br>
-It is essential that the first line of your Python script be:</br>
+<br>
+<b>1. Modify your main python script.</b><br>
+<br>
+It is essential that the first line of your Python script be:<br>
 <code>#!./python277/bin/python</code>
 </b>
 </p>
@@ -143,7 +143,7 @@ chtc_buildPythonmodules --pversion=2.7.7 --pmodules=mymodule-1.1.0.tar.gz,otherm
 The output will be one package named <code>sl6-SITEPACKS.tar.gz</code>
  and one named <code>SLIBS.tar.gz</code> (NEW).</b> NOTE: It may take
  up to 5 minutes, or so, for the command to complete.
-</br></br>
+<br><br>
 The <code>chtc_buildPythonmodules</code> has two required arguments:
 </p>
 

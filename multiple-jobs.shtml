@@ -107,7 +107,7 @@ look like this: </p>
 0.data  0.out  1.data  1.out  2.data  2.out  my_exec  reference.data
 </pre>
 
-</br>
+<br>
 
 <blockquote>
 <h3>Starting at One</h3>
@@ -181,10 +181,10 @@ compare_states  iowa.data.out  missouri.data.out   wisconsin.data
 iowa.data       missouri.data  united-states.data  wisconsin.data.out
 </pre>
 
-</br>
+<br>
 
 <blockquote>
-<b>Tips for creating a list</b> </br> 
+<b>Tips for creating a list</b> <br> 
 <p>If you want a quick way to create a list of 
 files like "state_list.txt", use the shell command <code>ls</code> and the 
 greater-than symbol <code>&gt;</code> to list your files and then save
@@ -195,7 +195,7 @@ file called "my_files.txt".</p>
 </blockquote>
 
 <blockquote>
-<b>Naming Variables</b> </br> 
+<b>Naming Variables</b> <br> 
 
 <p>You can use any names you like in the "queue ... from" statement: 
 <pre class="sub">
@@ -235,7 +235,7 @@ queue state matching *.data
 with the "data" suffix.  </p>
 
 <a name="in"></a>
-<b>b. Create jobs from a list written into the submit file</b></br> 
+<b>b. Create jobs from a list written into the submit file</b><br> 
 
 <p>In this final example, the list of desired items is written directly into the submit
 file using the syntax "queue ... in ( ... )"</p>

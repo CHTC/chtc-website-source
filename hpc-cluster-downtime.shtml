@@ -5,12 +5,12 @@ title: HPC Clsuter Scheduled Downtime
 
 <p><i>... if you only use CHTC's high-throughput computing (HTC) system via HTCondor 
 submission, you can ignore the following information ...</i></p>
-</br>
+<br>
 <p>In order to upgrade the file system version and modify configurations 
 to improve filesystem performance </p>
 <h1>The HPC Cluster will be down for upgrade starting on Tuesday, Nov. 17</h1>
 <p>with a return of functionality by <b>Friday, Nov. 20</b></p>
-</br>
+<br>
 <h2>To Prepare for and Reduce Cluster Downtime,</h2>
 <a name="data"></a><h3>we ask ALL users to do the following by Friday, Nov. 6:</h3>
 <ol>
@@ -52,7 +52,7 @@ to improve filesystem performance </p>
   <li>emailing researchers who have significant <i>total data</i> and/or a <i>large 
   numbers of files</i> on the filesystem, in preparation for the upgrade.</li>
 </ol>
-</br>
+<br>
 <p>Please understand that all of the above changes are aimed at improving 
 filesystem performance for everyone, based upon common complaints in the 
 last 6 months. We do our best to minimize cluster downtime (including 

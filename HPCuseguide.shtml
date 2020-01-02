@@ -10,13 +10,13 @@ Advanced Computing Initiative</a>
  singular computations that use specialized software to achieve internal parallelization of work across 
 multiple servers of dozens to hundreds of cores. All other computational work, including that in the form of single or multiple compute jobs that each complete in less than 72 hours on a single node will run more efficiently on our larger high-throughput
  computing (HTC) system (which also includes specialized hardware for extreme memory, GPUs, and other cases), and should not be run on the HPC Cluster.
-</br></br>
+<br><br>
 Before using the campus-shared HPC Cluster or any CHTC computing resource, <b>you will need to 
 obtain access</b> by 
 filling out the <a href="http://chtc.cs.wisc.edu/form">
 Large-Scale Computing Request Form</a> on our website so that our Research Computing Facilitators 
 can make sure to match you to the best computing resources (including non-CHTC services).
-</br></br>
+<br><br>
 If you have been using the HPC Cluster already, and believe your research group would benefit from 
 purchasing prioritized hardware to add to the HPC Cluster, please see our
 <a href="/hpc-buy-in.shtml">
@@ -61,8 +61,8 @@ purchasing prioritized hardware to add to the HPC Cluster, please see our
 The HPC Cluster servers consist of two head nodes and many compute nodes
  ("servers") of memory and multiple CPU cores. There is one queue with access to separate "partitions" 
 of hardware, including the largest partitions that are available to
- anyone on campus (for free).</br>
-</br>
+ anyone on campus (for free).<br>
+<br>
 Our first generation nodes ("univ" partition) each have 16 CPU cores of
  2.2 GHz, and 64 GB of RAM (4 GB per CPU core). Our second generation nodes
  (in the "univ2" partition) each have 20 CPU cores of 2.5 GHz, and 128 GB of
@@ -70,7 +70,7 @@ Our first generation nodes ("univ" partition) each have 16 CPU cores of
  sytem (Gluster) are accessible on all nodes. Additionally, all nodes are
  tightly networked (56 Gbit/s Infiniband) so they can work together as a
  single "supercomputer", depending on the number of CPUs you specify.
-</br></br>
+<br><br>
 Because the HPC Cluster is specifically intended for singular compute jobs requiring multiple nodes of 
 cores (to complete in under a week), users running work in the form of single-node (or smaller) computations will 
 be contacted to move such work to our larger and more appropriate HTC System. Otherwise, such numerous smaller jobs impede 
@@ -109,7 +109,7 @@ backed-up and should be treated as temporary by users</b>. Only files
 necessary for <i>actively-running</i> jobs should be kept on the file system, 
 and files should be removed from the cluster when jobs complete. A copy of any 
 essential files should be kept in an alternate, non-CHTC storage location. 
-</br></br>
+<br><br>
 <b>Each user is initially allocated 100 GB of data storage space and a file count quota 
 of 50,000 files/directories</b> in their home directory
 (/home/<i>username</i>/).  To check how many files and directories you have 
@@ -123,12 +123,12 @@ Increased quotas are available upon email request to
 </ul>
 If you don't know how many files your installation creates, because it's more than 50,000, 
 simply indicate that in your request.
-</br></br>
+<br><br>
 <b>CHTC Staff reserve the right to remove any significant amounts of data
  on the HPC Cluster</b> in our efforts to maintain
  filesystem performance for all users, though we will always first ask users
  to remove excess data and minimize file counts before taking additional action.
-</br></br>
+<br><br>
 <b>Local scratch space</b> of 500 GB is available on each execute node in
  <code>/scratch/local/$USER</code> and is automatically cleaned out upon completion of scheduled
  job sessions (interactive or non-interactive). Local scratch is available on
@@ -145,7 +145,7 @@ submitting jobs to the queue on
 <a href="https://computing.llnl.gov/linux/slurm/documentation.html">
 SLURM's website</a>, but we have provided a simple guide below for getting 
 started.
-</br></br>
+<br><br>
 We have provisioned 3 freely-available submission partitions and
  a small set of nodes prioritized for interactive testing. These
  partitions can be thought of as different queues, and are
@@ -223,23 +223,23 @@ We have provisioned 3 freely-available submission partitions and
 *note: jobs not requesting a run time will be alotted the default value 
 (t-default) for that partition; jobs without a partition indicated will be run 
 in the "univ" partition.
-</br></br>
+<br><br>
 The <b>University (univ)</b> partition is available to all UW-Madison 
 researchers, and jobs are run without being pre-empted for the 
 duration of time requested. This partition is best for running longer (multi-day) 
 jobs on any number of CPUs and will always have at least 32 nodes (512 cores), 
 but usually much more. 
-</br></br>
+<br><br>
 The <b><i>Owner</i></b> partitions actually consist of multiple group-specific 
 partitions for research groups who have paid into the cluster for a set number 
 of nodes. Each <i>owner</i> partition will have unique settings, and owned 
 nodes are backfilled by jobs from the "pre" queue.
-</br></br>
+<br><br>
 The <b>Interactive (int)</b> partition consists of a few nodes meant for short 
 and immediate interactive testing on a single node (up to 16 CPUs, 64 GB RAM). 
-There is a specific command to access the "int" partition:</br> 
+There is a specific command to access the "int" partition:<br> 
 <code>srun -n16 -N1 -p int --pty bash</code>
-</br></br>
+<br><br>
 The <b>Pre-emptable (pre)</b> partition is under-layed on the entire cluster 
 and is meant for more immediate turn-around of shorter and somewhat smaller jobs, 
 or for interactive sessions requiring more than the 30-minute limit of the "int" 
@@ -248,18 +248,18 @@ Pre-emptable jobs will run on any idle nodes (primarily Owner nodes, as the
 University partition is likely to be full), but will be pre-empted by jobs 
 of other partitions with priority on those nodes. However, pre-empted jobs will 
 be re-queued if originally submitted with an sbatch script (see below).
-</br>
-<h2>Job Priority Determinations</h2></br>
+<br>
+<h2>Job Priority Determinations</h2><br>
 <b>A. User priority decreases as the user accumulates hours of CPU time</b> over the 
 last 21 days, across all queues. This "fair-share" policy means that users who 
 have run many/larger jobs in the near-past will have a lower priority, and users 
 with little recent activity will see their waiting jobs start sooner. We do NOT 
-have a strict "first-in-first-out" queue policy.</br>
+have a strict "first-in-first-out" queue policy.<br>
 <b>B. Job priority increases with job wait time.</b> After the history-based user 
 priority calculation in (A), the next most important factor for each job's priority 
 is the amount of time that each job has already waited in the queue. For all 
 the jobs of a single user, these jobs will most closely follow a 
-"first-in-first-out" policy.</br>
+"first-in-first-out" policy.<br>
 <b>C. Job priority increases with job size, in cores.</b> This least important factor 
 slightly favors larger jobs, as a means of somewhat countering the inherently 
 longer wait time necessary for allocating more cores to a single job.
@@ -290,17 +290,17 @@ Using the "<code>-a</code>" argument to "<code>sinfo</code>" will show ALL
 will take more than the 30 minutes allowed on our interactive ("int") partition, alter the 
 interactive job command below to submit to "univ" or "univ2" to have more time.  Please email 
 chtc@cs.wisc.edu if you can't find the compiler you need or have other issues.
-</br></br>
-<b>For more specific details on compiling and running MPI code</b></br>
+<br><br>
+<b>For more specific details on compiling and running MPI code</b><br>
 Please see our <a href=MPIuseguide>HPC Cluster MPI Use Guide</a> for information about the availability
 of specific libraries and how to load modules for them. 
-</br>
+<br>
 </p>
 <a name="job-submission"></a>
 <h2>3. Submitting jobs</h2>
 <a name="interactive-job"></a>
 <p>
-<b>A. Requesting an Interactive Job ("int" and "pre" partitions)</b></br>
+<b>A. Requesting an Interactive Job ("int" and "pre" partitions)</b><br>
 You may request up to a full node (16 CPUs, 64 GB RAM) when requesting an 
 interactive session in the "int" partition. Interactive sessions on the "int" 
 partition are allowed for 30 minutes, but you may request less time 
@@ -315,17 +315,17 @@ the above command, you'll have access to files on the shared file system
 and be able to execute code interactively as if you had 
 directly logged in to that node. <b>It is important to exit the interactive shell 
 when you're done working by typing <code>exit</code></b>.
-</br></br>
+<br><br>
 <a name="batch-job"></a>
-<b>B. Submitting a Job to the Queue (all partitions)</b></br>
+<b>B. Submitting a Job to the Queue (all partitions)</b><br>
 To submit jobs to the queue for a given partition such that a connection 
 to the jobs is not maintained, you should use <code>sbatch</code> submission. 
 You will first want to create an <code>sbatch</code> script, which is
  is essentially just a shell script (sh, bash, etc.) with <code>#SBATCH</code>
- descriptor lines.</br>
+ descriptor lines.<br>
 The following example requests a job slot with 16 CPU cores
  on each of 2 nodes (32 cores total) for 4 hours and 30 minutes:
-</br>
+<br>
 <pre class="sub">
 #!/bin/sh
 #This file is called submit-script.sh
@@ -359,8 +359,8 @@ Other lines that you may wish to add to your script for specifying a number of t
 </pre>
 In any case, it is important to make sure that your request fits within the hardware
  configuration of your chosen partition.
-</br></br>
-<b>C. Using srun and salloc</b></br>
+<br><br>
+<b>C. Using srun and salloc</b><br>
 In early tests with the cluster, we encouraged running non-interactive jobs
  with SLURM's <code>srun</code> and <code>salloc</code> commands
  <i>without</i> an sbatch script; however, doing so 
@@ -369,7 +369,7 @@ interrupted jobs are not re-queued if submitted this way (even when using
  the "pre" partition). You are welcome to submit jobs in 
 these modes according to 
 <a href="https://computing.llnl.gov/linux/slurm/quickstart.html">SLURM's user 
-guide</a>, which has some awesome advanced features for complex MPI configurations.</br>
+guide</a>, which has some awesome advanced features for complex MPI configurations.<br>
 <b>Please remember to indicate partition and run time with the -p and 
 -t flags, respectively</b> (see the interactive job command, above, for an 
 example using these flags).

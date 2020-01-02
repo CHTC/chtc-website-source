@@ -193,8 +193,8 @@ To remove a specific job, specify the job # in the queue (format:
 condor_rm 845638.0
 </pre>
 You can even remove all of the jobs of the same cluster by specifying
- only the Cluster value for that batch.</br>
-</br>
+ only the Cluster value for that batch.<br>
+<br>
 To remove <b>all of your jobs</b>:
 <pre>
 condor_rm $USER
@@ -206,8 +206,8 @@ condor_rm $USER
  information about the completion of each job, including a system
  error code (as seen in "return value 0"). You can use this code, as well
  as information in your ".err" file and other output files, to determine what
- issues your job(s) may have had, if any.</br>
-</br>
+ issues your job(s) may have had, if any.<br>
+<br>
 2. <b>Determining Memory and Disk Requirements.</b> The log file also
  indicates how much memory and disk each job used, so that you
  can first test a few jobs before submitting many more with more accurate
@@ -216,8 +216,8 @@ condor_rm $USER
  rerun them (maybe many times) until it requests enough for you.
  When you request too much, your jobs may not match to as many available
  "slots" as they could otherwise, and your overall throughput will suffer
- in that case as well.</br>
-</br>
+ in that case as well.<br>
+<br>
 3. <b>Determining Run Time.</b> Depending on how long each of your jobs
  are (determined by examining when the job began executing and when it
  completed), you can send your jobs to even more computers than are in the

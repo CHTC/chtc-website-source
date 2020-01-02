@@ -39,7 +39,7 @@ the Open Science Grid.  </p>
 will look similar to other CHTC jobs, except for the additional Singularity 
 options seen below.</p>
 
-<b>Submit File</b></br>
+<b>Submit File</b><br>
 
 <pre class="sub">
 # Typical submit file options
