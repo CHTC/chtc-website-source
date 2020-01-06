@@ -68,11 +68,11 @@ This is a useful reference for most common markdown features: https://daringfire
 To format code blocks, we have the following special formatting tags: 
 
 	```
-
+	Pre-formatted text / code goes here
 	```
 	{:.sub}
 
-`.sub` will generate a "submit file" styled block; `.term` will create a terminal, and `.file` can 
+`.sub` will generate a "submit file" styled block; `.term` will create a terminal style, and `.file` can 
 be used for any generic text file. 
 
 We will be using the pound sign for headers, not the `==` or `--` notation. 
@@ -83,4 +83,6 @@ Right now, most of our pages are written in html and have a `.shtml` extension. 
 gradually converting them to be formatted with markdown. To easily convert a page, you 
 can install and use the `pandoc` converter: 
 
-	pandoc <filename>.shtml --from html --to markdown > <filename>.md
+	pandoc hello.shtml --from html --to markdown > hello.md
+
+You'll still want to go through and double check / clean up the text, but that's a good starting point. 
