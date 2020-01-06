@@ -17,13 +17,13 @@ A. Overview
 If you've never used Docker before, we recommend starting with the first part of 
 this guide: 
 
-* [Explore Docker Containers](B)
+* [Explore Docker Containers](#b-explore-docker-containers)
 
 If you've explored Docker already or built your own image and you want to test if it 
 will work successfully in CHTC's HTC system, 
 you can follow the directions in this section of the guide: 
 
-* [Simulate a CHTC Docker Job](C)
+* [Simulate a CHTC Docker Job](#c-simulate-a-chtc-docker-job)
 
 A. Set Up Docker on Your Computer
 =================================
@@ -33,8 +33,7 @@ A. Set Up Docker on Your Computer
 B. Explore Docker Containers
 ============================
 
-1. Get a Docker Container Image
--------------------------------
+## 1. Get a Docker Container Image
 
 We need to have a local copy of the Docker container image in order to
 test it. You can see what container images you already have on your 
@@ -45,9 +44,12 @@ $ docker image ls
 ```
 {:.term}
 
-If you created a container on your computer, it should already 
-be in the list of container images! If you want to use a pre-made container from Docker Hub, 
+If you just installed Docker on your computer 
+and are using it for the first time, this list is probably empty. 
+If you want to use a pre-made container from Docker Hub, 
 you will need to "pull" it down to your computer. 
+If you created a container on your computer, it should already 
+be in the list of container images. 
 
 If using a container from Docker Hub, find the container and its name, which 
 will be of the format: `username/imagename:tag`. Then pull a copy of the container
@@ -62,8 +64,7 @@ $ docker pull username/image:tag
 If you run `docker image ls` again, you should see the container you downloaded 
 listed. 
 
-2. Explore the Container Interactively
---------------------------------------
+## 2. Explore the Container Interactively
 
 To actually explore a container, run this command: 
 
@@ -93,17 +94,22 @@ self-contained file system, separate from your computer.  Try running commands w
  your own container, try following a few of the installation instructions for the software 
  you want to use and see what happens. 
  
-3. Exit the Container
---------------------------------------
+## 3. Exit the Container
 
-Once you're done exploring, type `exit` to leave the container. Note that any changes or 
+Once you're done exploring, type `exit` to leave the container. 
+
+```
+root@2191c1169757:/# exit
+```
+{:.term}
+
+Note that any changes or 
 commands you ran in the container won't be saved! Once you exit the 
 running container is shut down and removed (although the container image will still be 
 on your computer, which you can see if you type `docker image ls` again). 
 
 
-C. Simulate a CHTC Docker Job
-==================================
+# C. Simulate a CHTC Docker Job
 
 The directions above were about simply exploring a container. If you want to 
 simulate what happens in a CHTC job more specifically, we'll want to do a few things:
@@ -112,8 +118,7 @@ simulate what happens in a CHTC job more specifically, we'll want to do a few th
 - have a list of commands to run or a script you want to use as the executable. 
 - use some extra options when running the container. 
 
-1. Create Working Directory
------------------------------
+## 1. Create Working Directory
 
 For testing, we need a folder on your computer to stand in for the
 working directory that HTCondor creates for running your job. Create a folder
@@ -136,31 +141,25 @@ $ cd %HOMEPATH%\Desktop\folder
 ```
 {:.term}
 
-2. Plan What to Run
------------------------------
+## 2. Plan What to Run
 
 Once the container starts, you have a few options for testing your job: 
 
-- **Run Commands Directly**
-    - When you start the container, you'll be able to run each command you 
+* **Run Commands Directly**
+    * When you start the container, you'll be able to run each command you 
     want to use, step-by-step. If you have multiple commands, these will eventually 
     need to be put into a shell script as your executable. 
-    - Example: 
-    	- Running multiple steps of a bioinformatics pipeline
-- **Run an Executable**
-    - If you've already written a script with all your commands or code, you can 
+    * Example: Running multiple steps of a bioinformatics pipeline
+* **Run an Executable**
+    * If you've already written a script with all your commands or code, you can 
     test this in the container. 
-    - Example: 
-    	- Running a shell script with multiple steps
-    	- Running a machine learning Python script
-- **Run a Single Command**
-    - If you only want to run one command, using a program installed in the Docker 
+    * Examples: Running a shell script with multiple steps, running a machine learning Python script
+* **Run a Single Command**
+    * If you only want to run one command, using a program installed in the Docker 
     container, you can run this in the container. 
-    - Example: 
-    	- Running GROMACS from a container
+    * Example: Running GROMACS from a container
 
-3. Start the Docker Container
------------------------------
+## 3. Start the Docker Container
 
 We'll use a similar `docker run` command to start the Docker container, 
 with a few extra options to better emulate how containers are run in 
@@ -200,8 +199,7 @@ inside.
 > * `-w /scratch`: when the container starts, make `/scratch` the working directory
 
 
-4. Test the job
----------------
+## 4. Test the job
 
 Your command line prompt should have changed to look like this: 
 

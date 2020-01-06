@@ -26,9 +26,9 @@ run jobs inside them. This guide shows how to do this for
 In order to run your job inside a Docker container, you will need to:
 
 1.  [Find or prepare a Docker container image for your jobs to
-    use](#image)
-2.  [Make a few changes to your submit file](#submit)
-3.  [Other testing information](#testing)
+    use](#1-choose-or-create-a-docker-container-image)
+2.  [Make a few changes to your submit file](#2-submit-file-customization)
+3.  [Other testing information](#3-testing)
 
 # 1. Choose or Create a Docker Container Image
 
@@ -57,7 +57,7 @@ tag (or tags) of the container to use in CHTC.
 ## B. Build Your Own Image
 
 You can also build your own Docker container image and upload it to
-DockerHub. See the [our guide](docker-build.shtml) or the [Docker
+DockerHub. See [this link to our guide on building containers](docker-build.shtml) or the [Docker
 documentation](https://docs.docker.com/engine/getstarted/) for more
 information.
 

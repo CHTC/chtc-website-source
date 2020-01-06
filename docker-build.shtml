@@ -9,7 +9,7 @@ includes software, libraries, and other tools. CHTC currently supports
 running jobs inside [Docker](https://www.docker.com/what-docker)
 containers. This guide describes how to build a Docker container image
 that you can use for running jobs in CHTC. For information on using 
-this container image for jobs, see our [Docker Jobs guide](docker-jobs.shtml)
+this container image for jobs, see our [Docker Jobs guide](docker-jobs.shtml).
 
 Overview
 ========
@@ -28,8 +28,8 @@ HTCondor can then use it to run jobs. Different versions of the
 container image can be labeled with different version "tags". This guide
 has:
 
-1.  [Step by Step Instructions](#instructions)
-2.  [Examples](#examples)
+1.  [Step by Step Instructions](#a-step-by-step-instructions)
+2.  [Examples](#b-examples)
 
 **Note that all the steps below should be run on your own computer, not
 in CHTC.**
@@ -37,19 +37,16 @@ in CHTC.**
 A. Step by Step Instructions
 ============================
 
-1. Set Up Docker on Your Computer
-----------------------------------------------
+## 1. Set Up Docker on Your Computer
 
 {% include install_docker.md %}
 
-2. Explore Docker Containers (optional)
-----------------------
+## 2. Explore Docker Containers (optional)
 
 If you have never used Docker before, we recommend exploring a pre-existing container 
 and testing out installation steps interactively before creating a Dockerfile. 
 
-3. Create a Dockerfile
-----------------------
+## 3. Create a Dockerfile
 
 A Dockerfile is a plain text file with keywords that add elements to a 
 Docker container. There are many keywords that can be used in a Dockerfile (documented on
@@ -61,10 +58,13 @@ subset of these keywords following this basic outline:
 - Additions: What needs to be added? Folders? Data? Other software? 
 - Environment: What variables (if any) are set as part of the software installation? 
 
-You can call the file whatever you want, but the
-convention is to use the name `Dockerfile`, with no file extension. Because of 
+### Create the file
+
+Create a blank text file. Because of 
 the way Docker builds containers, you should create a separate folder representing 
 each container, with the appropriate Dockerfile inside. 
+You can call the file whatever you want, but the
+convention is to use the name `Dockerfile`, with no file extension. 
 
 ### FROM: Choose a "base" container image
 
@@ -150,8 +150,7 @@ ENV PATH="/home/software/bin:${PATH}"
 ```
 {:.file}
 
-4. Build and Name the Container Image
-----------------
+## 4. Build and Name the Container Image
 
 So far we haven't actually created the container -- we've just been
 listing instructions for the container in the Dockerfile. But we are now
@@ -188,16 +187,14 @@ Replace `username` with your Docker Hub user name and replace
 If you get errors, try to determine what you may need to add or change
 to your Dockerfile and then run the build command again.
 
-4. Test Locally
----------------
+## 5. Test Locally
 
 This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:
 
 -   [Exploring Docker Containers](/docker-test.shtml)
 
-5. Push to DockerHub
---------------------
+## 6. Push to DockerHub
 
 Once your container image has been successfully built and tested, you
 can push it to DockerHub so that it will be available to run jobs in
@@ -218,8 +215,7 @@ $ docker login
 
 It should ask for your DockerHub username and password.
 
-6. Running Jobs
---------------------
+## 7. Running Jobs
 
 Once your Docker container image is on Docker Hub, you can use it to run 
 jobs on CHTC's HTC system. See this guide for more details: 
