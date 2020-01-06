@@ -1,0 +1,113 @@
+---
+highlighter: none
+layout: default
+title: Run Machine Learning Jobs on the HTC system
+---
+
+This guide provides some of our recommendations for success 
+in running machine learning (specifically deep learning) jobs in CHTC. 
+
+Overview
+========
+
+It's important to understand the needs of a machine learning job before submitting 
+it and have a plan for managing software. This guide covers: 
+
+1. Considering job requirements
+2. Recommendations for managing software
+
+# 1. Job Requirements
+
+Before digging into the nuts and bolts of software installation in the next section, 
+it's important to first consider a few other job requirements that might apply to 
+your machine learning job. 
+
+### Do you need GPUs?
+
+CHTC has about 4 publicly available GPUs and many more CPUs. When possible, you will 
+be able to have more jobs running at once and your jobs will start more quickly 
+if you just use CPUs. However, GPUs also provide 
+a significant speedup for certain calculations, especially if that calculation would 
+run for longer than our usual job time limit. 
+
+If you need GPUs for your jobs, you can see a summary of available GPUs in CHTC and 
+how to access them here: 
+
+* [GPUs in CHTC](gpu-jobs.shtml)
+
+Note that you may need to use different versions of your software, depending on whether or 
+not you're using GPUs, as shown in the next section. 
+
+### How big is your data? 
+
+CHTC's usual data recommendations apply for machine learning jobs. If your job is using 
+an input data set larger than a few hundred MB, you will likely need to use our large data 
+file share, Gluster. See a summary here: 
+
+* [File Availability with Gluster](file-avail-gluster.shtml)
+
+### How long does your job run? 
+
+CHTC's default job length is 72 hours. If your task is long enough that you will 
+encounter this limit, contact the CHTC Research Computing Facilitators (chtc@cs.wisc.edu) 
+for potential work arounds. 
+
+# 2. Software Options
+
+Many of the tools used for machine learning, specifically deep learning and 
+convolutional neural networks, are sufficiently complex that our standard software 
+guides fall short. The following options are the best way to handle the complexity 
+of these software tools.  
+
+A. Using Docker Containers
+--------------------------
+
+CHTC's HTC system has the ability to run jobs using Docker containers, which package 
+up a whole system (and software) environment in a consistent, reproducible, portable 
+format. When possible, we recommend using standard, publicly available 
+Docker containers to run deep learning jobs in CHTC. 
+
+To see how you can use Docker containers to run jobs in CHTC, see: 
+* [Sample GPU/Machine Learning Jobs](https://github.com/CHTC/templates-GPUs)
+* [Docker Jobs in CHTC](docker-jobs.shtml)
+
+You can also test and examine containers on your own computer. 
+* [Exploring and Testing Docker Containers](docker-test.shtml)
+
+We recommend the following Docker container images for machine learning: 
+
+<table>
+  <tr>
+    <td>Framework</td>
+    <td>CPU-based</td>
+    <td>GPU-capable</td>
+  </tr>
+  <tr>
+    <td>Tensorflow</td>
+    <td>tensorflow/tensorflow:1.14.0-py3</td>
+    <td>tensorflow/tensorflow:1.14.0-gpu-py3</td>
+  </tr>
+  <tr>
+    <td>Pytorch</td>
+    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
+    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
+  </tr>
+</table>
+
+Other places to look for images: 
+
+* [Tensorflow on DockerHub](https://hub.docker.com/r/tensorflow/tensorflow/tags)
+* [Pytorch on DockerHub](https://hub.docker.com/u/pytorch)
+* [Pytorch on DockerHub](https://hub.docker.com/r/pytorch/pytorch/tags)
+
+If you can't find a Docker container with exactly the tools you need, you can build your 
+own, starting with one of the containers above. For instructions on how to build and 
+test your own Docker container, see this guide: 
+
+* [Building Docker Containers](docker-build.shtml)
+
+B. Using Anaconda (in progress)
+---------------------------
+
+Anaconda is another popular tool for installing and managing machine learning tools. 
+We will have a guide for creating conda installations and using them in CHTC jobs soon. 
