@@ -517,7 +517,7 @@ pre.term {
 	border-radius: 5px;
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
-	font-size: 122%;
+	font-size: 95%;
 	margin: 1em 2em;
 
     background: #484848;
@@ -537,7 +537,7 @@ pre.sub {
 	border-radius: 5px;
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
-	font-size: 120%;
+	font-size: 95%;
 	margin: 1em 2em;
 
     background: #F0F0F0;
@@ -557,7 +557,7 @@ pre.file {
 	border-radius: 5px;
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
-	font-size: 120%;
+	font-size: 95%;
 	margin: 1em 2em;
 
     background:  #D8D8D8;
