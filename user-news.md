@@ -13,29 +13,31 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
-Office hours canceled Tues/Wed next week (9/24, 9/25); delayed email responses
-------------------------------------------------------------------------------
+## CHTC holiday availability
 
-Monday, September 16, 2019
+### Wednesday, December 18, 2019
+
 
 Greetings CHTC users,
 
-CHTC facilitation and support will be limited next week; both Research
-Computing Facilitators (Lauren + Christina) will be out off the office
-for an annual conference next week. Impacts to CHTC users will be as
-follows:
+This is an annual reminder that CHTC staffing will be limited at various points during the next week or so: 
 
--   Office hours are canceled on **Tuesday(9/24)** and
-    **Wednesday(9/25)**.
--   Response to email may be delayed during the week. Email to
-    chtc@cs.wisc.edu is still the best way to reach us.
+- **Office Hours are cancelled for next week through Jan 1** (Dec. 23-27, Dec 30-Jan 1), and email responses will be delayed during this time as well. 
+- Normal office hours and email response times will resume on Thursday, January 2nd
 
-Please do your EXTRA best to follow CHTC policies and any best practices
-to minimize the potential for major issues that may affect other users!
-
-Cheers,
-
-Your CHTC Team
+Please remember that your work on CHTC's shared compute systems affects other 
+researchers. You should review and continue to follow CHTC policies for 
+our [HTC System](http://chtc.cs.wisc.edu/use-submit-node) and
+[HPC Cluster](http://chtc.cs.wisc.edu/HPCuseguide.shtml) to
+ ensure that you are acting in consideration of others, especially since
+ CHTC staff may not be able to respond as quickly to user-caused issues.
+ 
+ As always, the best way to get in touch with us is through our designated email 
+ address (chtc@cs.wisc.edu).
+ 
+ Best wishes during the holiday season!
+ 
+ Christina, Jess, Lauren, and the rest of the CHTC team
 
 ------------------------------------------------------------------------
 
