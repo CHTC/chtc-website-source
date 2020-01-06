@@ -24,7 +24,7 @@ remotes:
 
 		git branch feature-name
 		git checkout feature-name
-Your changes will now be saved in this branch. 
+	Your changes will now be saved in this branch. 
 1. Make changes to files and add/commit them, following the usual git add/commit workflow. You 
 can test your changes at any time by following the [instructions below](#testing-changes-locally). 
 1. Once you're satisfied with your changes and have committed them, push the branch 
@@ -55,7 +55,7 @@ branch; then pull from the original CHTC Github repository:
 4. Start Docker: 
 
 		docker run -it --rm=true -v $PWD:/srv/jekyll --publish 8080:8080 clk/jekyll jekyll serve -P 8080
-The first time you do this, you'll have to wait for about 3-5 minutes for jekyll to 
+	The first time you do this, you'll have to wait for about 3-5 minutes for jekyll to 
 build all its dependencies and then render the website. 
 5. The website should appear at `localhost:8080`. 
 
