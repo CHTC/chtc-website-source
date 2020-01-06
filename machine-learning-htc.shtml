@@ -13,8 +13,8 @@ Overview
 It's important to understand the needs of a machine learning job before submitting 
 it and have a plan for managing software. This guide covers: 
 
-1. Considering job requirements
-2. Recommendations for managing software
+1. [Considering job requirements](#1-job-requirements)
+2. [Recommendations for managing software](#2-software-options)
 
 # 1. Job Requirements
 
@@ -22,7 +22,7 @@ Before digging into the nuts and bolts of software installation in the next sect
 it's important to first consider a few other job requirements that might apply to 
 your machine learning job. 
 
-### Do you need GPUs?
+## A. Do you need GPUs?
 
 CHTC has about 4 publicly available GPUs and many more CPUs. When possible, you will 
 be able to have more jobs running at once and your jobs will start more quickly 
@@ -38,15 +38,16 @@ how to access them here:
 Note that you may need to use different versions of your software, depending on whether or 
 not you're using GPUs, as shown in the next section. 
 
-### How big is your data? 
+## B. How big is your data? 
 
 CHTC's usual data recommendations apply for machine learning jobs. If your job is using 
 an input data set larger than a few hundred MB, you will likely need to use our large data 
-file share, Gluster. See a summary here: 
+file share, Gluster. Contact the CHTC Research Computing Facilitators to get access and 
+read about Gluster here: 
 
 * [File Availability with Gluster](file-avail-gluster.shtml)
 
-### How long does your job run? 
+## C. How long does your job run? 
 
 CHTC's default job length is 72 hours. If your task is long enough that you will 
 encounter this limit, contact the CHTC Research Computing Facilitators (chtc@cs.wisc.edu) 
@@ -76,11 +77,11 @@ You can also test and examine containers on your own computer.
 
 We recommend the following Docker container images for machine learning: 
 
-<table>
+<table class="gtable">
   <tr>
-    <td>Framework</td>
-    <td>CPU-based</td>
-    <td>GPU-capable</td>
+    <th>Framework</th>
+    <th>CPU-based</th>
+    <th>GPU-capable</th>
   </tr>
   <tr>
     <td>Tensorflow</td>
@@ -94,7 +95,7 @@ We recommend the following Docker container images for machine learning:
   </tr>
 </table>
 
-Other places to look for images: 
+Other places to look for Docker container images: 
 
 * [Tensorflow on DockerHub](https://hub.docker.com/r/tensorflow/tensorflow/tags)
 * [Pytorch on DockerHub](https://hub.docker.com/u/pytorch)
