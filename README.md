@@ -53,6 +53,7 @@ branch; then pull from the original CHTC Github repository:
 		docker pull jekyll/jekyll
 3. `cd` to your local copy of the `chtc-website-source` repository
 4. Start Docker: 
+
 		docker run -it --rm=true -v $PWD:/srv/jekyll --publish 8080:8080 clk/jekyll jekyll serve -P 8080
 The first time you do this, you'll have to wait for about 3-5 minutes for jekyll to 
 build all its dependencies and then render the website. 
