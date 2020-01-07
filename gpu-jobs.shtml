@@ -20,6 +20,7 @@ Read on to determine:</p>
   <li><a href="#software">Software Considerations</a></li>
   <li><a href="#submit">Submit File Considerations</a></li>
   <li><a href="#osg">Using GPUs on the Open Science Grid</a></li>
+</ol>
 
 <blockquote>
 This is the initial version of a guide about running GPU jobs in CHTC.  If 
@@ -91,6 +92,7 @@ any CHTC user (as of 6/13/2019):</p>
     <td>yes</td>
   </tr>
 </table>
+
 <p>You can also find out information about GPUs in CHTC through the 
 <code>condor_status</code> command.  All of our servers with GPUs have 
 a <code>TotalGPUs</code> attribute that is greater than zero; thus we can 
@@ -106,502 +108,40 @@ attributes
 <pre class="term">[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' -af Machine TotalGpus CUDADeviceName
 </pre>
 
-Last login: Mon Jan  6 17:43:06 on ttys009
-You have mail.
-[~]$ moria
-ckoch5@moria.cs.wisc.edu's password: 
-
-[~]$ ssh ckoch5@ingwe.cs.wisc.edu
-ckoch5@ingwe.cs.wisc.edu's password: 
-[ckoch5@ingwe ~]$ ls
-private/  public/
-[ckoch5@ingwe ~]$ exit
-logout
--bash: isapty: command not found
+<p>In addition, HTCondor tracks other GPU-related attributes for each 
+server, including: </p>
 
 
-
-
-
-
-
-
-
-
-
-
-Connection to ingwe.cs.wisc.edu closed.
-[~]$ ssh ckoch5@moria.cs.wisc.edu
-ckoch5@moria.cs.wisc.edu's password: 
-Last login: Mon Jan  6 17:43:42 2020 from 24-181-166-150.dhcp.eucl.wi.charter.com
--bash: /u/c/k/ckoch5/.bash_profile: Permission denied
--bash-4.2$ exit
-logout
--bash: /u/c/k/ckoch5/.bash_logout: Permission denied
-Connection to moria.cs.wisc.edu closed.
-[~]$ ssh ckoch5@ingwe.cs.wisc.edu
-ckoch5@ingwe.cs.wisc.edu's password: 
-Last login: Mon Jan  6 17:48:50 2020 from 24-181-166-150.dhcp.eucl.wi.charter.com
-[ckoch5@ingwe ~]$ ls
-private/  public/
-[ckoch5@ingwe ~]$ cd public/html/
-[ckoch5@ingwe html]$ nano dashboard.html 
-[ckoch5@ingwe html]$ website
-[ckoch5@ingwe chtc]$ ls
-allguides.shtml           firstHPCuseguide.shtml      java-jobs.shtml          python-jobs.shtml
-approach.shtml            form_captcha.shtml          jobs.shtml*              repo/
-archived/                 form.old.shtml              Jobstext.htm             resources.shtml
-artofHTC.shtml            form.shtml                  latest.tar.gz            r-jobs.shtml
-bootstrap.css             get-help-beta.shtml         licensed-software.shtml  scaling-htc.shtml
-bvanveen/                 get-help.shtml              lzhang/                  showcase.shtml*
-cal.shtml                 get-started.shtml           map/                     sign-in.html
-cgi-chtc/                 get-submit-node.shtml       map-old/                 singularity-hpc.shtml
-check-quota.shtml*        gluster-software.shtml      matlab-jobs.shtml        submit_variations.shtml
-chtcjobwrapper.shtml      gphillips/                  mpi-jobs.shtml           TEMPLATE.shtml*
-chtcpolicy.shtml*         gpu-jobs.shtml              MPI-old.shtml            tensorflow-singularity.shtml
-chtc-projects.shtml       guide-icons/                MPIuseguide.shtml        tensorflow-singularity-wait.shtml
-chtcrun-transition.shtml  guides.shtml                multiple-job-dirs.shtml  test-captcha2.shtml
-cite-chtc.shtml           helloworld.shtml            multiple-jobs.shtml      test-captcha3.html
-condor_q.shtml            high-memory-jobs.shtml      new-index.shtml*         test-captcha.shtml
-connecting.shtml          hours.shtml                 news.shtml               testing-jobs.shtml
-DAGenv.shtml*             howto_overview_new.shtml    no-longer-used/          test.shtml~
-dev_website/              howto_overview.shtml        opmetrics.shtml          testsite/
-docker-jobs.shtml         hpc-buy-in.shtml            os-transition.shtml      thanks.shtml
-dos-unix.shtml            hpc-cluster-downtime.shtml  outside-chtc.shtml       user-meeting/
-downloads/                HPCuseguide.shtml           people.shtml*            user-meeting-registered.shtml
-el7/                      HPCuseguide.shtml~          phanson/                 user-meeting-registration.pl*
-espalding/                HTC-guides.shtml            phpinfo.php              user-meeting.shtml*
-favicon.ico               icon_credits.shtml          posters/                 user-news.shtml
-file-availability.shtml   images/                     presentations/           use-submit-node.shtml
-file-avail-gluster.shtml  includes/                   presentations.shtml*     waller/
-file-avail-squid.shtml    index.shtml                 projects.shtml           web.css
-files/                    inter-submit.shtml          python-jobs-beta.shtml   web.css~
-[ckoch5@ingwe chtc]$ ls -lrt
-total 7210
-drwxrwxr-x  2 bt       bt          2048 Mar 18  2010 waller/
--rwxr-x---  1 adesmet  adesmet     1864 Feb 10  2012 TEMPLATE.shtml*
--rwxr-x---  1 bt       bt          1850 Feb 13  2012 chtcpolicy.shtml*
--rwxr-x---  1 bgore    bgore       1645 Feb 13  2012 showcase.shtml*
--rw-r--r--  1 adesmet  adesmet      596 Feb 13  2012 user-meeting-registered.shtml
-drwxr-x---  3 tannenba tannenba    2048 Feb 13  2012 presentations/
--rwxr-xr-x  1 adesmet  adesmet      367 Feb 13  2012 presentations.shtml*
-drwxr-xr-x  2 bt       bt          2048 Feb 14  2012 espalding/
--rwxr-x---  1 adesmet  adesmet      277 Feb 16  2012 user-meeting.shtml*
--rwxr-xr-x  1 adesmet  adesmet     6926 Feb 16  2012 user-meeting-registration.pl*
-drwxr-xr-x  3 adesmet  adesmet     2048 Jun  5  2012 user-meeting/
--rw-r-----  1 bgore    bgore       1514 Jun 21  2012 opmetrics.shtml
--rw-r--r--  1 afbroman afbroman    4286 Jun 29  2012 favicon.ico
--rw-r--r--  1 adesmet  adesmet      853 Aug 10  2012 news.shtml
--rw-r--r--  1 adesmet  adesmet    15613 Nov 14  2012 chtcjobwrapper.shtml
--rw-r-----  1 bgore    bgore       2197 Nov 15  2012 hours.shtml
--rw-r--r--  1    28712    28712    6154 Jan 30  2013 Jobstext.htm
--rw-rw-r--  1 afbroman afbroman      68 Feb  5  2013 phpinfo.php
--rw-rw-r--  1 afbroman afbroman     657 Feb  5  2013 test-captcha3.html
--rw-r-----  1 afbroman afbroman    1703 Feb  5  2013 test-captcha2.shtml
--rw-r-----  1 afbroman afbroman    4541 Feb  5  2013 test-captcha.shtml
-drwxr-x---  2 tannenba tannenba    2048 Apr 25  2013 posters/
--rwxr-x---  1 lmichael lmichael    4657 May 22  2013 new-index.shtml*
--rw-r-----  1 lmichael lmichael    8235 Aug 15  2013 firstHPCuseguide.shtml
--rw-r-----  1 vanderwo vanderwo    3901 Aug 28  2013 test.shtml~
--rw-r-----  1 vanderwo vanderwo   11571 Sep  3  2013 HPCuseguide.shtml~
--rw-r--r--  1 vanderwo vanderwo    3655 Sep 30  2013 web.css~
--rw-r-----  1 smoler   smoler      5274 Jan  3  2014 resources.shtml
--rw-r-----  1 smoler   smoler      3047 Jan  7  2014 get-submit-node.shtml
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 bvanveen/
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 gphillips/
-drwxrwxrwx  4 vanderwo tristan     2048 Mar  3  2014 map-old/
--rw-rw-r--  1 ckoch5   ckoch5     11393 Apr 15  2015 submit_variations.shtml
-drwxr-xr-x  2 adesmet  adesmet     2048 May 25  2015 downloads/
--rw-r-----  1 lmichael lmichael   11528 Jun 11  2015 artofHTC.shtml
--rw-rw-r--  1 ckoch5   ckoch5      8104 Aug 17  2015 testing-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2348 Aug 18  2015 HTC-guides.shtml
--rwxr-x---  1 smoler   smoler     11645 Aug 25  2015 DAGenv.shtml*
--rw-rw-r--  1 ckoch5   ckoch5   6526208 Sep 15  2015 latest.tar.gz
--rw-r--r--  1 ckoch5   ckoch5     14154 Oct 26  2015 hpc-cluster-downtime.shtml
--rw-r--r--  1 ckoch5   ckoch5       748 Oct 30  2015 cal.shtml
--rw-rw-r--  1 lmichael lmichael    3507 Mar  9  2016 allguides.shtml
--rw-r-----  1 ckoch5   ckoch5       594 Aug 11  2016 thanks.shtml
--rw-r-----  1 lmichael lmichael     745 Sep  8  2016 get-started.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2204 Dec 21  2016 dos-unix.shtml
--rw-r--r--  1 vanderwo vanderwo    2469 Jan 13  2017 chtc-projects.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4300 Feb 15  2017 chtcrun-transition.shtml
--rwxr-x---  1 afbroman afbroman    4926 Mar  3  2017 jobs.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      7268 Jun  7  2017 gluster-software.shtml
--rw-rw-r--  1 ckoch5   ckoch5     12719 Dec 15  2017 web.css
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 22  2017 guide-icons/
--rw-r-----  1 lmichael lmichael    6751 Jan 18  2018 cite-chtc.shtml
--rw-r-----  1 ckoch5   ckoch5       952 Apr  2  2018 icon_credits.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 lzhang/
--rw-r--r--  1 ckoch5   ckoch5      5847 Apr 18  2018 scaling-htc.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 phanson/
--rw-rw-r--  1 ckoch5   ckoch5      6272 Apr 18  2018 file-availability.shtml
--rwxr-x---  1 lmichael lmichael    3508 Apr 23  2018 check-quota.shtml*
--rw-rw-r--  1 ckoch5   ckoch5     12610 Apr 23  2018 condor_q.shtml
--rw-r--r--  1 ckoch5   ckoch5      4650 Apr 23  2018 tensorflow-singularity-wait.shtml
--rw-rw-r--  1 ckoch5   ckoch5     13940 Apr 25  2018 multiple-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4388 Apr 25  2018 multiple-job-dirs.shtml
--rw-rw-r--  1 ckoch5   ckoch5     14326 Apr 30  2018 file-avail-gluster.shtml
--rw-r--r--  1 vanderwo vanderwo    5137 Oct 15  2018 index.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2692 Nov  1  2018 hpc-buy-in.shtml
--rw-r--r--  1 ckoch5   ckoch5      5463 Dec 10  2018 outside-chtc.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 11  2018 files/
--rw-rw-r--  1 ckoch5   ckoch5      6030 Jan 17  2019 file-avail-squid.shtml
--rw-r--r--  1 ckoch5   ckoch5      9654 Feb 11  2019 mpi-jobs.shtml
--rw-r-----  1 vanderwo vanderwo    4969 Feb 20  2019 MPI-old.shtml
--rw-r-----  1 ckoch5   ckoch5      2913 Feb 20  2019 singularity-hpc.shtml
-drwxrwxr-x  4 youmin   youmin      2048 Feb 22  2019 map/
-drwxr-x--- 10 tristan  tristan     4096 Mar  5  2019 includes/
--rw-rw-r--  1 youmin   youmin      5204 Mar 11  2019 MPIuseguide.shtml
--rw-r--r--  1 ckoch5   ckoch5       645 Apr  1  2019 tensorflow-singularity.shtml
--rwxr-x---  1 tristan  tristan     1315 Apr 16  2019 people.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      4964 May  7  2019 docker-jobs.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 May 16  2019 el7/
--rw-rw-rw-  1 vanderwo tristan    14662 May 17  2019 projects.shtml
--rw-r-----  1 jpatton  jpatton     6520 Jul  1  2019 form_captcha.shtml
--rw-r-----  1 jpatton  jpatton     6335 Jul  1  2019 form.old.shtml
-drwxrwxr-x  2 bgore    bgore       2048 Jul  1  2019 cgi-chtc/
--rw-rw-r--  1 ckoch5   ckoch5      9955 Jul  2  2019 connecting.shtml
--rw-r-----  1 bgore    bgore       5376 Jul  2  2019 use-submit-node.shtml
--rw-r--r--  1 ckoch5   ckoch5      6752 Jul 23 17:00 licensed-software.shtml
--rw-rw-r--  1 youmin   youmin     15216 Aug 16 14:25 helloworld.shtml
--rw-r-----  1 ckoch5   ckoch5      6746 Aug 29 11:57 form.shtml
--rw-rw-r--  1 youmin   youmin      4123 Sep 12 15:25 get-help-beta.shtml
--rw-rw-r--  1 youmin   youmin       182 Sep 12 15:34 sign-in.html
--rw-rw-r--  1 ckoch5   ckoch5     20967 Sep 16 16:41 HPCuseguide.shtml
--rw-rw-r--  1 youmin   youmin    189011 Oct  2 13:25 bootstrap.css
-drwxr-xr-x  3 adesmet  adesmet     2048 Oct  3 12:08 images/
-drwxrwxr-x  2 bgore    bgore       2048 Oct 24 11:52 no-longer-used/
-drwxrwxr-x  4 ckoch5   ckoch5      4096 Oct 24 12:09 dev_website/
--rw-rw-r--  1 youmin   youmin      3353 Oct 24 14:55 howto_overview.shtml
-drwxr-xr-x  4 khahn    khahn       2048 Oct 24 15:05 repo/
--rw-rw-r--  1 ckoch5   ckoch5       751 Oct 25 11:31 howto_overview_new.shtml
--rw-rw-r--  1 youmin   youmin     12414 Oct 31 15:22 guides.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Nov  4 12:53 archived/
--rw-rw-r--  1 ckoch5   ckoch5      2403 Nov  6 11:03 java-jobs.shtml
--rw-r--r--  1 adesmet  adesmet     3753 Nov  6 14:22 approach.shtml
--rw-rw-r--  1 ckoch5   ckoch5      3520 Nov 12 08:22 os-transition.shtml
--rw-rw-r--  1 youmin   youmin     10324 Nov 12 08:23 gpu-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     10331 Nov 18 09:14 high-memory-jobs.shtml
--rw-rw-r--  1 youmin   youmin     21497 Dec  2 14:01 python-jobs-beta.shtml
--rw-r--r--  1 ckoch5   ckoch5      8671 Dec 11 13:49 inter-submit.shtml
--rw-r--r--  1 jmvera   jmvera     11489 Dec 18 14:24 r-jobs.shtml
--rw-rw-r--  1 youmin   youmin     11284 Dec 18 14:25 python-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     11623 Dec 18 14:25 matlab-jobs.shtml
--rw-rw-r--  1 youmin   youmin     38326 Dec 18 18:21 user-news.shtml
--rw-r--r--  1 lmichael lmichael    4185 Dec 18 18:24 get-help.shtml
-drwxr-xr-x 12 cndrutil cndrutil    6144 Jan  6 17:40 testsite/
-[ckoch5@ingwe chtc]$ less java-jobs.shtml 
-[ckoch5@ingwe chtc]$ diff java-jobs.shtml testsite/java-jobs.shtml 
-1,5c1,118
-< <!--#set var="title" value="Using Java Code in CHTC"-->
-< <!--#include virtual="/includes/template-1-openhead.shtml" -->
-< <!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-< <!--#include virtual="/includes/template-3-sidebar.shtml" -->
-< <!--#include virtual="/includes/template-4-mainbody.shtml" -->
----
-> 
-> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-> "http://www.w3.org/TR/html4/loose.dtd">
-> 
-> <html>
-> <head>
-> <script type="text/javascript">
-> 
->   function resizeIframe(iframe) {
->     var newheight;
->     var newwidth;
-> 
->     if(document.getElementById){
->         newwidth=iframe.contentWindow.document.body.scrollWidth;
->         newheight=iframe.contentWindow.document.body.scrollHeight;
->     }
-> 
->     iframe.height= (newheight) + "px";
->     iframe.width= (newwidth) + "px";
->   }
-> </script>
-> <title>Using Java Code in CHTC</title>
-> 
-> <link href="/web.css" rel="stylesheet" type="text/css">
-> </head>
-> <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-> 
-> <table width="100%" border="0" cellspacing="0" cellpadding="0">
-> <tr>
->    <td width="1%" align="left" class="bgred" valign="top">
->       <div align="center">
->       &nbsp;<br>
->       <a href="http://www.wisc.edu">
-> 
->       <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
->        </div>
-> 
-> 	<ul class="sidebar">
-> 	<li><a href="/">CHTC Home</a></li>
-> 	
-> 	<li>About
-> 		<ul>
-> 		<li><a href="/approach.shtml">Our Approach</a></li>
-> <!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
-> 		<li><a href="/projects.shtml">Our Customers</a></li>
-> 		<li><a href="/people.shtml">Our Staff</a></li>
-> 		<li><a href="/jobs.shtml">Our Open Positions</a></li>
-> 		</ul>
-> 	</li>
-> 	
-> 	<li>How To's
-> 		<ul>
-> 		<li><a href="/get-started.shtml">Get Started</a></li>
-> 		<li><a href="/get-help.shtml">Get Help</a></li>
->         	<li><a href="/guides.shtml">All User Guides</a></li>
->                 <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
-> 		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
-> 		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
-> 		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
-> 		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
-> 		</ul>
-> 	</li>
-> 	<li><a href="/user-news.shtml">User News</a></li>
-> 	<li>Other Resources
-> 		<ul>
-> 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
-> <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
-> 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
-> 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
-> 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
-> 		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
-> 		</ul>
-> 	</li>
-> 	</ul>
-> 
-> 	</td>
-> 
-> <td width="97%" valign="top"> 
-> 
-> 
-> 	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
-> <TR ALIGN="left"> 
->   <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
->     <A  name="body"></a> 
-> 	<div id = "main">
-> 
-> <!-- Top of Page Body -->
-> <table BORDER="0" WIDTH="100%">
-> <!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
-> 
-> 	
-> 
-> <div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
-> 
-> 	
-> 
-> <div id="hours"> <span style="height: 20px">
-> 	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
-> 	
-> 	
-> <div id="hours"> <span style="height: 20px">
-> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-> <a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
-> <b>Office Hours!</b>
-> <br>
-> Tues/Thurs, 3-4:30pm<br>
-> Wed, 9:30-11:30am</br>
-> Click for details
-> </a></span></div>	
-> 
-> 
-> 	
-> 
-> 
-> <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
-> 
-> <h1>Using Java Code in CHTC</h1>
-> 
-15c128
-< 	CHTC (on the UW Grid or Open Science Grid) (recommended)<a></li>
----
-> 	CHTC (on the UW Grid or Open Science Grid) (recommended)</a></li>
-33,34c146,148
-< java -jar <i>program.jar</i></pre>
-< </pre></li>
----
-> java -jar <i>program.jar</i>
-> </pre>
-> </li>
-62c176,201
-< <!--#include virtual="/includes/template-5-finish.shtml" -->
----
-> 
-> </li></ol></p>
-> 
-> 
-> 
-> <div id = "copyright">
->      <p align = "center"> 
-> 	  
->      For all user support, questions, and comments:
->      <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
-> 
-> </p>
-> </div>
-> 
-> </div>
-> 
->   </td>
->   </tr>
-> 
-> </TABLE>
-> </td>
-> </table>
-> 
-> </body>
-> </html>
-> 
-[ckoch5@ingwe chtc]$ clear
-
-[ckoch5@ingwe chtc]$ ls -lrt
-total 7210
-drwxrwxr-x  2 bt       bt          2048 Mar 18  2010 waller/
--rwxr-x---  1 adesmet  adesmet     1864 Feb 10  2012 TEMPLATE.shtml*
--rwxr-x---  1 bt       bt          1850 Feb 13  2012 chtcpolicy.shtml*
--rwxr-x---  1 bgore    bgore       1645 Feb 13  2012 showcase.shtml*
--rw-r--r--  1 adesmet  adesmet      596 Feb 13  2012 user-meeting-registered.shtml
-drwxr-x---  3 tannenba tannenba    2048 Feb 13  2012 presentations/
--rwxr-xr-x  1 adesmet  adesmet      367 Feb 13  2012 presentations.shtml*
-drwxr-xr-x  2 bt       bt          2048 Feb 14  2012 espalding/
--rwxr-x---  1 adesmet  adesmet      277 Feb 16  2012 user-meeting.shtml*
--rwxr-xr-x  1 adesmet  adesmet     6926 Feb 16  2012 user-meeting-registration.pl*
-drwxr-xr-x  3 adesmet  adesmet     2048 Jun  5  2012 user-meeting/
--rw-r-----  1 bgore    bgore       1514 Jun 21  2012 opmetrics.shtml
--rw-r--r--  1 afbroman afbroman    4286 Jun 29  2012 favicon.ico
--rw-r--r--  1 adesmet  adesmet      853 Aug 10  2012 news.shtml
--rw-r--r--  1 adesmet  adesmet    15613 Nov 14  2012 chtcjobwrapper.shtml
--rw-r-----  1 bgore    bgore       2197 Nov 15  2012 hours.shtml
--rw-r--r--  1    28712    28712    6154 Jan 30  2013 Jobstext.htm
--rw-rw-r--  1 afbroman afbroman      68 Feb  5  2013 phpinfo.php
--rw-rw-r--  1 afbroman afbroman     657 Feb  5  2013 test-captcha3.html
--rw-r-----  1 afbroman afbroman    1703 Feb  5  2013 test-captcha2.shtml
--rw-r-----  1 afbroman afbroman    4541 Feb  5  2013 test-captcha.shtml
-drwxr-x---  2 tannenba tannenba    2048 Apr 25  2013 posters/
--rwxr-x---  1 lmichael lmichael    4657 May 22  2013 new-index.shtml*
--rw-r-----  1 lmichael lmichael    8235 Aug 15  2013 firstHPCuseguide.shtml
--rw-r-----  1 vanderwo vanderwo    3901 Aug 28  2013 test.shtml~
--rw-r-----  1 vanderwo vanderwo   11571 Sep  3  2013 HPCuseguide.shtml~
--rw-r--r--  1 vanderwo vanderwo    3655 Sep 30  2013 web.css~
--rw-r-----  1 smoler   smoler      5274 Jan  3  2014 resources.shtml
--rw-r-----  1 smoler   smoler      3047 Jan  7  2014 get-submit-node.shtml
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 bvanveen/
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 gphillips/
-drwxrwxrwx  4 vanderwo tristan     2048 Mar  3  2014 map-old/
--rw-rw-r--  1 ckoch5   ckoch5     11393 Apr 15  2015 submit_variations.shtml
-drwxr-xr-x  2 adesmet  adesmet     2048 May 25  2015 downloads/
--rw-r-----  1 lmichael lmichael   11528 Jun 11  2015 artofHTC.shtml
--rw-rw-r--  1 ckoch5   ckoch5      8104 Aug 17  2015 testing-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2348 Aug 18  2015 HTC-guides.shtml
--rwxr-x---  1 smoler   smoler     11645 Aug 25  2015 DAGenv.shtml*
--rw-rw-r--  1 ckoch5   ckoch5   6526208 Sep 15  2015 latest.tar.gz
--rw-r--r--  1 ckoch5   ckoch5     14154 Oct 26  2015 hpc-cluster-downtime.shtml
--rw-r--r--  1 ckoch5   ckoch5       748 Oct 30  2015 cal.shtml
--rw-rw-r--  1 lmichael lmichael    3507 Mar  9  2016 allguides.shtml
--rw-r-----  1 ckoch5   ckoch5       594 Aug 11  2016 thanks.shtml
--rw-r-----  1 lmichael lmichael     745 Sep  8  2016 get-started.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2204 Dec 21  2016 dos-unix.shtml
--rw-r--r--  1 vanderwo vanderwo    2469 Jan 13  2017 chtc-projects.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4300 Feb 15  2017 chtcrun-transition.shtml
--rwxr-x---  1 afbroman afbroman    4926 Mar  3  2017 jobs.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      7268 Jun  7  2017 gluster-software.shtml
--rw-rw-r--  1 ckoch5   ckoch5     12719 Dec 15  2017 web.css
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 22  2017 guide-icons/
--rw-r-----  1 lmichael lmichael    6751 Jan 18  2018 cite-chtc.shtml
--rw-r-----  1 ckoch5   ckoch5       952 Apr  2  2018 icon_credits.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 lzhang/
--rw-r--r--  1 ckoch5   ckoch5      5847 Apr 18  2018 scaling-htc.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 phanson/
--rw-rw-r--  1 ckoch5   ckoch5      6272 Apr 18  2018 file-availability.shtml
--rwxr-x---  1 lmichael lmichael    3508 Apr 23  2018 check-quota.shtml*
--rw-rw-r--  1 ckoch5   ckoch5     12610 Apr 23  2018 condor_q.shtml
--rw-r--r--  1 ckoch5   ckoch5      4650 Apr 23  2018 tensorflow-singularity-wait.shtml
--rw-rw-r--  1 ckoch5   ckoch5     13940 Apr 25  2018 multiple-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4388 Apr 25  2018 multiple-job-dirs.shtml
--rw-rw-r--  1 ckoch5   ckoch5     14326 Apr 30  2018 file-avail-gluster.shtml
--rw-r--r--  1 vanderwo vanderwo    5137 Oct 15  2018 index.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2692 Nov  1  2018 hpc-buy-in.shtml
--rw-r--r--  1 ckoch5   ckoch5      5463 Dec 10  2018 outside-chtc.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 11  2018 files/
--rw-rw-r--  1 ckoch5   ckoch5      6030 Jan 17  2019 file-avail-squid.shtml
--rw-r--r--  1 ckoch5   ckoch5      9654 Feb 11  2019 mpi-jobs.shtml
--rw-r-----  1 vanderwo vanderwo    4969 Feb 20  2019 MPI-old.shtml
--rw-r-----  1 ckoch5   ckoch5      2913 Feb 20  2019 singularity-hpc.shtml
-drwxrwxr-x  4 youmin   youmin      2048 Feb 22  2019 map/
-drwxr-x--- 10 tristan  tristan     4096 Mar  5  2019 includes/
--rw-rw-r--  1 youmin   youmin      5204 Mar 11  2019 MPIuseguide.shtml
--rw-r--r--  1 ckoch5   ckoch5       645 Apr  1  2019 tensorflow-singularity.shtml
--rwxr-x---  1 tristan  tristan     1315 Apr 16  2019 people.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      4964 May  7  2019 docker-jobs.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 May 16  2019 el7/
--rw-rw-rw-  1 vanderwo tristan    14662 May 17  2019 projects.shtml
--rw-r-----  1 jpatton  jpatton     6520 Jul  1  2019 form_captcha.shtml
--rw-r-----  1 jpatton  jpatton     6335 Jul  1  2019 form.old.shtml
-drwxrwxr-x  2 bgore    bgore       2048 Jul  1  2019 cgi-chtc/
--rw-rw-r--  1 ckoch5   ckoch5      9955 Jul  2  2019 connecting.shtml
--rw-r-----  1 bgore    bgore       5376 Jul  2  2019 use-submit-node.shtml
--rw-r--r--  1 ckoch5   ckoch5      6752 Jul 23 17:00 licensed-software.shtml
--rw-rw-r--  1 youmin   youmin     15216 Aug 16 14:25 helloworld.shtml
--rw-r-----  1 ckoch5   ckoch5      6746 Aug 29 11:57 form.shtml
--rw-rw-r--  1 youmin   youmin      4123 Sep 12 15:25 get-help-beta.shtml
--rw-rw-r--  1 youmin   youmin       182 Sep 12 15:34 sign-in.html
--rw-rw-r--  1 ckoch5   ckoch5     20967 Sep 16 16:41 HPCuseguide.shtml
--rw-rw-r--  1 youmin   youmin    189011 Oct  2 13:25 bootstrap.css
-drwxr-xr-x  3 adesmet  adesmet     2048 Oct  3 12:08 images/
-drwxrwxr-x  2 bgore    bgore       2048 Oct 24 11:52 no-longer-used/
-drwxrwxr-x  4 ckoch5   ckoch5      4096 Oct 24 12:09 dev_website/
--rw-rw-r--  1 youmin   youmin      3353 Oct 24 14:55 howto_overview.shtml
-drwxr-xr-x  4 khahn    khahn       2048 Oct 24 15:05 repo/
--rw-rw-r--  1 ckoch5   ckoch5       751 Oct 25 11:31 howto_overview_new.shtml
--rw-rw-r--  1 youmin   youmin     12414 Oct 31 15:22 guides.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Nov  4 12:53 archived/
--rw-rw-r--  1 ckoch5   ckoch5      2403 Nov  6 11:03 java-jobs.shtml
--rw-r--r--  1 adesmet  adesmet     3753 Nov  6 14:22 approach.shtml
--rw-rw-r--  1 ckoch5   ckoch5      3520 Nov 12 08:22 os-transition.shtml
--rw-rw-r--  1 youmin   youmin     10324 Nov 12 08:23 gpu-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     10331 Nov 18 09:14 high-memory-jobs.shtml
--rw-rw-r--  1 youmin   youmin     21497 Dec  2 14:01 python-jobs-beta.shtml
--rw-r--r--  1 ckoch5   ckoch5      8671 Dec 11 13:49 inter-submit.shtml
--rw-r--r--  1 jmvera   jmvera     11489 Dec 18 14:24 r-jobs.shtml
--rw-rw-r--  1 youmin   youmin     11284 Dec 18 14:25 python-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     11623 Dec 18 14:25 matlab-jobs.shtml
--rw-rw-r--  1 youmin   youmin     38326 Dec 18 18:21 user-news.shtml
--rw-r--r--  1 lmichael lmichael    4185 Dec 18 18:24 get-help.shtml
-drwxr-xr-x 12 cndrutil cndrutil    6144 Jan  6 18:00 testsite/
-[ckoch5@ingwe chtc]$ less gpu-jobs.shtml 
-
-                <td>Maximum CUDA runtime version supported by the GPU drivers on the machine. (CUDADriverVersion is not the actual GPU driver version) </td>
-        </tr>
-        <tr>
-                <td><code>CUDACapability</code></td>
-                <td>Represents how new the GPU is -- higher numbers are newer GPUs. </td>
-        </tr>
-        <tr>
-                <td><code>CUDAGlobalMemoryMb</code></td>
-                <td>Amount of global memory available on the GPU</td>
-        </tr>
-        <tr>
-                <td><code>CUDADeviceName</code></td>
-                <td>The GPU type for the CUDA software libraries</td>
-        </tr>
+<table class="gtable">
+	<tr>
+		<th>Attribute </th>
+		<th>Explanation </th>
+	</tr>
+	<tr>
+		<td><code>Gpus</code></td>
+		<td>Number of GPUs in an individual job slot on a server(one server can be divided into slots to run multiple jobs)</td>
+	</tr>
+	<tr>
+		<td><code>TotalGPUs</code></td>
+		<td>The total number of GPUs on a server</td>
+	</tr>
+	<tr>
+		<td><code>CUDADriverVersion</code></td>
+		<td>Maximum CUDA runtime version supported by the GPU drivers on the machine. (CUDADriverVersion is not the actual GPU driver version) </td>
+	</tr>
+	<tr>
+		<td><code>CUDACapability</code></td>
+		<td>Represents how new the GPU is -- higher numbers are newer GPUs. </td>
+	</tr>
+	<tr>
+		<td><code>CUDAGlobalMemoryMb</code></td>
+		<td>Amount of global memory available on the GPU</td>
+	</tr>
+	<tr>
+		<td><code>CUDADeviceName</code></td>
+		<td>The GPU type for the CUDA software libraries</td>
+	</tr>
 </table>
-Last login: Mon Jan  6 17:43:06 on ttys009
-You have mail.
-[~]$ moria
-ckoch5@moria.cs.wisc.edu's password: 
-
-[~]$ ssh ckoch5@ingwe.cs.wisc.edu
-ckoch5@ingwe.cs.wisc.edu's password: 
-[ckoch5@ingwe ~]$ ls
-private/  public/
-[ckoch5@ingwe ~]$ exit
-logout
--bash: isapty: command not found
 
 
 
@@ -614,452 +154,117 @@ logout
 
 
 
-Connection to ingwe.cs.wisc.edu closed.
-[~]$ ssh ckoch5@moria.cs.wisc.edu
-ckoch5@moria.cs.wisc.edu's password: 
-Last login: Mon Jan  6 17:43:42 2020 from 24-181-166-150.dhcp.eucl.wi.charter.com
--bash: /u/c/k/ckoch5/.bash_profile: Permission denied
--bash-4.2$ exit
-logout
--bash: /u/c/k/ckoch5/.bash_logout: Permission denied
-Connection to moria.cs.wisc.edu closed.
-[~]$ ssh ckoch5@ingwe.cs.wisc.edu
-ckoch5@ingwe.cs.wisc.edu's password: 
-Last login: Mon Jan  6 17:48:50 2020 from 24-181-166-150.dhcp.eucl.wi.charter.com
-[ckoch5@ingwe ~]$ ls
-private/  public/
-[ckoch5@ingwe ~]$ cd public/html/
-[ckoch5@ingwe html]$ nano dashboard.html 
-[ckoch5@ingwe html]$ website
-[ckoch5@ingwe chtc]$ ls
-allguides.shtml           firstHPCuseguide.shtml      java-jobs.shtml          python-jobs.shtml
-approach.shtml            form_captcha.shtml          jobs.shtml*              repo/
-archived/                 form.old.shtml              Jobstext.htm             resources.shtml
-artofHTC.shtml            form.shtml                  latest.tar.gz            r-jobs.shtml
-bootstrap.css             get-help-beta.shtml         licensed-software.shtml  scaling-htc.shtml
-bvanveen/                 get-help.shtml              lzhang/                  showcase.shtml*
-cal.shtml                 get-started.shtml           map/                     sign-in.html
-cgi-chtc/                 get-submit-node.shtml       map-old/                 singularity-hpc.shtml
-check-quota.shtml*        gluster-software.shtml      matlab-jobs.shtml        submit_variations.shtml
-chtcjobwrapper.shtml      gphillips/                  mpi-jobs.shtml           TEMPLATE.shtml*
-chtcpolicy.shtml*         gpu-jobs.shtml              MPI-old.shtml            tensorflow-singularity.shtml
-chtc-projects.shtml       guide-icons/                MPIuseguide.shtml        tensorflow-singularity-wait.shtml
-chtcrun-transition.shtml  guides.shtml                multiple-job-dirs.shtml  test-captcha2.shtml
-cite-chtc.shtml           helloworld.shtml            multiple-jobs.shtml      test-captcha3.html
-condor_q.shtml            high-memory-jobs.shtml      new-index.shtml*         test-captcha.shtml
-connecting.shtml          hours.shtml                 news.shtml               testing-jobs.shtml
-DAGenv.shtml*             howto_overview_new.shtml    no-longer-used/          test.shtml~
-dev_website/              howto_overview.shtml        opmetrics.shtml          testsite/
-docker-jobs.shtml         hpc-buy-in.shtml            os-transition.shtml      thanks.shtml
-dos-unix.shtml            hpc-cluster-downtime.shtml  outside-chtc.shtml       user-meeting/
-downloads/                HPCuseguide.shtml           people.shtml*            user-meeting-registered.shtml
-el7/                      HPCuseguide.shtml~          phanson/                 user-meeting-registration.pl*
-espalding/                HTC-guides.shtml            phpinfo.php              user-meeting.shtml*
-favicon.ico               icon_credits.shtml          posters/                 user-news.shtml
-file-availability.shtml   images/                     presentations/           use-submit-node.shtml
-file-avail-gluster.shtml  includes/                   presentations.shtml*     waller/
-file-avail-squid.shtml    index.shtml                 projects.shtml           web.css
-files/                    inter-submit.shtml          python-jobs-beta.shtml   web.css~
-[ckoch5@ingwe chtc]$ ls -lrt
-total 7210
-drwxrwxr-x  2 bt       bt          2048 Mar 18  2010 waller/
--rwxr-x---  1 adesmet  adesmet     1864 Feb 10  2012 TEMPLATE.shtml*
--rwxr-x---  1 bt       bt          1850 Feb 13  2012 chtcpolicy.shtml*
--rwxr-x---  1 bgore    bgore       1645 Feb 13  2012 showcase.shtml*
--rw-r--r--  1 adesmet  adesmet      596 Feb 13  2012 user-meeting-registered.shtml
-drwxr-x---  3 tannenba tannenba    2048 Feb 13  2012 presentations/
--rwxr-xr-x  1 adesmet  adesmet      367 Feb 13  2012 presentations.shtml*
-drwxr-xr-x  2 bt       bt          2048 Feb 14  2012 espalding/
--rwxr-x---  1 adesmet  adesmet      277 Feb 16  2012 user-meeting.shtml*
--rwxr-xr-x  1 adesmet  adesmet     6926 Feb 16  2012 user-meeting-registration.pl*
-drwxr-xr-x  3 adesmet  adesmet     2048 Jun  5  2012 user-meeting/
--rw-r-----  1 bgore    bgore       1514 Jun 21  2012 opmetrics.shtml
--rw-r--r--  1 afbroman afbroman    4286 Jun 29  2012 favicon.ico
--rw-r--r--  1 adesmet  adesmet      853 Aug 10  2012 news.shtml
--rw-r--r--  1 adesmet  adesmet    15613 Nov 14  2012 chtcjobwrapper.shtml
--rw-r-----  1 bgore    bgore       2197 Nov 15  2012 hours.shtml
--rw-r--r--  1    28712    28712    6154 Jan 30  2013 Jobstext.htm
--rw-rw-r--  1 afbroman afbroman      68 Feb  5  2013 phpinfo.php
--rw-rw-r--  1 afbroman afbroman     657 Feb  5  2013 test-captcha3.html
--rw-r-----  1 afbroman afbroman    1703 Feb  5  2013 test-captcha2.shtml
--rw-r-----  1 afbroman afbroman    4541 Feb  5  2013 test-captcha.shtml
-drwxr-x---  2 tannenba tannenba    2048 Apr 25  2013 posters/
--rwxr-x---  1 lmichael lmichael    4657 May 22  2013 new-index.shtml*
--rw-r-----  1 lmichael lmichael    8235 Aug 15  2013 firstHPCuseguide.shtml
--rw-r-----  1 vanderwo vanderwo    3901 Aug 28  2013 test.shtml~
--rw-r-----  1 vanderwo vanderwo   11571 Sep  3  2013 HPCuseguide.shtml~
--rw-r--r--  1 vanderwo vanderwo    3655 Sep 30  2013 web.css~
--rw-r-----  1 smoler   smoler      5274 Jan  3  2014 resources.shtml
--rw-r-----  1 smoler   smoler      3047 Jan  7  2014 get-submit-node.shtml
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 bvanveen/
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 gphillips/
-drwxrwxrwx  4 vanderwo tristan     2048 Mar  3  2014 map-old/
--rw-rw-r--  1 ckoch5   ckoch5     11393 Apr 15  2015 submit_variations.shtml
-drwxr-xr-x  2 adesmet  adesmet     2048 May 25  2015 downloads/
--rw-r-----  1 lmichael lmichael   11528 Jun 11  2015 artofHTC.shtml
--rw-rw-r--  1 ckoch5   ckoch5      8104 Aug 17  2015 testing-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2348 Aug 18  2015 HTC-guides.shtml
--rwxr-x---  1 smoler   smoler     11645 Aug 25  2015 DAGenv.shtml*
--rw-rw-r--  1 ckoch5   ckoch5   6526208 Sep 15  2015 latest.tar.gz
--rw-r--r--  1 ckoch5   ckoch5     14154 Oct 26  2015 hpc-cluster-downtime.shtml
--rw-r--r--  1 ckoch5   ckoch5       748 Oct 30  2015 cal.shtml
--rw-rw-r--  1 lmichael lmichael    3507 Mar  9  2016 allguides.shtml
--rw-r-----  1 ckoch5   ckoch5       594 Aug 11  2016 thanks.shtml
--rw-r-----  1 lmichael lmichael     745 Sep  8  2016 get-started.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2204 Dec 21  2016 dos-unix.shtml
--rw-r--r--  1 vanderwo vanderwo    2469 Jan 13  2017 chtc-projects.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4300 Feb 15  2017 chtcrun-transition.shtml
--rwxr-x---  1 afbroman afbroman    4926 Mar  3  2017 jobs.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      7268 Jun  7  2017 gluster-software.shtml
--rw-rw-r--  1 ckoch5   ckoch5     12719 Dec 15  2017 web.css
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 22  2017 guide-icons/
--rw-r-----  1 lmichael lmichael    6751 Jan 18  2018 cite-chtc.shtml
--rw-r-----  1 ckoch5   ckoch5       952 Apr  2  2018 icon_credits.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 lzhang/
--rw-r--r--  1 ckoch5   ckoch5      5847 Apr 18  2018 scaling-htc.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 phanson/
--rw-rw-r--  1 ckoch5   ckoch5      6272 Apr 18  2018 file-availability.shtml
--rwxr-x---  1 lmichael lmichael    3508 Apr 23  2018 check-quota.shtml*
--rw-rw-r--  1 ckoch5   ckoch5     12610 Apr 23  2018 condor_q.shtml
--rw-r--r--  1 ckoch5   ckoch5      4650 Apr 23  2018 tensorflow-singularity-wait.shtml
--rw-rw-r--  1 ckoch5   ckoch5     13940 Apr 25  2018 multiple-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4388 Apr 25  2018 multiple-job-dirs.shtml
--rw-rw-r--  1 ckoch5   ckoch5     14326 Apr 30  2018 file-avail-gluster.shtml
--rw-r--r--  1 vanderwo vanderwo    5137 Oct 15  2018 index.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2692 Nov  1  2018 hpc-buy-in.shtml
--rw-r--r--  1 ckoch5   ckoch5      5463 Dec 10  2018 outside-chtc.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 11  2018 files/
--rw-rw-r--  1 ckoch5   ckoch5      6030 Jan 17  2019 file-avail-squid.shtml
--rw-r--r--  1 ckoch5   ckoch5      9654 Feb 11  2019 mpi-jobs.shtml
--rw-r-----  1 vanderwo vanderwo    4969 Feb 20  2019 MPI-old.shtml
--rw-r-----  1 ckoch5   ckoch5      2913 Feb 20  2019 singularity-hpc.shtml
-drwxrwxr-x  4 youmin   youmin      2048 Feb 22  2019 map/
-drwxr-x--- 10 tristan  tristan     4096 Mar  5  2019 includes/
--rw-rw-r--  1 youmin   youmin      5204 Mar 11  2019 MPIuseguide.shtml
--rw-r--r--  1 ckoch5   ckoch5       645 Apr  1  2019 tensorflow-singularity.shtml
--rwxr-x---  1 tristan  tristan     1315 Apr 16  2019 people.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      4964 May  7  2019 docker-jobs.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 May 16  2019 el7/
--rw-rw-rw-  1 vanderwo tristan    14662 May 17  2019 projects.shtml
--rw-r-----  1 jpatton  jpatton     6520 Jul  1  2019 form_captcha.shtml
--rw-r-----  1 jpatton  jpatton     6335 Jul  1  2019 form.old.shtml
-drwxrwxr-x  2 bgore    bgore       2048 Jul  1  2019 cgi-chtc/
--rw-rw-r--  1 ckoch5   ckoch5      9955 Jul  2  2019 connecting.shtml
--rw-r-----  1 bgore    bgore       5376 Jul  2  2019 use-submit-node.shtml
--rw-r--r--  1 ckoch5   ckoch5      6752 Jul 23 17:00 licensed-software.shtml
--rw-rw-r--  1 youmin   youmin     15216 Aug 16 14:25 helloworld.shtml
--rw-r-----  1 ckoch5   ckoch5      6746 Aug 29 11:57 form.shtml
--rw-rw-r--  1 youmin   youmin      4123 Sep 12 15:25 get-help-beta.shtml
--rw-rw-r--  1 youmin   youmin       182 Sep 12 15:34 sign-in.html
--rw-rw-r--  1 ckoch5   ckoch5     20967 Sep 16 16:41 HPCuseguide.shtml
--rw-rw-r--  1 youmin   youmin    189011 Oct  2 13:25 bootstrap.css
-drwxr-xr-x  3 adesmet  adesmet     2048 Oct  3 12:08 images/
-drwxrwxr-x  2 bgore    bgore       2048 Oct 24 11:52 no-longer-used/
-drwxrwxr-x  4 ckoch5   ckoch5      4096 Oct 24 12:09 dev_website/
--rw-rw-r--  1 youmin   youmin      3353 Oct 24 14:55 howto_overview.shtml
-drwxr-xr-x  4 khahn    khahn       2048 Oct 24 15:05 repo/
--rw-rw-r--  1 ckoch5   ckoch5       751 Oct 25 11:31 howto_overview_new.shtml
--rw-rw-r--  1 youmin   youmin     12414 Oct 31 15:22 guides.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Nov  4 12:53 archived/
--rw-rw-r--  1 ckoch5   ckoch5      2403 Nov  6 11:03 java-jobs.shtml
--rw-r--r--  1 adesmet  adesmet     3753 Nov  6 14:22 approach.shtml
--rw-rw-r--  1 ckoch5   ckoch5      3520 Nov 12 08:22 os-transition.shtml
--rw-rw-r--  1 youmin   youmin     10324 Nov 12 08:23 gpu-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     10331 Nov 18 09:14 high-memory-jobs.shtml
--rw-rw-r--  1 youmin   youmin     21497 Dec  2 14:01 python-jobs-beta.shtml
--rw-r--r--  1 ckoch5   ckoch5      8671 Dec 11 13:49 inter-submit.shtml
--rw-r--r--  1 jmvera   jmvera     11489 Dec 18 14:24 r-jobs.shtml
--rw-rw-r--  1 youmin   youmin     11284 Dec 18 14:25 python-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     11623 Dec 18 14:25 matlab-jobs.shtml
--rw-rw-r--  1 youmin   youmin     38326 Dec 18 18:21 user-news.shtml
--rw-r--r--  1 lmichael lmichael    4185 Dec 18 18:24 get-help.shtml
-drwxr-xr-x 12 cndrutil cndrutil    6144 Jan  6 17:40 testsite/
-[ckoch5@ingwe chtc]$ less java-jobs.shtml 
-[ckoch5@ingwe chtc]$ diff java-jobs.shtml testsite/java-jobs.shtml 
-1,5c1,118
-< <!--#set var="title" value="Using Java Code in CHTC"-->
-< <!--#include virtual="/includes/template-1-openhead.shtml" -->
-< <!--#include virtual="/includes/template-2-opensidebar.shtml" -->
-< <!--#include virtual="/includes/template-3-sidebar.shtml" -->
-< <!--#include virtual="/includes/template-4-mainbody.shtml" -->
----
-> 
-> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-> "http://www.w3.org/TR/html4/loose.dtd">
-> 
-> <html>
-> <head>
-> <script type="text/javascript">
-> 
->   function resizeIframe(iframe) {
->     var newheight;
->     var newwidth;
-> 
->     if(document.getElementById){
->         newwidth=iframe.contentWindow.document.body.scrollWidth;
->         newheight=iframe.contentWindow.document.body.scrollHeight;
->     }
-> 
->     iframe.height= (newheight) + "px";
->     iframe.width= (newwidth) + "px";
->   }
-> </script>
-> <title>Using Java Code in CHTC</title>
-> 
-> <link href="/web.css" rel="stylesheet" type="text/css">
-> </head>
-> <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-> 
-> <table width="100%" border="0" cellspacing="0" cellpadding="0">
-> <tr>
->    <td width="1%" align="left" class="bgred" valign="top">
->       <div align="center">
->       &nbsp;<br>
->       <a href="http://www.wisc.edu">
-> 
->       <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
->        </div>
-> 
-> 	<ul class="sidebar">
-> 	<li><a href="/">CHTC Home</a></li>
-> 	
-> 	<li>About
-> 		<ul>
-> 		<li><a href="/approach.shtml">Our Approach</a></li>
-> <!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
-> 		<li><a href="/projects.shtml">Our Customers</a></li>
-> 		<li><a href="/people.shtml">Our Staff</a></li>
-> 		<li><a href="/jobs.shtml">Our Open Positions</a></li>
-> 		</ul>
-> 	</li>
-> 	
-> 	<li>How To's
-> 		<ul>
-> 		<li><a href="/get-started.shtml">Get Started</a></li>
-> 		<li><a href="/get-help.shtml">Get Help</a></li>
->         	<li><a href="/guides.shtml">All User Guides</a></li>
->                 <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
-> 		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
-> 		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
-> 		<li><a href="/HPCuseguide.shtml">Use the HPC Cluster</a></li>
-> 		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
-> 		</ul>
-> 	</li>
-> 	<li><a href="/user-news.shtml">User News</a></li>
-> 	<li>Other Resources
-> 		<ul>
-> 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
-> <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
-> 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
-> 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
-> 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
-> 		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
-> 		</ul>
-> 	</li>
-> 	</ul>
-> 
-> 	</td>
-> 
-> <td width="97%" valign="top"> 
-> 
-> 
-> 	<TABLE SUMMARY="Navigation layout" BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
-> <TR ALIGN="left"> 
->   <TD WIDTH="100%" height="400" Align="left" VALIGN="top"> 
->     <A  name="body"></a> 
-> 	<div id = "main">
-> 
-> <!-- Top of Page Body -->
-> <table BORDER="0" WIDTH="100%">
-> <!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
-> 
-> 	
-> 
-> <div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
-> 
-> 	
-> 
-> <div id="hours"> <span style="height: 20px">
-> 	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
-> 	
-> 	
-> <div id="hours"> <span style="height: 20px">
-> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-> <a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
-> <b>Office Hours!</b>
-> <br>
-> Tues/Thurs, 3-4:30pm<br>
-> Wed, 9:30-11:30am</br>
-> Click for details
-> </a></span></div>	
-> 
-> 
-> 	
-> 
-> 
-> <div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
-> 
-> <h1>Using Java Code in CHTC</h1>
-> 
-15c128
-< 	CHTC (on the UW Grid or Open Science Grid) (recommended)<a></li>
----
-> 	CHTC (on the UW Grid or Open Science Grid) (recommended)</a></li>
-33,34c146,148
-< java -jar <i>program.jar</i></pre>
-< </pre></li>
----
-> java -jar <i>program.jar</i>
-> </pre>
-> </li>
-62c176,201
-< <!--#include virtual="/includes/template-5-finish.shtml" -->
----
-> 
-> </li></ol></p>
-> 
-> 
-> 
-> <div id = "copyright">
->      <p align = "center"> 
-> 	  
->      For all user support, questions, and comments:
->      <strong><a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a></strong>
-> 
-> </p>
-> </div>
-> 
-> </div>
-> 
->   </td>
->   </tr>
-> 
-> </TABLE>
-> </td>
-> </table>
-> 
-> </body>
-> </html>
-> 
-[ckoch5@ingwe chtc]$ clear
+<!-- 
 
-[ckoch5@ingwe chtc]$ ls -lrt
-total 7210
-drwxrwxr-x  2 bt       bt          2048 Mar 18  2010 waller/
--rwxr-x---  1 adesmet  adesmet     1864 Feb 10  2012 TEMPLATE.shtml*
--rwxr-x---  1 bt       bt          1850 Feb 13  2012 chtcpolicy.shtml*
--rwxr-x---  1 bgore    bgore       1645 Feb 13  2012 showcase.shtml*
--rw-r--r--  1 adesmet  adesmet      596 Feb 13  2012 user-meeting-registered.shtml
-drwxr-x---  3 tannenba tannenba    2048 Feb 13  2012 presentations/
--rwxr-xr-x  1 adesmet  adesmet      367 Feb 13  2012 presentations.shtml*
-drwxr-xr-x  2 bt       bt          2048 Feb 14  2012 espalding/
--rwxr-x---  1 adesmet  adesmet      277 Feb 16  2012 user-meeting.shtml*
--rwxr-xr-x  1 adesmet  adesmet     6926 Feb 16  2012 user-meeting-registration.pl*
-drwxr-xr-x  3 adesmet  adesmet     2048 Jun  5  2012 user-meeting/
--rw-r-----  1 bgore    bgore       1514 Jun 21  2012 opmetrics.shtml
--rw-r--r--  1 afbroman afbroman    4286 Jun 29  2012 favicon.ico
--rw-r--r--  1 adesmet  adesmet      853 Aug 10  2012 news.shtml
--rw-r--r--  1 adesmet  adesmet    15613 Nov 14  2012 chtcjobwrapper.shtml
--rw-r-----  1 bgore    bgore       2197 Nov 15  2012 hours.shtml
--rw-r--r--  1    28712    28712    6154 Jan 30  2013 Jobstext.htm
--rw-rw-r--  1 afbroman afbroman      68 Feb  5  2013 phpinfo.php
--rw-rw-r--  1 afbroman afbroman     657 Feb  5  2013 test-captcha3.html
--rw-r-----  1 afbroman afbroman    1703 Feb  5  2013 test-captcha2.shtml
--rw-r-----  1 afbroman afbroman    4541 Feb  5  2013 test-captcha.shtml
-drwxr-x---  2 tannenba tannenba    2048 Apr 25  2013 posters/
--rwxr-x---  1 lmichael lmichael    4657 May 22  2013 new-index.shtml*
--rw-r-----  1 lmichael lmichael    8235 Aug 15  2013 firstHPCuseguide.shtml
--rw-r-----  1 vanderwo vanderwo    3901 Aug 28  2013 test.shtml~
--rw-r-----  1 vanderwo vanderwo   11571 Sep  3  2013 HPCuseguide.shtml~
--rw-r--r--  1 vanderwo vanderwo    3655 Sep 30  2013 web.css~
--rw-r-----  1 smoler   smoler      5274 Jan  3  2014 resources.shtml
--rw-r-----  1 smoler   smoler      3047 Jan  7  2014 get-submit-node.shtml
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 bvanveen/
-drwxrwxr-x  2 bt       bt          2048 Jan 10  2014 gphillips/
-drwxrwxrwx  4 vanderwo tristan     2048 Mar  3  2014 map-old/
--rw-rw-r--  1 ckoch5   ckoch5     11393 Apr 15  2015 submit_variations.shtml
-drwxr-xr-x  2 adesmet  adesmet     2048 May 25  2015 downloads/
--rw-r-----  1 lmichael lmichael   11528 Jun 11  2015 artofHTC.shtml
--rw-rw-r--  1 ckoch5   ckoch5      8104 Aug 17  2015 testing-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2348 Aug 18  2015 HTC-guides.shtml
--rwxr-x---  1 smoler   smoler     11645 Aug 25  2015 DAGenv.shtml*
--rw-rw-r--  1 ckoch5   ckoch5   6526208 Sep 15  2015 latest.tar.gz
--rw-r--r--  1 ckoch5   ckoch5     14154 Oct 26  2015 hpc-cluster-downtime.shtml
--rw-r--r--  1 ckoch5   ckoch5       748 Oct 30  2015 cal.shtml
--rw-rw-r--  1 lmichael lmichael    3507 Mar  9  2016 allguides.shtml
--rw-r-----  1 ckoch5   ckoch5       594 Aug 11  2016 thanks.shtml
--rw-r-----  1 lmichael lmichael     745 Sep  8  2016 get-started.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2204 Dec 21  2016 dos-unix.shtml
--rw-r--r--  1 vanderwo vanderwo    2469 Jan 13  2017 chtc-projects.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4300 Feb 15  2017 chtcrun-transition.shtml
--rwxr-x---  1 afbroman afbroman    4926 Mar  3  2017 jobs.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      7268 Jun  7  2017 gluster-software.shtml
--rw-rw-r--  1 ckoch5   ckoch5     12719 Dec 15  2017 web.css
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 22  2017 guide-icons/
--rw-r-----  1 lmichael lmichael    6751 Jan 18  2018 cite-chtc.shtml
--rw-r-----  1 ckoch5   ckoch5       952 Apr  2  2018 icon_credits.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 lzhang/
--rw-r--r--  1 ckoch5   ckoch5      5847 Apr 18  2018 scaling-htc.shtml
-drwxrwxr-x  2 bt       bt          2048 Apr 18  2018 phanson/
--rw-rw-r--  1 ckoch5   ckoch5      6272 Apr 18  2018 file-availability.shtml
--rwxr-x---  1 lmichael lmichael    3508 Apr 23  2018 check-quota.shtml*
--rw-rw-r--  1 ckoch5   ckoch5     12610 Apr 23  2018 condor_q.shtml
--rw-r--r--  1 ckoch5   ckoch5      4650 Apr 23  2018 tensorflow-singularity-wait.shtml
--rw-rw-r--  1 ckoch5   ckoch5     13940 Apr 25  2018 multiple-jobs.shtml
--rw-rw-r--  1 ckoch5   ckoch5      4388 Apr 25  2018 multiple-job-dirs.shtml
--rw-rw-r--  1 ckoch5   ckoch5     14326 Apr 30  2018 file-avail-gluster.shtml
--rw-r--r--  1 vanderwo vanderwo    5137 Oct 15  2018 index.shtml
--rw-rw-r--  1 ckoch5   ckoch5      2692 Nov  1  2018 hpc-buy-in.shtml
--rw-r--r--  1 ckoch5   ckoch5      5463 Dec 10  2018 outside-chtc.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Dec 11  2018 files/
--rw-rw-r--  1 ckoch5   ckoch5      6030 Jan 17  2019 file-avail-squid.shtml
--rw-r--r--  1 ckoch5   ckoch5      9654 Feb 11  2019 mpi-jobs.shtml
--rw-r-----  1 vanderwo vanderwo    4969 Feb 20  2019 MPI-old.shtml
--rw-r-----  1 ckoch5   ckoch5      2913 Feb 20  2019 singularity-hpc.shtml
-drwxrwxr-x  4 youmin   youmin      2048 Feb 22  2019 map/
-drwxr-x--- 10 tristan  tristan     4096 Mar  5  2019 includes/
--rw-rw-r--  1 youmin   youmin      5204 Mar 11  2019 MPIuseguide.shtml
--rw-r--r--  1 ckoch5   ckoch5       645 Apr  1  2019 tensorflow-singularity.shtml
--rwxr-x---  1 tristan  tristan     1315 Apr 16  2019 people.shtml*
--rw-rw-r--  1 ckoch5   ckoch5      4964 May  7  2019 docker-jobs.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 May 16  2019 el7/
--rw-rw-rw-  1 vanderwo tristan    14662 May 17  2019 projects.shtml
--rw-r-----  1 jpatton  jpatton     6520 Jul  1  2019 form_captcha.shtml
--rw-r-----  1 jpatton  jpatton     6335 Jul  1  2019 form.old.shtml
-drwxrwxr-x  2 bgore    bgore       2048 Jul  1  2019 cgi-chtc/
--rw-rw-r--  1 ckoch5   ckoch5      9955 Jul  2  2019 connecting.shtml
--rw-r-----  1 bgore    bgore       5376 Jul  2  2019 use-submit-node.shtml
--rw-r--r--  1 ckoch5   ckoch5      6752 Jul 23 17:00 licensed-software.shtml
--rw-rw-r--  1 youmin   youmin     15216 Aug 16 14:25 helloworld.shtml
--rw-r-----  1 ckoch5   ckoch5      6746 Aug 29 11:57 form.shtml
--rw-rw-r--  1 youmin   youmin      4123 Sep 12 15:25 get-help-beta.shtml
--rw-rw-r--  1 youmin   youmin       182 Sep 12 15:34 sign-in.html
--rw-rw-r--  1 ckoch5   ckoch5     20967 Sep 16 16:41 HPCuseguide.shtml
--rw-rw-r--  1 youmin   youmin    189011 Oct  2 13:25 bootstrap.css
-drwxr-xr-x  3 adesmet  adesmet     2048 Oct  3 12:08 images/
-drwxrwxr-x  2 bgore    bgore       2048 Oct 24 11:52 no-longer-used/
-drwxrwxr-x  4 ckoch5   ckoch5      4096 Oct 24 12:09 dev_website/
--rw-rw-r--  1 youmin   youmin      3353 Oct 24 14:55 howto_overview.shtml
-drwxr-xr-x  4 khahn    khahn       2048 Oct 24 15:05 repo/
--rw-rw-r--  1 ckoch5   ckoch5       751 Oct 25 11:31 howto_overview_new.shtml
--rw-rw-r--  1 youmin   youmin     12414 Oct 31 15:22 guides.shtml
-drwxrwxr-x  2 ckoch5   ckoch5      2048 Nov  4 12:53 archived/
--rw-rw-r--  1 ckoch5   ckoch5      2403 Nov  6 11:03 java-jobs.shtml
--rw-r--r--  1 adesmet  adesmet     3753 Nov  6 14:22 approach.shtml
--rw-rw-r--  1 ckoch5   ckoch5      3520 Nov 12 08:22 os-transition.shtml
--rw-rw-r--  1 youmin   youmin     10324 Nov 12 08:23 gpu-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     10331 Nov 18 09:14 high-memory-jobs.shtml
--rw-rw-r--  1 youmin   youmin     21497 Dec  2 14:01 python-jobs-beta.shtml
--rw-r--r--  1 ckoch5   ckoch5      8671 Dec 11 13:49 inter-submit.shtml
--rw-r--r--  1 jmvera   jmvera     11489 Dec 18 14:24 r-jobs.shtml
--rw-rw-r--  1 youmin   youmin     11284 Dec 18 14:25 python-jobs.shtml
--rw-r--r--  1 ckoch5   ckoch5     11623 Dec 18 14:25 matlab-jobs.shtml
--rw-rw-r--  1 youmin   youmin     38326 Dec 18 18:21 user-news.shtml
--rw-r--r--  1 lmichael lmichael    4185 Dec 18 18:24 get-help.shtml
-drwxr-xr-x 12 cndrutil cndrutil    6144 Jan  6 18:00 testsite/
-[ckoch5@ingwe chtc]$ less gpu-jobs.shtml 
-[ckoch5@ingwe chtc]$ less gpu-jobs.shtml 
+<p>To see this information printed out, add the attributes you want to the 
+<code>condor_status</code> command shown above.  A sample command (and output) 
+might look like this: </p>
 
+<pre class="term">[alice@submit]$ condor_status -constraint 'TotalGpus > 0' -af Name Gpus CUDADeviceName Cpus Memory
+slot1@gpu0000.chtc.wisc.edu 2 Tesla C2050 0 1411
+slot1@gpu3000.chtc.wisc.edu 2 Tesla C2050 0 1155
+slot1@gzk-1.chtc.wisc.edu 7 GeForce GTX 1080 0 63291
+slot1_1@gzk-1.chtc.wisc.edu 1 GeForce GTX 1080 16 1024
+slot1_1@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_2@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_3@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_4@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 8192
+slot1_5@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_6@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_7@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+slot1_8@gzk-2.chtc.wisc.edu 1 GeForce GTX 1080 1 1024
+</pre>
+
+<p>In the output above "slot1" represents the remaining available resources on 
+a server; if a server isn't running any jobs, this slot will show the total 
+resources available on that server.  As jobs start, their resources are taken 
+away from "slot1" to run individual jobs, which you can see in "slot1_1" etc. 
+above.</p>
+
+<p>To see all possible attributes for a particular server, you can use the "long" option with 
+<code>condor_status</code> and the name of the server/slot you want to see: 
+<pre class="term">[alice@submit]$ condor_status -l slot1@gpu-0000.chtc.wisc.edu</pre>
+</p> -->
+
+<a name="submit"></a>
+<h1>2. Submit File Considerations</h1>
+<br>
+<b>Required</b> <br>
+
+<p>All jobs that use GPUs must request GPUs in their submit file (along with 
+the usual requests for CPUs, memory and disk). </p>
+
+<pre class="sub">request_gpus = 1</pre>
+
+<p>It is important to still request at least one CPU per job to do the processing 
+that is not well-suited to the GPU.</p>
+
+<p>Note that HTCondor will make sure your job has access to the GPU -- you shouldn't 
+need to set any environmental variables or other options related to the GPU, except 
+what is needed inside your code.</p>
+
+<b>Optional</b><br>
+
+<p>The default operating system for jobs in CHTC is now CentOS 7. <b>If you 
+want to use the <code>gzk-*</code> GPU nodes shown above, you'll need to specifically 
+request the use of Scientific Linux 6 as an operating system.</b> There is 
+an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
+</p>
+
+<p>If your software or code requires a specific version of CUDA, a certain type of 
+GPU, or has some other special requirement, you will need to add a "requirements" 
+statement to your submit file that uses one of the attributes shown above. </p>
+
+<p>For example, if your code needs to use at least version 4.0 of 
+the CUDA libraries: </p>
+
+<pre class="sub">requirements = (CUDARuntimeVersion >= 4.0)</pre>
+
+<p>If you want a certain class of GPU, use CUDACapability:</p>
+
+<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
+
+<blockquote>
+<p>It may be tempting to add requirements for specific machines or types 
+of GPU cards.  However, when possible, it is best to write your code 
+so that it can run across 
+GPU types and without needing the latest version of CUDA.  </p>
+</blockquote>
+
+
+
+<a name="software"></a>
+<h1>3. Software Considerations</h1>
+
+<p>Before using GPUs in CHTC you should ensure that the use of GPUs will 
+actually help your program run faster.  This means that the code or software 
+you are using has the special programming required to use GPUs and that 
+your particular task will use this capability.</p>
+
+<p>If this is the case, there are several ways to run GPU-enabled software
+in CHTC: </p>
+
+<h2>A. Compiled Code</h2>
+
+<p>You can use our conventional methods of creating a portable installation 
+of a software package (as in our R/Python guides) to run on GPUs.  Most 
+software needs to be compiled on a machine with GPUs in order to use them 
+correctly.  To build your code on a GPU server, create a submit file that 
+requests GPUs (see <a href="#submit">below</a>) and submit it to run 
+interactively by using the "-i" option with <code>condor_submit</code>:
+<pre class="term">[alice@submit]$ condor_submit -i gpu.sub</pre>
+</p>
+
+<p>Some software will automatically detect the 
+GPU capability of the server and use that information to compile; for 
+other programs you may need to set specific flags or options.</p>
+
+<h2>B. Docker</h2>
+
+<p>Some of CHTC's GPU servers have "nvidia-docker" installed, a specific 
+version of Docker that integrates Docker containers with GPUs.  If you 
+can find or create a Docker image with your software that is based on 
+the nvidia-docker container, you can use this to run your jobs in 
 CHTC.  See our <a href="/docker-jobs.shtml">Docker guide</a> for 
 how to use Docker in CHTC.</p>
 
