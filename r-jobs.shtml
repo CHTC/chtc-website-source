@@ -3,7 +3,6 @@ layout: default
 title: Running R Jobs on CHTC
 ---
 
-
 <p><b>To best understand the below information, users 
 should already have an understanding of:</b>
 </p>
@@ -15,8 +14,7 @@ should already have an understanding of:</b>
 	to Running HTCondor Jobs</a></li>
 </ul>
 
-Overview
---------
+<h1>Overview</h1>
 
 <p>CHTC provides several copies of R that can be used to run R 
 code in jobs. See our list of supported versions here: <a href="#supported">CHTC Supported R</a></p>
@@ -45,11 +43,11 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 <tr>
   <th>R version</th><th>Name of R installation file</th>
 </tr>
-<tr> <td>R 3.2.5</td><td>R325.tar.gz</td></tr>
+<tr>  <td>R 3.2.5</td><td>R325.tar.gz</td></tr>
 <tr>  <td>R 3.3.3</td><td>R333.tar.gz</td></tr>
 <tr>  <td>R 3.4.4</td><td>R344.tar.gz</td></tr>
 <tr>  <td>R 3.5.1</td><td>R351.tar.gz</td></tr>
-
+<tr>  <td>R 3.6.1</td><td>R361.tar.gz</td></tr>
 </table>
 
 <a name="build"></a>
@@ -85,7 +83,7 @@ log = interactive.log
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R<i>###</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7)
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -177,7 +175,24 @@ packages using <code>install.packages</code>.
 <p>The first time you will be prompted to choose a "CRAN mirror" - this is where 
 R is downloading the package. Choose any <code>http</code> (not <code>https</code>!) option.</p>
 
-<p>When you've installed all your packages, exit the R console: 
+<p>If you need a Bioconductor package you will first need to install the Bioconductor
+installation manager, then use Bioconductor to install your package: 
+<pre class="term">
+> if (!requireNamespace("BiocManager", quietly = TRUE))
+      install.packages("BiocManager")
+> BiocManager::install("<i>package_name</i>") 
+</pre>
+</p>
+
+<p>After you've installed all your packages, we recommend loading each library to confirm that they
+installed successfully:
+<pre class="term">
+> library(<i>package_name</i>)
+</pre>
+Repeat this step as needed to load all packages installed during your interactive session.
+</p>
+
+<p>Then exit the R console: 
 <pre class="term">
 > quit()</pre>
 </p>
@@ -291,8 +306,11 @@ Disk space and memory usage can be found in the log file after the job completes
 
 <p>If your package tarball is larger than 100 MB, you should NOT transfer 
 the tarball using <code>transfer_input_files</code>.  Instead, you should use 
-CHTC's web proxy, <code>squid</code>.  In order to request space 
-on <code>squid</code>, email the research computing facilitators at 
+CHTC's web proxy, <code>squid</code>. To learn more about <code>squid</code> please
+see our user guide 
+<a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">File Availability with
+Squid Web Proxy</a>. To request space on <code>squid</code>, email the research computing facilitators at 
 <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
 </p>
 </blockquote>
+
