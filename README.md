@@ -54,7 +54,7 @@ branch; then pull from the original CHTC Github repository:
 3. `cd` to your local copy of the `chtc-website-source` repository
 4. Start Docker: 
 
-		docker run -it --rm=true -v $PWD:/srv/jekyll --publish 8080:8080 clk/jekyll jekyll serve -P 8080
+		docker run -it --rm=true -v $PWD:/srv/jekyll --publish 8080:8080 jekyll/jekyll jekyll serve -P 8080
 	The first time you do this, you'll have to wait for about 3-5 minutes for jekyll to 
 build all its dependencies and then render the website. 
 5. The website should appear at `localhost:8080`. 
@@ -85,4 +85,6 @@ can install and use the `pandoc` converter:
 
 	pandoc hello.shtml --from html --to markdown > hello.md
 
-You'll still want to go through and double check / clean up the text, but that's a good starting point. 
+You'll still want to go through and double check / clean up the text, but that's a good starting point. Once the 
+document is converted from markdown to html, the file extension should be `.md` instead. If you use the 
+command above, this means you can just delete the `.shtml` version of the file and commit the new `.md` one. 
