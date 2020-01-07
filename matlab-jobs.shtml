@@ -84,7 +84,7 @@ log = interactive.log
 transfer_input_files = <i>script</i>.m, <i>functions</i>.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7) && ( IsBuildSlot == true )
+requirements = (OpSysMajorVer =?= 7)
 request_cpus = 1
 request_memory = 2GB
 request_disk = 2GB
@@ -129,7 +129,7 @@ Once the module is loaded, run the compilation command:
 </p>
 
 <blockquote>
-<b>Compilation Options</b><br>
+<b>Compilation Options</b></br>
 
 <p>There are other options for the <code>mcc</code> Matlab compiler 
 that might be necessary for specific 
@@ -280,5 +280,3 @@ results.</p>
 <blockquote>
 For older version of this guide, see out <a href="archived/matlab-jobs.shtml">archived page</a>.
 </blockquote>
-<!--#include virtual="/includes/template-5-finish.shtml" -->
-
