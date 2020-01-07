@@ -81,9 +81,13 @@ We will be using the pound sign for headers, not the `==` or `--` notation.
 
 For internal links (to a header inside the document), use this syntax: 
 * header is written as
-		## A. Sample Header
+	```
+	## A. Sample Header
+	```
 * the internal link will look like this: 
-		[link to header A](#a-sample-header)
+	```
+	[link to header A](#a-sample-header)
+	```
 
 ### Converting HTML to Markdown
 
