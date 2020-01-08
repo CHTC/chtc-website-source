@@ -103,7 +103,7 @@ To prepare job-specific data that is large enough to require Gluster and exists 
 files or directories (or a directory of multiple files), first create a compressed tar package before
 placing the file in /mnt/gluster (either before submitting jobs, or within jobs before moving output to /mnt/gluster). 
 For example:
-<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir <file2> <directory> <etc.></pre>
+<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir </pre>
 
 <p> Movement of data into/out of /mnt/gluster before and after jobs should 
 only be performed via CHTC's transfer server, as below, and <b>not via a CHTC submit server.</b>
