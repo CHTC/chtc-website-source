@@ -34,10 +34,11 @@ see our <a href="/get-started.shtml">getting started</a> page.
 servers or head nodes: </p>
 
 <b>Username and Password</b><br>
-    <ul>
-    	<li>UW Madison users: Wisconsin NetId and password</li>
-    	<li>Off-campus users: varies, by request</li>
-    </ul>
+
+<ul>
+	<li>UW Madison users: Wisconsin NetId and password</li>
+	<li>Off-campus users: varies, by request</li>
+</ul>
 
 <b>Hostname</b><br>
 
@@ -77,7 +78,7 @@ to log into CHTC as usual.
 </blockquote>
 
 <a name="login"></a>
-<h1>2. Logging In</h2>
+<h1>2. Logging In</h1>
 
 <p>Using the information described above, you can log in to servers 
 two different ways -- from the command line or using an SSH program: </p>
@@ -189,8 +190,6 @@ To untar or unzip files on the submit server or head nodes, you can use either:
 <pre class="term">[alice@submit]$ tar xzf data_files.tar.gz</pre>
 or
 <pre class="term">[alice@submit]$ unzip data_files.zip</pre>
-
-</blockquote>
 
 <a name="files"></a>
 <h1>4. Creating and Editing Files in CHTC</h1>
