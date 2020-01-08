@@ -17,19 +17,19 @@ use or produce very large files.</p>
 	<li><a href="#submit">Submit File Implications</a></li> 
 	<li><a href="#input">Using Gluster-staged Files and Software for Jobs</a>
 	<ul>
-	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a>
-	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a>
+	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a></li> 
+	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a></li> 
 		</ul></li> 
 	<li><a href="#within">Copying large output files to Gluster from within a job</a>
 		<ul>
 	<li><a href="#working">Write output files to the working directory, 
-then move these to Gluster</a>	
+then move these to Gluster</a></li> 
 	<li><a href="#also">ALSO consider: Large standard output ("screen output") produced 
-by your jobs</a>
+by your jobs</a></li> 
 		</ul></li> 
 	
-	<li><a href="#after">Removing files from Gluster after jobs complete</a>
-		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a>
+	<li><a href="#after">Removing files from Gluster after jobs complete</a></li> 
+		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a></li> 
 </ol>
 
 <a name="policy"></a>
@@ -112,7 +112,7 @@ the transfer server, copy relevant files directly
 into this user directory from your own computer:</p>
 
 <p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
-<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/</pre>
+<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/ </pre>
 
 <p>If using a Windows computer:</p>
 <p>Using a file transfer application, like WinSCP, directly drag the large 
