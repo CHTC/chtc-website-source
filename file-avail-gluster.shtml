@@ -235,10 +235,11 @@ directory, as all other "new" files in the working directory will be. </p>
 #
 # Tar and copy output to Gluster, then delete from the job working directory:
 tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
-mv large_output.tar.gz /mnt/gluster/username/<subdirectory>
+mv large_output.tar.gz /mnt/gluster/username/subdirectory
 rm large_output.txt
 #
 # END</pre>
+
 <a name="also"></a>
 <h2>B. ALSO consider: Large standard output ("screen output") produced 
 by your jobs</h2>
@@ -268,7 +269,7 @@ is run from a script (bash) executable:</p>
 # 
 # tar and move large files to Gluster so they're not copied to the submit server:
 tar -czvf large_stdout.tar.gz larg_stdout
-cp large_stdout.tar.gz /mnt/gluster/username/<subdirectory>
+cp large_stdout.tar.gz /mnt/gluster/username/subdirectory
 rm large_std.out large_stdout.tar.gz
 # END</pre>
 
