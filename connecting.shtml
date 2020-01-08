@@ -125,7 +125,7 @@ this guide</a> for instructions on how to do this, starting at the section title
 <h1>3. Transferring Files</h1>
 
 <p>To transfer files to and from CHTC, you will need the same username 
-and hostname information for <a href=#login>logging in</a>, as well 
+and hostname information for <a href="#login">logging in</a>, as well 
 as understanding where your files are and where you would like them to go.  </p>
 
 <a name="transfer-scp"></a>
