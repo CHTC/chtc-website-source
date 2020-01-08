@@ -234,7 +234,7 @@ directory, as all other "new" files in the working directory will be. </p>
 ./myprogram myinput.txt large_output.txt
 #
 # Tar and copy output to Gluster, then delete from the job working directory:
-tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
+tar -czvf large_output.tar.gz large_output.txt other_large_files_or_dirs
 mv large_output.tar.gz /mnt/gluster/username/subdirectory
 rm large_output.txt
 #
