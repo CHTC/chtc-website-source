@@ -38,6 +38,7 @@ by emailing [join-chtc-gpu-lab@lists.wisc.edu](mailto:join-chtc-gpu-lab@lists.wi
 
 For more information about the CHTC GPU Lab contact [Anthony Gitter][gitter]. 
 
+> The CHTC GPU Lab is led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny.
 > UW2020 is funded by the Office of the Vice Chancellor for Research and Graduate 
 Education and the Wisconsin Alumni Research Foundation.
 
