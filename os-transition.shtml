@@ -41,7 +41,7 @@ systems.</p>
 <li>To request that your jobs run on <i>both</i> Scientific Linux 6 and CentOS 7, 
 add the following requirements line to your submit file: 
 
-<pre class="sub">requirements = (OpSysMajorVer == 6) || (OpSysMajorVer == 7)</pre></p>
+<pre class="sub">requirements = (OpSysMajorVer == 6) || (OpSysMajorVer == 7)</pre>
 
 The advantage of this option is that you may be able to access a larger number 
 of computers in CHTC.  Note that code compiled on a newer version of Linux 
@@ -66,7 +66,7 @@ Facilitators: <a href="/get-help.shtml">contact us or stop by office hours</a>.
 <blockquote>
 <b>Combining Requirements</b><br>
 
-<p>Does your job already have a requirements statement?  If so, you can 
+Does your job already have a requirements statement?  If so, you can 
 add the requirements above to the pre-existing requirements by using the 
 characters <code>&&</code>.  For example, if your jobs already require Gluster: 
 
@@ -77,4 +77,3 @@ You can add the requirements for using Scientific Linux 6 like so:
 <pre class="submit">requirements = (Target.HasGluster == true) && (OpSysMajorVer == 6)</pre>
 
 </blockquote>
-

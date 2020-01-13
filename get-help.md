@@ -73,9 +73,9 @@ Office hours are cancelled on <b>Wednesday, August 28</b>.
 
 <p>Office Hours are located in the 
 <a href="http://map.wisc.edu/s/919bjy8v">Discovery Building</a>
- at the second-floor round table, just off of the main staircase.</br>
+ at the second-floor round table, just off of the main staircase.<br>
 <b>For researchers without access to the upper floors of the Discovery
- Building, check in at the front desk and ask them to "call CHTC."</b></br>
+ Building, check in at the front desk and ask them to "call CHTC."</b><br>
  We will confirm that you are here for office hours and you will be let
  upstairs. (Note: If you ask the desk to call for a facilitator, by name,
  no one will answer as facilitators will not be in their <i>own</i> offices
@@ -88,6 +88,3 @@ Office hours are cancelled on <b>Wednesday, August 28</b>.
 <p>We are happy to arrange meetings outside of designated Office Hours,
  per your preference. Simply email us at the address above, and we will
  set up a time to meet!</p>
-<!--
-<h2>Other resources on campus</h2>
--->
