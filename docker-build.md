@@ -8,65 +8,66 @@ Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. CHTC currently supports
 running jobs inside [Docker](https://www.docker.com/what-docker)
 containers. This guide describes how to build a Docker container image
-that you can use for running jobs in CHTC.
+that you can use for running jobs in CHTC. For information on using 
+this container image for jobs, see our [Docker Jobs guide](docker-jobs.shtml).
 
 Overview
 ========
 
+**Note that all the steps below should be run on your own computer, not
+in CHTC.**
+
 Docker container images can be created using a special file format
 called a "Dockerfile". This file has keywords that allow you to:
 
--   use a pre-existing container as a base
--   copy files into the container
+-   use a pre-existing Docker container as a base
+-   add files into the container
 -   run installation commands
 -   set environment variables
 
-Using a Docker command, you can then "build" a container image from this
+You can then "build" a container image from this
 file, test it locally, and push it to a central Docker location where
 HTCondor can then use it to run jobs. Different versions of the
 container image can be labeled with different version "tags". This guide
 has:
 
-1.  [Step by Step Instructions](#instructions)
-2.  [Examples](#examples)
+1.  [Step by Step Instructions](#a-step-by-step-instructions)
+2.  [Examples](#b-examples)
 
-**Note that all the steps below should be run on your own computer, not
-in CHTC.**
-
-A. Background on Containers
+A. Step by Step Instructions
 ============================
 
+## 1. Set Up Docker on Your Computer
 
+{% include install_docker.md %}
 
-B. Step by Step Instructions
-============================
+## 2. Explore Docker Containers (optional)
 
-1. Install Docker and get a Docker Hub account
-----------------------------------------------
+If you have never used Docker before, we recommend exploring a pre-existing container 
+and testing out installation steps interactively before creating a Dockerfile. See the 
+first half of this guide: [Exploring and Testing a Docker Container](docker-test.shtml)
 
-Download, install, and start the [Docker Community
-Edition](https://store.docker.com/search?type=edition&offering=community)
-for your operating system. It sometimes takes some time for Docker to
-start, especially the first time.
+## 3. Create a Dockerfile
 
-Later, you'll need to push your new image to
-[DockerHub](https://hub.docker.com/). In preparation, create an account
-there.
-
-2. Create a Dockerfile
-----------------------
-
-It's easiest to create a Docker container image by using a Dockerfile.
-This is just a plain text file with keywords that add elements to your
-Docker container. You can call the file whatever you want, but the
-convention is to use the name `Dockerfile`, with no file extension.
-
-There are many keywords that can be used in a Dockerfile (documented on
+A Dockerfile is a plain text file with keywords that add elements to a 
+Docker container. There are many keywords that can be used in a Dockerfile (documented on
 the Docker website here: [Dockerfile
-keywords](https://docs.docker.com/engine/reference/builder/)), but for
-most scientific software, the options listed below should be a good
-starting point.  
-**A. Choose a "base" container image**  
+keywords](https://docs.docker.com/engine/reference/builder/)), but we will use a 
+subset of these keywords following this basic outline: 
+
+- Starting point: Which Docker container do you want to start with?
+- Additions: What needs to be added? Folders? Data? Other software? 
+- Environment: What variables (if any) are set as part of the software installation? 
+
+### Create the file
+
+Create a blank text file. Because of 
+the way Docker builds containers, you should create a separate folder for each 
+new container you create with the appropriate Dockerfile inside. 
+You can call the file whatever you want, but the
+convention is to use the name `Dockerfile`, with no file extension. 
+
+### FROM: Choose a "base" container image
 
 Often you don't want to start building your container image from
 scratch; you'll want to choose a base container image to add things to.
@@ -74,7 +75,8 @@ scratch; you'll want to choose a base container image to add things to.
 You can find a base container image by searching DockerHub. If you're
 using a scripting language like Python, R or perl, you could start with
 the official image from these languages. If you're not sure what to
-start with, using a basic Ubuntu image is often a good place to start.
+start with, using a basic Linux image (Debian, Ubuntu and CentOS are common 
+examples) is often a good place to start.
 
 Container images often have tagged versions. Besides choosing the image
 you want, make sure to choose a version by clicking on the "Tags" tab of
@@ -83,15 +85,19 @@ the image.
 Once you've decided on a base image and version, add it as the first
 line of your Dockerfile, like this:
 
-    FROM username/imagename:tag
+```
+FROM username/imagename:tag
+```
+{:.file}
 
-**B. Copy files and install software**  
+### COPY and RUN: Copy files and install software
 
 The next step is the most challenging. We need to add commands to the
 Dockerfile to install the software. There are a few standard ways to to
 do this:
 
--   Use a Linux package manager (usually `apt-get` or `yum`)
+-   Use a Linux package manager - usually `apt-get` for Debian/Ubuntu-based 
+containers or `yum` for RedHat Linux containers, including CentOS. 
 -   Use a software-specific package manager (like `pip`, or `conda`)
 -   Use installation instructions (usually a progression of `configure`,
     `make`, `make install`)
@@ -102,98 +108,123 @@ a backslash `\` at the end of the line.
 
 If you need to copy specific files (like source code) into the
 container, you can do so by placing the files in the same folder as the
-Dockerfile, and using the `COPY` keyword.
+Dockerfile, and using the `COPY` keyword. You could also download files 
+within the container by using the `RUN` keyword and commands like `wget` or `git clone`. 
 
-In the example below, we show all these options: From a base ubuntu
-image, we copy in the Python source code, update system libraries with
-Ubuntu installer "apt-get", install Python from source, and then use pip
-to install the Python package numpy. Note that the Python source code
+In the example below, we show most of these options. Note that the Python source code
 (`Python-3.2.1.tgz`) has been downloaded to the directory with the
 Dockerfile in advance.
 
-    FROM ubuntu/ubuntu:tag
+```
+## Build the container based on Ubuntu Linux
+FROM ubuntu/ubuntu:bionic
 
-    COPY Python-3.5.2.tgz /tmp
+## Copy the Python source code from your computer 
+## into the container
+COPY Python-3.5.2.tgz /tmp
 
-    RUN apt-get update
+## Update the Ubuntu system tools
+RUN apt-get update
 
-    RUN cd /tmp
-        && tar -xzf Python-3.2.1.tgz \
-        && cd Python-3.2.1 \
-        && ./configure \
-        && make \
-        && make install
+## Use the standard instructions for 
+## installing Python from source code
+RUN cd /tmp
+	&& tar -xzf Python-3.2.1.tgz \
+	&& cd Python-3.2.1 \
+	&& ./configure \
+	&& make \
+	&& make install
 
-    RUN pip3 install numpy
+## Use the python package manager pip to 
+## install the numpy package
+RUN pip3 install numpy
+```
+{:.file}
 
-**C. Set the environment**
+### ENV: Set the environment
 
 If you're installing a program to a custom location (like a home
 directory), you may need to add that directory to the container's system
 PATH.
 
-    ENV PATH="/home/software/bin:${PATH}"
+```
+ENV PATH="/home/software/bin:${PATH}"
+```
+{:.file}
 
-3. Build and Tag
-----------------
+## 4. Build and Name the Container Image
 
 So far we haven't actually created the container -- we've just been
 listing instructions for the container in the Dockerfile. But we are now
 ready to build the container image!
 
-First, decide on a name for the image, as well as a tag. Tags are
+First, decide on a name for the container image, as well as a tag. Tags are
 important for tracking which version of the image you've created (and
 are using). A simple tag scheme would be to use numbers (e.g. v0, v1,
-etc.), but you can use any system that makes sense to you.
+etc.), but you can use any system that makes sense to you. The image name 
+will also include your Docker Hub user name. 
 
 To build and tag your image, open a Terminal (Mac/Linux) or Command
 Prompt (Windows) and navigate to the folder that contains your
 Dockerfile:
 
-    $ cd directory
+```
+$ cd directory
+```
+{:.term}
 
 (Replace "directory" with the path to the appropriate folder.)
 
 Then make sure Docker is running (there should be a small icon on either
 your top or bottom status bar) and run:
 
-    $ docker build -t username/imagename:tag -f dockerfile .
+```
+$ docker build -t username/imagename:tag -f dockerfile .
+```
+{:.term}
 
-Replacing `username`, `imagename` and `tag` with the appropriate values.
+Replace `username` with your Docker Hub user name and replace
+ `imagename` and `tag` with the values of your choice. 
 
 If you get errors, try to determine what you may need to add or change
 to your Dockerfile and then run the build command again.
 
-4. Test Locally
----------------
+## 5. Test Locally
 
 This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:
 
--   [Exploring Docker Containers](/dev_website/docker-test.shtml)
+-   [Exploring a Docker Container on Your Computer](/docker-test.shtml)
 
-5. Push to DockerHub
---------------------
+## 6. Push to DockerHub
 
 Once your container image has been successfully built and tested, you
 can push it to DockerHub so that it will be available to run jobs in
 CHTC. To do this, run the following command:
 
-    $ docker push username/imagename:tag
+```
+$ docker push username/imagename:tag
+```
+{:.term}
 
 The first time you push an image to DockerHub, you may need to run this
 command first:
 
-    $ docker login
+```
+$ docker login
+```
+{:.term}
 
 It should ask for your DockerHub username and password.
 
-To complete the process of running jobs using a Docker container on
-CHTC, see this guide:
+## 7. Running Jobs
+
+Once your Docker container image is on Docker Hub, you can use it to run 
+jobs on CHTC's HTC system. See this guide for more details: 
 
 -   [Running Docker Jobs in CHTC](/docker-jobs.shtml)
 
-C. Examples
+B. Examples
 ===========
 
 The following is a non-exhaustive list of sample Dockerfiles
