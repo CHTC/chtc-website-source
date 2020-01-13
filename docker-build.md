@@ -14,6 +14,9 @@ this container image for jobs, see our [Docker Jobs guide](docker-jobs.shtml).
 Overview
 ========
 
+**Note that all the steps below should be run on your own computer, not
+in CHTC.**
+
 Docker container images can be created using a special file format
 called a "Dockerfile". This file has keywords that allow you to:
 
@@ -31,9 +34,6 @@ has:
 1.  [Step by Step Instructions](#a-step-by-step-instructions)
 2.  [Examples](#b-examples)
 
-**Note that all the steps below should be run on your own computer, not
-in CHTC.**
-
 A. Step by Step Instructions
 ============================
 
@@ -44,7 +44,8 @@ A. Step by Step Instructions
 ## 2. Explore Docker Containers (optional)
 
 If you have never used Docker before, we recommend exploring a pre-existing container 
-and testing out installation steps interactively before creating a Dockerfile. 
+and testing out installation steps interactively before creating a Dockerfile. See the 
+first half of this guide: [Exploring and Testing a Docker Container](docker-test.shtml)
 
 ## 3. Create a Dockerfile
 
@@ -61,8 +62,8 @@ subset of these keywords following this basic outline:
 ### Create the file
 
 Create a blank text file. Because of 
-the way Docker builds containers, you should create a separate folder representing 
-each container, with the appropriate Dockerfile inside. 
+the way Docker builds containers, you should create a separate folder for each 
+new container you create with the appropriate Dockerfile inside. 
 You can call the file whatever you want, but the
 convention is to use the name `Dockerfile`, with no file extension. 
 
@@ -95,7 +96,8 @@ The next step is the most challenging. We need to add commands to the
 Dockerfile to install the software. There are a few standard ways to to
 do this:
 
--   Use a Linux package manager - usually `apt-get` for Debian/Ubuntu or `yum` or RedHat Linux, including CentOS. 
+-   Use a Linux package manager - usually `apt-get` for Debian/Ubuntu-based 
+containers or `yum` for RedHat Linux containers, including CentOS. 
 -   Use a software-specific package manager (like `pip`, or `conda`)
 -   Use installation instructions (usually a progression of `configure`,
     `make`, `make install`)
@@ -192,7 +194,7 @@ to your Dockerfile and then run the build command again.
 This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:
 
--   [Exploring Docker Containers](/docker-test.shtml)
+-   [Exploring a Docker Container on Your Computer](/docker-test.shtml)
 
 ## 6. Push to DockerHub
 

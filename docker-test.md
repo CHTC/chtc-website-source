@@ -8,22 +8,24 @@ Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. This guide shows how to
 explore and test a Docker container on your own computer. 
 
-**Note that all the steps below should be run on your own computer, not
-in CHTC.**
-
 A. Overview
 ============
 
-If you've never used Docker before, we recommend starting with the first part of 
-this guide: 
+**Note that all the steps below should be run on your own computer, not
+in CHTC.**
+
+This guide has two sections: 
 
 * [Explore Docker Containers](#b-explore-docker-containers)
+* [Simulate a CHTC Docker Job](#c-simulate-a-chtc-docker-job)
+
+If you've never used Docker before, and/or are getting ready to build your own 
+container image, we recommend starting with the first part of the 
+guide. 
 
 If you've explored Docker already or built your own image and you want to test if it 
 will work successfully in CHTC's HTC system, 
-you can follow the directions in this section of the guide: 
-
-* [Simulate a CHTC Docker Job](#c-simulate-a-chtc-docker-job)
+you can follow the directions in the second section. 
 
 A. Set Up Docker on Your Computer
 =================================
