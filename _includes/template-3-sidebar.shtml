@@ -29,6 +29,7 @@
 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
 <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
+		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>
 		<li><a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a></li>
