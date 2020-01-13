@@ -70,11 +70,8 @@ especially when each job is using a CPU. See our guide for running multiple jobs
 # 2. Software Options
 
 Many of the tools used for machine learning, specifically deep learning and 
-convolutional neural networks, are sufficiently complex that our standard software 
-guides
-
-that our standard software 
-guides fall short. The following options are the best way to handle the complexity 
+convolutional neural networks, have enough dependencies that our usual installation 
+processes work less reliably. The following options are the best way to handle the complexity 
 of these software tools.  
 
 A. Using Docker Containers
