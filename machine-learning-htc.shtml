@@ -24,11 +24,12 @@ your machine learning job.
 
 ## A. Do you need GPUs?
 
-CHTC has about 4 publicly available GPUs and many more CPUs. When possible, you will 
-be able to have more jobs running at once and your jobs will start more quickly 
-if you just use CPUs. However, GPUs also provide 
-a significant speedup for certain calculations, especially if that calculation would 
-run for longer than our usual job time limit. 
+CHTC has about 4 publicly available GPUs and thousands of CPUs. When possible, using 
+CPUs will allow your jobs to start more quickly and to have many running at once. For 
+certain calculations, GPUs may provide a different advantage as some machine learning 
+algorithms are optimized to run significantly faster on GPUs. Consider whether you 
+would benefit from running one or two long-running calculations on a GPU or if your 
+work is better suited to running many jobs on CHTC's available CPUs. 
 
 If you need GPUs for your jobs, you can see a summary of available GPUs in CHTC and 
 how to access them here: 
@@ -36,12 +37,13 @@ how to access them here:
 * [GPUs in CHTC](gpu-jobs.shtml)
 
 Note that you may need to use different versions of your software, depending on whether or 
-not you're using GPUs, as shown in the next section. 
+not you're using GPUs, as shown in the [software section of this guide](#2-software-options). 
 
 ## B. How big is your data? 
 
 CHTC's usual data recommendations apply for machine learning jobs. If your job is using 
-an input data set larger than a few hundred MB, you will likely need to use our large data 
+an input data set larger than a few hundred MB or generating output files larger than 
+a few GB, you will likely need to use our large data 
 file share, Gluster. Contact the CHTC Research Computing Facilitators to get access and 
 read about Gluster here: 
 
@@ -56,8 +58,8 @@ for potential work arounds.
 ## D. How many jobs do you want to submit? 
 
 Do you have the ability to break your work into many independent pieces? If so, 
-you can take advantage of the HTC's system design for exactly this use case, especially 
-if each piece can run on a CPU. See our guide for running multiple jobs here: 
+you can take advantage of CHTC's capability to run many independent jobs at once, 
+especially when each job is using a CPU. See our guide for running multiple jobs here: 
 
 * [Submitting Multiple Jobs Using HTCondor](multiple-jobs.shtml)
 
@@ -65,6 +67,9 @@ if each piece can run on a CPU. See our guide for running multiple jobs here:
 
 Many of the tools used for machine learning, specifically deep learning and 
 convolutional neural networks, are sufficiently complex that our standard software 
+guides
+
+that our standard software 
 guides fall short. The following options are the best way to handle the complexity 
 of these software tools.  
 
@@ -74,7 +79,7 @@ A. Using Docker Containers
 CHTC's HTC system has the ability to run jobs using Docker containers, which package 
 up a whole system (and software) environment in a consistent, reproducible, portable 
 format. When possible, we recommend using standard, publicly available 
-Docker containers to run deep learning jobs in CHTC. 
+Docker containers to run machine learning jobs in CHTC. 
 
 To see how you can use Docker containers to run jobs in CHTC, see: 
 * [Sample GPU/Machine Learning Jobs](https://github.com/CHTC/templates-GPUs)
@@ -107,7 +112,7 @@ Other places to look for Docker container images:
 
 * [Tensorflow on DockerHub](https://hub.docker.com/r/tensorflow/tensorflow/tags)
 * [Pytorch on DockerHub](https://hub.docker.com/u/pytorch)
-* [Pytorch on DockerHub](https://hub.docker.com/r/pytorch/pytorch/tags)
+* [More Pytorch on DockerHub](https://hub.docker.com/r/pytorch/pytorch/tags)
 
 If you can't find a Docker container with exactly the tools you need, you can build your 
 own, starting with one of the containers above. For instructions on how to build and 
