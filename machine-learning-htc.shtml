@@ -53,6 +53,14 @@ CHTC's default job length is 72 hours. If your task is long enough that you will
 encounter this limit, contact the CHTC Research Computing Facilitators (chtc@cs.wisc.edu) 
 for potential work arounds. 
 
+## D. How many jobs do you want to submit? 
+
+Do you have the ability to break your work into many independent pieces? If so, 
+you can take advantage of the HTC's system design for exactly this use case, especially 
+if each piece can run on a CPU. See our guide for running multiple jobs here: 
+
+* [Submitting Multiple Jobs Using HTCondor](multiple-jobs.shtml)
+
 # 2. Software Options
 
 Many of the tools used for machine learning, specifically deep learning and 
