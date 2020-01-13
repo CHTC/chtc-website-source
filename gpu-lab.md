@@ -37,7 +37,7 @@ If you want to use GPU resources in CHTC for your research:
 - See what GPUs are available and how to use them in the [GPU jobs guide][gpu-jobs].
 - For more extended examples, see the following [runnable examples on GitHub][gpu-examples].
 
-The CHTC GPU Lab WiscList is used to announce new GPU hardware availability and 
+The CHTC GPU Lab mailing list (on WiscList) is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
 GPU computing in CHTC. Any CHTC user can subscribe to the list by 
 emailing [join-chtc-gpu-lab@lists.wisc.edu](mailto:join-chtc-gpu-lab@lists.wisc.edu).
