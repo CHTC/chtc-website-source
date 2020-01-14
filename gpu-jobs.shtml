@@ -110,21 +110,51 @@ attributes
 
 <p>In addition, HTCondor tracks other GPU-related attributes for each 
 server, including: </p>
-<ul>
-<li><code>Gpus</code>: Number of GPUs in an individual job slot on a server 
-(one server can be divided into slots to run multiple jobs)</li>
-<li><code>CUDARuntimeVersion</code>: Version of the CUDA software 
-libraries available on the server. </li>
-</ul>
 
-<p>For highly optimized codes, the following attributes may be helpful: </p>
-<ul>
-<li><code>CUDACapability</code>: Represents how new 
-the GPU is -- higher numbers are newer GPUs.  </li>
-<li><code>CUDAGlobalMemoryMb</code>: Amount of global memory available on the GPU</li>
-<li><code>CUDAComputeUnits, CUDACoresPerCU</code>: Multiplied together, the 
-number of GPU cores available on the GPU card</li>
-</ul>
+
+<table class="gtable">
+	<tr>
+		<th>Attribute </th>
+		<th>Explanation </th>
+	</tr>
+	<tr>
+		<td><code>Gpus</code></td>
+		<td>Number of GPUs in an individual job slot on a server(one server can be divided into slots to run multiple jobs)</td>
+	</tr>
+	<tr>
+		<td><code>TotalGPUs</code></td>
+		<td>The total number of GPUs on a server</td>
+	</tr>
+	<tr>
+		<td><code>CUDADriverVersion</code></td>
+		<td>Maximum CUDA runtime version supported by the GPU drivers on the machine. (CUDADriverVersion is not the actual GPU driver version) </td>
+	</tr>
+	<tr>
+		<td><code>CUDACapability</code></td>
+		<td>Represents how new the GPU is -- higher numbers are newer GPUs. </td>
+	</tr>
+	<tr>
+		<td><code>CUDAGlobalMemoryMb</code></td>
+		<td>Amount of global memory available on the GPU</td>
+	</tr>
+	<tr>
+		<td><code>CUDADeviceName</code></td>
+		<td>The GPU type for the CUDA software libraries</td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 
 <p>To see this information printed out, add the attributes you want to the 
 <code>condor_status</code> command shown above.  A sample command (and output) 
@@ -154,11 +184,57 @@ above.</p>
 <p>To see all possible attributes for a particular server, you can use the "long" option with 
 <code>condor_status</code> and the name of the server/slot you want to see: 
 <pre class="term">[alice@submit]$ condor_status -l slot1@gpu-0000.chtc.wisc.edu</pre>
+</p> -->
+
+<a name="submit"></a>
+<h1>2. Submit File Considerations</h1>
+<br>
+<b>Required</b> <br>
+
+<p>All jobs that use GPUs must request GPUs in their submit file (along with 
+the usual requests for CPUs, memory and disk). </p>
+
+<pre class="sub">request_gpus = 1</pre>
+
+<p>It is important to still request at least one CPU per job to do the processing 
+that is not well-suited to the GPU.</p>
+
+<p>Note that HTCondor will make sure your job has access to the GPU -- you shouldn't 
+need to set any environmental variables or other options related to the GPU, except 
+what is needed inside your code.</p>
+
+<b>Optional</b><br>
+
+<p>The default operating system for jobs in CHTC is now CentOS 7. <b>If you 
+want to use the <code>gzk-*</code> GPU nodes shown above, you'll need to specifically 
+request the use of Scientific Linux 6 as an operating system.</b> There is 
+an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
 </p>
+
+<p>If your software or code requires a specific version of CUDA, a certain type of 
+GPU, or has some other special requirement, you will need to add a "requirements" 
+statement to your submit file that uses one of the attributes shown above. </p>
+
+<p>For example, if your code needs to use at least version 4.0 of 
+the CUDA libraries: </p>
+
+<pre class="sub">requirements = (CUDARuntimeVersion >= 4.0)</pre>
+
+<p>If you want a certain class of GPU, use CUDACapability:</p>
+
+<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
+
+<blockquote>
+<p>It may be tempting to add requirements for specific machines or types 
+of GPU cards.  However, when possible, it is best to write your code 
+so that it can run across 
+GPU types and without needing the latest version of CUDA.  </p>
+</blockquote>
+
 
 
 <a name="software"></a>
-<h1>2. Software Considerations</h1>
+<h1>3. Software Considerations</h1>
 
 <p>Before using GPUs in CHTC you should ensure that the use of GPUs will 
 actually help your program run faster.  This means that the code or software 
@@ -202,51 +278,6 @@ with a current operating system/support for Docker in the future.  </p>
 
 <p>If you are running jobs using Tensorflow, you can use a pre-made environment 
 (in a Singularity container) to run jobs.  See <a href="/tensorflow-singularity.shtml">this guide</a> for details.  
-
-<a name="submit"></a>
-<h1>3. Submit File Considerations</h1>
-<br>
-<b>Required</b> <br>
-
-<p>All jobs that use GPUs must request GPUs in their submit file (along with 
-the usual requests for CPUs, memory and disk). </p>
-
-<pre class="sub">request_gpus = 1</pre>
-
-<p>It is important to still request at least one CPU per job to do the processing 
-that is not well-suited to the GPU.</p>
-
-<p>Note that HTCondor will make sure your job has access to the GPU -- you shouldn't 
-need to set any environmental variables or other options related to the GPU, except 
-what is needed inside your code.</p>
-
-<b>Optional</b><br>
-
-<p>If your software or code requires a specific version of CUDA, a certain type of 
-GPU, or has some other special requirement, you will need to add a "requirements" 
-statement to your submit file that uses one of the attributes shown above. </p>
-
-<p>For example, if your code needs to use at least version 4.0 of 
-the CUDA libraries: </p>
-
-<pre class="sub">requirements = (CUDARuntimeVersion >= 4.0)</pre>
-
-<p>If you want a certain class of GPU, use CUDACapability:</p>
-
-<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
-
-<blockquote>
-<p>It may be tempting to add requirements for specific machines or types 
-of GPU cards.  However, when possible, it is best to write your code 
-so that it can run across 
-GPU types and without needing the latest version of CUDA.  </p>
-</blockquote>
-
-<p>The default operating system for jobs in CHTC is now CentOS 7. If you 
-want to use the <code>gzk-*</code> GPU nodes, you'll need to specifically 
-request the use of Scientific Linux 6 as an operating system. There is 
-an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
-</p>
 
 <a name="osg"></a>
 <h1>4. Using GPUs on the Open Science Grid</h1>
