@@ -35,7 +35,8 @@ If you want to use GPU resources in CHTC for your research:
 
 - Apply for a CHTC account if you do not already have one: [Account Request Page][account]
 - See what GPUs are available and how to use them in the [GPU jobs guide][gpu-jobs].
-- For more extended examples, see the following [runnable examples on GitHub][gpu-examples].
+- See our guide with specific machine learning related tips: [Running Machine Learning Jobs on HTC][ml-guide]
+- For more extended examples, see the following: [Runnable examples on GitHub][gpu-examples].
 
 The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
@@ -54,4 +55,5 @@ For more information about the CHTC GPU Lab project contact [Anthony Gitter][git
 [gpu-examples]: https://github.com/CHTC/templates-GPUs
 [gpu-jobs]: gpu-jobs.shtml
 [gitter]: https://www.biostat.wisc.edu/~gitter/index.html
+[ml-guide]: machine-learning-htc.shtml
 [uw2020]: https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/

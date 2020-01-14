@@ -93,6 +93,10 @@ any CHTC user (as of 1/14/2020):</p>
   </tr>
 </table>
 
+<p>CHTC has plans to increase our GPU capacity through the <a href="/gpu-lab.shtml">CHTC GPU 
+Lab</a> project, funded by UW2020. This page will be updated as we acquire additional 
+GPU capacity. </p>
+
 <p>You can also find out information about GPUs in CHTC through the 
 <code>condor_status</code> command.  All of our servers with GPUs have 
 a <code>TotalGPUs</code> attribute that is greater than zero; thus we can 
@@ -100,9 +104,21 @@ query the pool to find GPU-enabled servers by running: </p>
 
 <pre class="term">[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'</pre>
 
-<p>To print out specific information, you can use the "auto-format" option and the 
-names of specific server attributes.  The table above can be recreated using the 
-attributes
+<blockquote><b>Why are there more GPU servers in condor_status?</b><br>
+
+If you run the <code>condor_status</code> command above, you'll see more servers listed 
+than we show in the table above. Some of these servers have been purchased for specific 
+research groups and are prioritized for their group members. If you set the submit 
+file option <code>+WantFlocking</code> to true, your jobs are eligible to run on all 
+GPU servers in CHTC, 
+but they are no longer guaranteed a 72-hour run time. 
+
+</blockquote>
+
+<p>To print out specific information about a GPU server and its GPUs, you can use the 
+"auto-format" option for <code>condor_status</code> and the 
+names of specific server attributes.  For example, the table above can be mostly recreated 
+using the attributes
 <code>Machine</code>, <code>TotalGpus</code> and <code>CUDADeviceName</code>: 
 
 <pre class="term">[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' -af Machine TotalGpus CUDADeviceName
@@ -110,7 +126,6 @@ attributes
 
 <p>In addition, HTCondor tracks other GPU-related attributes for each 
 server, including: </p>
-
 
 <table class="gtable">
 	<tr>
@@ -142,16 +157,6 @@ server, including: </p>
 		<td>The GPU type for the CUDA software libraries</td>
 	</tr>
 </table>
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- 
