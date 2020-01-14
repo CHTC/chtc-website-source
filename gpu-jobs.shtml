@@ -17,8 +17,8 @@ Read on to determine:</p>
 
 <ol>
   <li><a href="#gpus">GPUs available in CHTC</a></li>
-  <li><a href="#software">Software Considerations</a></li>
   <li><a href="#submit">Submit File Considerations</a></li>
+  <li><a href="#software">Software Considerations</a></li>
   <li><a href="#osg">Using GPUs on the Open Science Grid</a></li>
 </ol>
 
@@ -33,7 +33,7 @@ in CHTC, please email the research computing facilitators at chtc@cs.wisc.edu.
 
 <p>CHTC's high throughput (HTC) system 
 has the following servers with GPU capabilities that are available to 
-any CHTC user (as of 6/13/2019):</p>
+any CHTC user (as of 1/14/2020):</p>
 <br>
 
 <table class="gtable">
@@ -244,6 +244,11 @@ your particular task will use this capability.</p>
 <p>If this is the case, there are several ways to run GPU-enabled software
 in CHTC: </p>
 
+<blockquote><b>Machine Learning</b><br>
+For those using machine learning code specifically, we have a guide with 
+more specific recommendations here: <a href="/machine-learning-htc.shtml">Run Machine Learning Jobs on HTC</a>
+</blockquote>
+
 <h2>A. Compiled Code</h2>
 
 <p>You can use our conventional methods of creating a portable installation 
@@ -261,7 +266,7 @@ other programs you may need to set specific flags or options.</p>
 
 <h2>B. Docker</h2>
 
-<p>Some of CHTC's GPU servers have "nvidia-docker" installed, a specific 
+<p>CHTC's GPU servers have "nvidia-docker" installed, a specific 
 version of Docker that integrates Docker containers with GPUs.  If you 
 can find or create a Docker image with your software that is based on 
 the nvidia-docker container, you can use this to run your jobs in 
@@ -270,14 +275,9 @@ how to use Docker in CHTC.</p>
 
 <blockquote>
 <p>Docker is not supported on the operating system version (Scientific Linux 
-6) that is running on most of our GPU servers.  We hope to have more GPUs 
-with a current operating system/support for Docker in the future.  </p>
+6) that is running the <code>gzk</code> GPU servers.  We hope to have more GPUs 
+with Docker support in the future.  </p>
 </blockquote>
-
-<h2>C. Singularity (for Tensorflow)</h2>
-
-<p>If you are running jobs using Tensorflow, you can use a pre-made environment 
-(in a Singularity container) to run jobs.  See <a href="/tensorflow-singularity.shtml">this guide</a> for details.  
 
 <a name="osg"></a>
 <h1>4. Using GPUs on the Open Science Grid</h1>
