@@ -14,7 +14,7 @@ in running machine learning (specifically deep learning) jobs in CHTC.
 Overview
 ========
 
-It's important to understand the needs of a machine learning job before submitting 
+It is important to understand the needs of a machine learning job before submitting 
 it and have a plan for managing software. This guide covers: 
 
 1. [Considering job requirements](#1-job-requirements)
@@ -23,7 +23,7 @@ it and have a plan for managing software. This guide covers:
 # 1. Job Requirements
 
 Before digging into the nuts and bolts of software installation in the next section, 
-it's important to first consider a few other job requirements that might apply to 
+it is important to first consider a few other job requirements that might apply to 
 your machine learning job. 
 
 ## A. Do you need GPUs?
@@ -41,7 +41,7 @@ how to access them here:
 * [GPUs in CHTC](gpu-jobs.shtml)
 
 Note that you may need to use different versions of your software, depending on whether or 
-not you're using GPUs, as shown in the [software section of this guide](#2-software-options). 
+not you are using GPUs, as shown in the [software section of this guide](#2-software-options). 
 
 ## B. How big is your data? 
 
@@ -83,8 +83,8 @@ format. When possible, we recommend using standard, publicly available
 Docker containers to run machine learning jobs in CHTC. 
 
 To see how you can use Docker containers to run jobs in CHTC, see: 
-* [Sample GPU/Machine Learning Jobs](https://github.com/CHTC/templates-GPUs)
 * [Docker Jobs in CHTC](docker-jobs.shtml)
+* [GPU/Machine Learning Job Examples on Github](https://github.com/CHTC/templates-GPUs)
 
 You can also test and examine containers on your own computer. 
 * [Exploring and Testing Docker Containers](docker-test.shtml)
@@ -115,7 +115,7 @@ Other places to look for Docker container images:
 * [Pytorch on DockerHub](https://hub.docker.com/u/pytorch)
 * [More Pytorch on DockerHub](https://hub.docker.com/r/pytorch/pytorch/tags)
 
-If you can't find a Docker container with exactly the tools you need, you can build your 
+If you can not find a Docker container with exactly the tools you need, you can build your 
 own, starting with one of the containers above. For instructions on how to build and 
 test your own Docker container, see this guide: 
 
