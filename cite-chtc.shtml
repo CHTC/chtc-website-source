@@ -39,7 +39,7 @@ CHTC maintains several multi-core servers terabytes of memory. Should these
 resources not be sufficient for your project, CHTC users can also engage computing resources from the Open Science
  Grid (OSG), also at no cost to researchers. OSG is an expanding, NSF-funded alliance of more than 120 universities, national
  laboratories, scientific collaborations, and software developers, and CHTC users have automatic access to OSG's
- considerable computing and storage resources. Individual users of our high thoughput computing (HTC)
+ considerable computing and storage resources. Individual users of our high throughput computing (HTC)
  system, including Open Science Grid capacity, can frequently obtain in excess of 200,000 CPU hours per day.
 <br /><br />
 For high performance computing (HPC) capability, the CHTC also maintains
