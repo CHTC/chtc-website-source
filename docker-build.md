@@ -60,7 +60,7 @@ subset of these keywords following this basic outline:
 
 Create a blank text file. Because of 
 the way Docker builds images, you should create a separate folder for each 
-new images you create with the appropriate Dockerfile inside. 
+new image you create with the appropriate Dockerfile inside. 
 You can call the file whatever you want, but the
 convention is to use the name `Dockerfile`, with no file extension. 
 
@@ -115,7 +115,7 @@ The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
 do this:
 
--   Use a Linux package manager. Usually `apt-get` for Debian-based 
+-   Use a Linux package manager. This is usually `apt-get` for Debian-based 
 containers (e.g, Ubuntu) or `yum` for RedHat Linux containers (e.g., CentOS). 
 -   Use a software-specific package manager (like `pip` or `conda` for Python).
 -   Use installation instructions (usually a progression of `configure`,
