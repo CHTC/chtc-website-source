@@ -58,11 +58,9 @@ subset of these keywords following this basic outline:
 
 ### Create the file
 
-Create a blank text file. Because of 
-the way Docker builds images, you should create a separate folder for each 
-new image you create with the appropriate Dockerfile inside. 
-You can call the file whatever you want, but the
-convention is to use the name `Dockerfile`, with no file extension. 
+Create a blank text file named `Dockerfile`. If you are planning on making
+multiple images, you should create a separate folder for each 
+new image with the appropriate Dockerfile inside.
 
 ### Choose a "base" image with `FROM`
 
