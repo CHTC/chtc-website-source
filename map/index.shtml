@@ -1,0 +1,325 @@
+<!--#include virtual="/dev_website/includes/template-1-openhead.shtml" -->
+<title>CHTC User Map</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="scripts/jquery.imagemapster.js"></script>
+
+<style type="text/css">
+body {
+
+font-family: Frutiger, "Frutiger Linotype",
+Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro",
+Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L",
+Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+#container{
+
+width:1000px;
+/*float:left;*/
+margin-top: 20px;
+margin-bottom: 20px;
+border: 10px solid #b70101;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+border-radius: 10px;
+
+}
+
+#header {
+
+background-color: #b70101;
+color: #fff;
+clear: both;
+padding:10px;
+
+}
+
+#selections {
+
+background-color: #b70101;
+color: #fff;
+clear: both;
+padding:10px;
+position: absolute;
+left:0;
+top:0;
+display:none;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+border-radius: 10px;
+
+}
+
+</style>
+
+<!--#include virtual="/dev_website/includes/template-2-opensidebar.shtml" -->
+<!--#include virtual="/dev_website/includes/template-3-sidebar.shtml" -->
+<!--#include virtual="/dev_website/includes/template-4-mainbody.shtml" -->
+
+<h1>CHTC User Map</h1>
+
+<div id="container">
+<div id="header"><p>Researchers who use the CHTC are located throughout campus in the red buildings below. Hover above one to learn more.</p> </div>
+<img id="map1" style = "width:100%" src="images/map5.jpg" alt="map1" usemap="#map1">
+<div id="selections"></div>
+</div>
+
+<script>
+$(document).ready(function ()
+{
+	 var xref = {
+	 
+		waisman_center:"Waisman Center",
+		
+		uw_hospital:"Anesthesiology; Biostatistics and Medical Informatics; Medical Physics; Neuroscience; Oncology; Radiology; Medicine; Pathology and Laboratory Medicine",
+		
+		veterinary_medicine:"Pathobiological Sciences; Pharmaceutical Sciences",
+		
+		animal_science:"Animal Science; Dairy Science",
+			
+		russell:"Entomology; Forestry and Wildlife Ecology; Plant Pathology",
+			
+		babcock:"Babcock Hall",
+			
+		microbial_sciences:"Bacteriology",
+			
+		horticulture:"Horticulture",
+			
+		deluca_biochemistry_laboratories:"Biochemistry",
+			
+		bock_laboratories:"Bock Laboratories",
+			
+		deluca_biochemical_sciences:"Genetics",
+			
+		deluca_biochemistry:"Biochemistry",
+			
+		engineering_centers:"Biomedical Engineering",
+			
+		mechanical_engineering:"Mechanical Engineering; Engineering Physics",
+			
+		materials_science_engineering:"Materials Science and Engineering",
+			
+		_1410_engineering_drive:"Industrial and Systems Engineering",
+			
+		engineering_hall:"Chemical and Biological Engineering; Civil and Environmental Engineering; Electrical and Computer Engineering",
+			
+		wid:"Wisconsin Institutes for Discovery",
+			
+		genetics_biotechnology_center:"Genetics-Biotechnology Center",
+			
+		medical_sciences_center:"Statistics",
+			
+		sewell:"Economics",
+
+		hasler:"Hasler Laboratory of Limnology",
+			
+		sterling:"Astronomy",
+			
+		chamberlin:"Physics",
+			
+		computer_science:"Computer Sciences",
+			
+		weeks:"Geoscience",
+			
+		wisconsin_primate_center:"Wisconsin Primate Center",
+			
+		harlow_primate_lab:"Harlow Primate Lab",
+			
+		zoology_research:"Zoology Research Building",
+			
+		noland_zoology:"Integrative Biology",
+			
+		chemistry:"Chemistry",
+			
+		educational_sciences:"Educational Sciences",
+			
+		birge_hall:"Botany; Integrative Biology and Center for Rapid Evolution",
+		
+		mcardle:"Agricultural and Applied Economics",
+		
+		van_vleck:"Mathematics",
+		
+		brogden:"Psychology",
+		
+		science_hall:"Geography",
+		
+		grainger_hall:"Finance; Marketing",
+		 
+		education_hall:"Educational Psychology; Educational Leadership and Policy Analysis",
+		 
+		north_hall:"Political Science",
+	
+		atocen_building:"Atmospheric and Oceanic Sciences",
+		 
+		agr_hall:"Community and Environmental Sociology",
+		 
+		KingHall:"Soil Science",
+		 
+		Humanities: "History",
+		
+		Nutritional_Sciences:"Nutritional Sciences"
+		
+    };
+	
+	var $mouseX = 0, $mouseY = 0, $clicked = false;
+
+	$(document).mousemove(function(e){
+		$mouseX = e.pageX;
+		$mouseY = e.pageY;    
+	});
+	
+	$('#map1').mapster({
+		fillOpacity: 1,
+        fillColor: "ffffff",
+        stroke: false,
+        singleSelect: true,
+		render_highlight : { altImage : 'images/map6.jpg' },
+		fill : true, altImage : 'images/map6.jpg',
+		fillOpacity : 1,
+		mapKey: 'name',
+		listKey: 'name',
+		
+		onClick: function (e) {
+		 // update text depending on area selected
+			 $('#selections').html(xref[e.key]);
+			 $('#selections').css({
+				left: $mouseX,
+				top:  $mouseY
+			 });
+			 $("#selections").fadeIn();
+			 $clicked = e.selected;
+		},
+		onMouseover: function (e) {
+		// update text depending on area selected
+			if(!$clicked){
+				 $('#selections').html(xref[e.key]);
+				 $('#selections').css({
+					left: $mouseX,
+					top:  $mouseY
+				 });
+				 $("#selections").fadeIn();
+			}
+		},
+		onMouseout: function (e) {
+		 // update text depending on area selected
+			if(!$clicked)
+				 $('#selections').css({
+					display: 'none'
+				 });
+		}
+			
+	});
+});
+</script>
+
+<map name="map1">
+
+	<area href="#" name="waisman_center"  shape="poly" coords=" 11,79, 35,80, 56,74, 59,63,
+	76,59, 78,47, 52,41, 35,48, 9,50, 3,63, 9,78" alt=""/>
+	
+	<area href="#" name="uw_hospital" shape="poly" coords=" 83,61, 85,91, 71,103, 74,116,
+	71,122, 76,133, 51,155, 49,163, 61,174, 71,169, 79,176, 75,185, 79,197, 88,204, 100,202,
+	109,205, 117,205, 127,201, 130,189, 127,167, 141,149, 118,125, 128,113, 123,107, 129,100,
+	137,67, 127,61, 115,61, 111,75, 107,73, 101,61, 87,61"" alt=""/>
+	
+	<area href="#" name="veterinary_medicine"shape="poly" 
+	coords=" 415,184, 416,201, 430,205, 435,209, 467,209, 470,203, 480,203, 481,187, 477,184,
+	453,184, 449,181, 417,182" alt=""/>
+	
+	<area href="#" name="animal_science" shape="poly" coords=" 579,145, 579,171, 591,175,
+	593,164, 615,162, 615,145, 583,145" alt = "" />
+	
+	<area href="#" name="russell" shape="poly" coords=" 618,174, 623,189, 658,189, 664,183,
+	664,175, 657,173, 655,165, 644,165, 641,173, 622,175" alt = ""/>
+	
+	<area href="#" name="babcock" shape="poly" coords=" 625,198, 622,209, 624,218, 645,219, 647,216, 667,217, 666,201, 658,197, 643,197, 625,197" alt=""/>
+	
+	<area href="#" name="microbial_sciences" shape="poly" coords=" 675,150, 684,149, 689,144, 695,152, 694,161, 694,165, 701,167, 709,168,
+	713,171, 714,181, 711,182, 708,189, 701,191, 689,189, 684,186, 680,181, 673,180, 667,171, 666,167, 671,165, 671,151, 673,149" alt=""/>
+	
+	<area href="#" name="horticulture" shape="poly" coords=" 671,195, 671,196, 671,214, 677,219, 705,221, 705,199, 674,195" alt=""/>
+	
+	<area href="#" name="deluca_biochemistry_laboratories" shape="poly" coords=" 671,221, 672,233, 699,248, 703,246, 705,224, 674,221" alt=""/>
+	
+	<area href="#" name="bock_laboratories" shape="poly" coords=" 710,201, 711,210, 720,212, 723,207, 720,199, 711,200" alt=""/>
+	
+	<area href="#" name="deluca_biochemical_sciences" shape="poly" coords=" 707,235, 724,235, 725,233, 733,232, 732,220, 723,219, 723,214, 708,214, 707,238" alt=""/>
+	
+	<area href="#" name="deluca_biochemistry" shape="poly" coords=" 710,253, 732,254, 733,235, 710,238, 710,252" alt=""/>
+	
+	<area href="#" name="engineering_centers" shape="poly" coords=" 637,269, 637,306, 659,305, 659,266, 639,268" alt=""/>
+	
+	<area href="#" name="mechanical_engineering" shape="poly" coords=" 662,305, 714,306, 713,288, 691,288, 688,271, 662,272, 658,274, 658,303" alt=""/>
+	
+	<area href="#" name="materials_science_engineering" shape="poly" coords=" 696,270, 696,283, 702,287, 718,287, 725,283, 725,270, 700,270" alt=""/>
+	
+	<area href="#" name="_1410_engineering_drive" shape="poly" coords=" 749,284, 749,305, 768,305, 768,294, 752,284" alt=""/>
+	
+	<area href="#" name="engineering_hall" shape="poly" coords=" 710,314, 709,343, 769,346, 769,314, 711,313" alt=""/>
+	
+	<area href="#" name="wid" shape="poly" coords=" 781,268, 782,284, 819,302, 819,267, 784,268" alt=""/>
+	
+	<area href="#" name="genetics_biotechnology_center" shape="poly" coords=" 746,234, 747,256, 759,255, 790,258, 790,240, 771,238, 770,217, 762,217, 762,234, 748,233" alt=""/>
+	
+	<area href="#" name ="mcardle" shape="poly" coords=" 771,219, 771,228, 791,228, 791,219, 774,218" alt="">
+	
+	<area href="#" name="medical_sciences_center" shape="poly" coords=" 797,228, 798,255, 855,257, 855,198, 832,198, 830,214, 815,214, 815,228, 800,228"  alt=""/>
+	
+	<area href="#" name="sewell" shape="poly" coords=" 885,114, 875,150, 909,147, 909,137, 900,134, 903,117, 887,113" alt =""/>
+    
+	<area href="#" name="hasler" shape="poly" coords=" 951,105, 950,113, 966,115, 966,107, 954,104" alt=""/>
+    
+	<area href="#" name="sterling" shape="poly" coords=" 868,199, 868,225, 906,226, 905,217, 882,216, 882,200, 871,200" alt=""/>
+	
+	<area href="#" name="van_vleck" shape="poly" coords=" 882,195, 911,200, 911,216, 880,210, 881,196" alt = ""/>
+    
+	<area href="#" name="chamberlin" shape="poly" coords=" 868,227, 885,226, 886,238, 893,238, 894,231, 904,232, 903,255, 868,256, 865,229" alt=""/>
+	
+	<area href="#" name="brogden" shape="poly"  coords=" 847,289, 847,307, 866,308, 866,303, 874,301, 873,278, 860,278, 859,289, 850,289"  alt ="">
+    
+	<area href="#" name="computer_science" shape="poly" coords=" 832,323, 833,356, 870,356, 869,341, 835,323" alt=""/>
+    
+	<area href="#" name="weeks" shape="poly" coords=" 850,369, 850,384, 856,391, 857,402, 875,402, 874,370, 854,370" alt=""/>
+    
+	<area href="#" name="wisconsin_primate_center" shape="poly" coords=" 831,455, 832,464, 851,466, 850,457, 834,456" alt=""/>
+    
+	<area href="#" name="harlow_primate_lab" shape="poly" coords=" 852,456, 853,465, 874,467, 873,456, 855,454" alt=""/>
+    
+	<area href="#" name="zoology_research" shape="poly" coords=" 889,317, 889,335, 900,336, 900,318, 892,317" alt=""/>
+    
+	<area href="#" name="noland_zoology" shape="poly" coords=" 918,330, 918,345, 900,346, 899,330, 919,329" alt=""/>
+    
+	<area href="#" name="chemistry" shape="poly" coords=" 879,292, 879,309, 919,308, 920,273, 899,272, 901,292, 883,292" alt=""/>
+    
+	<area href="#" name="educational_sciences" shape="poly"  coords=" 930,317, 929,336, 950,338, 951,334, 970,335, 970,317, 934,317" alt=""/>
+    
+	<area href="#" name="birge_hall" shape="poly" coords=" 915,212, 912,231, 922,233, 924,223, 929,224, 936,229, 942,228, 945,234, 950,232, 951,226, 950,216, 918,212"  alt=""/>
+	
+	<area href="#" name="science_hall" shape="poly" coords=" 1006,149, 1006,158, 1011,160, 1011,165, 1006,167, 1006,175, 1023,175, 1023,150, 1009,149" alt="">
+	
+	<area href="#" name="grainger_hall" shape="poly" coords=" 974,272, 975,306, 981,313, 1010,313, 1016,306, 1014,274, 1005,273, 999,276, 987,276, 984,269, 977,271" alt = "">
+	
+	<area href="#" name="education_hall" shape="poly" coords="976,161,976,168,979,166,984,168,988,169,990,173,987,176,977,176,972,175,971,167,972,162" alt="" >
+														
+	<area href="#" name="north_hall" shape="poly" coords="958,162,958,168,958,174,962,176,963,170,963,163,961,161" alt="" >
+	
+	<area href="#" name="atocen_building" shape="poly" coords="830,371,830,383,835,386,843,385,844,380,844,373,838,370" alt="" >
+		
+	<area href="#" name="agr_hall" shape="poly" coords="731,168,731,176,740,176,741,179,748,178,752,177,755,177,755,169,747,166,745,164,741,164,739,168" alt="" >											 
+	
+	<area href="#" name="KingHall" shape="poly" coords="721,140,721,154,727,153,728,155,732,155,731,149,731,146,730,142,730,140" alt="" >	
+																												
+	<area href="#" name="Nutritional_Sciences" shape="poly" coords="765,205,780,205,782,216,788,216,788,199,782,198,782,200,764,199" alt="" >	
+																														
+	<area href="#" name="Humanities" shape="poly" coords="1033,206,1034,254,1052,254,1054,251,1066,250,1071,246,1071,231,1054,229,1053,217,1052,205" alt="" >	
+														
+</map>
+
+</div>
+</div>
+
+<!--#include virtual="/dev_website/includes/template-5-finish.shtml" -->
