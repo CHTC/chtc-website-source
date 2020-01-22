@@ -199,7 +199,7 @@ To build and tag your image, open a Terminal (Mac/Linux) or Command
 Prompt (Windows) and navigate to the folder that contains your
 Dockerfile:
 
-```shell script
+```
 $ cd directory
 ```
 {:.term}
@@ -209,7 +209,7 @@ $ cd directory
 Then make sure Docker is running (there should be a small icon on either
 your status bar, and running `docker info` shouldn't indicate any errors) and run:
 
-```shell script
+```
 $ docker build -t username/imagename:tag .
 ```
 {:.term}
@@ -234,7 +234,7 @@ Once your image has been successfully built and tested, you
 can push it to DockerHub so that it will be available to run jobs in
 CHTC. To do this, run the following command:
 
-```shell script
+```
 $ docker push username/imagename:tag
 ```
 {:.term}
@@ -242,7 +242,7 @@ $ docker push username/imagename:tag
 The first time you push an image to DockerHub, you may need to run this
 command first:
 
-```shell script
+```
 $ docker login
 ```
 {:.term}
