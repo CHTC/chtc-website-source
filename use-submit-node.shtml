@@ -49,7 +49,7 @@ Because our submit servers are shared by many CHTC users, anyone with an
 <li><strong>Jobs with long runtimes.</strong> There is a default run limit of 72 hours for each job 
 queued in the HTC System, once it starts running. Jobs longer than this will be placed in 
 HTCondor's "hold" state. If your jobs will be longer, please 
-<a href="mailto:chtc@cs.wisc.edu">email us</a>, and we'll help you to determine the best solution. </u>
+<a href="mailto:chtc@cs.wisc.edu">email us</a>, and we'll help you to determine the best solution.
 <li><strong>Submitting many jobs from one submit file.</strong> HTCondor is designed 
 to submit thousands of jobs from one submit file.  However, submitting too many 
 jobs at once provides no extra benefit to the submitter and can make the queue 
@@ -75,5 +75,4 @@ as possible without also compromising the queue.</li>
  schedule jobs, and do not submit jobs with a script that uses "sleep"
  or otherwise doesn't complete while you are logged in. Contact us
  if you need job scheduling.
-</ul>
-</p>
+ </ul>
