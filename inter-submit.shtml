@@ -64,7 +64,9 @@ running the following command: </p>
 [alice@submit]$ condor_submit -i <i>build.sub</i>
 </pre>
 
-<p>It may take a few minutes for the build job to start.</p>
+<p>The interactive build job should start in about a minute. Once it has started, 
+the job has a time limit of four hours - if you need more time to compile a 
+particular code, talk to CHTC's Research Computing Facilitators. </p>
 
 <h2>B. Install the Software</h2>
 
