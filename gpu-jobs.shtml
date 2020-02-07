@@ -33,13 +33,13 @@ in CHTC, please email the research computing facilitators at chtc@cs.wisc.edu.
 
 <p>CHTC's high throughput (HTC) system 
 has the following servers with GPU capabilities that are available to 
-any CHTC user (as of 1/14/2020):</p>
+any CHTC user (as of 2/7/2020):</p>
 <br>
 
 <table class="gtable">
   <tr>
     <th>Server </th>
-    <th>No. of GPUs </th>
+    <th>GPUs / Server</th>
     <th>GPU Type</th>
     <th>Current OS (as of 2019-06-13)</th>
     <th>HasGluster</th>
@@ -50,44 +50,23 @@ any CHTC user (as of 1/14/2020):</p>
     <td>Tesla K40c</td>
   </tr>   -->  
 <tr>
-    <td>gzk-1.chtc.wisc.edu </td>
+    <td>gzk-*.chtc.wisc.edu </td>
     <td>8 </td>
     <td>GeForce GTX 1080</td>
     <td>SL 6</td>
     <td>no</td>
   </tr>
   <tr>
-    <td>gzk-2.chtc.wisc.edu </td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
-  <tr>
-    <td>gzk-3.chtc.wisc.edu </td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
-  <tr>
-    <td>gzk-4.chtc.wisc.edu </td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
-  <tr>
-    <td>gpu2000.chtc.wisc.edu</td>
+    <td>gpu2000-2001.chtc.wisc.edu</td>
     <td>2</td>
     <td>Tesla P100-PCIE-16GB</td>
     <td>CentOS 7</td>
     <td>yes</td>
   </tr>
   <tr>
-    <td>gpu2001.chtc.wisc.edu</td>
-    <td>2</td>
-    <td>Tesla P100-PCIE-16GB</td>
+    <td>gpu2002-2005.chtc.wisc.edu</td>
+    <td>8</td>
+    <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
     <td>yes</td>
   </tr>
@@ -214,14 +193,26 @@ what is needed inside your code.</p>
 GPU, or has some other special requirement, you will need to add a "requirements" 
 statement to your submit file that uses one of the attributes shown above. </p>
 
-<p>For example, if your code needs to use at least version 4.0 of 
-the CUDA libraries: </p>
-
-<pre class="sub">requirements = (CUDARuntimeVersion >= 4.0)</pre>
-
 <p>If you want a certain class of GPU, use CUDACapability:</p>
 
-<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
+<pre class="sub">requirements = (CUDACapability == 7.5)</pre>
+
+This table shows the "CUDACapability" value for our general use GPUs: 
+
+<table class="gtable">
+  <tr>
+    <th>GPU Model</th>
+    <th>CUDACapability</th>
+  </tr>
+  <tr>
+   <td>Tesla P100-PCIE-16GB</td>
+   <td>6.0</td>
+  </tr>
+  <tr>
+    <td>GeForce RTX 2080</td>
+    <td>Ti 7.5</td>
+  </tr>
+</table>
 
 <blockquote>
 <p>It may be tempting to add requirements for specific machines or types 
@@ -274,7 +265,7 @@ more specific recommendations here: <a href="/machine-learning-htc.shtml">Run Ma
 of a software package (as in our R/Python guides) to run on GPUs.  Most 
 software needs to be compiled on a machine with GPUs in order to use them 
 correctly.  To build your code on a GPU server, create a submit file that 
-requests GPUs (see <a href="#submit">below</a>) and submit it to run 
+requests GPUs (see <a href="#submit">above</a>) and submit it to run 
 interactively by using the "-i" option with <code>condor_submit</code>:
 <pre class="term">[alice@submit]$ condor_submit -i gpu.sub</pre>
 </p>
