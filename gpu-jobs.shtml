@@ -193,8 +193,8 @@ above.</p>
 
 <a name="submit"></a>
 <h1>2. Submit File Considerations</h1>
-<br>
-<b>Required</b> <br>
+
+<h2>A. Request GPUs (required)</h2>
 
 <p>All jobs that use GPUs must request GPUs in their submit file (along with 
 the usual requests for CPUs, memory and disk). </p>
@@ -208,13 +208,7 @@ that is not well-suited to the GPU.</p>
 need to set any environmental variables or other options related to the GPU, except 
 what is needed inside your code.</p>
 
-<b>Optional</b><br>
-
-<p>The default operating system for jobs in CHTC is now CentOS 7. <b>If you 
-want to use the <code>gzk-*</code> GPU nodes shown above, you'll need to specifically 
-request the use of Scientific Linux 6 as an operating system.</b> There is 
-an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
-</p>
+<h2>B. Request specific GPUs (optional)</h2>
 
 <p>If your software or code requires a specific version of CUDA, a certain type of 
 GPU, or has some other special requirement, you will need to add a "requirements" 
@@ -236,7 +230,27 @@ so that it can run across
 GPU types and without needing the latest version of CUDA.  </p>
 </blockquote>
 
+<h2>C. Access shared and research group GPUs (optional)</h2>
 
+<p>As alluded to above, certain GPU servers in CHTC are prioritized for the research 
+groups that own them, but are available to run other jobs when not being used by their 
+owners. When running on these servers, jobs forfeit our otherwise guaranteed runtime 
+of 72 hours; however, for shorter jobs, this is not a drawback and allowing jobs to run 
+on these additional servers opens up more capacity. To allow jobs to run on these 
+research-group owned servers if there is space, add the "Flocking" option to your submit file: 
+</p>
+
+<pre class="sub">
++wantFlocking = true
+</pre>
+
+<h2>D. Use the <code>gzk</code> servers (optional)</h2>
+
+<p>The default operating system for jobs in CHTC is now CentOS 7. <b>If you 
+want to use the <code>gzk-*</code> GPU nodes shown above, you'll need to specifically 
+request the use of Scientific Linux 6 as an operating system.</b> There is 
+an example of how to do this in our <a href="/os-transition.shtml">Operating System guide</a>.
+</p>
 
 <a name="software"></a>
 <h1>3. Software Considerations</h1>
