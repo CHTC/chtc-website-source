@@ -38,7 +38,7 @@ any CHTC user (as of 2/7/2020):</p>
 
 <table class="gtable">
   <tr>
-    <th>Server </th>
+    <th>Servers </th>
     <th>GPUs / Server</th>
     <th>GPU Type</th>
     <th>Current OS (as of 2019-06-13)</th>
@@ -197,7 +197,7 @@ statement to your submit file that uses one of the attributes shown above. </p>
 
 <pre class="sub">requirements = (CUDACapability == 7.5)</pre>
 
-This table shows the "CUDACapability" value for our general use GPUs: 
+<p>This table shows the "CUDACapability" value for our general use GPUs: </p>
 
 <table class="gtable">
   <tr>
@@ -209,8 +209,8 @@ This table shows the "CUDACapability" value for our general use GPUs:
    <td>6.0</td>
   </tr>
   <tr>
-    <td>GeForce RTX 2080</td>
-    <td>Ti 7.5</td>
+    <td>GeForce RTX 2080 Ti </td>
+    <td>7.5</td>
   </tr>
 </table>
 
