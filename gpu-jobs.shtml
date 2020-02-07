@@ -64,7 +64,7 @@ any CHTC user (as of 1/14/2020):</p>
     <td>yes</td>
   </tr>
   <tr>
-    <td>gpu2001-1004.chtc.wisc.edu</td>
+    <td>gpu2002-2005.chtc.wisc.edu</td>
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
@@ -195,14 +195,14 @@ statement to your submit file that uses one of the attributes shown above. </p>
 
 <p>If you want a certain class of GPU, use CUDACapability:</p>
 
-<pre class="sub">requirements = (CUDACapability > 3.0)</pre>
+<pre class="sub">requirements = (CUDACapability == 7.5)</pre>
 
 This table shows the "CUDACapability" value for our general use GPUs: 
 
 <table class="gtable">
   <tr>
     <th>GPU Model</th>
-    <tr>CUDACapability</th>
+    <th>CUDACapability</th>
   </tr>
   <tr>
    <td>Tesla P100-PCIE-16GB</td>
