@@ -17,19 +17,19 @@ use or produce very large files.</p>
 	<li><a href="#submit">Submit File Implications</a></li> 
 	<li><a href="#input">Using Gluster-staged Files and Software for Jobs</a>
 	<ul>
-	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a>
-	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a>
+	<li><a href="#copy">Copy files from Gluster into the working directory, from within the jobs</a></li> 
+	<li><a href="#large">Software that is too large for or doesn't work with file transfer</a></li> 
 		</ul></li> 
 	<li><a href="#within">Copying large output files to Gluster from within a job</a>
 		<ul>
 	<li><a href="#working">Write output files to the working directory, 
-then move these to Gluster</a>	
+then move these to Gluster</a></li> 
 	<li><a href="#also">ALSO consider: Large standard output ("screen output") produced 
-by your jobs</a>
+by your jobs</a></li> 
 		</ul></li> 
 	
-	<li><a href="#after">Removing files from Gluster after jobs complete</a>
-		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a>
+	<li><a href="#after">Removing files from Gluster after jobs complete</a></li> 
+		<li><a href="#check">Checking your Quota, Data Use, and File Counts in Glusters</a></li> 
 </ol>
 
 <a name="policy"></a>
@@ -103,7 +103,7 @@ To prepare job-specific data that is large enough to require Gluster and exists 
 files or directories (or a directory of multiple files), first create a compressed tar package before
 placing the file in /mnt/gluster (either before submitting jobs, or within jobs before moving output to /mnt/gluster). 
 For example:
-<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir <file2> <directory> <etc.></pre>
+<pre class="term">$ tar -czvf job_package.tar.gz file_or_dir </pre>
 
 <p> Movement of data into/out of /mnt/gluster before and after jobs should 
 only be performed via CHTC's transfer server, as below, and <b>not via a CHTC submit server.</b>
@@ -112,7 +112,7 @@ the transfer server, copy relevant files directly
 into this user directory from your own computer:</p>
 
 <p>Example <code>scp</code> command on your own Linux or Mac computer:</p>
-<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/</pre>
+<pre class="term">$ scp large.file username@transfer.chtc.wisc.edu:/mnt/gluster/username/ </pre>
 
 <p>If using a Windows computer:</p>
 <p>Using a file transfer application, like WinSCP, directly drag the large 
@@ -234,11 +234,12 @@ directory, as all other "new" files in the working directory will be. </p>
 ./myprogram myinput.txt large_output.txt
 #
 # Tar and copy output to Gluster, then delete from the job working directory:
-tar -czvf large_output.tar.gz large_output.txt <other_large_files_or_dirs>
-mv large_output.tar.gz /mnt/gluster/username/<subdirectory>
+tar -czvf large_output.tar.gz large_output.txt other_large_files_or_dirs
+mv large_output.tar.gz /mnt/gluster/username/subdirectory
 rm large_output.txt
 #
 # END</pre>
+
 <a name="also"></a>
 <h2>B. ALSO consider: Large standard output ("screen output") produced 
 by your jobs</h2>
@@ -268,7 +269,7 @@ is run from a script (bash) executable:</p>
 # 
 # tar and move large files to Gluster so they're not copied to the submit server:
 tar -czvf large_stdout.tar.gz larg_stdout
-cp large_stdout.tar.gz /mnt/gluster/username/<subdirectory>
+cp large_stdout.tar.gz /mnt/gluster/username/subdirectory
 rm large_std.out large_stdout.tar.gz
 # END</pre>
 

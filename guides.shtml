@@ -105,6 +105,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="/r-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running R Jobs</li></a>
 			<a href="/java-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Java jobs</li></a>
 			<a href="/docker-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using Software Installed in a Docker Container</li></a>
+			<a href="/docker-build.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Create a Docker Container</li></a>
 			<a href="/licensed-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Licensed Software on the HTC system</li></a>
 			<a href="/mpi-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Submitting Jobs that use MPI</li></a>
 		</ul>
@@ -114,6 +115,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/processor.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">Special Use Cases</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
+			<a href="/machine-learning-htc.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Run Machine Learning Jobs</li></a> 
 			<a href="/scaling-htc.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Scaling Beyond Local HTC Capacity</li></a> 
 			<a href="/high-memory-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting High Memory Jobs</li></a>
 			<a href="/gpu-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Jobs that use GPUs</li></a>
@@ -126,6 +128,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 		<h5 class="card-title text-center">Troubleshooting</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important;">
         	<a href="/dos-unix.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Windows/Linux Incompatibility</li></a>
+        	<a href="/docker-test.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Explore and Test Docker Containers</li></a>
 		</ul>
 	</div>						
 </div>

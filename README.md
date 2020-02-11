@@ -47,6 +47,17 @@ branch; then pull from the original CHTC Github repository:
 
 ## Testing Changes Locally
 
+### Quickstart (Unix Only)
+
+1. Install Docker if you don't already have it on your computer.
+2. Open a terminal and `cd` to your local copy of the `chtc-website-source` repository
+3. Run the `./edit.sh` script.
+4. The website should appear at [http://localhost:8080](http://localhost:8080). Note that this system is missing the secret sauce of our setup that converts 
+the pages to an `.shtml` file ending, so links won't work but just typing in the name of a page into the address bar (with no 
+extension) will. 
+
+### Run Docker Manually
+
 1. Install Docker if you don't already have it on your computer and open a terminal. 
 2. Pull the `jekyll` container
 
@@ -57,7 +68,9 @@ branch; then pull from the original CHTC Github repository:
 		docker run -it --rm=true -v $PWD:/srv/jekyll --publish 8080:8080 jekyll/jekyll jekyll serve -P 8080
 	The first time you do this, you'll have to wait for about 3-5 minutes for jekyll to 
 build all its dependencies and then render the website. 
-5. The website should appear at `localhost:8080`. 
+5. The website should appear at [http://localhost:8080](http://localhost:8080). Note that this system is missing the secret sauce of our setup that converts 
+the pages to an `.shtml` file ending, so links won't work but just typing in the name of a page into the address bar (with no 
+extension) will. 
 
 ## Formatting
 
@@ -76,6 +89,16 @@ To format code blocks, we have the following special formatting tags:
 be used for any generic text file. 
 
 We will be using the pound sign for headers, not the `==` or `--` notation. 
+
+For internal links (to a header inside the document), use this syntax: 
+* header is written as
+	```
+	## A. Sample Header
+	```
+* the internal link will look like this: 
+	```
+	[link to header A](#a-sample-header)
+	```
 
 ### Converting HTML to Markdown
 

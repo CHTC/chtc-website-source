@@ -13,13 +13,14 @@ and executables can be downloaded into jobs using CHTC's proxy HTTP address.</p>
 
 <p><h2>Contents</h2>
 <ol>
-  <li><a href="#Appli">Applicability</a></li> 
-    <li><a href="#use">Using SQUID to Deliver Input Files</a>
+  <li><a href="#Appli">Applicability</a></li>
+  <li><a href="#use">Using SQUID to Deliver Input Files</a>
 	<ul>
-	<li><a href="#request">Request a directory in SQUID</a>
-	<li><a href="#place">Place files within your home directory</a>
-	<li><a href="#have">Have HTCondor download the file to the working job</a>
-		</ul></li> 
+	  <li><a href="#request">Request a directory in SQUID</a></li>
+	  <li><a href="#place">Place files within your home directory</a></li>
+	  <li><a href="#have">Have HTCondor download the file to the working job</a></li>
+	</ul>
+  </li>
 </ol>
 
 
