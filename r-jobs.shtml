@@ -128,6 +128,7 @@ variable to reference that version of R:
 <pre class="term">
 [alice@build]$ tar -xzf R<i>###</i>.tar.gz
 [alice@build]$ export PATH=$PWD/R/bin:$PATH
+[alice@build]$ export RHOME=$PWD/R
 </pre>
 
 To make sure that your setup worked, try running: 
