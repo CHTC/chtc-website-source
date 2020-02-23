@@ -268,7 +268,7 @@ is run from a script (bash) executable:</p>
 ./myprogram myinput.txt myoutput.txt > large_std.out
 # 
 # tar and move large files to Gluster so they're not copied to the submit server:
-tar -czvf large_stdout.tar.gz larg_stdout
+tar -czvf large_stdout.tar.gz large_std.out
 cp large_stdout.tar.gz /mnt/gluster/username/subdirectory
 rm large_std.out large_stdout.tar.gz
 # END</pre>
