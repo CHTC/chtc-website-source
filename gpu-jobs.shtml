@@ -135,7 +135,7 @@ server, including: </p>
 		on the NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>CUDAMaxSupportedVersion</code></td>
+		<td><code>CUDADriverVersion</code></td>
 		<td>Maximum CUDA runtime version supported by the GPU drivers on the server. </td>
 	</tr>
 	<tr>
@@ -227,19 +227,6 @@ of GPU cards.  However, when possible, it is best to write your code
 so that it can run across 
 GPU types and without needing the latest version of CUDA.  </p>
 </blockquote>
-
-<p>In general, the CHTC pool should have GPU capabilities that support recent 
-versions of the CUDA runtime that is used in most GPU-capable software. However, 
-if you want to be certain that your job will run on a GPU that can support the 
-CUDA runtime that your software needs, you can use the following option 
-in your submit file: </p>
-
-<pre class="sub">cuda_version = 10.1</pre>
-
-<p>Behind the scenes, this will make sure that your job runs on a server where the 
-<code>CUDAMaxSupportedVersion</code> attribute is greater than or equal to the indicated 
-CUDA version. Note that this submit file option does <b>not</b> ensure that the specific 
-CUDA runtime version you need is installed on the server.</p>
 
 <h2>C. Access shared and research group GPUs (optional)</h2>
 
