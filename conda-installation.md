@@ -6,60 +6,46 @@ title: Create a Portable Python Installation with Miniconda
 
 The Anaconda/miniconda distribution of Python is a common tool for 
 installing and managing Python-based and other tools. This guide 
-describes how to create a miniconda installation that can be packaged 
-up to run jobs in CHTC's HTC system. 
+describes how to use the miniconda installer to create a conda 
+environment inside your job. 
 
-1. Create and Package the Anaconda Environment
-========================================
+# 1. Download the Miniconda Installer and Test Installation
 
-- download the Linux miniconda installer to the submit node and run it to
-install miniconda (basically installs python and python tools) --> get Josh's instructions
+https://docs.conda.io/en/latest/miniconda.html#linux-installers
 
-- add a tool called "conda-pack" to the base conda installation. 
-```
-(base)[alice@submit]$ conda install -c conda-forge conda-pack
-```
-{:.term}
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
-- then, create a conda environment with all of the libraries/versions of
-packages you need. 
+# 2. Create an Executable Script
 
-- After creating/activating that conda environment, run: 
-
-```
-(myenv)[alice@submit]$ conda pack
-```
-{:.term}
-
-This command will create a tarball called `myenv.tar.gz` with your whole conda 
-environment inside. 
-
-2. Use the Anaconda Environment to Run Jobs
-========================================
-
-A. Executable Shell Script
-
-In your job's executable shell script, you'll need to do the following to use
-the conda environment:
+Our plan here is to 
 
 ```
 #!/bin/bash
 
-mkdir tensorflow
-tar -xzf myenv.tar.gz -C tensorflow
-. tensorflow/bin/activate
-python3 script.py
+# installation steps for Miniconda
+export HOME=$PWD
+sh [installer] -b
+export PATH=$PWD/miniconda3/bin:$PATH
+
+# install packages
+conda install numpy matplotlib
+
+# run your python script, which will be provided 
+# as an argument in the submit file. 
+python3 $@
 ```
 {:.file}
 
-And then run your python script.
+# 3. Submit File
 
-B. Submit File
-
-Then, to submit a job, create a submit file that transfers the tarball created
-by the conda pack command. Also in the submit file, use this line:
+In your submit file, include the executable you wrote (as described above)
+and in `transfer_input_files` include the Miniconda installer and any other scripts 
+or data files you want to include with the job: 
 
 ```
-getenv = true
+executable = run_with_conda.sh
+arguments = myscript.py
+
+transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input.file
 ```
 {:.sub}
