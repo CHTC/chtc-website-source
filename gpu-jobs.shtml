@@ -38,10 +38,11 @@ any CHTC user (as of 2/7/2020):</p>
 
 <table class="gtable">
   <tr>
-    <th>Servers </th>
+    <th>Number of Servers</th>
+    <th>Names</th>
     <th>GPUs / Server</th>
     <th>GPU Type</th>
-    <th>Current OS (as of 2019-06-13)</th>
+    <th>Current OS</th>
     <th>HasGluster</th>
   </tr>
 <!--  <tr>
@@ -49,26 +50,29 @@ any CHTC user (as of 2/7/2020):</p>
     <td>1 </td>
     <td>Tesla K40c</td>
   </tr>   -->  
-<tr>
-    <td>gzk-*.chtc.wisc.edu </td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
   <tr>
-    <td>gpu2000-2001.chtc.wisc.edu</td>
+    <td>2</td>
+    <td>gpu2000, gpu2001</td>
     <td>2</td>
     <td>Tesla P100-PCIE-16GB</td>
     <td>CentOS 7</td>
     <td>yes</td>
   </tr>
   <tr>
-    <td>gpu2002-2005.chtc.wisc.edu</td>
+    <td>4</td>
+    <td>gpu2002 - gpu2005</td>
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
     <td>yes</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>gzk-1 - gzk-4</td>
+    <td>8 </td>
+    <td>GeForce GTX 1080</td>
+    <td>SL 6</td>
+    <td>no</td>
   </tr>
 </table>
 
@@ -113,27 +117,30 @@ server, including: </p>
 	</tr>
 	<tr>
 		<td><code>Gpus</code></td>
-		<td>Number of GPUs in an individual job slot on a server(one server can be divided into slots to run multiple jobs)</td>
+		<td>Number of GPUs in an individual job slot on a server (one server can be divided into slots to run multiple jobs).</td>
 	</tr>
 	<tr>
 		<td><code>TotalGPUs</code></td>
-		<td>The total number of GPUs on a server</td>
-	</tr>
-	<tr>
-		<td><code>CUDADriverVersion</code></td>
-		<td>Maximum CUDA runtime version supported by the GPU drivers on the machine. (CUDADriverVersion is not the actual GPU driver version) </td>
-	</tr>
-	<tr>
-		<td><code>CUDACapability</code></td>
-		<td>Represents how new the GPU is -- higher numbers are newer GPUs. </td>
-	</tr>
-	<tr>
-		<td><code>CUDAGlobalMemoryMb</code></td>
-		<td>Amount of global memory available on the GPU</td>
+		<td>The total number of GPUs on a server.</td>
 	</tr>
 	<tr>
 		<td><code>CUDADeviceName</code></td>
-		<td>The GPU type for the CUDA software libraries</td>
+		<td>The type of GPU card.</td>
+	</tr>
+	<tr>
+		<td><code>CUDACapability</code></td>
+		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
+		requiring a specific type of GPU. You can see more detail on what the capability numbers mean via 
+		<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">this page
+		on the NVIDIA website</a>.</td>
+	</tr>
+	<tr>
+		<td><code>CUDAMaxSupportedVersion</code></td>
+		<td>Maximum CUDA runtime version supported by the GPU drivers on the server. </td>
+	</tr>
+	<tr>
+		<td><code>CUDAGlobalMemoryMb</code></td>
+		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
 
@@ -187,7 +194,7 @@ that is not well-suited to the GPU.</p>
 need to set any environmental variables or other options related to the GPU, except 
 what is needed inside your code.</p>
 
-<h2>B. Request specific GPUs (optional)</h2>
+<h2>B. Request specific GPUs or CUDA functionality (optional)</h2>
 
 <p>If your software or code requires a specific version of CUDA, a certain type of 
 GPU, or has some other special requirement, you will need to add a "requirements" 
@@ -215,11 +222,24 @@ statement to your submit file that uses one of the attributes shown above. </p>
 </table>
 
 <blockquote>
-<p>It may be tempting to add requirements for specific machines or types 
+<p>It may be tempting to add requirements for specific GPU servers or types 
 of GPU cards.  However, when possible, it is best to write your code 
 so that it can run across 
 GPU types and without needing the latest version of CUDA.  </p>
 </blockquote>
+
+<p>In general, the CHTC pool should have GPU capabilities that support recent 
+versions of the CUDA runtime that is used in most GPU-capable software. However, 
+if you want to be certain that your job will run on a GPU that can support the 
+CUDA runtime that your software needs, you can use the following option 
+in your submit file: </p>
+
+<pre class="sub">cuda_version = 10.1</pre>
+
+<p>Behind the scenes, this will make sure that your job runs on a server where the 
+<code>CUDAMaxSupportedVersion</code> attribute is greater than or equal to the indicated 
+CUDA version. Note that this submit file option does <b>not</b> ensure that the specific 
+CUDA runtime version you need is installed on the server.</p>
 
 <h2>C. Access shared and research group GPUs (optional)</h2>
 
@@ -262,17 +282,19 @@ more specific recommendations here: <a href="/machine-learning-htc.shtml">Run Ma
 <h2>A. Compiled Code</h2>
 
 <p>You can use our conventional methods of creating a portable installation 
-of a software package (as in our R/Python guides) to run on GPUs.  Most 
-software needs to be compiled on a machine with GPUs in order to use them 
-correctly.  To build your code on a GPU server, create a submit file that 
-requests GPUs (see <a href="#submit">above</a>) and submit it to run 
-interactively by using the "-i" option with <code>condor_submit</code>:
-<pre class="term">[alice@submit]$ condor_submit -i gpu.sub</pre>
-</p>
+of a software package (as in our R/Python guides) to run on GPUs.  Most of our 
+build servers or GPU servers have copies of the CUDA Runtime that can be used 
+to compile code. To access these servers, submit an interactive job, following the 
+instructions in our <a href="/inter-submit">Build Job Guide</a> or by submitting 
+a GPU job submit file with the interactive flag for <code>condor_submit</code>. Once 
+on a build or GPU server, see what CUDA versions are available by looking at
+ the path <code>/user/local/cuda-*</code>. </p>
 
-<p>Some software will automatically detect the 
-GPU capability of the server and use that information to compile; for 
-other programs you may need to set specific flags or options.</p>
+<p>Note that we strongly recommend software installation strategies that incorporate 
+the CUDA runtime into the final installed code, so that jobs are able to run on servers 
+even if a different version of the CUDA runtime is installed (or there's no runtime at all!). 
+For compiled code, look for flags that enable static linking or use one of the solutions listed below. 
+</p>
 
 <h2>B. Docker</h2>
 
@@ -282,12 +304,6 @@ can find or create a Docker image with your software that is based on
 the nvidia-docker container, you can use this to run your jobs in 
 CHTC.  See our <a href="/docker-jobs.shtml">Docker guide</a> for 
 how to use Docker in CHTC.</p>
-
-<blockquote>
-<p>Docker is not supported on the operating system version (Scientific Linux 
-6) that is running the <code>gzk</code> GPU servers.  We hope to have more GPUs 
-with Docker support in the future.  </p>
-</blockquote>
 
 <a name="osg"></a>
 <h1>4. Using GPUs on the Open Science Grid</h1>
