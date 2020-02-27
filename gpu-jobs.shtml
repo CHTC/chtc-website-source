@@ -130,9 +130,9 @@ server, including: </p>
 	<tr>
 		<td><code>CUDACapability</code></td>
 		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
-		requiring a specific type of GPU. You can see more detail on what the capability numbers mean via 
-		<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">this page
-		on the NVIDIA website</a>.</td>
+		requiring a specific type of GPU. More details on what the capability numbers mean can be found on the 
+		<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">
+		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
 		<td><code>CUDADriverVersion</code></td>
