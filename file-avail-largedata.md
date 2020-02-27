@@ -82,7 +82,7 @@ location (or any CHTC file system) at any time.
 be available only within the the CHTC pool, on a subset of our total 
 capacity. 
 
-Files placed in Gluster are owned by the user, and only the user's own
+Staged data are owned by the user, and only the user's own
 jobs can access these files (unless the user specifically modifies unix
 file permissions to make certain files available for other users).
 
@@ -109,11 +109,11 @@ Data placed in our large data `/staging` location
 should be stored in as few files as possible (ideally,
 one file per job), and will be used by a job only after being copied
 from `/staging` into the job working directory (see [below](#3-using-staged-files-in-a-job)).
-Similarly, large output requiring Gluster should first be written to the
+Similarly, large output should first be written to the
 job working directory then compressed in to a single file before being
 copied to `/staging` at the end of the job. 
 
-To prepare job-specific data that is large enough to require Gluster
+To prepare job-specific data that is large enough to pre-staging
 and exists as multiple files or directories (or a directory of multiple
 files), first create a compressed tar package before placing the file in
 `/staging` (either before submitting jobs, or within jobs before
@@ -191,8 +191,7 @@ rm large_input.tar.gz large_input.txt
 If jobs produce large (more than 3-4GB) output files, have 
 your executable write the output file(s) to a location within
 the working directory, and then make sure to move this large file to
-Gluster (or copy to Gluster, and then remove from the working
-directory), so that it's not transferred back to the home directory, as
+the `/staging` folder, so that it's not transferred back to the home directory, as
 all other "new" files in the working directory will be.
 
 Example, if executable is a shell script:
@@ -203,7 +202,7 @@ Example, if executable is a shell script:
 # Command to save output to the working directory:
 ./myprogram myinput.txt output_dir/
 #
-# Tar and copy output to Gluster, then delete from the job working directory:
+# Tar and mv output to staging, then delete from the job working directory:
 tar -czvf large_output.tar.gz output_dir/ other_large_files.txt
 mv large_output.tar.gz /staging/username/
 rm other_large_files.txt
@@ -225,7 +224,7 @@ standard output is very large.
 
 In these cases, it is useful to redirect the standard output of commands
 in your executable to a file in the working directory, and then move it
-into Gluster at the end of the job.
+into `/staging` at the end of the job.
 
 Example, if "`myprogram`" produces very large standard output, and is
 run from a script (bash) executable:
@@ -238,7 +237,7 @@ run from a script (bash) executable:
 # redirecting large standard output to a file in the working directory:
 ./myprogram myinput.txt myoutput.txt > large_std.out
 # 
-# tar and move large files to Gluster so they're not copied to the submit server:
+# tar and move large files to staging so they're not copied to the submit server:
 tar -czvf large_stdout.tar.gz large_std.out
 cp large_stdout.tar.gz /staging/username/subdirectory
 rm large_std.out large_stdout.tar.gz
@@ -250,7 +249,7 @@ rm large_std.out large_stdout.tar.gz
 
 In order to properly submit jobs using staged large data, always do the following:
 
-- **Submit from `/home`**: ONLY submit Gluster-dependent jobs from within your home directory
+- **Submit from `/home`**: ONLY submit jobs from within your home directory
     (`/home/username`), and NEVER from within `/staging`.
 
 In your submit file: 
@@ -282,7 +281,7 @@ error = $(Cluster).err
 ## Do NOT list the large data files here
 transfer_input_files = myprogram
 
-# IMPORTANT! Require execute servers that have Gluster:
+# IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)
 
 # Make sure to still include lines like "request_memory", "request_disk", "request_cpus", etc. 
