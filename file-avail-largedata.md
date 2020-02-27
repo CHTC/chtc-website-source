@@ -49,7 +49,7 @@ greater than 100MB and individual output files greater than 3-4GB.
 Users are expected to abide by this intended use expectation and follow the 
 instructions for using `/staging` written in this guide (e.g. files placed 
 in `/staging `should NEVER be listed in the submit file, but rather accessed 
-via  job's executable).
+via the job's executable (aka .sh) script).
 
 ## B. Access to Large Data Staging
 
