@@ -6,10 +6,25 @@ title: Using Gluster for Large Data and Software
 
 <blockquote>
 <h1>NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED 
-<a href="/file-avail-largedata.shtml">HERE</a>.</h1> This page will be archived once 
-the transition to the new system is complete on April 15, 2020. For more information, 
+<a href="/file-avail-largedata.shtml">HERE</a>.</h1> 
+
+<br>
+
+<b>Important Dates</b>
+<ul>
+<li>March 4 - Applications open for space on the new large data system. </li>
+<li>April 1 - Jobs that require Gluster will no longer run. </li>
+<li>April 15 - Gluster file share is removed and all files in Gluster are deleted. </li>
+</ul>
+
+For more information, 
 see recent entries on the <a href="/user-news.shtml">CHTC User News page</a>. 
 
+<br><br>
+
+
+This page will be archived once 
+the transition to the new system is complete on April 15, 2020. 
 </blockquote>
 
 <p>CHTC maintains a Gluster file share, which should only be used for
