@@ -1,7 +1,7 @@
 ---
 highlighter: none
-layout: default
-# layout: file_avail
+#layout: default
+layout: file_avail
 title: Managing Large Data in HTC Jobs
 ---
 

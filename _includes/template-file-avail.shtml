@@ -12,13 +12,13 @@
 </tr>
 
 <tr>
-	<td><a href="file-availability.shtml">HTCondor file transfer</a></td>		
+	<td><a href="file-availability.shtml">HTCondor File Transfer</a></td>		
 	<td>basic file delivery and return; see size limits at right</td>
 	<td>0 - 100 MB per file; <500 MB total per job</td>
 	<td>0 - 4 GB total	</td>
 	<td>in CHTC, UW Grid, and OSG</td>
 	<td>available to <i>your</i> jobs, on CHTC and beyond</td>
-	<td><font color="red">DO NOT USE for files in /mnt/gluster OR /squid</font></td>
+	<td><font color="red">DO NOT USE for files in <code>/staging</code> OR <code>/squid</code></font></td>
 </tr>
 
 <tr>
@@ -28,11 +28,11 @@
 	<td>N/A</td>
 	<td>in CHTC, UW Grid, and OSG</td>
 	<td>files will be world-<i>readable</i></td>
-	<td>large files unique to individual jobs are better for Gluster</td>
+	<td>large files unique to individual jobs are better for large data staging</td>
 </tr>
 
 <tr>
-	<td><a href="file-avail-gluster.shtml">Gluster File Share</a></td>
+	<td><a href="file-avail-largedata.shtml">Large Data Staging</a></td>
 	<td>largest software, input, and output</td>
 	<td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
 	<td>4 GB - TBs</td>
