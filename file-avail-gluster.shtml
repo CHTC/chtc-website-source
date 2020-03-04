@@ -4,6 +4,13 @@ title: Using Gluster for Large Data and Software
 ---
 
 
+<blockquote>
+<h1>NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED 
+<a href="/file-avail-largedata.shtml">HERE</a>.</h1> This page will be archived once 
+the transition to the new system is complete on April 15, 2020. For more information, 
+see recent entries on the <a href="/user-news.shtml">CHTC User News page</a>. 
+
+</blockquote>
 
 <p>CHTC maintains a Gluster file share, which should only be used for
 files or software that are too large for HTCondor file transfer or SQUID. 
