@@ -15,8 +15,8 @@ title: Submitting High Memory Jobs on CHTC's HTC System
 	files and directories, and run intended programs (aka "executables").</li>
 	<li><a href="/helloworld.shtml">
 	CHTC's Intro to Running HTCondor Jobs</a></li>
-	<li>CHTC's guides for using Gluster to handle <a href="/gluster-large-files.shtml">
-	large data</a> and software installation.</li>
+	<li>CHTC's guides for handling large data (<a href="/file-avail-largedata.shtml">
+	Guide here</a>) and software installation.</li>
 </ol>
 
 <h2>Overview</h2>
@@ -174,19 +174,19 @@ are places where it's important to customize:</p>
 	on the execute node, including all output and input (which will take up space before 
 	some of it is removed from the job working directory at the end of the job). <br><br> </li>
 	<li class="spaced"><b>Other requirements</b>: if your job uses files from 
-	<a href="/file-avail-gluster.shtml">Gluster</a>, or 
+	<a href="/file-avail-largedata.shtml">our large data space</a>, or 
 	<a href="/docker-jobs.shtml">Docker for software</a>, 
 	add the necessary requirements for these resources to your submit file.   <br><br></li>
 </ul>
 
 <p>Altogether, a sample submit file may look something like this: </p>
 
-<pre class="sub">### Example submit file for a single Gluster-dependent job
+<pre class="sub">### Example submit file for a single staging-dependent job
 
 universe = vanilla
 
 # Files for the below lines will all be somewhere within /home/username,
-# and not within /mnt/gluster/username
+# and not within /staging/username
 log = run_myprogram.log
 executable = run_Trinity.sh
 output = $(Cluster).out
@@ -194,8 +194,8 @@ error = $(Cluster).err
 transfer_input_files = trinityrnaseq-2.0.1.tar.gz
 should_transfer_files = YES
 
-# Require execute servers that have Gluster
-Requirements = (Target.HasGluster == true)
+# Require execute servers that have large data staging
+Requirements = (Target.HasCHTCStaging == true)
 
 # Memory, disk and CPU requests
 request_memory = 200GB
@@ -220,12 +220,12 @@ and can otherwise provide individual support for program installation
 <h2>C. "Executable" script</h2>
 
 <p>As described in many of our guides (for <a href="/howto_overview.shtml">software</a> or for 
-using <a href="/file-avail-gluster.shtml">Gluster</a>), you will need to write 
+using <a href="/file-avail-largedata.shtml">large data</a>), you will need to write 
 a script that will run your software commands for you and that will serve 
 as the submit file "executable".  Things to note are: </p>
 <ul>
-	<li>If using files from Gluster, follow the recommendations in our 
-	<a href="/file-avail-gluster.shtml">Gluster guide</a>.  </li>
+	<li>If using files from our large data staging space, follow the recommendations in our 
+	<a href="/file-avail-largedata.shtml">guide</a>.  </li>
 	<li>If using multiple cores, make sure that you request the same number of 
 	"threads" or "processes" in your command as you requested in your 
 	<a href="#submit">submit file</a>.</li>
@@ -236,9 +236,9 @@ Altogether, a sample script may look something like this
 (perhaps called <code>run_Trinity.sh</code>): </p>
 
 <pre class="file">#!/bin/bash
-# Copy input data from Gluster to the present directory of the job
+# Copy input data from /staging to the present directory of the job
 # and un-tar/un-zip them.  
-cp /mnt/gluster/usename/reads.tar.gz ./
+cp /staging/username/reads.tar.gz ./
 tar -xzvf reads.tar.gz
 rm reads.tar.gz
 
@@ -251,13 +251,13 @@ export PATH=$(pwd)/trinityrnaseq-2.0.6:$PATH
 # Run software command, referencing input files in the working directory and 
 # redirecting "stdout" to a file.  Backslashes are line continuation.
 Trinity --seqType fq --left reads_1.fq \
---right /mnt/gluster/username/path/to/reads_2.fq --CPU 4 --max_memory \
+--right reads_2.fq --CPU 4 --max_memory \
 20G > trinity_stdout.txt
 
 # Trinity will write output to the working directory by default, 
-# so when the job finishes, it needs to be moved back to gluster
+# so when the job finishes, it needs to be moved back to /staging
 tar -czvf trinity_out_dir.tar.gz trinity_out_dir
-cp trinity_out_dir.tar.gz trinity_stdout.txt /mnt/gluster/username/
+cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END</pre>
