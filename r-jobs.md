@@ -34,6 +34,7 @@ If you want to build your own copy of base R, see this archived page:
 
 Supported R Installations
 =========================
+
 {:.gtable}
   | R version | Name of R installation file |
   | --- | --- |
@@ -46,7 +47,7 @@ Supported R Installations
 
 <a name="build"></a>
 
-1. Adding R Packages
+**1. Adding R Packages**
 ====================
 
 If your code uses specific R packages (like `dplyr`, `rjags`, etc)
@@ -113,7 +114,7 @@ It may take a few minutes for the build job to start.
 B. Install the Packages
 -----------------------
 
-**1. Set up R**\
+**1. Set up R**
 
 Once the interactive build job starts, you should see the R installation
 that you specified inside the working directory:
@@ -148,7 +149,7 @@ The output should match the version number that you want to be using!
 > If you brought along your own package directory, un-tar it here and
 > skip the directory creation step below.
 
-**2. Install packages**\
+**2. Install packages**
 
 First, create, a directory to put your packages into:
 
@@ -220,7 +221,7 @@ Then exit the R console:
 C. Finish Up
 ------------
 
-**1. Create a `tar.gz` file of your packages**\
+**1. Create a `tar.gz` file of your packages**
 
 Right now, if we exit the interactive job, nothing will be transferred
 back because we haven\'t created any new **files** in the working
@@ -239,7 +240,7 @@ Run the following command to create your own tarball of your packages:
 
 Again, you can use a different name for the `tar.gz` file, if you want.
 
-**2. Finish the interactive build job**\
+**2. Finish the interactive build job**
 
 We now have our packages bundled and ready for CHTC! You can now exit
 the interactive job and the tar.gz file with your R packages will return
@@ -252,7 +253,7 @@ to the submit server with you.
 
 <a name="script"></a>
 
-2. Creating a Script
+**2. Creating a Script**
 ====================
 
 In order to use CHTC\'s copy of R and the packages you have prepared in
@@ -317,7 +318,7 @@ would like, give it executable permissions by running:
 
 <a name="submit"></a>
 
-3. Submitting Jobs
+**3. Submitting Jobs**
 ==================
 
 A sample submit file can be found in our [hello
