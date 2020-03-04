@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: default
-title: Using CHTC\'s HTC Submit Servers 
+title: Using CHTC's HTC Submit Servers 
 ---
 
 **If you have not yet requested a CHTC account and met with a Research
