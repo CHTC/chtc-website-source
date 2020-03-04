@@ -66,10 +66,10 @@ ALWAYS transferred.</p>
 
 <h3>Notes:</h3>
 <ul>
-	<li>DO NOT use "transfer_input_files" for files within /squid or /mnt/gluster, 
+	<li>DO NOT use "transfer_input_files" for files within /squid or /staging 
 	as doing so will create severe performance issues for your jobs and those of 
 	other users. (Similarly, you should never submit jobs from within /squid 
-	or /mnt/gluster.)</li>
+	or /stagin.)</li>
 	<li>Comma-separated files and directories to-be-transferred should be listed 
 	with a path relative to the submit directory, or can be listed with the 
 	absolute path(s), as shown above for "file3". The submit file "executable" 
