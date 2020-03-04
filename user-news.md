@@ -11,6 +11,44 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+
+## Migrate from Gluster to new large-file staging system on HTC
+### Wednesday, March 04, 2020
+
+Greetings CHTC users,
+
+This message is for users of our HTC System who use our Gluster file share to stage large files, e.g.
+*   input files per job, greater than 100MB, each
+*   output per job, greater than a few GB, total
+
+We are transitioning from our Gluster file share for large data to a new system, with the goal of providing improved performance and stability.
+
+**Important Dates**
+*   March 4 (today) - Applications open for space on the new large-data system.  
+*   April 1 - Jobs that require Gluster will no longer run.
+*   April 15 - Gluster file share is removed and all files in Gluster are deleted.
+    
+
+**Actions to Take**
+
+If you use Gluster on our HTC system, here are the actions you need to take:
+*   **Remove all data from Gluster as soon as possible.** Data in Gluster will be deleted on April 15.
+*   **When you need to run new jobs with large input or output files,** request a directory on the new large-data system by sending an email our support address ([chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu)) with the following information:
+	*   How many jobs you typically have queued at once, and how many files of what sizes those jobs will require in the large-data system; therefore ...
+	*   Total space needed and how many total files/folders that will include
+*   Note that you can request a directory for large data at any time; if you're not currently running jobs, you can just email us when the need next arises.    
+*   **Follow the online guide for the new large-data system**: [http://chtc.cs.wisc.edu/file-avail-largedata](http://chtc.cs.wisc.edu/file-avail-largedata)
+
+Our software modules on the HTC System (for licensed software or compilers/MPI) will also be transitioning off of Gluster (where they currently live) over the next few weeks; we will send an update about the replacement modules and updated documentation next week, so stay tuned if this applies to you.
+
+As always, direct any questions to our support email: [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
+
+All the best,  
+Your CHTC team
+
+
 ------------------------------------------------------------------------
 
 ## CHTC Website Content Now in GitHub
