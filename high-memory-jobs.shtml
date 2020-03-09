@@ -261,6 +261,3 @@ cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END</pre>
-
-
-<!--#include virtual="/includes/template-5-finish.shtml" -->
