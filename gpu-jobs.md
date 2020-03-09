@@ -34,11 +34,15 @@ capabilities (as of 2/7/2020):
 
 ## A. GPUs via the CHTC GPU Lab
 
-CHTC has several GPU servers available as the CHTC "GPU Lab", funded 
-by UW 2020 grant funding (see [this page](/gpu-lab) for more information 
-on the larger GPU Lab project). 
+There are a limited number of shared use GPUs available through the CHTC GPU
+Lab. Therefore, these servers have different policies about job runtimes and
+the maximum number of running jobs per user than general CHTC servers.
+These GPUs are a special investment from the UW2020 program, and the policies
+aim to maximize how many researchers can benefit from this investment.
 
-
+By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
+project leaders occasionally to discuss your GPU computing and help improve the
+GPU Lab.
 
 <table class="gtable">
   <tr>
@@ -72,9 +76,19 @@ on the larger GPU Lab project).
   </tr>
 </table>
 
-CHTC has plans to increase our GPU capacity through the [CHTC GPU
-Lab](/gpu-lab.shtml) project, funded by UW2020. This page will be
-updated as we acquire additional GPU capacity.
+### Job types, runtimes, and per-user limitations
+
+{:.gtable}
+  | Job type | Submit file name (?) | Maximum runtime | Per-user limitation |
+  | --- |
+  | Short | ? | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
+  | Medium | ? | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
+  | Long | ? | 7 days | 1 job with 1-2 GPUs |
+  | Interactive | ? | 4 hours | 1 job with 1 GPU |
+  | Pre-emptable (backfill) | ? | None | None |
+
+These job types, runtimes, and per-user limitations are subject to change with
+short notice as the CHTC GPU Lab studies usage patterns.
 
 ## B. General Use GPUs
 
@@ -115,16 +129,17 @@ their group members. If you set the submit file option `+WantFlocking`
 to true, your jobs are eligible to run on all GPU servers in CHTC, but
 they are no longer guaranteed a 72-hour run time -- see [below](#d-access-shared-and-research-group-gpus-optional).
 
-## D. See Available Resources
+## D. See All Available Resources
 
 You can also find out information about GPUs in CHTC through the
 `condor_status` command. All of our servers with GPUs have a `TotalGPUs`
 attribute that is greater than zero; thus we can query the pool to find
 GPU-enabled servers by running:
 
-``` {.term}
+``` 
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
 ```
+{: .term}
 
 To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
@@ -132,9 +147,11 @@ specific server attributes. For example, the tables above can be mostly
 recreated using the attributes `Machine`, `TotalGpus` and
 `CUDADeviceName`:
 
-``` {.term}
+```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' -af Machine TotalGpus CUDADeviceName
 ```
+{: .term}
+
 
 In addition, HTCondor tracks other GPU-related attributes for each
 server, including:
@@ -183,10 +200,11 @@ to access the GPUs in CHTC.
 All jobs that use GPUs must request GPUs in their submit file (along
 with the usual requests for CPUs, memory and disk).
 
-``` {.sub}
+```
 request_gpus = 1
 ```
-
+{: .sub}
+ 
 It is important to still request at least one CPU per job to do the
 processing that is not well-suited to the GPU.
 
@@ -196,7 +214,27 @@ related to the GPU, except what is needed inside your code.
 
 ## B. Use the GPU Lab Servers (recommended)
 
+To accept the CHTC GPU Lab policies and opt-in to use these GPUs, add the
+following line to your submit file:
 
+```
++WantGPULab = true
+```
+{: .sub}
+
+
+**<todo: finalize the syntax>**
+
+As described [above](#job-types-runtimes-and-per-user-limitations), using the GPU Lab servers means that default CHTC requirements 
+are changed, including the length of the job. 
+To specify the job type... **<todo: finalize the syntax>**
+
+```
+???
+```
+{: .sub}
+
+If you do not specify a job type, the Medium job type will be used as the default.
 
 ## C. Request specific GPUs or CUDA functionality (optional)
 
@@ -207,9 +245,11 @@ attributes shown above.
 
 If you want a certain class of GPU, use CUDACapability:
 
-``` {.sub}
+```
 requirements = (CUDACapability == 7.5)
 ```
+{: .sub}
+
 
 This table shows the "CUDACapability" value for our general use GPUs:
 
@@ -244,9 +284,10 @@ additional servers opens up more capacity. To allow jobs to run on these
 research-group owned servers if there is space, add the "Flocking"
 option to your submit file:
 
-``` {.sub}
+```
 +wantFlocking = true
 ```
+{: .sub}
 
 ## E. Use the `gzk` servers (optional)
 
