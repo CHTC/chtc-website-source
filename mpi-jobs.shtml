@@ -97,6 +97,18 @@ can find which MPI modules are available to you by typing:</p>
 
 <pre class="term">[alice@build]$ module avail</pre>
 
+<blockquote> 
+<b>New Module Transition</b> <br>
+
+<p>We are transitioning to a new set of modules during March 2020. Module 
+commands will show two sets of modules. The first set, listed under the header
+<code>/software/chtc/modules</code> are the new modules. New jobs should always 
+use these. The old modules are listed under <code>/etc/modulefiles</code> will 
+be retired on <b>April 10</b>; jobs that use these modules should be transitioned 
+to new modules by then. If you need a module that hasn't yet been added to the new 
+group, please email us at chtc@cs.wisc.edu. </p>
+</blockquote>
+
 <p>Choose the module you want to use and load 
 it with the following command: </p>
 <pre class="term">[alice@build]$ module load <i>mpi_module</i></pre>
@@ -188,9 +200,12 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = <i>input_files</i>, <i>myprogram</i>
 
-## Required options for accessing modules
-requirements = ( Target.HasModules == true )
 getenv = true
+# Requirement for accessing new set of modules
+requirements = ( Target.HasChtcSoftware == true ) 
+# Old requirement for previous set of modules
+# These modules will not be available after April 10
+# requirements = ( Target.HasModules == true )
 
 ## Request resources needed by your job
 request_cpus = <i>8</i>
