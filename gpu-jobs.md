@@ -17,10 +17,10 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
-1.  [GPUs available in CHTC](#gpus)
-2.  [Submit File Considerations](#submit)
-3.  [Software Considerations](#software)
-4.  [Using GPUs on the Open Science Grid](#osg)
+1.  [GPUs available in CHTC](#1-gpus-available-in-chtc)
+2.  [Submit Jobs Using GPUs](#2-submit-jobs-using-gpus)
+3.  [Preparing Software Using GPUs](#3-preparing-software-using-gpus)
+4.  [Using GPUs on the Open Science Grid](#4-using-gpus-on-the-open-science-grid)
 
 > This is the initial version of a guide about running GPU jobs in CHTC.
 > If you have any suggestions for improvement, or any questions about
@@ -30,7 +30,15 @@ determine:
 # 1. GPUs Available in CHTC
 
 CHTC's high throughput (HTC) system has the following servers with GPU
-capabilities that are available to any CHTC user (as of 2/7/2020):
+capabilities (as of 2/7/2020):
+
+## A. GPUs via the CHTC GPU Lab
+
+CHTC has several GPU servers available as the CHTC "GPU Lab", funded 
+by UW 2020 grant funding (see [this page](/gpu-lab) for more information 
+on the larger GPU Lab project). 
+
+
 
 <table class="gtable">
   <tr>
@@ -55,8 +63,35 @@ capabilities that are available to any CHTC user (as of 2/7/2020):
     <td>yes</td>
   </tr>
   <tr>
-    <td>4</td>
-    <td>gpu2002 - gpu2005</td>
+    <td>2</td>
+    <td>gpu2002,gpu2003</td>
+    <td>8</td>
+    <td>GeForce RTX 2080 Ti</td>
+    <td>CentOS 7</td>
+    <td>yes</td>
+  </tr>
+</table>
+
+CHTC has plans to increase our GPU capacity through the [CHTC GPU
+Lab](/gpu-lab.shtml) project, funded by UW2020. This page will be
+updated as we acquire additional GPU capacity.
+
+## B. General Use GPUs
+
+The CHTC has N additional GPUs for general use. 
+
+<table class="gtable">
+  <tr>
+    <th>Number of Servers</th>
+    <th>Names</th>
+    <th>GPUs / Server</th>
+    <th>GPU Type</th>
+    <th>Current OS</th>
+    <th>HasCHTCStaging</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>gpu2004,gpu2005</td>
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
@@ -72,9 +107,15 @@ capabilities that are available to any CHTC user (as of 2/7/2020):
   </tr>
 </table>
 
-CHTC has plans to increase our GPU capacity through the [CHTC GPU
-Lab](/gpu-lab.shtml) project, funded by UW2020. This page will be
-updated as we acquire additional GPU capacity.
+## C. Researcher Owned GPUs
+
+Finally, some GPU servers in CHTC have 
+been purchased for specific research groups and are prioritized for
+their group members. If you set the submit file option `+WantFlocking`
+to true, your jobs are eligible to run on all GPU servers in CHTC, but
+they are no longer guaranteed a 72-hour run time -- see [below](#d-access-shared-and-research-group-gpus-optional).
+
+## D. See Available Resources
 
 You can also find out information about GPUs in CHTC through the
 `condor_status` command. All of our servers with GPUs have a `TotalGPUs`
@@ -85,17 +126,9 @@ GPU-enabled servers by running:
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
 ```
 
-> **Why are there more GPU servers in condor\_status?**\
->  If you run the `condor_status` command above, you'll see more servers
-> listed than we show in the table above. Some of these servers have
-> been purchased for specific research groups and are prioritized for
-> their group members. If you set the submit file option `+WantFlocking`
-> to true, your jobs are eligible to run on all GPU servers in CHTC, but
-> they are no longer guaranteed a 72-hour run time.
-
 To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
-specific server attributes. For example, the table above can be mostly
+specific server attributes. For example, the tables above can be mostly
 recreated using the attributes `Machine`, `TotalGpus` and
 `CUDADeviceName`:
 
@@ -140,7 +173,10 @@ server, including:
 	</tr>
 </table>
 
-# 2. Submit File Considerations
+# 2. Submit Jobs Using GPUs
+
+The following sections describe how to alter your HTCondor submit file in order 
+to access the GPUs in CHTC. 
 
 ## A. Request GPUs (required)
 
@@ -158,7 +194,11 @@ Note that HTCondor will make sure your job has access to the GPU -- you
 shouldn't need to set any environmental variables or other options
 related to the GPU, except what is needed inside your code.
 
-## B. Request specific GPUs or CUDA functionality (optional)
+## B. Use the GPU Lab Servers (recommended)
+
+
+
+## C. Request specific GPUs or CUDA functionality (optional)
 
 If your software or code requires a specific version of CUDA, a certain
 type of GPU, or has some other special requirement, you will need to add
@@ -193,7 +233,7 @@ This table shows the "CUDACapability" value for our general use GPUs:
 > code so that it can run across GPU types and without needing the
 > latest version of CUDA.
 
-## C. Access shared and research group GPUs (optional)
+## D. Access shared and research group GPUs (optional)
 
 As alluded to above, certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
@@ -208,7 +248,7 @@ option to your submit file:
 +wantFlocking = true
 ```
 
-## D. Use the `gzk` servers (optional)
+## E. Use the `gzk` servers (optional)
 
 The default operating system for jobs in CHTC is now CentOS 7. **If you
 want to use the `gzk-*` GPU nodes shown above, you'll need to
@@ -216,7 +256,7 @@ specifically request the use of Scientific Linux 6 as an operating
 system.** There is an example of how to do this in our [Operating System
 guide](/os-transition.shtml).
 
-# 3. Software Considerations
+# 3. Preparing Software Using GPUs
 
 Before using GPUs in CHTC you should ensure that the use of GPUs will
 actually help your program run faster. This means that the code or
