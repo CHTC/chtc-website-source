@@ -111,10 +111,9 @@ files), first create a compressed tar package before placing the file in
 an S3 bucket (either before submitting jobs, or within jobs before
 transferring output to). For example:
 
-```
+``` {: .term}
 $ tar -czvf job_package.tar.gz file_or_dir
 ```
-{: .term}
 
 ## C. Use the Transfer Server
 
@@ -181,15 +180,13 @@ file's `transfer_input_files` that point to the filename
 (e.g. `large-input.file`) inside your bucket (e.g. `my-bucket`) on
 CHTC's S3 storage (`s3dev.chtc.wisc.edu`):
 
-```
+``` {: .file}
 ...
 executable = my_script.sh
 transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
 arguments = large-input.file
 ...
 ```
-{: .file}
-
 
 ## B. Moving Large Output Files
 
@@ -197,11 +194,9 @@ To have your job automatically copy data back to your CHTC S3 bucket,
 add file mappings to a `transfer_output_remaps` command inside your
 submit file:
 
-```
+``` {: .file}
 transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
 ```
-{: .file}
-
 
 # 4. Checking your Data Use and File Counts
 
