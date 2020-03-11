@@ -5,11 +5,11 @@ layout: file_avail
 title: Managing Shared Large Data in HTC Jobs
 ---
 
-When submitting jobs to CHTC's High Throughput Computing (HTC) system, 
-there is a distinct location for staging data that is too large to be 
+When submitting jobs to CHTC's High Throughput Computing (HTC) system,
+there is a distinct location for staging data that is too large to be
 handled at scale via the default HTCondor file transfer mechanism
 and/or that is shared among multiple collaborators.
-<!--- This 
+<!--- This
 location should be used for jobs that require input files larger than 100MB
 and/or that generate output files larger than 3-4GB. --->
 
@@ -42,37 +42,38 @@ Contents
 
 ## A. Intended Use
 
-<!--- Our S3 API is only for input and output files that 
-are individually too large to be managed by our other data movement 
-methods, HTCondor file transfer or SQUID. This includes individual input files 
-greater than 100MB and individual output files greater than 3-4GB. 
+<!--- Our S3 API is only for input and output files that
+are individually too large to be managed by our other data movement
+methods, HTCondor file transfer or SQUID. This includes individual input files
+greater than 100MB and individual output files greater than 3-4GB.
 
-Users are expected to abide by this intended use expectation and follow the 
-instructions for using S3 written in this guide (e.g. files placed 
+Users are expected to abide by this intended use expectation and follow the
+instructions for using S3 written in this guide (e.g. files placed
 in S3 should ALWAYS be listed in the submit file). --->
 
 ## B. Access to Large Data Staging
 
-Any one with a CHTC account whose data meets the intended use above can request 
-access to our S3 API. A Research Computing Facilitator will 
-review the request and follow up. If appropriate, access will be granted via 
-a directory in the system and a quota. Quotas are based on individual user needs; 
-if a larger quota is needed, email chtc@cs.wisc.edu with your request. 
+Any one with a CHTC account whose data meets the intended use above
+can request access to one or more CHTC S3 buckets. A Research
+Computing Facilitator will review the request and follow up. If
+appropriate, access will be granted via a S3 bucket in the system and
+a quota. Quotas are based on individual user needs; if a larger quota
+is needed, email chtc@cs.wisc.edu with your request.
 
 ## C. User Data Management Responsibilities
 
-As with all CHTC file spaces: 
+As with all CHTC file spaces:
 
-- **Keep copies**: Our S3 buckets are not backed up and have the 
-possibility of data loss; keep copies of ANY and ALL data in S3 buckets in another, non-CHTC
-location. 
+- **Keep copies**: Our S3 buckets are not backed up and have the
+possibility of data loss; keep copies of ANY and ALL data in S3
+buckets in another, non-CHTC location.
 - **Remove data**: We expect that users remove data from S3 buckets AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. 
-- **Monitor usage and quota**: Each S3 bucket has both a size and "items" quota. Quota changes 
-can be requested by emailing chtc@cs.wisc.edu. 
+SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.
+- **Monitor usage and quota**: Each S3 bucket has both a size and
+number of files quota. Quota changes can be requested by emailing
+chtc@cs.wisc.edu.
 
-CHTC staff reserve the right to remove data from our large data staging 
-location (or any CHTC file system) at any time.
+CHTC staff reserve the right to remove S3 buckets at any time.
 
 ## D. Data Access Within Jobs
 
@@ -80,32 +81,29 @@ Data in a CHTC S3 bucket is available anywhere (including OSG) as long
 as the version of HTCondor running on the execute machines support
 jobs that use S3 URLs.
 
-Data in CHTC S3 buckets are owned by the user, and only the user's own
-jobs can access these files (unless the user specifically modifies
-their buckets to make files available for other users).
+Data in CHTC S3 buckets are owned by the user or a set of users, and
+only the user's (or users') own jobs can access these files.
 
 # 2. Staging Large Data
 
-In order to stage data in an S3 bucket for use on CHTC's HTC system: 
+In order to stage data in an S3 bucket for use on CHTC's HTC system:
 
 - **Get a S3 bucket**: S3 buckets are available by request.
 - **Reduce file counts**: Combine and compress files that are used together.
 - **Use the transfer server**: Upload your data via our dedicated file transfer server.
-- **Remove files after jobs complete**: Our S3 buckets are quota controlled and not backed up. 
+- **Remove files after jobs complete**: Our S3 buckets are quota controlled and not backed up.
 
 ## A. Get a S3 Bucket
 
-CHTC S3 buckets are granted by request. If you think you need 
-a S3 bucket, email CHTC's Research Computing Facilitators (chtc@cs.wisc.edu). 
+CHTC S3 buckets are granted by request. If you think you need
+a S3 bucket, email CHTC's Research Computing Facilitators (chtc@cs.wisc.edu).
 
 ## B. Reduce File Counts
 
-Data placed in S3 buckets
-should be stored in as few files as possible (ideally,
-one file per job).
-Similarly, large output should first be written to the
-job working directory then compressed in to a single file before being
-transferred back to an S3 bucket at the end of the job. 
+Data placed in S3 buckets should be stored in as few files as possible
+(ideally, one file per job). Similarly, large output should first be
+written to the job working directory then compressed in to a single
+file before being transferred back to an S3 bucket at the end of the job.
 
 To prepare job-specific data that is large enough
 and exists as multiple files or directories (or a directory of multiple
@@ -114,7 +112,7 @@ an S3 bucket (either before submitting jobs, or within jobs before
 transferring output to). For example:
 
 ```
-$ tar -czvf job_package.tar.gz file_or_dir 
+$ tar -czvf job_package.tar.gz file_or_dir
 ```
 {: .term}
 
@@ -128,7 +126,7 @@ home directory from your own computer:
 
 - Example `scp` command on your own Linux or Mac computer:
 ``` {.term}
-$ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/ 
+$ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/
 ```
 - If using a Windows computer:
 	- Using a file transfer application, like WinSCP, directly drag the large
@@ -147,12 +145,12 @@ $ mc cp large-output.file chtc/my-bucket
 As with all CHTC file spaces, data should be removed from S3 buckets AS
 SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
 will be used it the future, it should be deleted from and copied
-back at a later date. Files can be taken out of S3 buckets using similar 
+back at a later date. Files can be taken out of S3 buckets using similar
 mechanisms as uploaded files. In an SSH session on the transfer
 server, copy files from your bucket to your home directory:
 
 ``` {.term}
-$ mc cp chtc/my-bucket/large-output.file /home/username/
+$ mc cp chtc/my-bucket/large-output.file .
 ```
 
 Then copy files from the transfer server to your own computer:
