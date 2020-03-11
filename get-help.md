@@ -53,7 +53,7 @@ expect a first response within a few business hours.
 > -   **Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.** 
 > 
 > To drop in, find the videoconference link in either your email (via 
-> an announcement to CHTC-users sent on Wed, March 11) or in the login message
+> an announcement to chtc-users sent on Wed., March 11) or in the login message
 > when you log into a CHTC server. 
 > 
 > As always, if the times above don't work for you, please email use 
