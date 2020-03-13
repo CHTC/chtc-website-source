@@ -64,15 +64,15 @@ This message is for users of our HTC System who use our Gluster file share to st
 We are transitioning from our Gluster file share for large data to a new system, with the goal of providing improved performance and stability.
 
 **Important Dates**
-*   March 4 (today) - Applications open for space on the new large-data system.  
-*   April 1 - Jobs that require Gluster will no longer run.
-*   April 15 - Gluster file share is removed and all files in Gluster are deleted.
+*   March 4 - Applications open for space on the new large-data system.  
+*   April 6 - Jobs that require Gluster will no longer run.
+*   April 20 - Gluster file share is removed and all files in Gluster are deleted.
     
 
 **Actions to Take**
 
 If you use Gluster on our HTC system, here are the actions you need to take:
-*   **Remove all data from Gluster as soon as possible.** Data in Gluster will be deleted on April 15.
+*   **Remove all data from Gluster as soon as possible.** Data in Gluster will be deleted on April 20.
 *   **When you need to run new jobs with large input or output files,** request a directory on the new large-data system by sending an email our support address ([chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu)) with the following information:
 	*   How many jobs you typically have queued at once, and how many files of what sizes those jobs will require in the large-data system; therefore ...
 	*   Total space needed and how many total files/folders that will include

@@ -16,18 +16,20 @@ this image for jobs, see our [Docker Jobs guide](docker-jobs.shtml).
 in CHTC.**
 
 Docker images can be created using a special file format
-called a "Dockerfile". This file has keywords that allow you to:
+called a "Dockerfile". This file has commands that allow you to:
 
 -   use a pre-existing Docker image as a base
--   add files into the image
+-   add files to the image
 -   run installation commands
 -   set environment variables
 
 You can then "build" an image from this
 file, test it locally, and push it to DockerHub, where
-HTCondor can then use it to build containers to run jobs in. 
+HTCondor can then use the image to build containers to run jobs in. 
 Different versions of the image can be labeled with different version 
-"tags". This guide has:
+"tags".
+
+This guide has:
 
 1.  [Step by Step Instructions](#a-step-by-step-instructions)
 2.  [Examples](#b-examples)
@@ -59,17 +61,18 @@ subset of these keywords following this basic outline:
 ### Create the file
 
 Create a blank text file named `Dockerfile`. If you are planning on making
-multiple images, you should create a separate folder for each 
-new image with the appropriate Dockerfile inside.
+multiple images for different parts of your workflow, 
+you should create a separate folder for each 
+new image with the a ``Dockerfile`` inside each of them.
 
-### Choose a "base" image with `FROM`
+### Choose a base image with `FROM`
 
-Often you don't want to start building your image from
-scratch; you'll want to choose a base image to add things to.
+Usually you don't want to start building your image from scratch. 
+Instead you'll want to choose a "base" image to add things to.
 
 You can find a base image by searching DockerHub. If you're
 using a scripting language like Python, R or perl, you could start with
-the official image from these languages. If you're not sure what to
+the "official" image from these languages. If you're not sure what to
 start with, using a basic Linux image (Debian, Ubuntu and CentOS are common 
 examples) is often a good place to start.
 
@@ -85,9 +88,11 @@ FROM repository/image:tag
 ```
 {:.file}
 
-Some images are maintained by DockerHub itself, and do not have a repository.
-For example, to start with [Centos 7](https://hub.docker.com/_/centos), you could
-use 
+Some images are maintained by DockerHub itself 
+(these are the "official" images mentioned above), 
+and do not have a repository.
+For example, to start with [Centos 7](https://hub.docker.com/_/centos), 
+you could use 
 
 ```dockerfile
 FROM centos:7
@@ -107,7 +112,16 @@ When possible, you should use a specific tag
 (**not** the automatic `latest` tag)
 in `FROM` statements.
 
-### Copy files and install software with `COPY` and `RUN`
+Here are some base images you might find useful to build off of:
+
+- [Centos](https://hub.docker.com/_/centos)
+- [Ubuntu](https://hub.docker.com/_/ubuntu)
+- [Python](https://hub.docker.com/_/python) / [Anaconda](https://hub.docker.com/r/continuumio/anaconda3) / [Miniconda](https://hub.docker.com/r/continuumio/miniconda3)
+- [R](https://hub.docker.com/_/r-base) / [Tidyverse](https://hub.docker.com/r/rocker/tidyverse/)
+- [Tensorflow](https://hub.docker.com/r/tensorflow/tensorflow)
+- [PyTorch](https://hub.docker.com/r/pytorch/pytorch)
+
+### Install packaged software with `RUN`
 
 The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
@@ -125,53 +139,74 @@ a backslash `\` at the end of the line. `RUN` can execute any command inside the
 image during construction, but keep in mind that the only thing kept in the final
 image is changes to the filesystem (new and modified files, directories, etc.).
 
+For example, suppose that your job's executable ends up running Python and
+needs access to the packages `numpy` and `scipy`, as well as the Unix tool `wget`.
+Below is an example of a `Dockerfile` that uses `RUN` to install these packages
+using the system package manager and Python's built-in package manager.
+
+```dockerfile
+# Build the image based on the official Python version 3.8 image
+FROM python:3.8
+
+# Our base image happens to be Debian-based, so it uses apt-get as its system package manager
+# Use apt-get to install wget 
+RUN apt-get update \
+ && apt-get install wget
+
+# Use RUN to install Python packages (numpy and scipy) via pip, Python's package manager
+RUN pip3 install numpy scipy
+```
+{:.file}
+
 If you need to copy specific files (like source code) from your computer into the
 image, place the files in the same folder as the
 Dockerfile and use the `COPY` keyword. You could also download files 
 within the image by using the `RUN` keyword and commands like `wget` 
-or `git clone`. 
+or `git clone`.
 
-In the example below, we show most of these options. Note that the Python source code
-(`Python-3.2.1.tgz`) would need to be downloaded to the directory with the
-Dockerfile in advance.
-(In real life, you would start with one of the [official Python images](https://hub.docker.com/_/python).)
+For example, suppose that you need to use
+[JAGS](http://mcmc-jags.sourceforge.net/) 
+and the 
+[rjags package for R](https://cran.r-project.org/web/packages/rjags/index.html). 
+If you have the 
+[JAGS source code](https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Source/)
+downloaded next to the `Dockerfile`, you could compile and
+install it inside the image like so:
 
 ```dockerfile
-# Build the image based on Ubuntu Linux
-FROM ubuntu/ubuntu:bionic
+FROM rocker/r-ver:3.4.0
 
-# Copy the Python source code tarball from your computer 
-# into the image, in the /tmp directory
-COPY Python-3.5.2.tgz /tmp
+# COPY the JAGS source code into the image under /tmp
+COPY JAGS-4.3.0.tar.gz /tmp
 
-# Update the Ubuntu system tools
-RUN apt-get update
-
-# Use the standard instructions for 
-# installing Python from source code
+# RUN a series of commands to unpack the JAGS source, compile it, and install it
 RUN cd /tmp \
- && tar -xzf Python-3.2.1.tgz \
- && cd Python-3.2.1 \
+ && tar -xzf JAGS-4.3.0.tar.gz \
+ && cd JAGS-4.3.0 \
  && ./configure \
  && make \
  && make install
 
-# Use the python package manager pip to 
-# install the numpy package
-RUN pip3 install numpy
+# install the R package rjags
+RUN install2.r --error rjags
 ```
 {:.file}
 
-### Set the environment with `ENV`
+### Set up the environment with `ENV`
 
-If you're installing a program to a custom location (like a home
-directory), you may need to add that directory to the image's system
-PATH.
+Your software might rely on certain environment variables being set correctly.
+
+One common situation is that if you're installing a program to a custom location 
+(like a home directory), you may need to add that directory to the image's system
+`PATH`. For example, if you installed some scripts to `/home/software/bin`, you
+could use
 
 ```dockerfile
 ENV PATH="/home/software/bin:${PATH}"
 ```
 {:.file}
+
+to add them to your `PATH`.
 
 You can set multiple environment variables at once:
 
@@ -183,17 +218,20 @@ ENV DEBIAN_FRONTEND=noninteractive \
 ```
 {:.file}
 
-## 4. Build and Name the Image
+## 4. Build, Name, and Tag the Image
 
 So far we haven't actually created the image -- we've just been
-listing instructions for the image in the Dockerfile. But we are now
-ready to build the image!
+listing instructions for *how* to build the image in the Dockerfile.
+Now we are ready to build the image!
 
 First, decide on a name for the image, as well as a tag. Tags are
 important for tracking which version of the image you've created (and
 are using). A simple tag scheme would be to use numbers (e.g. v0, v1,
-etc.), but you can use any system that makes sense to you. The image name 
-will also include your Docker Hub user name. 
+etc.), but you can use any system that makes sense to you.
+
+Because HTCondor caches Docker images by tag, we **strongly recommend that you 
+never use the `latest` tag, and always build images with a new, unique tag that
+you then explicitly specify in new jobs**.
 
 To build and tag your image, open a Terminal (Mac/Linux) or Command
 Prompt (Windows) and navigate to the folder that contains your
@@ -204,9 +242,9 @@ $ cd directory
 ```
 {:.term}
 
-(Replace "directory" with the path to the appropriate folder.)
+(Replace `directory` with the path to the appropriate folder.)
 
-Then make sure Docker is running (there should be a small icon on either
+Then make sure Docker is running (there should be an icon on
 your status bar, and running `docker info` shouldn't indicate any errors) and run:
 
 ```
@@ -214,19 +252,20 @@ $ docker build -t username/imagename:tag .
 ```
 {:.term}
 
-Replace `username` with your Docker Hub user name and replace
+Replace `username` with your Docker Hub username and replace
 `imagename` and `tag` with the values of your choice. Note the `.` at the end
-of the command.
+of the command (to indicate "the current directory").
 
 If you get errors, try to determine what you may need to add or change
-to your Dockerfile and then run the build command again.
+to your Dockerfile and then run the build command again. Debugging a Docker
+build is largely the same as debugging any software installation process.
 
 ## 5. Test Locally
 
 This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:
 
--   [Exploring a Docker Container on Your Computer](/docker-test.shtml)
+- [Exploring a Docker Container on Your Computer](/docker-test.shtml)
 
 ## 6. Push to DockerHub
 
@@ -239,8 +278,11 @@ $ docker push username/imagename:tag
 ```
 {:.term}
 
+(Where you once again replace `username/imagename:tag` with what you used in
+previous steps.)
+
 The first time you push an image to DockerHub, you may need to run this
-command first:
+command beforehand:
 
 ```
 $ docker login
@@ -258,43 +300,26 @@ jobs on CHTC's HTC system. See this guide for more details:
 
 # B. Examples
 
-The following is a non-exhaustive list of sample Dockerfiles
+This section holds various example `Dockerfile` that cover more advanced use cases.
 
-## cutadapt
+## Installing a Custom Python Package from GitHub
 
-Sample Dockerfile for installing
-[cutadapt](https://github.com/marcelm/cutadapt/) with Python 3.4.
-
-```dockerfile
-FROM python:3.4-wheezy
-RUN pip3 install cutadapt
-```
-
-## JAGS + rjags
-
-Sample Dockerfile for installing the [JAGS
-program](http://mcmc-jags.sourceforge.net/) and [rjags package for
-R.](). It assumes that the [JAGS
-source](https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Source/)
-has been downloaded into the directory with the Dockerfile.
+Suppose you have a custom Python package hosted on GitHub, but not available 
+on PyPI.
+Since `pip` can install packages directly from `git` repositories, you could 
+install your package like this:
 
 ```dockerfile
-FROM rocker/r-ver:3.4.0
+FROM python:3.8
 
-COPY JAGS-4.3.0.tar.gz /tmp
-RUN cd /tmp \
- && tar -xzf JAGS-4.3.0.tar.gz \
- && cd JAGS-4.3.0 \
- && ./configure \
- && make \
- && make install
-
-RUN install2.r --error rjags
+RUN pip3 install git+https://github.com/<RepositoryOwner>/<RepositoryName>
 ```
+where you would replace `<RepositoryOwner>` and `<RepositoryName>` with your
+desired targets.
 
 ## QIIME
 
-Sample Dockerfile for installing [QIIME2](https://qiime2.org/) based on
+This `Dockerfile` installs [QIIME2](https://qiime2.org/) based on
 [these instructions](https://docs.qiime2.org/2017.11/install/native/).
 It assumes that the [Linux 64-bit miniconda
 installer](https://conda.io/miniconda.html) has been downloaded into the
