@@ -14,9 +14,47 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Transition to Virtual CHTC Office Hours and Meetings
+### Wednesday, March 11, 2020
+<br/>
+For all CHTC Users,
+
+Following the universitys decision to [suspend in-person classes and campus events](https://covid19.wisc.edu/updates-to-campus-operations/) after Friday, March 13, the CHTC Research Computing Facilitators will be switching from in-person meetings and office hours to virtual options for the foreseeable future, starting tomorrow, Thursday, March 12. Virtual office hours are available on Tuesdays and Thursdays (discontinuing Wednesday office hours), which should also allow off-site CHTC users to join in!
+
+  
+The below information has been added to the Get Help page on our website: [http://chtc.cs.wisc.edu/get-help.shtml](http://chtc.cs.wisc.edu/get-help.shtml)
+
+  
+**Virtual Office Hours**
+
+We will hold virtual office hours on Tuesday/Thursday, with an extended duration of 3:00-5:00pm in a WebEx room. You can join the room via the link viewable upon logging into a CHTC submit server or head node.
+
+  
+**Individual Meetings**
+
+For future one-to-one meetings, facilitators will provide videoconferencing information, individually, via email conversation through [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
+
+  
+
+**Email Support**
+
+Email support continues as usual! Youre always welcome to email [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with questions or concerns.
+
+  
+
+
+Stay safe everyone! Take care of yourself and others by staying home when sick and following the advice of trusted health organizations, including resources on the universitys COVID-19 response page: [https://covid19.wisc.edu/](https://covid19.wisc.edu/)
+
+  
+
+All the best,  
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Migrate from Gluster to new large-file staging system on HTC
 ### Wednesday, March 04, 2020
-
+<br/>
 Greetings CHTC users,
 
 This message is for users of our HTC System who use our Gluster file share to stage large files, e.g.
@@ -53,7 +91,7 @@ Your CHTC team
 
 ## CHTC Website Content Now in GitHub
 ### Wednesday, January 08, 2020
-
+<br/>
 Happy New Year!
 
 
