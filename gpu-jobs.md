@@ -17,10 +17,10 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
-1.  [GPUs available in CHTC](#gpus)
-2.  [Submit File Considerations](#submit)
-3.  [Software Considerations](#software)
-4.  [Using GPUs on the Open Science Grid](#osg)
+1.  [GPUs available in CHTC](#1-gpus-available-in-chtc)
+2.  [Submit Jobs Using GPUs](#2-submit-jobs-using-gpus)
+3.  [Preparing Software Using GPUs](#3-preparing-software-using-gpus)
+4.  [Using GPUs on the Open Science Grid](#4-using-gpus-on-the-open-science-grid)
 
 > This is the initial version of a guide about running GPU jobs in CHTC.
 > If you have any suggestions for improvement, or any questions about
@@ -30,7 +30,19 @@ determine:
 # 1. GPUs Available in CHTC
 
 CHTC's high throughput (HTC) system has the following servers with GPU
-capabilities that are available to any CHTC user (as of 2/7/2020):
+capabilities (as of 3/16/2020):
+
+## A. General Use GPUs via the CHTC GPU Lab
+
+There are a limited number of shared use GPUs available through the CHTC GPU
+Lab. Therefore, these servers have different policies about job runtimes and
+the maximum number of running jobs per user than general CHTC servers.
+These GPUs are a special investment from the UW2020 program, and the policies
+aim to maximize how many researchers can benefit from this investment.
+
+By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
+project leaders occasionally to discuss your GPU computing and help improve the
+GPU Lab.
 
 <table class="gtable">
   <tr>
@@ -62,46 +74,60 @@ capabilities that are available to any CHTC user (as of 2/7/2020):
     <td>CentOS 7</td>
     <td>yes</td>
   </tr>
-  <tr>
-    <td>4</td>
-    <td>gzk-1 - gzk-4</td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
 </table>
 
-CHTC has plans to increase our GPU capacity through the [CHTC GPU
-Lab](/gpu-lab.shtml) project, funded by UW2020. This page will be
-updated as we acquire additional GPU capacity.
+### Job types, runtimes, and per-user limitations
+
+**Jobs running in the CHTC GPU Lab have different time limits than normal CHTC job
+submissions**. 
+
+See the table below for the default runtime limits for normally submitted jobs
+
+{:.gtable}
+  | Job type | Maximum runtime | Per-user limitation |
+  | --- |
+  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
+  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
+  | Long  | 7 days | 1 job with 1-2 GPUs |
+  | Pre-emptable (backfill) | None | None |
+
+For interactive jobs, the default time limit is 4 hours and only 1 GPU can be requested 
+at once. 
+
+These job types, runtimes, and per-user limitations are subject to change with
+short notice as the CHTC GPU Lab studies usage patterns.
+
+## B. Researcher Owned GPUs
+
+Some GPU servers in CHTC have 
+been purchased for specific research groups and are prioritized for
+their group members. If you set the submit file option `+WantFlocking`
+to true, your jobs are eligible to run on all GPU servers in CHTC, but
+they are no longer guaranteed a 72-hour run time -- see [below](#d-access-shared-and-research-group-gpus-optional).
+
+## C. See All Available Resources
 
 You can also find out information about GPUs in CHTC through the
 `condor_status` command. All of our servers with GPUs have a `TotalGPUs`
 attribute that is greater than zero; thus we can query the pool to find
 GPU-enabled servers by running:
 
-``` {.term}
+``` 
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
 ```
-
-> **Why are there more GPU servers in condor\_status?**\
->  If you run the `condor_status` command above, you'll see more servers
-> listed than we show in the table above. Some of these servers have
-> been purchased for specific research groups and are prioritized for
-> their group members. If you set the submit file option `+WantFlocking`
-> to true, your jobs are eligible to run on all GPU servers in CHTC, but
-> they are no longer guaranteed a 72-hour run time.
+{: .term}
 
 To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
-specific server attributes. For example, the table above can be mostly
+specific server attributes. For example, the tables above can be mostly
 recreated using the attributes `Machine`, `TotalGpus` and
 `CUDADeviceName`:
 
-``` {.term}
+```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' -af Machine TotalGpus CUDADeviceName
 ```
+{: .term}
+
 
 In addition, HTCondor tracks other GPU-related attributes for each
 server, including:
@@ -140,17 +166,21 @@ server, including:
 	</tr>
 </table>
 
-# 2. Submit File Considerations
+# 2. Submit Jobs Using GPUs
+
+The following sections describe how to alter your HTCondor submit file in order 
+to access the GPUs in CHTC. 
 
 ## A. Request GPUs (required)
 
 All jobs that use GPUs must request GPUs in their submit file (along
 with the usual requests for CPUs, memory and disk).
 
-``` {.sub}
+```
 request_gpus = 1
 ```
-
+{: .sub}
+ 
 It is important to still request at least one CPU per job to do the
 processing that is not well-suited to the GPU.
 
@@ -158,7 +188,32 @@ Note that HTCondor will make sure your job has access to the GPU -- you
 shouldn't need to set any environmental variables or other options
 related to the GPU, except what is needed inside your code.
 
-## B. Request specific GPUs or CUDA functionality (optional)
+## B. Use the GPU Lab Servers (recommended)
+
+To accept the CHTC GPU Lab policies and opt-in to use these GPUs, add the
+following line to your submit file:
+
+```
++WantGPULab = true
+```
+{: .sub}
+
+**REMINDER**: As described [above](#job-types-runtimes-and-per-user-limitations), using 
+the GPU Lab servers means that default CHTC job limits 
+are changed, including the length of the job. 
+To specify the job type, indicate which category of job length you would like 
+to use for your job, using the syntax described below: 
+
+{:.gtable}
+  | Job type | Maximum runtime | Per-user limitation | Submit file flag | 
+  | --- |
+  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs | `+GPUJobLength = "short"` | 
+  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |  `+GPUJobLength = "medium"` | 
+  | Long  | 7 days | 1 job with 1-2 GPUs |  `+GPUJobLength = "long"` | 
+
+If you do not specify a job type, the `medium` job type will be used as the default.
+
+## C. Request Specific GPUs or CUDA Functionality (optional)
 
 If your software or code requires a specific version of CUDA, a certain
 type of GPU, or has some other special requirement, you will need to add
@@ -167,9 +222,11 @@ attributes shown above.
 
 If you want a certain class of GPU, use CUDACapability:
 
-``` {.sub}
+```
 requirements = (CUDACapability == 7.5)
 ```
+{: .sub}
+
 
 This table shows the "CUDACapability" value for our general use GPUs:
 
@@ -193,7 +250,7 @@ This table shows the "CUDACapability" value for our general use GPUs:
 > code so that it can run across GPU types and without needing the
 > latest version of CUDA.
 
-## C. Access shared and research group GPUs (optional)
+## D. Access Research Group GPUs (optional)
 
 As alluded to above, certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
@@ -204,11 +261,12 @@ additional servers opens up more capacity. To allow jobs to run on these
 research-group owned servers if there is space, add the "Flocking"
 option to your submit file:
 
-``` {.sub}
+```
 +wantFlocking = true
 ```
+{: .sub}
 
-## D. Use the `gzk` servers (optional)
+## E. Use the `gzk` Servers (optional)
 
 The default operating system for jobs in CHTC is now CentOS 7. **If you
 want to use the `gzk-*` GPU nodes shown above, you'll need to
@@ -216,7 +274,7 @@ specifically request the use of Scientific Linux 6 as an operating
 system.** There is an example of how to do this in our [Operating System
 guide](/os-transition.shtml).
 
-# 3. Software Considerations
+# 3. Preparing Software Using GPUs
 
 Before using GPUs in CHTC you should ensure that the use of GPUs will
 actually help your program run faster. This means that the code or
