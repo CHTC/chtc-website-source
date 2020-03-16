@@ -30,9 +30,9 @@ determine:
 # 1. GPUs Available in CHTC
 
 CHTC's high throughput (HTC) system has the following servers with GPU
-capabilities (as of 2/7/2020):
+capabilities (as of 3/16/2020):
 
-## A. GPUs via the CHTC GPU Lab
+## A. General Use GPUs via the CHTC GPU Lab
 
 There are a limited number of shared use GPUs available through the CHTC GPU
 Lab. Therefore, these servers have different policies about job runtimes and
@@ -67,8 +67,8 @@ GPU Lab.
     <td>yes</td>
   </tr>
   <tr>
-    <td>2</td>
-    <td>gpu2002,gpu2003</td>
+    <td>4</td>
+    <td>gpu2002 - gpu2005</td>
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
@@ -78,58 +78,34 @@ GPU Lab.
 
 ### Job types, runtimes, and per-user limitations
 
+**Jobs running in the CHTC GPU Lab have different time limits than normal CHTC job
+submissions**. 
+
+See the table below for the default runtime limits for normally submitted jobs
+
 {:.gtable}
   | Job type | Submit file name (?) | Maximum runtime | Per-user limitation |
   | --- |
   | Short | ? | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
   | Medium | ? | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
   | Long | ? | 7 days | 1 job with 1-2 GPUs |
-  | Interactive | ? | 4 hours | 1 job with 1 GPU |
   | Pre-emptable (backfill) | ? | None | None |
+
+For interactive jobs, the default time limit is 4 hours and only 1 GPU can be requested 
+at once. 
 
 These job types, runtimes, and per-user limitations are subject to change with
 short notice as the CHTC GPU Lab studies usage patterns.
 
-## B. General Use GPUs
+## B. Researcher Owned GPUs
 
-The CHTC has N additional GPUs for general use. 
-
-<table class="gtable">
-  <tr>
-    <th>Number of Servers</th>
-    <th>Names</th>
-    <th>GPUs / Server</th>
-    <th>GPU Type</th>
-    <th>Current OS</th>
-    <th>HasCHTCStaging</th>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>gpu2004,gpu2005</td>
-    <td>8</td>
-    <td>GeForce RTX 2080 Ti</td>
-    <td>CentOS 7</td>
-    <td>yes</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>gzk-1 - gzk-4</td>
-    <td>8 </td>
-    <td>GeForce GTX 1080</td>
-    <td>SL 6</td>
-    <td>no</td>
-  </tr>
-</table>
-
-## C. Researcher Owned GPUs
-
-Finally, some GPU servers in CHTC have 
+Some GPU servers in CHTC have 
 been purchased for specific research groups and are prioritized for
 their group members. If you set the submit file option `+WantFlocking`
 to true, your jobs are eligible to run on all GPU servers in CHTC, but
 they are no longer guaranteed a 72-hour run time -- see [below](#d-access-shared-and-research-group-gpus-optional).
 
-## D. See All Available Resources
+## C. See All Available Resources
 
 You can also find out information about GPUs in CHTC through the
 `condor_status` command. All of our servers with GPUs have a `TotalGPUs`
@@ -225,7 +201,8 @@ following line to your submit file:
 
 **<todo: finalize the syntax>**
 
-As described [above](#job-types-runtimes-and-per-user-limitations), using the GPU Lab servers means that default CHTC requirements 
+**REMINDER**: As described [above](#job-types-runtimes-and-per-user-limitations), using 
+the GPU Lab servers means that default CHTC job limits 
 are changed, including the length of the job. 
 To specify the job type... **<todo: finalize the syntax>**
 
@@ -273,7 +250,7 @@ This table shows the "CUDACapability" value for our general use GPUs:
 > code so that it can run across GPU types and without needing the
 > latest version of CUDA.
 
-## D. Access shared and research group GPUs (optional)
+## D. Access research group GPUs (optional)
 
 As alluded to above, certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
