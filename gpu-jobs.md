@@ -84,12 +84,12 @@ submissions**.
 See the table below for the default runtime limits for normally submitted jobs
 
 {:.gtable}
-  | Job type | Submit file name (?) | Maximum runtime | Per-user limitation |
+  | Job type | Maximum runtime | Per-user limitation |
   | --- |
-  | Short | ? | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
-  | Medium | ? | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
-  | Long | ? | 7 days | 1 job with 1-2 GPUs |
-  | Pre-emptable (backfill) | ? | None | None |
+  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
+  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
+  | Long  | 7 days | 1 job with 1-2 GPUs |
+  | Pre-emptable (backfill) | None | None |
 
 For interactive jobs, the default time limit is 4 hours and only 1 GPU can be requested 
 at once. 
@@ -198,22 +198,22 @@ following line to your submit file:
 ```
 {: .sub}
 
-
-**<todo: finalize the syntax>**
-
 **REMINDER**: As described [above](#job-types-runtimes-and-per-user-limitations), using 
 the GPU Lab servers means that default CHTC job limits 
 are changed, including the length of the job. 
-To specify the job type... **<todo: finalize the syntax>**
+To specify the job type, indicate which category of job length you would like 
+to use for your job, using the syntax described below: 
 
-```
-???
-```
-{: .sub}
+{:.gtable}
+  | Job type | Maximum runtime | Per-user limitation | Submit file flag | 
+  | --- |
+  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs | `+GPUJobLength = "short"` | 
+  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |  `+GPUJobLength = "medium"` | 
+  | Long  | 7 days | 1 job with 1-2 GPUs |  `+GPUJobLength = "long"` | 
 
-If you do not specify a job type, the Medium job type will be used as the default.
+If you do not specify a job type, the `medium` job type will be used as the default.
 
-## C. Request specific GPUs or CUDA functionality (optional)
+## C. Request Specific GPUs or CUDA Functionality (optional)
 
 If your software or code requires a specific version of CUDA, a certain
 type of GPU, or has some other special requirement, you will need to add
@@ -250,7 +250,7 @@ This table shows the "CUDACapability" value for our general use GPUs:
 > code so that it can run across GPU types and without needing the
 > latest version of CUDA.
 
-## D. Access research group GPUs (optional)
+## D. Access Research Group GPUs (optional)
 
 As alluded to above, certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
@@ -266,7 +266,7 @@ option to your submit file:
 ```
 {: .sub}
 
-## E. Use the `gzk` servers (optional)
+## E. Use the `gzk` Servers (optional)
 
 The default operating system for jobs in CHTC is now CentOS 7. **If you
 want to use the `gzk-*` GPU nodes shown above, you'll need to
