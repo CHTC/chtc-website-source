@@ -40,13 +40,12 @@ need to do the following:
 </ol>
 </p>
 
-<p>If your MPI program is especially large (more than 100 MB, compiled), 
-or if it can <i>only</i> run from the exact location to which it was installed, 
-you may also need to take advantage of CHTC's Gluster file share just for your 
-software - see our additional notes
-on <a href="#gluster">Using Gluster for software</a>, below for more details. 
-Otherwise, all software and input files less than 100 MB should use 
-HTCondor's "transfer_input_files" feature in the submit file.</p>
+<blockquote><b>Software Transition</b> <br>
+
+<p>We are transitioning to a new set of MPI modules during March 2020. <b>Jobs should start 
+transitioning to using the new modules NOW</b>; the old MPI modules will be retired by 
+April 20, 2020. See below for more details.</p></blockquote>
+
 
 <a name="require"></a>
 <h1>A. Requirements and Use Cases</h1>
@@ -61,22 +60,33 @@ If you have questions about the advantages and disadvantages of running
 multi-core jobs versus single-core jobs, contact one of CHTC's facilitators at 
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
 
-<p>Running on multiple CPUs is often enabled by two special 
-types of programming called OpenMP or MPI. For MPI jobs to
-compile and run, CHTC has a certain set of MPI packages installed 
-to a shared location, that can be accessed from within jobs (see below). 
-To see which MPI packages are supported, you can type the following 
+<p>Running on multiple CPUs can be enabled by the parallel programming standard 
+MPI. For MPI jobs to
+compile and run, CHTC has a certain set of MPI tools installed 
+to a shared location, that can be accessed from within jobs. </p>
+
+<a name="view"></a>
+<h1>B. View MPI Modules on the HTC System</h1>
+
+<p>MPI tools are accessible on the HTC system through software "modules", which 
+are tools to access and activate a software installation. To 
+see which MPI packages are supported, you can type the following command
 on a an HTC submit server:</p>
 
 <pre class="term">[alice@submit]$ module avail</pre>
 
-<p>(Make sure to compile according to the below instructions, and to not do so 
-on a submit server.)
+<p><b>IMPORTANT NOTICE</b>: Note that the <code>module avail</code> 
+command currently shows two sets of MPI (and other software) modules. The first set, listed under the header
+<code>/software/chtc/modules</code> are new and should be used going forward. The 
+old MPI modules are listed under <code>/etc/modulefiles</code> will 
+be retired on <b>April 20</b>; jobs that use these modules should be transitioned 
+to new modules by then. <b>If you need a module that hasn't yet been added to the new 
+group, please email us at chtc@cs.wisc.edu.</b> </p>
 
 <h1>B. Submitting MPI jobs</h1>
 
 <a name="compile"></a>
-<h2>1. Compiling Code</h2>
+<h2>1. Compile MPI Code</h2>
 
 <p>You can compile your program
 yourself within an interactive job on one of our compiling servers. (Do not 
@@ -93,33 +103,33 @@ to reflect all the source files on which your program depends.
 </p>
 
 <p>Once your interactive job begins on one of our compiling servers, you 
-can find which MPI modules are available to you by typing:</p>
+can confirm which MPI modules are available to you by typing:</p>
 
 <pre class="term">[alice@build]$ module avail</pre>
-
-<blockquote> 
-<b>New Module Transition</b> <br>
-
-<p>We are transitioning to a new set of modules during March 2020. Module 
-commands will show two sets of modules. The first set, listed under the header
-<code>/software/chtc/modules</code> are the new modules. New jobs should always 
-use these. The old modules are listed under <code>/etc/modulefiles</code> will 
-be retired on <b>April 10</b>; jobs that use these modules should be transitioned 
-to new modules by then. If you need a module that hasn't yet been added to the new 
-group, please email us at chtc@cs.wisc.edu. </p>
-</blockquote>
 
 <p>Choose the module you want to use and load 
 it with the following command: </p>
 <pre class="term">[alice@build]$ module load <i>mpi_module</i></pre>
 <p>where <code>mpi_module</code> is replaced with the name of the
 MPI module you'd like to use.  </p>
+
+<blockquote><b>IMPORTANT NOTICE</b>: Make sure you are using a current MPI module; shown in 
+the first section of modules under the <code>/software/chtc/modules</code> heading.</blockquote>
  
 <p>After loading the module, compile your program. If your program is organized 
 in directories, <b>make sure to create a tar.gz file of anything you want copied 
 back to the submit server</b>. Once typing <code>exit</code> the interactive job 
 will end, and any *files* created during the interactive job will be copied back 
 to the submit location for you. 
+
+<p>If your MPI program is especially large (more than 100 MB, compiled), 
+or if it can <i>only</i> run from the exact location to which it was installed, 
+you may also need to take advantage of CHTC's Gluster file share just for your 
+software - see our additional notes
+on <a href="#gluster">Using Gluster for software</a>, below for more details. 
+Otherwise, all software and input files less than 100 MB should use 
+HTCondor's "transfer_input_files" feature in the submit file.</p>
+
 
 <a name="script"></a>
 <h2>2. Script For Running MPI Jobs</h2>
