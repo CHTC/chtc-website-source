@@ -34,15 +34,26 @@ capabilities (as of 3/16/2020):
 
 ## A. General Use GPUs via the CHTC GPU Lab
 
-There are a limited number of shared use GPUs available through the CHTC GPU
-Lab. Therefore, these servers have different policies about job runtimes and
-the maximum number of running jobs per user than general CHTC servers.
-These GPUs are a special investment from the UW2020 program, and the policies
-aim to maximize how many researchers can benefit from this investment.
+CHTC has a set of GPUs that are available for use by any CHTC user with an 
+account on our high throughput computing (HTC) system. These shared use 
+GPUs form the [CHTC GPU Lab](/gpu-lab.shtml). 
 
-By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
-project leaders occasionally to discuss your GPU computing and help improve the
-GPU Lab.
+Because the CHTC GPU Lab is limited in size, and because the majority of 
+its GPUs were funded by a special investment from the UW2020 program, we 
+have implemented special policies to maximize how many researchers can 
+benefit from this investment. These policies are described briefly below, 
+and in greater length in the section of this guide that describes the 
+needed [submit file modifications to use the CHTC GPU Lab](#b-use-the-gpu-lab-servers-recommended).
+
+**Jobs running in the CHTC GPU Lab have different time and job number limits than normal CHTC job
+submissions**. Without any special requirements, jobs that use the CHTC GPU Lab 
+directly can run for up to 24 hours and a single user will be able to use up to 1/3 of 
+the CHTC GPU Lab GPUs (about 12 GPUs). There are flags you can add to your job in 
+order to request a shorter or longer runtime and be eligible for a different share of 
+the total GPU capacity. [See below for full details.](#b-use-the-gpu-lab-servers-recommended)
+
+Each server in the GPU Lab has a slot reserved for interactive use; interactive jobs 
+on the GPU Lab servers are restricted to 1 GPU per job and a 4 hour runtime. 
 
 <table class="gtable">
   <tr>
@@ -76,26 +87,9 @@ GPU Lab.
   </tr>
 </table>
 
-### Job types, runtimes, and per-user limitations
-
-**Jobs running in the CHTC GPU Lab have different time limits than normal CHTC job
-submissions**. 
-
-See the table below for the default runtime limits for normally submitted jobs
-
-{:.gtable}
-  | Job type | Maximum runtime | Per-user limitation |
-  | --- |
-  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs |
-  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |
-  | Long  | 7 days | 1 job with 1-2 GPUs |
-  | Pre-emptable (backfill) | None | None |
-
-For interactive jobs, the default time limit is 4 hours and only 1 GPU can be requested 
-at once. 
-
-These job types, runtimes, and per-user limitations are subject to change with
-short notice as the CHTC GPU Lab studies usage patterns.
+By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
+project leaders occasionally to discuss your GPU computing and help improve the
+GPU Lab.
 
 ## B. Researcher Owned GPUs
 
@@ -188,9 +182,16 @@ Note that HTCondor will make sure your job has access to the GPU -- you
 shouldn't need to set any environmental variables or other options
 related to the GPU, except what is needed inside your code.
 
+It is possible to request multiple GPUs. Before doing so, make sure you're 
+using code that can utilize multiple GPUs and then submit a test to confirm 
+this works before submitting a bigger job. Also keep track of how long jobs 
+are running versus waiting; the time you save by using multiple GPUs may be 
+not worth the extra time that the job will likely wait in the queue. 
+
 ## B. Use the GPU Lab Servers (recommended)
 
-To accept the CHTC GPU Lab policies and opt-in to use these GPUs, add the
+To use CHTC's shared use GPUs, you need to opt-in to the GPU Lab. To 
+do so, add the
 following line to your submit file:
 
 ```
@@ -198,11 +199,12 @@ following line to your submit file:
 ```
 {: .sub}
 
-**REMINDER**: As described [above](#job-types-runtimes-and-per-user-limitations), using 
+**REMINDER**: As described [above](#a-general-use gpus-via-the-chtc-gpu-lab), using 
 the GPU Lab servers means that default CHTC job limits 
-are changed, including the length of the job. 
-To specify the job type, indicate which category of job length you would like 
-to use for your job, using the syntax described below: 
+are changed, including the length of the job and the number of jobs you can 
+have running at once. We have categorized three types of GPU jobs that you 
+can submit, mainly based on the runtime needed by the job. The three job types 
+(short, medium, long) and the needed submit file flags are described below: 
 
 {:.gtable}
   | Job type | Maximum runtime | Per-user limitation | Submit file flag | 
@@ -212,6 +214,9 @@ to use for your job, using the syntax described below:
   | Long  | 7 days | 1 job with 1-2 GPUs |  `+GPUJobLength = "long"` | 
 
 If you do not specify a job type, the `medium` job type will be used as the default.
+
+These job types, runtimes, and per-user limitations are subject to change with
+short notice as the CHTC GPU Lab studies usage patterns.
 
 ## C. Request Specific GPUs or CUDA Functionality (optional)
 
@@ -228,7 +233,7 @@ requirements = (CUDACapability == 7.5)
 {: .sub}
 
 
-This table shows the "CUDACapability" value for our general use GPUs:
+This table shows the "CUDACapability" value for GPUs in the CHTC GPU Lab:
 
 <table class="gtable">
   <tr>
@@ -255,7 +260,7 @@ This table shows the "CUDACapability" value for our general use GPUs:
 As alluded to above, certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
 not being used by their owners. When running on these servers, jobs
-forfeit our otherwise guaranteed runtime of 72 hours; however, for
+forfeit our otherwise guaranteed runtime of 72 hours. However, for
 shorter jobs, this is not a drawback and allowing jobs to run on these
 additional servers opens up more capacity. To allow jobs to run on these
 research-group owned servers if there is space, add the "Flocking"
