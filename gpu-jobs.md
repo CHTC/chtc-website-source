@@ -37,17 +37,17 @@ capabilities (as of 3/16/2020):
 CHTC has a set of GPUs that are available for use by any CHTC user with an 
 account on our high throughput computing (HTC) system
 via the [CHTC GPU Lab](/gpu-lab.shtml), which includes templates and a campus GPU community.
-GPUs form the [CHTC GPU Lab](/gpu-lab.shtml). 
 
-Because the CHTC GPU Lab is limited in size, and because the majority of 
+Because the CHTC GPU Lab was
+funded by a special investment from the [UW2020 program](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/), we
 its GPUs were funded by a special investment from the UW2020 program, we 
 have implemented special policies to maximize how many researchers can 
 benefit from this investment. These policies are described briefly below, 
 and in greater length in the section of this guide that describes the 
 needed [submit file modifications to use the CHTC GPU Lab](#b-use-the-gpu-lab-servers-recommended).
 
-**Jobs running in the CHTC GPU Lab have different time and job number limits than normal CHTC job
-submissions**. Without any special requirements, jobs that use the CHTC GPU Lab 
+**Jobs running on GPU Lab servers have time limits and job number limits (differing from CHTC defaults across the rest of the HTC System).
+Without any special requirements, jobs that use the CHTC GPU Lab 
 directly can run for up to 24 hours and a single user will be able to use up to 1/3 of 
 the CHTC GPU Lab GPUs (about 12 GPUs). There are flags you can add to your job in 
 order to request a shorter or longer runtime and be eligible for a different share of 
@@ -184,8 +184,8 @@ shouldn't need to set any environmental variables or other options
 related to the GPU, except what is needed inside your code.
 
 It is possible to request multiple GPUs. Before doing so, make sure you're 
-using code that can utilize multiple GPUs and then submit a test to confirm 
-this works before submitting a bigger job. Also keep track of how long jobs 
+using code that can utilize multiple GPUs and then submit a test job to confirm 
+success before submitting a bigger job. Also keep track of how long jobs 
 are running versus waiting; the time you save by using multiple GPUs may be 
 not worth the extra time that the job will likely wait in the queue. 
 
