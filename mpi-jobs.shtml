@@ -78,19 +78,23 @@ on a an HTC submit server:</p>
 <p><b>IMPORTANT NOTICE</b>: Note that the <code>module avail</code> 
 command currently shows two sets of MPI (and other software) modules. The first set, listed under the header
 <code>/software/chtc/modules</code> are new and should be used going forward. The 
-old MPI modules are listed under <code>/etc/modulefiles</code> will 
+old MPI modules are listed under <code>/etc/modulefiles</code> and will 
 be retired on <b>April 20</b>; jobs that use these modules should be transitioned 
 to new modules by then. <b>If you need a module that hasn't yet been added to the new 
 group, please email us at chtc@cs.wisc.edu.</b> </p>
 
-<h1>B. Submitting MPI jobs</h1>
+<p>Your software may require newer versions of MPI libraries than those 
+available via our modules.  If this is the case, send an email to <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, 
+to find out if we can install that library into the module system.</p>
+
+<h1>C. Submitting MPI jobs</h1>
 
 <a name="compile"></a>
 <h2>1. Compile MPI Code</h2>
 
 <p>You can compile your program
-yourself within an interactive job on one of our compiling servers. (Do not 
-compile code on the submit server, as doing so may cause performance issues.)  
+yourself within an interactive job on one of our compiling servers. Do not 
+compile code on the submit server, as doing so may cause performance issues. 
 The interactive job is essentially a regular HTCondor job, but <i>without</i> 
 an executable; <b>you</b> are the one running the commands instead (in this case, 
 to compile the program). 
@@ -99,7 +103,8 @@ to compile the program).
 <p><b>Instructions for submitting an interactive build/compile job</b> are here: 
 <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
 The only line in the submit file that you need to change is <code>transfer_input_files</code> 
-to reflect all the source files on which your program depends.  
+to reflect all the source files on which your program depends. Otherwise, go through 
+the steps described in that guide until immediately after running <code>condor_submit -i</code>.
 </p>
 
 <p>Once your interactive job begins on one of our compiling servers, you 
@@ -124,12 +129,9 @@ to the submit location for you.
 
 <p>If your MPI program is especially large (more than 100 MB, compiled), 
 or if it can <i>only</i> run from the exact location to which it was installed, 
-you may also need to take advantage of CHTC's Gluster file share just for your 
-software - see our additional notes
-on <a href="#gluster">Using Gluster for software</a>, below for more details. 
-Otherwise, all software and input files less than 100 MB should use 
-HTCondor's "transfer_input_files" feature in the submit file.</p>
-
+you may also need to take advantage of CHTC's shared software location or our public 
+web proxy. Email 
+CHTC's Research Computing Facilitators at chtc@cs.wisc.edu if this is the case.</p>
 
 <a name="script"></a>
 <h2>2. Script For Running MPI Jobs</h2>
@@ -139,9 +141,6 @@ script that loads an MPI module and then runs the program, like so: </p>
 
 <pre class="file">
 #!/bin/bash
-
-# Extra command to make the PATH work across operating system versions        
-export PATH=/bin:$PATH
 
 # Command to enable modules, and then load an appropriate MP/MPI module
 . /etc/profile.d/modules.sh
@@ -172,10 +171,16 @@ file below and include: </p>
 
 <ul>
 	<li><b>Require access to MPI modules.</b> There is a special requirements statement
-	that ensures a computer has access to Gluster (where the MPI modules live) and 
-	that the module command is working. </li>
+	that ensures a computer has access to the shared software location maintained by 
+	CHTC. 
+	<pre class="sub">
+requirements = (HasCHTCSoftware == true)
+</pre></li>
 	<li>Use the <b>getenv = true</b> statement to set up the job's 
-	running environment.</li>
+	running environment.
+	<pre class="sub">
+getenv = true
+</pre></li>
 	<!--<li><b>Require Scientific Linux 6.</b> At the moment, our MPI modules are 
 	only fully functional on our older operating system, Scientific Linux 6.</li>-->
 	<li><b>Request *accurate* CPUs and memory</b> Run at least one test job 
@@ -213,8 +218,8 @@ transfer_input_files = <i>input_files</i>, <i>myprogram</i>
 getenv = true
 # Requirement for accessing new set of modules
 requirements = ( Target.HasChtcSoftware == true ) 
-# Old requirement for previous set of modules
-# These modules will not be available after April 10
+# Old requirement for previous set of MPI modules
+# These modules will not be available after April 20
 # requirements = ( Target.HasModules == true )
 
 ## Request resources needed by your job
@@ -228,26 +233,4 @@ queue
 <p>After the submit file is complete, you can 
 submit your jobs using <code>condor_submit</code>.  </p>
 
-<h1>C. Software Installation Considerations</h1>
-
-<a name="gluster"></a>
-<h2>1. Using Gluster for Software</h2>
-
-<p>If your compiled program is large (over 100 MB) or requires that it run 
-from the same location within which it was installed, you may need to use
-our web proxy (large software) or Gluster file share (install location) 
-instead of being transferred with every job though these should be used only as 
-last resorts.  See our 
-<a href="http://chtc.cs.wisc.edu/file-availability.shtml">File Availability</a> guide 
-for more details.  If your software is larger than a few GB or will not run correctly 
-if moved to a different directory from where it was first installed, request a 
-Gluster directory from CHTC, by emailing <a href="chtc@cs.wisc.edu">
-chtc@cs.wisc.edu</a> with a description of why you need it. </p>
-
-<h2>2. Other Installations</h2>
-
-<p> Your software may require newer versions of MPI libraries than those 
-available via our modules.  If this is the case, send an email to <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>, 
-to find out if we can install that library into the module system.
-</p>
 
