@@ -35,7 +35,8 @@ capabilities (as of 3/16/2020):
 ## A. General Use GPUs via the CHTC GPU Lab
 
 CHTC has a set of GPUs that are available for use by any CHTC user with an 
-account on our high throughput computing (HTC) system. These shared use 
+account on our high throughput computing (HTC) system
+via the [CHTC GPU Lab](/gpu-lab.shtml), which includes templates and a campus GPU community.
 GPUs form the [CHTC GPU Lab](/gpu-lab.shtml). 
 
 Because the CHTC GPU Lab is limited in size, and because the majority of 
@@ -327,4 +328,3 @@ CHTC, as a member of the Open Science Grid (OSG) can access GPUs that
 are available on the OSG. See [this guide](/scaling-htc.shtml) to know
 whether your jobs are good candidates for the OSG and then get in touch
 with CHTC's Research Computing Facilitators to discuss details.
-
