@@ -68,7 +68,7 @@ GPU Lab.
   </tr>
   <tr>
     <td>4</td>
-    <td>gpu2002 - gpu2005</td>
+    <td>gpulab2000 - gpulab2003</td>
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>CentOS 7</td>
