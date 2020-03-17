@@ -40,18 +40,14 @@ via the [CHTC GPU Lab](/gpu-lab.shtml), which includes templates and a campus GP
 
 Because the CHTC GPU Lab was
 funded by a special investment from the [UW2020 program](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/), we
-its GPUs were funded by a special investment from the UW2020 program, we 
 have implemented special policies to maximize how many researchers can 
 benefit from this investment. These policies are described briefly below, 
 and in greater length in the section of this guide that describes the 
 needed [submit file modifications to use the CHTC GPU Lab](#b-use-the-gpu-lab-servers-recommended).
 
-**Jobs running on GPU Lab servers have time limits and job number limits (differing from CHTC defaults across the rest of the HTC System).
-Without any special requirements, jobs that use the CHTC GPU Lab 
-directly can run for up to 24 hours and a single user will be able to use up to 1/3 of 
-the CHTC GPU Lab GPUs (about 12 GPUs). There are flags you can add to your job in 
-order to request a shorter or longer runtime and be eligible for a different share of 
-the total GPU capacity. [See below for full details.](#b-use-the-gpu-lab-servers-recommended)
+**Jobs running on GPU Lab servers have time limits and job number limits 
+(differing from CHTC defaults across the rest of the HTC System).**
+[See below for full details.](#b-use-the-gpu-lab-servers-recommended)
 
 Each server in the GPU Lab has a slot reserved for interactive use; interactive jobs 
 on the GPU Lab servers are restricted to 1 GPU per job and a 4 hour runtime. 
@@ -92,7 +88,7 @@ By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
 project leaders occasionally to discuss your GPU computing and help improve the
 GPU Lab.
 
-## B. Researcher Owned GPUs
+## B. Researcher-Owned GPUs
 
 Some GPU servers in CHTC have 
 been purchased for specific research groups and are prioritized for
