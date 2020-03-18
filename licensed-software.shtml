@@ -92,7 +92,7 @@ specific group and is only available to members of that group.
 please email the CHTC facilitators at chtc@cs.wisc.edu.</p> -->
 
 <a name="submission"></a>
-<h1>C. Submitting Jobs Using Software Modules</h1>
+<h1>C. Submitting Jobs Using Licensed Software Modules</h1>
 
 <p>The following sections describe how to create a bash script executable and 
 HTCondor submit file to run jobs that use software accessible via the modules.</p>
