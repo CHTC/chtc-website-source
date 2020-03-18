@@ -42,8 +42,8 @@ need to do the following:
 
 <blockquote><b>Software Transition</b> <br>
 
-<p>We are transitioning to a new set of MPI modules during March 2020. <b>Jobs should start 
-transitioning to using the new modules NOW</b>; the old MPI modules will be retired by 
+<p>We are transitioning to a new set of MPI modules during March 2020. <b>Jobs should  
+transition to using the new modules NOW</b>; the old MPI modules will be retired by 
 April 20, 2020. See below for more details.</p></blockquote>
 
 
@@ -55,23 +55,23 @@ run on one CPU (sometimes called a "processor", or "core")
 and can be executed without any special system libraries.  
 However, in some cases, it may be advantageous to run a single program on 
 multiple CPUs (also called multi-core), in order to speed up single computations 
-that cannot be broken up as independent jobs.  
+that cannot be broken up and run as independent jobs.  
 If you have questions about the advantages and disadvantages of running 
 multi-core jobs versus single-core jobs, contact one of CHTC's facilitators at 
 <a href="chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.</p>
 
 <p>Running on multiple CPUs can be enabled by the parallel programming standard 
 MPI. For MPI jobs to
-compile and run, CHTC has a certain set of MPI tools installed 
-to a shared location, that can be accessed from within jobs. </p>
+compile and run, CHTC has a set of MPI tools installed 
+to a shared location that can be accessed via software modules. </p>
 
 <a name="view"></a>
 <h1>B. View MPI Modules on the HTC System</h1>
 
 <p>MPI tools are accessible on the HTC system through software "modules", which 
 are tools to access and activate a software installation. To 
-see which MPI packages are supported, you can type the following command
-on a an HTC submit server:</p>
+see which MPI packages are supported in the HTC, you can type the following command
+from the submit server:</p>
 
 <pre class="term">[alice@submit]$ module avail</pre>
 
@@ -93,7 +93,7 @@ to find out if we can install that library into the module system.</p>
 <h2>1. Compile MPI Code</h2>
 
 <p>You can compile your program
-yourself within an interactive job on one of our compiling servers. Do not 
+by submitting an interactive build job to one of our compiling servers. Do not 
 compile code on the submit server, as doing so may cause performance issues. 
 The interactive job is essentially a regular HTCondor job, but <i>without</i> 
 an executable; <b>you</b> are the one running the commands instead (in this case, 
@@ -130,7 +130,7 @@ to the submit location for you.
 <p>If your MPI program is especially large (more than 100 MB, compiled), 
 or if it can <i>only</i> run from the exact location to which it was installed, 
 you may also need to take advantage of CHTC's shared software location or our public 
-web proxy. Email 
+web proxy called Squid. Email 
 CHTC's Research Computing Facilitators at chtc@cs.wisc.edu if this is the case.</p>
 
 <a name="script"></a>
@@ -170,9 +170,8 @@ a submit file for multicore jobs.  They are shown in the sample submit
 file below and include: </p>
 
 <ul>
-	<li><b>Require access to MPI modules.</b> There is a special requirements statement
-	that ensures a computer has access to the shared software location maintained by 
-	CHTC. 
+	<li><b>Require access to MPI modules.</b> To ensure that your job will have access 
+	to CHTC software modules, including MPI modules, you must include the following in your submit file. 
 	<pre class="sub">
 requirements = (HasCHTCSoftware == true)
 </pre></li>
@@ -213,7 +212,7 @@ executable = <i>run_mpi</i>.sh
 # arguments = (if you want to pass any to the shell script)
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = <i>input_files</i>, <i>myprogram</i>
+transfer_input_files = (this should be a comma separate list of input files if needed)
 
 getenv = true
 # Requirement for accessing new set of modules
