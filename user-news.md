@@ -13,6 +13,69 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
 ------------------------------------------------------------------------
+## CHTC Going Strong; Support for COVID-19 Research
+### Thursday, March 19, 2020
+<br/>
+Greetings Users,  
+  
+You have probably gathered from our recent frequency of emails that CHTC is continuing strong in light of the COVID-19 pandemic, and it looks like our users are too! (Computing can be done from home, after all.) We appreciate your patience with the short-term email volume and would like to also inform you of the below:  
+  
+**Please contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if you have computing and/or data needs for research relevant to the COVID-19 pandemic.** We'll follow up to discuss your objectives and how CHTC or other relevant resources might help.  
+  
+We hope that other researchers and organizations are sympathetic to CHTC's prioritization of research relevant to COVID-19, though we don't currently expect any significant disruptions to the work of other researchers and will provide updates as appropriate.
+
+  
+
+**We also understand that this may be an important time to invest in - or ramp up - the computational aspects of your research, and we're here to help you succeed.** Please continue to email [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with any issues or questions, especially any pertaining to using CHTC while working remotely. We are equipped with virtual meeting tools and can share screens to give the same level of support as with in-person consultations and office hours (Tu/Th 3-5pm, [here](https://go.wisc.edu/chtc-officehours)).  
+  
+Thank You, and Stay Healthy!   
+CHTC Leadership and Staff
+  
+
+------------------------------------------------------------------------
+## New modules for MPI and licensed software on the HTC system
+### Thursday, March 19, 2020
+<br/>
+Greetings CHTC users,  
+  
+This message is for users of our HTC system who use CHTC-supported modules for MPI compilers or licensed software.  
+  
+We are updating the set of CHTC-supported modules for licensed software and MPI tools on the HTC system. This upgrade will provide users with access to updated versions of software and libraries and will change which modules are available for running jobs.  
+  
+The old modules and corresponding software installations will be retired on April 15, 2020. If you use our modules to access licensed software or MPI tools on the HTC system, please start transitioning your jobs to the new modules immediately.  
+  
+The following CHTC "how to" pages have been updated to reflect these changes, including more information on how to view and use the new modules:  
+
+*   Using Licensed Software on the HTC System: [http://chtc.cs.wisc.edu/licensed-software.shtml](http://chtc.cs.wisc.edu/licensed-software.shtml)
+*   MPI Jobs on the HTC system: [http://chtc.cs.wisc.edu/mpi-jobs](http://chtc.cs.wisc.edu/mpi-jobs)
+
+Email us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with any questions or concerns.  
+  
+All the best,  
+Your CHTC team
+
+------------------------------------------------------------------------
+## The CHTC GPU Lab is Open - shared-use GPUs in the HTC system
+### Monday, March 16, 2020
+<br/>
+Greetings CHTC users,  
+  
+This message is for users of our HTC system who are interested in using GPUs to run jobs.  
+  
+CHTC has been expanding its GPU capacity via [UW 2020 funding](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/) for a [CHTC GPU Lab](http://chtc.cs.wisc.edu/gpu-lab). Now that our capacity to run GPU jobs has increased, we will be implementing special policies on the GPU servers in order to maximize how many researchers can benefit from this investment.  
+  
+The changes are described on our [GPU Jobs page](http://chtc.cs.wisc.edu/gpu-jobs.shtml); a quick summary:  
+
+*   To use CHTC's shared-use GPUs (part of the funded CHTC GPU Lab), you will need to add a specific flag to your job's submit file.
+*   Time limits on the GPU servers will be different than the usual limits across the HTC system; jobs will default to 24 hours unless a different time range is specified via a submit file flag.
+
+If you have any questions about these changes, or are interested in more information about GPUs in CHTC, please email us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). Even more GPU capacity will be added over the next two years!  
+  
+Best,   
+Your CHTC Team
+
+
+------------------------------------------------------------------------
 
 ## Transition to Virtual CHTC Office Hours and Meetings
 ### Wednesday, March 11, 2020

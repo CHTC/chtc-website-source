@@ -60,6 +60,9 @@ expect a first response within a few business hours.
 > at our usual support address to schedule a separate meeting. 
 
 
+[Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
+
+
 <!-- For users who already have accounts, we have drop-in office hours on:
 
 -   **Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.**
