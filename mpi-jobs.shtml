@@ -173,15 +173,14 @@ file below and include: </p>
 	<li><b>Require access to MPI modules.</b> To ensure that your job will have access 
 	to CHTC software modules, including MPI modules, you must include the following in your submit file. 
 	<pre class="sub">
-requirements = (HasCHTCSoftware == true)
+requirements = (HasChtcSoftware == true)
 </pre></li>
 	<li>Use the <b>getenv = true</b> statement to set up the job's 
 	running environment.
 	<pre class="sub">
 getenv = true
 </pre></li>
-	<!--<li><b>Require Scientific Linux 6.</b> At the moment, our MPI modules are 
-	only fully functional on our older operating system, Scientific Linux 6.</li>-->
+
 	<li><b>Request *accurate* CPUs and memory</b> Run at least one test job 
 	and look at the log file produced by HTCondor to determine how much memory 
 	and disk space your multi-core jobs actually use. Requesting too much memory 
@@ -216,10 +215,10 @@ transfer_input_files = (this should be a comma separate list of input files if n
 
 getenv = true
 # Requirement for accessing new set of modules
-requirements = ( Target.HasChtcSoftware == true ) 
+requirements = ( HasChtcSoftware == true ) 
 # Old requirement for previous set of MPI modules
 # These modules will not be available after April 20
-# requirements = ( Target.HasModules == true )
+# requirements = ( HasModules == true )
 
 ## Request resources needed by your job
 request_cpus = <i>8</i>

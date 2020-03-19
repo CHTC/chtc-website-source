@@ -141,7 +141,7 @@ They are shown in the sample submit file below and include: </p>
 	<li><b>Require access to the modules.</b> To ensure that your job will have access 
 	to CHTC software modules you must include the following in your submit file.
 	<pre class="sub">
-requirements = (HasCHTCSoftware == true)</pre></li>
+requirements = (HasChtcSoftware == true)</pre></li>
 	<li>Use the <b>getenv = true</b> statement to set up the job's 
 	running environment.
 	<pre class="sub">
