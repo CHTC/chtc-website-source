@@ -12,13 +12,15 @@
 	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
 	
 	
-<div id="hours"> <span style="height: 20px">
+<div id="hours"> <span style="height: 40px">
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
 <b>Office Hours!</b>
 <br>
 Tues/Thurs, 3-4:30pm<br>
-Click for details
+Click for details</a>
+<p style="margin-bottom: 1px;"></p>
+<a href="http://chtc.cs.wisc.edu/sign-in.shtml" style="color:white;">Sign-In Here</a>
 </a></span></div>	
 
 
