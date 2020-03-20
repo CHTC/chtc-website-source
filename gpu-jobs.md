@@ -17,10 +17,10 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
-1.  [Examining CHTC's GPU Capacity]()
-2.  [Using the CHTC GPU Lab]()
-3.  [Preparing Software Using GPUs]()
-4.  [GPU Capacity Beyond the CHTC GPU Lab]()
+1.  [Examining CHTC's GPU Capacity](#a-examining-chtcs-gpu-capacity)
+2.  [Using the CHTC GPU Lab](#b-using-the-chtc-gpu-lab)
+3.  [Preparing Software Using GPUs](#c-preparing-software-using-gpus)
+4.  [GPU Capacity Beyond the CHTC GPU Lab](#d-gpu-capacity-beyond-the-chtc-gpu-lab)
 
 > This is the initial version of a guide about running GPU jobs in CHTC.
 > If you have any suggestions for improvement, or any questions about
@@ -96,6 +96,12 @@ CHTC has a set of GPUs that are available for use by any CHTC user with an
 account on our high throughput computing (HTC) system
 via the [CHTC GPU Lab](/gpu-lab.shtml), which includes templates and a campus GPU community.
 
+Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
+the capacity of the GPU Lab to run their work. 
+
+For those who would like to pursue alternative GPU resources, see our list of 
+[additional GPU resources below](#d-gpu-capacity-beyond-the-chtc-gpu-lab)
+
 ## 1. Resources in the CHTC GPU Lab
 
 
@@ -146,11 +152,15 @@ benefit from this investment. **Specifically, jobs running on GPU Lab servers ha
   | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
   | Long  | 7 days | 1 job with 1-2 GPUs | 
 
-Each server in the GPU Lab has a single GPU slot reserved for interactive use. Interactive 
+There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
 jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
 
 These job types, runtimes, and per-user limitations are subject to change with
 short notice as the CHTC GPU Lab studies usage patterns.
+
+By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
+project leaders occasionally to discuss your GPU computing and help improve the
+GPU Lab.
 
 ## 3. Submit Jobs Using the CHTC GPU Lab
 
@@ -173,7 +183,7 @@ following line to your submit file:
 	{: .sub}
  
 - **Indicate Job Type**: We have categorized three "types"
-of GPU jobs, characterized in the table [above]().  Indicate which job type you would 
+of GPU jobs, characterized in the table [above](#2-special-policies-in-the-gpu-lab).  Indicate which job type you would 
 like to submit by using the submit file option below. 
 	```
 	+GPUJobLength = "short" 
@@ -184,7 +194,7 @@ like to submit by using the submit file option below.
 	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
 	"short" jobs because you will be able to have more jobs running at once. 
 
-- **Request Specific GPUs or CUDA Functionality**: If your software or code requires a specific version of CUDA, a certain
+- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a specific version of CUDA, a certain
 type of GPU, or has some other special requirement, you will need to add
 a "requirements" statement to your submit file that uses one of the
 attributes shown above. If you want a certain class of GPU, use CUDACapability:
@@ -197,7 +207,9 @@ attributes shown above. If you want a certain class of GPU, use CUDACapability:
 	code so that it can run across GPU types and without needing the
 	latest version of CUDA.
 
-A complete sample submit file is shown here: 
+A complete sample submit file is shown below. There are also example submit files and 
+job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
+in CHTC's Github organization. 
 
 ```
 # gpu-lab.sub
@@ -232,10 +244,6 @@ queue 1
 
 ```
 {: .sub}
-
-By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
-project leaders occasionally to discuss your GPU computing and help improve the
-GPU Lab.
 
 ## 4. General Notes
 
@@ -295,7 +303,20 @@ nvidia-docker container, you can use this to run your jobs in CHTC. See
 our [Docker guide](/docker-jobs.shtml) for how to use Docker in CHTC.
 
 
-# D. Access Additional GPU Resources
+# D. GPU Capacity Beyond the CHTC GPU Lab
+
+The following resources are additional CHTC-accessible servers with GPUs. They do not have the 
+special time limit policies or job limits of the GPU Lab. However, some of them are 
+owned or prioritized by specific groups. The implications of this 
+on job runtimes is noted in each section. 
+
+Note that all GPU jobs need to include the `request_gpus` option in their submit file, 
+even if they are not using the GPU Lab. 
+
+```
+request_gpus = 1
+```
+{: .sub}
 
 ## 1. Access Research Group GPUs
 
@@ -304,7 +325,13 @@ research groups that own them, but are available to run other jobs when
 not being used by their owners. When running on these servers, jobs
 forfeit our otherwise guaranteed runtime of 72 hours. However, for
 shorter jobs, this is not a drawback and allowing jobs to run on these
-additional servers opens up more capacity. To allow jobs to run on these
+additional servers opens up more capacity. 
+
+Therefore, these servers are a good fit for GPU jobs that run in a few hours 
+or less, or have implemented self-checkpointing (the capability to save progress 
+to a file and restart from that progress). 
+
+To allow jobs to run on these
 research-group owned servers if there is space, add the "Flocking"
 option to your submit file:
 
@@ -315,8 +342,13 @@ option to your submit file:
 
 ## 2. Use the `gzk` Servers
 
+These are servers with normal CHTC policies, but are running an older version 
+of Linux; therefore, they are only a good fit for jobs where the software 
+is compatible with an older version of Linux **and** the data needed to run 
+jobs is smaller than a few GB. 
+
 The default operating system for jobs in CHTC is now CentOS 7. **If you
-want to use the `gzk-*` GPU nodes shown above, you'll need to
+want to use the `gzk-*` servers, you'll need to
 specifically request the use of Scientific Linux 6 as an operating
 system.** There is an example of how to do this in our [Operating System
 guide](/os-transition.shtml).
@@ -326,4 +358,4 @@ guide](/os-transition.shtml).
 CHTC, as a member of the Open Science Grid (OSG) can access GPUs that
 are available on the OSG. See [this guide](/scaling-htc.shtml) to know
 whether your jobs are good candidates for the OSG and then get in touch
-with CHTC's Research Computing Facilitators to discuss details.
+with CHTC's Research Computing Facilitators to discuss details. 
