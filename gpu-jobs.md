@@ -142,8 +142,8 @@ benefit from this investment. **Specifically, jobs running on GPU Lab servers ha
 {:.gtable}
   | Job type | Maximum runtime | Per-user limitation | 
   | --- |
-  | Short | 12 hrs | 2/3 of CTHC GPU Lab GPUs | 
-  | Medium | 24 hrs | 1/3 of CTHC GPU Lab GPUs |  
+  | Short | 12 hrs | 2/3 of CHTC GPU Lab GPUs | 
+  | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
   | Long  | 7 days | 1 job with 1-2 GPUs | 
 
 Each server in the GPU Lab has a single GPU slot reserved for interactive use. Interactive 
@@ -235,7 +235,7 @@ queue 1
 
 By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
 project leaders occasionally to discuss your GPU computing and help improve the
-GPU Lab.)
+GPU Lab.
 
 ## 4. General Notes
 
