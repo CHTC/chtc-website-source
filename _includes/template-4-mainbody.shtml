@@ -2,15 +2,13 @@
 <table BORDER="0" WIDTH="100%">
 <!-- <h1 align=left valign=center>The Center for High Throughput Computing</h1> -->
 
-<div id="osg_power"> <span style="height: 20px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
+<div id="osg_power"> <span style="height: 30px">Powered by:</span><br /><a href="http://opensciencegrid.org"><img alt="Open Science Grid" src="/images/Open_Science_Grid_Consortium(Logo).jpg" width="123" height="70" /></a></div>
 
-<div id="hours"> <span style="height: 20px">
-	<center><b>Follow us on social media:</b><a href="https://twitter.com/CHTC_UW"><img alt="Twitter" src="/images/twitter.png" width="70" height="70"></center></a></span></div>
-	
-<div id="hours"> <span style="height: 20px">
-	<center><b>Contribute to our website on:<br></b><a href="https://github.com/CHTC/chtc-website-source"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="120" height="50"></center></a></span></div>
+<div id="hours"> <span style="height: 30px">
+	<a href="https://twitter.com/CHTC_UW" style="color:white;"><center><img alt="Twitter" src="/images/twitter.png" width="50" height="50"></center></a> 
+	<center><a href="https://github.com/CHTC/chtc-website-source" style="color:white;"><img alt="GitHub" src="/images/GitHub_Logo_White.png" width="92" height="38"></center></a></span></div>
 
-<div id="hours"> <span style="height: 20px">
+<div id="hours"> <span style="height: 30px">
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <a href="http://chtc.cs.wisc.edu/get-help.shtml" style="color:white;">
 <center><b>Office Hours!</b>
