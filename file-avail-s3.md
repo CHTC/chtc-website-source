@@ -217,7 +217,7 @@ submit file:
 transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
 ```
 
-# 4. Checking your Data Use and File Counts
+# 4. Checking Your Data Use and File Counts
 
 To check what files are in your bucket and the size of the files:
 ``` {.term}
