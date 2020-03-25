@@ -102,7 +102,7 @@ to create S3 buckets, email CHTC's Research Computing Facilitators (chtc@cs.wisc
 ## B. Create an S3 Bucket
 
 Buckets can be created on a CHTC submit server or the CHTC transfer server
-using the `mc mb` command:
+using the `mc` command:
 
 ``` {: .term}
 $ mc mb chtc/my-bucket-name
