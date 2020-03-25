@@ -2,7 +2,7 @@
 highlighter: none
 #layout: default
 layout: file_avail
-title: Managing Large Data in HTC Jobs
+title: Managing Large Data in HTC Jobs with S3 Buckets
 ---
 
 When submitting jobs to CHTC's High Throughput Computing (HTC) system,
@@ -24,9 +24,9 @@ Contents
 --------
 
 1.  [Policies and Intended Use](#1-policies-and-intended-use)
-2.  [Staging Large Data](#2-staging-large-data)
+2.  [Staging Large Data in S3 Buckets](#2-staging-large-data-in-s3-buckets)
 3.  [Using Staged Files in a Job](#3-using-staged-files-in-a-job)
-	- [Accessing Large Input Files](#a-accessing-large-input-files)
+	- [Transferring Large Input Files](#a-transferring-large-input-files)
 	- [Moving Large Output Files](#b-moving-large-output-files)
 4.  [Checking your Data Use and File Counts](#4-checking-your-data-use-and-object-counts)
 
@@ -84,7 +84,7 @@ jobs that use S3 URLs.
 Data in CHTC S3 buckets are owned by the user (or a set of users), and
 only the user's (or users') own jobs can access these files.
 
-# 2. Staging Large Data
+# 2. Staging Large Data in S3 Buckets
 
 In order to stage data in an S3 bucket for use on CHTC's HTC system:
 
