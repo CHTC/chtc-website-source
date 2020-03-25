@@ -46,18 +46,31 @@ methods, HTCondor file transfer or SQUID, and when these files are
 expected to be accessed outside of CHTC. This includes individual input files
 greater than 100MB and individual output files greater than 3-4GB.
 
-Users are expected to abide by this intended use expectation and follow the
-instructions for using S3 written in this guide (e.g. files placed
-in S3 should ALWAYS be listed in the submit file).
+Files in our S3 data storage are organized in storage units called
+"buckets." You can think of an S3 bucket like a folder containing a
+set of data. Each bucket has a unique name of your choosing and can
+contain folders, executable files, data files, and most other types of
+files. S3 buckets are protected with a key that is unique to you
+(similar to a password) and, when provided with the key, buckets
+can be accessed from any machine with an internet connection. CHTC
+automatically creates and manages keys for users, so you do not have
+to provide your key when manging files in your S3 buckets on CHTC
+transfer servers or when submitting jobs on CHTC submit servers that
+transfer data from S3 buckets.
 
-## B. Access to S3 Data Storage
+Users are expected to abide by this intended use expectation and follow the
+instructions for using S3 buckets written in this guide (e.g. files placed
+in S3 buckets should ALWAYS be listed in the submit file).
+
+## B. Getting Access to Create S3 Buckets
 
 Any one with a CHTC account whose data meets the intended use above
-can request access to CHTC's S3 data storage. A Research
-Computing Facilitator will review the request and follow up. If
-appropriate, S3 bucket creation will be enabled and a quota set on
-your account. Quotas are based on individual user needs; if a larger quota
-is needed, email chtc@cs.wisc.edu with your request.
+can request access to create S3 buckets inside CHTC's S3 data
+storage. A Research Computing Facilitator will review the request and
+follow up. If appropriate, S3 bucket creation will be enabled for and
+a quota will be set on your account. Quotas are based on individual
+user needs; if a larger quota is needed, email chtc@cs.wisc.edu with
+your request.
 
 ## C. User Data Management Responsibilities
 
@@ -105,7 +118,7 @@ Buckets can be created on a CHTC submit server or the CHTC transfer server
 using the `mc` command:
 
 ``` {: .term}
-$ mc mb chtc/my-bucket-name
+[alice@transfer]$ mc mb chtc/my-bucket-name
 ```
 
 Each bucket in CHTC must have a unique name, so be descriptive!
@@ -148,7 +161,7 @@ Then in an SSH session on the transfer server, copy files in to your
 S3 bucket:
 
 ``` {.term}
-$ mc cp large-input.file chtc/my-bucket
+[alice@transfer]$ mc cp large-input.file chtc/my-bucket
 ```
 
 ## E. Remove Files After Jobs Complete
@@ -161,7 +174,7 @@ mechanisms as uploaded files. In an SSH session on the transfer
 server, copy files from your bucket to your home directory:
 
 ``` {.term}
-$ mc cp chtc/my-bucket/large-output.file .
+[alice@transfer]$ mc cp chtc/my-bucket/large-output.file .
 ```
 
 Then copy files from the transfer server to your own computer:
@@ -179,15 +192,15 @@ To remove a file inside your S3 bucket, in an SSH session on the
 transfer server:
 
 ``` {.term}
-$ mc rm chtc/my-bucket/large-input.file
-$ mc rm chtc/my-bucket/large-output.file
+[alice@transfer]$ mc rm chtc/my-bucket/large-input.file
+[alice@transfer]$ mc rm chtc/my-bucket/large-output.file
 ```
 
 To remove an entire bucket (**only do this if you are certain the
 bucket is no longer needed**):
 
 ``` {.term}
-$ mc rb chtc/my-bucket
+[alice@transfer]$ mc rb chtc/my-bucket
 ```
 
 # 3. Using Staged Files in a Job
@@ -199,13 +212,14 @@ file's `transfer_input_files` that point to the filename
 (e.g. `large-input.file`) inside your bucket (e.g. `my-bucket`) on
 CHTC's S3 storage (`s3dev.chtc.wisc.edu`):
 
-``` {: .file}
+```
 ...
 executable = my_script.sh
 transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
 arguments = large-input.file
 ...
 ```
+{: .file}
 
 ## B. Moving Large Output Files
 
@@ -213,23 +227,24 @@ To have your job automatically copy data back to your CHTC S3 bucket,
 add file mappings to a `transfer_output_remaps` command inside your
 submit file:
 
-``` {: .file}
+```
 transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
 ```
+{: .file}
 
 # 4. Checking Your Data Use and File Counts
 
 To check what files are in your bucket and the size of the files:
 ``` {.term}
-$ mc ls chtc/my-bucket
+[alice@submit]$ mc ls chtc/my-bucket
 ```
 
 To check your bucket's total data usage:
 ``` {.term}
-$ mc du chtc/my-bucket
+[alice@submit]$ mc du chtc/my-bucket
 ```
 
 To check your bucket's file count:
 ``` {.term}
-$ mc find chtc/my-bucket | wc -l
+[alice@submit]$ mc find chtc/my-bucket | wc -l
 ```
