@@ -90,9 +90,10 @@ creation permission at any time.
 
 ## D. Data Access Within Jobs
 
-Data in a CHTC S3 bucket is available anywhere (including OSG) as long
-as the version of HTCondor running on the execute machines support
-jobs that use S3 URLs.
+Data in a CHTC S3 bucket can be accessed from jobs running almost
+anywhere (including most of OSG). HTCondor automatically matches and
+runs jobs that use S3 buckets only on machines that support S3 data
+transfers.
 
 Data in CHTC S3 buckets are owned by the user (or a set of users), and
 only the user's (or users') own jobs can access these files.
@@ -121,7 +122,8 @@ using the `mc` command:
 [alice@transfer]$ mc mb chtc/my-bucket-name
 ```
 
-Each bucket in CHTC must have a unique name, so be descriptive!
+Each bucket in CHTC must have a unique name, so be descriptive! We
+recommend creating a bucket per dataset or per batch of jobs.
 
 ## C. Reduce File Counts
 
