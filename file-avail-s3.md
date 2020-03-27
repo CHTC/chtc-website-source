@@ -118,9 +118,10 @@ to create S3 buckets, email CHTC's Research Computing Facilitators (chtc@cs.wisc
 Buckets can be created on a CHTC submit server or the CHTC transfer server
 using the `mc` command:
 
-``` {: .term}
+```
 [alice@transfer]$ mc mb chtc/my-bucket-name
 ```
+{: .term}
 
 Each bucket in CHTC must have a unique name, so be descriptive! We
 recommend creating a bucket per dataset or per batch of jobs.
@@ -138,9 +139,10 @@ files), first create a compressed tar package before placing the file in
 an S3 bucket (either before submitting jobs, or within jobs before
 transferring output to). For example:
 
-``` {: .term}
+```
 $ tar -czvf job_package.tar.gz file_or_dir
 ```
+{: .term}
 
 ## D. Use the Transfer Server
 
@@ -151,9 +153,10 @@ transfer server and creating an S3 bucket, copy relevant files directly into you
 home directory from your own computer:
 
 - Example `scp` command on your own Linux or Mac computer:
-``` {.term}
+	```
 $ scp large-input.file username@transfer.chtc.wisc.edu:/home/username/
-```
+	```
+	{: .term}
 - If using a Windows computer:
 	- Using a file transfer application, like WinSCP, directly drag the large
 file from its location on your computer to a location within
@@ -162,9 +165,10 @@ file from its location on your computer to a location within
 Then in an SSH session on the transfer server, copy files in to your
 S3 bucket:
 
-``` {.term}
+```
 [alice@transfer]$ mc cp large-input.file chtc/my-bucket
 ```
+{: .term}
 
 ## E. Remove Files After Jobs Complete
 
@@ -175,16 +179,18 @@ back at a later date. Files can be taken out of S3 buckets using similar
 mechanisms as uploaded files. In an SSH session on the transfer
 server, copy files from your bucket to your home directory:
 
-``` {.term}
+```
 [alice@transfer]$ mc cp chtc/my-bucket/large-output.file .
 ```
+{: .term}
 
 Then copy files from the transfer server to your own computer:
 
 - Example `scp` command on your own Linux or Mac computer:
-``` {.term}
+	```
 $ scp username@transfer.chtc.wisc.edu:/home/username/large-output.file .
-```
+	```
+	{: .term}
 - If using a Windows computer:
 	- Using a file transfer application, like WinSCP, directly drag the large
 file from its location within `/home/username/` on
@@ -193,17 +199,19 @@ transfer.chtc.wisc.edu to your computer.
 To remove a file inside your S3 bucket, in an SSH session on the
 transfer server:
 
-``` {.term}
+```
 [alice@transfer]$ mc rm chtc/my-bucket/large-input.file
 [alice@transfer]$ mc rm chtc/my-bucket/large-output.file
 ```
+{: .term}
 
 To remove an entire bucket (**only do this if you are certain the
 bucket is no longer needed**):
 
-``` {.term}
+```
 [alice@transfer]$ mc rb chtc/my-bucket
 ```
+{: .term}
 
 # 3. Using Staged Files in a Job
 
@@ -221,7 +229,7 @@ transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
 arguments = large-input.file
 ...
 ```
-{: .file}
+{: .sub}
 
 ## B. Moving Large Output Files
 
@@ -232,21 +240,24 @@ submit file:
 ```
 transfer_output_remaps = "large-output.file = s3://s3dev.chtc.wisc.edu/my-bucket/large-output.file"
 ```
-{: .file}
+{: .sub}
 
 # 4. Checking Your Data Use and File Counts
 
 To check what files are in your bucket and the size of the files:
-``` {.term}
+```
 [alice@submit]$ mc ls chtc/my-bucket
 ```
+{: .term}
 
 To check your bucket's total data usage:
-``` {.term}
+```
 [alice@submit]$ mc du chtc/my-bucket
 ```
+{: .term}
 
 To check your bucket's file count:
-``` {.term}
+```
 [alice@submit]$ mc find chtc/my-bucket | wc -l
 ```
+{: .term}
