@@ -13,7 +13,7 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
 ------------------------------------------------------------------------
-## New large-file staging system on HTC
+## Reminder: Files in Gluster deleted April 20
 ### Monday, March 30, 2020
 <br/>
 Greetings Users,  
