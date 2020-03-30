@@ -13,6 +13,26 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
 ------------------------------------------------------------------------
+## New large-file staging system on HTC
+### Monday, March 30, 2020
+<br/>
+Greetings Users,  
+ 
+This message is for users of our HTC system who use our Gluster file share to stage large data files.  
+
+We are replacing Gluster with a new system for large data. As a reminder:
+-   Next week (April 6) - HTC jobs requiring Gluster will no longer run.
+-   April 20 - **All data in the Gluster file share is deleted.**
+
+Please remove all data from Gluster as soon as possible. If you are currently running jobs that require large data (input files > 100MB, output files > 3-4GB), please contact us [chtc@cs.wisc.edu](chtc@cs.wisc.edu) to set up a large data folder in the new system. Details on the information you should provide are below.  
+
+As always, direct any questions to our support email: [chtc@cs.wisc.edu](chtc@cs.wisc.edu) or stop by our (online) office hours between 3:00 - 5:00pm on Tuesdays and Thursdays: [go.wisc.edu/chtc-officehours](http://go.wisc.edu/chtc-officehours)
+
+All the best,  
+Your CHTC team 
+
+
+------------------------------------------------------------------------
 ## CHTC Going Strong; Support for COVID-19 Research
 ### Thursday, March 19, 2020
 <br/>
