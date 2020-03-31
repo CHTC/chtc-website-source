@@ -42,12 +42,12 @@ considerations for getting your work done most efficiently.
 Our high memory machines have the following specs:
 
 {:.gtable}
-  | Machine name | Amount of memory | Number of CPUs | Local disk space on machine |
-  | --- | --- | --- | --- |
-  | `mem1.chtc.wisc.edu` | 1 TB | 80 | 1 TB |
-  | `mem2.chtc.wisc.edu` | 2 TB | 80 | 1 TB |
-  | `mem3.chtc.wisc.edu` | 4 TB | 80 | 6 TB |
-  | `wid-003.chtc.wisc.edu` | 512 GB | 16 | 2.5 TB |
+  | Number of servers| Amount of memory | Number of CPUs | Local disk space on server | Names | 
+  | --- | --- | --- | --- | --- |
+  | 1 | 512 GB | 16 | 2.5 TB | `wid-003`|
+  | 16 | 512 GB | 40 | 2.5 TB | `e2003`-`e2018` |
+  | 2 | 2 TB | 80 | 3.5+ TB | `mem2001`, `mem2002` |
+  | 1 | 4 TB | 80 | 6 TB | `mem3` | 
 
 
 
