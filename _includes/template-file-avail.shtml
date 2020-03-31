@@ -40,6 +40,17 @@
 	<td>accessible ONLY to your jobs on specific CHTC servers</td>
 	<td>special submit "Requirements"</td>
 </tr>
+
+<tr>
+	<td><a href="file-avail-s3.shtml">S3 Buckets</a></td>
+	<td>large software, input, and output used by jobs inside and outside CHTC</td>
+	<td>100 MB - TBs</td>
+	<td>100 MB - TBs</td>
+	<td>in CHTC, UW Grid, and OSG</td>
+	<td>accessible ONLY to your jobs by most servers</td>
+	<td>output files must be "remapped"</td>
+</tr>
+
 </table>
 
 <!--
