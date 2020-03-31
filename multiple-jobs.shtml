@@ -17,6 +17,8 @@ request_disk = <i>< KB ></i>
 request_cpus = <i>< positive integer ></i>
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT    # or other
+</pre>
+</li>
 </ol>  
 
 <!-- Submitting Many Jobs with a Single Submit File -->
@@ -121,7 +123,7 @@ NewProcess = $INT(plusone, %d)</pre>
 normally used <code>$(Process)</code>.  </p>
 
 <p>Note that there is nothing special about the names <code>plusone</code> and 
-<code>NewProcess</code> - you can use any names you want as variables.  
+<code>NewProcess</code> - you can use any names you want as variables.  </p>
 </blockquote>
 
 <a name="foreach"></a>
