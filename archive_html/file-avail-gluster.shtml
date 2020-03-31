@@ -4,6 +4,28 @@ title: Using Gluster for Large Data and Software
 ---
 
 
+<blockquote>
+<h1>NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED 
+<a href="/file-avail-largedata.shtml">HERE</a>.</h1> 
+
+<br>
+
+<b>Important Dates</b>
+<ul>
+<li>March 4 - Applications open for space on the new large data system. </li>
+<li>April 1 - Jobs that require Gluster will no longer run. </li>
+<li>April 15 - Gluster file share is removed and all files in Gluster are deleted. </li>
+</ul>
+
+For more information, 
+see recent entries on the <a href="/user-news.shtml">CHTC User News page</a>. 
+
+<br><br>
+
+
+This page will be archived once 
+the transition to the new system is complete on April 15, 2020. 
+</blockquote>
 
 <p>CHTC maintains a Gluster file share, which should only be used for
 files or software that are too large for HTCondor file transfer or SQUID. 
@@ -268,7 +290,7 @@ is run from a script (bash) executable:</p>
 ./myprogram myinput.txt myoutput.txt > large_std.out
 # 
 # tar and move large files to Gluster so they're not copied to the submit server:
-tar -czvf large_stdout.tar.gz larg_stdout
+tar -czvf large_stdout.tar.gz large_std.out
 cp large_stdout.tar.gz /mnt/gluster/username/subdirectory
 rm large_std.out large_stdout.tar.gz
 # END</pre>

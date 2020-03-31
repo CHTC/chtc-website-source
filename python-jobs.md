@@ -241,6 +241,7 @@ tar -xzf packages.tar.gz
 # and the working directory as its home location
 export PATH=$PWD/python/bin:$PATH
 export PYTHONPATH=$PWD/packages
+export HOME=$PWD
 
 # run your script
 python3 my_script.py

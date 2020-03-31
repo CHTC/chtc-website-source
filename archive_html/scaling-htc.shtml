@@ -72,8 +72,8 @@ they have two major requirements: <p>
   in your home directory and/or in SQUID (the options listed on our <a href="/file-availability.shtml">file transfer
   guide </a> and our <a href="/file-avail-squid.shtml">SQUID guide</a>), and 
   output files are small enough to return to your home directory (less than 2 GB). We 
-  normally handle larger files in our Gluster filesystem (see our <a href="/file-avail-gluster.shtml">
-  Gluster guide</a>) which is only available 
+  normally handle larger files in our large data filesystem (see our <a href="/file-avail-largedata.shtml">
+  data staging guide</a>) which is only available 
   from CHTC.  </li>
   <li><b>Short or interruptable jobs</b>: Your job can run in under 8 hours -- 
   either it finishes in that amount of 
