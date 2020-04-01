@@ -11,6 +11,31 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+------------------------------------------------------------------------
+## Immediate: HPC Cluster and portions of HTC System down April 1 - 5
+### Wednesday, April 1, 2020
+<br/>
+Greetings CHTC Users,  
+
+Due to a campus chilled-water maintenance announced this afternoon, CHTC needs to turn off major components of our computing services for the next 4 days (our server rooms depend heavily on chilled water for server cooling). We’ve already begun powering down a number of servers, with more to come as described for the below categories.
+
+**The HPC Cluster will be down:**
+
+* All cluster execute servers will be turned off; no jobs will be able to run.
+* Jobs that were running on the cluster as of this afternoon (April 1) will be interrupted and re-queued to run again after the downtime.
+* HPC cluster users will still be able to log into the cluster head node (which will remain up) in order to access data. **As a reminder, users should NEVER run computational work on the head nodes.** Restrict all head node operations to data perusal and transfers to/from your non-CHTC storage. Users violating this policy will have their HPC Cluster login access deactivated for the remaining duration of the downtime.
+
+**Portions of the HTC System will be down:**
+
+* Roughly ¼ of the execute servers will be turned off. Any jobs running on these servers this afternoon (April 1) will be evicted, but will remain in the queue to re-run. 
+* Many of our researcher-owned GPU servers are included in the group of execute servers that will be shut down. 
+* The HTC System will otherwise continue to function normally (including SQUID, /staging, and the transfer server), albeit with a smaller number of execute servers. Users of the HTC system may see fewer jobs running than they would normally, with full throughput returning following the downtime.
+
+There is a chance that we will need to turn off more servers; we will endeavor to provide immediate (or advanced) notice if this becomes necessary.
+
+The campus maintenance is expected to conclude by Sunday, April 5 at 8pm CDT. We will send an email via this address (chtc-users@cs.wisc.edu) confirming when our systems are back online.
+
+Please get in touch at chtc@cs.wisc.edu with any questions or concerns, especially if this outage means that you won’t make a hard deadline. We’ll do our best to help you with potential alternative solutions.
 
 ------------------------------------------------------------------------
 ## Reminder: Files in Gluster deleted April 20
