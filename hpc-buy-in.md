@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HPC Clsuter Buy In Options 
+title: HPC Cluster Buy In Options 
 ---
 
 The [Center for High Throughput Computing (CHTC)](/) now offers a buy-in
