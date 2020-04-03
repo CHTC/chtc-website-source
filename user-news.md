@@ -12,6 +12,28 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Additional HPC Cluster and HTC System servers down
+### Thursday, April 2, 2020
+<br/>
+Greetings CHTC Users,  
+
+Additional CHTC services have been turned off due to an unexpected failure in the backup cooling system for the server room currently undergoing maintenance. In addition to our previously communicated outages (described in our original email, below), the following services are impacted:
+
+**High Performance Cluster**
+-   Everything in the cluster, including head nodes ([aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu/) and [aci-service-2.chtc.wisc.edu](http://aci-service-2.chtc.wisc.edu/)) and the file system, is currently down. Users are unable to log in to the head nodes or access files.
+
+**High Throughput Computing System**
+-   One submit server ([submit3.chtc.wisc.edu](http://submit3.chtc.wisc.edu/)) is down; users with accounts on this server are not able to log in or submit jobs.
+-   Jobs using links to SQUID ([proxy.chtc.wisc.edu/SQUID](http://proxy.chtc.wisc.edu/SQUID)) will fail if running outside CHTC.
+
+We don't yet know if the situation will improve to the point where we can turn certain key services back on. If any additional servers go down, or we're able to bring other servers back up, we will let you know via the chtc-users mailing list.  
+
+Again, please get in touch at [chtc@cs.wisc.edu](chtc@cs.wisc.edu) with any questions or concerns, especially if this outage means that you won't make a hard deadline.
+
+Best,  
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Immediate: HPC Cluster and portions of HTC System down April 1 - 5
 ### Wednesday, April 1, 2020
 <br/>
@@ -35,7 +57,10 @@ There is a chance that we will need to turn off more servers; we will endeavor t
 
 The campus maintenance is expected to conclude by Sunday, April 5 at 8pm CDT. We will send an email via this address (chtc-users@cs.wisc.edu) confirming when our systems are back online.
 
-Please get in touch at chtc@cs.wisc.edu with any questions or concerns, especially if this outage means that you won’t make a hard deadline. We’ll do our best to help you with potential alternative solutions.
+Please get in touch at [chtc@cs.wisc.edu](chtc@cs.wisc.edu) with any questions or concerns, especially if this outage means that you won’t make a hard deadline. We’ll do our best to help you with potential alternative solutions.
+
+Best,  
+Your CHTC Team
 
 ------------------------------------------------------------------------
 ## Reminder: Files in Gluster deleted April 20
