@@ -4,50 +4,108 @@ layout: default
 title: Create a Portable Python Installation with Miniconda
 ---
 
-The Anaconda/miniconda distribution of Python is a common tool for 
-installing and managing Python-based and other tools. This guide 
-describes how to use the miniconda installer to create a conda 
-environment inside your job. 
+The Anaconda/Miniconda distribution of Python is a common tool for 
+installing and managing Python-based software and other tools. This guide 
+describes how to use the Miniconda installer to create a conda 
+environment for use in CHTC jobs. 
 
-# README
+# Overview
 
-# A. Option 1: Pre-Install Miniconda and Transfer to Jobs
+When should you use Miniconda as an installation method in CHTC? 
+- Your software has specific Miniconda/conda centric installation instructions
+- The above is true *and* the software has a lot of dependencies
+- You mainly use Python to do your work. 
 
-In this approach, we will create an entire software installation inside miniconda 
+There are two ways to use Miniconda in CHTC. The first is to create your 
+installation environment on the submit server and send a zipped version to 
+your jobs. The other option is to install Miniconda inside each job. 
+The first option is more efficient, especially for complex installations, 
+but there may be rare situations where installing with each job is better. 
+We recommend trying the pre-installation option first. 
+
+- Recommended: [Option 1: Pre-Install Miniconda and Transfer to Jobs](#option-1-pre-install-miniconda-and-transfer-to-jobs)
+- Alternative: [Option 2: Install Miniconda Inside Each Job](#option-2-install-miniconda-inside-each-job)
+
+# Option 1: Pre-Install Miniconda and Transfer to Jobs
+
+In this approach, we will create an entire software installation inside Miniconda 
 and then use a tool called `conda pack` to package it up for running jobs. 
-
-TODO: when to use this option
 
 ## 1. Create a Miniconda installation
 
-Download the miniconda installer and run it. 
+Download the latest Linux [miniconda installer](https://docs.conda.io/en/latest/miniconda.html) and run it. 
 
 ```
-[alice@submit]$ 
-[alice@submit]$ 
+[alice@submit]$ sh Miniconda3-latest-Linux-x86_64.sh
 ```
 {: .term}
 
-https://docs.conda.io/en/latest/miniconda.html
+Accept the license agreement and default options. At the end, you can choose whether or 
+not to "initialize Miniconda3 by running conda init?" The default is no; you should 
+then run the `eval` command listed by the installer to "activate" Miniconda. You'll 
+also want to save this command so that you can reactivate the Miniconda installation 
+when needed in the future. 
 
-Use default options, accept license agreement. 
+## 2. Create a conda "environment" with your software
 
-different hook
+Make sure that you've activated the base Miniconda environment if you haven't 
+already. Your prompt should look like this: 
 
 ```
 (base)[alice@submit]$ 
 ```
 {: .term}
 
-Install env. 
-conda create -n myenv scipy
+To create an environment, use the `conda create` command and then activate the 
+environment: 
 
-https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+```
+(base)[alice@submit]$ conda create -n env-name
+(base)[alice@submit]$ conda activate env-name
+```
+{: .term}
 
-## 2. Create Software Package
+Then, run the `conda install` command to install the different packages and 
+software you want to include in the installation. How this should look is often 
+listed in the installation examples for software 
+(e.g. [Qiime2](https://docs.qiime2.org/2020.2/install/native/#install-qiime-2-within-a-conda-environment), 
+[Pytorch](https://pytorch.org/get-started/locally/)). 
 
-Make sure that your job's miniconda environment is created, but deactivated, so 
-you're in the "base" miniconda environment: 
+```
+(env-name)[alice@submit]$ conda install pkg1 pkg2
+```
+{: .term}
+
+Once everything is installed, deactivate the environment to go back to the 
+Miniconda "base". 
+
+```
+(env-name)[alice@submit]$ deactivate
+```
+{: .term}
+
+For example, if I wanted to create an installation with `pandas` and 
+`matplotlib` and call the environment `py-data-sci`, I would use this sequence 
+of commands: 
+
+```
+(base)[alice@submit]$ conda create -n py-data-sci
+(base)[alice@submit]$ conda activate py-data-sci
+(py-data-sci)[alice@submit]$ conda install pandas matplotlib
+(py-data-sci)[alice@submit]$ conda deactivate
+(base)[alice@submit]$ 
+```
+{: .term}
+
+> ## More about Miniconda
+> 
+> See the [official conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) for 
+> more information on creating and managing environments with `conda`. 
+
+## 3. Create Software Package
+
+Make sure that your job's Miniconda environment is created, but deactivated, so 
+you're in the "base" Miniconda environment: 
 
 ```
 (base)[alice@submit]$ 
@@ -74,7 +132,7 @@ Finally, use `conda pack` to create a zipped tar.gz file of your environment
 When this step finishes, you should see a file in your current directory named
 `env-name.tar.gz`
 
-## 3. Create a Job Executable
+## 4. Create a Job Executable
 
 The job will need to go through a few steps to use this "packed" conda environment; 
 first, setting the `PATH`, then unzipping the environment, then activating it, 
@@ -89,21 +147,21 @@ mkdir env-name
 tar -xzf env-name.tar.gz -C env-name
 
 . env-name/bin/activate
-# run your python script or program
-# python3 hello.py
+#run your python script or program
+#python3 hello.py
 ```
 {: .file}
 
-## 4. Submit Jobs
+## 5. Submit Jobs
 
 In your submit file, make sure to have the following: 
 
-- Your executable should be the the file you created in [step 3]()
+- Your executable should be the the file you created in [step 4]()
 - Remember to transfer your primary script and the environment tar.gz file in 
 `transfer_input_files`. If the tar.gz file is larger than 100MB, please email us 
 about different tools for delivering the installation to your jobs. 
 
-# B. Option 2: Install Miniconda Inside Each Job
+# Option 2: Install Miniconda Inside Each Job
 
 In this approach, rather than copying the Miniconda installation with each job, 
 we will copy the Miniconda *installer* and install a new copy of Miniconda with 
