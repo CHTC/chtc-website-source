@@ -36,7 +36,7 @@ If you want to use GPU resources in CHTC for your research:
 - Apply for a CHTC account if you do not already have one: [Account Request Page][account]
 - See what GPUs are available and how to use them in the [GPU jobs guide][gpu-jobs].
 - See our guide with specific machine learning related tips: [Running Machine Learning Jobs on HTC][ml-guide]
-- For more extended examples, see the following: [Runnable examples on GitHub][gpu-examples].
+- For more extended examples, see the following: [GPU job templates on GitHub][gpu-examples].
 
 The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
