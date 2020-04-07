@@ -158,7 +158,7 @@ In your submit file, make sure to have the following:
 
 - Your executable should be the the file you created in [step 4]()
 - Remember to transfer your primary script and the environment tar.gz file in 
-`transfer_input_files`. If the tar.gz file is larger than 100MB, please email us 
+`transfer_input_files`. If the tar.gz file is larger than 100MB, please [email](mailto:chtc@cs.wisc.edu) us 
 about different tools for delivering the installation to your jobs. 
 
 # Option 2: Install Miniconda Inside Each Job
