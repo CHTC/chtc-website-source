@@ -4,8 +4,8 @@ layout: default
 title: Welcome to the CHTC GPU Lab
 ---
 
-The CHTC GPU Lab is a [UW2020-funded project][uw2020] that will expand shared GPU 
-computing infrastructure at UW-Madison.  It will include:
+The CHTC GPU Lab is a [UW2020-funded project][uw2020] to expand shared GPU 
+computing infrastructure at UW-Madison.  It includes:
 
  <link rel = "stylesheet"
    type = "text/css"
