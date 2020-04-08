@@ -16,7 +16,7 @@ When should you use Miniconda as an installation method in CHTC?
 - The above is true *and* the software has a lot of dependencies
 - You mainly use Python to do your work. 
 
-There are two ways to use Miniconda in CHTC. The first is to create your 
+There are two ways to use Miniconda on CHTC's HTC system. The first is to create your 
 installation environment on the submit server and send a zipped version to 
 your jobs. The other option is to install Miniconda inside each job. 
 The first option is more efficient, especially for complex installations, 
@@ -80,11 +80,11 @@ Once everything is installed, deactivate the environment to go back to the
 Miniconda "base". 
 
 ```
-(env-name)[alice@submit]$ deactivate
+(env-name)[alice@submit]$ conda deactivate
 ```
 {: .term}
 
-For example, if I wanted to create an installation with `pandas` and 
+For example, if you wanted to create an installation with `pandas` and 
 `matplotlib` and call the environment `py-data-sci`, I would use this sequence 
 of commands: 
 
