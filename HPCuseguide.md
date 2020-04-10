@@ -182,7 +182,7 @@ to get access.
   | --- |
   | University | univ | 38 | 7 days | 1 day | 16 | 16 | 64
   | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 16 or 20 | 64 or 128
+  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 20 | 128
   | Interactive | int | 2 | 30 min | 30 min | 1 | 16 | 64
   | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 16 or 20 | 64 or 128
 
