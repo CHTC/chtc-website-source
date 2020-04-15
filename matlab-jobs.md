@@ -261,7 +261,7 @@ executable = run_script.sh
       | Matlab version | Runtime directory name |
       | --- | --- |
       | `r2015b.tar.gz` | `v90` |
-      | `r2018b.tar.gz` | `v90` |
+      | `r2018b.tar.gz` | `v95` |
  
     So to run a Matlab job using `r2015b` and no additional arguments, the arguments line in the submit file should read:
     ```{:.sub}
