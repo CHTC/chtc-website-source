@@ -76,8 +76,10 @@ Miniconda installation when needed in the future.
 
 > (If you are using an `environment.yml` file as described 
 > [later](#specifying-exact-dependency-versions), you should instead create
-> the environment from your `environment.yml` file. We recommend switching to 
-> that method of creating environments once you understand the basic method.)
+> the environment from your `environment.yml` file. If you don’t have an 
+> `environment.yml` file to work with, follow the install instructions in this
+> section. We recommend switching to the `environment.yml` method of creating 
+> environments once you understand the "manual" method presented here.)
 
 Make sure that you've activated the base Miniconda environment if you haven't 
 already. Your prompt should look like this: 
