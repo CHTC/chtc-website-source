@@ -47,7 +47,8 @@ If it doesn't work, discuss the second option with an RCF.
 
 This guide also discusses how to 
 ["pin" your conda environment](#pinning-dependencies)
-to create a consistent, reproducible environment.
+to create a consistent, reproducible environment with specified versions of 
+packages.
 
 # Option 1: Pre-Install Miniconda and Transfer to Jobs
 
@@ -73,6 +74,11 @@ Miniconda installation when needed in the future.
 
 ## 2. Create a conda "environment" with your software
 
+> (If you are using an `environment.yml` file as described 
+> [later](#specifying-exact-dependency-versions), you should instead create
+> the environment from your `environment.yml` file. We recommend switching to 
+> that method of creating environments once you understand the basic method.)
+
 Make sure that you've activated the base Miniconda environment if you haven't 
 already. Your prompt should look like this: 
 
@@ -89,6 +95,7 @@ environment:
 (base)[alice@submit]$ conda activate env-name
 ```
 {: .term}
+
 
 Then, run the `conda install` command to install the different packages and 
 software you want to include in the installation. How this should look is often 
@@ -224,7 +231,7 @@ before trying to submit the installation as part of a job to CHTC.
 Our plan here is to run the Miniconda installer inside the job, build an environment 
 with needed packages, and then run our desired script or program. The following 
 script should work verbatim except for changing the `conda install` step to the packages 
-you need or the instructions for your program. See [below](#pinning-dependencies)
+you need or the instructions for your program. See [below](#specifying-exact-dependency-versions)
 for instructions on using an `environment.yml` environment specification instead
 of "manually" listing packages in your job script.
 
@@ -261,7 +268,7 @@ transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input
 ```
 {:.sub}
 
-# Pinning Dependencies
+# Specifying Exact Dependency Versions
 
 An important part of improving reproducibility and consistency between runs
 is to ensure that you use the correct/expected versions of your dependencies.
@@ -269,12 +276,17 @@ is to ensure that you use the correct/expected versions of your dependencies.
 When you run a command like `conda install numpy`, `conda` tries to install
 **the most recent version of `numpy`**. For example, `numpy` version `1.18.2`
 was released on March 17, 2020. To install exactly this version of `numpy`, you
-would run `conda install numpy==1.18.2` (the same works for `pip`).
+would run `conda install numpy==1.18.2` (the same works for `pip`). We
+recommend installing with an explicit version to make sure you have exactly 
+the version of a package that you want. This is often called 
+"pinning" or "locking" the version of the package.
 
-`conda` provides a way to "lock" or "pin" the versions of all of your packages.
-It can create a file, usually called `environment.yml`, that describes the
-exact versions of all of the packages you have installed in an environment. This
-file can be used to recreate that exact environment on another computer.
+If you want a record of what is installed in your environment, or want to 
+reproduce your environment on another computer, conda can create a file, usually
+called `environment.yml`, that describes the exact versions of all of the 
+packages you have installed in an environment.
+This file can be re-used by a different conda command to recreate that 
+exact environment on another computer.
 
 To create an `environment.yml` file from your currently-activated environment, run
 ```
