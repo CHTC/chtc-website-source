@@ -47,7 +47,7 @@ If it doesn't work, discuss the second option with an RCF.
 
 This guide also discusses how to 
 ["pin" your conda environment](#pinning-dependencies)
-to create a consistent, reproducible environment with specified versions of 
+to create a more consistent and reproducible environment with specified versions of 
 packages.
 
 # Option 1: Pre-Install Miniconda and Transfer to Jobs
