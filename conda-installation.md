@@ -40,7 +40,7 @@ your jobs. The other option is to install Miniconda inside each job.
 The first option is more efficient, especially for complex installations, 
 but there may be rare situations where installing with each job is better. 
 We recommend trying the pre-installation option first.
-If it doesn't work, discuss the second option with an RCF.
+If it doesn't work, discuss the second option with a facilitator.
 
 - Recommended: [Option 1: Pre-Install Miniconda and Transfer to Jobs](#option-1-pre-install-miniconda-and-transfer-to-jobs)
 - Alternative: [Option 2: Install Miniconda Inside Each Job](#option-2-install-miniconda-inside-each-job)
@@ -215,7 +215,7 @@ In this approach, rather than copying the Miniconda installation with each job,
 we will copy the Miniconda *installer* and install a new copy of Miniconda with 
 each job.
 
-**Do not use this installation method unless directed to do by an RCF!**
+**Do not use this installation method unless directed to do by a facilitator!**
 
 ## 1. Download the Miniconda Installer and Test Installation
 
@@ -278,7 +278,8 @@ is to ensure that you use the correct/expected versions of your dependencies.
 When you run a command like `conda install numpy`, `conda` tries to install
 **the most recent version of `numpy`**. For example, `numpy` version `1.18.2`
 was released on March 17, 2020. To install exactly this version of `numpy`, you
-would run `conda install numpy==1.18.2` (the same works for `pip`). We
+would run `conda install numpy=1.18.2` 
+(the same works for `pip`, if you replace `=` with `==`). We
 recommend installing with an explicit version to make sure you have exactly 
 the version of a package that you want. This is often called 
 "pinning" or "locking" the version of the package.
@@ -308,7 +309,7 @@ A much less strict pinning is
 which only lists packages that you installed manually, and **does not pin their
 versions unless you yourself pinned them during installation**. In general,
 exact environment specifications are not guaranteed to be transfer between
-platforms (e.g., between Windows and CentOS). We recommend using the strictest
+platforms (e.g., between Windows and Linux). We recommend using the strictest
 possible pinning available to you.
 
 To create an environment from an `environment.yml` file, run
