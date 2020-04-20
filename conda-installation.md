@@ -11,7 +11,7 @@ environment for use in CHTC jobs.
 
 > This is a new *how-to* guide on the CHTC website. Recommendations and 
 > feedback are welcome via email (chtc@cs.wisc.edu) or by creating an 
-> issue on the CHTC website Github repository: [Create an issue](https://github.com/CHTC/chtc-website-source/issues/new)
+> issue on the CHTC website GitHub repository: [Create an issue](https://github.com/CHTC/chtc-website-source/issues/new)
 
 
 # Overview
