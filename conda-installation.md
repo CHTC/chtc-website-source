@@ -307,10 +307,14 @@ A much less strict pinning is
 ```
 {: .term}
 which only lists packages that you installed manually, and **does not pin their
-versions unless you yourself pinned them during installation**. In general,
-exact environment specifications are not guaranteed to be transfer between
-platforms (e.g., between Windows and Linux). We recommend using the strictest
-possible pinning available to you.
+versions unless you yourself pinned them during installation**. 
+If you need an intermediate solution, it is also possible to manually edit 
+`environment.yml` files; see the 
+[conda environment documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#)
+for more details about the format and what is possible.
+In general, exact environment specifications are simply not guaranteed to be
+transferable between platforms (e.g., between Windows and Linux).
+**We strongly recommend using the strictest possible pinning available to you.**
 
 To create an environment from an `environment.yml` file, run
 ```
@@ -321,18 +325,20 @@ By default, the name of the environment will be whatever the name of the source
 environment was; you can change the name by adding a `-n <name>` option to the
 `conda env create` command.
 
-If you create an `environment.yml`, we recommend checking it into source control
-(like `git`) and making sure to recreate it when you make changes to your environment.
+If you use a source control system like `git`, we recommend checking your
+`environment.yml` file into source control and making sure to recreate it 
+when you make changes to your environment.
 Putting your environment under source control gives you a way to track how it
 changes along with your own code.
 
 If you are developing software on your local computer for eventual use on 
 the CHTC pool, your workflow might look like this:
-1. Set up a conda environment for local development and install packages as desired.
+1. Set up a conda environment for local development and install packages as desired
+   (e.g., `conda create -n science; conda activate science; conda install numpy`).
 2. Once you are ready to run on the CHTC pool, create an `environment.yml` file
-   from your local environment (`conda env export > environment.yml`).
+   from your local environment (e.g., `conda env export > environment.yml`).
 3. Move your `environment.yml` file from your local computer to the submit machine
-   and create an environment from it (`conda env create -f environment.yml`),
+   and create an environment from it (e.g., `conda env create -f environment.yml`),
    then pack it for use in your jobs, as per 
    [Create Software Package](#3-create-software-package).
 
