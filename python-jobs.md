@@ -5,7 +5,7 @@ title: Running Python Jobs on CHTC
 ---
 
 
-**To best understand the below information, users should already have an
+**To best understand the below information, you should already have an
 understanding of:**
 
 -   Using the command line to: navigate within directories,
@@ -28,9 +28,11 @@ This guide details the steps needed to:
 3.  [Submit jobs](#submit)
 
 If you want to build your own copy of base Python, see this archived
-page:
+page: [Building a Python installation](archived/python-jobs.shtml)
 
--   [Building a Python installation](archived/python-jobs.shtml)
+If you want to use conda to manage your Python package dependencies, 
+read this guide as background material,
+then read [our guide on using conda](conda-installation.shtml).
 
 <a name="supported"></a>
 
