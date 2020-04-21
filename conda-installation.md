@@ -46,7 +46,7 @@ If it doesn't work, discuss the second option with a facilitator.
 - Alternative: [Option 2: Install Miniconda Inside Each Job](#option-2-install-miniconda-inside-each-job)
 
 This guide also discusses how to 
-["pin" your conda environment](#pinning-dependencies)
+["pin" your conda environment](#specifying-exact-dependency-versions)
 to create a more consistent and reproducible environment with specified versions of 
 packages.
 
