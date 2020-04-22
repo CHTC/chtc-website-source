@@ -42,7 +42,9 @@ expect a first response within a few business hours.
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
-
+> 
+>  Office hours are cancelled on **Thursday, April 23**  
+>
 > **Temporary Changes to Office Hours**
 >
 > In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
