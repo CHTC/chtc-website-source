@@ -21,7 +21,7 @@ Guides will be added to the list as we can provide them. Please contact us
 
 <div class="card-deck">
 	<div class="card border-secondary h-100 text-center">  
-		<a href="#gen"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">General Computings</li></a>
+		<a href="#gen"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">General Computing</li></a>
 	</div>
 	<div class="card border-secondary h-100 text-center">  
 		<a href="#htc"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HTC System</li></a>
