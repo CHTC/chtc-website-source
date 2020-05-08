@@ -11,6 +11,29 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+## Join the first Virtual HTCondor Week, May 19-20!
+### Monday, May 4, 2020
+<br/>
+Greetings CHTC users,
+
+We are excited to invite you to [HTCondor Week 2020](http://htcondor.org/HTCondorWeek2020), HTCondor's annual user conference! It's a great opportunity to connect with CHTC staff and other users of HTCondor, and to expand your awareness of HTCondor capabilities.
+
+This virtual conference will take place on Tuesday, May 19 and Wednesday, May 20.
+
+-   Tuesday May 19 will include a series of online **presentations on the latest HTCondor capabilities and achievements**, including presentations from the HTCondor team and from worldwide HTCondor users like Dreamworks (11am-4pm CT).
+-   Wednesday May 20 will focus on **tutorial presentations (11am-1pm CT) and office hours discussions (2-4pm)** hosted by HTCondor developers and other CHTC staff.
+
+Registration is FREE and will ensure that we can email you with details, like virtual meeting room coordinates. More information, including a detailed schedule, is on the website:
+
+<http://htcondor.org/HTCondorWeek2020>
+
+Email us at <chtc@cs.wisc.edu> with any questions.
+
+Best,\
+Your CHTC Team
+
 ------------------------------------------------------------------------
 ## COVID-19 research; Thurs (4/23) office hour canceled; Gluster deletion
 ### Monday, April 20, 2020
