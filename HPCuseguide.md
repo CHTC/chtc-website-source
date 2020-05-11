@@ -434,7 +434,7 @@ info here: <https://lintut.com/ncdu-check-disk-usage/>
 The command `du` can also be used to examine the size of directories:
 
 ```
-[alice@service]$ du -h /home/alice
+[alice@service]$ du -sh /home/alice
 ```
 {:.term}
 
