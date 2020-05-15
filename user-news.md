@@ -10,7 +10,21 @@ changes may affect the jobs of users.
 
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
+------------------------------------------------------------------------
+## CHTC Office Hours Canceled May 19 for HTCondor Week 2020
+### Thursday, May 15, 2020
+Greetings CHTC users,
 
+Office hours are canceled next Tuesday (May 19), as CHTC staff will be hosting [HTCondor Week 2020](https://agenda.hep.wisc.edu/event/1440/). We will continue with regular office hours on Thursday (May 21) and regular email support will continue to be available through the week. Our current office hours schedule is from 3 - 5pm on Tuesdays and Thursdays, via WebEx: [go.wisc.edu/chtc-officehours](http://go.wisc.edu/chtc-officehours).
+
+**All CHTC users are welcome and encouraged to attend HTCondor Week!**\
+Registration is FREE, and will ensure that you receive links to virtual rooms for participation: <https://agenda.hep.wisc.edu/event/1440/>\
+CHTC staff will be out of the office on Monday, May 25 for the Memorial Day holiday, which we'll send a reminder about, later.
+
+Please continue to email <chtc@cs.wisc.edu> for help during the above times, and we'll get back to you ASAP!
+
+Cheers,\
+Your CHTC Team
 
 ------------------------------------------------------------------------
 ## Join the first Virtual HTCondor Week, May 19-20!
