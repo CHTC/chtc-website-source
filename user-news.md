@@ -10,6 +10,7 @@ changes may affect the jobs of users.
 
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
+
 ------------------------------------------------------------------------
 ## CHTC Office Hours Canceled May 19 for HTCondor Week 2020
 ### Thursday, May 15, 2020
