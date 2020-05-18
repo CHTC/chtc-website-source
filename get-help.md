@@ -43,15 +43,13 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 > 
->  Office hours are cancelled on **Thursday, April 23**  
+>  Due to HTCondor week, office hours are cancelled on **Tuesday, May 19th**  
 >
 > **Temporary Changes to Office Hours**
->
-> In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
-> we are replacing in-person office
-> hours with virtual office hours, and slightly decreasing our office 
-> hour availability. Starting on _Thursday, March 12_, office hours are: 
 > 
+> In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
+> we have replaced in-person office hours with virtual office hours, office hours are:
+>
 > -   **Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.** 
 > 
 > To drop in, find the videoconference link in either your email (via 
