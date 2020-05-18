@@ -42,24 +42,23 @@ expect a first response within a few business hours.
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
-> 
->  Office hours are cancelled on **Thursday, April 23**  
->
-> **Temporary Changes to Office Hours**
->
-> In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
-> we are replacing in-person office
-> hours with virtual office hours, and slightly decreasing our office 
-> hour availability. Starting on _Thursday, March 12_, office hours are: 
-> 
-> -   **Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.** 
-> 
-> To drop in, find the videoconference link in either your email (via 
-> an announcement to chtc-users sent on Wed., March 11) or in the login message
-> when you log into a CHTC server. 
-> 
-> As always, if the times above don't work for you, please email use 
-> at our usual support address to schedule a separate meeting. 
+
+ Due to [HTCondor Week](https://agenda.hep.wisc.edu/event/1440/), office hours are cancelled on **Tuesday, May 19th**  
+
+ **Temporary Changes to Office Hours**
+
+In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
+we have replaced in-person office hours with virtual office hours, office hours are:
+
+-   **Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.** 
+
+To drop in, find the videoconference link in either your email (via 
+an announcement to chtc-users sent on Wed., March 11) or in the login message
+when you log into a CHTC server. 
+
+As always, if the times above don't work for you, please email use 
+at our usual support address to schedule a separate meeting. 
+
 
 
 [Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
@@ -85,4 +84,3 @@ during Office Hours.) -->
 We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
-
