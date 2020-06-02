@@ -5,7 +5,9 @@ title: Transferring Files Between CHTC and Research Drive
 ---
 
 UW Madison provides a shared data storage for research called [ResearchDrive](https://it.wisc.edu/services/researchdrive/). It 
-is possible to transfer files directly between Research Drive and CHTC's HTC large data system. 
+is possible to transfer files directly between Research Drive and CHTC's large data system. The 
+instructions in this guide may also work for accessing other data services on campus; contact us if you 
+would like to know more.
 
 ## A. Pre-Requisites
 
@@ -26,14 +28,17 @@ To transfer data between Research Drive and `/staging`, do the following:
 3. **Connect to Research Drive:** Run the following command to connect to Research Drive, filling in the username of 
 your PI: 
     ```
-    [alice@transfer]$ smbclient //research.drive.wisc.edu/PI-Name
+    [alice@transfer]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
     {: .term}
-    This should then ask for your password for your Wisc ID account. After entering it, your prompt should change to look like this: 
+    Your prompt should change to look like this:
     ```
     smb: \> 
     ```
     {: .term}
+    > ## Note about NetIDs
+    > If your CHTC account is not tied to your campus NetID or you are accessing a data 
+    > storage service that doesn't use your NetID, you'll need to omit the `-k` flag above
 4. **Choose a folder, part 2:** If you type `ls` now, you'll see the files in Research Drive, not CHTC. 
 Navigate through Research Drive (using `cd`) until you are at the folder where you would 
 like to get or put files. 
