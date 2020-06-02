@@ -12,6 +12,18 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Resolved! Was: Emails to chtc@cs.wisc.edu delayed since May 30
+### Tuesday, June 2, 2020
+Hi Everyone,
+
+Thank you for your patience while we were unable to reply to your incoming emails to
+chtc@cs.wisc.edu. The issue has been resolved and we will make sure to reply to you ASAP, today! You
+can continue to email chtc@cs.wisc.eedu for support, including time-sensitive requests.
+
+Best,\
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## CHTC Office Hours Canceled May 19 for HTCondor Week 2020
 ### Thursday, May 15, 2020
 Greetings CHTC users,
