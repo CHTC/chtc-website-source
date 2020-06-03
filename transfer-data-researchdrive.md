@@ -15,7 +15,7 @@ In order to follow the steps in this guide, you need:
 1. Access to a Research Drive share, either as PI or member of your PI's group. 
 2. Access to CHTC's "transfer" server, `transfer.chtc.wisc.edu`. 
 
-Note that, for now, these instructions are mainly aimed at people transferring files to 
+Note that, for now, these instructions are specifically for transferring large input and output file to 
 and from CHTC's large data location on the HTC System, `/staging/`. In the future, it may be possible to 
 transfer files directly between a submit server `/home` directory and Research Drive. 
 
