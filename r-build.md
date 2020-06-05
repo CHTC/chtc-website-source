@@ -4,7 +4,7 @@ layout: default
 title: Building R in HTC
 ---
 
-#Overview
+# Overview
 
 **This guide will provide instructions for compiling base R from source code and is intended 
 for compiling versions of R that are currently not provided via the CHTC Squid Web Proxy**
@@ -20,10 +20,10 @@ should already have an understanding of how to:**
 
 This guide details the steps needed to: 
 
-	1. Download R source code
-	2. Submit an interactive job to a build server 
-	3. Compile base R from source code
-	4. Create a portable copy of your R installation that can be brought along with your jobs
+ 1. [Download R source code](#1.-Download-R-Source-Code) 
+ 2. [Submit an interactive job to a build server](#2.-Submit-An-Interactive-Job-To-A-Build-Server)
+ 3. Compile base R from source code
+ 4. Create a portable copy of your R installation that can be brought along with your jobs
 
 # Compile R
 
@@ -146,7 +146,7 @@ is to create a compressed tar archive of your R installation. From the top level
 ```
 {.term}
 
-**If the size of `my\_R#.#.#.tar.gz` is larger than ~100MB then your will need to use the CHTC
+**If the size of `my_R#.#.#.tar.gz` is larger than ~100MB then your will need to use the CHTC
 Squid Wed Proxy to host this file** See our [Squid Web Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml) guide for more details.
 
 Now you have a portable copy of your R installation that can be brought along with your jobs. 
