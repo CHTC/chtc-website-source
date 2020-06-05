@@ -20,12 +20,12 @@ should already have an understanding of how to:**
 
 This guide details the steps needed to: 
 
- 1. [Download R source code](#1.-download-r-source-code) 
- 2. [Submit an interactive job to a build server](#2.-submit-an-interactive-job-to-a-build-server) 
- 3. [Compile base R from source code](#3.-compile-base-r-from-source-code) 
- 4. [Install additional R packages](#4.-install-packages) 
- 5. [Create a portable copy of your R installation that can be brought along with your jobs](#5.-create-a-portable-copy-of-your-r-installation)
- 6. [Use your custom R installation in your jobs](#6.-use-your-custom-r-installation-in-your-jobs) 
+ 1. [Download R source code](#1-download-r-source-code) 
+ 2. [Submit an interactive job to a build server](#2-submit-an-interactive-job-to-a-build-server) 
+ 3. [Compile base R from source code](#3-compile-base-r-from-source-code) 
+ 4. [Install additional R packages](#4-install-packages) 
+ 5. [Create a portable copy of your R installation that can be brought along with your jobs](#5-create-a-portable-copy-of-your-r-installation)
+ 6. [Use your custom R installation in your jobs](#6-use-your-custom-r-installation-in-your-jobs) 
 
 # Compile R
 
