@@ -20,10 +20,12 @@ should already have an understanding of how to:**
 
 This guide details the steps needed to: 
 
- 1. [Download R source code](#1.-Download-R-Source-Code) 
- 2. [Submit an interactive job to a build server](#2.-Submit-An-Interactive-Job-To-A-Build-Server)
- 3. Compile base R from source code
- 4. Create a portable copy of your R installation that can be brought along with your jobs
+ 1. [Download R source code](#1.-download-r-source-code) 
+ 2. [Submit an interactive job to a build server](#2.-submit-an-interactive-job-to-a-build-server) 
+ 3. [Compile base R from source code](#3.-compile-base-r-from-source-code) 
+ 4. [Install additional R packages](#4.-install-packages) 
+ 5. [Create a portable copy of your R installation that can be brought along with your jobs](#5.-create-a-portable-copy-of-your-r-installation)
+ 6. [Use your custom R installation in your jobs](#6.-use-your-custom-r-installation-in-your-jobs) 
 
 # Compile R
 
@@ -62,8 +64,8 @@ transfer_input_files = R-#.#.#.tar.gz
 +IsBuildJob = true
 requirements = (OpSysMajorVer =?= 7)
 request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
+request_memory = 4GB
+request_disk = 4GB
 
 queue
 ```
@@ -87,7 +89,7 @@ started, the job has a time limit of four hours.
 Once the interactive job starts, R can be compiled. The general workflow will be 
 to first run the R configuration script followed by `make` and `make install`. 
 
-To install R, first create a directory that will hold your R installation (e.g. R/) 
+To install R, first create a directory that will hold your R installation (e.g. `R/`) 
 , then extract all of the source code files from R-#.#.#.tar.gz and move into the source code directory:
 
 ``` 
@@ -121,13 +123,14 @@ If R has been installed successfully, you should be able to run the following co
 ```
 {.term}
 
-The output of the above command should match the version number that you want to be using!
+The output of the above command should match the version number that you just installed!
 
 ## 4. Install Packages 
 
-After your R compilations completed, if any additional R packages are required for your work, 
+After your R compilation has completed, if any additional R packages are required for your work, 
 please follow the steps in our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide 
-starting with the `export` commands shown in step 1.B.1. After creating a compressed tar 
+starting with the `export` commands shown in step 
+[1.B.1](http://chtc.cs.wisc.edu/r-jobs.shtml#b.-install-the-packages). After creating a compressed tar 
 archive of your `packages` directory return the the next steps in this guide.
 
 ## 5. Create A Portable Copy of Your R Installation
@@ -146,8 +149,9 @@ is to create a compressed tar archive of your R installation. From the top level
 ```
 {.term}
 
-**If the size of `my_R#.#.#.tar.gz` is larger than ~100MB then your will need to use the CHTC
-Squid Wed Proxy to host this file** See our [Squid Web Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml) guide for more details.
+**If the size of `my_R#.#.#.tar.gz` is larger than ~100MB then your will need to use 
+the CHTC Squid Wed Proxy to host this file.** See our 
+[Squid Web Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml) guide for more details.
 
 Now you have a portable copy of your R installation that can be brought along with your jobs. 
 The final step is to terminate your interactive job, and HTCondor will tranfer your R tar archive 
