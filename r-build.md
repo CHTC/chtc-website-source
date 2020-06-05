@@ -12,12 +12,11 @@ for compiling versions of R that are currently not provided via the CHTC Squid W
 Before compiling R, please take a moment to review our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide to see what versions of R are currently available on the HTC.
 
 **To best understand the below information, users 
-should already have an understanding of:**
-	* Using the command line to: 
-		* navigate within directories 
-		* create/copy/move/delete files and directories 
-		* how to run your intended program 
-	* Using HTCondor to submit jobs
+should already have an understanding of how to:**
+  * navigate within directories 
+  * create/copy/move/delete files and directories 
+  * run your intended program 
+  * use HTCondor to submit jobs
 
 This guide details the steps needed to: 
 
@@ -28,9 +27,7 @@ This guide details the steps needed to:
 
 # Compile R
 
-1. Download R Source Code
--------------------------
--------------------------
+## 1. Download R Source Code
 
 Before running any commands on CHTC, use a browser to get the source code 
 for your desired version of R from [CRAN](https://cran.r-project.org) 
@@ -38,9 +35,7 @@ Under "Source Code for all Platforms", find the R-#.#.#.tar.gz file for your
 desired version of R and download it to your computer before transferring a copy 
 to your `/home` directory on the submit server. 
 
-2. Submit An Interactive Job To A Build Server
-----------------------------------------------
-----------------------------------------------
+## 2. Submit An Interactive Job To A Build Server
 
 Creating an R installation can be computationally intensive and should not be 
 performed on the submit server. Instead, you will create your installation 
@@ -87,9 +82,7 @@ running the following command:
 The interactive build job should start in about a minute. Once it has
 started, the job has a time limit of four hours.
 
-3. Compile Base R From Source Code
-----------------------------------
-----------------------------------
+## 3. Compile Base R From Source Code
 
 Once the interactive job starts, R can be compiled. The general workflow will be 
 to first run the R configuration script followed by `make` and `make install`. 
@@ -130,18 +123,14 @@ If R has been installed successfully, you should be able to run the following co
 
 The output of the above command should match the version number that you want to be using!
 
-4. Install Packages 
--------------------
--------------------
+## 4. Install Packages 
 
 After your R compilations completed, if any additional R packages are required for your work, 
 please follow the steps in our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide 
 starting with the `export` commands shown in step 1.B.1. After creating a compressed tar 
 archive of your `packages` directory return the the next steps in this guide.
 
-5. Create A Portable Copy of Your R Installation
-------------------------------------------------
-------------------------------------------------
+## 5. Create A Portable Copy of Your R Installation
 
 Once R has been successfully compiled (and after any packages have been installed), the final step 
 is to create a compressed tar archive of your R installation. From the top level directory:
@@ -177,9 +166,7 @@ server and should see a copy of your R tar archive:
 ```
 {.term}
 
-6. Use Your Custom R Installation In Your Jobs
-----------------------------------------------
-----------------------------------------------
+## 6. Use Your Custom R Installation In Your Jobs
 
 To use the R installation that was built using the steps in this guide, please follow 
 the steps and examples described on our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide.
