@@ -431,10 +431,10 @@ count and allow you to navigate between subdirectories for even more
 details. Type `q` when you\'re ready to exit the output viewer. More
 info here: <https://lintut.com/ncdu-check-disk-usage/>
 
-The command `du` can also be used to examine the size of directories:
+The command `df` can also be used to examine your space quota (in GB) and how much is used:
 
 ```
-[alice@service]$ du -sh /home/alice
+[alice@service]$ df -h /home/alice
 ```
 {:.term}
 
