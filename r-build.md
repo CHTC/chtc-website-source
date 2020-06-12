@@ -11,7 +11,7 @@ for compiling versions of R that are currently not provided via the CHTC Squid W
 
 Before compiling R, please take a moment to review our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide to see what versions of R are currently available on the HTC.
 
-**To best understand the below information, users 
+**To best understand the below information, you 
 should already have an understanding of how to:**
   * navigate within directories 
   * create/copy/move/delete files and directories 
@@ -174,4 +174,3 @@ server and should see a copy of your R tar archive:
 
 To use the R installation that was built using the steps in this guide, please follow 
 the steps and examples described on our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide.
-
