@@ -9,7 +9,7 @@ title: Building R in HTC
 **This guide will provide instructions for compiling base R from source code and is intended 
 for compiling versions of R that are currently not provided via the CHTC Squid Web Proxy**
 
-Before compiling R, please take a moment to review our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide to see what versions of R are currently available on the HTC.
+Before compiling R, please take a moment to review our [R Jobs](/r-jobs.shtml) guide to see what versions of R are currently available on the HTC.
 
 **To best understand the below information, you 
 should already have an understanding of how to:**
@@ -51,7 +51,7 @@ the submit server (so that you can use the R installation for later jobs).
 
 To submit an interactive job, create a submit file called `build.sub` as shown below:
 
-``` {.sub}
+``` {:.sub}
 # build.sub
 # Software build file
 
@@ -68,7 +68,7 @@ request_memory = 4GB
 request_disk = 4GB
 
 queue
-```
+``` {:.sub}
 
 Be sure to modify the above `transfer_input_files` statement with the appropriate 
 name of the R source code that you downloaded in the previous ste.
@@ -114,23 +114,23 @@ Then return the the top level directory:
 ```
 [alice@build]$ cd ../
 ```
-{.term}
+{:.term}
 
 If R has been installed successfully, you should be able to run the following command as a test:
 
 ```
 [alice@build]$ R/bin/R --version
 ```
-{.term}
+{:.term}
 
 The output of the above command should match the version number that you just installed!
 
 ## 4. Install Packages 
 
 After your R compilation has completed, if any additional R packages are required for your work, 
-please follow the steps in our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide 
+please follow the steps in our [R Jobs](/r-jobs.shtml) guide 
 starting with the `export` commands shown in step 
-[1.B.1](http://chtc.cs.wisc.edu/r-jobs.shtml#b.-install-the-packages). After creating a compressed tar 
+[1.B.1](/r-jobs.shtml#b.-install-the-packages). After creating a compressed tar 
 archive of your `packages` directory return the the next steps in this guide.
 
 ## 5. Create A Portable Copy of Your R Installation
@@ -141,17 +141,17 @@ is to create a compressed tar archive of your R installation. From the top level
 ```
 [alice@build]$ tar czf my_R#.#.#.tar.gz R/
 ```
-{.term}
+{:.term}
 
 **Be sure to check the size of your R tar archive:**
 ```
 [alice@build]$ ls -lh my_R#.#.#.tar.gz
 ```
-{.term}
+{:.term}
 
 **If the size of `my_R#.#.#.tar.gz` is larger than ~100MB then your will need to use 
 the CHTC Squid Wed Proxy to host this file.** See our 
-[Squid Web Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml) guide for more details.
+[Squid Web Proxy](/file-avail-squid.shtml) guide for more details.
 
 Now you have a portable copy of your R installation that can be brought along with your jobs. 
 The final step is to terminate your interactive job, and HTCondor will tranfer your R tar archive 
@@ -160,7 +160,7 @@ back to your `/home` directory:
 ```
 [alice@submit]$ exit
 ```
-{.term}
+{:.term}
 
 Once your interactive job terminates, you will be back in your `/home` directory on the submit 
 server and should see a copy of your R tar archive:
@@ -168,9 +168,11 @@ server and should see a copy of your R tar archive:
 ```
 [alice@submit]$ ls
 ```
-{.term}
+{:.term}
 
 ## 6. Use Your Custom R Installation In Your Jobs
 
 To use the R installation that was built using the steps in this guide, please follow 
-the steps and examples described on our [R Jobs](http://chtc.cs.wisc.edu/r-jobs.shtml) guide.
+the steps and examples described on our [R Jobs](/r-jobs.shtml) guide, **however 
+you will need to modify `transfer_input_files` in your submit file to specify your `R#.#.#.tar.gz` 
+tar archive instead of transferring a copy of R from the Squid web proxy.**
