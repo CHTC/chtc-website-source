@@ -68,7 +68,7 @@ request_memory = 4GB
 request_disk = 4GB
 
 queue
-``` {:.sub}
+```
 
 Be sure to modify the above `transfer_input_files` statement with the appropriate 
 name of the R source code that you downloaded in the previous ste.
