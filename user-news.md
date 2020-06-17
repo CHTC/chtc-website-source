@@ -12,6 +12,25 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## All CHTC services, including the HPC Cluster, are restored
+### Wednesday, June 17, 2020
+Greetings CHTC users, 
+
+
+Cooling has been restored to all CHTC server rooms and all of our services, including the HPC Cluster and all execute nodes of the HTC system are now available.
+
+
+Because some of the HPC Cluster nodes were shut off abruptly last week, please email us at chtc@cs.wisc.edu if you experience any unexpected issues. 
+
+
+Thanks for your patience during this unexpected downtime. 
+
+
+Cheers,
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Current Status of CHTC services; HPC cluster still down
 ### Thursday, June 11, 2020
 Greetings CHTC users,
