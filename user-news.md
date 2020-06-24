@@ -12,6 +12,30 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Licensed Software Interruption, Monday, June 29
+### Tuesday, June 23, 2020
+Greetings CHTC users,
+
+This message is for CHTC users who use licensed software on any CHTC systems.
+
+On Monday, June 29, we will have a short maintenance window affecting the server which
+provides licenses for the following programs:
+
+-   Comsol
+-   Lumerical
+-   Matlab (necessary for compiling Matlab code)
+
+Licenses for these programs will be unavailable for up to a 30-minute period on Monday, shortly
+after 5pm. Jobs requiring licenses from the license server that start while the license server
+is down will fail and need to be resubmitted. Some currently-running jobs dependent on these
+licenses may also be interrupted during this time.
+
+As always, email us at <chtc@cs.wisc.edu> with any questions.
+
+Cheers,\
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## All CHTC services, including the HPC Cluster, are restored
 ### Wednesday, June 17, 2020
 Greetings CHTC users, 
