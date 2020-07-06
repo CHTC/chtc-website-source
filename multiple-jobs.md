@@ -54,9 +54,13 @@ difference between them using variables.
 4.  **[Organizing Jobs in Individual Directories](#initialdir)** -
     another option that can be helpful in organizing job submissions.
 
-This guide merely scratches the surface of what is possible when
-submitting many jobs from a submit file. If you are interested in a
-particular approach that isn\'t listed here, [contact a Research
+These options are also described in this video from HTCondor Week 2020: 
+* [Submitting Multiple Jobs Using HTCondor](https://www.youtube.com/watch?v=m7dQChJH5LU)
+
+
+Many options exist for streamlining your submission of multiple jobs,
+and this guide only covers a few such options of what is truly possible with
+HTCondor. If you are interested in a particular approach that isn't listed here, [contact a Research
 Computing Facilitator](mailto:chtc@cs.wisc.edu) and we can advise on the
 best implementation.
 
