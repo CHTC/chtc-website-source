@@ -63,7 +63,7 @@ many files, at a time and is best for transferring a few files in a session. How
 `smbclient` also provides options for transferring many individual files in a single command 
 using the `*` wildcard character.
 
-To transfer multiple files at once, first you must turn off `smbclient` file transfer prompt, 
+To transfer multiple files at once, first you must turn off the `smbclient` file transfer prompt, 
 then use either `mget` or `mput` for your file transfer. For example, if you have multiple `fastq.gz` 
 to transfer to `/staging`:
 
