@@ -173,7 +173,7 @@ When this step finishes, you should see a file in your current directory named
 
 The tar archive, `env-name.tar.gz`, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
-Conda environment file. If >100MB in size, you should *NOT* transfer the tar ball using 
+Conda environment file. If >100MB in size, you should **NOT** transfer the tar ball using 
 `transfer_input_files`. Instead, you should plan to use either CHTC's web proxy, SQUID or 
 large data filesystem Staging. Please contact a research computing facilitators at 
 chtc@cs.wisc.edu to determine the best option for your jobs. 
@@ -216,10 +216,10 @@ In your submit file, make sure to have the following:
 - Your executable should be the the bash script you created in [step 4](#4-create-a-job-executable).
 - Remember to transfer your Python script and the environment `tar.gz` file via
  `transfer_input_files`. 
-  *Since the `tar.gz` file will almost certainly be larger than 100MB, 
+  **Since the `tar.gz` file will almost certainly be larger than 100MB, 
   please [email](mailto:chtc@cs.wisc.edu) us about different tools for 
   delivering the installation to your jobs, 
-  likely our [SQUID web proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml).*
+  likely our [SQUID web proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml).**
 
 # Option 2: Install Miniconda Inside Each Job
 
