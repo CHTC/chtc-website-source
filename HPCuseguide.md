@@ -159,7 +159,7 @@ D. Partition Configuration and Job Scheduling
 
 The job scheduler on the HPC Cluster is SLURM. You can read more about
 submitting jobs to the queue on [SLURM\'s
-website](https://computing.llnl.gov/linux/slurm/documentation.html), but
+website](https://slurm.schedmd.com/overview.html), but
 we have provided a simple guide below for getting started.\
 \
 We have provisioned 3 freely-available submission partitions and a small
@@ -369,7 +369,7 @@ script; however, doing so creates and requires a persistent connection
 to your job as it runs, and interrupted jobs are not re-queued if
 submitted this way (even when using the \"pre\" partition). You are
 welcome to submit jobs in these modes according to [SLURM\'s user
-guide](https://computing.llnl.gov/linux/slurm/quickstart.html), which
+guide](https://slurm.schedmd.com/overview.html), which
 has some awesome advanced features for complex MPI configurations.\
 **Please remember to indicate partition and run time with the -p and -t
 flags, respectively** (see the interactive job command, above, for an
