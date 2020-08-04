@@ -169,7 +169,7 @@ Finally, use `conda pack` to create a zipped tar.gz file of your environment
 When this step finishes, you should see a file in your current directory named
 `env-name.tar.gz`
 
-## 4. Check size of Conda Environemnt Tar Archive
+## 4. Check Size of Conda Environemnt Tar Archive
 
 The tar archive, `env-name.tar.gz`, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
