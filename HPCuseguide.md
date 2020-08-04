@@ -159,7 +159,7 @@ D. Partition Configuration and Job Scheduling
 
 The job scheduler on the HPC Cluster is SLURM. You can read more about
 submitting jobs to the queue on [SLURM\'s
-website](https://computing.llnl.gov/linux/slurm/documentation.html), but
+website](https://slurm.schedmd.com/overview.html), but
 we have provided a simple guide below for getting started.\
 \
 We have provisioned 3 freely-available submission partitions and a small
