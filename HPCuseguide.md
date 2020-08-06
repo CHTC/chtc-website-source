@@ -18,7 +18,7 @@ Cluster.\
 \
 Before using the campus-shared HPC Cluster or any CHTC computing
 resource, **you will need to obtain access** by filling out the
-[Large-Scale Computing Request Form](http://chtc.cs.wisc.edu/form) on
+[Large-Scale Computing Request Form](/form) on
 our website so that our Research Computing Facilitators can make sure to
 match you to the best computing resources (including non-CHTC
 services).\
