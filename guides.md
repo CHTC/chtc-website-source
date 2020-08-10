@@ -89,6 +89,7 @@ through the process of creating your own large-scale job submission, step-by-ste
         	<a href="/file-avail-squid.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">File Availability with Squid Web Proxy</li></a>
         	<a href="/file-avail-largedata.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">File Availability for Large Data</li></a>
         	<a href="/transfer-data-researchdrive.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Transferring Files Between CHTC and Research Drive</li></a>
+        	<a href="/globus.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Using Globus to Transfer Files to and from CHTC</li></a>
 		</ul>
 	</div>
 			
