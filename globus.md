@@ -7,23 +7,43 @@ title: Using Globus to Transfer Files to and from CHTC
 [Globus](https://www.globus.org/) is a data management service that lets you
 move files files between **endpoints**, computers that are connected to the
 Globus file transfer network.
-CHTC maintains a Globus endpoint that can serve as either the
-source or destination of a Globus file transfer
-(i.e., you can move your files out of CHTC to some other Globus endpoint,
-or from some other Globus endpoint to CHTC).
+Globus is primarily useful when you need to move large amounts of data to or 
+from somewhere that is already providing a Globus endpoint.
+For example, a collaborator might provide shared data through Globus,
+or might expect you to send data to them through Globus.
+
+This guide will show you how to execute such transfers using the CHTC
+Globus endpoint, which may be simpler than trying to move the files to your
+own computer first.
+
+
+## Prerequisites
 
 All file transfer via Globus at CHTC is based out of the
-[`/staging`](/file-avail-largedata.shtml) directory.
-Therefore, to use Globus, you will need access to `/staging` 
+[`/staging`](/file-avail-largedata.shtml) directory and requires login 
+access to the `transfer.chtc.wisc.edu` server.
+Therefore, to use Globus, you will need access to both of those 
 (instructions for requesting access are 
-[here](/file-avail-largedata.shtml#1-policies-and-intended-use)).
+[here](/file-avail-largedata.shtml#1-policies-and-intended-use);
+mention that you want to use the Globus endpoint in your email).
+
+You will need to be able to
+[log in to the Globus web interface](https://app.globus.org/);
+you can use your UW-Madison NetID (if you have one, or similar) by selecting
+University of Wisconsin-Madison from the drop down and pressing "Continue".
 
 
 ## Using the CHTC Globus Endpoint
 
+You can use the Globus web interface to transfer files to and from CHTC.
+In the web interface, you can select two endpoints and then initiate a transfer
+between them.
+
+The first step is to find the CHTC Globus endpoint.
 The CHTC Globus endpoint's name is `chtc#staging`.
 It can be found in the Globus web interface 
-[here](https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints).
+[here](https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints),
+or by searching endpoints for that name.
 If you  need the actual endpoint UUID, it is listed on that page near the bottom
 of the "Overview".
 
@@ -72,17 +92,3 @@ We only recommend using Globus Connect Personal if you are also working with
 some other Globus endpoint (not just CHTC and your computer).
 If you are just moving files between CHTC and your own computer, traditional
 file transfer tools like `rsync` will likely be more efficient.
-
-
-## Non-Interactive File Transfer
-
-As the scale of your research increases, you will probably want to move away
-from the interactive web interface and toward a more automated way of launching
-transfers.
-We recommend using
-[this tool](https://github.com/JoshKarpel/globus-transfer),
-which can be used at the command line to launch and manage Globus file transfers,
-and can generate HTCondor submit descriptions for the same purpose.
-These submit descriptions could be run as standalone jobs
-or as integrated parts of a 
-[larger workflow](https://htcondor.readthedocs.io/en/latest/users-manual/dagman-workflows.html)).
