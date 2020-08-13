@@ -17,17 +17,17 @@ best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
 information about high-throughput computing, please see [Our Approach](approach.shtml).
 
-To get access to the HPC, please complete our account request form at 
+To get access to the HPC, please complete 
 [Large-Scale Computing Request Form](/form). After your account request is received, 
 our Research Computing Facilitators will follow up with you and schedule a meeting 
-to discuss the computational needs of your research and connect with computing 
+to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
 
 ## HPC User Policies
 
-Below is a list of policies for HPC all users. 
+Below is a list of policies that apply to all HPC users. 
 
-**1. Do Not Run Programs On The Head Nodes**
+**1. Do Not Run Programs On The Head Nodes**   
 When you connect to the HPC, you are logging into a head node. The HPC head nodes have 
 limited computing resources that a occupied with running Slurm and managing job submission. 
 
@@ -40,11 +40,11 @@ head nodes and/or disable user accounts that violate this policy**
 
 Violation of these policies may result in suspension of your account.
 
-**2. The HPC Is Reserved For MPI-enabled, Multi-node Jobs**
+**2. The HPC Is Reserved For MPI-enabled, Multi-node Jobs**   
 HPC users should not submit single-core or single-node jobs to the HPC. Users will 
 be asked to transition this kind of work to our high-throughput computing system.
 
-**3. HPC File System Is Not Backed-up**
+**3. HPC File System Is Not Backed-up**    
 All files on the HPC should be treated as temporary and only files necessary for 
 actively running jobs should be kept on the file system. Once your jobs complete, 
 your files should be removed from the HPC. Campus researchers have several options 
@@ -57,19 +57,25 @@ CHTC Staff reserve the right to remove any significant amounts of data on the HP
 in our efforts to maintain filesystem performance for all users, though we will always 
 first ask users to remove excess data and minimize file counts before taking additional action.
 
-**4. Fair-share Policy**
+**4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
 running jobs at a time. Additionally, user are restricted to a total of 600 cores 
 across all running jobs and . Core limits do not apply to users from research groups that own 
 more than 600 cores.
 
-**5. Job Priority Policy**
+**5. Job Priority Policy**   
 
-A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across all queues. This "fair-share" policy means that users who have run many/larger jobs in the near-past will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. We do NOT have a strict "first-in-first-out" queue policy.
+A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
+all queues. This "fair-share" policy means that users who have run many/larger jobs in the near-past 
+will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. We do 
+NOT have a strict "first-in-first-out" queue policy.
 
-B. Job priority increases with job wait time. After the history-based user priority calculation in (A), the next most important factor for each job's priority is the amount of time that each job has already waited in the queue. For all the jobs of a single user, these jobs will most closely follow a "first-in-first-out" policy.
+B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
+the next most important factor for each job's priority is the amount of time that each job has already 
+waited in the queue. For all the jobs of a single user, these jobs will most closely follow a "first-in-first-out" policy.
 
-C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, as a means of somewhat countering the inherently longer wait time necessary for allocating more cores to a single job.
+C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, as a means of 
+somewhat countering the inherently longer wait time necessary for allocating more cores to a single job.
 
 ## HPC Hardware and Configuration
 
