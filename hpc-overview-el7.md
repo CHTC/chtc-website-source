@@ -4,6 +4,15 @@ layout: default
 title: HPC Cluster Overview
 ---
 
+# Content
+
+[High-Performance Computing at CHTC](#)
+[HPC User Policies](#)
+[HPC Hardware and Configuration](#)
+[Partitions](#)
+[Data Storage and Management](#)
+[Tools for managing home and software space](#)
+
 # High-Performance Computing at CHTC
 
 The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 
@@ -60,7 +69,7 @@ first ask users to remove excess data and minimize file counts before taking add
 **4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
 running jobs at a time. Additionally, user are restricted to a total of 600 cores 
-across all running jobs and . Core limits do not apply to users from research groups that own 
+across all running jobs and. Core limits do not apply to users from research groups that own 
 more than 600 cores.
 
 **5. Job Priority Policy**   
@@ -162,13 +171,13 @@ data and minimize file counts before taking additional action.
 
 Will there be local scratch space??
 
-%**Local scratch space** of 500 GB is available on each execute node in
-%`/scratch/local/$USER` and is automatically cleaned out upon completion
-%of scheduled job sessions (interactive or non-interactive). Local
-%scratch is available on the compiling node, aci-service-2, in the same
-%location and should be cleaned out by the user upon completion of
-%compiling activities. CHTC staff will otherwise clean this location of
-%the oldest files when it reaches 80% capacity.
+**Local scratch space** of 500 GB is available on each execute node in
+`/scratch/local/$USER` and is automatically cleaned out upon completion
+of scheduled job sessions (interactive or non-interactive). Local
+scratch is available on the compiling node, aci-service-2, in the same
+location and should be cleaned out by the user upon completion of
+compiling activities. CHTC staff will otherwise clean this location of
+the oldest files when it reaches 80% capacity.
 
 ### Tools for managing home and software space
 
