@@ -12,6 +12,20 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Limited CHTC Email Support on Monday, August 17
+### Friday, August 14, 2020
+Hello CHTC users,
+
+CHTC email support will be unavailable Monday, August 17, as all of CHTC's Research Computing
+Facilitators will be out of the office or otherwise unavailable.
+
+The best way to reach us is still <chtc@cs.wisc.edu> and email support will resume Tuesday
+August 18.
+
+Cheers,\
+Christina, Jess and Lauren
+
+------------------------------------------------------------------------
 ## Licensed Software Interruption, Monday, June 29
 ### Tuesday, June 23, 2020
 Greetings CHTC users,
