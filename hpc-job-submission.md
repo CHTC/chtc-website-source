@@ -10,10 +10,10 @@ how to submit and manage jobs using SLURM.
 Contents
 ========
 
-1. [Submitting Jobs Using SLURM]()
-1. [Viewing Jobs in the Queue]()
-1. [Viewing Additional Job Information]()
-1. [Removing or Holding Jobs]()
+1. [Submitting Jobs Using SLURM](1-submitting-jobs-using-slurm)
+1. [Viewing Jobs in the Queue](2-viewing-jobs-in-the-queue)
+1. [Viewing Additional Job Information](3-viewing-additional-job-information)
+1. [Removing or Holding Jobs](4-removing-or-holding-jobs)
 
 The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node `aci-login-1.chtc.wisc.edu`. If this is not
@@ -23,7 +23,7 @@ the facilitation team at chtc@cs.wisc.edu.
 **1. Submitting Jobs Using SLURM**
 ==================
 
-**A. Submitting a Job**\
+**A. Submitting a Job**
 -----------------
 
 Jobs can be submitted to the cluster using a submit file, sometimes also 
@@ -81,13 +81,13 @@ In any case, it is important to make sure that your request fits within
 the hardware configuration of your chosen partition.\
 
 
-**B. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**\
+**B. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**
 -----------------
 
 You may request up to a full node (16 CPUs, 64 GB RAM) when requesting
 an interactive session in the \"int\" partition. Interactive sessions on
 the \"int\" partition are allowed for 30 minutes, but you may request
-less time (see the below example). Sessions in the \"pre\" partition are
+less time. Sessions in the \"pre\" partition are
 limited according to the \"Partition\" table above, but are potentially
 subject to interruption.
 
@@ -118,8 +118,6 @@ To view *your* jobs in the SLURM queue, enter the following:
 
 Issuing `squeue` alone will show all user jobs in the queue. You can
 view all jobs for a particular partition with `squeue -p univ`.
-
-<a name="remove"/>
 
 **3. Viewing Additional Job Information**
 ==================
