@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="/bootstrap.css" />
+
+<div class="card-deck">
+	<div class="card border-secondary h-100 text-center">  
+		<a href="hpc-overview-el7.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Overview</li></a>
+	</div>
+	<div class="card border-secondary h-100 text-center">  
+		<a href="hpc-job-submission.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
+	</div>
+	<div class="card border-secondary h-100 text-center">  
+		<a href="hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
+	</div>
+	<div class="card border-secondary h-100 text-center">  
+		<a href="guides.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Place Holder</li></a>
+	</div>
+</div>
