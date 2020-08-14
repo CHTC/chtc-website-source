@@ -6,12 +6,12 @@ title: HPC Cluster Overview
 
 # Content
 
-[High-Performance Computing at CHTC](#)
-[HPC User Policies](#)
-[HPC Hardware and Configuration](#)
-[Partitions](#)
-[Data Storage and Management](#)
-[Tools for managing home and software space](#)
+1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
+2. [HPC User Policies](#hpc-user-policies)  
+3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
+    - [Partitions](#partitions)   
+4. [Data Storage and Management](#data-storage-and-management)   
+    - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
 
 # High-Performance Computing at CHTC
 
