@@ -12,7 +12,7 @@ Contents
 1.  [General Software Policies](#1-general-software-policies)
 2.  [Using Pre-Installed Software in Modules](#2-using-pre-installed-software-in-modules)
 3.  [Installing Software on the Cluster](#3-installing-software-on-the-cluster)
-4.  [Using Software in Jobs](#)
+4.  [Using Software in Jobs](#4-using-software-in-jobs)
 
 # 1. General Software Policies
 
@@ -20,11 +20,11 @@ In CHTC, we install a minimal set of software for use
 on our systems. On the HPC Cluster, CHTC staff manage installations of 
 the following types of programs: 
 
-* Compilation tools and common dependencies (e.g. MPI, NetCDF, different GCC versions)
+* Compilation tools and common dependencies (e.g. MPI, different GCC versions)
 * Software that requires a shared license (e.g. COMSOL, ABAQUS)
 
 Information on how to access CHTC-managed installations is in the next 
-section. If you need to use a program not in that group, the instructions 
+section of this guide. If you need to use a program not in that group, the instructions 
 for creating your own installation follow. 
 
 If you have questions or concerns about installing your own software or 
@@ -84,28 +84,33 @@ the software module with the following command:
 If you want to clear your command line environment and start over, run the following: 
 
 ```
-[alice@login]$module purge
+[alice@login]$ module purge
 ```
 
 # 3. Installing Software on the Cluster
 
 ## Overview
 
-Plan to follow these recommendations when building software on the HPC Cluster. 
+Unless you are using a licensed software program provided via modules, you 
+are able to compile and install the software you need on the HPC Cluster. 
+Software should be installed to your `/software/username` 
+directory. If using CHTC's provided compilation tools via modules, make 
+sure to load the needed modules before compiling and to load the same 
+modules in your job submission. 
 
-* Software should be compiled on the build node. (?)
-* Final installation should be to your `/software` folder
+For groups that would like to share software installations among group
+members, please contact us about getting a shared "group" directory. 
 
-If you are new to software installation, see the more step-by-step process 
-described below. 
+If you are new to software installation, see the section below for 
+a more step-by-step description of the process. 
 
 ## Step by Step Process
 
-1. **Download Source Code** - download the source code for your desired program (where to?)
+1. **Download Source Code** - download the source code for your desired program to 
+	your `/software` directory.
 1. **Read the Docs** - try to find the installation instructions, either online or 
 	in the downloaded source code. In particular, you'll want to note if there are 
 	any special requirements for dependencies like MPI or the compiler needed. 
-1. **Access Build Node** ?
 1. **Load Modules** - if you are using software modules to help you build your 
 	code, load them now. Keep track of what you use so that you can load them 
 	in your job submit file later. We also recommend doing a `module purge` before 
@@ -124,17 +129,17 @@ described below.
 	1. `make` - this step compiles and links the code, turning it from human-readable 
 		source code to compiled binary code. This is usually the most time consuming 
 		step of the installation process. 
-	1. `make install` - Copies compiled files to the final installation location 
+	1. `make install` - this step copies compiled files to the final installation location 
 		(usually specified in the `configure` step). 
 
 ## Optional: Creating Your Own Modules
 
 TBD
 
-# Using Software in Jobs
+# 4. Using Software in Jobs
 
 The commands to run your software will go in the job's submit file, as described 
-in our [HPC job submission guide](). 
+in our [HPC job submission guide](/hpc-job-submission). 
 
 If you used one of the software modules to compile your code, make sure you 
 load it in your job's submit file before running your main command. 
