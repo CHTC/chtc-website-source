@@ -22,11 +22,11 @@ There will be a network upgrade on Thursday, August 27 at 10am, impacting connec
 of our HTC servers. 
 
 Affected services include: 
-submit-1.chtc.wisc.edu and some researcher-owned submit servers
-About half of our HTC execute servers, including high memory and GPU servers
-The large data /staging file system
-Our centrally installed software in /software
-The /squid folder that represents data on our web server
+- submit-1.chtc.wisc.edu and some researcher-owned submit servers
+- About half of our HTC execute servers, including high memory and GPU servers
+- The large data /staging file system
+- Our centrally installed software in /software
+- The /squid folder that represents data on our web server
 
 While the upgrade should be brief and may not cause noticeable disruptions, potential impacts
 during the network outage include: 
