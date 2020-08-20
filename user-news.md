@@ -12,6 +12,43 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Potential Interruption to HTC Services on Thursday, August 27
+### Thursday, August 20, 2020
+Hello CHTC users,
+
+This message is for users of our high throughput computing (HTC) system.
+
+There will be a network upgrade on Thursday, August 27 at 10am, impacting connections to some
+of our HTC servers. 
+
+Affected services include: 
+- submit-1.chtc.wisc.edu and some researcher-owned submit servers
+- About half of our HTC execute servers, including high memory and GPU servers
+- The large data /staging file system
+- Our centrally installed software in /software
+- The /squid folder that represents data on our web server
+
+While the upgrade should be brief and may not cause noticeable disruptions, potential impacts
+during the network outage include: 
+- Running jobs on affected execute nodes will not be able to access the internet.
+- Running jobs on affected execute nodes will not be able to access /staging or /software.
+- Any jobs that start and fetch a files from SQUID may fail.
+- Some jobs may be interrupted if the outage is longer than expected.
+- submit-1 and other affected group submit servers may be inaccessible.
+
+Jobs that are unable to access files from the internet, SQUID or /staging will either go on
+hold or fail with an error message in the standard error file. These will need to be released
+or resubmitted to run again. Jobs that are interrupted will return to an idle state and be
+automatically rerun. 
+
+To minimize disruption to your HTC jobs, we recommend you:
+Avoid submitting new jobs during the 24 hours preceding the upgrade.
+Plan to check for jobs holds or errors on Thursday afternoon if you have jobs in the queue
+during the upgrade window.
+
+Email us with any questions or concerns at chtc@cs.wisc.edu. 
+
+-----------------------------------------------------------------------
 ## Limited CHTC Email Support on Monday, August 17
 ### Friday, August 14, 2020
 Hello CHTC users,
