@@ -106,8 +106,11 @@ a more step-by-step description of the process.
 
 ## Step by Step Process
 
-1. **Download Source Code** - download the source code for your desired program to 
-	your `/software` directory.
+1. **Download Source Code** - download the source code for your desired program. We 
+	recommend downloading it to the local scratch space on the login node 
+	(`/local/scratch/username`) as you should only need the source code until 
+	the software is properly installed. If you'd like to keep a zipped copy of 
+	the source code, you can place it in `/home`.
 1. **Read the Docs** - try to find the installation instructions, either online or 
 	in the downloaded source code. In particular, you'll want to note if there are 
 	any special requirements for dependencies like MPI or the compiler needed. 
@@ -131,10 +134,11 @@ a more step-by-step description of the process.
 		step of the installation process. 
 	1. `make install` - this step copies compiled files to the final installation location 
 		(usually specified in the `configure` step). 
+1. **Clean Up** - the final installation should place all needed files into a 
+	subdirectory of your `/software` directory. The source code and location where 
+	you ran the compilation commands can be removed at this point. 
 
-## Optional: Creating Your Own Modules
-
-TBD
+<!-- ## Optional: Create Your Own Modules -->
 
 # 4. Using Software in Jobs
 
