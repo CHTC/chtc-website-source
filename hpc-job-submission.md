@@ -128,7 +128,7 @@ when you\'re done working by typing `exit`**.
 **2. Viewing Jobs in the Queue**
 ==================
 
-To view *your* jobs in the SLURM queue, enter the following:
+To view your jobs in the SLURM queue, use the following command: 
 
 ``` 
 [alice@login]$ squeue -u username
@@ -157,4 +157,17 @@ queue with the following:
 
 where `job#` is the number shown for your job in the `squeue` output.
 
-TBD: using hold/release features
+If you want to leave a job in the queue, but prevent it from running immediately, 
+you can "hold" a submitted job by using: 
+
+``` 
+[alice@login]$ scontrol hold job#
+```
+{:.term}
+
+To release jobs that are held so that they can run, use this command: 
+
+``` 
+[alice@login]$ scontrol release job#
+```
+{:.term}
