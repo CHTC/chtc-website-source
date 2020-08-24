@@ -69,7 +69,7 @@ first ask users to remove excess data and minimize file counts before taking add
 **4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
 running jobs at a time. Additionally, user are restricted to a total of 600 cores 
-across all running jobs and. Core limits do not apply to users from research groups that own 
+across all running jobs. Core limits do not apply on research group partitions of
 more than 600 cores.
 
 **5. Job Priority Policy**   
