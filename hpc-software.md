@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: hpc_layout
 title: Using Software on the HPC Cluster
 ---
 
