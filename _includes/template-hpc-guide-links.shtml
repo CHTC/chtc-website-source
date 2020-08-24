@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/bootstrap.css" />
 
-<h1>Disclaimer:</hr>
+<h1>Disclaimer:</h1>
 <p style="background-color:yellow;">This guide pertains to the new configuration of the HPC 
 cluster which will be available starting **Thursday, September 17**. For instructions on the currently 
 operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic Use Guide</a></p>
