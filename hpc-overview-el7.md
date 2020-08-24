@@ -24,7 +24,7 @@ All other computational work, including single and multi-core (but single node)
 processes, that each complete in less than 72 hours on a single node will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information about high-throughput computing, please see [Our Approach](approach.shtml).
+information about high-throughput computing, please see [Our Approach](/approach).
 
 To get access to the HPC, please complete 
 [Large-Scale Computing Request Form](/form). After your account request is received, 
