@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/bootstrap.css" />
 
+<h1>{{ page.title }}</h1>
+<hr>
 <h1>Disclaimer:</h1>
 <p style="background-color:yellow;">This guide pertains to the new configuration of the HPC 
 cluster which will be available starting <b>Thursday, September 17</b>. For instructions on the currently 
@@ -21,5 +23,4 @@ operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic
 		<a href="hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
 	</div>
 </div>
-<hr>
-<h1>{{ page.title }}</h1>
+
