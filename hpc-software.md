@@ -6,6 +6,10 @@ title: Using Software on the HPC Cluster
 
 This page describes how to install and run software on CHTC's HPC Cluster. 
 
+> This guide pertains to the new configuration of the HPC cluster which will 
+> be available on **Thursday, September 17**. For instructions on the currently 
+> operating cluster, please see our previous [HPC Overview guide](/HPCuseguide)
+
 Contents
 ========
 

@@ -7,6 +7,10 @@ title: Submitting and Managing Jobs Using SLURM
 The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
 how to submit and manage jobs using SLURM. 
 
+> This guide pertains to the new configuration of the HPC cluster which will 
+> be available on **Thursday, September 17**. For instructions on the currently 
+> operating cluster, please see our previous [HPC Overview guide](/HPCuseguide)
+
 Contents
 ========
 
