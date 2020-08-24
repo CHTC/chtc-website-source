@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: default
-title: Using Software on the HPC Cluster
+title: Submitting and Managing Jobs Using SLURM
 ---
 
 The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
@@ -10,10 +10,10 @@ how to submit and manage jobs using SLURM.
 Contents
 ========
 
-1. [Submitting Jobs Using SLURM](1-submitting-jobs-using-slurm)
-1. [Viewing Jobs in the Queue](2-viewing-jobs-in-the-queue)
-1. [Viewing Additional Job Information](3-viewing-additional-job-information)
-1. [Removing or Holding Jobs](4-removing-or-holding-jobs)
+1. [Submitting Jobs Using SLURM](#1-submitting-jobs-using-slurm)
+1. [Viewing Jobs in the Queue](#2-viewing-jobs-in-the-queue)
+1. [Viewing Additional Job Information](#3-viewing-additional-job-information)
+1. [Removing or Holding Jobs](#4-removing-or-holding-jobs)
 
 The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node `aci-login-1.chtc.wisc.edu`. If this is not
@@ -31,7 +31,7 @@ called a "batch" file. The top half of the file consists of `#SBATCH`
 options which communicate needs or parameters of the job -- these lines 
 are **not** comments, but essential options for the job. The values for 
 `#SBATCH` options should reflect the size of nodes and run time limits 
-described [here]()
+described [here](/hpc-overview-el7)
 
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 
@@ -45,27 +45,31 @@ and 64GB of memory each (so 32 cores and 128 GB of memory total), on the
 #This file is called submit-script.sh
 #SBATCH --partition=univ        # default "univ", if not specified
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
-#SBATCH --nodes=2           # require 2 nodes
-#SBATCH --ntasks-per-node=16            # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=64000      # RAM per node
+#SBATCH --nodes=2               # require 2 nodes
+#SBATCH --ntasks-per-node=16    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem=64000             # RAM per node
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
-#Make sure to change the above two lines to reflect your appropriate
+# Make sure to change the above two lines to reflect your appropriate
 # file locations for standard error and output
 
-#Now list your executable command (or a string of them).
-# Example for non-SLURM-compiled code:
-module load mpi/gcc/openmpi-1.6.4
+# Now list your executable command (or a string of them).
+# Example for code compiled with a software module:
+module load mpimodule
 mpirun -n 32 /software/username/mpiprogram
 ```
 
-Once 
+Once the submit file is created, it can be submitted using the `sbatch` command: 
 
 ``` 
 [alice@login]$ sbatch submit-script.sh
 ```
 {:.term}
 
+**B. Optimizing Your Submit File**
+-------------------
+
+There are other `SBATCH` options that can be used in the SLURM submit file. 
 Other lines that you may wish to add to your script for specifying a
 number of total tasks (equivalent to \"cores\" by default), desired CPU
 cores per task (for multiple CPU cores per MPI task), or RAM per
@@ -77,19 +81,34 @@ cpu are:
 #SBATCH --cpus-per-task=1  # default "1" if not specified
 ```
 
-In any case, it is important to make sure that your request fits within
-the hardware configuration of your chosen partition.\
+No matter which options you choose, it is important to make sure that your request fits within
+the hardware configuration of your chosen partition.
 
+If using the `pre` partition, we recommend making your resource requests in a way that 
+will allow jobs to run on both the `univ` and `univ2` servers, specifically: 
 
-**B. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**
+``` {.sub}
+#!/bin/sh
+#SBATCH --partition=pre        # default "univ", if not specified
+#SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
+#SBATCH --nodes=2               # require 2 nodes
+#SBATCH --ntasks-per-node=16    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem=64000             # RAM per node
+```
+
+**C. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**
 -----------------
 
-You may request up to a full node (16 CPUs, 64 GB RAM) when requesting
-an interactive session in the \"int\" partition. Interactive sessions on
-the \"int\" partition are allowed for 30 minutes, but you may request
-less time. Sessions in the \"pre\" partition are
-limited according to the \"Partition\" table above, but are potentially
-subject to interruption.
+If you want to run your job commands yourself, as a test before submitting 
+a job as described above, you can request an interactive job on the cluster. 
+There is a dedicated partition 
+for interactive work called `int`; you may request up to a full node (16 CPUs, 
+64 GB RAM) when requesting an interactive session in the \"int\" partition and 
+the session is limited to 30 minutes. Using another partition (like `pre`) will 
+mean your interactive job is subject to the limits of that partition. 
+
+The command to request an interactive job is `srun`, and includes the partition
+in which you'd like to run the interactive job. 
 
 ``` 
 [alice@login]$ srun -n16 -N1 -p int --pty bash
@@ -109,7 +128,7 @@ when you\'re done working by typing `exit`**.
 **2. Viewing Jobs in the Queue**
 ==================
 
-To view *your* jobs in the SLURM queue, enter the following:
+To view your jobs in the SLURM queue, use the following command: 
 
 ``` 
 [alice@login]$ squeue -u username
@@ -138,4 +157,17 @@ queue with the following:
 
 where `job#` is the number shown for your job in the `squeue` output.
 
-TBD: using hold/release features
+If you want to leave a job in the queue, but prevent it from running immediately, 
+you can "hold" a submitted job by using: 
+
+``` 
+[alice@login]$ scontrol hold job#
+```
+{:.term}
+
+To release jobs that are held so that they can run, use this command: 
+
+``` 
+[alice@login]$ scontrol release job#
+```
+{:.term}
