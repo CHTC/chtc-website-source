@@ -153,31 +153,3 @@ You can access your software by including the path to its location in your
 `/software` directory, or by setting the `PATH` environment variable to include 
 the software location and then running the command. 
 
-# 5. Using Sacct to Manage Jobs
-
-Accounting information for jobs that are invoked with SLURM are logged. The `sacct`	 command displays job accouting data in a variety of forms for your analysis. 
-
-<!-- Show basic sacct command run on account with jobs running -->
-
-## Recommended Options
-
-- `-j` or `--jobs` Displays information about the specified job or list of jobs. Parameter is a comma-seperated list of jobs.
-	```bash
-	[alice@login]$ sacct -jobs job1,job2,job3
-	```
-<!-- Sample output -->
-- `--starttime` and `--endtime` Select jobs in any state in a given time range. The default start time is 00:00:00 of the current day, unless used with `-j` then the default start time is Unix Epoch 0. The default end time is time of running the command Valid time formats are
-	```
-	HH:MM[:SS] [AM|PM]
-	MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
-	MM/DD[/YY]-HH:MM[:SS]
-	YYYY-MM-DD[THH:MM[:SS]] 
-	```
-	```bash
-	[alice@login]$ sacct --starttime 08/23 --endtime 08/24
-	```
-- `--user` Displays jobs for another user.
-	```bash
-	[alice@login]$ sacct --user BuckyBadger
-	```
-<!-- Sample output -->
