@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: hpc_layout
 title: Submitting and Managing Jobs Using SLURM
 ---
 

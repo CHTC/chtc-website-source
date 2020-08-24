@@ -32,7 +32,7 @@ our Research Computing Facilitators will follow up with you and schedule a meeti
 to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
 
-## HPC User Policies
+# HPC User Policies
 
 Below is a list of policies that apply to all HPC users. 
 
@@ -86,7 +86,7 @@ waited in the queue. For all the jobs of a single user, these jobs will most clo
 C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, as a means of 
 somewhat countering the inherently longer wait time necessary for allocating more cores to a single job.
 
-## HPC Hardware and Configuration
+# HPC Hardware and Configuration
 
 The HPC Cluster consists of two login nodes and many compute (aka execute) 
 nodes. All users log in at a login node, and all user files
@@ -102,8 +102,8 @@ all HPC users as well as research group specific partitions that consist
 of researcher owned hardware and which all HPC users can access on a 
 backfill capacity via the `pre` partition (more details below).
 
-### Partitions
-   
+## Partitions
+
   {:.gtable}
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
@@ -134,7 +134,7 @@ hours. `pre` partition jobs will run on any idle nodes, including researcher own
 compute nodes nodes, as back-fill meaning these jobs may be pre-empted by higher priority 
 jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch script.
 
-## Data Storage and Management
+# Data Storage and Management
 
 **Data space in the HPC file system is not backed-up and should be
 treated as temporary by users**. Only files necessary for
@@ -178,7 +178,7 @@ scratch is available on the login nodes, `hpclogin1` and `hpclogin2`, also at
 compiling activities. CHTC staff will otherwise clean this location of
 the oldest files when it reaches 80% capacity.
 
-### Tools for managing home and software space
+## Tools for managing home and software space
 
 To see how many files and directories are contained in your
 `home` or `software` directories, including the total amount of 
