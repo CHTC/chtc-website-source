@@ -31,7 +31,7 @@ called a "batch" file. The top half of the file consists of `#SBATCH`
 options which communicate needs or parameters of the job -- these lines 
 are **not** comments, but essential options for the job. The values for 
 `#SBATCH` options should reflect the size of nodes and run time limits 
-described [here](/hpc-overview-el7)
+described [here](/hpc-overview)
 
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 
