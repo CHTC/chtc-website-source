@@ -103,8 +103,8 @@ of researcher owned hardware and which all HPC users can access on a
 backfill capacity via the `pre` partition (more details below).
 
 ### Partitions
-
-{:.gtable}
+   
+  {:.gtable}
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
   | University | univ | 38 | 7 days | 1 day | 16 | 16 | 64
