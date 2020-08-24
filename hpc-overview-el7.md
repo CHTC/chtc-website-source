@@ -88,8 +88,8 @@ somewhat countering the inherently longer wait time necessary for allocating mor
 
 ## HPC Hardware and Configuration
 
-The HPC Cluster consists of two head nodes and many compute (aka execute) 
-nodes. All users log in at a head node, and all user files
+The HPC Cluster consists of two login nodes and many compute (aka execute) 
+nodes. All users log in at a login node, and all user files
 on the shared file sytem are accessible on all nodes.
 Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
 they can work together as a single \"supercomputer\", depending on the
@@ -169,12 +169,11 @@ on the HPC Cluster** in our efforts to maintain filesystem performance
 for all users, though we will always first ask users to remove excess
 data and minimize file counts before taking additional action.
 
-Will there be local scratch space??
 
 **Local scratch space** of 500 GB is available on each execute node in
 `/scratch/local/$USER` and is automatically cleaned out upon completion
 of scheduled job sessions (interactive or non-interactive). Local
-scratch is available on the compiling node, aci-service-2, in the same
+scratch is available on the login nodes, `hpclogin1` and `hpclogin2`, in the same
 location and should be cleaned out by the user upon completion of
 compiling activities. CHTC staff will otherwise clean this location of
 the oldest files when it reaches 80% capacity.
