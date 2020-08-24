@@ -36,11 +36,11 @@ resources (including non-CHTC services) that best fit your needs.
 
 Below is a list of policies that apply to all HPC users. 
 
-**1. Do Not Run Programs On The Head Nodes**   
-When you connect to the HPC, you are logging into a head node. The HPC head nodes have 
-limited computing resources that a occupied with running Slurm and managing job submission. 
+**1. Do Not Run Programs On The Login Nodes**   
+When you connect to the HPC, you are connected to a login node. The HPC login nodes have 
+limited computing resources that are occupied with running Slurm and managing job submission. 
 
-User should only run basic commands (like `tar`, `cp`, `mkdir`) on the head nodes. The 
+Users should only run basic commands (like `tar`, `cp`, `mkdir`) on the login nodes. The 
 exectution of scripts, including cron, software, and other data processing and manipulation 
 tasks is prohibited (and could VERY likely crash the head node). 
 
