@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: hpc_layout
 title: HPC Cluster Overview
 ---
 
@@ -173,8 +173,8 @@ data and minimize file counts before taking additional action.
 **Local scratch space** of 500 GB is available on each execute node in
 `/scratch/local/$USER` and is automatically cleaned out upon completion
 of scheduled job sessions (interactive or non-interactive). Local
-scratch is available on the login nodes, `hpclogin1` and `hpclogin2`, in the same
-location and should be cleaned out by the user upon completion of
+scratch is available on the login nodes, `hpclogin1` and `hpclogin2`, also at 
+`/scratch/local/$USER` and should be cleaned out by the user upon completion of
 compiling activities. CHTC staff will otherwise clean this location of
 the oldest files when it reaches 80% capacity.
 
@@ -197,11 +197,3 @@ When `ncdu` has finished running, the output will give you a total file
 count and allow you to navigate between subdirectories for even more
 details. Type `q` when you\'re ready to exit the output viewer. More
 info here: <https://lintut.com/ncdu-check-disk-usage/>
-
-Alternatively, the command `df` can be used to examine your disk quota (in GB) 
-and usage::
-
-```
-[alice@service]$ df -h /home/alice
-```
-{:.term}
