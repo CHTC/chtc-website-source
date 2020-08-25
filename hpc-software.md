@@ -13,7 +13,6 @@ Contents
 2.  [Using Pre-Installed Software in Modules](#2-using-pre-installed-software-in-modules)
 3.  [Installing Software on the Cluster](#3-installing-software-on-the-cluster)
 4.  [Using Software in Jobs](#4-using-software-in-jobs)
-5.  [Using Sacct to Manage Jobs](#5-using-sacct-to-manage-jobs)
 
 # 1. General Software Policies
 
