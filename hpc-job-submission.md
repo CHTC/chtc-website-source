@@ -128,11 +128,21 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 
 ## How To Select Jobs
 
-- `-j` or `--jobs` Displays information about the specified job or list of jobs. Parameter is a comma-seperated list of jobs.
-	```bash
+- To display information about a specific job or list of jobs use `-j` or `--jobs` Followed by a job number or comma seperated list of job numbers.
+	
+	```
 	[alice@login]$ sacct -jobs job1,job2,job3
 	```
+	{:.term}
 <!-- Sample output -->
+
+- To select information about jobs in a certian date range use `--start` and `--end` Without it, `sacct` will only return jobs from the current day.
+	
+	```
+	[alice@login]$ sacct --start=YYYY-MM-DD
+	```
+	{:.term}
+
 - To select information about jobs in a certian time range use `--starttime` and `--endtime` The default start time is 00:00:00 of the current day, unless used with `-j` then the default start time is Unix Epoch 0. The default end time is time of running the command Valid time formats are
 	```
 	HH:MM[:SS] [AM|PM]
@@ -140,14 +150,56 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 	MM/DD[/YY]-HH:MM[:SS]
 	YYYY-MM-DD[THH:MM[:SS]] 
 	```
-	```bash
+
+	```
 	[alice@login]$ sacct --starttime 08/23 --endtime 08/24
 	```
-- `--user` Displays jobs for another user.
-	```bash
+	{:.term}
+
+- To display another user's jobs use `--user`
+	
+	```
 	[alice@login]$ sacct --user BuckyBadger
 	```
-<!-- Sample output -->
+	{:.term}
+	<!-- Sample output -->
+
+- To only show statistics relevant to the job allocation itself, not taking steps into consideration use `-X`. This can be useful when trying to figure out which part of a job errored out.
+	
+	```
+	[alice@login]$ sacct -X
+	```
+	{:.term}
+	<!-- Sample Output -->
+
+## Displaying Specific Fields
+
+Sacct can display different fields about your jobs. You can use the `--helpformat` flag to get a full list.
+
+```	
+[alice@login]$ sacct --helpformat
+```
+{:.term}
+
+### Recommended Fields
+
+When looking for information about your jobs CHTC reccomends using these fields
+```
+elapsed
+end
+exitcode
+jobid
+ncpus
+nnodes
+nodelist
+ntasks
+partition
+start
+state
+submit
+user
+```
+
 
 
 **4. Removing or Holding Jobs**
