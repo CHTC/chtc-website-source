@@ -12,6 +12,53 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HPC Cluster Upgrades, starting September 15
+### Monday, August 24, 2020
+Greetings,
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
+
+This email provides an overview of plans for **major upgrades to the HPC Cluster,** which will take place in several phases **beginning September 15**, as described below.
+
+The upgrades will include:
+
+-   upgrade of all cluster nodes to the CentOS 7 operating system
+-   new /home filesystem and a new /software location
+-   new job queue with the latest version of Slurm
+-   new login nodes with all of the above
+
+We have already implemented the new filesystems, login nodes, queue, and [documentation](http://chtc.cs.wisc.edu/hpc-overview), and will gradually transition sets of compute nodes and enable access to the new configuration, described above, according to the following timeline.
+
+**HPC Cluster Transition Timeline:**
+
+-   **Sep 15-17**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
+-   **Sep 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
+-   **Sep 29-30**: all researcher-owned hardware transitioned
+-   **Oct 6-7**: all remaining (univ2) hardware transitioned
+-   **Oct 13**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
+
+**Moving Jobs to the New Configuration**
+
+We have constructed the above timeline to give users four weeks in Sept/Oct to transition their software and other files for job submission to the new CentOS 7 configuration and Slurm queue. Guides are available with instructions on using our [revamped software modules](http://chtc.cs.wisc.edu/hpc-software) and [updated version of Slurm](http://chtc.cs.wisc.edu/hpc-job-submission) when the cluster is available for login in September.
+
+**Moving Data to the New Configuration**
+
+The new configuration will offer [separate locations for job data (/home) and software (/software)](http://chtc.cs.wisc.edu/hpc-overview#data-storage-and-management) along with new quotas for each. Data in the existing HPC Cluster filesystem (/home via aci-service-1/2 nodes) will be unavailable in the new configuration and will be deleted after Oct 13. Importantly, users should use the upgrade as an opportunity to review and only transition data that will be necessary for future work (moving data from completed work to non-CHTC locations, as per CHTC data policies).
+
+**New Documentation**
+
+Documentation is now available on the CHTC website detailing the new HPC configuration, job submission, software use, and user policies which can be accessed at the following links:
+
+-   [HPC Cluster Configuration and Policies](http://chtc.cs.wisc.edu/hpc-overview)
+-   [Submitting and Managing Jobs Using SLURM](http://chtc.cs.wisc.edu/hpc-job-submission)
+-   [Using Software on the HPC Cluster](http://chtc.cs.wisc.edu/hpc-software)
+
+The information in this email will also be posted to the [CHTC User News page](http://chtc.cs.wisc.edu/user-news). We will send additional notices prior to key phases in the timeline above. If the above timeline presents any major difficulties for your computational work, or for any other questions regarding the HPC Cluster upgrade, please email <chtc@cs.wisc.edu>.
+
+Thank you,\
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Potential Interruption to HTC Services on Thursday, August 27
 ### Thursday, August 20, 2020
 Hello CHTC users,
