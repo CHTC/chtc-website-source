@@ -209,11 +209,11 @@ user
 For example run
 
 ```
-sacct --start=2020-01-01 --format=submit to see submit points for every job ran since 1/1/2020
+sacct --start=2020-01-01 --format=jobid
 ```
 {:.term}
 
-to see jobs 
+to see jobIDs of all jobs ran since 1/1/2020.
 
 
 
