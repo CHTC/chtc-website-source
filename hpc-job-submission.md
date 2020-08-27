@@ -142,7 +142,7 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 	{:.term}
 <!-- Sample output -->
 
-- To select information about jobs in a certian date range use `--start` and `--end` Without it, `sacct` will only return jobs from the current day.
+- To select information about jobs in a certain date range use `--start` and `--end` Without it, `sacct` will only return jobs from the current day.
 	
 	```
 	[alice@login]$ sacct --start=YYYY-MM-DD
