@@ -137,7 +137,7 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 - To display information about a specific job or list of jobs use `-j` or `--jobs` followed by a job number or comma separated list of job numbers.
 	
 	```
-	[alice@login]$ sacct -jobs job1,job2,job3
+	[alice@login]$ sacct --jobs job1,job2,job3
 	```
 	{:.term}
 <!-- Sample output -->
