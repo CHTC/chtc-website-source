@@ -174,7 +174,7 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 
 ## Displaying Specific Fields
 
-Sacct can display different fields about your jobs. You can use the `--helpformat` flag to get a full list.
+`sacct` can display different fields about your jobs. You can use the `--helpformat` flag to get a full list.
 
 ```	
 [alice@login]$ sacct --helpformat
