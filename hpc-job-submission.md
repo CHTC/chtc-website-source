@@ -183,7 +183,7 @@ Sacct can display different fields about your jobs. You can use the `--helpforma
 
 ### Recommended Fields
 
-When looking for information about your jobs CHTC reccomends using these fields
+When looking for information about your jobs CHTC recommends using these fields
 ```
 elapsed
 end
