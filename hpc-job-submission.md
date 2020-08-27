@@ -143,7 +143,7 @@ Accounting information for jobs that are invoked with SLURM are logged. The `sac
 	```
 	{:.term}
 
-- To select information about jobs in a certian time range use `--starttime` and `--endtime` The default start time is 00:00:00 of the current day, unless used with `-j` then the default start time is Unix Epoch 0. The default end time is time of running the command Valid time formats are
+- To select information about jobs in a certian time range use `--starttime` and `--endtime` The default start time is 00:00:00 of the current day, unless used with `-j`, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
 	```
 	HH:MM[:SS] [AM|PM]
 	MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
