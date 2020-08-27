@@ -124,7 +124,13 @@ view all jobs for a particular partition with `squeue -p univ`.
 
 Accounting information for jobs that are invoked with SLURM are logged. The `sacct`	 command displays job accouting data in a variety of forms for your analysis. 
 
-<!-- Show basic sacct command run on account with jobs running -->
+**If you are having trouble viewing output from `sacct` try running this command first**
+
+```
+[alice@login]$ sacct --start=2018-01-01
+```
+{:.term}
+
 
 ## How To Select Jobs
 
@@ -199,6 +205,15 @@ state
 submit
 user
 ```
+
+For example run
+
+```
+sacct --start=2020-01-01 --format=submit to see submit points for every job ran since 1/1/2020
+```
+{:.term}
+
+to see jobs 
 
 
 
