@@ -44,7 +44,7 @@ The CHTC Globus endpoint's name is `chtc#staging`.
 It can be found in the Globus web interface 
 [here](https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints),
 or by searching endpoints for that name.
-If you  need the actual endpoint UUID, it is listed on that page near the bottom
+If you  need the actual endpoint UUID, it is listed on the above page near the bottom
 of the "Overview".
 
 To use an endpoint, you must first **activate** it.
