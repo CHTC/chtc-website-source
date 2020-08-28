@@ -12,7 +12,7 @@ from somewhere that is already providing a Globus endpoint.
 For example, a collaborator might provide shared data through Globus,
 or might expect you to send data to them through Globus.
 
-This guide will show you how to execute such transfers using the CHTC
+This guide will show you how to execute such transfers to and from CHTC using the CHTC
 Globus endpoint, which may be simpler than trying to move the files to your
 own computer first.
 
