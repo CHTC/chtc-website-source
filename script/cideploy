@@ -30,7 +30,7 @@ if [[ $TRAVIS_PULL_REQUEST == false || $TRAVIS != true ]]; then
     #go into directory and copy data we're interested in to that directory
     mkdir -p built_website
     cd built_website
-    rsync -av --delete --exclude-from=../script/rsync_exclude_list ../_site/ .
+    rsync -av --delete --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
     # Rename .html -> .shtml for generated files
     rename --force --verbose 's/\.html$/.shtml/' ./*.html
     #add, commit and push files
