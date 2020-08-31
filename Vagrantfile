@@ -82,8 +82,13 @@ Vagrant.configure("2") do |config|
     runuser -u vagrant -- bundle install
     runuser -u vagrant -- git config --global user.name "Vagrant"
     runuser -u vagrant -- git config --global user.email "vagrant@chtcsite.vm"
+    echo
+    echo
     echo ===============================================================================
     echo "Setup complete!"
+    echo
+    echo "The repo checkout is in /chtc-website-source."
+    echo
     echo "Run 'script/cibuild to build the pages, and script/cideploy to deploy them."
     echo "(cideploy will run all deploy steps except for the actual push.)"
     echo ""
