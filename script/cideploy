@@ -2,23 +2,25 @@
 set -x
 set -e
 
-BRANCH=master
-TARGET_REPO=CHTC/chtc.github.io.git
+: ${BRANCH:=master}
+: ${TARGET_REPO=CHTC/chtc.github.io.git}
 JEKYLL_OUTPUT_FOLDER=_site
 
 echo "$TRAVIS_PULL_REQUEST"
 
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+if [[ $TRAVIS_PULL_REQUEST == false || $TRAVIS != true ]]; then
 
-    mkdir -p ~/.ssh
-    echo "github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
-    openssl aes-256-cbc -K $encrypted_641cbba37704_key -iv $encrypted_641cbba37704_iv -in deploy_key.enc -out deploy_key -d
-    mv deploy_key ~/.ssh/id_rsa
-    chmod 0600 ~/.ssh/id_rsa
+    if [[ -z $NO_PUSH ]]; then
+        mkdir -p ~/.ssh
+        echo "github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
+        openssl aes-256-cbc -K $encrypted_641cbba37704_key -iv $encrypted_641cbba37704_iv -in deploy_key.enc -out deploy_key -d
+        mv deploy_key ~/.ssh/id_rsa
+        chmod 0600 ~/.ssh/id_rsa
+    fi
 
     echo -e "Starting to deploy to Github Pages\n"
 
-    if [ "$TRAVIS" == "true" ]; then
+    if [[ $TRAVIS == true ]]; then
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis"
     fi
@@ -28,12 +30,14 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     #go into directory and copy data we're interested in to that directory
     mkdir -p built_website
     cd built_website
-    rsync -rv --delete --exclude=.git  ../_site/* .
+    rsync -rvv --delete --exclude=.git  ../_site/* .
     # Rename .html -> .shtml for generated files
     rename --force --verbose 's/\.html$/.shtml/' *.html
     #add, commit and push files
     git add -f -A
     git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
-    git push -fq origin $BRANCH > /dev/null
+    if [[ -z $NO_PUSH ]]; then
+        git push -fq origin $BRANCH > /dev/null
+    fi
     echo -e "Deploy completed\n"
 fi
