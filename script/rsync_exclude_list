@@ -1,0 +1,6 @@
+.*
+Vagrantfile
+*.log
+*.enc
+script/
+rsync_exclude_list
