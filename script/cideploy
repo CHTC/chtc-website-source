@@ -8,7 +8,13 @@ JEKYLL_OUTPUT_FOLDER=_site
 
 echo "$TRAVIS_PULL_REQUEST"
 
+commitmessage=$(mktemp)
+trap 'rm -f "$commitmessage"' EXIT
+
 if [[ $TRAVIS_PULL_REQUEST == false || $TRAVIS != true ]]; then
+    git log -1 --pretty=format:"Travis $TRAVIS_BUILD_NUMBER: \"%s\" by %an [%h] pushed to GitHub Pages
+
+%b" > "$commitmessage"
 
     if [[ -z $NO_PUSH ]]; then
         mkdir -p ~/.ssh
@@ -35,7 +41,7 @@ if [[ $TRAVIS_PULL_REQUEST == false || $TRAVIS != true ]]; then
     rename --force --verbose 's/\.html$/.shtml/' ./*.html
     #add, commit and push files
     git add -f -A
-    git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
+    git commit -F "$commitmessage"
     if [[ -z $NO_PUSH ]]; then
         git push -fq origin $BRANCH > /dev/null
     fi
