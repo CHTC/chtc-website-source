@@ -11,6 +11,7 @@ title: HPC Cluster Overview
 3. [HPC User Policies](#hpc-user-policies)  
 4. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
     - [Partitions](#partitions)   
+    - [Operating System and Software](#operating-system-and-software)
 4. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
 
@@ -153,6 +154,14 @@ the `int` partition. Jobs submitted to `pre` are pre-emptable and can run for up
 hours. `pre` partition jobs will run on any idle nodes, including researcher owned 
 compute nodes nodes, as back-fill meaning these jobs may be pre-empted by higher priority 
 jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch script.
+
+## Operating System and Software
+
+All nodes in the HPC Cluster are running CentOS 7 Linux. 
+
+The SLURM scheduler version is 20.02.2. 
+
+To see more details of other software on the cluster, see the [HPC Software page](/hpc-software). 
 
 # Data Storage and Management
 
