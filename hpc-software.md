@@ -41,17 +41,17 @@ There are two ways to search through the software modules on the HPC cluster:
 
 1. **View all modules**
 	This command will show all software modules available: 
-	```
+```
 [alice@login]$ module avail
-	```
+```
 
 2. **Search for specific modules**
 	If you are searching for a specific software module, you can use the 
 	`module spider` command with part of the software name. For example, to 
 	search for Open MPI modules, you would type:
-	```
+```
 [alice@login]$ module spider openmpi
-	```
+```
 
 ## B. Access Software in Modules
 
