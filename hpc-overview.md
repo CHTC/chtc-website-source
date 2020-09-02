@@ -6,9 +6,10 @@ title: HPC Cluster Overview
 
 # Content
 
-1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
-2. [HPC User Policies](#hpc-user-policies)  
-3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
+1. 
+2. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
+3. [HPC User Policies](#hpc-user-policies)  
+4. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
     - [Partitions](#partitions)   
 4. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
@@ -26,11 +27,27 @@ best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
 information about high-throughput computing, please see [Our Approach](/approach).
 
-To get access to the HPC, please complete 
+To get access to the HPC, please complete our
 [Large-Scale Computing Request Form](/form). After your account request is received, 
 our Research Computing Facilitators will follow up with you and schedule a meeting 
 to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
+
+## New HPC Configuration
+
+Roll out of the new HPC configuration is currently scheduled for September 17, 2020. 
+More information about our HPC upgrade and user migration timeline was sent out to 
+users by email. All CHTC user email correspondences are available at [User News](/user-news).
+
+The new HPC configuration will include the following changes:
+- upgrade of operating system from Scientific Linux release 6.6 to CentOS 7
+- upgrade of SLURM from version 2.5.1 to version 20.02.2
+- upgrades to filesystems and user data and software management
+- a new set of modules and software
+
+The above changes will result in a new HPC computing environment, 
+and will provide users with new SLURM features and improved support and reliability 
+for their HPC work. 
 
 # HPC User Policies
 
@@ -93,7 +110,8 @@ nodes. All users log in at a login node, and all user files
 on the shared file sytem are accessible on all nodes.
 Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
 they can work together as a single \"supercomputer\", depending on the
-number of CPUs you specify.
+number of CPUs you specify. All execute and head nodes are running the Linux 
+operating system CentOS version 7.
 
 Only execute nodes will be used for performing your computational work. 
 The execute nodes are organized into several \"partitions\", including 
