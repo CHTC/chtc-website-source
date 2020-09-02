@@ -35,7 +35,7 @@ for their HPC work.
 
 **Now**
 
-Review the updated guides for the new configuration here: [HPC Cluster user guides](/hpc-overview)
+Review the updated use guides for the new cluster configuration here: [HPC Cluster user guides](/hpc-overview)
 
 Start removing all old and unneeded files from the current HPC cluster. 
 
