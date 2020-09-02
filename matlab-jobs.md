@@ -271,7 +271,11 @@ executable = run_script.sh
 
     ``` {.sub}
     arguments = v90 $(Cluster) $(Process) 
-```
+    ```
+    **If you are passing numerical values as arguments to your Matlab binary, you will need to revise your Matlab 
+    code so that the values are interpreted as numbers instead of as characters (the default).** To do this, you can use that Matlab 
+    `str2num` function, more information is available at [Matlab Str2num](https://www.mathworks.com/help/matlab/ref/str2num.html).
+    
 4.  As always, test a few jobs for disk space/memory usage in order to
     make sure your requests for a large batch are accurate! Disk space
     and memory usage can be found in the log file after the job

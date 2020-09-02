@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: hpc_layout
 title: Using Software on the HPC Cluster
 ---
 
@@ -41,17 +41,17 @@ There are two ways to search through the software modules on the HPC cluster:
 
 1. **View all modules**
 	This command will show all software modules available: 
-		```
-		[alice@login]$ module avail
-		```
+```
+[alice@login]$ module avail
+```
 
 2. **Search for specific modules**
 	If you are searching for a specific software module, you can use the 
 	`module spider` command with part of the software name. For example, to 
 	search for Open MPI modules, you would type:
-		```
-		[alice@login]$ module spider openmpi
-		```
+```
+[alice@login]$ module spider openmpi
+```
 
 ## B. Access Software in Modules
 
@@ -63,7 +63,7 @@ the name you found through one of the above steps.
 [alice@login]$ module load module_name
 ```
 
-> ** When to Load Modules **
+> **When to Load Modules**
 > 
 > You can load modules to compile code (see below). If you do this, make sure to load
 > the same modules as part of your job script before running the main command. 
@@ -89,7 +89,7 @@ If you want to clear your command line environment and start over, run the follo
 
 # 3. Installing Software on the Cluster
 
-## Overview
+## A. Overview
 
 Unless you are using a licensed software program provided via modules, you 
 are able to compile and install the software you need on the HPC Cluster. 
@@ -104,7 +104,7 @@ members, please contact us about getting a shared "group" directory.
 If you are new to software installation, see the section below for 
 a more step-by-step description of the process. 
 
-## Step by Step Process
+## B. Step by Step Process
 
 1. **Download Source Code** - download the source code for your desired program. We 
 	recommend downloading it to the local scratch space on the login node 

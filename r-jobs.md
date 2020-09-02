@@ -43,6 +43,8 @@ Supported R Installations
   | R 3.4.4 | R344.tar.gz |
   | R 3.5.1 | R351.tar.gz |
   | R 3.6.1 | R361.tar.gz |
+  | R 3.6.3 | R363.tar.gz |
+  | R 4.0.2 | R402.tar.gz |
 
 
 <a name="build"></a>

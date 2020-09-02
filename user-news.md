@@ -28,6 +28,50 @@ The 'condor_history' output will show an 'X' (in the 'ST' column) for jobs that 
 
 Thank you,
 
+## HPC Cluster Upgrades, starting September 15
+### Monday, August 24, 2020
+Greetings,
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
+
+This email provides an overview of plans for **major upgrades to the HPC Cluster,** which will take place in several phases **beginning September 15**, as described below.
+
+The upgrades will include:
+
+-   upgrade of all cluster nodes to the CentOS 7 operating system
+-   new /home filesystem and a new /software location
+-   new job queue with the latest version of Slurm
+-   new login nodes with all of the above
+
+We have already implemented the new filesystems, login nodes, queue, and [documentation](http://chtc.cs.wisc.edu/hpc-overview), and will gradually transition sets of compute nodes and enable access to the new configuration, described above, according to the following timeline.
+
+**HPC Cluster Transition Timeline:**
+
+-   **Sep 15-17**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
+-   **Sep 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
+-   **Sep 29-30**: all researcher-owned hardware transitioned
+-   **Oct 6-7**: all remaining (univ2) hardware transitioned
+-   **Oct 13**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
+
+**Moving Jobs to the New Configuration**
+
+We have constructed the above timeline to give users four weeks in Sept/Oct to transition their software and other files for job submission to the new CentOS 7 configuration and Slurm queue. Guides are available with instructions on using our [revamped software modules](http://chtc.cs.wisc.edu/hpc-software) and [updated version of Slurm](http://chtc.cs.wisc.edu/hpc-job-submission) when the cluster is available for login in September.
+
+**Moving Data to the New Configuration**
+
+The new configuration will offer [separate locations for job data (/home) and software (/software)](http://chtc.cs.wisc.edu/hpc-overview#data-storage-and-management) along with new quotas for each. Data in the existing HPC Cluster filesystem (/home via aci-service-1/2 nodes) will be unavailable in the new configuration and will be deleted after Oct 13. Importantly, users should use the upgrade as an opportunity to review and only transition data that will be necessary for future work (moving data from completed work to non-CHTC locations, as per CHTC data policies).
+
+**New Documentation**
+
+Documentation is now available on the CHTC website detailing the new HPC configuration, job submission, software use, and user policies which can be accessed at the following links:
+
+-   [HPC Cluster Configuration and Policies](http://chtc.cs.wisc.edu/hpc-overview)
+-   [Submitting and Managing Jobs Using SLURM](http://chtc.cs.wisc.edu/hpc-job-submission)
+-   [Using Software on the HPC Cluster](http://chtc.cs.wisc.edu/hpc-software)
+
+The information in this email will also be posted to the [CHTC User News page](http://chtc.cs.wisc.edu/user-news). We will send additional notices prior to key phases in the timeline above. If the above timeline presents any major difficulties for your computational work, or for any other questions regarding the HPC Cluster upgrade, please email <chtc@cs.wisc.edu>.
+
+Thank you,\
 Your CHTC Team
 
 ------------------------------------------------------------------------
@@ -80,157 +124,6 @@ August 18.
 
 Cheers,\
 Christina, Jess and Lauren
-
-------------------------------------------------------------------------
-## Licensed Software Interruption, Monday, June 29
-### Tuesday, June 23, 2020
-Greetings CHTC users,
-
-This message is for CHTC users who use licensed software on any CHTC systems.
-
-On Monday, June 29, we will have a short maintenance window affecting the server which
-provides licenses for the following programs:
-
--   Comsol
--   Lumerical
--   Matlab (necessary for compiling Matlab code)
-
-Licenses for these programs will be unavailable for up to a 30-minute period on Monday, shortly
-after 5pm. Jobs requiring licenses from the license server that start while the license server
-is down will fail and need to be resubmitted. Some currently-running jobs dependent on these
-licenses may also be interrupted during this time.
-
-As always, email us at <chtc@cs.wisc.edu> with any questions.
-
-Cheers,\
-Your CHTC Team
-
-------------------------------------------------------------------------
-## All CHTC services, including the HPC Cluster, are restored
-### Wednesday, June 17, 2020
-Greetings CHTC users, 
-
-
-Cooling has been restored to all CHTC server rooms and all of our services, including the HPC Cluster and all execute nodes of the HTC system are now available.
-
-
-Because some of the HPC Cluster nodes were shut off abruptly last week, please email us at chtc@cs.wisc.edu if you experience any unexpected issues. 
-
-
-Thanks for your patience during this unexpected downtime. 
-
-
-Cheers,
-
-Your CHTC team
-
-------------------------------------------------------------------------
-## Current Status of CHTC services; HPC cluster still down
-### Thursday, June 11, 2020
-Greetings CHTC users,
-
-The campus chilled water outage is continuing; the current status of CHTC services is:
-
--   The HPC cluster is completely down, including the login nodes.
--   The HTC system is mostly up. All submit nodes should be accessible; a subset of our
-    execute nodes (including a few nodes with GPUs) are still down.
-
-At the moment we do not know when we will be able to restore access to these services. If
-you have questions about what CHTC services are available, please email
-<chtc@cs.wisc.edu>.
-
-Cheers,\
-Your CHTC team
-
-------------------------------------------------------------------------
-## CHTC services down due to campus chilled water outage
-### Tuesday, June 9, 2020
-Greetings CHTC users,
-
-The campus is experiencing an unplanned chilled water outage, impacting multiple server
-rooms containing CHTC servers.
-
-So far, impacted services include:
--   Execute nodes are down in both the HPC cluster and HTC system.
--   Jobs on both the HPC cluster and HTC system have been interrupted.
-
-We don't yet know the full extent of the chilled water outage and how it will continue to
-impact CHTC services. Our team is monitoring the situation closely. We will provide a more
-detailed update to this list when more information is available.
-
-Cheers,\
-Your CHTC Team
-
-------------------------------------------------------------------------
-## Resolved! Was: Emails to chtc@cs.wisc.edu delayed since May 30
-### Tuesday, June 2, 2020
-Hi Everyone,
-
-Thank you for your patience while we were unable to reply to your incoming emails to
-chtc@cs.wisc.edu. The issue has been resolved and we will make sure to reply to you ASAP, today! You
-can continue to email chtc@cs.wisc.eedu for support, including time-sensitive requests.
-
-Best,\
-Your CHTC Team
-
-------------------------------------------------------------------------
-## CHTC Office Hours Canceled May 19 for HTCondor Week 2020
-### Thursday, May 15, 2020
-Greetings CHTC users,
-
-Office hours are canceled next Tuesday (May 19), as CHTC staff will be hosting [HTCondor Week 2020](https://agenda.hep.wisc.edu/event/1440/). We will continue with regular office hours on Thursday (May 21) and regular email support will continue to be available through the week. Our current office hours schedule is from 3 - 5pm on Tuesdays and Thursdays, via WebEx: [go.wisc.edu/chtc-officehours](http://go.wisc.edu/chtc-officehours).
-
-**All CHTC users are welcome and encouraged to attend HTCondor Week!**\
-Registration is FREE, and will ensure that you receive links to virtual rooms for participation: <https://agenda.hep.wisc.edu/event/1440/>\
-CHTC staff will be out of the office on Monday, May 25 for the Memorial Day holiday, which we'll send a reminder about, later.
-
-Please continue to email <chtc@cs.wisc.edu> for help during the above times, and we'll get back to you ASAP!
-
-Cheers,\
-Your CHTC Team
-
-------------------------------------------------------------------------
-## Join the first Virtual HTCondor Week, May 19-20!
-### Monday, May 4, 2020
-<br/>
-Greetings CHTC users,
-
-We are excited to invite you to [HTCondor Week 2020](http://htcondor.org/HTCondorWeek2020), HTCondor's annual user conference! It's a great opportunity to connect with CHTC staff and other users of HTCondor, and to expand your awareness of HTCondor capabilities.
-
-This virtual conference will take place on Tuesday, May 19 and Wednesday, May 20.
-
--   Tuesday May 19 will include a series of online **presentations on the latest HTCondor capabilities and achievements**, including presentations from the HTCondor team and from worldwide HTCondor users like Dreamworks (11am-4pm CT).
--   Wednesday May 20 will focus on **tutorial presentations (11am-1pm CT) and office hours discussions (2-4pm)** hosted by HTCondor developers and other CHTC staff.
-
-Registration is FREE and will ensure that we can email you with details, like virtual meeting room coordinates. More information, including a detailed schedule, is on the website:
-
-<http://htcondor.org/HTCondorWeek2020>
-
-Email us at <chtc@cs.wisc.edu> with any questions.
-
-Best,\
-Your CHTC Team
-
-------------------------------------------------------------------------
-## COVID-19 research; Thurs (4/23) office hour canceled; Gluster deletion
-### Monday, April 20, 2020
-<br/>
-Greetings CHTC users,
-
-We have a series of updates for your Monday!
-
-**Office hours are canceled this Thursday (4/23) **due to prior commitments for CHTC's research computing facilitators. You can normally join office hours on Tuesdays and Thursdays from 3 - 5pm at [go.wisc.edu/chtc-officehours](http://go.wisc.edu/chtc-officehours). We will still have office hours this Tuesday (4/21) and continue as usual next week.
-
-
-**Do you have computing and/or data needs for research relevant to the COVID-19 pandemic?** If so, please get in touch at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). We'll follow up to discuss your objectives and how CHTC or other relevant resources might help.
-
-**Files on Gluster to be deleted**: as [previously announced](https://www-auth.cs.wisc.edu/lists/chtc-users/2020-March/msg00001.shtml), we are retiring the Gluster file share previously used for large data staging and software modules on the HTC system. As of today (4/20), files and software in Gluster are unavailable and will be deleted shortly.
-
-Email [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with any questions or concerns.
-
-Cheers,
-
-Your CHTC team
 
 ------------------------------------------------------------------------
 
