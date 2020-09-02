@@ -28,6 +28,7 @@ The 'condor_history' output will show an 'X' (in the 'ST' column) for jobs that 
 
 Thank you,
 
+------------------------------------------------------------------------
 ## HPC Cluster Upgrades, starting September 15
 ### Monday, August 24, 2020
 Greetings,
