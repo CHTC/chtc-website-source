@@ -12,6 +12,25 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Jobs on submit2.chtc.wisc.edu Inadvertently Removed; Please Resubmit
+### Wednesday, September 2, 2020
+Greetings,
+
+*This email only pertains to users of the HTC System submitting through [submit2.chtc.wisc.edu](http://submit2.chtc.wisc.edu)*.
+
+We are sorry to report that **all jobs in the HTCondor queue on [submit2.chtc.wisc.edu](http://submit2.chtc.wisc.edu) were inadvertently removed at about 10:50am** while staff were doing work on the submit server. We apologize for the inconvenience, as **users will need to resubmit jobs.**
+
+If you need help determining which jobs may have completed already (and which need to be resubmitted), you'll be able to see removed jobs and recently completed jobs by running the following (inserting your username for <username>):
+
+condor_history <username>
+
+The 'condor_history' output will show an 'X' (in the 'ST' column) for jobs that were removed, and a 'C' for jobs that completed (could be with or without errors). Please get in touch via <chtc@cs.wisc.edu> if we might be able to help you.
+
+Thank you,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Potential Interruption to HTC Services on Thursday, August 27
 ### Thursday, August 20, 2020
 Hello CHTC users,
