@@ -5,9 +5,9 @@ title: HPC Cluster Overview
 ---
 
 # Content
-
-1. 
-2. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
+ 
+1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
+2. [New HPC Configuration](#new-hpc-configuration)
 3. [HPC User Policies](#hpc-user-policies)  
 4. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
     - [Partitions](#partitions)   
@@ -20,8 +20,7 @@ The CHTC high-performance computing (HPC) cluster provides dedicated support for
 singular computations that use specialized software (i.e. MPI) to achieve internal 
 parallelization of work across multiple servers of dozens to hundreds of cores. 
 
-*Is high-performance computing right for me?* 
-All other computational work, including single and multi-core (but single node) 
+***Is high-performance computing right for me?*** All other computational work, including single and multi-core (but single node) 
 processes, that each complete in less than 72 hours on a single node will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
@@ -44,8 +43,9 @@ The new HPC configuration will include the following changes:
 - upgrade of SLURM from version 2.5.1 to version 20.02.2
 - upgrades to filesystems and user data and software management
 - a new set of modules and software
+- new head node hostnames
 
-The above changes will result in a new HPC computing environment, 
+The above changes will result in a new HPC computing environment 
 and will provide users with new SLURM features and improved support and reliability 
 for their HPC work. 
 
