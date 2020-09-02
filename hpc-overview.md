@@ -20,8 +20,10 @@ The CHTC high-performance computing (HPC) cluster provides dedicated support for
 singular computations that use specialized software (i.e. MPI) to achieve internal 
 parallelization of work across multiple servers of dozens to hundreds of cores. 
 
-***Is high-performance computing right for me?*** All other computational work, including single and multi-core (but single node) 
-processes, that each complete in less than 72 hours on a single node will be 
+***Is high-performance computing right for me?*** Only computational work that 
+fits that above description is permitted on the HPC. All other computational 
+work, including single and multi-core (but single node) processes, that each complete 
+in less than 72 hours on a single node will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
 information about high-throughput computing, please see [Our Approach](/approach).
