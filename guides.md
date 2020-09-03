@@ -162,6 +162,7 @@ through the process of using the cluster, step-by-step.</p> -->
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">New HPC Configuration Guides (Sept 17)</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important;">
+			<a href="/hpc-transition.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Transition Recommendations</li></a>
 			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
 			<a href="/hpc-overview.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Overview Guide</li></a>
 			<a href="/hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
