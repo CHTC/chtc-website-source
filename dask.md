@@ -6,7 +6,8 @@ title: Using Dask at CHTC
 
 [Dask](https://docs.dask.org/en/latest/) 
 is a Python library for parallel computing.
-Though it is not the traditional HTCondor workflow, it is possible to use
+Though it is not the 
+[traditional HTCondor workflow](/helloworld.shtml), it is possible to use
 Dask on the CHTC pool through a special adapter package provided by CHTC.
 This guide describes the situations in which you should consider using
 Dask instead of the traditional workflow, and will point you toward the
@@ -21,7 +22,7 @@ actually using it).
 ## What is Dask?
 
 [Dask](https://docs.dask.org/en/latest/) 
-is a Python library that scales Python code in two ways:
+is a Python library that can "scale up" Python code in two ways:
 - "Low-level" parallelism, through transparently-parallel calculations on familiar interfaces like `numpy` arrays.
 - "High-level" parallelism, through an explicit run-functions-in-parallel interface.
 
@@ -33,11 +34,16 @@ a cluster, aggregating their results locally as they finish.
 Dask can also smoothly handle cases between these extremes (perhaps each of your
 independent simulations also needs a large amount of memory?).
 
+Dask also "scales down": it runs the same way on your laptop as it does on
+a cluster. Dask can therefore provide a smooth transition between running on
+local resources and running on something like the CHTC pool.
+
 
 ## When should I use Dask at CHTC?
 
 You should consider using Dask for parallelism instead of 
-the traditional HTCondor workflow of creating jobs and DAGs when:
+the [traditional HTCondor workflow](/helloworld.shtml) 
+of creating jobs and DAGs when:
 
 - You are already using Dask for parallelism and want to smoothly scale
   up your computing resources. Note that many foundational libraries in the
@@ -48,7 +54,7 @@ the traditional HTCondor workflow of creating jobs and DAGs when:
   [joblib](https://joblib.readthedocs.io/en/latest/)
   for high-level parallelism. 
   Dask's high-level parallelism interface is fairly similar to these libraries,
-  and switching to Dask should not involve too much work.
+  and switching from them to Dask should not involve too much work.
 - You can make your overall workflow more efficient by adjusting it based
   on intermediate results.
   For example,
@@ -59,6 +65,8 @@ the traditional HTCondor workflow of creating jobs and DAGs when:
   than can be stored in the memory of a single average CHTC worker 
   (more than a few GB). Dask can store this kind of data in "chunks" on workers
   and seamlessly perform calculations on the chunks in parallel.
+- You want your workflow to "scale down" to local resources. Being able to run
+  your workflow locally may make developing and testing it easier.
 - You want a more interactive way of using the CHTC pool. 
   The adapter package provides tools for running Jupyter Notebooks on the
   CHTC pool, connected to your Dask cluster.
@@ -67,7 +75,7 @@ the traditional HTCondor workflow of creating jobs and DAGs when:
 You may also be interested in Dask's own 
 ["Why Dask?"](https://docs.dask.org/en/latest/why.html) page.
 
-If you are unsure whether you should use Dask or the more traditional workflow,
+If you are unsure whether you should use Dask or the traditional workflow,
 please get in touch with a research computing facilitator by emailing 
 [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) and set up a consultation.
 
