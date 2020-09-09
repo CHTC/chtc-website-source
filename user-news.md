@@ -12,6 +12,22 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Facilitators out of Office 9/7 and 9/11; Fall Workshops
+### Friday, September 4, 2020
+Greetings CHTC users,
+
+Two quick announcements before the long weekend:
+
+1) The CHTC team will have a short week next week; **we are out of the office on Monday, September 7** for the Labor Day holiday, **and on Friday, September 11** for a group retreat. Based on these outages, responses to email sent over this weekend and next Friday will be delayed.
+
+2) The Data Science Hub is running a series of workshops this fall that include topics that are relevant to CHTC users, including command line skills, version control with git, and an introduction to Docker containers. If you are interested in joining, see the dates and registration information on this page: <https://uw-madison-datascience.github.io/2020-09-16-uwmadison-mini/>
+
+As always, the best way to reach us is <chtc@cs.wisc.edu>.  Have a great holiday weekend!
+
+Best,\
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Jobs on submit2.chtc.wisc.edu Inadvertently Removed; Please Resubmit
 ### Wednesday, September 2, 2020
 Greetings,
