@@ -12,15 +12,15 @@ a summary of what you need to know and actions you need to take.
 ## Changes in the New Configuration
 
 The new HPC configuration will include the following changes:
-- upgrade of operating system from Scientific Linux release 6.6 to CentOS 7
-- upgrade of SLURM from version 2.5.1 to version 20.02.2
-- upgrades to filesystems, specifically a division between `/home` (for data and job 
-submission) and `/software` (for software installations). 
-- a new set of modules and software
-- new head node hostnames (`hpclogin1.chtc.wisc.edu`, `hpclogin2.chtc.wisc.edu`)
+- new head nodes (`hpclogin1.chtc.wisc.edu`, `hpclogin2.chtc.wisc.edu`)
+- all-new filesystems, and with a division between `/home` (for data and job 
+submission) and `/software` (for software installations).
+- a new queue with SLURM version 20.02.2
+- upgrade of operating system on all nodes from Scientific Linux 6 to CentOS 7
+- all-new software modules, compiled for CentOS 7
 
-The above changes will result in a new HPC computing environment
-and will provide users with new SLURM features and improved support and reliability
+The above changes will result in an entirely new HPC computing environment (but with the same execute nodes)
+and will provide users with new SLURM features (if desired) and improved data reliability
 for their HPC work.
 
 ## Timeline 
@@ -39,7 +39,7 @@ Review the updated use guides for the new cluster configuration here: [HPC Clust
 
 Start removing all old and unneeded files from the current HPC cluster. 
 
-**After September 17**
+**After October 15**
 
 1. Confirm that you can log into the new login nodes - `hpclogin1.chtc.wisc.edu` and
 `hpclogin2.chtc.wisc.edu`. 
