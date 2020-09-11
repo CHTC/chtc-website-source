@@ -25,11 +25,11 @@ for their HPC work.
 
 ## Timeline 
 
--   **Oct 15-16**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
--   **Oct 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
+-   **Oct 13-14**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
+-   **Oct 15**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
 -   **Oct 27-28**: all researcher-owned hardware transitioned
 -   **Nov 10-11**: all remaining (univ2) hardware transitioned
--   **Nov 17**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
+-   **Nov 24**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
 
 ## Actions to Take
 
