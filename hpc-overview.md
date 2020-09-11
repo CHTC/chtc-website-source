@@ -36,7 +36,7 @@ resources (including non-CHTC services) that best fit your needs.
 
 ## New HPC Configuration
 
-Roll out of the new HPC configuration is currently scheduled for September 17, 2020. 
+Roll out of the new HPC configuration is currently scheduled for late Sept./early Oct. 
 More information about our HPC upgrade and user migration timeline was sent out to 
 users by email. All CHTC user email correspondences are available at [User News](/user-news).
 
