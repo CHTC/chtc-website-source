@@ -4,7 +4,7 @@ layout: default
 title: Transition to the Newly Configured HPC Cluster
 ---
 
-The HPC Cluster is being upgraded to a new configuration during September - October 2020. 
+The HPC Cluster is being upgraded to a new configuration during October-November 2020. 
 If you have an account on our current HPC cluster (logging into `aci-service-1` or 
 `aci-service-2`) this page, along with our [User News page](/user-news), has 
 a summary of what you need to know and actions you need to take. 
@@ -25,11 +25,11 @@ for their HPC work.
 
 ## Timeline 
 
--   **Sep 15-17**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
--   **Sep 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
--   **Sep 29-30**: all researcher-owned hardware transitioned
--   **Oct 6-7**: all remaining (univ2) hardware transitioned
--   **Oct 13**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
+-   **Oct 15-16**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
+-   **Oct 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
+-   **Oct 27-28**: all researcher-owned hardware transitioned
+-   **Nov 10-11**: all remaining (univ2) hardware transitioned
+-   **Nov 17**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
 
 ## Actions to Take
 
@@ -54,7 +54,7 @@ the new modules, see the [software guide](/hpc-software).
 4. Transfer ONLY needed files from the old cluster to the new, and continue to remove 
 all old and unneeded data from the old cluster. 
 
-# Contact us at chtc@cs.wisc.edu with any questions or concerns
+# Contact us at chtc@cs.wisc.edu with any questions or concerns.
 
 
 
