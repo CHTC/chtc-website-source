@@ -12,6 +12,48 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HPC Cluster Upgrade Shifted to October 15
+### Friday, September 11, 2020
+Greetings,
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
+
+Due to recent and unforeseen issues in transitioning servers to the new cluster configuration, we are delaying the HPC Cluster transition by four weeks (see the updated timeline, below). Additionally, based upon discussions with some users thus far, we would like to provide clear indications of the work that every HPC Cluster user can anticipate in migrating to the new configuration.
+
+**HOW TO MIGRATE YOUR WORK TO THE 'NEW' CONFIGURATION**
+
+When users are allowed onto the new cluster configuration, they should be prepared to:
+
+-   Re-install software to the new /software location, compiled against the cluster's new MPI modules and CentOS7 operating system.
+-   Migrate all output from prior runs off of the old configuration.
+-   Migrate submit files, inputs, and other files for future work to the /home location on the new cluster configuration.
+-   Modify submit files in light of new Slurm features (if desired), new modules, and commands pointing to newly-installed user software.
+
+The above are all addressed in our guide on [Transitioning to the New HPC Cluster Configuration](http://chtc.cs.wisc.edu/hpc-transition.shtml). **We will email at a later date with details for planned informational sessions, which will include opportunities for Q&A about the transition process.**
+
+**UPDATED HPC Cluster Transition Timeline:**
+
+Oct 13-14: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
+
+Oct 15: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu));
+
+ [new documentation](http://chtc.cs.wisc.edu/hpc-overview) made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
+
+Oct 27-28:  all researcher-owned hardware transitioned
+
+Nov 10-11:  all remaining (univ2) hardware transitioned
+
+Nov 24:     accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
+
+Thank you, in advance, for your patience with the timeline shift. We are hoping to avoid further delays, and will communicate all updates as soon as possible.
+
+As always, please get in touch with any questions by emailing <chtc@cs.wisc.edu>.
+
+Cheers,\
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Facilitators out of Office 9/7 and 9/11; Fall Workshops
 ### Friday, September 4, 2020
 Greetings CHTC users,
@@ -61,14 +103,6 @@ The upgrades will include:
 -   new login nodes with all of the above
 
 We have already implemented the new filesystems, login nodes, queue, and [documentation](http://chtc.cs.wisc.edu/hpc-overview), and will gradually transition sets of compute nodes and enable access to the new configuration, described above, according to the following timeline.
-
-**HPC Cluster Transition Timeline:**
-
--   **Sep 15-17**: 'univ' and half of 'univ2' partition nodes transitioned to new configuration
--   **Sep 17**: users granted access to new login nodes (hpclogin1/[2.chtc.wisc.edu](http://2.chtc.wisc.edu)); new documentation made prominent on [chtc.cs.wisc.edu](http://chtc.cs.wisc.edu)
--   **Sep 29-30**: all researcher-owned hardware transitioned
--   **Oct 6-7**: all remaining (univ2) hardware transitioned
--   **Oct 13**: accounts disabled on aci-service-1/2; accounts/data subsequently deleted; old documentation removed
 
 **Moving Jobs to the New Configuration**
 
