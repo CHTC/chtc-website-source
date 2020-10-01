@@ -12,6 +12,29 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Info Sessions for HPC Cluster Upgrade
+### Tuesday, September 29, 2020
+Greetings,
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the aci-service-1.chtc.wisc.edu login node. **Users of only the HTC System are welcome to ignore the below.***
+
+In anticipation of the HPC cluster upgrade in October, CHTC facilitators will be hosting two virtual information sessions for users on **Tues Oct. 6 at 11 am** and **Wed Oct 7 at 3 pm**. Each info session will provide an overview of the new HPC configuration and include time for Q & A.
+
+Registration for an info session is required. After registering, you will receive a confirmation email containing information about joining the session and the option of adding the session to your calendar. You can register beforehand, or as the meeting is starting; the registration is simple and sends the connection details right away. To register, see the links below:
+
+-   Oct 6, 2020 11:00 AM Central Time
+
+-   <https://uwmadison.zoom.us/meeting/register/tJUvcOuoqDoqG9Vm-l50N2cRy2lKmC-vNuJH> 
+
+-   Oct 7, 2020 03:00 PM Central Time
+
+-   <https://uwmadison.zoom.us/meeting/register/tJIlfumhpj4rG9JcVjhzafZJp25CEJDTfDOp> 
+
+Cheers,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## HPC Cluster Upgrade Shifted to October 15
 ### Friday, September 11, 2020
 Greetings,
