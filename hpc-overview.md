@@ -127,16 +127,10 @@ backfill capacity via the `pre` partition (more details below).
   {:.gtable}
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
-  | University | univ | 38 | 7 days | 1 day | 16 | 16 | 64
   | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 20 | 128
-  | Interactive | int | 2 | 30 min | 30 min | 1 | 16 | 64
+  | Interactive | int | 6 | 1 hr | 1hr | 1 | 20 | 128
   | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 16 or 20 | 64 or 128
-
-- `univ` consists of our first generation compute nodes, each with 16 
-CPU cores of 2.2 GHz and 64 GB of RAM (4 GB per CPU core) and will always have 
-at least 32 nodes total. This partition is available to all HPC users and jobs 
-submitted to this partition will not be pre-empted and can run for up to 7 days. 
+  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 20 | 128
 
 - `univ2` consists of our second generation compute nodes, each with 20 
 CPU cores of 2.5 GHz and 128 GB of RAM. Like `univ`, jobs submitted to this partition 
@@ -144,7 +138,7 @@ will not be pre-empted and can run for up to 7 days.
 
 - `int` consists of two compute nodes is intended for short and immediate interactive 
 testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
-can run for up to 30 minutes.
+can run for up to 1 hour.
 
 - `pre` (i.e. pre-emptable) is an under-layed partition encompassing all HPC compute 
 nodes. This partiton is intended for more immediate turn-around of shorter and somewhat 
