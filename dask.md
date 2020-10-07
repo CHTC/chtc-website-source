@@ -26,7 +26,7 @@ is a Python library that can "scale up" Python code in two ways:
 - "Low-level" parallelism, through transparently-parallel calculations on familiar interfaces like `numpy` arrays.
 - "High-level" parallelism, through an explicit run-functions-in-parallel interface.
 
-Both kinds of parallelism can be useful, depending on your problem.
+Both kinds of parallelism can be useful, depending on your work.
 For example, Dask could be used to perform data analysis on a single multi-TB
 dataframe stored in distributed memory, as if it was all stored locally.
 It could also be used to run thousands of independent simulations across
@@ -35,15 +35,15 @@ Dask can also smoothly handle cases between these extremes (perhaps each of your
 independent simulations also needs a large amount of memory?).
 
 Dask also "scales down": it runs the same way on your laptop as it does on
-a cluster. Dask can therefore provide a smooth transition between running on
+a cluster thereby providing a smooth transition between running on
 local resources and running on something like the CHTC pool.
 
 
 ## When should I use Dask at CHTC?
 
-You should consider using Dask for parallelism instead of 
-the [traditional HTCondor workflow](/helloworld.shtml) 
-of creating jobs and DAGs when:
+Several use cased are described below for considering the use of Dask for parallelism 
+in CHTC instead of the [traditional HTCondor workflow](/helloworld.shtml) 
+of creating jobs and DAGs:
 
 - You are already using Dask for parallelism and want to smoothly scale
   up your computing resources. Note that many foundational libraries in the
@@ -77,7 +77,7 @@ You may also be interested in Dask's own
 
 If you are unsure whether you should use Dask or the traditional workflow,
 please get in touch with a research computing facilitator by emailing 
-[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) and set up a consultation.
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) to set up a consultation.
 
 
 ## How do I use Dask at CHTC?
