@@ -49,6 +49,11 @@ servers or head nodes:
   {:.gtable}
   | HPC Cluster |
   | --- |
+  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` |
+
+  {:.gtable}
+  | HPC Cluster - previous configuration, retiring Nov 24, 2020 |
+  | --- |
   | `aci-service-1.chtc.wisc.edu` and/or `aci-service-2.chtc.wisc.edu` |
 
 
