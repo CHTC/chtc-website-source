@@ -111,13 +111,13 @@ The command to request an interactive job is `srun`, and includes the partition
 in which you'd like to run the interactive job. 
 
 ``` 
-[alice@login]$ srun -n16 -N1 -p int --pty bash
+[alice@login]$ srun -n4 -N1 -p int --pty bash
 ```
 {:.term}
 
-The above example indicates a request for 16 CPUs (`-n16`) on a single
-node (`-N1`) in the \"int\" partition (`-p int`), and \"`-t 15`\" would
-indicate a request for 15 minutes, if desired rather than the 30-minute
+The above example indicates a request for 4 CPUs (`-n4`) on a single
+node (`-N1`) in the \"int\" partition (`-p int`). Adding \"`-t 15`\" would
+indicate a request for 15 minutes, if desired, rather than the 60-minute
 default. After the interactive shell is created to a compute node with
 the above command, you\'ll have access to files on the shared file
 system and be able to execute code interactively as if you had directly
