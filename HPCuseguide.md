@@ -4,10 +4,12 @@ layout: default
 title: HPC Cluster Basic Use Guide
 ---
 
-> **Notice:** The HPC cluster will be upgraded to a new configuration in 
-> mid-September. Please see the [User News page](/user-news) for details 
-> of the upgrade timeline. 
-
+> **Notice:** The HPC cluster is currently being transitioned to a 
+>  new configuration. Please start new and move existing workflows 
+> to the new configuration described in [these guides][/hpc-overview].
+> 
+> This page will be archived when we have fully transitioned the cluster 
+> to the new configuration on November 24, 2020. 
 
 The CHTC has partnered with the UW-Madison [Advanced Computing
 Initiative](http://aci.wisc.edu/) (ACI) in order to provide a dedicated
