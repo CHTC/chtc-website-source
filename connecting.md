@@ -47,7 +47,7 @@ servers or head nodes:
   | `submit2.chtc.wisc.edu` - typically for accounts created prior to Aug 2018 or after June 2019 |
 
   {:.gtable}
-  | HPC Cluster |
+  | HPC Cluster - starting October 15, 2020 |
   | --- |
   | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` |
 
