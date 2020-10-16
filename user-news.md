@@ -12,6 +12,31 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## New HPC Cluster Configuration NOW OPEN
+### Thursday, October 15, 2020
+Greetings CHTC users, 
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
+
+Researchers with accounts on the old configuration of the HPC cluster can now access the new cluster configuration. 
+
+**Please FIRST read through the instructions below andour new overview page, with related software and job submission guides: **[**http://chtc.cs.wisc.edu/hpc-overview**](http://chtc.cs.wisc.edu/hpc-overview)**.** Then, login via the new login nodes using your UW NetID and associated password.
+
+Please first try to install the software that you most commonly use on the cluster, and submit a few, small test jobs. We've expanded the interactive partition (or scheduled jobs) for installation and testing, which can otherwise be carried out in other partitions and/or with non-interactive jobs, such that users should not compile on head nodes. (Note: We are currently working with Campus Software on options for new licenses for the Intel compilers, and will have updates later on when they might be available relative to the below timeline.)
+
+As a reminder, not all of the cluster hardware has been transitioned to the new configuration; remaining hardware will be transitioned on the following schedule: 
+
+-   Oct 27-28: all researcher-owned hardware transitioned
+-   Nov 10-11: all remaining (univ2) hardware transitioned
+-   Nov 24: accounts disabled on aci-service-1/2; accounts/data subsequently deleted;
+
+Please continue to contact us at <chtc@cs.wisc.edu> with any issues or questions that come up.
+
+Thank you, 
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Reminder: HPC Cluster transition beginning Tuesday, Oct 13
 ### Friday, October 9, 2020
 
