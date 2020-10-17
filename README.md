@@ -18,7 +18,7 @@ remotes:
 
 		git remote add mycopy https://github.com/myusername/chtc-website-source
 
-### Submit a Pull Request (each major change)
+### Submit your Pull Request (each major change)
 
 1. Create a branch for new work and switch to it: 
 
