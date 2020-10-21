@@ -2,8 +2,11 @@
 
 <h1>Disclaimer:</h1>
 <p style="background-color:yellow;">This guide pertains to the new configuration of the HPC 
-cluster which will be available starting <b>October 15</b>. For instructions on the currently 
-operating cluster, please see our previous <a href="HPCuseguide.shtml">HPC Basic Use Guide</a></p>
+cluster which is now available. Use this guide for all current and future work. 
+You can see the user guide for our previous cluster configuration
+here - <a href="HPCuseguide.shtml">HPC Basic Use Guide</a> - but please begin migrating your workflows 
+to the configuration described in this page as soon as possible before the old configuration is 
+retired in November.</p>
 <hr>
 <h1>Additional HPC Guides</h1>
 <br>
