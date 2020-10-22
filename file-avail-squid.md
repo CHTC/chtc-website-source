@@ -96,12 +96,11 @@ Contents
 1. **Request a directory in SQUID**. Write to [chtc@cs.wisc.edu](chtc@cs.wisc.edu) describing the data you\'d like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<a name="place"></a>  
 
 2.  **Place files within your `/squid/username` directory** via a CHTC
-    transfer server (if from your laptop/desktop) or on the submit
-    server.   
+    submit server.   
 
     From your laptop/desktop:  
     ``` 
-    [username@computer]$ scp large_file.tar.gz username@transfer.chtc.wisc.edu:/squid/username/
+    [username@computer]$ scp large_file.tar.gz username@submit.chtc.wisc.edu:/squid/username/
     ```
     {:.term}
     
