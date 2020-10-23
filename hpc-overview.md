@@ -61,8 +61,11 @@ When you connect to the HPC, you are connected to a login node. The HPC login no
 limited computing resources that are occupied with running Slurm and managing job submission. 
 
 Users should only run basic commands (like `tar`, `cp`, `mkdir`) on the login nodes. The 
-exectution of scripts, including cron, software, and other data processing and manipulation 
-tasks is prohibited (and could VERY likely crash the head node). 
+execution of scripts, including cron, software, and software compilation on the login nodes
+is prohibited (and could VERY likely crash the head node). However, users may run small scripts 
+and commands (to compress data, create directories, etc.) that run within a few minutes but 
+their use should be minimized when possible. If you are unsure if your scripts are suitable 
+for running on the login nodes, please contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 **CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy**
