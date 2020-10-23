@@ -9,7 +9,7 @@ title: Building R in HTC
 **This guide will provide instructions for compiling base R from source code and is intended 
 for compiling versions of R that are currently not provided via the CHTC Squid Web Proxy**
 
-Before compiling R, please take a moment to review our [R Jobs](/r-jobs.shtml) guide to see what versions of R are currently available on the HTC.
+Before compiling R, please take a moment to review our [R Jobs](/r-jobs.shtml) guide to see what versions of R are currently available.
 
 **To best understand the below information, you 
 should already have an understanding of how to:**
@@ -77,7 +77,7 @@ Once this submit file is created, you will start the interactive job by
 running the following command:
 
 ``` 
-[alice@submit]$ condor_submit -i build.sub
+[user@submit]$ condor_submit -i build.sub
 ```
 {:.term}
 
@@ -93,33 +93,35 @@ To install R, first create a directory that will hold your R installation (e.g. 
 , then extract all of the source code files from R-#.#.#.tar.gz and move into the source code directory:
 
 ``` 
-[alice@build]$ mkdir R/
-[alice@build]$ tar xzf R-#.#.#.tar.gz
-[alice@build]$ cd R-#.#.#/
+[user@build]$ mkdir R/
+[user@build]$ tar xzf R-#.#.#.tar.gz
+[user@build]$ cd R-#.#.#/
 ```
 {:.term}
 
 From the source code directory, run the following commands. **The `make` step may take a while to 
-complete!**: 
+complete!** If building R version 4.x.x or higher you will need to modify the below `configure` 
+command to include the flag `--with-pcre1` 
+(e.g. `./configure --prefix=$_CONDOR_SCRATCH_DIR/R --with-pcre1`).
 
 ```
-[alice@build]$ ./configure --prefix=$_CONDOR_SCRATCH_DIR/R
-[alice@build]$ make
-[alice@build]$ make install
+[user@build]$ ./configure --prefix=$_CONDOR_SCRATCH_DIR/R
+[user@build]$ make
+[user@build]$ make install
 ```
 {:.term}
 
 Then return the the top level directory:
 
 ```
-[alice@build]$ cd ../
+[user@build]$ cd ../
 ```
 {:.term}
 
 If R has been installed successfully, you should be able to run the following command as a test:
 
 ```
-[alice@build]$ R/bin/R --version
+[user@build]$ R/bin/R --version
 ```
 {:.term}
 
@@ -139,13 +141,13 @@ Once R has been successfully compiled (and after any packages have been installe
 is to create a compressed tar archive of your R installation. From the top level directory:
 
 ```
-[alice@build]$ tar czf my_R#.#.#.tar.gz R/
+[user@build]$ tar czf my_R#.#.#.tar.gz R/
 ```
 {:.term}
 
 **Be sure to check the size of your R tar archive:**
 ```
-[alice@build]$ ls -lh my_R#.#.#.tar.gz
+[user@build]$ ls -lh my_R#.#.#.tar.gz
 ```
 {:.term}
 
@@ -158,7 +160,7 @@ The final step is to terminate your interactive job, and HTCondor will tranfer y
 back to your `/home` directory:
 
 ```
-[alice@submit]$ exit
+[user@submit]$ exit
 ```
 {:.term}
 
@@ -166,7 +168,7 @@ Once your interactive job terminates, you will be back in your `/home` directory
 server and should see a copy of your R tar archive:
 
 ```
-[alice@submit]$ ls
+[user@submit]$ ls
 ```
 {:.term}
 
