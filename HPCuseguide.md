@@ -6,7 +6,7 @@ title: HPC Cluster Basic Use Guide
 
 > **Notice:** The HPC cluster is currently being transitioned to a 
 >  new configuration. Please start new and move existing workflows 
-> to the new configuration described in [these guides][/hpc-overview].
+> to the new configuration described in [these guides](/hpc-overview).
 > 
 > This page will be archived when we have fully transitioned the cluster 
 > to the new configuration on November 24, 2020. 

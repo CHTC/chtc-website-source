@@ -148,19 +148,10 @@ through the process of using the cluster, step-by-step.</p> -->
 
 <h2>Guides by Topic</h2>
 <div class="card-deck">
+
 	<div class="card border-secondary h-100" >    
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">HPC Cluster Guides</h5>
-		<ul class="list-group list-group-flush" style="height: auto !important;">
-			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
-			<a href="/HPCuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Basic Use Guide</li></a>
-			<a href="/MPIuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">MPI Use Guide</li></a>
-		</ul>
-	</div>
-			
-	<div class="card border-secondary h-100" >    
-		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-		<h5 class="card-title text-center">New HPC Configuration Guides (starting Sept/Oct)</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important;">
 			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
 			<a href="/hpc-overview.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Overview Guide</li></a>
@@ -168,6 +159,17 @@ through the process of using the cluster, step-by-step.</p> -->
 			<a href="/hpc-job-submission.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
 		</ul>
 	</div>
+
+	<div class="card border-secondary h-100" >    
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h5 class="card-title text-center">Guides for old HPC Cluster Configuration (Retiring Nov 2020)</h5>
+		<ul class="list-group list-group-flush" style="height: auto !important;">
+			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
+			<a href="/HPCuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Basic Use Guide</li></a>
+			<a href="/MPIuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">MPI Use Guide</li></a>
+		</ul>
+	</div>
+			
 </div>
 
 <hr>
