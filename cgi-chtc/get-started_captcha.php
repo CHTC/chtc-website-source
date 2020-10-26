@@ -74,7 +74,7 @@ if(isset($_POST["captcha"])) {
 } else { // Some bot didn't even set the captcha field
   // Send them back to the form page, I guess?
   header( "Content-Type: text/html\n" );
-  header( "Location: https://chtc.cs.wisc.edu/form\n\n" );
+  header( "Locations: https://chtc.cs.wisc.edu/form\n\n" );
 
 }
 
