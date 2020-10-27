@@ -16,7 +16,7 @@ Contents
 1. [Removing or Holding Jobs](#4-removing-or-holding-jobs)
 
 The following assumes that you have been granted access to the HPC cluster 
-and can log into the head node `aci-login-1.chtc.wisc.edu`. If this is not
+and can log into the head node `hpclogin1.chtc.wisc.edu`. If this is not
 the case, please see the [CHTC account application page](/form) or email
 the facilitation team at chtc@cs.wisc.edu. 
 
