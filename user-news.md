@@ -11,6 +11,22 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+## Delayed Email Replies, No Office Hours on November 3
+### Monday, November 2, 2020
+Greetings CHTC users,
+
+We are writing to let you know that our **Research Computing Facilitators will be out of the office on Nov. 3, so** **[CHTC Office Hours](https://chtc.cs.wisc.edu/get-help.shtml) are canceled,** and users can expect delayed replies to support conversations via <chtc@cs.wisc.edu> for that day. (We'll send out a reminder and appreciate your patience.)
+
+As a reminder, we are working **this week to transition researcher-owned hardware in the [HPC Cluster](https://chtc.cs.wisc.edu/hpc-overview) to the new cluster configuration** and operating system, [per prior communication](https://chtc.cs.wisc.edu/user-news.shtml). Users with HPC accounts already have access to the new configuration and should see researcher-owned hardware partitions appearing there by the end of the week.
+
+Please send any questions to <chtc@cs.wisc.edu>, as always, and join us at office hours (Tu/Th 3-5pm, <https://go.wisc.edu/chtc-officehours>).
+
+Thank you, 
+
+Your CHTC Team 
+
 ------------------------------------------------------------------------
 ## New HPC Cluster Configuration NOW OPEN
 ### Thursday, October 15, 2020
