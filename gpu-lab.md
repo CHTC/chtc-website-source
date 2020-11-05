@@ -41,7 +41,8 @@ If you want to use GPU resources in CHTC for your research:
 The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
 GPU computing in CHTC. Any CHTC user can subscribe to the list by 
-emailing [join-chtc-gpu-lab@lists.wisc.edu](mailto:join-chtc-gpu-lab@lists.wisc.edu).
+emailing [chtc-gpu-lab+managers@g-groups.wisc.edu](mailto:chtc-gpu-lab+managers@g-groups.wisc.edu)
+and asking to join.
 Their subscription request will be reviewed by the list administrators.
 
 > The CHTC GPU Lab is led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny.
