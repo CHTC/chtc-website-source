@@ -73,7 +73,7 @@ available.
 # Transferring Input Files
 
 To have HTCondor transfer small (<100MB) input files needed by 
-your job, include the following attributes to your CHTC HTCondor the submit files:
+your job, include the following attributes to your CHTC HTCondor submit files:
 
 ``` {.sub}
 # my job submit file
@@ -129,7 +129,7 @@ By default, the submit file `executable`, `output`, and
 
 <a name="output"></a>
 
-# Transferring Output Files**
+# Transferring Output Files
 
 All of your HTCondor submit files should have the following attributes:
 
