@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: file_avail
-title: File Availability with Squid Web Proxy
+title: Large File Availability Via Squid
 ---
 
 <style type="text/css">
