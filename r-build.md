@@ -99,9 +99,9 @@ To install R, first create a directory that will hold your R installation (e.g. 
 ```
 {:.term}
 
-From the source code directory, run the following commands. **The `make` step may take a while to 
-complete!** If building R version 4.x.x or higher you will need to modify the below `configure` 
-command to include the flag `--with-pcre1` 
+From the source code directory, run the following commands. The `make` step may take a while to 
+complete! **If building R version 4.x.x or higher you will need to modify the below `configure` 
+command to include the flag** `--with-pcre1` 
 (e.g. `./configure --prefix=$_CONDOR_SCRATCH_DIR/R --with-pcre1`).
 
 ```
