@@ -14,7 +14,7 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
 ------------------------------------------------------------------------
-## Limited Job Starts on Previous HPC Clusuter
+## Limited Job Starts on Previous HPC Cluster
 ### Thursday, November 5, 2020
 Greetings CHTC users, 
 
