@@ -12,6 +12,27 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
+
+------------------------------------------------------------------------
+## Limited Job Starts on Previous HPC Cluster
+### Thursday, November 5, 2020
+Greetings CHTC users, 
+
+*The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
+
+As [previously announced](https://chtc.cs.wisc.edu/user-news.shtml), next week we will be transitioning all remaining hardware from the previous HPC cluster configuration to the new configuration. This means: 
+
+-   We are currently draining jobs from all remaining nodes in the old cluster configuration. **Jobs requesting 7 days (or any time request that cannot be completed by Nov 10) will not start.** Jobs can still run on the old cluster nodes, but only if their time request ("--time=" in the submit file) indicates that they will complete before next Tuesday, November 10. 
+-   **If you have not already logged into the new cluster configuration and tried to run test jobs, please do so** as soon as possible! After next week, the old cluster will not be available to run jobs -- you are less likely to experience interruptions to your work if you make sure everything is running smoothly on the new cluster now.
+
+In addition, we are hoping to have user modules for the Intel compilers and libraries within the next few weeks, and we will send a separate email when these are available.
+
+Please send any questions to <chtc@cs.wisc.edu>, as always, or join us at office hours (Tu/Th 3-5pm, see emails from CHTC staff or login to a CHTC server for links to the office hours virtual room).
+
+Thank you,
+
+Your CHTC Team
+
 ------------------------------------------------------------------------
 ## Delayed Email Replies, No Office Hours on November 3
 ### Monday, November 2, 2020
@@ -276,4 +297,3 @@ Your CHTC Team
 
 
 <center><a class="twitter-timeline" data-width="800" data-height="500" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/CHTC_UW?ref_src=twsrc%5Etfw">Tweets by CHTC_UW</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
-
