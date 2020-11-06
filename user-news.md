@@ -27,7 +27,7 @@ As [previously announced](https://chtc.cs.wisc.edu/user-news.shtml)**, **next we
 
 In addition, we are hoping to have user modules for the Intel compilers and libraries within the next few weeks, and we will send a separate email when these are available.
 
-Please send any questions to <chtc@cs.wisc.edu>, as always, and join us at office hours (Tu/Th 3-5pm, see the CHTC server login message for the meeting link).
+Please send any questions to <chtc@cs.wisc.edu>, as always, or join us at office hours (Tu/Th 3-5pm, see emails from CHTC staff or login to a CHTC server for links to the office hours virtual room).
 
 Thank you,
 
