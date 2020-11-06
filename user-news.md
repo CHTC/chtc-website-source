@@ -20,7 +20,7 @@ Greetings CHTC users,
 
 *The below pertains to users of CHTC's HPC Cluster, for which users submit jobs via the [aci-service-1.chtc.wisc.edu](http://aci-service-1.chtc.wisc.edu) login node. Users of only the HTC System are welcome to ignore the below.*
 
-As [previously announced](https://chtc.cs.wisc.edu/user-news.shtml)**, **next week we will be transitioning all remaining hardware from the previous HPC cluster configuration to the new configuration. This means: 
+As [previously announced](https://chtc.cs.wisc.edu/user-news.shtml), next week we will be transitioning all remaining hardware from the previous HPC cluster configuration to the new configuration. This means: 
 
 -   We are currently draining jobs from all remaining nodes in the old cluster configuration. **Jobs requesting 7 days (or any time request that cannot be completed by Nov 10) will not start.** Jobs can still run on the old cluster nodes, but only if their time request ("--time=" in the submit file) indicates that they will complete before next Tuesday, November 10. 
 -   **If you have not already logged into the new cluster configuration and tried to run test jobs, please do so** as soon as possible! After next week, the old cluster will not be available to run jobs -- you are less likely to experience interruptions to your work if you make sure everything is running smoothly on the new cluster now.
