@@ -33,7 +33,7 @@ the execute node on which the job ran. In order to get access to
 your output files, a copy of the output must be transferred back 
 to an user accessible location like the submit server.
 
-**The mechanism that is used for file transfers will depend on the size 
+**The mechanism that you use for file transfers will depend on the size 
 of the individual input and output files of your jobs.** This guide 
 specifically describes input and output file transfer for input files 
 <100MB in size (and <500MB of total input file transfer) and output 
@@ -73,7 +73,7 @@ available.
 # Transferring Input Files
 
 To have HTCondor transfer small (<100MB) input files needed by 
-your job, include the following attributes to your CHTC HTCondor submit files:
+your job, include the following attributes in your CHTC HTCondor submit files:
 
 ``` {.sub}
 # my job submit file
@@ -120,7 +120,12 @@ By default, the submit file `executable`, `output`, and
 -   A whole directory and it\'s contents will be transferred when listed
     without the trailing forward slash (\"/\") after the directory name. When a directory is
     listed with the trailing forward slash (\"/\") after the directory name, only the directory
-    contents will be transferred.
+    contents will be transferred. **Care should be taken when transferring whole directories**
+    **so that only the files needed by your jobs will be transferred.** 
+    Generally, we recommend creating a `tar.gz` file of directories
+    and files to be used a job inputs - this will help streamline the process of input 
+    file transfer and help speed up transfer times by reducing the overall size of 
+    files that will be transferred.
     
 -   Jobs will be placed on hold by HTCondor if any of the files or
     directories do not exist or if you have a typo.
@@ -141,20 +146,20 @@ when_to_transfer_output = ON_EXIT
 
 ```
 
-`when_to_transfer_output = ON_EXIT` will instruct HTCondor to transfer any files that 
-are generated or modified during the execution of your job(s) back to your `/home` directory, 
-specifically to the directory from which the `condor_submit` command was performed when 
-submitting your job(s). **However, this behavior only applies to files in the top-level directory 
-of where your job executes**, meaning HTCondor will ignore any files created in subdirectories 
-of the job's main working directory (because HTCondor ignores subdirectories when determining 
-what needs to be transferred after the job completes). Several options exist for modifying 
-this default output file transfer behavior - to learn more please [contact us](mailto:chtc@cs.wisc.edu).
+`when_to_transfer_output = ON_EXIT` will instruct HTCondor to automatically transfer 
+ALL new or modified files in the top level directory of the job (where it ran on the execute 
+server), back to the job's initial directory on the submit server. **Please note: this behavior 
+only applies to files in the job's top-level working directory**, meaning HTCondor will ignore 
+any files created in subdirectories of the job's main working directory. Several options exist for modifying 
+this default output file transfer behavior - see below for some examples.
 
-Because jobs are less likely to be completing at the same time, total
-job output size of up to 4 GB will not cause submit server performance
-issues, but it\'s always advantageous to create a `tar.gz` file of all
+**Only individual output files <4GB should be transferred back to your home directory 
+using HTCondor's default behavior described here.** Large output files >4GB should instead 
+use CHTC's large data filesystem called staging, more information is available at 
+[Managing Large Data in HTC Jobs](file-avail-largedata.shtml). To help reduce output file 
+sizes, and help speed up file transfer times, we recommend creating a `tar.gz` file of all
 desired output before job completion (and to also delete the "un-tar\'d"
-files so they are not also transferred back).
+files so they are not also transferred back); see our [example](#group) below.
 
 <a name="group"></a>
 
@@ -186,8 +191,9 @@ directory.
 
 ## Select Specific Output Files To Transfer to `/home`
 
-As described above, HTCondor will transfer any files that are modified or created during the 
-execution of your job(s) back to your `/home` directory. If your job(s) will produce multiple output 
+As described above, HTCondor will transfer ALL new or modified files in the top level 
+directory of the job (where it ran on the execute server), back to the job's initial directory 
+on the submit server. If your jobs will produce multiple output 
 files but you only need to retain a subset of these output files, we recommend deleting the unrequired 
 output files or moving them to a subdirectory as a step in the bash 
 executable script of your job -  only the output files that remain in the top-level 
