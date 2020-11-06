@@ -85,10 +85,10 @@ through the process of creating your own large-scale job submission, step-by-ste
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/data.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">Handling Data in Jobs</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
-			<a href="/file-availability.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HTCondor File Transfer</li></a>
-        	<a href="/file-avail-squid.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">File Availability with Squid Web Proxy</li></a>
-        	<a href="/file-avail-largedata.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">File Availability for Large Data</li></a>
-        	<a href="/transfer-data-researchdrive.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Transferring Files Between CHTC and Research Drive</li></a>
+			<a href="/file-availability.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Small Input and Output File Transfer</li></a>
+        	<a href="/file-avail-squid.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input File Availability Via Squid</li></a>
+        	<a href="/file-avail-largedata.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input and Output File Availability Via Staging</li></a>
+        	<a href="/transfer-data-researchdrive.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Transferring Files Between CHTC and Research Drive</li></a>
         	<a href="/globus.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Using Globus to Transfer Files to and from CHTC</li></a>
 		</ul>
 	</div>
@@ -131,7 +131,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/trouble.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">Troubleshooting</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important;">
-        	<a href="/dos-unix.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Windows/Linux Incompatibility</li></a>
+        	<a href="/dos-unix.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Windows/Linux Incompatibility</li></a>
         	<a href="/docker-test.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Explore and Test Docker Containers</li></a>
 		</ul>
 	</div>						
@@ -155,7 +155,7 @@ through the process of using the cluster, step-by-step.</p> -->
 		<ul class="list-group list-group-flush" style="height: auto !important;">
 			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
 			<a href="/hpc-overview.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Overview Guide</li></a>
-			<a href="/hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
+			<a href="/hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Software</li></a>
 			<a href="/hpc-job-submission.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
 		</ul>
 	</div>
