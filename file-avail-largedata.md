@@ -133,9 +133,11 @@ CHTC submit server.** After obtaining a user directory within
 files directly into this user directory from your own computer:
 
 - Example `scp` command on your own Linux or Mac computer:
-``` {.term}
+```
 $ scp large.file username@transfer.chtc.wisc.edu:/staging/username/ 
 ```
+{.term}
+
 - If using a Windows computer:
 	- Using a file transfer application, like WinSCP, directly drag the large
 file from its location on your computer to a location within
@@ -291,19 +293,25 @@ queue
 
 # 5. Checking your Quota, Data Use, and File Counts
 
-To check your total data usage and quota, run `df -h` for your `/staging`
-directory. Example:
+You can use the command `get_quotas` to see what disk 
+and items quotas are currently set for a given directory path. 
+This command will also let you see how much disk is in use and how many 
+items are present in a directory:
 
-    $ df -h /staging/alice
+```
+[username@transfer ~]$ get_quotas /staging/username
+```
+{.term}
 
-To check data usage and file counts, run `ncdu` from within the
-directory you'd like to query. Example:
+Additionally, the `ncdu` command can also be used to see how many 
+files and directories are contained in a given path:
 
-    $ cd /staging/alice
-    $ ncdu
+``` 
+[username@transfer ~]$ ncdu /staging/username
+```
+{:.term}
 
 When `ncdu` has finished running, the output will give you a total file
 count and allow you to navigate between subdirectories for even more
-details. Type `q` when you're ready to exit the output viewer. More info
-here: <https://lintut.com/ncdu-check-disk-usage/>
-
+details. Type `q` when you\'re ready to exit the output viewer. More
+info here: <https://lintut.com/ncdu-check-disk-usage/>
