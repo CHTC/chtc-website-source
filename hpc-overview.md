@@ -214,7 +214,7 @@ items are present in a directory:
 ```
 [username@hpclogin1 ~]$ get_quotas /home/username /software/username
 ```
-{.term}
+{:.term}
 
 Alternatively, the `ncdu` command can also be used to see how many 
 files and directories are contained in a given path:

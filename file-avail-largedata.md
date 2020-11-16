@@ -301,7 +301,7 @@ items are present in a directory:
 ```
 [username@transfer ~]$ get_quotas /staging/username
 ```
-{.term}
+{:.term}
 
 Alternatively, the `ncdu` command can also be used to see how many 
 files and directories are contained in a given path:
