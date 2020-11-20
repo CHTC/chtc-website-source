@@ -23,7 +23,7 @@ We have completed the transition of all compute hardware from the old HPC Cluste
 
 For those who have already logged into the new cluster, we have a new tool that will allow you to check your directory quotas and usage. See [this section of our cluster overview guide](https://chtc.cs.wisc.edu/hpc-overview#tools-for-managing-home-and-software-space) for details.
 
-Please send any questions to <chtc@cs.wisc.edu>, as always, and join us at office hours (Tu/Th 3-5pm,[  https://go.wisc.edu/chtc-officehours](https://go.wisc.edu/chtc-officehours)).
+Please send any questions to <chtc@cs.wisc.edu>, as always, and join us at office hours (Tu/Th 3-5pm).
 
 Thank you,
 
