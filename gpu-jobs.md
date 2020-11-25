@@ -344,16 +344,10 @@ option to your submit file:
 
 ## 2. Use the `gzk` Servers
 
-These are servers with normal CHTC policies, but are running an older version 
-of Linux; therefore, they are only a good fit for jobs where the software 
-is compatible with an older version of Linux **and** the data needed to run 
-jobs is smaller than a few GB. 
-
-The default operating system for jobs in CHTC is now CentOS 7. **If you
-want to use the `gzk-*` servers, you'll need to
-specifically request the use of Scientific Linux 6 as an operating
-system.** There is an example of how to do this in our [Operating System
-guide](/os-transition.shtml).
+These are servers that are similar to the GPU Lab severs with two important differences 
+for running GPU jobs: 
+- they do not have access to CHTC's large data `/staging` file system
+- they do not have Docker capability
 
 ## 3. Using GPUs on the Open Science Grid
 
