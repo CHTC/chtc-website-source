@@ -34,11 +34,6 @@ HTC system, you will need to do the following:
     compiling, and then runs your code](#script)
 3.  [Make sure your submit file has certain key requirements](#submit)
 
-> **Software Transition**
->
-> We are transitioning to a new set of MPI modules during March 2020.
-> **Jobs should transition to using the new modules NOW**; the old MPI
-> modules will be retired by April 20, 2020. See below for more details.
 
 <a name="require"/>
 
@@ -74,15 +69,6 @@ command from the submit server:
 [alice@submit]$ module avail
 ```
 {:.term}
-
-**IMPORTANT NOTICE**: Note that the `module avail` command currently
-shows two sets of MPI (and other software) modules. The first set,
-listed under the header `/software/chtc/modules` are new and should be
-used going forward. The old MPI modules are listed under
-`/etc/modulefiles` and will be retired on **April 20**; jobs that use
-these modules should be transitioned to new modules by then. **If you
-need a module that hasn\'t yet been added to the new group, please email
-us at [chtc@cs.wisc.edu](chtc@cs.wisc.edu).**
 
 Your software may require newer versions of MPI libraries than those
 available via our modules. If this is the case, send an email to
@@ -237,9 +223,6 @@ transfer_input_files = (this should be a comma separate list of input files if n
 getenv = true
 # Requirement for accessing new set of modules
 requirements = ( HasChtcSoftware == true ) 
-# Old requirement for previous set of MPI modules
-# These modules will not be available after April 20
-# requirements = ( HasModules == true )
 
 ## Request resources needed by your job
 request_cpus = 8

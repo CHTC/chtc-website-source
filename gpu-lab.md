@@ -4,8 +4,8 @@ layout: default
 title: Welcome to the CHTC GPU Lab
 ---
 
-The CHTC GPU Lab is a [UW2020-funded project][uw2020] that will expand shared GPU 
-computing infrastructure at UW-Madison.  It will include:
+The CHTC GPU Lab is a [UW2020-funded project][uw2020] to expand shared GPU 
+computing infrastructure at UW-Madison.  It includes:
 
  <link rel = "stylesheet"
    type = "text/css"
@@ -36,12 +36,13 @@ If you want to use GPU resources in CHTC for your research:
 - Apply for a CHTC account if you do not already have one: [Account Request Page][account]
 - See what GPUs are available and how to use them in the [GPU jobs guide][gpu-jobs].
 - See our guide with specific machine learning related tips: [Running Machine Learning Jobs on HTC][ml-guide]
-- For more extended examples, see the following: [Runnable examples on GitHub][gpu-examples].
+- For more extended examples, see the following: [GPU job templates on GitHub][gpu-examples].
 
 The CHTC GPU Lab mailing list is used to announce new GPU hardware availability and 
 GPU-related events, solicit feedback from GPU users, and share best practices for 
 GPU computing in CHTC. Any CHTC user can subscribe to the list by 
-emailing [join-chtc-gpu-lab@lists.wisc.edu](mailto:join-chtc-gpu-lab@lists.wisc.edu).
+emailing [chtc-gpu-lab+managers@g-groups.wisc.edu](mailto:chtc-gpu-lab+managers@g-groups.wisc.edu)
+and asking to join.
 Their subscription request will be reviewed by the list administrators.
 
 > The CHTC GPU Lab is led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny.

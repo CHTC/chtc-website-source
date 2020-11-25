@@ -29,9 +29,6 @@ HTC system, you will need to do the following:
     2.  [Make sure your submit file has certain key
         requirements](#submit)
 
-> **Software Transition**
->
-> We are transitioning to a new set of software modules during March 2020. **Jobs should transition to using new CHTC software modules NOW**; the old software modules will be retired by April 20, 2020. See below for more details.
 
 <a name="policies"/>
 
@@ -74,14 +71,6 @@ following command on an HTC submit server:
 > Note: you should never run a program directly on the submit server.
 > Jobs that use licensed software/modules should always be submitted as
 > HTCondor jobs as [described below](#submission).
-
-**IMPORTANT NOTICE**: Note that the `module avail` command currently
-shows two sets of software modules. The first set, listed under the
-header `/software/chtc/modules` are new and should be used going
-forward. The old software modules are listed under `/etc/modulefiles`
-will be retired on **April 20**; jobs that use these modules should be
-transitioned to new modules by then. **If you need a module that hasn\'t
-yet been added to the new group, please email us at [chtc@cs.wisc.edu](chtc@cs.wisc.edu).**
 
 Note that not all software modules are available to all CHTC users. Some
 programs like `ansys` have a campus or shared license which makes them
@@ -190,9 +179,6 @@ transfer_input_files = (this should be a comma separate list of input files if n
 getenv = true
 # Requirement for accessing new set of software modules
 requirements = ( HasChtcSoftware == true ) 
-# Old requirement for previous set of software modules
-# These modules will not be available after April 20
-# requirements = ( HasModules == true )
 
 request_cpus = 1
 request_memory = 2GB

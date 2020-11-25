@@ -6,8 +6,15 @@ if(isset($_POST["captcha"])) {
   $recaptcha_response = $_POST["captcha"];
   unset($_POST["captcha"]);
   
-  $recaptcha_secret_key_path = "/p/condor/chtc-web/google-captcha/secret.key";
-  $recaptcha_secret_key = trim(file_get_contents($recaptcha_secret_key_path));
+  $recaptcha_secret_key_path = "/etc/keys/chtc-captcha.key";
+  $afs_recaptcha_secret_key_path = "/p/condor/chtc-web/google-captcha/secret.key";
+  $recaptcha_secret_key = "";
+  if(file_exists($recaptcha_secret_key_path)) {
+    $recaptcha_secret_key = trim(file_get_contents($recaptcha_secret_key_path));
+  }
+  if(! $recaptcha_secret_key) {  // doesn't exist or can't load - try it from AFS
+    $recaptcha_secret_key = trim(file_get_contents($afs_recaptcha_secret_key_path));
+  }
   $recaptcha_url = "https://www.google.com/recaptcha/api/siteverify";
 
   $recaptcha_post_data = array(
@@ -55,19 +62,19 @@ if(isset($_POST["captcha"])) {
 
     // Send them to the the thanks page
     header( "Content-Type: text/html\n" );
-    header( "Location: http://chtc.cs.wisc.edu/thanks.shtml\n\n" );
+    header( "Location: https://chtc.cs.wisc.edu/thanks.shtml\n\n" );
 
   } else { // User failed captcha
     // Send them back to the form page
     header( "Content-Type: text/html\n" );
-    header( "Location: http://chtc.cs.wisc.edu/form\n\n" );
+    header( "Location: https://chtc.cs.wisc.edu/form\n\n" );
 
   }
 
 } else { // Some bot didn't even set the captcha field
   // Send them back to the form page, I guess?
   header( "Content-Type: text/html\n" );
-  header( "Location: http://chtc.cs.wisc.edu/form\n\n" );
+  header( "Location: https://chtc.cs.wisc.edu/form\n\n" );
 
 }
 

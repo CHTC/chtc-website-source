@@ -4,6 +4,13 @@ layout: default
 title: HPC Cluster Basic Use Guide
 ---
 
+> **Notice:** The HPC cluster is currently being transitioned to a 
+>  new configuration. Please start new and move existing workflows 
+> to the new configuration described in [these guides](/hpc-overview).
+> 
+> This page will be archived when we have fully transitioned the cluster 
+> to the new configuration on November 24, 2020. 
+
 The CHTC has partnered with the UW-Madison [Advanced Computing
 Initiative](http://aci.wisc.edu/) (ACI) in order to provide a dedicated
 high-performance computing (HPC) cluster meant for large, singular
@@ -18,7 +25,7 @@ Cluster.\
 \
 Before using the campus-shared HPC Cluster or any CHTC computing
 resource, **you will need to obtain access** by filling out the
-[Large-Scale Computing Request Form](http://chtc.cs.wisc.edu/form) on
+[Large-Scale Computing Request Form](/form) on
 our website so that our Research Computing Facilitators can make sure to
 match you to the best computing resources (including non-CHTC
 services).\
@@ -159,7 +166,7 @@ D. Partition Configuration and Job Scheduling
 
 The job scheduler on the HPC Cluster is SLURM. You can read more about
 submitting jobs to the queue on [SLURM\'s
-website](https://computing.llnl.gov/linux/slurm/documentation.html), but
+website](https://slurm.schedmd.com/overview.html), but
 we have provided a simple guide below for getting started.\
 \
 We have provisioned 3 freely-available submission partitions and a small
@@ -181,8 +188,8 @@ to get access.
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
   | University | univ | 38 | 7 days | 1 day | 16 | 16 | 64
-  | niversity 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 16 or 20 | 64 or 128
+  | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
+  | Owners | *unique* | 124 | *unique* | *unique* | *unique* | 20 | 128
   | Interactive | int | 2 | 30 min | 30 min | 1 | 16 | 64
   | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 16 or 20 | 64 or 128
 
@@ -369,7 +376,7 @@ script; however, doing so creates and requires a persistent connection
 to your job as it runs, and interrupted jobs are not re-queued if
 submitted this way (even when using the \"pre\" partition). You are
 welcome to submit jobs in these modes according to [SLURM\'s user
-guide](https://computing.llnl.gov/linux/slurm/quickstart.html), which
+guide](https://slurm.schedmd.com/overview.html), which
 has some awesome advanced features for complex MPI configurations.\
 **Please remember to indicate partition and run time with the -p and -t
 flags, respectively** (see the interactive job command, above, for an
@@ -431,9 +438,9 @@ count and allow you to navigate between subdirectories for even more
 details. Type `q` when you\'re ready to exit the output viewer. More
 info here: <https://lintut.com/ncdu-check-disk-usage/>
 
-The command `du` can also be used to examine the size of directories:
+The command `df` can also be used to examine your space quota (in GB) and how much is used:
 
-``` 
+```
 [alice@service]$ df -h /home/alice
 ```
 {:.term}

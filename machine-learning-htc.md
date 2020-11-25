@@ -86,34 +86,12 @@ To see how you can use Docker containers to run jobs in CHTC, see:
 * [Docker Jobs in CHTC](docker-jobs.shtml)
 * [GPU/Machine Learning Job Examples on Github](https://github.com/CHTC/templates-GPUs)
 
-You can also test and examine containers on your own computer. 
+You can also test and examine containers on your own computer:
 * [Exploring and Testing Docker Containers](docker-test.shtml)
 
-We recommend the following Docker container images for machine learning: 
-
-<table class="gtable">
-  <tr>
-    <th>Framework</th>
-    <th>CPU-based</th>
-    <th>GPU-capable</th>
-  </tr>
-  <tr>
-    <td>Tensorflow</td>
-    <td>tensorflow/tensorflow:1.14.0-py3</td>
-    <td>tensorflow/tensorflow:1.14.0-gpu-py3</td>
-  </tr>
-  <tr>
-    <td>Pytorch</td>
-    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
-    <td>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime</td>
-  </tr>
-</table>
-
-Other places to look for Docker container images: 
-
-* [Tensorflow on DockerHub](https://hub.docker.com/r/tensorflow/tensorflow/tags)
-* [Pytorch on DockerHub](https://hub.docker.com/u/pytorch)
-* [More Pytorch on DockerHub](https://hub.docker.com/r/pytorch/pytorch/tags)
+Some machine learning frameworks publish ready-to-go Docker images: 
+* [Tensorflow on Docker Hub](https://hub.docker.com/r/tensorflow/tensorflow) - the "Overview" on that page describes how to choose an image.
+* [Pytorch on Docker Hub](https://hub.docker.com/r/pytorch/pytorch/tags) - we recommend choosing the most recently published image that ends in `-runtime`.
 
 If you can not find a Docker container with exactly the tools you need, you can build your 
 own, starting with one of the containers above. For instructions on how to build and 
@@ -121,8 +99,10 @@ test your own Docker container, see this guide:
 
 * [Building Docker Containers](docker-build.shtml)
 
-B. Using Anaconda (in progress)
----------------------------
+B. Using Conda
+--------------
 
-Anaconda is another popular tool for installing and managing machine learning tools. 
-We will have a guide for creating conda installations and using them in CHTC jobs soon. 
+The Python package manager conda is a popular tool for installing and 
+managing machine learning tools.
+See [this guide](conda-installation.shtml) for information on how 
+to use conda to provide dependencies for CHTC jobs.

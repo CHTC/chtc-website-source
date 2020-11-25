@@ -21,7 +21,7 @@ Guides will be added to the list as we can provide them. Please contact us
 
 <div class="card-deck">
 	<div class="card border-secondary h-100 text-center">  
-		<a href="#gen"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">General Computings</li></a>
+		<a href="#gen"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">General Computing</li></a>
 	</div>
 	<div class="card border-secondary h-100 text-center">  
 		<a href="#htc"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HTC System</li></a>
@@ -85,9 +85,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/data.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">Handling Data in Jobs</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important; border-radius: 1px;">
-			<a href="/file-availability.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HTCondor File Transfer</li></a>
-        	<a href="/file-avail-squid.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">File Availability with Squid Web Proxy</li></a>
-        	<a href="/file-avail-largedata.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">File Availability for Large Data</li></a>
+			<a href="/file-availability.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Small Input and Output File Transfer</li></a>
+        	<a href="/file-avail-squid.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input File Availability Via Squid</li></a>
+        	<a href="/file-avail-largedata.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Large Input and Output File Availability Via Staging</li></a>
+        	<a href="/transfer-data-researchdrive.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Transferring Files Between CHTC and Research Drive</li></a>
+        	<a href="/globus.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Using Globus to Transfer Files to and from CHTC</li></a>
 		</ul>
 	</div>
 			
@@ -103,6 +105,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="/inter-submit.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Compiling Software in an Interactive Job</li></a>
 			<a href="/matlab-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Matlab Jobs</li></a>
 			<a href="/python-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Python Jobs</li></a>
+			<a href="/conda-installation.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using Conda Environments to Run Python Jobs</li></a>
 			<a href="/r-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running R Jobs</li></a>
 			<a href="/java-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Java jobs</li></a>
 			<a href="/docker-jobs.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using Software Installed in a Docker Container</li></a>
@@ -128,7 +131,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/trouble.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
 		<h5 class="card-title text-center">Troubleshooting</h5>
 		<ul class="list-group list-group-flush" style="height: auto !important;">
-        	<a href="/dos-unix.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Windows/Linux Incompatibility</li></a>
+        	<a href="/dos-unix.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Windows/Linux Incompatibility</li></a>
         	<a href="/docker-test.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Explore and Test Docker Containers</li></a>
 		</ul>
 	</div>						
@@ -144,19 +147,30 @@ through the process of creating your own large-scale job submission, step-by-ste
 through the process of using the cluster, step-by-step.</p> -->
 
 <h2>Guides by Topic</h2>
+<div class="card-deck">
 
+	<div class="card border-secondary h-100" >    
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h5 class="card-title text-center">HPC Cluster Guides</h5>
+		<ul class="list-group list-group-flush" style="height: auto !important;">
+			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
+			<a href="/hpc-overview.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Overview Guide</li></a>
+			<a href="/hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Software</li></a>
+			<a href="/hpc-job-submission.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
+		</ul>
+	</div>
 
-<br>
-<div class="card border-secondary" style="width: 31.5%;" >    
-	<img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
-	<h5 class="card-title text-center">All Cluster Guides</h5>
-	<ul class="list-group list-group-flush" style="height: auto !important;">
-		<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
-		<a href="/HPCuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Basic Use Guide</li></a>
-		<a href="/MPIuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">MPI Use Guide</li></a>
-	</ul>
-</div>	
-
+	<div class="card border-secondary h-100" >    
+		 <img alt="Card image cap" class="card-img-top img-responsive" src="guide-icons/servers.png" style="margin-left: auto;margin-right: auto;width: 30%;"/>
+		<h5 class="card-title text-center">Guides for old HPC Cluster Configuration (Retiring Nov 2020)</h5>
+		<ul class="list-group list-group-flush" style="height: auto !important;">
+			<a href="/connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Connecting to CHTC</li></a>
+			<a href="/HPCuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">HPC Cluster Basic Use Guide</li></a>
+			<a href="/MPIuseguide.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">MPI Use Guide</li></a>
+		</ul>
+	</div>
+			
+</div>
 
 <hr>
 <a name="ext"></a>
@@ -175,4 +189,3 @@ through the process of using the cluster, step-by-step.</p> -->
 
 <hr>
 <a href="/icon_credits.shtml">Icon Credits</a>
-
