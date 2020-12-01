@@ -1,0 +1,18 @@
+on: [push, pull_request]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - run: |
+          ./script/cibuild
+          ./script/cideploy
+        env:
+          NO_PUSH: 1
+          TARGET_REPO: matyasselmeci/chtc.github.io.git
+
+# vim:ft=yaml:sw=2:sts=2
