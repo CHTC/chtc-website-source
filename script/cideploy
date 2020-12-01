@@ -30,7 +30,11 @@ if [[ $GITHUB_ACTIONS != true || $GITHUB_EVENT_NAME != pull_request ]]; then
     cd built_website
     rsync -av --delete --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
     # Rename .html -> .shtml for generated files
-    rename --force --verbose 's/\.html$/.shtml/' ./*.html
+    set +x
+    for f in ./*.html; do
+        mv -vf "$f" "${f%.html}.shtml"
+    done
+    set -x
     #add, commit and push files
     git add -f -A
     git commit -F "$commitmessage"
