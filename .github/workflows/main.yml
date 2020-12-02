@@ -8,11 +8,17 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
+      # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
       - run: |
           ./script/cibuild
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
           ./script/cideploy
         env:
           NO_PUSH: 1
           TARGET_REPO: matyasselmeci/chtc.github.io.git
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
 # vim:ft=yaml:sw=2:sts=2
