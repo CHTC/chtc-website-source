@@ -11,6 +11,20 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+------------------------------------------------------------------------
+## HPC Cluster Queue and Execute Nodes are Down Due to Network Issues
+### Wednesday, December 2, 2020
+Greetings,
+
+*This message is for users of CHTC's HPC Cluster. Users of only the HTC System can ignore.*
+
+We are currently working to understand and fix a networking issue affecting many of the execute nodes in the HPC Cluster, as well as the server that operates the queue. **As a result of this outage, the cluster's queue and all Slurm commands are failing**, though users are still able to log into the main head node ([hpclogin1.chtc.wisc.edu](http://hpclogin1.chtc.wisc.edu)). The full extent of impact to queued jobs is yet unclear.
+
+While we are still investigating on-site, we are unsure of how long it will take to diagnose and fix the issue, and to restore the cluster to functionality. We appreciate your patience, and will provide updates with any changes to functionality or timeline.
+
+Thank you,
+
+Your CHTC Team
 
 ------------------------------------------------------------------------
 ## Tuesday, November 24 is the Last Day to Access Previous HPC Cluster
