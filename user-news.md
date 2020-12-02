@@ -19,7 +19,7 @@ Hello again,
 
 The cluster queue and Slurm functions have been restored; the incident was traced to a malfunctioning Infiniband switch. While some jobs continued to run during the downtime and others have begun running again, others may have failed and left the queue. Users are advised to review their error/output files and the queue to determine whether any jobs will need to be resubmitted.
 
-While we believe full network capabilities are restored, the cluster is at reduced capacity while we work to reinstate some nodes (marked as 'down' in Slurm's 'sinfo' command output). Additionally, we would like to caution users that cluster functionality is at risk for lower reliability, at least until we can observe stable behavior of the affected hardware over the coming hours and days.\
+While we believe full network capabilities are restored, the cluster is at reduced capacity while we work to reinstate some nodes (marked as `down` in Slurm's `sinfo` command output). Additionally, we would like to caution users that cluster functionality is at risk for lower reliability, at least until we can observe stable behavior of the affected hardware over the coming hours and days.\
 As always, if you notice any errors that you're unsure of how to address, please send an email to <chtc@cs.wisc.edu> with details.
 
 Thank you,
