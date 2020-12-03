@@ -2,7 +2,7 @@
 
 Source repository for CHTC website
 
-[![Build Status](https://travis-ci.org/CHTC/chtc-website-source.svg?branch=master)](https://travis-ci.org/CHTC/chtc-website-source)
+![Build Status](https://github.com/CHTC/chtc-website-source/workflows/Build%2Fdeploy%20web%20pages/badge.svg)
 
 ## How to Edit
 

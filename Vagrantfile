@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder ".", "/chtc-website-source", type: "rsync",
-    rsync__args: ["--verbose", "--archive", "--delete", "-z"]
+    rsync__args: ["--verbose", "--archive", "--delete"]
 
 
   # Provider-specific configuration so you can fine-tune various
@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y make gcc g++ rename
+    apt-get install -y make gcc g++
     echo 'export NO_PUSH=1' > /etc/profile.d/NO_PUSH.sh
     snap install --classic ruby
     gem install bundle
