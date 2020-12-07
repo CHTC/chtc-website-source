@@ -5,87 +5,98 @@ layout: file_avail
 title: Managing Large Data in HTC Jobs
 ---
 
-When submitting jobs to CHTC's High Throughput Computing (HTC) system, 
-there is a distinct location for staging data that is too large to be 
-handled at scale via the default HTCondor file transfer mechanism. This 
-location should be used when your jobs require any individual input files >100MB, 
->500MB worth of input files per job, and/or when jobs generate output files >4GB. 
+# Files Of Different Sizes Are Managed By Different Methods In CHTC
 
-**To best understand the below information, users should already be
-familiar with:**
+Due to the distributed nature of CHTC's High Throughput Computing (HTC) system, 
+your jobs will run on a server (aka an execute server) that is separate and 
+distinct from the server that your jobs are submitted from (aka the submit server). 
+This means that a copy of all the files needed to start your jobs must be 
+made available on the execute server. Likewise, any output files created 
+during the execution of your jobs, which are written to the execute server, 
+will also need to be transferred to an acessible location after your jobs complete. 
+**How input files are copied to the execute server and how output files are 
+copied back will depend on the size of these files.**
 
-- Using the command-line to: navigate directories,
-  create/edit/copy/move/delete files and directories, and run intended
-  programs (aka "executables").
-- CHTC's [Intro to Running HTCondor Jobs](/helloworld.shtml)
-- CHTC's guide for [Typical File Transfer](/file-availability.shtml)
+CHTC's large data filesystem called "Staging" is a distinct location for 
+temporarily hosting files that are too large to be handled in a 
+high-throughput fashion via the default HTCondor file transfer 
+mechanism which is otherwise used for small files hosted in your `/home` 
+directory on your submit server. 
 
-# Contents
+CHTC's `/staging` location is specifically intended for:
+
+- any individual input files >100MB   
+- input files totaling >500MB per job
+- individual output files >4GB
+- output files totaling >4GB per job 
+
+# Quick Links
 
 [Intended Use](#intended-use)    
-[Policies](#policies)
-&nbsp;&nbsp;&nbsp;&nbsp;[Data Management and Quota Control](#data-management-and-quota-control)    
-[Get Access To Staging](#access)
-&nbsp;&nbsp;&nbsp;&nbsp;[Use The Transfer Server To Move Large Files To/From Staging](#transfer-server)
+[Policies and User Responsibilities](#policies-and-user-responsibilities)      
+[Get Access To Staging](#access)       
+[Use The Transfer Server To Move Large Files To/From Staging](#transfer-server)       
+[Submit Jobs With Large Input Files in Staging](#large-input)
+	- [Prepare Large Input Files For Staging](TBD)
 [Staging Large Data](#staging-large-data)    
 [Using Staged Files in a Job](#using-staged-files-in-a-job)    
-&nbsp;&nbsp;&nbsp;&nbsp;[Accessing Large Input Files](#accessing-large-input-files)    
-&nbsp;&nbsp;&nbsp;&nbsp;[Moving Large Output Files](#moving-large-output-files)    
+	- [Accessing Large Input Files](#accessing-large-input-files)    
+	- [Moving Large Output Files](#moving-large-output-files)    
 [Submit Jobs Using Staged Data](#submit-jobs-using-staged-data)    
 [Checking your Quota, Data Use, and File Counts](#checking-your-quota-data-use-and-file-counts)    
 
-# Intended Use
 
-**USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
-HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
-MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
-PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.**
+`/staging` is a location specifically for hosting singularly large input (>100MB) 
+and/or large ouput (>4GB) files or when jobs need 500MB or more of total input 
+or will produce 4GB or more of total output. Job input and outupt of these 
+sizes are too large to be managed by CHTC's other data movement methods. 
 
-`/staging` is a location specifically for hosting your large input (>100MB) 
-and/or large ouput (>4GB) files or when jobs need 500MB or more of total input. 
-Job input and outupt of these sizes are too large to be 
-managed by our other data movement methods. 
-
+**Default CHTC account creation does not include access to `/staging`.** 
 Access to `/staging` is provided only if your work requires the use of large 
-input and/or output files. **Default CHTC account creation does not include 
-access to `/staging`.** If you think you need access to `/staging`, or would 
-like to know more about managing your data needs, please [contact us]<mailto:chtc@cs.wisc.edu>.
+input and/or output files. If you think you need access to `/staging`, or would 
+like to know more about managing your data needs, please contact us at 
+<chtc@cs.wisc.edu>.
 
 Files hosted in `/staging` are only excessible to jobs running in the CHTC pool. 
 About 50% of CHTC execute servers have access to `/staging`. Users will get 
 better job throughput if they are able to break up their work into smaller jobs 
 that each use or produce smaller input and output files.
 
-# Policies
+# Policies and User Responsibilities
 
-**Users are expected to abide by this intended use expectation and follow the 
-instructions for using `/staging` written in this guide.** Files placed 
-in `/staging` should **NEVER** be listed in the submit file, but rather accessed 
-via the job's executable (aka .sh) script. See --- for more details.
+**~~USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
+HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
+MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
+PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE~~**
 
-<p style="background-color:yellow;"> Jobs must <b>NEVER</b> be submitted from 
+<p style="background-color:yellow;"> Jobs should <b>NEVER</b> be submitted from 
 <code>/staging</code>. All HTCondor job submissions must be performed from your 
-<code>/home</code> directory on the submit server.</p>
+<code>/home</code> directory on the submit server and job `log`, `error`, 
+and `output` files should never be written to <code>/staging</code>.</p>
 
-## Data Management and Quota Control
+- **Backup your files**: As with all CHTC file spaces, CHTC does not back 
+up your files in `/staging`.
 
-- **As with all CHTC file spaces, CHTC does not back up your files in 
-`/staging`.**
+- **Use bash script commands to access large files**: Files placed in `/staging` 
+should **NEVER** be listed in the submit file, but rather accessed 
+via the job's executable (aka .sh) script. More details provided 
+[below](TBD).
 
 - **Use the transfer server**: We expect that users will only use our dedicated 
 transfer server, transfer.chtc.wisc.edu, instead of the submit server,
 to upload and download their large files to and from `/staging`. Transferring 
-large files with the submit server can potentially disrupt job submission for other 
-users.
+large files with the submit server can potentially disrupt job submission for 
+you and other users. More details provide [below](#transfer-server).
 
-- **Quota control**:`/staging` directories include a disk space and items (i.e. directories and files) 
-quota. Quotas are necessary for maintaning the stability and reliability of 
-`/staging`. Quota changes can be requested by emailing <chtc@cs.wisc.edu> and 
-users can monitor quota settings and usage as described [below]<TBD>
+- **Quota control**:`/staging` directories include disk space and 
+items (i.e. directories and files) quotas. Quotas are necessary for 
+maintaning the stability and reliability of `/staging`. Quota changes can 
+be requested by emailing <chtc@cs.wisc.edu> and 
+users can monitor quota settings and usage as described [below](TBD)
 
-- **Reduce file size and count**: We expect that users will use tar and 
+- **Reduce file size and count**: We expect that users will use `tar` and 
 compression to reduce data size and file counts such that a single tarball 
-is needed and/or produced per job.
+is needed and/or produced per job. More details provided [below](TBD).
 
 - **Shared large data**: `/staging` directories are owned by the user, 
 and only the user's own jobs can access these files. We can create shared group 
@@ -104,20 +115,20 @@ location (or any CHTC file system) at any time.
 Space in our large data staging area is granted by request. If you think you need 
 a directory, please [contact us](maito:chtc@cs.wisc.edu). So we can process 
 your request more quickly, please include details regarding the number and size of large 
-input and or output files you plan to host in `staging`. You will also be 
+input and/or output files you plan to host in `/staging`. You will also be 
 granted access to out dedicated transfer server upon creation of your 
-`staging` directory.
+`/staging` directory.
 
-*What is the path to my `staging` directory?*
-- Individual directories will be created at `/staging/username`.
-- Group directories will be created at `/staging/groups/group_name`.
+*What is the path to my `/staging` directory?*
+- Individual directories will be created at `/staging/username`
+- Group directories will be created at `/staging/groups/group_name`
 
 <a name="transfer server"></a>
-## Use The Transfer Server To Move Large Files To/From `staging`
+## Use The Transfer Server To Move Large Files To/From `/staging`
 
 Our dedicated transfer server, `transfer.chtc.wisc.edu`, should be used to 
-upload your large files to `staging` or to download your large output from 
-`staging`. 
+upload your large files to `/staging` and/or to download your large output from 
+`/staging`. 
 
 The transfer server is a separate server that is independent of the submit 
 server you otherwise use for job submission. By using the transfer server 
@@ -128,12 +139,12 @@ the submit server's performance and ability to manage and submit jobs.
 **Users should not use their submit server to upload or download large files 
 to/from `staging` unless otherwise directed by CHTC staff.**
 
-*How to I connect to the transfer server?*
+*How do I connect to the transfer server?*    
 Users can access the transfer server the same way they access their 
 submit server (i.e. via Terminal app or PuTTY) using the following 
 hostname: `transfer.chtc.wisc.edu`.
 
-*How do I upload/download files to/from `staging`?*
+*How do I upload/download files to/from `staging`?*    
 Several options exist for moving data to/from `staging` including:
 
 - `scp` and `rsync` can be used from the terminal to move data 
@@ -141,46 +152,168 @@ to/from your own computer or *another server*. For example:
 
 ```
 $ scp large.file username@transfer.chtc.wisc.edu:/staging/username/
-$ scp username@myotherserver.hostname:/path/to/large.file username@transfer.chtc.wisc.edu:/staging/username/ 
+$ scp username@serverhostname:/path/to/large.file username@transfer.chtc.wisc.edu:/staging/username/ 
 ```
 {.term}
 
+**Be sure to use the username assigned to you on the other submit server for the first 
+argument in the above example for uploading a large file from another server.**
+
 - GUI-based file transfer clients like WinSCP, FileZilla, and Cyberduck 
 can be used to move files to/from your personal computer. Be 
-sure to use transfer.chtc.wisc.edu when setting up the connection.
+sure to use `transfer.chtc.wisc.edu` when setting up the connection.
 
-- Globus File Transfer can be used to transfer files to/from a Globus Endpoint. 
+- Globus file transfer can be used to transfer files to/from a Globus Endpoint. 
 See our guide [Using Globus To Transfer Files To and From CHTC](globus.shtml) 
 for more details.
 
 - `smbclient` is available for managing file transfers to/from file 
-servers like DoIT's ResearchDrive. See our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml).
+servers that have `smbclient` installed, like DoIT's ResearchDrive. See our guide 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) 
+for more details.
 
-## Prepare Large Input Files For `staging`
+<a name="large input"></a>
+# Submit Jobs With Large Input Files in `/staging`
 
-Data placed in `/staging` should be stored in as few files as 
-possible. Before uploading your large input to `staging`, please plan to use 
-`tar` and file compression (`zip`, `gzip`, `bzip`) to reduce file sizes and total 
-file counts such that only a single, or as few as possible, input "tarball" will 
-be needed per job. 
+`/staging` is a distinct location for temporarily hosting your 
+large input files that will be used by your jobs. First, a copy of 
+your large input files must be uploaded to your `/staging` directory 
+before your jobs can be submitted. Both your submit file and bash script 
+must include the necessary information to ensure successful completion of 
+jobs that will use large input files from `/staging`. The sections below will 
+provide details for the following steps: 
 
-##
+1. Prepare your large input before uploading to `/staging` 
+2. Prepare your submit files for jobs that will use large input 
+files hosted in `/staging`
+3. Prepare your executable bash script to access and use large input 
+files hosted in `/staging`, delete large input from job
 
-Large output should *FIRST* be written to the
-job's working directory. Compressed output can then be written to 
-your `/staging` directory.
+## Prepare Large Input Files For `\staging`
 
-To prepare job-specific data that is large enough to pre-staging
-and exists as multiple files or directories (or a directory of multiple
-files), first create a compressed tar package before placing the file in
-`/staging` (either before submitting jobs, or within jobs before
-moving output to /staging). For example:
+As described in our policies, data placed in `/staging` should be 
+stored in as few files as possible. Before uploading your large input 
+to `/staging`, use file compression (`zip`, `gzip`, `bzip`) and `tar` to reduce 
+file sizes and total file counts such that only a single, or as few as 
+possible, input "tarball" will be needed per job.
+
+If your large input will be uploaded from your personal computer 
+Mac and Linux users can create input tarballs by using the command `tar -czf` 
+within the Terminal. Windows users may also use a terminal if installed, 
+else several GUI-based `tar` applications are available, or ZIP can be used 
+inplace of `tar`.
+
+The following examples demonstrates how to make a compressed tarball 
+from the terminal for two large input files named `file1.lrg` and 
+`file2.lrg` which will be used for a single job:
 
 ```
-$ tar -czvf job_package.tar.gz file_or_dir 
+my-computer username$ tar -czf large_input.tar.gz file1.lrg file2.lrg
+my-computer username$ ls
+file1.lrg
+file2.lrg
+large_input.tar.gz
 ```
 {: .term}
+
+Alternatively, files can first be moved to a directory which can then 
+be compressed:
+
+```
+my-computer username$ mkdir large_input
+my-computer username$ mv file1.lrg file2.lrg large_input/
+my-computer username$ tar -czf large_input.tar.gz large_input
+my-computer username$ ls -F
+large_input/
+large_input.tar.gz
+```
+{: .term}
+
+**Organize and prepare your large input such that each job will use a single, 
+or as few as possible, large input tarballs.** After preparing your input, 
+use the transfer server to upload the tarballs to `/staging`. Instructions for 
+using the transfer server are provide in the above section 
+[Use The Transfer Server To Move Large Files To/From Staging](#transfer-server).
+
+## Prepare HTCondor Submit File For Jobs With Large Input
+
+Not all CHTC execute servers have access to `/staging`. If your job needs access 
+to files in `/staging`, you must tell HTCondor to run your jobs on the approprite servers 
+via the `requirements` submit file attribute. **Be sure to request sufficient disk 
+space for your jobs in order to accomodate the use of your large data files.**
+
+An example submit file for submitting a job that requires access to `/staging`:
+
+	# job with large input/output example
+	
+	...other submit file details...
+	
+	# transfer small files from home
+	transfer_input_files = my_small_file
+
+	requirements = (HasCHTCStaging =?= true)
+
+If your job has any other requirments defined in the submit file, you should 
+combine them into a single `requirements` statement:
+
+	# job with large input/out and other requirements
+	
+	...other submit file details...
+	
+	#define multiple job requirements
+	requirements = (HasCHTCStaging =?= true) && other requirements
+
+## Use Job Executable Bash Script To Access Large Input
+
+Unlike your small files that are transferred from your home directory 
+using `transfer_input_files`, HTCondor will not automatically transfer 
+your large files from `/staging`. Instead, you must include additional 
+commands in the executable bash script that will copy (via `cp` or `rsync`) 
+your large input to the jobs working directory and extract ("untar") and 
+uncompress the data.
+
+**Additional commands should be included in your bash script to remove 
+any large input files copied from `/staging` before the job terminates.** 
+HTCondor will thing your large files from `/staging` are newly generated 
+output files and thus, HTCondor will likely transfer these large files back 
+to your home directory with other, real output. This can cause your `/home` 
+directory to quickly exceed your home directory disk quota causing jobs to 
+go on hold with all progress lost.
+
+Continuing our example, a bash script to copy and extract 
+`large_input.tar.gz` from `/staging`:
+
+	#!/bin/bash
+	
+	# copy tarball from staging to current working dir
+	cp /staging/username/large_input.tar.gz ./
+
+	# extract tarball
+	tar -xzf large_input.tar.gz
+	
+	...additional commands to be executed by job...
+	
+	# delete large input
+	rm large_input.tar.gz file1.lrg file2.lrg
+
+As shown in the exmaple above, \*both\* the original tarball, `large_input.tar.gz`, and 
+the extracted large files are deleted as final step in the script. If untarring 
+`large_input.tar.gz` insteads creates a new subdirectory, then only the original tarball 
+needs to be deleted.
+
+**Speed up jobs with really large input data**
+
+If the files are quite large the `rm` step can take a while to complete which 
+can add unnecessary runtime to your job. In this case, you can create a 
+subdirectory and move (`mv`) the large input to it. Because these files will be 
+in a subdirectory, HTCondor will ignore them when determining with output files 
+to transfer back to the submit server.
+
+For example:
+
+        # more large input to subdirectory
+	mkdir ignore/
+        mv large_input.tar.gz file1.lrg file2.lrg ingore/
 
 ## D. Remove Files After Jobs Complete
 
@@ -189,14 +322,6 @@ SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
 will be used it the future, it should be deleted from and copied
 back at a later date. Files can be taken off of `/staging` using similar 
 mechanisms as uploaded files (as above). 
-
-# 3. Using Staged Files in a Job
-
-As shown above, the staging directory for large data is `/staging/username`. 
-All interaction with files in this location should occur within your job's 
-main executable.
-
-## A. Accessing Large Input Files
 
 To use large data placed in the `/staging` location, add commands to your 
 job executable that copy input 
