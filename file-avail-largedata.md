@@ -32,19 +32,18 @@ CHTC's `/staging` location is specifically intended for:
 
 # Quick Links
 
-[Intended Use](#intended-use)    
-[Policies and User Responsibilities](#policies-and-user-responsibilities)      
-[Get Access To Staging](#access)       
-[Use The Transfer Server To Move Large Files To/From Staging](#transfer-server)       
-[Submit Jobs With Large Input Files in Staging](#large-input)
+- [Intended Use](#intended-use)    
+- [Policies and User Responsibilities](#policies-and-user-responsibilities)      
+- [Get Access To Staging](#access)       
+- [Use The Transfer Server To Move Large Files To/From Staging](#transfer-server)       
+- [Submit Jobs With Large Input Files in Staging](#large-input)     
 	- [Prepare Large Input Files For Staging](TBD)
-[Staging Large Data](#staging-large-data)    
+- [Staging Large Data](#staging-large-data)    
 [Using Staged Files in a Job](#using-staged-files-in-a-job)    
 	- [Accessing Large Input Files](#accessing-large-input-files)    
 	- [Moving Large Output Files](#moving-large-output-files)    
-[Submit Jobs Using Staged Data](#submit-jobs-using-staged-data)    
-[Checking your Quota, Data Use, and File Counts](#checking-your-quota-data-use-and-file-counts)    
-
+- [Submit Jobs Using Staged Data](#submit-jobs-using-staged-data)    
+- [Checking your Quota, Data Use, and File Counts](#checking-your-quota-data-use-and-file-counts)    
 
 `/staging` is a location specifically for hosting singularly large input (>100MB) 
 and/or large ouput (>4GB) files or when jobs need 500MB or more of total input 
@@ -64,15 +63,16 @@ that each use or produce smaller input and output files.
 
 # Policies and User Responsibilities
 
-**~~USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
+**USERS VIOLATING ANY OF THE POLICIES IN THIS GUIDE WILL
 HAVE THEIR DATA STAGING ACCESS AND/OR CHTC ACCOUNT REVOKED UNTIL CORRECTIVE
 MEASURES ARE TAKEN. CHTC STAFF RESERVE THE RIGHT TO REMOVE ANY
-PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE~~**
+PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE**
 
 <p style="background-color:yellow;"> Jobs should <b>NEVER</b> be submitted from 
 <code>/staging</code>. All HTCondor job submissions must be performed from your 
-<code>/home</code> directory on the submit server and job `log`, `error`, 
-and `output` files should never be written to <code>/staging</code>.</p>
+<code>/home</code> directory on the submit server and job <code>log</code>, 
+<code>error</code>, and <code>output</code> files should never be 
+written to <code>/staging</code>.</p>
 
 - **Backup your files**: As with all CHTC file spaces, CHTC does not back 
 up your files in `/staging`.
@@ -112,6 +112,9 @@ location (or any CHTC file system) at any time.
 <a name="access"></a>
 # Get Access To `/staging`
 
+<details><summary>Click to learn more</summary>
+<p>
+
 Space in our large data staging area is granted by request. If you think you need 
 a directory, please [contact us](maito:chtc@cs.wisc.edu). So we can process 
 your request more quickly, please include details regarding the number and size of large 
@@ -122,6 +125,9 @@ granted access to out dedicated transfer server upon creation of your
 *What is the path to my `/staging` directory?*
 - Individual directories will be created at `/staging/username`
 - Group directories will be created at `/staging/groups/group_name`
+
+</p>
+</details>
 
 <a name="transfer server"></a>
 ## Use The Transfer Server To Move Large Files To/From `/staging`
@@ -150,14 +156,14 @@ Several options exist for moving data to/from `staging` including:
 - `scp` and `rsync` can be used from the terminal to move data 
 to/from your own computer or *another server*. For example:
 
-```
-$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/
-$ scp username@serverhostname:/path/to/large.file username@transfer.chtc.wisc.edu:/staging/username/ 
-```
-{.term}
+	```
+	$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/
+	$ scp username@serverhostname:/path/to/large.file username@transfer.chtc.wisc.edu:/staging/username/ 
+	```
+	{:.term}
 
-**Be sure to use the username assigned to you on the other submit server for the first 
-argument in the above example for uploading a large file from another server.**
+	**Be sure to use the username assigned to you on the other submit server for the first 
+	argument in the above example for uploading a large file from another server.**
 
 - GUI-based file transfer clients like WinSCP, FileZilla, and Cyberduck 
 can be used to move files to/from your personal computer. Be 
@@ -203,7 +209,7 @@ within the Terminal. Windows users may also use a terminal if installed,
 else several GUI-based `tar` applications are available, or ZIP can be used 
 inplace of `tar`.
 
-The following examples demonstrates how to make a compressed tarball 
+The following examples demonstrate how to make a compressed tarball 
 from the terminal for two large input files named `file1.lrg` and 
 `file2.lrg` which will be used for a single job:
 
@@ -244,24 +250,37 @@ space for your jobs in order to accomodate the use of your large data files.**
 
 An example submit file for submitting a job that requires access to `/staging`:
 
-	# job with large input/output example
-	
-	...other submit file details...
-	
-	# transfer small files from home
-	transfer_input_files = my_small_file
+```{.sub}
+# job with large input/output example
 
-	requirements = (HasCHTCStaging =?= true)
+log = my_job.$(Cluster).$(Process).log
+error = my_job.$(Cluster).$(Process).err
+output = my_job.$(Cluster).$(Process).out
+
+...other submit file details...
+
+# transfer small files from home
+transfer_input_files = my_small_file
+
+requirements = (HasCHTCStaging =?= true)
+```
+{:.file}
 
 If your job has any other requirments defined in the submit file, you should 
 combine them into a single `requirements` statement:
 
-	# job with large input/out and other requirements
-	
-	...other submit file details...
-	
-	#define multiple job requirements
-	requirements = (HasCHTCStaging =?= true) && other requirements
+```{.sub}
+# job with large input/out and other requirements
+
+log = my_job.$(Cluster).$(Process).log
+error = my_job.$(Cluster).$(Process).err
+output = my_job.$(Cluster).$(Process).out
+
+...other submit file details...
+
+#define multiple job requirements
+requirements = (HasCHTCStaging =?= true) && other requirements
+```
 
 ## Use Job Executable Bash Script To Access Large Input
 
@@ -283,18 +302,21 @@ go on hold with all progress lost.
 Continuing our example, a bash script to copy and extract 
 `large_input.tar.gz` from `/staging`:
 
-	#!/bin/bash
+```	
+#!/bin/bash
 	
-	# copy tarball from staging to current working dir
-	cp /staging/username/large_input.tar.gz ./
+# copy tarball from staging to current working dir
+cp /staging/username/large_input.tar.gz ./
 
-	# extract tarball
-	tar -xzf large_input.tar.gz
-	
-	...additional commands to be executed by job...
-	
-	# delete large input
-	rm large_input.tar.gz file1.lrg file2.lrg
+# extract tarball
+tar -xzf large_input.tar.gz
+
+...additional commands to be executed by job...
+
+# delete large input
+rm large_input.tar.gz file1.lrg file2.lrg
+```
+{:.file}
 
 As shown in the exmaple above, \*both\* the original tarball, `large_input.tar.gz`, and 
 the extracted large files are deleted as final step in the script. If untarring 
@@ -311,9 +333,11 @@ to transfer back to the submit server.
 
 For example:
 
-        # more large input to subdirectory
-	mkdir ignore/
-        mv large_input.tar.gz file1.lrg file2.lrg ingore/
+```
+# more large input to subdirectory
+mkdir ignore/
+mv large_input.tar.gz file1.lrg file2.lrg ingore/
+```
 
 ## D. Remove Files After Jobs Complete
 
@@ -350,7 +374,6 @@ rm large_input.tar.gz large_input.txt
 # END
 ```
 {: .file}
-
 
 ## B. Moving Large Output Files
 
