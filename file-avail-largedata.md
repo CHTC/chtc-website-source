@@ -39,7 +39,7 @@ CHTC's `/staging` location is specifically intended for:
 - [Submit Jobs With Large Input Files in Staging](#large-input)     
 	- [Prepare Large Input Files For Staging](TBD)
 - [Staging Large Data](#staging-large-data)    
-[Using Staged Files in a Job](#using-staged-files-in-a-job)    
+- [Using Staged Files in a Job](#using-staged-files-in-a-job)    
 	- [Accessing Large Input Files](#accessing-large-input-files)    
 	- [Moving Large Output Files](#moving-large-output-files)    
 - [Submit Jobs Using Staged Data](#submit-jobs-using-staged-data)    
@@ -112,9 +112,12 @@ location (or any CHTC file system) at any time.
 <a name="access"></a>
 # Get Access To `/staging`
 
-<details><summary>Click to learn more</summary>
+<details>
+summary::marker {
+  color: #eeeeee;
+}
+<summary>Expand to learn more</summary>
 <p>
-
 Space in our large data staging area is granted by request. If you think you need 
 a directory, please [contact us](maito:chtc@cs.wisc.edu). So we can process 
 your request more quickly, please include details regarding the number and size of large 
@@ -130,7 +133,7 @@ granted access to out dedicated transfer server upon creation of your
 </details>
 
 <a name="transfer server"></a>
-## Use The Transfer Server To Move Large Files To/From `/staging`
+# Use The Transfer Server To Move Large Files To/From `/staging`
 
 Our dedicated transfer server, `transfer.chtc.wisc.edu`, should be used to 
 upload your large files to `/staging` and/or to download your large output from 
