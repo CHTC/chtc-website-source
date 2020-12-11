@@ -105,6 +105,8 @@ command to include the flag** `--with-pcre1`
 (e.g. `./configure --prefix=$_CONDOR_SCRATCH_DIR/R --with-pcre1`).
 
 ```
+[user@build]$ touch doc/NEWS.2.rds
+[user@build]$ touch doc/NEWS.3.rds
 [user@build]$ ./configure --prefix=$_CONDOR_SCRATCH_DIR/R
 [user@build]$ make
 [user@build]$ make install
