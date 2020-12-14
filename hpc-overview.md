@@ -74,7 +74,8 @@ Violation of these policies may result in suspension of your account.
 
 **2. The HPC Is Reserved For MPI-enabled, Multi-node Jobs**   
 HPC users should not submit single-core or single-node jobs to the HPC. Users will 
-be asked to transition this kind of work to our high-throughput computing system.
+be asked to transition this kind of work to our high-throughput computing system, where they 
+will also experience better overall turnaround for such work.
 
 **3. HPC File System Is Not Backed-up**    
 All files on the HPC should be treated as temporary and only files necessary for 
@@ -83,11 +84,15 @@ your files should be removed from the HPC. Campus researchers have several optio
 for data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
 which provides up to 5TB of storage for free. Our guide 
 [Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) provides 
-step-by-step instructions for transferring your data to and from the HPC and RsearchDrive.
+step-by-step instructions for transferring your data to and from the HPC and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
 in our efforts to maintain filesystem performance for all users, though we will always 
 first ask users to remove excess data and minimize file counts before taking additional action.
+
+**NOTE: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+CHTC systems. If you have data security concerns or any questions about 
+data security in CHTC, please get in touch! We'll be happy to discuss.
 
 **4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
