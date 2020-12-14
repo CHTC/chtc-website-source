@@ -35,11 +35,15 @@ Data Practices
 **We do not back up data on CHTC submission points**, and users should
 treat CHTC compute systems as temporary storage locations for *active*,
 currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch computational work and keep copies of
+systems upon completion of a batch of computational work and keep copies of
 all essential files in a non-CHTC location. CHTC staff reserve the right
 to delete data from any CHTC file systems at at any time, to preserve
 performance, and are not responsible for data loss for file system
 corruption, which are possible, especially in the absence of back-ups.
+
+**CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+CHTC services. If you have data security concerns or any questions about 
+data security in CHTC, please get in touch! We'll be happy to discuss.
 
 Submit Server User Policies
 ---------------------------
