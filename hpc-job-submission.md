@@ -43,7 +43,7 @@ and 64GB of memory each (so 32 cores and 128 GB of memory total), on the
 ``` {.sub}
 #!/bin/sh
 #This file is called submit-script.sh
-#SBATCH --partition=univ2       # default "univ", if not specified
+#SBATCH --partition=univ2       # default "univ2", if not specified
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
 #SBATCH --nodes=2               # require 2 nodes
 #SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
