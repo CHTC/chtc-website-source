@@ -251,7 +251,7 @@ Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 A. Removing Jobs
 ----------------
 
-To remove a specific job, specify the job ID nubmer from the queue
+To remove a specific job, specify the job ID number from the queue
 (format: Cluster.Process). Example:
 
 ``` 
