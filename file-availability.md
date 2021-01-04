@@ -91,8 +91,9 @@ By default, the submit file `executable`, `output`, and
 
 ## Important Considerations
 
--   **DO NOT use `transfer_input_files` for files within `/staging`**
-    **or as direct file paths (not links) in `/squid`, as doing so will create severe performance issues for your**
+-   **DO NOT use `transfer_input_files` for files within `/staging`;**
+    **for files in `/squid` only `http` links (e.g. `http://proxy.chtc.wisc.edu/SQUID/username/file`) should be 
+    used instead of direct file paths. These policies are in place to prevent severe performance issues for your**
     **jobs and those of other users. Jobs should should never be submitted**
     **from within `/squid` or `/staging`.**
     
