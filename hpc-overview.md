@@ -113,7 +113,7 @@ For more details on logging in, see the "Connecting to CHTC" guide linked above.
 
 Only execute nodes will be used for performing your computational work. 
 The execute nodes are organized into several \"partitions\", including 
-the `univ`, `univ2`, `pre`, and `int` partitions which are available to 
+the `univ2`, `pre`, and `int` partitions which are available to 
 all HPC users as well as research group specific partitions that consist 
 of researcher owned hardware and which all HPC users can access on a 
 backfill capacity via the `pre` partition (more details below).
