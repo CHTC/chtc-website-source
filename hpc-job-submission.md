@@ -36,9 +36,9 @@ described [here](/hpc-overview).
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 
 
-An example submit file is given below. It requests 2 nodes of 16 cores 
-and 64GB of memory each (so 32 cores and 128 GB of memory total), on the 
-`univ` partition. It also specifies a run time limit of 4.5 hours. 
+An example submit file is given below. It requests 2 nodes of 20 cores 
+and 128GB of memory each (so 40 cores and 256 GB of memory total), on the 
+`univ2` partition. It also specifies a run time limit of 4.5 hours. 
 
 ``` {.sub}
 #!/bin/sh
@@ -47,7 +47,7 @@ and 64GB of memory each (so 32 cores and 128 GB of memory total), on the
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
 #SBATCH --nodes=2               # require 2 nodes
 #SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=64000             # RAM per node
+#SBATCH --mem=128000             # RAM per node
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 # Make sure to change the above two lines to reflect your appropriate
