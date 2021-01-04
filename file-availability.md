@@ -91,8 +91,8 @@ By default, the submit file `executable`, `output`, and
 
 ## Important Considerations
 
--   **DO NOT use `transfer_input_files` for files within `/squid` or**
-    **`/staging` as doing so will create severe performance issues for your**
+-   **DO NOT use `transfer_input_files` for files within `/staging`**
+    **or as direct file paths (not links) in `/squid`, as doing so will create severe performance issues for your**
     **jobs and those of other users. Jobs should should never be submitted**
     **from within `/squid` or `/staging`.**
     
@@ -111,7 +111,7 @@ By default, the submit file `executable`, `output`, and
     listed with a path relative to the submit directory, or can be
     listed with the absolute path(s), as shown above for `file3`. The
     submit file `executable` is automatically transferred and does not
-    need to be listed in `transfer\_input\_files`.
+    need to be listed in `transfer_input_files`.
     
 -   All files that are transferred to a job will appear within the top
     of the working directory of the job, regardless of how they are
