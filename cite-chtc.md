@@ -17,8 +17,8 @@ Science Foundation, and is an active member of the Open Science Grid,
 which is supported by the National Science Foundation and the U.S.
 Department of Energy\'s Office of Science.\
 \
-(Last updated Jan 6, 2021)
-<br>
+(Last updated Jan 6, 2021)\
+\
 [Appropriate acknowledgement of Open Science Grid resources is described here](https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid)
   
 <br>
