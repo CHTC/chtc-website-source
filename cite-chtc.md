@@ -19,7 +19,7 @@ Department of Energy\'s Office of Science.\
 \
 (Last updated Jan 6, 2021)
 <br>
-<a href=https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid>Appropriate acknowledgement of Open Science Grid resources is described here.</a>
+[Appropriate acknowledgement of Open Science Grid resources is described here](https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid)
   
 <br>
 
