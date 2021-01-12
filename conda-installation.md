@@ -159,10 +159,12 @@ Then, run this command to install the `conda pack` tool:
 Enter `y` when it asks you to install. 
 
 Finally, use `conda pack` to create a zipped tar.gz file of your environment
-(substitute the name of your conda environment where you see `env-name`): 
+(substitute the name of your conda environment where you see `env-name`) 
+and set the proper permissions for this file using `chmod`: 
 
 ```
 (base)[alice@submit]$ conda pack -n env-name
+(base)[alice@submit]$ chmod 644 env-name.tar.gz
 ```
 {: .term}
 
