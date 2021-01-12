@@ -45,7 +45,7 @@ CHTC's `/staging` location is specifically intended for:
 # Who Should Use `/staging`
 
 `/staging` is a location specifically for hosting singularly larger input (>100MB) 
-and/or larger ouput (>4GB) files or when jobs need 500MB or more of total input 
+and/or larger ouput (>4GB) files or when a job needs 500MB or more of total input 
 or will produce 4GB or more of total output. Job input and outupt of these 
 sizes are too large to be managed by CHTC's other data movement methods. 
 
@@ -129,7 +129,7 @@ server upon creation of your `/staging` directory.
 </details>
 
 <a name="transfer"></a>
-# Use The Transfer Server To Move Large Files To/From `/staging`
+# Use The Transfer Server To Move Files To/From `/staging`
 
 <details><summary>Click to learn more</summary>
 <p>
@@ -412,7 +412,7 @@ of `/staging`, you must include steps in the executable bash script of
 your job that will package the output into a tarball and relocate it 
 to your `/staging` directory before the job completes. **This can be 
 acheived with a single `tar` command that directly writes the tarball 
-to your staging directory!**. It is IMPORTANT that no other files be written 
+to your staging directory!** It is IMPORTANT that no other files be written 
 directly to your `/staging` directory during job execution except for 
 the below `tar` example.
 
@@ -447,7 +447,7 @@ Does your software produce a large amount of output that gets
 saved to the HTCondor `output` file? Some software are written to 
 "stream" output directly to the terminal screen during interactive execution, but 
 when the software is executed non-interactively via HTCondor, the output is 
-instead save in the `output` file designated in the HTCondor submit file.
+instead saved in the `output` file designated in the HTCondor submit file.
 
 Because HTCondor will transfer `output` back to your home directory, if your 
 jobs produce HTCondor `output` files >4GB it is important to move this 
@@ -470,6 +470,9 @@ rm large.stdout
 # END
 ```
 {: .file}
+
+</p>
+</details>
 
 <a name="tips"></a>
 # Tips For Success When Using `/staging`
