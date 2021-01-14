@@ -12,6 +12,26 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Impacts to http file transfers resolved
+### Wednesday, January 13, 2021
+
+Greetings CHTC user, 
+ 
+This message is for users of our high throughput computing (HTC) system.
+ 
+CHTC staff identified an issue causing some http transfers to fail and jobs to go on hold as a result. We believe we have identified and fixed the problem and have released all impacted jobs submitted from submit-1, and submit2/3.
+ 
+If you have jobs, submitted from another submit server, that have gone on hold due to this issue, you can release them using the following HTCondor command:
+ 
+condor_release -constraint '(HoldReasonCode == 12) && (HoldReasonSubCode == 0)'
+ 
+Please direct any questions or concerns to chtc@cs.wisc.edu. 
+ 
+Best,
+ 
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## CHTC Facilitator holiday availability
 ### Monday, December 21, 2020
 
