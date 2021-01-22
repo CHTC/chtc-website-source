@@ -12,6 +12,23 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Unexpected outage of HTC large data file share (/staging, /projects,	HTC /software)
+### Tuesday, January 19, 2021
+
+Greetings CHTC users, 
+
+*This message is for users of our high throughput computing (HTC) system.*
+
+The large data file share that supports /staging, /projects and HTC /software directories recently began experiencing failures, and in response we have temporarily taken it offline. Jobs that copy input or output files from /staging or /projects will either fail or hang without completing. Any jobs which use software modules on the HTC system will also fail. 
+
+We are working to resolve these issues and will send another email once the system is running and stable again. 
+
+Please direct any questions or concerns to chtc@cs.wisc.edu. 
+
+Best, 
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Impacts to http file transfers resolved
 ### Wednesday, January 13, 2021
 
