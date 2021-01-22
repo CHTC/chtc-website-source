@@ -12,6 +12,37 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Service restored to HTC large data file share
+### Friday, January 22, 2021
+
+Greetings CHTC users, 
+
+The large data file share that supports /staging, /projects and HTC /software 
+directories is back online. 
+
+Jobs that require /staging, /projects or the HTC software modules should now 
+be able to start and run successfully. However at this time there are fewer 
+servers able to run jobs that require CHTC Staging and CHTC Software which 
+may result in longer idle times for these jobs. We are continuing to work to 
+restore full capacity support for /staging, /projects, and /software.
+
+While the file share was down, running jobs that required access to /staging, 
+/projects or HTC /software directories (including HTC software modules) will 
+likely have failed. If this applies to your jobs, we recommend reviewing jobs 
+that completed on Tuesday or Wednesday for errors and resubmitting those that failed. 
+
+To move data to and from /staging or /projects, please continue to use the 
+CHTC's transfer server (*not a submit server*) as described here: 
+<https://chtc.cs.wisc.edu/file-avail-largedata>
+
+If you experience any further issues with /staging, please contact us at chtc@cs.wisc.edu. 
+
+Have a good weekend!
+
+Best, 
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Unexpected outage of HTC large data file share (/staging, /projects,	HTC /software)
 ### Tuesday, January 19, 2021
 
