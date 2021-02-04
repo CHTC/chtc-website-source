@@ -36,18 +36,18 @@ described [here](/hpc-overview).
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 
 
-An example submit file is given below. It requests 2 nodes of 16 cores 
-and 64GB of memory each (so 32 cores and 128 GB of memory total), on the 
-`univ` partition. It also specifies a run time limit of 4.5 hours. 
+An example submit file is given below. It requests 2 nodes of 20 cores 
+and 128GB of memory each (so 40 cores and 256 GB of memory total), on the 
+`univ2` partition. It also specifies a run time limit of 4.5 hours. 
 
 ``` {.sub}
 #!/bin/sh
 #This file is called submit-script.sh
-#SBATCH --partition=univ        # default "univ", if not specified
+#SBATCH --partition=univ2       # default "univ2", if not specified
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
 #SBATCH --nodes=2               # require 2 nodes
-#SBATCH --ntasks-per-node=16    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=64000             # RAM per node
+#SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem=128000             # RAM per node
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 # Make sure to change the above two lines to reflect your appropriate
@@ -56,7 +56,7 @@ and 64GB of memory each (so 32 cores and 128 GB of memory total), on the
 # Now list your executable command (or a string of them).
 # Example for code compiled with a software module:
 module load mpimodule
-mpirun -n 32 /software/username/mpiprogram
+mpirun -n 40 /software/username/mpiprogram
 ```
 
 Once the submit file is created, it can be submitted using the `sbatch` command: 
@@ -77,7 +77,7 @@ cpu are:
 
 ``` {.sub}
 #SBATCH --mem-per-cpu=4000         # RAM per cpu, in MB
-#SBATCH --ntasks=32        # total number of "tasks" (cores) requested
+#SBATCH --ntasks=40        # total number of "tasks" (cores) requested
 #SBATCH --cpus-per-task=1  # default "1" if not specified
 ```
 
@@ -92,7 +92,7 @@ will allow jobs to run on both the `univ` and `univ2` servers, specifically:
 #SBATCH --partition=pre        # default "univ", if not specified
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
 #SBATCH --nodes=2               # require 2 nodes
-#SBATCH --ntasks-per-node=16    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
 #SBATCH --mem=64000             # RAM per node
 ```
 

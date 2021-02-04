@@ -35,23 +35,6 @@ our Research Computing Facilitators will follow up with you and schedule a meeti
 to discuss the computational needs of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
 
-## New HPC Configuration
-
-Roll out of the new HPC configuration is currently scheduled for late Sept./early Oct. 
-More information about our HPC upgrade and user migration timeline was sent out to 
-users by email. All CHTC user email correspondences are available at [User News](/user-news).
-
-The new HPC configuration will include the following changes:
-- upgrade of operating system from Scientific Linux release 6.6 to CentOS 7
-- upgrade of SLURM from version 2.5.1 to version 20.02.2
-- upgrades to filesystems and user data and software management
-- a new set of modules and software
-- new head node hostnames
-
-The above changes will result in a new HPC computing environment 
-and will provide users with new SLURM features and improved support and reliability 
-for their HPC work. 
-
 # HPC User Policies
 
 Below is a list of policies that apply to all HPC users. 
@@ -116,12 +99,21 @@ nodes. All users log in at a login node, and all user files
 on the shared file sytem are accessible on all nodes.
 Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
 they can work together as a single \"supercomputer\", depending on the
-number of CPUs you specify. All execute and head nodes are running the Linux 
-operating system CentOS version 7.
+number of CPUs you specify. 
+
+## Login Nodes
+
+The two login nodes for the cluster are: 
+* `hpclogin1.chtc.wisc.edu` 
+* `hpclogin2.chtc.wisc.edu`
+
+For more details on logging in, see the "Connecting to CHTC" guide linked above. 
+
+## Execute Nodes
 
 Only execute nodes will be used for performing your computational work. 
 The execute nodes are organized into several \"partitions\", including 
-the `univ`, `univ2`, `pre`, and `int` partitions which are available to 
+the `univ2`, `pre`, and `int` partitions which are available to 
 all HPC users as well as research group specific partitions that consist 
 of researcher owned hardware and which all HPC users can access on a 
 backfill capacity via the `pre` partition (more details below).

@@ -159,17 +159,19 @@ Then, run this command to install the `conda pack` tool:
 Enter `y` when it asks you to install. 
 
 Finally, use `conda pack` to create a zipped tar.gz file of your environment
-(substitute the name of your conda environment where you see `env-name`): 
+(substitute the name of your conda environment where you see `env-name`) 
+and set the proper permissions for this file using `chmod`: 
 
 ```
 (base)[alice@submit]$ conda pack -n env-name
+(base)[alice@submit]$ chmod 644 env-name.tar.gz
 ```
 {: .term}
 
 When this step finishes, you should see a file in your current directory named
 `env-name.tar.gz`
 
-## 4. Check Size of Conda Environemnt Tar Archive
+## 4. Check Size of Conda Environment Tar Archive
 
 The tar archive, `env-name.tar.gz`, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
@@ -213,7 +215,7 @@ python3 hello.py
 
 In your submit file, make sure to have the following: 
 
-- Your executable should be the the bash script you created in [step 4](#4-create-a-job-executable).
+- Your executable should be the the bash script you created in [step 5](#5-create-a-job-executable).
 - Remember to transfer your Python script and the environment `tar.gz` file via
  `transfer_input_files`. 
   **Since the `tar.gz` file will almost certainly be larger than 100MB, 
