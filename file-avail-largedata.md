@@ -138,9 +138,9 @@ files to your `/staging` directory.
    * Include the following submit detail to ensure that
 your jobs will have access to your files in `/staging`:
 
-``` {.sub}
-requirements = (HasCHTCStaging =?= true)
-```
+   ``` {.sub}
+   requirements = (HasCHTCStaging =?= true)
+   ```
      
 1. Create your executable bash script.     
 
@@ -151,7 +151,7 @@ from `/staging` that is needed for the job. For example:
    cp /staging/username/my-large-input.tar.gz ./
    tar -xzf my-large-input.tar.gz
    ```
-   {:.term}
+   {:.file}
 
    * If the job will produce output >4GB this output should be 
 be compressed  moved to `/staging` before job terminates. If multiple large output 
@@ -162,7 +162,7 @@ example:
    tar -czf large_output.tar.gz output-file-1 output-file-2 output_dir/
    mv large_output.tar.gz /staging/username
    ```
-   {:.term}
+   {:.file}
 
    * Before job completes, delete input copied from `staging`, the 
 extracted large input file(s), and the uncompressed or untarred large output files. For example:
@@ -172,7 +172,7 @@ extracted large input file(s), and the uncompressed or untarred large output fil
    rm my-large-input-file
    rm output-file-1 output-file-2
    ```
-   {:.term}
+   {:.file}
 
    * For more details about job submission using input from `/staging` or for hosting 
 output in `/staging`, please see [Submit Jobs With Input Files in Staging](#input) and 
@@ -198,7 +198,7 @@ server upon creation of your `/staging` directory.
 - Individual directories will be created at `/staging/username`
 - Group directories will be created at `/staging/groups/group_name`
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
 
 </p>
 </details>
@@ -256,7 +256,7 @@ servers that have `smbclient` installed, like DoIT's ResearchDrive. See our guid
 [Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) 
 for more details.
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
 
 </p>
 </details>
@@ -443,7 +443,7 @@ will be used in the future, your data should be deleted and copied
 back at a later date. Files can be taken off of `/staging` using similar 
 mechanisms as uploaded files (as above). 
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
 
 </p>
 </details>
@@ -559,7 +559,7 @@ rm large.stdout
 ```
 {: .file}
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
 
 </p>
 </details>
@@ -592,7 +592,7 @@ execute servers that can access `/staging` using the following submit file attri
 	Requirements = (Target.HasCHTCStaging == true)
 	```
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
 
 <a name="quota"></a>
 # Managing `/staging` Data and Quotas
@@ -607,4 +607,4 @@ items are present in a directory:
 ```
 {:.term}
 
-[Return to top of page](data-transfer-solutions-by-file-size)
+[Return to top of page](#data-transfer-solutions-by-file-size)
