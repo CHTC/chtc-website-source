@@ -7,6 +7,8 @@ title: Managing Large Data in HTC Jobs
 
 # Data Transfer Solutions By File Size
 
+![CHTC File Management Solutions](/images/chtc-file-transfer.png)
+
 Due to the distributed nature of CHTC's High Throughput Computing (HTC) system, 
 your jobs will run on a server (aka an execute server) that is separate and 
 distinct from the server that your jobs are submitted from (aka the submit server). 
@@ -30,10 +32,11 @@ CHTC's `/staging` location is specifically intended for:
 - individual output files >4GB
 - output files totaling >4GB per job 
 
-# Quick Links
+# Table of Content
 
 - [Who Should Use Staging](#use)    
 - [Policies and User Responsibilities](#policies-and-user-responsibilities)      
+- [Quickstart Instructions](#quickstart-instructions)
 - [Get Access To Staging](#access)       
 - [Use The Transfer Server To Move Files To/From Staging](#transfer)       
 - [Submit Jobs With Input Files in Staging](#input)     
@@ -108,6 +111,76 @@ SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.
 - CHTC staff reserve the right to remove data from `/staging` 
 (or any CHTC file system) at any time.
 
+# Quickstart Instructions
+
+1. Request access to `/staging`.   
+
+   * For more details, see [Get Access To Staging](#access)       
+
+1. Prepare input files for hosting in `/staging`.    
+   
+   * Compress files to reduce file size and speed up 
+file transfer.
+
+   * If your jobs need multiple large input files, 
+use `tar` and `zip` to combine files so that only a single `tar` or `zip` 
+archive is needed per job.
+
+   * For more details, see [Use The Transfer Server To Move Files To/From Staging](#transfer).
+
+1. Use the transfer server, `transfer.chtc.wisc.edu`, to upload input 
+files to your `/staging` directory.
+
+   * For details, see [Submit Jobs With Input Files in Staging](#input).
+
+1. Create your HTCondor submit file.       
+
+   * Include the following submit detail to ensure that
+your jobs will have access to your files in `/staging`:
+
+``` {.sub}
+requirements = (HasCHTCStaging =?= true)
+```
+     
+1. Create your executable bash script.     
+
+   * Use `cp` or `rsync` to copy large input 
+from `/staging` that is needed for the job. For example:
+
+   ```
+   cp /staging/username/my-large-input.tar.gz ./
+   tar -xzf my-large-input.tar.gz
+   ```
+   {:.term}
+
+   * If the job will produce output >4GB this output should be 
+be compressed  moved to `/staging` before job terminates. If multiple large output 
+files are created, use `tar` and `zip` to reduce file counts. For 
+example:
+
+   ```
+   tar -czf large_output.tar.gz output-file-1 output-file-2 output_dir/
+   mv large_output.tar.gz /staging/username
+   ```
+   {:.term}
+
+   * Before job completes, delete input copied from `staging`, the 
+extracted large input file(s), and the uncompressed or untarred large output files. For example:
+
+   ```
+   rm my-large-input.tar.gz
+   rm my-large-input-file
+   rm output-file-1 output-file-2
+   ```
+   {:.term}
+
+   * For more details about job submission using input from `/staging` or for hosting 
+output in `/staging`, please see [Submit Jobs With Input Files in Staging](#input) and 
+[Submit Jobs That Transfer Output Files To Staging](#output).
+
+1. Remove large input and output files `/staging` after jobs complete using 
+`transfer.chtc.wisc.edu`.
+
 <a name="access"></a>
 # Get Access To `/staging`
 
@@ -125,6 +198,8 @@ server upon creation of your `/staging` directory.
 - Individual directories will be created at `/staging/username`
 - Group directories will be created at `/staging/groups/group_name`
 
+[Return to top of page](data-transfer-solutions-by-file-size)
+
 </p>
 </details>
 
@@ -133,6 +208,8 @@ server upon creation of your `/staging` directory.
 
 <details><summary>Click to learn more</summary>
 <p>
+
+![Use Transfer Server](images/use-transfer-staging.png)
 
 Our dedicated transfer server, `transfer.chtc.wisc.edu`, should be used to 
 upload and/or download your files to/from `/staging`.
@@ -178,6 +255,9 @@ for more details.
 servers that have `smbclient` installed, like DoIT's ResearchDrive. See our guide 
 [Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) 
 for more details.
+
+[Return to top of page](data-transfer-solutions-by-file-size)
+
 </p>
 </details>
 
@@ -186,6 +266,8 @@ for more details.
 
 <details><summary>Click to learn more</summary>
 <p>
+
+![Staging File Transfer](images/staging-file-transfer.png)
 
 `/staging` is a distinct location for temporarily hosting your 
 individually larger input files >100MB in size or in cases when jobs 
@@ -316,7 +398,8 @@ tar -xzf large_input.tar.gz
 
 ...additional commands to be executed by job...
 
-# delete large input
+# delete large input to prevent
+# HTCondor from transferring back to submit server
 rm large_input.tar.gz file1.lrg file2.lrg
 
 # END
@@ -341,7 +424,7 @@ ignore them when determining with output files to transfer back to the submit se
 For example:
 
 ```
-# prevent HTCondor from trasferring input back to submit server
+# prevent HTCondor from transferring input file(s) back to submit server
 mkdir ignore/
 mv large_input.tar.gz file1.lrg file2.lrg ignore/
 ```
@@ -359,6 +442,9 @@ SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS**. Even if it
 will be used in the future, your data should be deleted and copied
 back at a later date. Files can be taken off of `/staging` using similar 
 mechanisms as uploaded files (as above). 
+
+[Return to top of page](data-transfer-solutions-by-file-size)
+
 </p>
 </details>
 
@@ -367,6 +453,8 @@ mechanisms as uploaded files (as above).
 
 <details><summary>Click to learn more</summary>
 <p>
+
+![Staging File Transfer](images/staging-file-transfer.png)
 
 `/staging` is a distinct location for temporarily hosting 
 individual output files >4GB in size or in cases when >4GB 
@@ -471,6 +559,8 @@ rm large.stdout
 ```
 {: .file}
 
+[Return to top of page](data-transfer-solutions-by-file-size)
+
 </p>
 </details>
 
@@ -502,6 +592,8 @@ execute servers that can access `/staging` using the following submit file attri
 	Requirements = (Target.HasCHTCStaging == true)
 	```
 
+[Return to top of page](data-transfer-solutions-by-file-size)
+
 <a name="quota"></a>
 # Managing `/staging` Data and Quotas
 
@@ -515,3 +607,4 @@ items are present in a directory:
 ```
 {:.term}
 
+[Return to top of page](data-transfer-solutions-by-file-size)
