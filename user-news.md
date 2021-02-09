@@ -12,6 +12,19 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Office hours canceled this Tuesday, February 9
+### Tuesday, February 9, 2021
+
+Greetings CHTC users, 
+
+Office hours are canceled this Tuesday, February 9, as all of 
+CHTC's Facilitators will be at an online event. Regular office hours 
+will resume on Thursday, February 11. 
+
+Best,
+The Facilitation team
+
+------------------------------------------------------------------------
 ## Unexpected outage of SQUID server for http file transfers
 ### Thursday, January 28, 2021
 
