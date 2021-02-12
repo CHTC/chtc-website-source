@@ -110,7 +110,7 @@ a more step-by-step description of the process.
 
 1. **Download Source Code** - download the source code for your desired program. We 
 	recommend downloading it to the local scratch space on the login node 
-	(`/local/scratch/username`) as you should only need the source code until 
+	(`/scratch/local/username`) as you should only need the source code until 
 	the software is properly installed. If you'd like to keep a zipped copy of 
 	the source code, you can place it in `/home`.
 1. **Read the Docs** - try to find the installation instructions, either online or 
