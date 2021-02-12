@@ -124,7 +124,7 @@ backfill capacity via the `pre` partition (more details below).
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
   | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Interactive | int | 6 | 1 hr | 1hr | 1 | 20 | 128
+  | Interactive | int | 6 | 1 hr | 1 hr | 1 | 20 | 128
   | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 20 | 128
   | Owners | *unique* | 124 | 7 days | 24 hrs | *unique* | 20 | 128
   | Astronomy Dept (differs) | astro3 | 24 | *4 days* | 24 hrs | 16 | 20 | 128
