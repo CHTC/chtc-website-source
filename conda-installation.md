@@ -111,8 +111,8 @@ listed in the installation examples for software
 {: .term}
 
 Some Conda packages are only available via specific Conda channels 
-which serve as repositories hosting and managing packages. If Conda is 
-unable to located the requested packages using the example above, you may 
+which serve as repositories for hosting and managing packages. If Conda is 
+unable to locate the requested packages using the example above, you may 
 need to have Conda search other channels. More detail are available at 
 <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>.
 
