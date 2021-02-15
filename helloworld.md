@@ -281,11 +281,13 @@ what issues your job(s) may have had, if any.
 and Disk Requirements.** The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
-too little, your jobs will be \"evicted\" from the computer they\'re
-running on, and HTCondor will have to try to rerun them (maybe many
-times) until it requests enough for you. When you request too much, your
-jobs may not match to as many available \"slots\" as they could
-otherwise, and your overall throughput will suffer in that case as well.
+too little, your jobs will be terminated by HTCondor and set to \"hold\" 
+status to flag that job as requiring your attention. To learn more 
+about why a job as gone on hold, use `condor_q -hold`.
+
+When you request too much, your jobs may not match to as many 
+available \"slots\" as they could otherwise, and your overall throughput 
+will suffer in that case as well.
 
 3\. **Determining Run Time.** Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
