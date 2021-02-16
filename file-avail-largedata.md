@@ -32,7 +32,7 @@ CHTC's `/staging` location is specifically intended for:
 - individual output files >4GB
 - output files totaling >4GB per job 
 
-# Table of Content
+# Table of Contents
 
 - [Who Should Use Staging](#use)    
 - [Policies and User Responsibilities](#policies-and-user-responsibilities)      
@@ -164,7 +164,7 @@ example:
    ```
    {:.file}
 
-   * Before job completes, delete input copied from `staging`, the 
+   * Before the job completes, delete input copied from `staging`, the 
 extracted large input file(s), and the uncompressed or untarred large output files. For example:
 
    ```
