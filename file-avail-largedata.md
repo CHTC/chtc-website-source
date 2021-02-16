@@ -15,7 +15,7 @@ distinct from the server that your jobs are submitted from (aka the submit serve
 This means that a copy of all the files needed to start your jobs must be 
 made available on the execute server. Likewise, any output files created 
 during the execution of your jobs, which are written to the execute server, 
-will also need to be transferred to an acessible location after your jobs complete. 
+will also need to be transferred to a location that is accessible to you after your jobs complete. 
 **How input files are copied to the execute server and how output files are 
 copied back will depend on the size of these files.**
 
@@ -82,23 +82,27 @@ up your files in `/staging`.
 - **Use bash script commands to access files in `/staging`**: Files placed in `/staging` 
 should **NEVER** be listed in the submit file, but rather accessed 
 via the job's executable (aka .sh) script. More details provided 
-[below](TBD).
+in [Submit Jobs With Input Files in Staging](#input)
+and [Submit Jobs That Transfer Output Files To Staging](#output).
 
 - **Use the transfer server**: We expect that users will only use our dedicated 
 transfer server, transfer.chtc.wisc.edu, instead of the submit server,
 to upload and download appropriate files to and from `/staging`. Transferring 
 files to `/staging` with the submit server can negatively impact job submission for 
-you and other users. More details provide [below](#transfer).
+you and other users. For more details, please see 
+[Use The Transfer Server To Move Files To/From Staging](#transfer)
 
 - **Quota control**:`/staging` directories include disk space and 
 items (i.e. directories and files) quotas. Quotas are necessary for 
 maintaning the stability and reliability of `/staging`. Quota changes can 
 be requested by emailing <chtc@cs.wisc.edu> and 
-users can monitor quota settings and usage as described [below](TBD)
+users can monitor quota settings and usage as described in 
+[Managing Staging Data and Quotas](#quota)
 
 - **Reduce file size and count**: We expect that users will use `tar` and 
 compression to reduce data size and file counts such that a single tarball 
-is needed and/or produced per job. More details provided [below](TBD).
+is needed and/or produced per job. More details provided in [Submit Jobs With Input Files in Staging](#input)
+and [Submit Jobs That Transfer Output Files To Staging](#output).
 
 - **Shared group data**: `/staging` directories are owned by the user, 
 and only the user's own jobs can access these files. We can create shared group 
@@ -117,6 +121,8 @@ SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS.
 
    * For more details, see [Get Access To Staging](#access)       
 
+1. Review `/staging` [Policies and User Responsibilities](#policies-and-user-responsibilities)
+
 1. Prepare input files for hosting in `/staging`.    
    
    * Compress files to reduce file size and speed up 
@@ -126,11 +132,11 @@ file transfer.
 use `tar` and `zip` to combine files so that only a single `tar` or `zip` 
 archive is needed per job.
 
-   * For more details, see [Use The Transfer Server To Move Files To/From Staging](#transfer).
-
 1. Use the transfer server, `transfer.chtc.wisc.edu`, to upload input 
 files to your `/staging` directory.
 
+   * For more details, see [Use The Transfer Server To Move Files To/From Staging](#transfer).
+   
    * For details, see [Submit Jobs With Input Files in Staging](#input).
 
 1. Create your HTCondor submit file.       
