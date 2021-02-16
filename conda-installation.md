@@ -110,6 +110,12 @@ listed in the installation examples for software
 ```
 {: .term}
 
+Some Conda packages are only available via specific Conda channels 
+which serve as repositories for hosting and managing packages. If Conda is 
+unable to locate the requested packages using the example above, you may 
+need to have Conda search other channels. More detail are available at 
+<https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>.
+
 Packages may also be installed via `pip`, but you should only do this
 when there is no `conda` package available.
 
@@ -159,12 +165,14 @@ Then, run this command to install the `conda pack` tool:
 Enter `y` when it asks you to install. 
 
 Finally, use `conda pack` to create a zipped tar.gz file of your environment
-(substitute the name of your conda environment where you see `env-name`) 
-and set the proper permissions for this file using `chmod`: 
+(substitute the name of your conda environment where you see `env-name`), 
+set the proper permissions for this file using `chmod`, and check the size of 
+the final tarball: 
 
 ```
 (base)[alice@submit]$ conda pack -n env-name
 (base)[alice@submit]$ chmod 644 env-name.tar.gz
+(base)[alice@submit]$ ls -sh env-name.tar.gz
 ```
 {: .term}
 
@@ -175,8 +183,8 @@ When this step finishes, you should see a file in your current directory named
 
 The tar archive, `env-name.tar.gz`, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
-Conda environment file. If >100MB in size, you should **NOT** transfer the tar ball using 
-`transfer_input_files`. Instead, you should plan to use either CHTC's web proxy, SQUID or 
+Conda environment file. **If >100MB in size, you should NOT transfer the tar ball using 
+`transfer_input_files`**. Instead, you should plan to use either CHTC's web proxy, SQUID or 
 large data filesystem Staging. Please contact a research computing facilitators at 
 chtc@cs.wisc.edu to determine the best option for your jobs. 
 
@@ -193,6 +201,7 @@ of what is needed (customize as indicated to match your choices above).
 ```
 #!/bin/bash
 
+# have job exit if any command returns with non-zero exit status (aka failure)
 set -e
 
 # replace env-name on the right hand side of this line with the name of your conda environment
