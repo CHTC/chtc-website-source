@@ -33,19 +33,19 @@ install packages, else skip to the next step.
 1. Submit a job that executes a Julia script using the Julia precompiled binary
 with base Julia and Standard Library.
 
-```
-#!/bin/bash
+	```
+	#!/bin/bash
 
-# extract Julia binaries tarball
-tar -xzf julia-#.#.#-linux-x86_64.tar.gz
+	# extract Julia binaries tarball
+	tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
-# add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+	# add Julia binary to PATH
+	export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
 
-# run Julia script
-julia my-script.jl
-```
-{: .file}
+	# run Julia script
+	julia my-script.jl
+	```
+	{: .file}
 
     * For more details, including how to use Julia packages with your job, see the 
     section on installing Julia packages below: [Installing Julia Packages](#install-julia-packages)
