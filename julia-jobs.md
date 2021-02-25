@@ -13,7 +13,7 @@ packages that may be required for your work.
 # Table of Contents
 1.  [Quickstart Instructions](#quickstart-instructions)
 1.  [Install Julia Packages](#install-julia-packages)
-1.  [Submit Julia Jobs](#submit)
+1.  [Submit Julia Jobs](#submit-julia-jobs)
 
 # Quickstart Instructions
 
@@ -270,16 +270,16 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl
 
-request_cpus =
-request_memory =
-request_disk =
+request_cpus = 1
+request_memory = 2GB
+request_disk = 2GB
 
 queue 1
 ```
 
 If your Julia script needs to use packages installed for a project, 
 be sure to include `my-project.tar.gz` as in input file in `julia-job.sub`. 
-For project tarballs that at <100MB, you can follow the below example:
+For project tarballs that are <100MB, you can follow the below example:
 
 ``` {.sub}
 transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
