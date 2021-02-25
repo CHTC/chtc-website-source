@@ -15,10 +15,6 @@ packages that may be required for your work.
 1.  [Install Julia Packages](#install-julia-packages)
 1.  [Submit Julia Jobs](#submit)
 
-If you want to build your own copy of base R, see this archived page:
-
--   [Building a R installation](r-build.shtml)
-
 # Quickstart Instructions
 
 1. Download the precompiled Julia software from <https://julialang.org/downloads/>. 
@@ -31,7 +27,8 @@ submit server, **OR** use `transfer_input_files = url` in your HTCondor submit f
 1. Submit an "interactive build" job to create a Julia project and 
 install packages, else skip to the next step.
 
-    * For more details, see 
+    * For more details, see the section on installing Julia 
+    packages below: [Installing Julia Packages](#install-julia-packages)
 
 1. Submit a job that executes a Julia script using the Julia precompiled binary
 with base Julia and Standard Library.
@@ -48,10 +45,10 @@ export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
 # run Julia script
 julia my-script.jl
 ```
-{:.file}
+{: .file}
 
-    * For more details, including how to use Julia packages with your 
-job, see 
+    * For more details, including how to use Julia packages with your job, see the 
+    section on installing Julia packages below: [Installing Julia Packages](#install-julia-packages)
 
 # Install Julia Packages
 
@@ -109,34 +106,31 @@ Once the interactive jobs starts you should see the following
 inside job's the working directory:
 
 ``` 
-[bash-4.2$]$ ls -F
+bash-4.2$ ls -F
 julia-#.#.#-linux-x86_64.tar.gz   tmp/    var/
 ```
 {:.term}
 
 Run the following commands to extract the Julia software, 
-add Julia to your `PATH`, create a `packages/` directory to 
+add Julia to your `PATH`, create a `my-project/` directory to 
 install your packages to, tell Julia where to install your 
 packages, and start the Julia REPL.
 
 ``` 
 bash-4.2$ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
-[bash-4.2$]$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
-[bash-4.2$]$ mkdir my-project
-[bash-4.2$]$ cd my-project
-[bash-4.2$]$ julia
+bash-4.2$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
+bash-4.2$ mkdir my-project
+bash-4.2$ export JULIA_DEPOT_PATH=$PWD/my-project
+bash-4.2$ julia --project=my-project
 ```
 {:.term}
 
-> If you brought along an existing project directory, un-tar it here and
-> skip the directory creation step below.
-
 You can choose whatever name to use for this directory \-- if you have
 different projects that you use for different jobs, you could
-use a more descriptive name than \"my-project\".
+use a more descriptive name than "my-project".
 
 Once you've started up the Julia REPL (interpreter), start the Pkg REPL 
-by typing `]`. Then activate the project and install and test packages:
+by typing `]`. Then install and test packages:
 
 ```
                _
@@ -149,27 +143,35 @@ by typing `]`. Then activate the project and install and test packages:
 |__/                   |
 
 julia> ]
-(v1.0) pkg> activate .
 (my-project) pkg> add Package
 (my-project) pkg> test Package
 ```
 {:.term}
 
 If you have multiple packages to install they can be combined 
-into a single command, e.g. `(my-project) pkg> ass Package1 Package2 Package3`.
+into a single command, e.g. `(my-project) pkg> add Package1 Package2 Package3`.
 
 **If you encounter issues getting packages to install successfully, please 
 contact us at <chtc@cs.wisc.edu>.**
+
+Once you are done, you can exit the Pkg REPL by typing the Delete key and then 
+`exit()`
+
+```
+(my-project) pkg> 
+julia> exit()
+```
+{:.term}
 
 ## Save Installed Packages For Later Jobs
 
 To use this project, and the associated installed packages, in 
 subsequent jobs, we need to have HTCondor return some files to 
-the submit server by converting the directories `my-projects/` and `.julia/`
+the submit server by converting the `my-project/` directory
 to a tarball, before exiting the interactive job session:
 
 ```
-bash-4.2$ tar -czf my-project.tar.gz my-project/ .julia/
+bash-4.2$ tar -czf my-project.tar.gz my-project/
 bash-4.2$ exit
 ```
 {:.term}
@@ -180,7 +182,7 @@ the interactive build job). A copy of `packages.tar.gz` will be present. **Be
 sure to check the size of the project tarball before proceeding to subsequent job 
 submissions.** If the file is >100MB please contact us at <chtc@cs.wisc.edu> so 
 that we can get you setup with access to our SQUID web proxy. More details 
-are available at 
+are available on our SQUID guide: [File Availability with SQUID](/file-avail-squid.md)
 
 ```
 [alice@submit]$ ls 
@@ -237,6 +239,8 @@ tar -xzf my-project.tar.gz
 
 # add Julia binary to PATH
 export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+# add Julia packages to DEPOT variable
+export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 
 # run Julia script
 julia --project=my-project my-script.jl
