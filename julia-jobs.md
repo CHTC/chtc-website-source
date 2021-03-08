@@ -298,4 +298,4 @@ submit the job to run using the following command:
 ```
 [alice@submit]$ condor_submit julia-job.sub
 ```
-{:.term}
+{: .term}
