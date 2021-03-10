@@ -1,13 +1,10 @@
 ---
 highlighter: none
-#layout: default
 layout: default
 title: Managing Large Data in HTC Jobs
 ---
 
 # Data Transfer Solutions By File Size
-
-![CHTC File Management Solutions](/images/chtc-file-transfer.png)
 
 Due to the distributed nature of CHTC's High Throughput Computing (HTC) system, 
 your jobs will run on a server (aka an execute server) that is separate and 
@@ -17,7 +14,10 @@ made available on the execute server. Likewise, any output files created
 during the execution of your jobs, which are written to the execute server, 
 will also need to be transferred to a location that is accessible to you after your jobs complete. 
 **How input files are copied to the execute server and how output files are 
-copied back will depend on the size of these files.**
+copied back will depend on the size of these files.** This is illustrated via 
+the diagram below: 
+
+![CHTC File Management Solutions](/images/chtc-file-transfer.png)
 
 CHTC's data filesystem called "Staging" is a distinct location for 
 temporarily hosting files that are too large to be handled in a 
@@ -31,6 +31,8 @@ CHTC's `/staging` location is specifically intended for:
 - input files totaling >500MB per job
 - individual output files >4GB
 - output files totaling >4GB per job 
+
+This guide covers when and how to use `/staging` for jobs run in CHTC. 
 
 # Table of Contents
 
@@ -61,7 +63,7 @@ like to know more about managing your data needs, please contact us at
 Files hosted in `/staging` are only excessible to jobs running in the CHTC pool. 
 About 50% of CHTC execute servers have access to `/staging`. Users will get 
 better job throughput if they are able to break up their work into smaller jobs 
-that each use or procude input and output files that do not require `/staging`.
+that each use or produce input and output files that do not require `/staging`.
 
 # Policies and User Responsibilities
 
@@ -109,8 +111,8 @@ and only the user's own jobs can access these files. We can create shared group
 `/staging` directories for sharing larger input and output files as needed. 
 [Contact us](mailto:chtc@cs.wisc.edu) to learn more.
 
-- **Remove data**: We expect that users will remove data from `/staging` AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. 
+- **Remove data**: We expect that users will remove data from `/staging` as
+soon as it is no longer needed for actively-running jobs. 
 
 - CHTC staff reserve the right to remove data from `/staging` 
 (or any CHTC file system) at any time.
@@ -170,7 +172,7 @@ example:
    ```
    {:.file}
 
-   * Before the job completes, delete input copied from `staging`, the 
+   * Before the job completes, delete input copied from `/staging`, the 
 extracted large input file(s), and the uncompressed or untarred large output files. For example:
 
    ```
@@ -188,6 +190,7 @@ output in `/staging`, please see [Submit Jobs With Input Files in Staging](#inpu
 `transfer.chtc.wisc.edu`.
 
 <a name="access"></a>
+
 # Get Access To `/staging`
 
 <details><summary>Click to learn more</summary>
@@ -198,11 +201,17 @@ you need a `/staging` directory, please contact us at <chtc@cs.wisc.edu>. So
 we can process your request more quickly, please include details regarding 
 the number and size of the input and/or output files you plan to host in 
 `/staging`. You will also be granted access to out dedicated transfer 
-server upon creation of your `/staging` directory.
+server upon creation of your `/staging` directory. 
 
 *What is the path to my `/staging` directory?*
 - Individual directories will be created at `/staging/username`
 - Group directories will be created at `/staging/groups/group_name`
+
+*How much space will I have?*
+
+Your quota will be set based on your specific data needs. To see more 
+information about checking your quota and usage in staging, see the 
+end of this guide: [Managing Staging Data and Quotas](#quota)
 
 [Return to top of page](#data-transfer-solutions-by-file-size)
 
@@ -295,17 +304,20 @@ files hosted in `/staging`, delete large input from job
 
 ## Prepare Large Input Files For `\staging`
 
+**Organize and prepare your large input such that each job will use a single, 
+or as few as possible, large input files.** 
+
 As described in our policies, data placed in `/staging` should be 
 stored in as few files as possible. Before uploading input files 
 to `/staging`, use file compression (`zip`, `gzip`, `bzip`) and `tar` to reduce 
 file sizes and total file counts such that only a single, or as few as 
-possible, input "tarball" will be needed per job.
+possible, input file(s) will be needed per job.
 
 If your large input will be uploaded from your personal computer 
 Mac and Linux users can create input tarballs by using the command `tar -czf` 
 within the Terminal. Windows users may also use a terminal if installed, 
 else several GUI-based `tar` applications are available, or ZIP can be used 
-inplace of `tar`.
+in place of `tar`.
 
 The following examples demonstrate how to make a compressed tarball 
 from the terminal for two large input files named `file1.lrg` and 
@@ -333,8 +345,7 @@ large_input.tar.gz
 ```
 {: .term}
 
-**Organize and prepare your large input such that each job will use a single, 
-or as few as possible, large input tarballs.** After preparing your input, 
+After preparing your input, 
 use the transfer server to upload the tarballs to `/staging`. Instructions for 
 using the transfer server are provide in the above section 
 [Use The Transfer Server To Move Large Files To/From Staging](#transfer).
@@ -443,8 +454,8 @@ mv large_input.tar.gz file1.lrg file2.lrg ignore/
 
 Files in `/staging` are not backed up and `/staging` should not 
 be used as a general purpose file storage service. As with all 
-CHTC file spaces, data should be removed from `/staging` **AS
-SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS**. Even if it
+CHTC file spaces, data should be removed from `/staging` as
+soon as it is no longer needed for actively-running jobs. Even if it
 will be used in the future, your data should be deleted and copied
 back at a later date. Files can be taken off of `/staging` using similar 
 mechanisms as uploaded files (as above). 
@@ -498,6 +509,10 @@ queue
 **Remember:** If your job has any other requirments defined in 
 the submit file, you should combine them into a single `requirements` statement:
 
+```{.sub}
+requirements = (HasCHTCStaging =?= true) && other requirements
+```
+
 ## Use Job Bash Script To Move Output To `/staging`
 
 Output generated by your job is written to the execute server 
@@ -530,6 +545,25 @@ tar -czf /staging/username/large_output.tar.gz output_dir/ output.lrg
 
 # delete an remaining large files 
 rm output.lrg
+
+# END
+```
+{: .file}
+
+If a job generates a single large file that will not shrink much when 
+compressed, it can be moved directly to staging. If a job generates 
+multiple files in a directory, or files can be substantially made smaller 
+by zipping them, the above example should be followed. 
+
+```
+#!/bin/bash
+ 
+# Commands to execute job
+
+...
+
+# move single large output file to staging
+mv output.lrg /staging/username/
 
 # END
 ```
