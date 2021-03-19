@@ -43,7 +43,8 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 
- **Temporary Changes to Office Hours**
+## Office Hours are canceled Tuesday, March 23 and Thursday, March 25. 
+We will resume normal office hours on Tuesday, March 30.
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
@@ -54,10 +55,8 @@ To drop in, find the videoconference link in either your email (via
 an announcement to chtc-users sent on Wed., March 11) or in the login message
 when you log into a CHTC server. 
 
-As always, if the times above don't work for you, please email use 
+As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
-
-
 
 [Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
 
