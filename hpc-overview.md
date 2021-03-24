@@ -64,7 +64,7 @@ your files should be removed from the cluster filesystem. Campus researchers hav
 for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
 which provides up to 5TB of storage for free per research PI. Our guide 
 [Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) provides 
-step-by-step instructions for transferring your data between HPC Cluster and RsearchDrive.
+step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
 in our efforts to maintain filesystem performance for all users, though we will always 
