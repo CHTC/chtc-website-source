@@ -33,7 +33,7 @@ including:
 -   multi-group, license-sharing options for research-specific software
 -   resource sharing options for temporary, on-demand access to more
     cores
--   automatic hardware upgrades when deemed necessary for the cluster\*
+-   automatic hardware upgrades when deemed necessary for the cluster
 
 All chassis purchases are considered capitol equipment. To learn more
 about the buy-in option, please contact use (chtc@cs.wisc.edu). Typically, prior use of the HPC
