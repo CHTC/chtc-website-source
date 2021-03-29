@@ -99,7 +99,8 @@ then runs the program, like so:
 ``` 
 #!/bin/bash
 
-# Command to enable modules, and then load an appropriate software module
+# Commands to enable modules, and then load an appropriate software module
+export PATH
 . /etc/profile.d/modules.sh
 module load software
 
@@ -118,6 +119,7 @@ For example, to run a Comsol job, the script might look like this:
 ``` 
 #!/bin/bash
 
+export PATH
 . /etc/profile.d/modules.sh
 module load COMSOL/5.4
 
@@ -140,13 +142,6 @@ shown in the sample submit file below and include:
 
     ``` {.sub}
     requirements = (HasChtcSoftware == true)
-    ```
-
--   Use the **getenv = true** statement to set up the job\'s running
-    environment.
-
-    ``` {.sub}
-    getenv = true
     ```
 
 -   **Request accurate CPUs and memory.** Run at least one test job and
@@ -176,7 +171,6 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = (this should be a comma separate list of input files if needed)
 
-getenv = true
 # Requirement for accessing new set of software modules
 requirements = ( HasChtcSoftware == true ) 
 
