@@ -144,7 +144,8 @@ script that loads an MPI module and then runs the program, like so:
 ``` 
 #!/bin/bash
 
-# Command to enable modules, and then load an appropriate MP/MPI module
+# Commands to enable modules, and then load an appropriate MP/MPI module
+export PATH
 . /etc/profile.d/modules.sh
 module load mpi_module
 
@@ -181,13 +182,6 @@ below and include:
     requirements = (HasChtcSoftware == true)
     ```
 
--   Use the **getenv = true** statement to set up the job\'s running
-    environment.
-
-    ``` {.sub}
-    getenv = true
-    ```
-
 -   **Request \*accurate\* CPUs and memory** Run at least one test job
     and look at the log file produced by HTCondor to determine how much
     memory and disk space your multi-core jobs actually use. Requesting
@@ -220,7 +214,6 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = (this should be a comma separate list of input files if needed)
 
-getenv = true
 # Requirement for accessing new set of modules
 requirements = ( HasChtcSoftware == true ) 
 
