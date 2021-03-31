@@ -8,8 +8,8 @@ title: Using CHTC's HTC Submit Servers
 Computing Facilitator, please fill out [this form](/form.shtml).**
 
 Recently created CHTC accounts will use our submit server 
-*submit-1.chtc.wisc.edu*. Accounts older than March 2021 may be on 
-either *submit-1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*. 
+*submit1.chtc.wisc.edu*. Accounts older than March 2021 may be on 
+either *submit1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*. 
 Access to other submit servers is granted for
 specific purposes and will have been indicated to you by CHTC staff.
 

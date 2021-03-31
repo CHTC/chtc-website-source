@@ -43,7 +43,7 @@ servers or head nodes:
   {:.gtable}
   | HTC System |
   | --- |
-  | `submit-1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or after March 2021 |
+  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or after March 2021 |
   | `submit2.chtc.wisc.edu` - typically for accounts created prior to Aug 2018 or between June 2019 - February 2021 |
 
   {:.gtable}
