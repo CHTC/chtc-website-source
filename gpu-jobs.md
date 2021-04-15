@@ -137,6 +137,14 @@ For those who would like to pursue alternative GPU resources, see our list of
     <td>7.5</td>
     <td>yes</td>
   </tr>
+  <tr>
+    <td>1</td>
+    <td>gpulab2004</td>
+    <td>4</td>
+    <td>A100</td>
+    <td>8.0</td>
+    <td>yes</td>
+  </tr>
 </table>
 
 ## 2. Special Policies in the GPU Lab
