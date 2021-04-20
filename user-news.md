@@ -12,17 +12,21 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
-## Office hours canceled the week of March 22
-### Thursday, March 18, 2021
+## HPC Cluster downtime on Tuesday, April 27
+### Tuesday, April 20, 2021
 
-Greetings CHTC users,
+Greetings CHTC users, 
 
-Due to limited facilitator availability, we are canceling office hours next week. There will be no office hours on Tuesday, March 23 or Thursday, March 25. We will be back to our usual schedule the week of March 29.
+_This message is for users of our high performance computing (HPC) cluster._
 
-As always, reach out to us any time at our support email address.
+In order to incorporate new hardware, update network switches, and perform other general maintenance, **there will be an HPC Cluster downtime on Tuesday, April 27**, starting at 9:00am, and expected to last up to 6 hours. 
 
-Best,
-Your CHTC Facilitation team
+To prevent jobs from being interrupted by the downtime, we are currently draining jobs from all cluster nodes. **Submitted jobs requesting 7 days (or any time request that cannot be completed by April 27) will not start until the downtime is complete.** Jobs can still run on the cluster, but only if their time request (“--time=” in the submit file) indicates that they will complete before next Tuesday, April 27. 
+
+We will send a reminder about the downtime on Monday, April 26, and a confirmation when the cluster is back up on April 27. Please contact us at chtc@cs.wisc.edu with any questions and concerns. 
+
+Best, 
+Your CHTC team
 
 ------------------------------------------------------------------------
 
