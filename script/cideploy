@@ -28,6 +28,8 @@ git clone --quiet --branch=$BRANCH git@github.com:$TARGET_REPO built_website > /
 mkdir -p built_website
 cd built_website
 rsync -av --delete --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
+# We need this single well-known directory to support OIDC metadata discovery for SciTokens.
+rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
 # Rename .html -> .shtml for generated files
 set +x
 for f in ./*.html; do
