@@ -1,4 +1,3 @@
-.*
 Vagrantfile
 *.log
 *.enc
