@@ -1,4 +1,4 @@
 {  
    "issuer":"https://chtc.cs.wisc.edu",
-   "jwks_uri":"https://chtc.cs.wisc.edu/.well-known/issuer.jwks",
+   "jwks_uri":"https://chtc.cs.wisc.edu/.well-known/issuer.jwks"
 }
