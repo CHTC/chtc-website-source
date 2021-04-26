@@ -12,20 +12,22 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
-## Limited response to emails today, April 26
+## Support email is back; reminder about the HPC cluster downtime tomorrow (April 27)
 ### Monday, April 26, 2021
 
 Greetings CHTC users, 
 
-As of 8:00 this morning (Monday, April 26), we are not able to directly reply to emails sent to our support address, chtc@cs.wisc.edu. 
+#### Support Email Responses are Back
 
-We do still have a record of all emails sent to us, so **if you have a question or issue related to CHTC, PLEASE continue to contact us at chtc@cs.wisc.edu.** While our response capacity may be limited, we will do our best to triage incoming emails and respond to urgent concerns as we are able. 
+We were able to make a quick fix to our support email address (chtc@cs.wisc.edu), and are now able to respond to help requests as normal. As we’ve accumulated a backlog of requests over the morning, it may still be a few hours before we respond to emails sent in before noon today (April 26). If you sent an email to our help address and haven’t received a reply by tomorrow (April 27) at noon, please follow up at the chtc@cs.wisc.edu address again. 
 
-We will send an update to this mailing list once we are able to respond from our chtc@cs.wisc.edu address or have a timeline for doing so. 
+#### HPC Cluster Downtime Reminder
 
-Best,
+A quick reminder that our HPC Cluster will be down for maintenance tomorrow, April 27, starting at 9:00am. Full details are below.
 
-Your CHTC team
+------------------------------------------------------------------------
+## Limited response to emails today, April 26 (UPDATE: RESOLVED - see above)
+### Monday, April 26, 2021
 
 ------------------------------------------------------------------------
 ## HPC Cluster downtime on Tuesday, April 27
@@ -40,9 +42,6 @@ In order to incorporate new hardware, update network switches, and perform other
 To prevent jobs from being interrupted by the downtime, we are currently draining jobs from all cluster nodes. **Submitted jobs requesting 7 days (or any time request that cannot be completed by April 27) will not start until the downtime is complete.** Jobs can still run on the cluster, but only if their time request (“--time=” in the submit file) indicates that they will complete before next Tuesday, April 27. 
 
 We will send a reminder about the downtime on Monday, April 26, and a confirmation when the cluster is back up on April 27. Please contact us at chtc@cs.wisc.edu with any questions and concerns. 
-
-Best, 
-Your CHTC team
 
 ------------------------------------------------------------------------
 
