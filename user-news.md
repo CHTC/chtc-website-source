@@ -12,6 +12,22 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Limited response to emails today, April 26
+### Monday, April 26, 2021
+
+Greetings CHTC users, 
+
+As of 8:00 this morning (Monday, April 26), we are not able to directly reply to emails sent to our support address, chtc@cs.wisc.edu. 
+
+We do still have a record of all emails sent to us, so **if you have a question or issue related to CHTC, PLEASE continue to contact us at chtc@cs.wisc.edu.** While our response capacity may be limited, we will do our best to triage incoming emails and respond to urgent concerns as we are able. 
+
+We will send an update to this mailing list once we are able to respond from our chtc@cs.wisc.edu address or have a timeline for doing so. 
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## HPC Cluster downtime on Tuesday, April 27
 ### Tuesday, April 20, 2021
 
