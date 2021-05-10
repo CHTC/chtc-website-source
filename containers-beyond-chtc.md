@@ -28,7 +28,7 @@ general and how to find or create them.
 
 Once you have an existing Docker container for your job, it needs to 
 be added to an OSG-based container staging location. You can submit your 
-container by adding it's name to the file `docker_images.txt` in this 
+container by adding its name to the file `docker_images.txt` in this 
 Github repository: [cvmfs-singularity-sync](https://github.com/opensciencegrid/cvmfs-singularity-sync/)
 
 If you have questions about how to submit changes to the `docker_images.txt` file on 
@@ -61,3 +61,7 @@ requirements = ( HAS_SINGULARITY || (HasSingularity && HAS_CVMFS_oasis_openscien
 queue 1
 ```
 {: .sub}
+
+Note that the above options **replace** the usual Docker options from 
+our [Docker Jobs Guide](/docker-jobs). You should **not**
+include a `docker_image` option in the submit file if using the above setup. 
