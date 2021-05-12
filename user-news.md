@@ -12,6 +12,25 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Certain execute nodes shut down
+### Wednesday, May 12, 2021
+
+Greetings CHTC users,
+
+There was a short chilled water interruption this morning, leading to the shut off of 5 HTC System execute nodes, and 20 HPC Cluster execute nodes.
+
+We expect that the impacted servers will be back up within the next day, but jobs running on these will have been interrupted and may require action from users:
+
+* In the HTC System, these jobs are automatically re-queued to run again elsewhere, likely requiring no action from the user.
+* In the HPC Cluster, such jobs may need to be re-queued. 
+
+Please review your jobs and email us at chtc@cs.wisc.edu if you’re not sure how to cleanly re-run work that may have been affected. We’ll be happy to help.
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Support email is back; reminder about the HPC cluster downtime tomorrow (April 27)
 ### Monday, April 26, 2021
 
