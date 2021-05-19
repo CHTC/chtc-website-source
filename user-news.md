@@ -17,7 +17,7 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 Greetings CHTC Users,
 
-This is a reminder that HTCondor Week takes place next week. It's free and virtual, but make sure to [register](https://agenda.hep.wisc.edu/event/1579/registrations/239/).
+This is a reminder that HTCondor Week takes place next week. It's free and virtual, but make sure to [register](https://agenda.hep.wisc.edu/event/1579).
 
 Additionally, **please expect replies from CHTC staff (via chtc@cs.wisc.edu) to take a bit longer than usual from May 20-28**, while our staff are busy preparing for and executing the conference.
 
@@ -25,7 +25,6 @@ That said ...
 
 * CHTC Virtual Office Hours will continue Tu/Th 3-5pm. 
 * **Please continue to use chtc@cs.wisc.edu for any issues or questions about using CHTC services.**
-
 
 We hope to see you there!
 Your CHTC Team
@@ -40,38 +39,6 @@ As we have in previous years, we invite you to apply to this year's Open Science
 
 Cheers,
 Your CHTC team
-
-We are seeking applicants for the OSG Virtual School 2021, which will take
-place the weeks of August 2-6 and 9-13.  As the name indicates, the School
-will be all virtual again this year.
-
-https://opensciencegrid.org/virtual-school-2021/
-
-Participants will learn to use high throughput computing (HTC) to harness
-vast amounts of computing power for research, applicable to nearly any
-field of study.  In past Schools, we have helped people in physics,
-chemistry, engineering, life sciences, earth sciences, agricultural and
-animal sciences, economics, social sciences, medicine, and more.
-
-chtc-users--- via CHTC-users
-	
-Thu, May 13, 2:03 PM (6 days ago)
-	
-to chtc-users
-Greetings CHTC users,
-
-As we have in previous years, we invite you to apply to this year's Open Science Grid Virtual School, which will be held online this year. Check out the short application form and let us know if you have any questions by emailing chtc@cs.wisc.edu or user-school@opensciencegrid.org.
-
-Cheers,
-Your CHTC team
-
-==========
-
-ANNOUNCING THE OSG VIRTUAL SCHOOL 2021!
-
-If you could access hundreds or even thousands of computers for your
-scholarly work or the work you support, what could you do?  How could it
-transform research?  What discoveries might be made?
 
 We are seeking applicants for the OSG Virtual School 2021, which will take
 place the weeks of August 2-6 and 9-13.  As the name indicates, the School
