@@ -291,6 +291,27 @@ $ docker login
 
 It should ask for your DockerHub username and password.
 
+> ## Reproducibility
+> 
+> If you have a free account on Docker Hub, any container image that you 
+> have pushed there will be scheduled for removal if it is not used (pulled) at least once 
+> every 6 months (See the [Docker Terms of Service](https://www.docker.com/pricing/resource-consumption-updates)). 
+> 
+> For this reason, and just because it's a good idea in general, we recommend 
+> creating a file archive of your container image and placing it in whatever space 
+> you use for long-term, backed-up storage of research data and code. 
+> 
+> To create a file archive of a container image, use this command, 
+> changing the name of the archive file and container to reflect the 
+> names you want to use: 
+> ```
+> docker save --output archive-name.tar username/imagename:tag
+> ```
+> {:.term}
+> 
+> It's also a good idea to archive a copy of the Dockerfile used to generate a 
+> container image along with the file archive of the container image itself. 
+
 ## 7. Running Jobs
 
 Once your Docker image is on Docker Hub, you can use it to run 

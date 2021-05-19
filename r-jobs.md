@@ -28,7 +28,7 @@ This guide details the steps needed to:
 
 If you want to build your own copy of base R, see this archived page:
 
--   [Building a R installation](archived/r-jobs.shtml)
+-   [Building a R installation](r-build.shtml)
 
 <a name="supported"></a>
 
@@ -85,7 +85,7 @@ transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz
 +IsBuildJob = true
 requirements = (OpSysMajorVer =?= 7)
 request_cpus = 1
-request_memory = 2GB
+request_memory = 4GB
 request_disk = 2GB
 
 queue

@@ -46,8 +46,6 @@ the annual [HTCondor Week conference](https://agenda.hep.wisc.edu/event/1579/).
 
 **Cancellations will be announced via email and on this webpage.**
 
- **Temporary Changes to Office Hours**
-
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
@@ -57,10 +55,8 @@ To drop in, find the videoconference link in either your email (via
 an announcement to chtc-users sent on Wed., March 11) or in the login message
 when you log into a CHTC server. 
 
-As always, if the times above don't work for you, please email use 
+As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
-
-
 
 [Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
 

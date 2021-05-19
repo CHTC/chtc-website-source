@@ -104,6 +104,11 @@ If you want to test your jobs, you have two options:
 
 * We have a guide on exploring and testing Docker containers on your own computer here: 
     * [Exploring and Testing Docker Containers](docker-test.shtml)
-* It will be possible to test interactively in CHTC soon. We will update this guide 
-when this capability is ready. 
+* You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
+interactive flag with `condor_submit`: 
+    ```
+    [alice@submit]$ condor_submit -i docker.sub
+    ```
+    {: .cmd}
+    This should start a session inside the indicated Docker container and connect you to it using ssh. Type `exit` to end the interactive job. 
 

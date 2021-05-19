@@ -42,13 +42,13 @@ project_name/
         scripts, code_package
         shared_input
     job1/
-    input/
+        input/
         job_input
     job2/
         input/
         job_input
     job3/
-    input/
+        input/
         job_input
 ```
 {:.other}

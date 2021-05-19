@@ -3,10 +3,10 @@ layout: default
 title: HPC Cluster Buy In Options 
 ---
 
-The [Center for High Throughput Computing (CHTC)](/) now offers a buy-in
+The [Center for High Throughput Computing (CHTC)](/) offers a buy-in
 option for the campus-shared [high performance computing (HPC)
-Cluster](/HPCuseguide.shtml), which includes a large, freely available
-portion initially funded with support from the [Advanced Computing
+Cluster](/HPC-overview.shtml), which otherwise includes a large, freely available
+set of capacity initially funded with support from the [Advanced Computing
 Initiative (ACI)](http://aci.wisc.edu/).
 
 **Please contact <chtc@cs.wisc.edu>, if you would like to discuss
@@ -21,7 +21,7 @@ including:
 
 -   continued access to the freely-available cluster partitions
 -   fast Infiniband networking (56 Gbit/s) and the SLURM queueing system
--   use of the cluster\'s shared Gluster file system with a starting
+-   use of the cluster\'s scratch-based filesystem with a starting
     value of 100 GB of storage space, per user, and options for space
     increases
 -   server hosting: server room space, rack costs, power and cooling
@@ -33,15 +33,8 @@ including:
 -   multi-group, license-sharing options for research-specific software
 -   resource sharing options for temporary, on-demand access to more
     cores
--   automatic hardware upgrades when deemed necessary for the cluster\*
+-   automatic hardware upgrades when deemed necessary for the cluster
 
 All chassis purchases are considered capitol equipment. To learn more
-about the buy-in option, please contact the CHTC (chtc@cs.wisc.edu) or
-ACI (ContactACI@lists.wisc.edu). Typically, prior use of the HPC
-Cluster and a consultation with CHTC staff are required prior to
-pursuing a purchase.
-
-\*Changes of hardware will always be for equivalent or better hardware
-specifications with respect to RAM, processor speed, etc. \"Owners\"
-will have priority on at least the number of cores they initially
-purchased.
+about the buy-in option, please contact use (chtc@cs.wisc.edu). Typically, prior use of the HPC
+Cluster and a consultation with CHTC staff are required for new purchases.

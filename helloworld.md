@@ -31,21 +31,21 @@ Contents
 **1. Let\'s first do, and then ask why**
 ====================================
 
-Rather than having you read a bunch of stuff before hand, let\'s just
-run some jobs so you can see what happens, and we\'ll provide some
-additional discussion along the way. 
+We recommend that you also check out the 
+[HTCondor Job Submission Intro (video)](https://www.youtube.com/watch?v=p2X6s_7e51k&list=PLO7gMRGDPNumCuo3pCdRk23GDLNKFVjHn&index=2),
+but this example let's you just run some jobs so you can see what
+happens, with some additional discussion along the way. 
 
 We are going to run the traditional
 \'hello world\' program with a CHTC twist. In order to demonstrate the
-distributed resource nature of the CHTC, we will produce a \'Hello
-CHTC\' message 3 times, where each time is its own job. Since you are
-not directly invoking the execution of each job, you need to tell
-HTCondor *how* to run the jobs for you. The information needed is placed
-into a *submit file*, which defines variables that describe the set of
-jobs.
+distributed resource nature of CHTC's HTC System, we will produce a \'Hello
+CHTC\' message 3 times, where each message is produced within is its own \'job\'.
+Since you will not run execution commands yourself (HTCondor will do it for you), you need to tell
+HTCondor *how* to run the jobs for you in the form of a *submit file*, which
+describes the set of jobs.
 
 ***Note: You must be logged into an HTCondor submit machine for the
-following example to work***
+following example to work.***
 
 **1.** Copy the highlighted text below, and paste it into file called
 `hello-chtc.sub`, the submit file, in your home directory on the submit
@@ -56,13 +56,12 @@ machine.
 # My very first HTCondor submit file
 #
 # Specify the HTCondor Universe (vanilla is the default and is used
-#  for almost all jobs), the desired name of the HTCondor log file,
-#  and the desired name of the standard error file.  
-#  Wherever you see $(Cluster), HTCondor will insert the queue number
-#  assigned to this set of jobs at the time of submission.
+#  for almost all jobs) and your desired name of the HTCondor log file,
+#  which is where HTCondor will describe what steps it takes to run 
+#  your job. Wherever you see $(Cluster), HTCondor will insert the 
+#  queue number assigned to this set of jobs at the time of submission.
 universe = vanilla
 log = hello-chtc_$(Cluster).log
-error = hello-chtc_$(Cluster)_$(Process).err
 #
 # Specify your executable (single binary or a script that runs several
 #  commands), arguments, and a files for HTCondor to store standard
@@ -72,10 +71,11 @@ error = hello-chtc_$(Cluster)_$(Process).err
 executable = hello-chtc.sh
 arguments = $(Process)
 output = hello-chtc_$(Cluster)_$(Process).out
+error = hello-chtc_$(Cluster)_$(Process).err
 #
 # Specify that HTCondor should transfer files to and from the
 #  computer where each job runs. The last of these lines *would* be
-#  used if there were any other files needed for the executable to run.
+#  used if there were any other files needed for the executable to use.
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 # transfer_input_files = file1,/absolute/pathto/file2,etc
@@ -251,7 +251,7 @@ Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 A. Removing Jobs
 ----------------
 
-To remove a specific job, specify the job ID nubmer from the queue
+To remove a specific job, specify the job ID number from the queue
 (format: Cluster.Process). Example:
 
 ``` 
@@ -281,11 +281,13 @@ what issues your job(s) may have had, if any.
 and Disk Requirements.** The log file also indicates how much memory and
 disk each job used, so that you can first test a few jobs before
 submitting many more with more accurate request values. When you request
-too little, your jobs will be \"evicted\" from the computer they\'re
-running on, and HTCondor will have to try to rerun them (maybe many
-times) until it requests enough for you. When you request too much, your
-jobs may not match to as many available \"slots\" as they could
-otherwise, and your overall throughput will suffer in that case as well.
+too little, your jobs will be terminated by HTCondor and set to \"hold\" 
+status to flag that job as requiring your attention. To learn more 
+about why a job as gone on hold, use `condor_q -hold`.
+
+When you request too much, your jobs may not match to as many 
+available \"slots\" as they could otherwise, and your overall throughput 
+will suffer in that case as well.
 
 3\. **Determining Run Time.** Depending on how long each of your jobs are
 (determined by examining when the job began executing and when it
@@ -314,24 +316,27 @@ files, as appropriate, and after running a few tests.
 Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
 
 
-D. Now, time for a little homework
+D. Run Your OWN Jobs
 ----------------------------------
 
-To get the most of the CHTC, you will want to have a good understanding
-of how HTCondor works. **We HIGHLY recommend browsing the latest
-[HTCondor User Tutorial](https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed)
-from the international HTCondor Week conference.** 
+If you didn't check it out already, NOW is a great time to check out the 
+[HTCondor Job Submission Intro (video)](https://www.youtube.com/watch?v=p2X6s_7e51k&list=PLO7gMRGDPNumCuo3pCdRk23GDLNKFVjHn&index=2), 
+which introduces various ways to specify differences between jobs (e.g. 
+parameters, different input filenames, etc.), ways to organize your data, etc.
+You'll notice that it's part of a playlist of videos with topics for HTCondor users.
 
 [Our full set of CHTC
-online guides is available here.](guides.shtml) Remember to [Get
+online guides is available here](guides.shtml), and includes some specific 
+examples for how to use various software within a job, or a Research Computing 
+Facilitation can help you get your software going. Remember to [Get
 Help](get-help.shtml) whenever you have questions or issues. That\'s
-what CHTC staff are here for. 
+what CHTC staff are here for.
 
 The full HTCondor manual is comprehensive
 and lengthy, and Googling \"HTCondor examples\" may lead you to examples
 that really only work on another campus\'s HTCondor system. You can
 always dig into more details as you become more experienced, but the
-below pages of the manual may be a good place to start if you like
+below pages of the manual may be a good place to start, if you like
 manuals:
 
 -   [Road-map for Running
