@@ -12,6 +12,67 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HTCondor Week 2021 May 24-27; Expect delayed CHTC replies through May 28.
+### Wednesday, May 19, 2021
+
+Greetings CHTC Users,
+
+This is a reminder that HTCondor Week takes place next week. It's free and virtual, but make sure to [register](https://agenda.hep.wisc.edu/event/1579).
+
+Additionally, **please expect replies from CHTC staff (via chtc@cs.wisc.edu) to take a bit longer than usual from May 20-28**, while our staff are busy preparing for and executing the conference.
+
+That said ...
+
+* CHTC Virtual Office Hours will continue Tu/Th 3-5pm. 
+* **Please continue to use chtc@cs.wisc.edu for any issues or questions about using CHTC services.**
+
+We hope to see you there!
+Your CHTC Team
+
+------------------------------------------------------------------------
+## OSG Virtual School 2021: Learn to harness large-scale computing for research
+### Thursday, May 13, 2021
+
+Greetings CHTC users,
+
+As we have in previous years, we invite you to apply to this year's Open Science Grid Virtual School, which will be held online this year. Check out the short application form and let us know if you have any questions by emailing chtc@cs.wisc.edu or user-school@opensciencegrid.org.
+
+Cheers,
+Your CHTC team
+
+We are seeking applicants for the OSG Virtual School 2021, which will take
+place the weeks of August 2-6 and 9-13.  As the name indicates, the School
+will be all virtual again this year.
+
+https://opensciencegrid.org/virtual-school-2021/
+
+Participants will learn to use high throughput computing (HTC) to harness
+vast amounts of computing power for research, applicable to nearly any
+field of study.  In past Schools, we have helped people in physics,
+chemistry, engineering, life sciences, earth sciences, agricultural and
+animal sciences, economics, social sciences, medicine, and more.
+
+Participation in the event is free, but a selective application process is
+required.
+
+Ideal candidates are graduate students doing research and staff (e.g.,
+facilitators, admins) supporting research that involves or could involve
+large-scale computing - work that cannot be done on one laptop or a handful
+of computers.  Also, we accept some post-doctoral students, faculty,
+research staff, and advanced undergraduates, so make a strong case for
+yourself regardless of your current role!
+
+IMPORTANT DATES
+
+* Application Period (OPEN NOW): 7-28 May 2021
+* OSG Virtual School: 2-13 August 2021
+
+MORE INFORMATION AND APPLICATIONS
+
+* Web: https://www.opensciencegrid.org/virtual-school-2021/
+* Twitter: https://twitter.com/OSGUserSchool
+
+------------------------------------------------------------------------
 ## Certain execute nodes shut down
 ### Wednesday, May 12, 2021
 
@@ -29,38 +90,6 @@ Please review your jobs and email us at chtc@cs.wisc.edu if you’re not sure ho
 Best,
 
 Your CHTC team
-
-------------------------------------------------------------------------
-## Support email is back; reminder about the HPC cluster downtime tomorrow (April 27)
-### Monday, April 26, 2021
-
-Greetings CHTC users, 
-
-#### Support Email Responses are Back
-
-We were able to make a quick fix to our support email address (chtc@cs.wisc.edu), and are now able to respond to help requests as normal. As we’ve accumulated a backlog of requests over the morning, it may still be a few hours before we respond to emails sent in before noon today (April 26). If you sent an email to our help address and haven’t received a reply by tomorrow (April 27) at noon, please follow up at the chtc@cs.wisc.edu address again. 
-
-#### HPC Cluster Downtime Reminder
-
-A quick reminder that our HPC Cluster will be down for maintenance tomorrow, April 27, starting at 9:00am. Full details are below.
-
-------------------------------------------------------------------------
-## Limited response to emails today, April 26 (UPDATE: RESOLVED - see above)
-### Monday, April 26, 2021
-
-------------------------------------------------------------------------
-## HPC Cluster downtime on Tuesday, April 27
-### Tuesday, April 20, 2021
-
-Greetings CHTC users, 
-
-_This message is for users of our high performance computing (HPC) cluster._
-
-In order to incorporate new hardware, update network switches, and perform other general maintenance, **there will be an HPC Cluster downtime on Tuesday, April 27**, starting at 9:00am, and expected to last up to 6 hours. 
-
-To prevent jobs from being interrupted by the downtime, we are currently draining jobs from all cluster nodes. **Submitted jobs requesting 7 days (or any time request that cannot be completed by April 27) will not start until the downtime is complete.** Jobs can still run on the cluster, but only if their time request (“--time=” in the submit file) indicates that they will complete before next Tuesday, April 27. 
-
-We will send a reminder about the downtime on Monday, April 26, and a confirmation when the cluster is back up on April 27. Please contact us at chtc@cs.wisc.edu with any questions and concerns. 
 
 ------------------------------------------------------------------------
 
