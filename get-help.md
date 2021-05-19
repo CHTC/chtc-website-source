@@ -8,12 +8,11 @@ title: Get Help!
 
 ## Research Computing Facilitators
 
-To help researchers effectively utilize CHTC, CHTC has Research
-Computing Facilitators (RCFs) as a result of partnership with the
-Advanced Computing Initiative. Our RCFs can not only assist your in
+To help researchers effectively utilize computing resources, our Research
+Computing Facilitators (RCFs) not only assist your in
 implementing your computational work on CHTC compute resources
 resources, but can also point you to other on- and off-campus services
-related to computation and research IT needs. For example, RCFs can: 
+related to research computating and data needs. For example, RCFs can: 
 
 * Assist with planning your computational approach for a research
 problem 
@@ -38,6 +37,10 @@ We provide support via email at the address
 [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
+
+**Please note that replies to new account requests and email-based support
+requests may be delayed May 20-28, as CHTC staff prepare for and execute
+the annual [HTCondor Week conference](https://agenda.hep.wisc.edu/event/1579/).
 
 ## Office Hours
 
