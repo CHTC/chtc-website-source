@@ -52,10 +52,13 @@ for running on the login nodes, consider using an interactive job or contact us 
 **CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy**
 
+Violation of these policies may result in suspension of your account.
+
 **2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
 HPC users should not run single-core or single-node jobs to the HPC Cluster, given its 
 optimization for multi-node/MPI-based work. Users will 
-be asked to transition work appropriately to our high-throughput computing system.
+be asked to transition work appropriately to our high-throughput computing system, where they 
+will also experience better turnaround for such work.
 
 **3. Maintain Copies of Essential Data in non-CHTC Locations**    
 The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
@@ -70,7 +73,11 @@ CHTC Staff reserve the right to remove any significant amounts of data on the HP
 in our efforts to maintain filesystem performance for all users, though we will always 
 first ask users to remove excess data and minimize file counts before taking additional action.
 
-**4. Fair-share Policies**  
+**NOTE: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+CHTC systems. If you have data security concerns or any questions about 
+data security in CHTC, please get in touch! We'll be happy to discuss.
+
+**4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
 running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 600 cores 
 across all running jobs (core limits do not apply on research group partitions of
