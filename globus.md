@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Using Globus to Transfer Files to and from CHTC
 ---
 

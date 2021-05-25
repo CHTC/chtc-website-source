@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: The HTC System is Transitioning to a Newer Linux Version (CentOS 7)
 ---
 

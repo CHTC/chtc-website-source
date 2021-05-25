@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Running Jobs Beyond CHTC Using Containers
 ---
 

@@ -1,72 +1,80 @@
 ---
-layout: default
+layout: content
 title: CHTC Tools for Matlab, R, and Python Portability
 ---
 
-
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "bootstrap.css"/>
-
-<p>
-Software like Matlab, R, and Python may or may not exist on CHTC-accessible
- compute hardware (especially on the UW Grid and Open Science Grid). Even if
- it is installed, it may not be the version you need. So, in order to get
- your jobs running on as many computers as possible, we are happy to work with
- you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
-<br><br>
-
-
-<div class="card-deck">
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Matlab_Logo.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Matlab Jobs</h5>
-		<p class="card-text">If you are running Matlab jobs, the following guide will explain how to compile your code and 
-	edit the scripts necessary to run your jobs on the CHTC pool</p>
--->
-		<a href="matlab-jobs.shtml" class="btn btn-primary">Running Matlab Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/Python_Logo.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running Python Jobs</h5>
-		<p class="card-text">If you are running Python jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="python-jobs.shtml" class="btn btn-primary">Running Python Jobs in CHTC</a>
-	  </div>
-	</div>
-	<div class="card text-center text-white bg-danger mb-3" style="width: 18rem;">
-	  <img src="/images/R_Logo.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-<!--
-		<h5 class="card-title">Running R Jobs</h5>
-		<p class="card-text">If you are running R jobs, the following guide will explain how to prepare your code and write a script to run your jobs on the CHTC pool</p>
--->
-		<a href="r-jobs.shtml" class="btn btn-primary">Running R Jobs in CHTC</a>
-	  </div>
+<div class="uw-row-full">
+	<div class="uw-row">
+		<div class="uw-col uw-body">
+            <p>
+             Software like Matlab, R, and Python may or may not exist on CHTC-accessible
+             compute hardware (especially on the UW Grid and Open Science Grid). Even if
+             it is installed, it may not be the version you need. So, in order to get
+             your jobs running on as many computers as possible, we are happy to work with
+             you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).
+            </p>
+		</div>
 	</div>
 </div>
-
-
-<div class="card border-danger mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Can't Find What You're Looking For?</h5>
-    <p class="card-text">If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool</p>
-		<div class="col text-center">
-		  <a href="http://chtc.cs.wisc.edu/inter-submit.shtml" class="btn btn-primary">General Software Installation Instructions</a>
-	    </div>
-  </div>
+<div class="uw-full-row uw-pad-tb uw-light-grer-bg">
+	<div class="uw-row">
+		<div class="uw-card">
+			<div class="uw-card-content">
+				<a href="/matlab-jobs"><img src="/images/Matlab_Logo.png" alt="Matlab Logo"></a>
+				<div class="uw-card-copy">
+					<h2 class="uw-mini-bar"><a href="/matlab-jobs">Running Matlab Jobs in CHTC</a></h2>
+				</div>
+			</div>
+		</div>
+		<div class="uw-card">
+			<div class="uw-card-content">
+				<a href="/python-jobs">
+					<img src="/images/Python_Logo.png" alt="Python Logo">
+				</a>
+				<div class="uw-card-copy">
+					<h2 class="uw-mini-bar"><a href="/python-jobs">Running Python Jobs in CHTC</a></h2>
+				</div>
+			</div>
+		</div>
+		<div class="uw-card">
+			<div class="uw-card-content">
+				<a href="/r-jobs"><img src="/images/R_Logo.png" alt="R logo"></a>
+				<div class="uw-card-copy">
+					<h2 class="uw-mini-bar"><a href="/r-jobs">Running R Job in CHTC</a></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="uw-row-full">
+	<div class="uw-row">
+		<div class="uw-col uw-body">
+            <h3>
+                Can't Find What You're Looking For?
+            </h3>
+            <p>
+                If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool
+            </p>
+            <p>
+                <a href="/inter-submit">
+                    General Software Installation Instructions
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="uw-row-full">
+	<div class="uw-row">
+		<div class="uw-col uw-body">
+            <p>
+                If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
+            </p>
+            <p>
+                For old guides not shown on this page, see our <a href="archived/howto_overview">archived page</a>.
+            </p>
+        </div>
+    </div>
 </div>
 
-
-<p>If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
-</p>
-
-<p>For old guides not shown on this page, see our <a href="http://chtc.cs.wisc.edu/archived/howto_overview.shtml">archived page</a>.
-</p>
 
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Getting a Submit Node
 ---
 

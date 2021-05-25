@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Scaling Beyond Local HTC Capacity
 ---
 

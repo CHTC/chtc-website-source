@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Transition to the Newly Configured HPC Cluster
 ---
 

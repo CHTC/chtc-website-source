@@ -1,0 +1,10 @@
+title: Qiang Cui
+image: /images/cui.jpg
+description: >
+  We use CHTC machines to carry out molecular dynamics simulations to study
+  chemical reactions in solution and biomolecules.  By using a semi-empirical
+  QM/MM methods developed in our group, these calculations can run efficiently
+  in a largely uncoupled fashion with the CHTC system.  This type of computing
+  environment is ideal for many studies that require running a large number of
+  independent computations, such as constructing the free energy landscape of
+  chemical reactions in the condensed phase.
