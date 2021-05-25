@@ -1,0 +1,262 @@
+// Originally sourced from FormHack v1.1.0 (formhack.io)
+// https://github.com/ireade/formhack
+
+// Config -----------------------------
+
+// Font
+$fh-font-size: 1rem !default;
+$fh-font-color: $uw-body-font !default;
+
+// Borders
+$fh-border-radius: 0px !default;
+$fh-border-width: 1px !default;
+$fh-border-style: solid !default;
+$fh-border-color: rgb(200, 200, 200) !default;
+
+// Inputs, Textareas, Select, Option
+$fh-input-height: 2.5rem !default;
+$fh-input-width: 100% !default;
+$fh-input-max-width: 100% !default;
+$fh-input-bg-color: #fff !default;
+$fh-focus-bg-color: $uw-anchor-color !default;
+$fh-focus-border-color: $fh-border-color !default;
+$fh-focus-font-color: $fh-font-color !default;
+
+// Select Vendor Styling
+$fh-allow-vendor-styling: true !default;
+
+// Fieldset & Legend Styling
+$fh-fieldset-bare: false !default;
+
+// Buttons & Input Submits
+$fh-button-height: 40px !default;
+$fh-button-width: 100% !default;
+$fh-button-max-width: inherit !default;
+$fh-button-font-color: $uw-white !default;
+$fh-button-bg-color: $fh-focus-bg-color !default;
+$fh-button-hover-bg-color: scale-color($uw-anchor-color, $lightness: -15%) !default;
+$fh-button-hover-font-color: $uw-white !default;
+
+// Layout
+$fh-centered: false !default;
+$fh-display: block !default;
+
+
+// Center/Left-Aligned Layout
+@mixin center-layout {
+	@if $fh-centered == true {
+		margin: 0 auto;
+		text-align: center;
+	}
+	@else {
+		margin: 0;
+	}
+}
+
+
+/* Global Reset Styles ------------------ */
+
+input,
+textarea,
+select,
+option,
+optgroup,
+legend,
+fieldset {
+	font-size: $fh-font-size;
+	color: $fh-font-color;
+	vertical-align: top;
+
+	display: $fh-display;
+	@include center-layout;
+}
+
+
+datalist {
+	font-size: $fh-font-size;
+}
+
+label {
+	display: $fh-display;
+	@include center-layout;
+}
+
+.uw-input-row	{
+	margin: 0 0 1rem 0;
+}
+
+/* Input & Textarea ------------------ */
+
+/* Fields with standard width */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[list],
+input[type="file"],
+select,
+textarea {
+	width: $fh-input-width;
+	max-width: $fh-input-max-width;
+	padding: $fh-input-height / 5;
+	background-color: $fh-input-bg-color;
+	border-radius: $fh-border-radius;
+	border: $fh-border-width $fh-border-style $fh-border-color;
+}
+
+/* Fields with standard height */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[list] {
+	height: $fh-input-height;
+}
+
+/* Other */
+
+textarea {
+	overflow: auto;
+}
+
+input[type="range"] {
+	height: $fh-input-height;
+	width: $fh-input-width;
+	max-width: $fh-input-max-width;
+}
+
+input[type="file"] {
+	min-height: $fh-input-height;
+}
+
+input[type="search"] {
+	-webkit-appearance: none;
+	height: $fh-input-height;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline-block;
+	vertical-align: .1rem;
+	margin: 0 .1rem;
+}
+
+/* Select ------------------ */
+
+select {
+	height: $fh-input-height;
+}
+
+select[multiple] {
+	height: auto;
+	min-height: $fh-input-height;
+	padding: 0;
+
+	option {
+		margin: 0;
+		padding: $fh-input-height / 5;
+	}
+}
+
+/* Fieldset ------------------ */
+
+fieldset {
+	@if $fh-fieldset-bare == true {
+		padding: 0;
+		border: 0;
+	}
+	@else {
+		padding: 10px 25px;
+		border-radius: $fh-border-radius;
+		border: $fh-border-width $fh-border-style $fh-border-color;
+	}
+	margin-bottom: 1rem;
+}
+
+legend {
+	@if $fh-fieldset-bare == true {
+		padding: 0;
+		font-weight: inherit;
+	}
+	@else {
+		padding: 0 5px;
+		font-weight: 700;
+	}
+}
+
+/* Buttons, Input Type Submit/Reset ------------------ */
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="image"] {
+	height: $fh-button-height;
+	width: $fh-button-width;
+	max-width: $fh-button-max-width;
+	background-color: $fh-button-bg-color;
+	padding: $fh-input-height / 5;
+	cursor: pointer;
+	color: $fh-button-font-color;
+	font-weight: 700;
+	font-family: $uw-verlag-font;
+	border-radius: $fh-border-radius;
+	border: $fh-border-width $fh-border-style $fh-border-color;
+	text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+
+}
+
+input[type="image"] {
+	text-align: center;
+	padding: $fh-input-height / 5;
+}
+
+/* States ------------------ */
+
+input[disabled],
+textarea[disabled],
+select[disabled],
+option[disabled] {
+	cursor: not-allowed;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+option:focus  {
+	background-color: inherit;
+	border-color: $fh-focus-border-color;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+	outline: $fh-focus-border-color solid 2px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+	background-color: $fh-button-hover-bg-color;
+	color: $fh-button-hover-font-color;
+}

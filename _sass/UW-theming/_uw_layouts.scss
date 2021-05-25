@@ -1,0 +1,39 @@
+@import "uw_side_nav";
+@import "uw_card";
+
+.uw-body {
+  @include uw-flex-column(66.6667%);
+  p,li,dd,dt {
+    font-family: $uw-serif-font;
+    -webkit-font-smoothing: auto;
+  }
+  &:first-child:last-child {
+    @include uw-flex-column;
+    padding-top: 0;
+  }
+  h2.uw-mini-bar {
+    margin-top: 3.2rem;
+  }
+}
+.uw-sidebar {
+  @include uw-flex-column(33.3333%);
+  margin-bottom: 3rem;
+}
+
+.uw-sidebar-box {
+  @include uw-boxed(1rem 1.25rem);
+  > h3 {
+    @include uw-mini-bar;
+  }
+  > h3:first-child {
+    // margin-top: 0;
+  }
+  > p, li {
+    margin-bottom: 1.35rem;
+    line-height: 1.35;
+  }
+  @include breakpoint($uw-main-nav-breakpoint) {
+    border-top: 1px solid $uw-gray-light;
+    border-left: 1px solid $uw-gray-light;
+  }
+}
