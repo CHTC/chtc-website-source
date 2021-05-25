@@ -21,7 +21,7 @@ the diagram below:
 
 CHTC's data filesystem called "Staging" is a distinct location for 
 temporarily hosting files that are too large to be handled in a 
-high-throughput fashion via the default HTCondor file transfer 
+high-throughput fashion via the default <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer 
 mechanism which is otherwise used for small files hosted in your `/home` 
 directory on your submit server. 
 

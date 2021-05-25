@@ -72,7 +72,7 @@ available.
 
 # Transferring Input Files
 
-To have HTCondor transfer small (<100MB) input files needed by 
+To have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> transfer small (<100MB) input files needed by 
 your job, include the following attributes in your CHTC HTCondor submit files:
 
 ``` {.sub}
@@ -137,7 +137,7 @@ By default, the submit file `executable`, `output`, and
 
 # Transferring Output Files
 
-All of your HTCondor submit files should have the following attributes:
+All of your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files should have the following attributes:
 
 ``` {.sub}
 # my job submit file
@@ -192,7 +192,7 @@ directory.
 
 ## Select Specific Output Files To Transfer to `/home`
 
-As described above, HTCondor will transfer ALL new or modified files in the top level 
+As described above, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will transfer ALL new or modified files in the top level 
 directory of the job (where it ran on the execute server), back to the job's initial directory 
 on the submit server. If your jobs will produce multiple output 
 files but you only need to retain a subset of these output files, we recommend deleting the unrequired 
