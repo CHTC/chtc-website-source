@@ -111,7 +111,7 @@ output = <i>outfile.out</i>
 error = <i>errfile.err</i>
 </pre>
 
-<p>HTCondor will produce these files and they can be used for troubleshooting.  
+<p><a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will produce these files and they can be used for troubleshooting.
 Here is the kind of information you can find in each file. </p>
 
 <b>Output</b>
@@ -143,7 +143,7 @@ your code triggered an error. </p>
 
 <b>Log</b>
 
-<p>The log file contains information that HTCondor tracks for each job, including 
+<p>The log file contains information that <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> tracks for each job, including
 when it was submitted, started, and stopped.  It also describes resource use, 
 and where the job ran. </p>
 

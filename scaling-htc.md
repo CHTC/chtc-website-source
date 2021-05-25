@@ -51,7 +51,7 @@ We call sending jobs to other pools on campus *flocking*.
 B. The Open Science Grid (OSG)
 ------------------------------
 
-The Open Science Grid (OSG) is a group of universities and research labs
+The <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> is a group of universities and research labs
 who have agreed to share their unused computational resources with each
 other. If a job is submitted from an OSG submission point, it can run in
 the OSG pool associated with that submission point. This OSG pool is the

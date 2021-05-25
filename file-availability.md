@@ -56,7 +56,7 @@ portion of the data. By default, the submit file `executable`,
 * Advantages:  
 HTCondor file transfer is robust and is available on ANY of CHTC\'s
 accessible HTC resources including the UW Grid of campus pools, and the
-Open Science Grid.
+<a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 
 * Data Security:  
 Files transferred with HTCondor transfer are owned by the job and

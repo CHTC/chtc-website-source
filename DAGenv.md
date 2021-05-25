@@ -7,11 +7,11 @@ title: Submitting Jobs Using the ChtcRun Package
 To facilitate the submission of large batches of jobs, especially
 batches for Matlab, Python, and R, the CHTC has created the ChtcRun
 package of scripts, files, and directories that will allow you to easily
-construct your own HTCondor workflow (or \"DAG\" batch). By following
+construct your own <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> workflow (or \"DAG\" batch). By following
 the ordered set of directions given here, you\'ll be able to easily set
 up and run a set of high-throughput computing jobs on CHTC-available
 resources, including those outside of the CHTC HTCondor Pool in the UW
-Grid and national Open Science Grid.
+Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 
 1.  From within your home directory on the submit node, in a directory
     of your choice, download the ChtcRun package:
