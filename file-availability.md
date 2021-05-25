@@ -72,7 +72,7 @@ available.
 
 # Transferring Input Files
 
-To have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> transfer small (<100MB) input files needed by 
+To have HTCondor transfer small (<100MB) input files needed by 
 your job, include the following attributes in your CHTC HTCondor submit files:
 
 ``` {.sub}

@@ -10,7 +10,7 @@ package of scripts, files, and directories that will allow you to easily
 construct your own <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> workflow (or \"DAG\" batch). By following
 the ordered set of directions given here, you\'ll be able to easily set
 up and run a set of high-throughput computing jobs on CHTC-available
-resources, including those outside of the CHTC <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> Pool in the UW
+resources, including those outside of the CHTC HTCondor Pool in the UW
 Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 
 1.  From within your home directory on the submit node, in a directory
