@@ -12,7 +12,7 @@ To help researchers effectively utilize computing resources, our Research
 Computing Facilitators (RCFs) not only assist your in
 implementing your computational work on CHTC compute resources
 resources, but can also point you to other on- and off-campus services
-related to research computating and data needs. For example, RCFs can: 
+related to research computing and data needs. For example, RCFs can: 
 
 * Assist with planning your computational approach for a research
 problem 
