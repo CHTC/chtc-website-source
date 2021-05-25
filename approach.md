@@ -15,10 +15,10 @@ run thousands of independent jobs on as many total processors as
 possible. These computers, or "machines", are distributed across several 
 collections that we call *pools* (similar to "clusters"). Because machines are
 assigned to individual jobs, many users can be running jobs on a pool at any
-given time, all managed by <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>.
+given time, all managed by HTCondor.
 
 The diagram below shows some of the largest pools on campus and also
-shows our connection to the US-wide Open Science Grid where UW computing
+shows our connection to the US-wide <a href="http://www.opensciencegrid.org/">Open Science Grid</a> where UW computing
 work can "backfill" available computers all over the country. The number
 under each resource name shows an approximate number of computing hours
 available to campus researchers for a typical week in Fall 2013. As
