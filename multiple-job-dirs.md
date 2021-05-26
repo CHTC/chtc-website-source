@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Submitting Multiple Jobs in Individual Directories
 ---
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Exploring a Docker Container on Your Computer
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Usage Summary by Week
 ---
 

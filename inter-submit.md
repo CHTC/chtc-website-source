@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Compiling or Testing Code with an Interactive Job
 ---
 

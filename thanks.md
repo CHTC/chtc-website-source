@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Account Request Submitted
 ---
 <script type="text/javascript">

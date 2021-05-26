@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Compiling Matlab, Python, and R Code
 ---
 
