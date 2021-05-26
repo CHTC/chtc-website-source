@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Running HTC Jobs Using Docker Containers
 ---
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Welcome to the CHTC GPU Lab
 ---
 

@@ -1,4 +1,5 @@
 <link href="/web.css" rel="stylesheet" type="text/css">
+<link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 

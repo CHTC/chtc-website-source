@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Running Matlab Jobs on CHTC 
 ---
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Accessing Additional Resources by Running Outside of CHTC
 ---
 

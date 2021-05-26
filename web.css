@@ -129,24 +129,6 @@ body {
 	font-family: Verdana, Arial, Helvetica,sans-serif;
 }
 
-#main {
-	background: #fff;
-	margin: 10px 5px;
-	padding: 20px;
-	min-height: 1300px;
-	border-bottom: 3px solid #bbb;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-radius: 5px;
-   -moz-border-radius-right: 5px;
-   -webkit-border-radius-right: 5px;
-
-   -moz-box-shadow:    0px 2px 7px 1px #bbb;
-   -webkit-box-shadow: 0px 2px 7px 1px #bbb;
-   box-shadow:         0px 2px 7px 1px #bbb;
-
-}
-
 .bgred {  
 	background-color: #B70101;
    -moz-border-top-right-radius: 10px;
@@ -424,7 +406,7 @@ a.tile h2{
 }
 
 #osg_power {
-	height: 92px;
+	height: 92px;u
 	margin-left:10px;
 	float: right;
     background: #F29B12;

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Transferring Files Between CHTC and ResearchDrive
 ---
 

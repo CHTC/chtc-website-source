@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Learning About Your Jobs Using condor_q
 ---
 

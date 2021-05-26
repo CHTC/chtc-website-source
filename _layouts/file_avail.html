@@ -1,11 +1,68 @@
+---
+title: File Available
+layout: default
+---
 
-{% include template-1-openhead.shtml %}
-{% include template-2-opensidebar.shtml %}
-{% include template-3-sidebar.shtml %}
-{% include template-4-mainbody.shtml %}
-{% include template-file-avail.shtml %}
+<h2>Which Option is the Best for Your Files?</h2>
+<br>
+<table class="gtable">
+    <tr>
+        <th> </th>
+        <th>Meant For</th>
+        <th>Input/Software File Sizes</th>
+        <th>Output File Sizes</th>
+        <th>Available for Jobs Running ...</th>
+        <th>File Security</th>
+        <th>Special Considerations</th>
+    </tr>
+
+    <tr>
+        <td><a href="file-availability.shtml">HTCondor File Transfer</a></td>
+        <td>basic file delivery and return; see size limits at right</td>
+        <td>0 - 100 MB per file; <500 MB total per job</td>
+        <td>0 - 4 GB total	</td>
+        <td>in CHTC, UW Grid, and OSG</td>
+        <td>available to <i>your</i> jobs, on CHTC and beyond</td>
+        <td><font color="red">DO NOT USE for files in <code>/staging</code> OR <code>/squid</code></font></td>
+    </tr>
+
+    <tr>
+        <td><a href="file-avail-squid.shtml">SQUID Web Proxy</a></td>
+        <td>large input or software shared by <i>many</i> jobs</td>
+        <td>100 MB - 1 GB per shared file</td>
+        <td>N/A</td>
+        <td>in CHTC, UW Grid, and OSG</td>
+        <td>files will be world-<i>readable</i></td>
+        <td>large files unique to individual jobs are better for large data staging</td>
+    </tr>
+
+    <tr>
+        <td><a href="file-avail-largedata.shtml">Large Data Staging</a></td>
+        <td>largest software, input, and output</td>
+        <td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
+        <td>4 GB - TBs</td>
+        <td>in only a portion of CHTC</td>
+        <td>accessible ONLY to your jobs on specific CHTC servers</td>
+        <td>special submit "Requirements"</td>
+    </tr>
+</table>
+
+<!--
+<h2>Best Practices for File Delivery</h2>
+
+<p>Remember to review best practices in our File Handling guide,
+including the following:</p>
+
+<ul>
+<li>Pre-split large input files when each of many jobs will only need a portion of the
+large input data.</li>
+<li>Remove ALL unwanted/temporary files in the working director of the job that have
+appeared since the job started.</li>
+<li>Use tar with compression (*.tar.gz) for any relevant input/output files and ALL
+desired output directories prior to their transfer/delivery.</li>
+</ul>
+-->
 
 {{ content }}
 
-{% include template-5-finish.shtml %}
 

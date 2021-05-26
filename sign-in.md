@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Sign In for Office Hours
 ---
 <!-- 

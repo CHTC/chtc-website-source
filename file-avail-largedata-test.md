@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Managing Large Data in HTC Jobs
 ---
 

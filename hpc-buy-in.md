@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: HPC Cluster Buy In Options 
 ---
 
