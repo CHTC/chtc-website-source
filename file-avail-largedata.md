@@ -20,16 +20,16 @@ familiar with:**
 2.  CHTC's [Intro to Running HTCondor Jobs](/helloworld.shtml)
 3.  CHTC's guide for [Typical File Transfer](/file-availability.shtml)
 
-Contents
---------
-
+{% capture content %}
 1.  [Policies and Intended Use](#1-policies-and-intended-use)
 2.  [Staging Large Data](#2-staging-large-data)
 3.  [Using Staged Files in a Job](#3-using-staged-files-in-a-job)
-	- [Accessing Large Input Files](#a-accessing-large-input-files)
-	- [Moving Large Output Files](#b-moving-large-output-files)
+	* [Accessing Large Input Files](#a-accessing-large-input-files)
+	* [Moving Large Output Files](#b-moving-large-output-files)
 4.  [Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
 5.  [Checking your Quota, Data Use, and File Counts](#5-checking-your-quota-data-use-and-file-counts)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 # 1. Policies and Intended Use
 

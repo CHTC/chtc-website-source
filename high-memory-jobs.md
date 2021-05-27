@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Submitting High Memory Jobs on CHTC's HTC System
 ---
 

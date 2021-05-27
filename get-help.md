@@ -55,7 +55,7 @@ when you log into a CHTC server.
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
 
-[Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
+[Click to sign-in for office hours](/sign-in)
 
 
 <!-- For users who already have accounts, we have drop-in office hours on:

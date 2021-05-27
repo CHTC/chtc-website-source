@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Using Java Code in CHTC
 ---
 

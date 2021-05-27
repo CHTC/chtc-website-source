@@ -4,18 +4,17 @@ layout: file_avail
 title: Small Input and Output File Transfer
 ---
 
-Table of Contents
---------
-
-[HTCondor File Transfer](#transfer)   
-[Applicability](#Appli)    
-[Transferring Input Files](#input)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Important Considerations](#important-considerations)   
-[Transferring Output Files](#output)    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Group Multiple Output Files For Convenience](#group)    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Select Specific Output Files To Transfer to `/home`](#select)    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Get Additional Options For Managing Job Output](#help)    
-  
+{% capture content %}
+* [HTCondor File Transfer](#transfer)   
+* [Applicability](#Appli)    
+* [Transferring Input Files](#input)   
+    * [Important Considerations](#important-considerations)   
+* [Transferring Output Files](#output)    
+    * [Group Multiple Output Files For Convenience](#group)    
+    * [Select Specific Output Files To Transfer to `/home`](#select)    
+    * [Get Additional Options For Managing Job Output](#help)    
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 <a name="transfer"></a>
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Jobs That Use GPUs
 ---
 
