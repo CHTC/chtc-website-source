@@ -1,5 +1,5 @@
 ---
-layout: content
+layout: markdown-page
 title: Building a Docker Container Image
 ---
 

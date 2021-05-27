@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Running HTC Jobs Using Docker Containers
 ---
 

@@ -2243,6 +2243,14 @@ input[type="reset"]:focus {
   background-color: #03678f;
   color: #fff; }
 
+div.table-container {
+  overflow: auto;
+}
+
+div.table-container>table {
+  overflow-x: scroll;
+}
+
 table {
   width: 100%;
   margin-bottom: 32px;

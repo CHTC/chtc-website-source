@@ -4,8 +4,7 @@ layout: hpc_layout
 title: HPC Cluster Overview
 ---
 
-# Content
- 
+{% capture content %}
 1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
 2. [HPC User Policies](#hpc-user-policies)  
 3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
@@ -13,7 +12,9 @@ title: HPC Cluster Overview
     - [Operating System and Software](#operating-system-and-software)
 4. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+      
 # High-Performance Computing at CHTC
 
 The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 

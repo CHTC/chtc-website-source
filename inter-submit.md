@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Compiling or Testing Code with an Interactive Job
 ---
 
