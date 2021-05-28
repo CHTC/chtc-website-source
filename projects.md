@@ -26,7 +26,7 @@ title: Projects Using the CHTC
 		</div>
 	</div>
 </div>
-<div>
+<div class="uw-row-full uw-light-grer-bg">
 {% for project_hash in site.data.projects %}
     {% assign project = project_hash[1] %}
     {% include /components/project-row.html %}
