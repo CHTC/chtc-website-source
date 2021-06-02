@@ -13,22 +13,23 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      - name: Remove prod configurations
-        run: |
-          rm -f CNAME
-          sed -i "s|baseurl: ''|baseurl: '/web-preview'|" _config.yml
-          git config user.name "Automatic preview publish"
-          git config user.email "chtc@cs.wisc.edu"
-          git commit -am "GHA: $GITHUB_REPOSITORY #$GITHUB_RUN_NUMBER)"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - run: |
+          ./script/cibuild
+        name: Build web pages
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
-      - name: Deploy web page preview
-        run: |
+      - run: |
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
           ssh-add - <<< "${{ secrets.PREVIEW_DEPLOY_KEY }}"
-          git remote add web-preview "git@github.com:CHTC/web-preview.git"
-          git push -f web-preview HEAD:gh-pages
+          ./script/cideploy
         env:
+          #NO_PUSH: 1
+          TARGET_REPO: CHTC/web-preview
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        name: Deploy preview web pages on merge/push
