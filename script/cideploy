@@ -35,6 +35,7 @@ set +x
 for f in ./*.html; do
     mv -vf "$f" "${f%.html}.shtml"
 done
+touch .nojekyll
 set -x
 #add, commit and push files
 git add -f -A
