@@ -24,6 +24,7 @@ Please continue to contact chtc@cs.wisc.edu with any CHTC-related
 questions or concerns.
 
 Best,
+
 Your CHTC Team
 
 ------------------------------------------------------------------------
