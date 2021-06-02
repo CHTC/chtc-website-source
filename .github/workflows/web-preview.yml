@@ -16,7 +16,7 @@ jobs:
 
       - name: Remove prod configurations
         run: |
-          rm CNAME
+          rm -f CNAME
           sed -i "s|baseurl: ''|baseurl: '/web-preview'|" _config.yml
           git config user.name "Automatic preview publish"
           git config user.email "chtc@cs.wisc.edu"
