@@ -12,6 +12,21 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Limited response to emails today (June 2)
+### Wednesday, June 2, 2021
+
+Greetings CHTC Users,
+
+Most of CHTC’s Research Computing Facilitation team will be out of the
+office today, June 2nd. Responses to email will be limited or delayed.
+
+Please continue to contact chtc@cs.wisc.edu with any CHTC-related
+questions or concerns.
+
+Best,
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## HTCondor Week 2021 May 24-27; Expect delayed CHTC replies through May 28.
 ### Wednesday, May 19, 2021
 
