@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Connecting to CHTC 
 ---
 
@@ -9,9 +9,7 @@ that you have already gotten a CHTC account for either our high
 throughput or high performance compute systems. If you haven\'t, see our
 [getting started](/get-started.shtml) page.
 
-Contents
-========
-
+{% capture content %}
 1.  [Accessing the Submit Servers]()
 2.  [Logging In](#login)
     -   [On the command line (Mac/Linux)](#login-ssh)
@@ -23,7 +21,8 @@ Contents
     -   [Transferring Multiple Files](#transfer-winscp)
 4.  [Creating and Editing Files](#files)
 5.  [Learning about the command line](#learn)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 <a name="access"></a>
 

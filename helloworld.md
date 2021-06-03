@@ -1,12 +1,8 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Your First CHTC Jobs
 ---
-
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "web.css" />
 
    
 So, you have an account on a submit node, and you are ready to run your
@@ -17,16 +13,15 @@ jobs on these resources is software, called
 [HTCondor](http://research.cs.wisc.edu/htcondor/), developed at the
 UW-Madison.
 
-Contents
-========
-
+{% capture content %}
 1.  [Let\'s first do, and then ask why](#first)
 2.  [What Else?](#else)
     -   [Removing Jobs](#remove)
     -   [The Importance of Testing](#importance)
     -   [Getting the Right Resources](#resource)
     -   [Time for a little homework](#homework)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 **1. Let\'s first do, and then ask why**
 ====================================

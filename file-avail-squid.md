@@ -15,15 +15,14 @@ CHTC maintains a SQUID web proxy from which pre-staged input files and
 executables can be downloaded into jobs using CHTC\'s proxy HTTP
 address.
 
-
-Contents
---------
-
-1.  [Applicability](#Appli)
+{% capture content %}
+1. [Applicability](#Appli)
 2.  [Using SQUID to Deliver Input Files](#use)
-    -   [Request a directory in SQUID](#request)
-    -   [Place files within your home directory](#place)
-    -   [Have HTCondor download the file to the working job](#have)
+    * [Request a directory in SQUID](#request)
+    * [Place files within your home directory](#place)
+    * [Have HTCondor download the file to the working job](#have)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 <a name="Appli"></a>
 

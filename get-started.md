@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: Getting Started With CHTC
 ---
 
