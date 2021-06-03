@@ -12,6 +12,29 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HPC Cluster issue this afternoon (Wed, June 2)
+### Wednesday, June 2, 2021
+
+Greetings CHTC Users,
+
+*This message is for users of our high performance computing (HPC)
+cluster.*
+
+This afternoon, our HPC administrator noticed an issue involving the
+filesystem on our HPC cluster.
+**While this issue is ongoing, you may have trouble logging in to the
+HPC login nodes or interacting with files from the login and execute
+nodes.**
+We do not yet know if running jobs are affected. We will update you as
+we learn more.
+
+Please contact us at chtc@cs.wisc.edu with any questions and concerns.
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Limited response to emails today (June 2)
 ### Wednesday, June 2, 2021
 
