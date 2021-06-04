@@ -7,7 +7,7 @@ title: Using Dask at CHTC
 [Dask](https://docs.dask.org/en/latest/) 
 is a Python library for parallel computing.
 Though it is not the 
-[traditional HTCondor workflow](helloworld.shtml), it is possible to use
+[traditional HTCondor workflow](helloworld), it is possible to use
 Dask on the CHTC pool through a special adapter package provided by CHTC.
 This guide describes the situations in which you should consider using
 Dask instead of the traditional workflow, and will point you toward the

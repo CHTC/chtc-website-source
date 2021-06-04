@@ -7,7 +7,7 @@ title: Connecting to CHTC
 This guide assumes
 that you have already gotten a CHTC account for either our high
 throughput or high performance compute systems. If you haven\'t, see our
-[getting started](get-started.shtml) page.
+[getting started](get-started) page.
 
 {% capture content %}
 1.  [Accessing the Submit Servers]()
