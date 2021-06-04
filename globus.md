@@ -20,11 +20,11 @@ own computer first.
 ## Prerequisites
 
 All file transfer via Globus at CHTC is based out of the
-[`/staging`](/file-avail-largedata.shtml) directory and requires login 
+[`/staging`](file-avail-largedata) directory and requires login 
 access to the `transfer.chtc.wisc.edu` server.
 Therefore, to use Globus, you will need access to both of those 
 (instructions for requesting access are 
-[here](/file-avail-largedata.shtml#1-policies-and-intended-use);
+[here](file-avail-largedata#1-policies-and-intended-use);
 mention that you want to use the Globus endpoint in your email).
 
 You will need to be able to

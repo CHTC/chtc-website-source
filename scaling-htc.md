@@ -75,11 +75,11 @@ to us, they have two major requirements:
 
 -   **No \"large\" data**: All of the files for your jobs are in your
     home directory and/or in SQUID (the options listed on our [file
-    transfer guide](/file-availability.shtml) and our [SQUID
-    guide](/file-avail-squid.shtml)), and output files are small enough
+    transfer guide](file-availability) and our [SQUID
+    guide](file-avail-squid)), and output files are small enough
     to return to your home directory (less than 2 GB). We normally
     handle larger files in our large data filesystem (see our [data
-    staging guide](/file-avail-largedata.shtml)) which is only available
+    staging guide](file-avail-largedata)) which is only available
     from CHTC.  
 
 -   **Short or interruptable jobs**: Your job can run in under 8 hours
@@ -119,7 +119,7 @@ whenever submitting a new type of job to the UW Grid or OSG:**
 
 2.  **Troubleshooting:** If your jobs don\'t run successfully on the UW
     Grid or OSG, please [get in touch with a research computing
-    facilitator](/get-help.shtml).  
+    facilitator](get-help).  
     
 3.  **Scaling Up:** Once you have tested your jobs and they seem to be
     running successfully, you are ready to submit a full batch of jobs

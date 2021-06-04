@@ -12,9 +12,9 @@ title: Submitting High Memory Jobs on CHTC's HTC System
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka \"executables\").
-2.  [CHTC\'s Intro to Running HTCondor Jobs](/helloworld.shtml)
+2.  [CHTC\'s Intro to Running HTCondor Jobs](helloworld)
 3.  CHTC\'s guides for handling large data ([Guide
-    here](/file-avail-largedata.shtml)) and software installation.
+    here](file-avail-largedata)) and software installation.
 
 Overview
 --------
@@ -121,7 +121,7 @@ research computing facilitator by emailing [chtc@cs.wisc.edu](chtc@cs.wisc.edu).
 A. Submit File
 --------------
 
-The submit file shown in our [Hello World example](/helloworld.shtml) is
+The submit file shown in our [Hello World example](helloworld) is
 a good starting point for building your high memory job submit file. The
 following are places where it\'s important to customize:
 
@@ -163,8 +163,8 @@ following are places where it\'s important to customize:
     job).  
     
 -   **Other requirements**: if your job uses files from [our large data
-    space](/file-avail-largedata.shtml), or [Docker for
-    software](/docker-jobs.shtml), add the necessary requirements for
+    space](file-avail-largedata), or [Docker for
+    software](docker-jobs), add the necessary requirements for
     these resources to your submit file.
 
 Altogether, a sample submit file may look something like this:
@@ -204,10 +204,10 @@ B. Software
 
 Like any other job, the best option for high memory work is to create a
 portable installation of your software. We have guides for [scripting
-languages](/howto_overview.shtml) and [using
-Docker](/docker-jobs.shtml), and can otherwise provide individual
+languages](howto_overview) and [using
+Docker](docker-jobs), and can otherwise provide individual
 support for program installation [during office hours or over
-email](/get-help.shtml).
+email](get-help).
 
 
 <a name="executable"></a>
@@ -216,13 +216,13 @@ C. \"Executable\" script
 ------------------------
 
 As described in many of our guides (for
-[software](/howto_overview.shtml) or for using [large
-data](/file-avail-largedata.shtml)), you will need to write a script
+[software](howto_overview) or for using [large
+data](file-avail-largedata)), you will need to write a script
 that will run your software commands for you and that will serve as the
 submit file \"executable\". Things to note are:
 
 -   If using files from our large data staging space, follow the
-    recommendations in our [guide](/file-avail-largedata.shtml).
+    recommendations in our [guide](file-avail-largedata).
 -   If using multiple cores, make sure that you request the same number
     of \"threads\" or \"processes\" in your command as you requested in
     your [submit file](#submit).

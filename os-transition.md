@@ -68,7 +68,7 @@ operating systems.
     system is running a newer version of Linux. If you have questions
     about this or how to get your jobs to run on a newer version of
     Linux, talk to CHTC\'s Research Computing Facilitators: [contact us
-    or stop by office hours](/get-help.shtml).
+    or stop by office hours](get-help).
 
 > **Combining Requirements**\
 > Does your job already have a requirements statement? If so, you can

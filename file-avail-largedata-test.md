@@ -17,7 +17,7 @@ will also need to be transferred to a location that is accessible to you after y
 copied back will depend on the size of these files.** This is illustrated via 
 the diagram below: 
 
-![CHTC File Management Solutions](/images/chtc-file-transfer.png)
+![CHTC File Management Solutions](images/chtc-file-transfer.png)
 
 CHTC's data filesystem called "Staging" is a distinct location for 
 temporarily hosting files that are too large to be handled in a 

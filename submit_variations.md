@@ -22,7 +22,7 @@ understanding of:**
 1.  Using the command line to: navigate within directories,
 create/copy/move/delete files and directories, and run their intended
 programs (aka \"executables\").
-2.  [The CHTC\'s Intro to Running HTCondor Jobs](/helloworld.shtml)
+2.  [The CHTC\'s Intro to Running HTCondor Jobs](helloworld)
 3.  The importance of indicating the below submit file lines, which are left
 out of the below examples for simplicity:
     ```

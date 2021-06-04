@@ -34,7 +34,7 @@ address.
     same large file (or few files), including large software. It is not
     good for cases when each of many jobs needs a *different* large
     input file, in which case [our large data staging
-    location](/file-avail-largedata) should be used. Remember that
+    location](file-avail-largedata) should be used. Remember that
     you\'re always better off by pre-splitting a large input file into
     smaller job-specific files if each job only needs some of the large
     files\'s data. If each job needs a large set of many files, you

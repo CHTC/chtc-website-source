@@ -230,7 +230,7 @@ This section shows the important elements of creating a submit file for
 Matlab jobs. The submit file for your job will be different than the one
 used to compile your code. As a starting point for a submit file, see
 our \"hello world\" example:
-[http://chtc.cs.wisc.edu/helloworld.shtml](/helloworld.shtml). In what
+[http://chtc.cs.wisc.edu/helloworld.shtml](helloworld). In what
 follows, replace our example `script` and `run_script.sh` with the name
 of your binary and scripts.
 
