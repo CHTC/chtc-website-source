@@ -16,7 +16,7 @@ computing infrastructure at UW-Madison.  It includes:
 	<div class="uw-row">
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<img src="/guide-icons/noun_gpu_2528527.png" alt="Hardware Icon">
+				<img src="{{ '/guide-icons/noun_gpu_2528527.png' | relative_url }}" alt="Hardware Icon">
 				<div class="uw-card-copy">
 					<h2 class="uw-mini-bar">Hardware</h2>
                     <p>A pool of shared GPU servers managed by CHTC.</p>
@@ -34,7 +34,7 @@ computing infrastructure at UW-Madison.  It includes:
 		</div>
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<img src="/guide-icons/noun_open book_1179297.png" alt="Book Icon">
+				<img src="{{ '/guide-icons/noun_open book_1179297.png' | relative_url }}" alt="Book Icon">
 				<div class="uw-card-copy">
 					<h2 class="uw-mini-bar">Documentation</h2>
                     <p>A library of sharable software and documentation.</p>

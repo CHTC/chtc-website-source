@@ -1,4 +1,4 @@
-baseurl: ''
+baseurl: '/web-preview'
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
 
 # Jekyll does not build hidden directories by default.

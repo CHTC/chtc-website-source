@@ -6,10 +6,10 @@
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
             <ul id="uw-main-nav">
                 <li class="current-menu-item">
-                    <a href="/" aria-current="page">Home</a>
+                    <a href="{{ '/' | relative_url }}" aria-current="page">Home</a>
                 </li>
                 <li id="menu-our-approach" class="uw-dropdown">
-                    <a href="fallback_url_for_no_js" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ '/about' | relative_url }}" role="button" aria-haspopup="true" aria-expanded="false">
                         About
                         <svg aria-hidden="true" class="uw-caret" focusable="false">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -20,21 +20,21 @@
                     </a>
                     <ul aria-hidden="true" aria-label="Our Approach submenu" class="uw-child-menu">
                         <li>
-                            <a href="/approach">Our Approach</a>
+                            <a href="{{ '/approach' | relative_url }}">Our Approach</a>
                         </li>
                         <li>
-                            <a href="/projects">Our Customers</a>
+                            <a href="{{ '/projects' | relative_url }}">Our Customers</a>
                         </li>
                         <li>
-                            <a href="/people">Our Staff</a>
+                            <a href="{{ '/people' | relative_url }}">Our Staff</a>
                         </li>
                         <li>
-                            <a href="/jobs">Our Open Positions</a>
+                            <a href="{{ '/jobs' | relative_url }}">Our Open Positions</a>
                         </li>
                     </ul>
                 </li>
                 <li id="menu-how-tos" class="uw-dropdown">
-                    <a href="fallback_url_for_no_js" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ '/how-tos' | relative_url }}" role="button" aria-haspopup="true" aria-expanded="false">
                         How To's
                         <svg aria-hidden="true" class="uw-caret" focusable="false">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -45,36 +45,36 @@
                     </a>
                     <ul aria-hidden="true" aria-label="How To's submenu" class="uw-child-menu">
                         <li>
-                            <a href="/get-started">Get Started</a>
+                            <a href="{{ '/get-started' | relative_url }}">Get Started</a>
                         </li>
                         <li>
-                            <a href="/get-help">Get Help</a>
+                            <a href="{{ '/get-help' | relative_url }}">Get Help</a>
                         </li>
                         <li>
-                            <a href="/guides">All User Guides</a>
+                            <a href="{{ '/guides' | relative_url }}">All User Guides</a>
                         </li>
                         <li>
-                            <a href="/use-submit-node">Use an HTC Submit Server</a>
+                            <a href="{{ '/use-submit-node' | relative_url }}">Use an HTC Submit Server</a>
                         </li>
                         <li>
-                            <a href="/helloworld">Run Your First HTC Jobs</a>
+                            <a href="{{ '/helloworld' | relative_url }}">Run Your First HTC Jobs</a>
                         </li>
                         <li>
-                            <a href="/howto_overview">HTC for MatLab, Python or R</a>
+                            <a href="{{ '/howto_overview' | relative_url }}">HTC for MatLab, Python or R</a>
                         </li>
                         <li>
-                            <a href="/hpc-overview">Use the HPC Cluster</a>
+                            <a href="{{ '/hpc-overview' | relative_url }}">Use the HPC Cluster</a>
                         </li>
                         <li>
-                            <a href="/cite-chtc">Cite CHTC Resources</a>
+                            <a href="{{ '/cite-chtc' | relative_url }}">Cite CHTC Resources</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/user-news">User News</a>
+                    <a href="{{ '/user-news' | relative_url }}">User News</a>
                 </li>
                 <li id="menu-other-resources" class="uw-dropdown">
-                    <a href="fallback_url_for_no_js" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ '/other-resources' | relative_url }}" role="button" aria-haspopup="true" aria-expanded="false">
                         Other Resources
                         <svg aria-hidden="true" class="uw-caret" focusable="false">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
@@ -85,7 +85,7 @@
                     </a>
                     <ul aria-hidden="true" aria-label="Other Resources submenu" class="uw-child-menu">
                         <li>
-                            <a href="/gpu-lab">CHTC GPU Lab</a>
+                            <a href="{{ '/gpu-lab' | relative_url }}">CHTC GPU Lab</a>
                         </li>
                         <li>
                             <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>
@@ -109,11 +109,11 @@
             <ul>
                 <li id="menu-news" class="uw-dropdown">
                     <a href="http://news.wisc.edu" aria-haspopup="true" aria-expanded="false">
-                        News<svg aria-hidden="true" class="uw-caret" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg><svg aria-hidden="true" class="uw-caret" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use></svg>
+                        //TODO decided on what to put up here<svg aria-hidden="true" class="uw-caret" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg><svg aria-hidden="true" class="uw-caret" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use></svg>
                     </a>
                     <ul aria-hidden="true" aria-label="News submenu" class="uw-child-menu">
                         <li>
-                            <a href="http://localhost:8001/about/">About</a>
+                            <a href="/about">about</a>
                         </li>
                         <li>
                             <a href="http://localhost:8001/contact-us/our-location/">Our Location</a>
