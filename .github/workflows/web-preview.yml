@@ -18,6 +18,7 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
       - run: |
+          sed -i "s|baseurl: ''|baseurl: '/web-preview'|" _config.yml
           ./script/cibuild
         name: Build web pages
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
