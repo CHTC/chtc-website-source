@@ -1,11 +1,11 @@
 ---
-layout: content
+layout: markdown-page
 title: HPC Cluster Buy In Options 
 ---
 
-The [Center for High Throughput Computing (CHTC)](/) offers a buy-in
+The [Center for High Throughput Computing (CHTC)]({{site.baseurl | append : '/' }}) offers a buy-in
 option for the campus-shared [high performance computing (HPC)
-Cluster](/HPC-overview.shtml), which otherwise includes a large, freely available
+Cluster](HPC-overview), which otherwise includes a large, freely available
 set of capacity initially funded with support from the [Advanced Computing
 Initiative (ACI)](http://aci.wisc.edu/).
 

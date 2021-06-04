@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{{ '/bootstrap.css' | relative_url }}" />
 <div class="uw-row-full">
     <div class="uw-row">
         <div class="uw-col uw-body">
@@ -6,16 +6,16 @@
             <br>
             <div class="card-deck">
                 <div class="card border-secondary h-100 text-center">
-                    <a href="connecting.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Connecting to CHTC</li></a>
+                    <a href="{{ 'connecting' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Connecting to CHTC</li></a>
                 </div>
                 <div class="card border-secondary h-100 text-center">
-                    <a href="hpc-overview.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Overview</li></a>
+                    <a href="{{ 'hpc-overview' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Overview</li></a>
                 </div>
                 <div class="card border-secondary h-100 text-center">
-                    <a href="hpc-job-submission.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
+                    <a href="{{ 'hpc-job-submission' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Job Submission</li></a>
                 </div>
                 <div class="card border-secondary h-100 text-center">
-                    <a href="hpc-software.shtml"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
+                    <a href="{{ 'hpc-software' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">HPC Software</li></a>
                 </div>
             </div>
             <hr>

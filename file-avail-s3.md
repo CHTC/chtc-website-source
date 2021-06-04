@@ -17,8 +17,8 @@ familiar with:**
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka "executables").
-2.  CHTC's [Intro to Running HTCondor Jobs](/helloworld.shtml)
-3.  CHTC's guide for [Typical File Transfer](/file-availability.shtml)
+2.  CHTC's [Intro to Running HTCondor Jobs](helloworld)
+3.  CHTC's guide for [Typical File Transfer](file-availability)
 
 Contents
 --------

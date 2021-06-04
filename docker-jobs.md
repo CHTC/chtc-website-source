@@ -71,7 +71,7 @@ container to use.
 ## A. Using a Docker Image
 
 Start with a usual CHTC submit file like the one shown in our [Hello
-World](/helloworld.shtml) guide. Then, make the following two changes:
+World](helloworld) guide. Then, make the following two changes:
 
 1.  Change the universe from "vanilla" to "docker":
 

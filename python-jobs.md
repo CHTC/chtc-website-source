@@ -286,7 +286,7 @@ would like, give it executable permissions by running:
 ==================
 <a name="submit"></a>
 A sample submit file can be found in our [hello
-world](/helloworld.shtml) example page. You should make the following
+world](helloworld) example page. You should make the following
 changes in order to run Python jobs:
 
 -   Your `executable` should be the script that you wrote

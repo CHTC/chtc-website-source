@@ -7,7 +7,7 @@ title: Connecting to CHTC
 This guide assumes
 that you have already gotten a CHTC account for either our high
 throughput or high performance compute systems. If you haven\'t, see our
-[getting started](/get-started.shtml) page.
+[getting started](get-started) page.
 
 {% capture content %}
 1.  [Accessing the Submit Servers]()
@@ -99,7 +99,7 @@ recommend \"PuTTy\", which can be downloaded
 To log in, click on the PuTTy executable (`putty.exe`). You should see a
 screen like this:
 
-![](/images/putty-7.jpeg)
+![](images/putty-7.jpeg)
 
 Fill in the hostname as described in part 1. You should use Port 22 and
 connect using \"ssh\" \-- these are usually the defaults. After you
@@ -183,7 +183,7 @@ recommend [WinSCP](https://winscp.net/eng/download.php). It requires the
 same information as Putty (hostname, username), and once it\'s set up,
 looks like this:
 
-![](/images/WinSCPPortable.png)
+![](images/WinSCPPortable.png)
 
 The left window is a directory on your computer, the right window is
 your home directory in CHTC. To move files between the two, simply drag
