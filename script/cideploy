@@ -31,12 +31,12 @@ rsync -av --delete --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPU
 # We need this single well-known directory to support OIDC metadata discovery for SciTokens.
 rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
 # Rename .html -> .shtml for generated files
-set +x
-for f in ./*.html; do
-    mv -vf "$f" "${f%.html}.shtml"
-done
-touch .nojekyll
-set -x
+# set +x
+# for f in ./*.html; do
+#     mv -vf "$f" "${f%.html}.shtml"
+# done
+# touch .nojekyll
+# set -x
 #add, commit and push files
 git add -f -A
 git commit -F "$commitmessage"
