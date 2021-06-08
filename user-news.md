@@ -12,6 +12,58 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HPC Cluster unplanned downtime starting now, possibly through next week (6/11)
+### Friday, June 4, 2021
+
+Greetings CHTC users,
+
+This is an urgent message for users of our HPC Cluster.
+
+We apologize for the lack of detailed update until now. While we thought the HPC Cluster filesystem had been repaired to stability early yesterday afternoon and had some specific users doing some tests, we discovered at the end of yesterday (just before we would have sent a positive update) that the issues had returned. **It appears that the filesystem will need more extended maintenance work, which we are beginning ASAP and hope to complete by sometime next week.**
+
+**As of now, we need to take the following steps to prevent further issues until the downtime has ended:**
+
+- users will not be able to log into the HPC Cluster until the TBD completion of the downtime
+- running jobs will be re-queued, and so will remain in the queue until users can log in again
+- jobs queued but not yet running will also remain in the queue
+
+Additional details:
+
+- While we plan to complete the maintenance work next week, this timeline is subject to change and we'll notify users as soon as we can.
+- At this time we expect that all user data in the filesystem (i.e. /home and /software locations) will be preserved. The issue appears to be with the filesystem’s metadata (which keeps track of which data is where in the filesystem).
+- If you have imminently urgent work delayed by this downtime, please get in touch ASAP to discuss.
+
+As always, please email us with any questions or issues via chtc@cs.wisc.edu
+
+Thank you for your patience,
+
+Your CHTC Team
+
+
+------------------------------------------------------------------------
+## HPC Cluster issue this afternoon (Wed, June 2)
+### Wednesday, June 2, 2021
+
+Greetings CHTC Users,
+
+*This message is for users of our high performance computing (HPC)
+cluster.*
+
+This afternoon, our HPC administrator noticed an issue involving the
+filesystem on our HPC cluster.
+**While this issue is ongoing, you may have trouble logging in to the
+HPC login nodes or interacting with files from the login and execute
+nodes.**
+We do not yet know if running jobs are affected. We will update you as
+we learn more.
+
+Please contact us at chtc@cs.wisc.edu with any questions and concerns.
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## Limited response to emails today (June 2)
 ### Wednesday, June 2, 2021
 
@@ -26,86 +78,6 @@ questions or concerns.
 Best,
 
 Your CHTC Team
-
-------------------------------------------------------------------------
-## HTCondor Week 2021 May 24-27; Expect delayed CHTC replies through May 28.
-### Wednesday, May 19, 2021
-
-Greetings CHTC Users,
-
-This is a reminder that HTCondor Week takes place next week. It's free and virtual, but make sure to [register](https://agenda.hep.wisc.edu/event/1579).
-
-Additionally, **please expect replies from CHTC staff (via chtc@cs.wisc.edu) to take a bit longer than usual from May 20-28**, while our staff are busy preparing for and executing the conference.
-
-That said ...
-
-* CHTC Virtual Office Hours will continue Tu/Th 3-5pm. 
-* **Please continue to use chtc@cs.wisc.edu for any issues or questions about using CHTC services.**
-
-We hope to see you there!
-Your CHTC Team
-
-------------------------------------------------------------------------
-## OSG Virtual School 2021: Learn to harness large-scale computing for research
-### Thursday, May 13, 2021
-
-Greetings CHTC users,
-
-As we have in previous years, we invite you to apply to this year's Open Science Grid Virtual School, which will be held online this year. Check out the short application form and let us know if you have any questions by emailing chtc@cs.wisc.edu or user-school@opensciencegrid.org.
-
-Cheers,
-Your CHTC team
-
-We are seeking applicants for the OSG Virtual School 2021, which will take
-place the weeks of August 2-6 and 9-13.  As the name indicates, the School
-will be all virtual again this year.
-
-https://opensciencegrid.org/virtual-school-2021/
-
-Participants will learn to use high throughput computing (HTC) to harness
-vast amounts of computing power for research, applicable to nearly any
-field of study.  In past Schools, we have helped people in physics,
-chemistry, engineering, life sciences, earth sciences, agricultural and
-animal sciences, economics, social sciences, medicine, and more.
-
-Participation in the event is free, but a selective application process is
-required.
-
-Ideal candidates are graduate students doing research and staff (e.g.,
-facilitators, admins) supporting research that involves or could involve
-large-scale computing - work that cannot be done on one laptop or a handful
-of computers.  Also, we accept some post-doctoral students, faculty,
-research staff, and advanced undergraduates, so make a strong case for
-yourself regardless of your current role!
-
-IMPORTANT DATES
-
-* Application Period (OPEN NOW): 7-28 May 2021
-* OSG Virtual School: 2-13 August 2021
-
-MORE INFORMATION AND APPLICATIONS
-
-* Web: https://www.opensciencegrid.org/virtual-school-2021/
-* Twitter: https://twitter.com/OSGUserSchool
-
-------------------------------------------------------------------------
-## Certain execute nodes shut down
-### Wednesday, May 12, 2021
-
-Greetings CHTC users,
-
-There was a short chilled water interruption this morning, leading to the shut off of 5 HTC System execute nodes, and 20 HPC Cluster execute nodes.
-
-We expect that the impacted servers will be back up within the next day, but jobs running on these will have been interrupted and may require action from users:
-
-* In the HTC System, these jobs are automatically re-queued to run again elsewhere, likely requiring no action from the user.
-* In the HPC Cluster, such jobs may need to be re-queued. 
-
-Please review your jobs and email us at chtc@cs.wisc.edu if you’re not sure how to cleanly re-run work that may have been affected. We’ll be happy to help.
-
-Best,
-
-Your CHTC team
 
 ------------------------------------------------------------------------
 
