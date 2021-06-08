@@ -35,6 +35,8 @@ set +x
 for f in ./*.html; do
     mv -vf "$f" "${f%.html}.shtml"
 done
+# Have an index page recognized by GitHub pages for the alternate chtc.io copy.
+cp index.shtml index.html
 set -x
 #add, commit and push files
 git add -f -A
