@@ -37,6 +37,11 @@ rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
 # done
 # touch .nojekyll
 # set -x
+# Have an index page recognized by GitHub pages for the alternate chtc.io copy.
+cp index.shtml index.html
+# Prevent GitHub from trying to render files as MarkDown - we're just static HTML!
+touch .nojekyll
+set -x
 #add, commit and push files
 git add -f -A
 git commit -F "$commitmessage"
