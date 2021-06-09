@@ -1,3 +1,7 @@
+---
+layout: markdown-page
+---
+
 <!--#set var="title" value="Compiling or Testing Code with an Interactive Job"-->
 <!--#include virtual="/includes/template-1-openhead.shtml" -->
 <style type="text/css"><!--
