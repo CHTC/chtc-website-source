@@ -5,3 +5,11 @@
 
 // UW Theme
 @import 'UW-theming/uw_style';
+
+.table-container {
+  table {
+    margin-bottom: 0px;
+  }
+  overflow-x: scroll;
+  margin-bottom: 2rem;
+}
