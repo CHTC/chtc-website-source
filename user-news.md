@@ -11,6 +11,25 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+## HPC Cluster back up today (6/9)
+### Wednesday, June 9, 2021
+
+Greetings CHTC users, 
+
+*This message is for users of our high performance computing (HPC) cluster.*
+
+The HPC cluster is back up after completing maintenance to its file system. 
+
+Users should now be able to log in to the HPC cluster login nodes. All previously submitted jobs are still in the queue and will re-run automatically. We recommend that users with jobs that were running at the start of the downtime examine their output files for potential issues caused by the interruption of jobs. 
+
+Please email us at chtc@cs.wisc.edu with any follow up questions or additional concerns. 
+
+Best,
+
+Your CHTC team
+
 ------------------------------------------------------------------------
 ## HPC Cluster unplanned downtime starting now, possibly through next week (6/11)
 ### Friday, June 4, 2021
