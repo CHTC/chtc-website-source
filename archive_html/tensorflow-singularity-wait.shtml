@@ -5,7 +5,7 @@ title: Running Tensorflow Jobs
 
 <p>This guide describes how to use a pre-built Tensorflow environment 
 (implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
-to run Tensorflow jobs in CHTC and on the Open Science Grid (OSG).</p>
+to run Tensorflow jobs in CHTC and on the <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a>.</p>
 
 <h2>Overview</h2>
 

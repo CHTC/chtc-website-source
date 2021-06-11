@@ -29,7 +29,7 @@ have an understanding of:**
 Overview
 ========
 
-One of HTCondor\'s features is the ability to submit many similar jobs
+One of <a href="http://research.cs.wisc.edu/htcondor/">HTCondor's</a> features is the ability to submit many similar jobs
 using one submit file. This is accomplished by using:
 
 > -   a \"queue\" keyword, that indicates how many jobs to run
@@ -421,7 +421,7 @@ out = job.out
 queue state from states_list.txt
 ```
 
-Here, HTCondor will create a job for each state in the list and use that
+Here, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will create a job for each state in the list and use that
 state\'s directory as the \"initialdir\" - the directory where the job
 will actually be submitted. Therefore, in `transfer_input_files`, we can
 use `input.data` without using the directory name in the path, and to

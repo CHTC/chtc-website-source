@@ -6,7 +6,7 @@ title: Submitting Jobs Using chtcjobwrapper
 
 <p class="underconstruction">This section is under construction</p>
 
-Getting your job to run requires submitting an HTCondor job. All
+Getting your job to run requires submitting an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job. All
 HTCondor jobs specify details about the job in a file called a submit
 description file. These details include the executable\'s name, file
 names of input files to the job, and where to place the output, Thus,

@@ -41,7 +41,8 @@ is space.</p>
 <a name="osg"></a>
 <h2>B. The Open Science Grid (OSG)</h2>
 
-<p>The Open Science Grid (OSG) is a group of universities and research labs who have 
+<p>The <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> is a
+group of universities and research labs who have
 agreed to share their unused computational resources with each other.  If a job is 
 submitted from an OSG submission point, it can run in the OSG pool associated with 
 that submission point.  This OSG pool is the result of going out to other members of 

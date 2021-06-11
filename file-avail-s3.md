@@ -9,7 +9,7 @@ When submitting jobs to CHTC's High Throughput Computing (HTC) system,
 there is a distinct location for staging data that is too large to be
 handled at scale via the default HTCondor file transfer mechanism
 but needs to be accessed outside of CHTC
-(for example, data for jobs that run on the Open Science Grid).
+(for example, data for jobs that run on the <a href="http://www.opensciencegrid.org/">Open Science Grid</a>).
 
 **To best understand the below information, users should already be
 familiar with:**

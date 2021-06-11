@@ -22,7 +22,7 @@ You will need the 64-bit, tarball compiled for general use on a Linux x86 system
 file name will resemble something like `julia-#.#.#-linux-x86_64.tar.gz`.
 
     * Tip: use `wget` to download directly to your `/home` directory on the 
-submit server, **OR** use `transfer_input_files = url` in your HTCondor submit files.
+submit server, **OR** use `transfer_input_files = url` in your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files.
 
 1. Submit an "interactive build" job to create a Julia project and 
 install packages, else skip to the next step.
@@ -166,7 +166,7 @@ julia> exit()
 ## Save Installed Packages For Later Jobs
 
 To use this project, and the associated installed packages, in 
-subsequent jobs, we need to have HTCondor return some files to 
+subsequent jobs, we need to have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> return some files to 
 the submit server by converting the `my-project/` directory
 to a tarball, before exiting the interactive job session:
 
@@ -195,11 +195,11 @@ my-project.tar.gz
 # Submit Julia Jobs
 
 To submit a job that runs a Julia script, create a bash 
-script and HTCondor submit file following the examples in this section.
+script and <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit file following the examples in this section.
 
 ## Create Executable Bash Script
 
-Your job will use a bash script as the HTCondor `executable`. This script 
+Your job will use a bash script as the <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> `executable`. This script 
 will contain all the steps needed to unpack the Julia binaries and 
 execute your Julia script (`script.jl`). Below are two example bash script, 
 one which can be used to execute a script with base Julia, and one that 
