@@ -16,7 +16,7 @@
 </p>
 <ul>
 	<li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
+	<li><a href="{{'/helloworld' | relative_url}}">The CHTC's Intro to Running HTCondor Jobs</a></li>
 </ul>
 
 <h1>Overview</h1>
@@ -46,7 +46,7 @@ yourself by requesting an interactive session on one of our build machines.  The
 </p>
 
 <p>Instructions for submitting an interactive build 
-job are here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
+job are here: <a href="/inter-submit">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
 to do Step 2 (Creating Interactive Submit Files), and the first command of Step 3
 (Submitting and Working Interactively).<br>
 For Step 2, you'll need to change <code>transfer_input_files</code> to 
@@ -57,7 +57,7 @@ If you have many files or directories that are part of your code,
 we recommend compressing them into a tarball (<code>.tar.gz</code>) and 
 transferring that.  </p>
 
-<p>Once you've done Steps 2 and 3 of the <a href="/inter-submit.shtml">interactive job</a>
+<p>Once you've done Steps 2 and 3 of the <a href="/inter-submit">interactive job</a>
 guide, and the interactive job has started, you can compile your code.  
 In this example, <code>foo.m</code> represents the 
 name of the primary Matlab script; you should replace <code>foo.m</code> 
@@ -141,7 +141,7 @@ of Matlab, if you used something different to compile. </p>
 a submit file for Matlab jobs.  The submit file for your job will be 
 different than the one used 
 to compile your code.  As a starting point for a submit file, 
-see our "hello world" example: <a href="/helloworld.shtml">http://chtc.cs.wisc.edu/helloworld.shtml</a>.  
+see our "hello world" example: <a href="/helloworld">http://chtc.cs.wisc.edu/helloworld.shtml</a>.
 In what follows, replace our example <code>foo</code> and <code>run_foo.sh</code> 
 with the name of your binary and scripts.  </p>
 <ol>

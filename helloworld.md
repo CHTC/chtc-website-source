@@ -7,7 +7,7 @@ title: Running Your First CHTC Jobs
    
 So, you have an account on a submit node, and you are ready to run your
 first job in the CHTC. As we described in [Our
-Approach](http://chtc.cs.wisc.edu/approach.shtml), the CHTC is a
+Approach](/approach), the CHTC is a
 collection of distributed resources. The magic that enables you to run
 jobs on these resources is software, called
 [HTCondor](http://research.cs.wisc.edu/htcondor/), developed at the
@@ -321,10 +321,10 @@ parameters, different input filenames, etc.), ways to organize your data, etc.
 You'll notice that it's part of a playlist of videos with topics for HTCondor users.
 
 [Our full set of CHTC
-online guides is available here](guides.shtml), and includes some specific 
+online guides is available here](guides), and includes some specific 
 examples for how to use various software within a job, or a Research Computing 
 Facilitation can help you get your software going. Remember to [Get
-Help](get-help.shtml) whenever you have questions or issues. That\'s
+Help](get-help) whenever you have questions or issues. That\'s
 what CHTC staff are here for.
 
 The full HTCondor manual is comprehensive
