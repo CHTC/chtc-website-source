@@ -1,5 +1,5 @@
 ---
-layout: content
+layout: markdown-page
 title: CHTC Projects
 ---
 
