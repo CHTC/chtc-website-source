@@ -1,11 +1,11 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Compiling Matlab, Python, and R Code
 ---
 
 
-Running MATLAB, Python, or R under CHTC almost always requires a
+Running MAgit pTLAB, Python, or R under CHTC almost always requires a
 two-step process. The first step, described here, compiles or builds the
 executable code (R libraries, Python modules, or MATLAB m files)
 specific to the job. The second step allows you to submit many jobs
