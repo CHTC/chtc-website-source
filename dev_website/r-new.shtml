@@ -11,7 +11,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="/helloworld">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -30,7 +30,7 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 
 <p>If you want to build your own copy of base R, see this page: 
 <ul>
-	<li><a href="/r-jobs.shtml">Building a R installation</a></li>
+	<li><a href="/r-jobs">Building a R installation</a></li>
 	<!--<li>Using miniconda to install R</li>-->
 </ul>
 </p>
@@ -269,7 +269,7 @@ Carpentry lesson</a> (look for <code>print-args-trailing.R</code>).
 <a name="submit"></a>
 <h1>3. Submitting Jobs</h1>
 
-<p>A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+<p>A sample submit file can be found in our <a href="/helloworld">hello world
 </a> example page.  You should make the following changes in order to run 
 R jobs: </p>
 <ul>
