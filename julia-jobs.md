@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Running Julia Jobs on CHTC
 ---
 
@@ -182,7 +182,7 @@ the interactive build job). A copy of `packages.tar.gz` will be present. **Be
 sure to check the size of the project tarball before proceeding to subsequent job 
 submissions.** If the file is >100MB please contact us at <chtc@cs.wisc.edu> so 
 that we can get you setup with access to our SQUID web proxy. More details 
-are available on our SQUID guide: [File Availability with SQUID](/file-avail-squid.md)
+are available on our SQUID guide: [File Availability with SQUID](file-avail-squid)
 
 ```
 [alice@submit]$ ls 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running R Jobs on CHTC
 ---
 
@@ -324,7 +324,7 @@ would like, give it executable permissions by running:
 ==================
 
 A sample submit file can be found in our [hello
-world](/helloworld.shtml) example page. You should make the following
+world](helloworld) example page. You should make the following
 changes in order to run R jobs:
 
 -   Your `executable` should be the script that you wrote

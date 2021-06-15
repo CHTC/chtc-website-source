@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Jobs That Use GPUs
 ---
 
@@ -96,7 +96,7 @@ server, including:
 
 CHTC has a set of GPUs that are available for use by any CHTC user with an 
 account on our high throughput computing (HTC) system
-via the [CHTC GPU Lab](/gpu-lab.shtml), which includes templates and a campus GPU community.
+via the [CHTC GPU Lab](gpu-lab), which includes templates and a campus GPU community.
 
 Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
 the capacity of the GPU Lab to run their work. 
@@ -283,7 +283,7 @@ in CHTC:
 > **Machine Learning**\
 >  For those using machine learning code specifically, we have a guide
 > with more specific recommendations here: [Run Machine Learning Jobs on
-> HTC](/machine-learning-htc.shtml)
+> HTC](machine-learning-htc)
 
 ## 1. Compiled Code
 
@@ -292,7 +292,7 @@ of a software package (as in our R/Python guides) to run on GPUs. Most
 of our build servers or GPU servers have copies of the CUDA Runtime that
 can be used to compile code. To access these servers, submit an
 interactive job, following the instructions in our [Build Job
-Guide](/inter-submit) or by submitting a GPU job submit file with the
+Guide](inter-submit) or by submitting a GPU job submit file with the
 interactive flag for `condor_submit`. Once on a build or GPU server, see
 what CUDA versions are available by looking at the path
 `/user/local/cuda-*`.
@@ -310,7 +310,7 @@ CHTC's GPU servers have "nvidia-docker" installed, a specific version of
 Docker that integrates Docker containers with GPUs. If you can find or
 create a Docker image with your software that is based on the
 nvidia-docker container, you can use this to run your jobs in CHTC. See
-our [Docker guide](/docker-jobs.shtml) for how to use Docker in CHTC.
+our [Docker guide](docker-jobs) for how to use Docker in CHTC.
 
 
 # D. GPU Capacity Beyond the CHTC GPU Lab
@@ -360,6 +360,6 @@ for running GPU jobs:
 ## 3. Using GPUs on the Open Science Grid
 
 CHTC, as a member of the Open Science Grid (OSG) can access GPUs that
-are available on the OSG. See [this guide](/scaling-htc.shtml) to know
+are available on the OSG. See [this guide](scaling-htc) to know
 whether your jobs are good candidates for the OSG and then get in touch
 with CHTC's Research Computing Facilitators to discuss details. 

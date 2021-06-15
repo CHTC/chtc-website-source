@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Compiling or Testing Code with an Interactive Job
 ---
 
@@ -19,7 +19,7 @@ Overview
 This guide provides a generic overview of steps required to install
 scientific software for use in CHTC. If you are using Python, R, or
 Matlab, see our specific installation and use guides here: [Guides for
-Matlab, Python and R](/howto_overview.shtml).
+Matlab, Python and R](howto_overview).
 
 
 <a name="build"></a>

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Create a Portable Python Installation with Miniconda
 ---
 

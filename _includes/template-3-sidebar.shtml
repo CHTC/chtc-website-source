@@ -1,34 +1,34 @@
 	<ul class="sidebar">
-	<li><a href="/">CHTC Home</a></li>
+	<li><a href="{{ '/' | relative_url }}">CHTC Home</a></li>
 	
 	<li>About
 		<ul>
-		<li><a href="/approach.shtml">Our Approach</a></li>
+		<li><a href="{{ '/approach' | relative_url }}">Our Approach</a></li>
 <!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
-		<li><a href="/projects.shtml">Our Customers</a></li>
-		<li><a href="/people.shtml">Our Staff</a></li>
-		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		<li><a href="{{ '/projects' | relative_url }}">Our Customers</a></li>
+		<li><a href="{{ '/people' | relative_url }}">Our Staff</a></li>
+		<li><a href="{{ '/jobs' | relative_url }}">Our Open Positions</a></li>
 		</ul>
 	</li>
 	
 	<li>How To's
 		<ul>
-		<li><a href="/get-started.shtml">Get Started</a></li>
-		<li><a href="/get-help.shtml">Get Help</a></li>
-        	<li><a href="/guides.shtml">All User Guides</a></li>
-                <li><a href="/use-submit-node.shtml">Use an HTC Submit Server</a></li>
-		<li><a href="/helloworld.shtml">Run Your First HTC Jobs</a></li>
-		<li><a href="/howto_overview.shtml">HTC for MatLab, Python or R</a></li>
-		<li><a href="/hpc-overview.shtml">Use the HPC Cluster</a></li>
-		<li><a href="/cite-chtc.shtml">Cite CHTC Resources</a></li>
+		<li><a href="{{ '/get-started' | relative_url }}">Get Started</a></li>
+		<li><a href="{{ '/get-help' | relative_url }}">Get Help</a></li>
+        	<li><a href="{{ '/guides' | relative_url }}">All User Guides</a></li>
+                <li><a href="{{ '/use-submit-node' | relative_url }}">Use an HTC Submit Server</a></li>
+		<li><a href="{{ '/helloworld' | relative_url }}">Run Your First HTC Jobs</a></li>
+		<li><a href="{{ '/howto_overview' | relative_url }}">HTC for MatLab, Python or R</a></li>
+		<li><a href="{{ '/hpc-overview' | relative_url }}">Use the HPC Cluster</a></li>
+		<li><a href="{{ '/cite-chtc' | relative_url }}">Cite CHTC Resources</a></li>
 		</ul>
 	</li>
-	<li><a href="/user-news.shtml">User News</a></li>
+	<li><a href="{{ '/user-news' | relative_url }}">User News</a></li>
 	<li>Other Resources
 		<ul>
 		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
 <!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
-		<li><a href="/gpu-lab.shtml">CHTC GPU Lab</a></li>
+		<li><a href="{{ '/gpu-lab' | relative_url }}">CHTC GPU Lab</a></li>
 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>
 		<li><a href="http://www.opensciencegrid.org/">Open Science Grid</a></li>

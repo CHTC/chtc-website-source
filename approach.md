@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: About Our Approach
 ---
 
@@ -33,7 +33,7 @@ beyond-the-desktop needs, including tightly-coupled computations (e.g.
 MPI), high-memory work (e.g. metagenomics), and specialized
 hardware like GPUs.
 
-<img alt="chtc-pools" src="/includes/chtc-pools.png" width="500" style = "float:right; margin:20px; margin-right:0;"/>
+<img alt="chtc-pools" src="{{ '/includes/chtc-pools.png' | relative_url }}" width="500" style = "float:right; margin:20px; margin-right:0;"/>
 
 
 ## What kinds of applications run best in the CHTC?

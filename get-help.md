@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Get Help!
 ---
 
@@ -27,7 +27,7 @@ problem
 ## Get An Account
 
 If you don't have an account yet, please fill out our [Request
-Form](/form.shtml), and we'll follow up quickly to set up a meeting time
+Form](form), and we'll follow up quickly to set up a meeting time
 and create accounts. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
@@ -58,7 +58,7 @@ when you log into a CHTC server.
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
 
-[Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
+[Click to sign-in for office hours](sign-in)
 
 
 <!-- For users who already have accounts, we have drop-in office hours on:

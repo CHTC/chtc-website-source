@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Submitting Multiple Jobs in Individual Directories
 ---
 
@@ -18,9 +18,9 @@ The first time you submit jobs, you will need to prepare a portable
 version of your software and a script (what we call the job\'s
 \"executable\") that runs your code. We have guides for preparing:
 
--   [Matlab](/matlab-jobs.shtml)
--   [Python](/python-jobs.shtml)
--   [R](/r-jobs.shtml)
+-   [Matlab](matlab-jobs)
+-   [Python](python-jobs)
+-   [R](r-jobs)
 
 Choose the right guide for you and follow the directions for compiling
 your code (Matlab) or building an installation (Python, R). Also follow
