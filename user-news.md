@@ -23,7 +23,7 @@ Two announcements for your Wednesday morning!
 
 1. Our website has a new look! Check it out in the same location: chtc.cs.wisc.edu
     All of the underlying content (guides, reference pages) is the same, so you can access all the same information, just with a new appearance.
-    This is also a reminder that the source code for our website is on Github, so if you have suggestions or contributions, you can open an issue or submit a pull request.
+    This is also a reminder that the source code for our website is on [Github](https://github.com/CHTC/chtc-website-source), so if you have suggestions or contributions, you can open an issue or submit a pull request.
 
 Best,
 Your CHTC Team
