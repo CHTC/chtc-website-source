@@ -13,7 +13,7 @@ multiple servers of dozens to hundreds of cores. All other computational work, i
 <br><br>
 Before using the campus-shared HPC Cluster or any CHTC computing resource, <b>you will need to 
 obtain access</b> by 
-filling out the <a href="http://chtc.cs.wisc.edu/form">
+filling out the <a href="{{'/form' | relative_url }}">
 Large-Scale Computing Request Form</a> on our website so that our Research Computing Facilitators 
 can make sure to match you to the best computing resources (including non-CHTC services).
 <br><br>
