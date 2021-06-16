@@ -22,7 +22,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
           ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
-          ./script/cideploy production
+          ./script/cideploy
         env:
           #NO_PUSH: 1
           TARGET_REPO: CHTC/chtc.github.io
