@@ -4,7 +4,7 @@
 	<li>About
 		<ul>
 		<li><a href="{{ '/approach' | relative_url }}">Our Approach</a></li>
-<!--comment		<li><a href="/resources.shtml">Our Resources</a></li>   -->
+<!--comment		<li><a href="{{'/resources' | relative_url }}">Our Resources</a></li>   -->
 		<li><a href="{{ '/projects' | relative_url }}">Our Customers</a></li>
 		<li><a href="{{ '/people' | relative_url }}">Our Staff</a></li>
 		<li><a href="{{ '/jobs' | relative_url }}">Our Open Positions</a></li>
@@ -26,8 +26,8 @@
 	<li><a href="{{ '/user-news' | relative_url }}">User News</a></li>
 	<li>Other Resources
 		<ul>
-		<!--<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Pool Usage Reports</a></li>-->
-<!--comment		<li><a href="/opmetrics.shtml">Operational Metrics</a></li>  -->
+		<!--<li><a href="{{'http://monitor.chtc.wisc.edu/uw_condor_usage/usage1' | relative_url }}">Pool Usage Reports</a></li>-->
+<!--comment		<li><a href="{{'/opmetrics' | relative_url }}">Operational Metrics</a></li>  -->
 		<li><a href="{{ '/gpu-lab' | relative_url }}">CHTC GPU Lab</a></li>
 		<li><a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a></li>
 		<li><a href="http://www.neos-server.org/">NEOS Optimization Service</a></li>

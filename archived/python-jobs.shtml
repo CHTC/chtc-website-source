@@ -89,7 +89,7 @@ the submit server so that you can use it to submit your jobs. </p>
 <a name="interactive"></a>
 <li><p><b>Submit an Interactive Build Job</b></p>
 <p>Instructions for submitting an interactive build job are 
-here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit</a> <br>
 Note that you should replace <code>source_code.tar.gz</code> with the name of 
 the Python source tarball that you downloaded.  If you downloaded additional source 
 code for modules in <a href="#version">part A</a>, you should list those in the 

@@ -2,28 +2,28 @@
         <li><a href="/">CHTC Home</a></li>
 	<li>	Campus Computing
 		<ul>
-		<li><a href="/approach.shtml">Overview</a> </li>
-		<li><a href="/get-started.shtml">Get an account</a></li>
-		<li><a href="/use-submit-node.shtml">Policies</a> </li>
-		<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1.shtml">Metrics</a> </li>
-		<li><a href="/projects.shtml">Researchers Using CHTC</a> </li>
+		<li><a href="{{'/approach' | relative_url }}">Overview</a> </li>
+		<li><a href="{{'/get-started' | relative_url }}">Get an account</a></li>
+		<li><a href="{{'/use-submit-node' | relative_url }}">Policies</a> </li>
+		<li><a href="http://monitor.chtc.wisc.edu/uw_condor_usage/usage1">Metrics</a> </li>
+		<li><a href="{{'/projects' | relative_url }}">Researchers Using CHTC</a> </li>
 		</ul>
 	</li>
 
 	<li>How To
 		<ul>
-		<li><a href="/guides.shtml">Basic Computing Skills</a></li>
-                <li><a href="/HTC-guides.shtml">HTC Guides</a></li>
-		<li><a href="/HPCuseguide.shtml">HPC Guides</a></li>
+		<li><a href="{{'/guides' | relative_url }}">Basic Computing Skills</a></li>
+                <li><a href="{{'/HTC-guides' | relative_url }}">HTC Guides</a></li>
+		<li><a href="{{'/HPCuseguide' | relative_url }}">HPC Guides</a></li>
 		<!--<li><a href="">FAQs</a></li>-->		
 		</ul>
 	</li>
 
 	<li>	CHTC Research
 		<ul>
-		<li><a href="/chtc-projects.shtml">CHTC Projects</a></li>
-		<li><a href="/people.shtml">Our Staff</a></li>
-		<li><a href="/jobs.shtml">Our Open Positions</a></li>
+		<li><a href="{{'/chtc-projects' | relative_url }}">CHTC Projects</a></li>
+		<li><a href="{{'/people' | relative_url }}">Our Staff</a></li>
+		<li><a href="{{'/jobs' | relative_url }}">Our Open Positions</a></li>
 		</ul>
 	</li>
 

@@ -29,18 +29,18 @@ our <a href="#faq">FAQs</a>.  </p>
 <a name="topics"></a>
 <h2>List of Guides by Topic</h2>
 <ul>
-<li><a href="/helloworld.shtml">Running your first CHTC jobs</a></li>
-<li><a href="/submit_variations.shtml">Submit file variations</a></li>
-<li><a href="/MATLABandR.shtml">Compiling Matlab, Python, and R Code</a></li>
-<li><a href="/inter-submit.shtml">Compiling all other code (interactive jobs)</a></li>
-<li><a href="/DAGenv.shtml">Submitting Matlab, Python and R jobs using the ChtcRun environment</a></li>
-<!--<li><a href="/blast_SOARguide.shtml">Using CHTC's automated pipeline to run BLAST</a></li> -->
-<li><a href="/file-availability.shtml">File Availability options</a></li>
-<li><a href="/file-avail-squid.shtml">File availability with Squid proxy</a></li>
-<li><a href="/file-avail-gluster.shtml">File availability with Gluster</a></li>
+<li><a href="{{'/helloworld' | relative_url }}">Running your first CHTC jobs</a></li>
+<li><a href="{{'/submit_variations' | relative_url }}">Submit file variations</a></li>
+<li><a href="{{'/MATLABandR' | relative_url }}">Compiling Matlab, Python, and R Code</a></li>
+<li><a href="{{'/inter-submit' | relative_url }}">Compiling all other code (interactive jobs)</a></li>
+<li><a href="{{'/DAGenv' | relative_url }}">Submitting Matlab, Python and R jobs using the ChtcRun environment</a></li>
+<!--<li><a href="{{'/blast_SOARguide' | relative_url }}">Using CHTC's automated pipeline to run BLAST</a></li> -->
+<li><a href="{{'/file-availability' | relative_url }}">File Availability options</a></li>
+<li><a href="{{'/file-avail-squid' | relative_url }}">File availability with Squid proxy</a></li>
+<li><a href="{{'/file-avail-gluster' | relative_url }}">File availability with Gluster</a></li>
 <ul>
-<li><a href="/gluster-large-files.shtml">Large files in Gluster</a></li>
-<li><a href="/gluster-software.shtml">Software in Gluster</a></li>
+<li><a href="{{'/gluster-large-files' | relative_url }}">Large files in Gluster</a></li>
+<li><a href="{{'/gluster-software' | relative_url }}">Software in Gluster</a></li>
 </ul>
 </ul>
 

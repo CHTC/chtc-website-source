@@ -14,7 +14,7 @@ an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's 
+	<li><a href="{{'/helloworld' | relative_url }}">The CHTC's
 	Intro to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -101,7 +101,7 @@ to compile the program).
 </p>
 
 <p><b>Instructions for submitting an interactive build/compile job</b> are here: 
-<a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+<a href="{{'/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
 The only line in the submit file that you need to change is <code>transfer_input_files</code> 
 to reflect all the source files on which your program depends. Otherwise, go through 
 the steps described in that guide until immediately after running <code>condor_submit -i</code>.

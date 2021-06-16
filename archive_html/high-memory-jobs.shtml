@@ -13,9 +13,9 @@ title: Submitting High Memory Jobs on CHTC's HTC System
 <ol>
 	<li>Using the command-line to: navigate directories, create/edit/copy/move/delete 
 	files and directories, and run intended programs (aka "executables").</li>
-	<li><a href="/helloworld.shtml">
+	<li><a href="{{'/helloworld' | relative_url }}">
 	CHTC's Intro to Running HTCondor Jobs</a></li>
-	<li>CHTC's guides for handling large data (<a href="/file-avail-largedata.shtml">
+	<li>CHTC's guides for handling large data (<a href="{{'/file-avail-largedata' | relative_url }}">
 	Guide here</a>) and software installation.</li>
 </ol>
 
@@ -125,7 +125,7 @@ with a research computing facilitator by emailing chtc@cs.wisc.edu.</p>
 <a name="submit"></a>
 <h2>A. Submit File</h2>
 
-<p>The submit file shown in our <a href="/helloworld.shtml">Hello World example</a> 
+<p>The submit file shown in our <a href="{{'/helloworld' | relative_url }}">Hello World example</a>
 is a good starting point for building your high memory job submit file.  The following 
 are places where it's important to customize:</p>
 
@@ -174,8 +174,8 @@ are places where it's important to customize:</p>
 	on the execute node, including all output and input (which will take up space before 
 	some of it is removed from the job working directory at the end of the job). <br><br> </li>
 	<li class="spaced"><b>Other requirements</b>: if your job uses files from 
-	<a href="/file-avail-largedata.shtml">our large data space</a>, or 
-	<a href="/docker-jobs.shtml">Docker for software</a>, 
+	<a href="{{'/file-avail-largedata' | relative_url }}">our large data space</a>, or
+	<a href="{{'/docker-jobs' | relative_url }}">Docker for software</a>,
 	add the necessary requirements for these resources to your submit file.   <br><br></li>
 </ul>
 
@@ -211,21 +211,21 @@ queue 1
 
 <p>Like any other job, the best option for high memory work is to create a portable
 installation of your software.  We have guides for
-<a href="/howto_overview.shtml">scripting languages</a> and 
-<a href="/docker-jobs.shtml">using Docker</a>, 
+<a href="{{'/howto_overview' | relative_url }}">scripting languages</a> and
+<a href="{{'/docker-jobs' | relative_url }}">using Docker</a>,
 and can otherwise provide individual support for program installation 
-<a href="/get-help.shtml">during office hours or over email</a>. </p>
+<a href="{{'/get-help' | relative_url }}">during office hours or over email</a>. </p>
 
 <a name="executable"></a>
 <h2>C. "Executable" script</h2>
 
-<p>As described in many of our guides (for <a href="/howto_overview.shtml">software</a> or for 
-using <a href="/file-avail-largedata.shtml">large data</a>), you will need to write 
+<p>As described in many of our guides (for <a href="{{'/howto_overview' | relative_url }}">software</a> or for
+using <a href="{{'/file-avail-largedata' | relative_url }}">large data</a>), you will need to write
 a script that will run your software commands for you and that will serve 
 as the submit file "executable".  Things to note are: </p>
 <ul>
 	<li>If using files from our large data staging space, follow the recommendations in our 
-	<a href="/file-avail-largedata.shtml">guide</a>.  </li>
+	<a href="{{'/file-avail-largedata' | relative_url }}">guide</a>.  </li>
 	<li>If using multiple cores, make sure that you request the same number of 
 	"threads" or "processes" in your command as you requested in your 
 	<a href="#submit">submit file</a>.</li>

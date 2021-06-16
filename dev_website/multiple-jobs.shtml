@@ -9,7 +9,7 @@
 <ol>
 <li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
 <!-- coming soon <li>The CHTC’s Roadmap for High Throughput Computing</li> -->
-<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
+<li><a href="{{'/helloworld' | relative_url }}">The CHTC's Intro to Running HTCondor Jobs</a></li>
 <li>The importance of indicating the below submit file lines, which are left
  out of the below examples for simplicity:
 <pre class="sub">
@@ -62,7 +62,7 @@ below in slide format.</p>
 
 <blockquote>
 <p>This example is most similar to our
- <a href="http://chtc.cs.wisc.edu/helloworld.shtml">Intro to Running HTCondor
+ <a href="{{'/helloworld' | relative_url }}">Intro to Running HTCondor
  Jobs</a>.  </p>
  </blockquote>
 

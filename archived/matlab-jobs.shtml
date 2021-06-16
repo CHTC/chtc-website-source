@@ -59,7 +59,7 @@ The session is essentially a job without an executable;
 <h2>A. Start an Interactive Build Job</h2>
 
 <p>Instructions for submitting an interactive build 
-job are here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
+job are here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit</a>.  You'll need
 to do Step 2 (Creating Interactive Submit Files), and the first command of Step 3
 (Submitting and Working Interactively).<br>
 For Step 2, you'll need to change <code>transfer_input_files</code> to 
@@ -183,7 +183,7 @@ permissions.  When that happens, they can be restored by running the following c
 a submit file for Matlab jobs.  The submit file for your job will be 
 different than the one used 
 to compile your code.  As a starting point for a submit file, 
-see our "hello world" example: <a href="{{ '/helloworld' | relative_url }}">http://chtc.cs.wisc.edu/helloworld.shtml</a>.
+see our "hello world" example: <a href="{{ '/helloworld' | relative_url }}">http://chtc.cs.wisc.edu/helloworld</a>.
 In what follows, replace our example <code>foo</code> and <code>run_foo.sh</code> 
 with the name of your binary and scripts.  </p>
 <ol>

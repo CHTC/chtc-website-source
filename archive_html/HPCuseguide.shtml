@@ -19,7 +19,7 @@ can make sure to match you to the best computing resources (including non-CHTC s
 <br><br>
 If you have been using the HPC Cluster already, and believe your research group would benefit from 
 purchasing prioritized hardware to add to the HPC Cluster, please see our
-<a href="/hpc-buy-in.shtml">
+<a href="{{'/hpc-buy-in' | relative_url }}">
 <b>information regarding buy-in options for access to your own priority queue.</b>
 </a>
 </p>

@@ -10,7 +10,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="{{ '/helloworld' | relative_url }}}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -29,7 +29,7 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 
 <p>If you want to build your own copy of base R, see this archived page: 
 <ul>
-	<li><a href="archived/r-jobs.shtml">Building a R installation</a></li>
+	<li><a href="{{ 'archived/r-jobs' | relative_url }}">Building a R installation</a></li>
 	<!--<li>Using miniconda to install R</li>-->
 </ul>
 </p>
@@ -286,7 +286,7 @@ Carpentry lesson</a> (look for <code>print-args-trailing.R</code>).
 <a name="submit"></a>
 <h1>3. Submitting Jobs</h1>
 
-<p>A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+<p>A sample submit file can be found in our <a href="{{'/helloworld' | relative_url }}">hello world
 </a> example page.  You should make the following changes in order to run 
 R jobs: </p>
 <ul>
@@ -309,7 +309,7 @@ Disk space and memory usage can be found in the log file after the job completes
 the tarball using <code>transfer_input_files</code>.  Instead, you should use 
 CHTC's web proxy, <code>squid</code>. To learn more about <code>squid</code> please
 see our user guide 
-<a href="http://chtc.cs.wisc.edu/file-avail-squid.shtml">File Availability with
+<a href="{{'/file-avail-squid' | relative_url }}">File Availability with
 Squid Web Proxy</a>. To request space on <code>squid</code>, email the research computing facilitators at 
 <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>.  
 </p>
