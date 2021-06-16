@@ -22,7 +22,9 @@ Two announcements for your Wednesday morning!
 1. CHTC staff will be out of the office tomorrow, Thursday, June 17, for a staff retreat. Office hours are canceled and we will not be responding to email. **Please continue to contact chtc@cs.wisc.edu with questions and we will respond on Friday when we are back in the office.**
 
 1. Our website has a new look! Check it out in the same location: chtc.cs.wisc.edu
+    
     All of the underlying content (guides, reference pages) is the same, so you can access all the same information, just with a new appearance.
+    
     This is also a reminder that the source code for our website is on [Github](https://github.com/CHTC/chtc-website-source), so if you have suggestions or contributions, you can open an issue or submit a pull request.
 
 Best,
