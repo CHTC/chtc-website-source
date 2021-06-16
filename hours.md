@@ -1,5 +1,5 @@
 ---
-layout: content
+layout: markdown-page
 title: Usage Summary by Week
 ---
 

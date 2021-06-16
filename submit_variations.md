@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: HTCondor Submit File Variations
 ---
 
@@ -58,7 +58,7 @@ out of the below examples for simplicity:
 **1. Organizing many jobs with integer-numbered filenames:**
 ===============================================================
 
-This example is most similar to our [Intro to Running HTCondor Jobs](/helloworld.shtml) and uses HTCondor's $(Process) variable to indicate
+This example is most similar to our [Intro to Running HTCondor Jobs](/helloworld) and uses HTCondor's $(Process) variable to indicate
  filename differences for each job. For \"queue *N*\" in the submit file,
  the $(Process) variable will start with
  "0" and end with N-1, such that you can use $(Process) to indicate

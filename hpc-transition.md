@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Transition to the Newly Configured HPC Cluster
 ---
 

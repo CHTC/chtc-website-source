@@ -2,7 +2,7 @@ baseurl: ''
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
 
 # Jekyll does not build hidden directories by default.
-include: [".well-known"]
+include: [".well-known", ".htaccess"]
 
 markdown_ext : "md,shtml"
 
