@@ -62,7 +62,7 @@ if(isset($_POST["captcha"])) {
 
     // Send them to the the thanks page
     header( "Content-Type: text/html\n" );
-    header( "Location: https://chtc.cs.wisc.edu/thanks.shtml\n\n" );
+    header( "Location: https://chtc.cs.wisc.edu/thanks\n\n" );
 
   } else { // User failed captcha
     // Send them back to the form page
