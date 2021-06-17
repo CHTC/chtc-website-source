@@ -74,7 +74,7 @@ the submit server (so that you can use the R installation for later jobs). </p>
 <a name="interactive"></a>
 <li><p><b>Submit an Interactive Build Job</b></p>
 <p>Instructions for submitting an interactive build job are 
-here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit</a> <br>
 You'll need to do Step 2.  
 Note that you should replace the contents of the "transfer_input_files" line
 with the name of the R source tarball that you downloaded.</p>

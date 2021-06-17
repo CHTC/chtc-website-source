@@ -62,7 +62,7 @@ While you may be excited at the prospect of harnessing 100,000 compute
 hours a day for your research, the most valuable thing we offer is,
 well, us. We have a small, yet dedicated team of professionals who eat,
 breathe and sleep distributed computing. [Request an
-account](get-started.shtml), and one of our dedicated Research Computing
+account](get-started), and one of our dedicated Research Computing
 Facilitators will follow up to provide specific recommendations to
 accelerate YOUR science.
 

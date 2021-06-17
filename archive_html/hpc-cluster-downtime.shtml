@@ -46,7 +46,7 @@ to improve filesystem performance </p>
 
 <h2>CHTC Staff Are:</h2>
 <ol>
-  <li>updating the <a href="HPCuseguide.shtml">HPC Cluster Use Guide</a> to
+  <li>updating the <a href="{{'HPCuseguide' | relative_url }}">HPC Cluster Use Guide</a> to
    reflect the above 
   policy changes. (already done)</li>
   <li>emailing researchers who have significant <i>total data</i> and/or a <i>large 

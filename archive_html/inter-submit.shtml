@@ -10,7 +10,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="{{'/helloworld' | relative_url }}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -18,7 +18,7 @@ should already have an understanding of:</b>
 
 <p>This guide provides a generic overview of steps required to install scientific
 software for use in CHTC. If you are using Python, R, or Matlab, see our specific 
-installation and use guides here: <a href="/howto_overview.shtml">Guides for Matlab, Python and R</a>.</p>
+installation and use guides here: <a href="{{'/howto_overview' | relative_url }}">Guides for Matlab, Python and R</a>.</p>
 
 <!--<p>Once you've created a portable software installation, see our <a href="">Job 
 Executable Creation</a> guide for more details of how to use your software in a job.</p>-->
@@ -205,6 +205,6 @@ Move back into the main job directory and create a tar.gz file of the installati
 [alice@build]$ exit</pre>
 <br>
 <blockquote>
-For older version of this guide, see out <a href="archived/inter-submit.shtml">archived page</a>.
+For older version of this guide, see out <a href="{{'archived/inter-submit' | relative_url }}">archived page</a>.
 </blockquote>
 
