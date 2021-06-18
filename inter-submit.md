@@ -11,7 +11,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](http://chtc.cs.wisc.edu/helloworld.shtml)
+    Jobs](/helloworld)
 
 Overview
 ========
@@ -261,4 +261,4 @@ installation folder.
 
 
 > For older version of this guide, see out [archived
-> page](archived/inter-submit.shtml).
+> page](archived/inter-submit).

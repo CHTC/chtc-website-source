@@ -15,7 +15,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](http://chtc.cs.wisc.edu/helloworld.shtml)
+    Jobs](/helloworld)
 
 Overview
 ========
@@ -91,7 +91,7 @@ are the one running the commands instead (in this case, to compile the
 program).
 
 **Instructions for submitting an interactive build/compile job** are
-here: <http://chtc.cs.wisc.edu/inter-submit.shtml>\
+available on our [interactive submission guide](/inter-submit).
 The only line in the submit file that you need to change is
 `transfer_input_files` to reflect all the source files on which your
 program depends. Otherwise, go through the steps described in that guide

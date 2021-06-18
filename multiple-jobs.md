@@ -13,7 +13,7 @@ have an understanding of:**
     intended programs (aka \"executables\").  
 
 2.  [The CHTC\'s Intro to Running HTCondor
-    Jobs](http://chtc.cs.wisc.edu/helloworld.shtml)
+    Jobs](/helloworld)
 3.  The importance of indicating the below submit file lines, which are
     left out of the below examples for simplicity:
 
@@ -71,7 +71,7 @@ best implementation.
 ==============================================================
 
 > This example is most similar to our [Intro to Running HTCondor
-> Jobs](http://chtc.cs.wisc.edu/helloworld.shtml).
+> Jobs](/helloworld).
 
 This method addresses an example where you have multiple, numbered input
 files and want to run a job for each one. On the submit server, this
