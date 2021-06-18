@@ -12,7 +12,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](http://chtc.cs.wisc.edu/helloworld.shtml)
+    Jobs](/helloworld)
 
 Overview
 ========
@@ -28,11 +28,11 @@ This guide details the steps needed to:
 3.  [Submit jobs](#submit)
 
 If you want to build your own copy of base Python, see this archived
-page: [Building a Python installation](archived/python-jobs.shtml)
+page: [Building a Python installation](archived/python-jobs)
 
 If you want to use conda to manage your Python package dependencies, 
 read this guide as background material,
-then read [our guide on using conda](conda-installation.shtml).
+then read [our guide on using conda](conda-installation).
 
 <a name="supported"></a>
 

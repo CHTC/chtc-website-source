@@ -57,7 +57,7 @@ tag (or tags) of the container to use in CHTC.
 ## B. Build Your Own Image
 
 You can also build your own Docker container image and upload it to
-DockerHub. See [this link to our guide on building containers](docker-build.shtml) or the [Docker
+DockerHub. See [this link to our guide on building containers](docker-build) or the [Docker
 documentation](https://docs.docker.com/engine/getstarted/) for more
 information.
 
@@ -103,7 +103,7 @@ will already be present in the Docker container.
 If you want to test your jobs, you have two options: 
 
 * We have a guide on exploring and testing Docker containers on your own computer here: 
-    * [Exploring and Testing Docker Containers](docker-test.shtml)
+    * [Exploring and Testing Docker Containers](docker-test)
 * You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
 interactive flag with `condor_submit`: 
     ```

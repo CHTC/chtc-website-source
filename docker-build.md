@@ -8,7 +8,7 @@ includes software, libraries, and other tools. CHTC currently supports
 running jobs inside [Docker](https://www.docker.com/what-docker)
 containers. This guide describes how to build a Docker image
 that you can use for running jobs in CHTC. For information on using 
-this image for jobs, see our [Docker Jobs guide](docker-jobs.shtml).
+this image for jobs, see our [Docker Jobs guide](docker-jobs).
 
 # Overview
 
@@ -44,7 +44,7 @@ This guide has:
 
 If you have never used Docker before, we recommend exploring a pre-existing container 
 and testing out installation steps interactively before creating a Dockerfile. See the 
-first half of this guide: [Exploring and Testing a Docker Container](docker-test.shtml)
+first half of this guide: [Exploring and Testing a Docker Container](docker-test)
 
 ## 3. Create a Dockerfile
 
