@@ -54,5 +54,5 @@ title: CHTC Projects
 
 </div>
 
-<p><a href="{{ '/projects.' | relative_url }}">Learn more</a>
+<p><a href="{{ '/projects' | relative_url }}">Learn more</a>
 about how the CHTC has helped advance a diverse body of research on campus.</p>
