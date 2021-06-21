@@ -1,14 +1,16 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Using CHTC's HTC Submit Servers 
 ---
 
 **If you have not yet requested a CHTC account and met with a Research
-Computing Facilitator, please fill out [this form](/form.shtml).**
+Computing Facilitator, please fill out [this form](form).**
 
-Recently created CHTC accounts will use our submit server
-*submit2.chtc.wisc.edu*. Access to other submit servers is granted for
+Recently created CHTC accounts will use our submit server 
+*submit1.chtc.wisc.edu*. Accounts older than March 2021 may be on 
+either *submit1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*. 
+Access to other submit servers is granted for
 specific purposes and will have been indicated to you by CHTC staff.
 
 Connecting to CHTC Submit Servers
@@ -27,7 +29,7 @@ VPN](https://it.wisc.edu/services/wiscvpn/).
 
 For more detailed information on connecting to CHTC services, both
 logging in and transferring files, see our [Connecting to CHTC
-guide](/connecting.shtml).
+guide](connecting).
 
 Data Practices
 --------------
@@ -35,11 +37,15 @@ Data Practices
 **We do not back up data on CHTC submission points**, and users should
 treat CHTC compute systems as temporary storage locations for *active*,
 currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch computational work and keep copies of
+systems upon completion of a batch of computational work and keep copies of
 all essential files in a non-CHTC location. CHTC staff reserve the right
 to delete data from any CHTC file systems at at any time, to preserve
 performance, and are not responsible for data loss for file system
 corruption, which are possible, especially in the absence of back-ups.
+
+**CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+CHTC services. If you have data security concerns or any questions about 
+data security in CHTC, please get in touch! We'll be happy to discuss.
 
 Submit Server User Policies
 ---------------------------
@@ -56,7 +62,7 @@ order to keep the submit servers functional and usable by everyone:
 -   **Do not run programs on the submit server.** The submit server is
     kept plenty busy just managing HTCondor jobs. Computational work,
     like compiling code, should be submitted as HTCondor jobs. See our
-    [online guides](/guides.shtml) for the best compiling practices.
+    [online guides](guides) for the best compiling practices.
     Small scripts and commands (to compress data, create directories,
     etc.) that run within a few minutes on the submit server are okay,
     but their use should be minimized when possible.
@@ -77,14 +83,14 @@ order to keep the submit servers functional and usable by everyone:
     jobs running as possible without also compromising the queue.
 -   **There is a 20 GB disk quota** in your `/home` directory, by
     default. You can track your use of disk space, and your quota value,
-    using our [Quota Guide](/check-quota.shtml). If you need more space
+    using our [Quota Guide](check-quota). If you need more space
     for concurrent work, please send an email to chtc@cs.wisc.edu.
 -   **Submitting jobs with \"large\" files:** Please do not submit jobs
     that require single input files larger than 100 MB using HTCondor\'s
     normal file transfer mechanism (\"transfer\_input\_files\"), or that
     produce output files greater than a few GB. For such jobs with large
     files, please see our guide on [File
-    Availability](/file-availability.shtml) Options, and contact us to
+    Availability](file-availability) Options, and contact us to
     make arrangements.
 -   **No scheduled jobs.** Local execution and job submission should be
     manual, or use a DAG. Do not use cron to schedule jobs, and do not

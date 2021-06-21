@@ -1,0 +1,11 @@
+title: Susan Hagness
+image: /images/hagness.jpg
+description: >
+  In our research we're working on a novel computational tool for THz-frequency
+  characterization of materials with high carrier densities, such as highly-doped
+  semiconductors and metals. The numerical technique tracks carrier-field dynamics by
+  combining the ensemble Monte Carlo simulator of carrier dynamics with the finite-difference
+  time-domain technique for Maxwell's equations and the molecular dynamics technique for
+  close-range Coulomb interactions. This technique is computationally intensive and each test
+  runs long enough (12-20 hours) that our group's cluster isn't enough. This is why we think
+  CHTC can help, to let us run more jobs than we're able to run now.

@@ -1,0 +1,36 @@
+.uw-button {
+  background-color: $uw-anchor-color;
+  color: white;
+  display: inline-block;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0;
+  position: relative;
+  // box-shadow: 0 1.5px 4px rgba(0,0,0,.24),0 1.5px 6px rgba(0,0,0,.12);
+  padding: .6rem;
+  font-family: $uw-verlag-font;
+  font-size: .775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  &:hover {
+    background-color: scale-color($uw-anchor-color, $lightness: -15%);
+    // box-shadow: 0 1.5px 4px rgba(0,0,0,.34),0 1.5px 6px rgba(0,0,0,.22);
+  }
+  &.uw-button-inverse {
+    background-color: white;
+    color: $uw-anchor-color;
+    border-color: $uw-anchor-color;
+  }
+  + .uw-button {
+    margin-left: 0.5rem;
+  }
+}
+a.uw-button:hover {
+  text-decoration: none;
+}
+.uw-button-unstyle {
+  background-color: transparent;
+  color: $uw-anchor-color;
+}

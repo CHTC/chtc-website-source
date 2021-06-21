@@ -10,7 +10,7 @@ Every Wednesday, 9:30am-11:30am
 <br>
 Discovery (WID), room 1157</span></div>
 
-<div style="margin-top:1em;"><a href="http://chtc.cs.wisc.edu/"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
+<div style="margin-top:1em;"><a href="{{ '/' | relative_url }}"><img alt="Center for High Throughput Computing" src="/images/CHTC-logo.png" width="500" height="90"></a></div>
 
 
 <!--#if expr="x$title != x"-->

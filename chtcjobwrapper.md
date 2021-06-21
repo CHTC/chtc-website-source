@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Submitting Jobs Using chtcjobwrapper
 ---
 
@@ -15,7 +15,7 @@ to specify details of the job.
 
 It may be helpful to have an example submit file. You can follow the
 directions given at [Submitting Jobs Using the DAG
-Environment](DAGenv.shtml) through step 4, which runs the script
+Environment](DAGenv) through step 4, which runs the script
 `mkdag`. Running this script creates HTCondor submit description files.
 There are four working examples in that environment which combine the 4
 most common jobs types and thus submit files for each. There are Matlab,
@@ -159,7 +159,7 @@ Required. The executable invoked by the `chtcjobwrapper` script.
 -   `--cmdtorun=compiledmatlabprogram`\
     For Matlab jobs, this is your compiled Matlab program.
     [Documentation on compiling your Matlab program is available
-    here.](http://chtc.cs.wisc.edu/MATLABandR.shtml)
+    here.](/MATLABandR)
 -   `--cmdtorun=myRentryscript.R`\
     For R jobs, this will be your entry script which may call other R
     files.

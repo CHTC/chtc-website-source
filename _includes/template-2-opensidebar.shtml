@@ -1,4 +1,5 @@
-<link href="/web.css" rel="stylesheet" type="text/css">
+<link href="{{ '/web.css' | relative_url }}" rel="stylesheet" type="text/css">
+<link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
@@ -9,5 +10,5 @@
       &nbsp;<br>
       <a href="http://www.wisc.edu">
 
-      <img src="/images/uw-sm-red.png" width="125" height="46" border="0"> </a>
+      <img src="{{ '/images/uw-sm-red.png' | relative_url }}" width="125" height="46" border="0"> </a>
        </div>

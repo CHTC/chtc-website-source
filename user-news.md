@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: User News
 ---
 
@@ -12,180 +12,109 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
-## Office hours canceled this Tuesday, February 9
-### Tuesday, February 9, 2021
+## Limited email responses, no office hours on Thursday, June 17, new website look!!
+### Wednesday, June 16, 2021
 
-Greetings CHTC users, 
-
-Office hours are canceled this Tuesday, February 9, as all of 
-CHTC's Facilitators will be at an online event. Regular office hours 
-will resume on Thursday, February 11. 
-
-Best,
-The Facilitation team
-
-------------------------------------------------------------------------
-## Unexpected outage of SQUID server for http file transfers
-### Thursday, January 28, 2021
-
-Greetings CHTC users, 
-
-*This message is for users of our high throughput computing (HTC) system.*
-
-CHTC staff have identified an issue causing http transfers from our SQUID server to fail and 
-jobs to go on hold as a result. Affected jobs will have a hold message like t
-his (visible in job log files, or by running `condor_q -hold`: 
-
-Error from slot1_0@e000.chtc.wisc.edu: FILETRANSFER:1:non-zero exit (1) from /usr/libexec/condor/curl_plugin. Error: Callback aborted (http://proxy.chtc.wisc.edu/SQUID/filename)
-
-We are working to resolve the issue; in the meantime, please refrain from submitting new batches of jobs that depend on files from SQUID. We will send an update to this list when SQUID capabilities are stable again and affected jobs can be released. 
-
-Please direct any questions or concerns to chtc@cs.wisc.edu. 
-
-Best,
-Your CHTC Team
-
-------------------------------------------------------------------------
-## Service restored to HTC large data file share
-### Friday, January 22, 2021
-
-Greetings CHTC users, 
-
-The large data file share that supports /staging, /projects and HTC /software 
-directories is back online. 
-
-Jobs that require /staging, /projects or the HTC software modules should now 
-be able to start and run successfully. However at this time there are fewer 
-servers able to run jobs that require CHTC Staging and CHTC Software which 
-may result in longer idle times for these jobs. We are continuing to work to 
-restore full capacity support for /staging, /projects, and /software.
-
-While the file share was down, running jobs that required access to /staging, 
-/projects or HTC /software directories (including HTC software modules) will 
-likely have failed. If this applies to your jobs, we recommend reviewing jobs 
-that completed on Tuesday or Wednesday for errors and resubmitting those that failed. 
-
-To move data to and from /staging or /projects, please continue to use the 
-CHTC's transfer server (*not a submit server*) as described here: 
-<https://chtc.cs.wisc.edu/file-avail-largedata>
-
-If you experience any further issues with /staging, please contact us at chtc@cs.wisc.edu. 
-
-Have a good weekend!
-
-Best, 
-Your CHTC team
-
-------------------------------------------------------------------------
-## Unexpected outage of HTC large data file share (/staging, /projects,	HTC /software)
-### Tuesday, January 19, 2021
-
-Greetings CHTC users, 
-
-*This message is for users of our high throughput computing (HTC) system.*
-
-The large data file share that supports /staging, /projects and HTC /software directories recently began experiencing failures, and in response we have temporarily taken it offline. Jobs that copy input or output files from /staging or /projects will either fail or hang without completing. Any jobs which use software modules on the HTC system will also fail. 
-
-We are working to resolve these issues and will send another email once the system is running and stable again. 
-
-Please direct any questions or concerns to chtc@cs.wisc.edu. 
-
-Best, 
-Your CHTC team
-
-------------------------------------------------------------------------
-## Impacts to http file transfers resolved
-### Wednesday, January 13, 2021
-
-Greetings CHTC user, 
- 
-This message is for users of our high throughput computing (HTC) system.
- 
-CHTC staff identified an issue causing some http transfers to fail and jobs to go on hold as a result. We believe we have identified and fixed the problem and have released all impacted jobs submitted from submit-1, and submit2/3.
- 
-If you have jobs, submitted from another submit server, that have gone on hold due to this issue, you can release them using the following HTCondor command:
- 
-condor_release -constraint '(HoldReasonCode == 12) && (HoldReasonSubCode == 0)'
- 
-Please direct any questions or concerns to chtc@cs.wisc.edu. 
- 
-Best,
- 
-Your CHTC Team
-
-------------------------------------------------------------------------
-## CHTC Facilitator holiday availability
-### Monday, December 21, 2020
-
-Greetings CHTC users, 
-
-This is an annual reminder that CHTC staffing will be somewhat reduced at times during the next two weeks
-
-- Office Hours are cancelled starting this Thursday through next week (Dec. 24 - Jan 1), 
-and email responses will be delayed during this period. *Office Hours are still on for tomorrow, Dec. 22.*
-- **Normal office hours and email response times will resume on Monday, January 4th.**
-
-Please remember that your work on CHTC's shared compute systems can affect 
-other users. You should review and continue to follow CHTC policies for 
-our [HTC System](https://chtc.cs.wisc.edu/use-submit-node) and [HPC Cluster](https://chtc.cs.wisc.edu/hpc-overview) to 
-ensure that you are acting in consideration of others, especially since 
-CHTC staff may not be able to respond as quickly to user-caused issues.
-
-As always, the best way to get in touch with us is through our designated email address (chtc@cs.wisc.edu). 
-
-Best wishes during the holiday season!
-
-Christina, Jess, Lauren, and the rest of the CHTC team
-
-------------------------------------------------------------------------
-## HPC Cluster Queue Restored; Users Advised to Proceed with Caution
-### Wednesday, December 2, 2020
-
-Hello again,
-
-The cluster queue and Slurm functions have been restored; the incident was traced to a malfunctioning Infiniband switch. While some jobs continued to run during the downtime and others have begun running again, others may have failed and left the queue. Users are advised to review their error/output files and the queue to determine whether any jobs will need to be resubmitted.
-
-While we believe full network capabilities are restored, the cluster is at reduced capacity while we work to reinstate some nodes (marked as `down` in Slurm's `sinfo` command output). Additionally, we would like to caution users that cluster functionality is at risk for lower reliability, at least until we can observe stable behavior of the affected hardware over the coming hours and days.\
-As always, if you notice any errors that you're unsure of how to address, please send an email to <chtc@cs.wisc.edu> with details.
-
-Thank you,
-
-Your CHTC Team
-
-------------------------------------------------------------------------
-## HPC Cluster Queue and Execute Nodes are Down Due to Network Issues
-### Wednesday, December 2, 2020
-
-As of 5:30PM CDT on December 2nd The HPC cluster queue is restored, users are advised to proceed with caution
-~~Greetings,~~
-
-~~*This message is for users of CHTC's HPC Cluster. Users of only the HTC System can ignore.*~~
-
-~~We are currently working to understand and fix a networking issue affecting many of the execute nodes in the HPC Cluster, as well as the server that operates the queue. **As a result of this outage, the cluster's queue and all Slurm commands are failing**, though users are still able to log into the main head node ([hpclogin1.chtc.wisc.edu](http://hpclogin1.chtc.wisc.edu)). The full extent of impact to queued jobs is yet unclear.~~
-
-~~While we are still investigating on-site, we are unsure of how long it will take to diagnose and fix the issue, and to restore the cluster to functionality. We appreciate your patience, and will provide updates with any changes to functionality or timeline.~~
-
-~~Thank you,~~
-
-~~Your CHTC Team~~
-
-------------------------------------------------------------------------
-## Tuesday, November 24 is the Last Day to Access Previous HPC Cluster
-### Thursday, November 19, 2020
 Greetings CHTC users,
 
-*The below pertains to users of CHTC's HPC Cluster. Users of only the HTC System are welcome to ignore the below.*
+Two announcements for your Wednesday morning!
 
-We have completed the transition of all compute hardware from the old HPC Cluster configuration to the new configuration. **Next week, on Tuesday, November 24, will be the last day for users to access former head nodes** (aci-service-1.chtc.wisc.edu, aci-service-2.chtc.wisc.edu), as we prepare to fully retire all hardware and the filesystem, deleting all user data. If you have files on the old cluster configuration that you have not yet backed up or copied off the cluster, please do so immediately. **Users will no longer be able access the head nodes or data on the 'old' HPC Cluster after November 24.**
+1. CHTC staff will be out of the office tomorrow, Thursday, June 17, for a staff retreat. Office hours are canceled and we will not be responding to email. **Please continue to contact chtc@cs.wisc.edu with questions and we will respond on Friday when we are back in the office.**
 
-For those who have already logged into the new cluster, we have a new tool that will allow you to check your directory quotas and usage. See [this section of our cluster overview guide](https://chtc.cs.wisc.edu/hpc-overview#tools-for-managing-home-and-software-space) for details.
+1. Our website has a new look! Check it out in the same location: chtc.cs.wisc.edu
+    
+    All of the underlying content (guides, reference pages) is the same, so you can access all the same information, just with a new appearance.
+    
+    This is also a reminder that the source code for our website is on [Github](https://github.com/CHTC/chtc-website-source), so if you have suggestions or contributions, you can open an issue or submit a pull request.
 
-Please send any questions to <chtc@cs.wisc.edu>, as always, and join us at office hours (Tu/Th 3-5pm).
+Best,
+Your CHTC Team
 
-Thank you,
+------------------------------------------------------------------------
+## HPC Cluster back up today (6/9)
+### Wednesday, June 9, 2021
+
+Greetings CHTC users, 
+
+*This message is for users of our high performance computing (HPC) cluster.*
+
+The HPC cluster is back up after completing maintenance to its file system. 
+
+Users should now be able to log in to the HPC cluster login nodes. All previously submitted jobs are still in the queue and will re-run automatically. We recommend that users with jobs that were running at the start of the downtime examine their output files for potential issues caused by the interruption of jobs. 
+
+Please email us at chtc@cs.wisc.edu with any follow up questions or additional concerns. 
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
+## HPC Cluster unplanned downtime starting now, possibly through next week (6/11)
+### Friday, June 4, 2021
+
+Greetings CHTC users,
+
+This is an urgent message for users of our HPC Cluster.
+
+We apologize for the lack of detailed update until now. While we thought the HPC Cluster filesystem had been repaired to stability early yesterday afternoon and had some specific users doing some tests, we discovered at the end of yesterday (just before we would have sent a positive update) that the issues had returned. **It appears that the filesystem will need more extended maintenance work, which we are beginning ASAP and hope to complete by sometime next week.**
+
+**As of now, we need to take the following steps to prevent further issues until the downtime has ended:**
+
+- users will not be able to log into the HPC Cluster until the TBD completion of the downtime
+- running jobs will be re-queued, and so will remain in the queue until users can log in again
+- jobs queued but not yet running will also remain in the queue
+
+Additional details:
+
+- While we plan to complete the maintenance work next week, this timeline is subject to change and we'll notify users as soon as we can.
+- At this time we expect that all user data in the filesystem (i.e. /home and /software locations) will be preserved. The issue appears to be with the filesystem’s metadata (which keeps track of which data is where in the filesystem).
+- If you have imminently urgent work delayed by this downtime, please get in touch ASAP to discuss.
+
+As always, please email us with any questions or issues via chtc@cs.wisc.edu
+
+Thank you for your patience,
 
 Your CHTC Team
 
+
+------------------------------------------------------------------------
+## HPC Cluster issue this afternoon (Wed, June 2)
+### Wednesday, June 2, 2021
+
+Greetings CHTC Users,
+
+*This message is for users of our high performance computing (HPC)
+cluster.*
+
+This afternoon, our HPC administrator noticed an issue involving the
+filesystem on our HPC cluster.
+**While this issue is ongoing, you may have trouble logging in to the
+HPC login nodes or interacting with files from the login and execute
+nodes.**
+We do not yet know if running jobs are affected. We will update you as
+we learn more.
+
+Please contact us at chtc@cs.wisc.edu with any questions and concerns.
+
+Best,
+
+Your CHTC team
+
+------------------------------------------------------------------------
+## Limited response to emails today (June 2)
+### Wednesday, June 2, 2021
+
+Greetings CHTC Users,
+
+Most of CHTC’s Research Computing Facilitation team will be out of the
+office today, June 2nd. Responses to email will be limited or delayed.
+
+Please continue to contact chtc@cs.wisc.edu with any CHTC-related
+questions or concerns.
+
+Best,
+
+Your CHTC Team
 
 ------------------------------------------------------------------------
 

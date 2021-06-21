@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: markdown-page
 title: Running Matlab Jobs on CHTC
 ---
 
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="../matlab-jobs.shtml">this page</a> for the new guides.
+<a href="{{ '/matlab-jobs' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 <p><b>The examples and information in this guide work best for the below cases*:</b>
@@ -21,7 +21,7 @@ starting a new project, we recommend using the updated process instead of the gu
 </p>
 <ul>
 	<li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro to Running HTCondor Jobs</a></li>
+	<li><a href="{{ '/helloworld' | relative_url }}">The CHTC's Intro to Running HTCondor Jobs</a></li>
 </ul>
 
 <h1>Overview</h1>
@@ -59,7 +59,7 @@ The session is essentially a job without an executable;
 <h2>A. Start an Interactive Build Job</h2>
 
 <p>Instructions for submitting an interactive build 
-job are here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a>.  You'll need
+job are here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit</a>.  You'll need
 to do Step 2 (Creating Interactive Submit Files), and the first command of Step 3
 (Submitting and Working Interactively).<br>
 For Step 2, you'll need to change <code>transfer_input_files</code> to 
@@ -74,7 +74,7 @@ to change the <code>OpSysMajorVer</code> requirement from <code>6</code> to <cod
 <a name="compile"></a>
 <h2>B. Compile Matlab Code and Exit Interactive Job</h2>
 
-<p>Once you've done Steps 2 and 3 of the <a href="/inter-submit.shtml">interactive job</a>
+<p>Once you've done Steps 2 and 3 of the <a href="{{ '/inter-submit' | relative_url }}">interactive job</a>
 guide, and the interactive job has started, you can compile your code.  
 In this example, <code>foo.m</code> represents the 
 name of the primary Matlab script; you should replace <code>foo.m</code> 
@@ -183,7 +183,7 @@ permissions.  When that happens, they can be restored by running the following c
 a submit file for Matlab jobs.  The submit file for your job will be 
 different than the one used 
 to compile your code.  As a starting point for a submit file, 
-see our "hello world" example: <a href="/helloworld.shtml">http://chtc.cs.wisc.edu/helloworld.shtml</a>.  
+see our "hello world" example: <a href="{{ '/helloworld' | relative_url }}">http://chtc.cs.wisc.edu/helloworld</a>.
 In what follows, replace our example <code>foo</code> and <code>run_foo.sh</code> 
 with the name of your binary and scripts.  </p>
 <ol>

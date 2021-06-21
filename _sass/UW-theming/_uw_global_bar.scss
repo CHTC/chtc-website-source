@@ -1,0 +1,38 @@
+.uw-global-bar {
+  -webkit-font-smoothing: antialiased;
+  background-color: $uw-red;
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: .825rem;
+  font-weight: 700;
+  &.uw-global-bar-inverse {
+    background-color: white;
+    border-bottom: 1px solid $uw-gray-light;
+    position: relative;
+    z-index: 10;
+    a, a:visited, a:active, a:hover {
+      color: $uw-gray-darker;
+    }
+  }
+}
+.uw-global-name-link {
+  color: white;
+  line-height: 2.2rem;
+  &:hover, &:visited, &:active {
+    text-decoration: none;
+  }
+  span {
+    display: none;
+  }
+  .uw-of {
+    text-transform: none;
+  }
+  @include breakpoint(17.5em) {
+    span {
+      display: inline;
+    }
+  }
+}

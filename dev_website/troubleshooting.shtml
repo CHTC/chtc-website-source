@@ -65,12 +65,12 @@ running: </p>
 
 <ul>
 <li>"Disk quota exceeded": Output files can't be returned to the submit node if you 
-have reached your quota.  See <a href="/check-quota.shtml">our 
+have reached your quota.  See <a href="{{ '/check-quota' | relative_url}}">our
 quota guide</a> for instructions on managing your quota.</li>
 <li>"Job has gone over memory limit of X": Look at the resource usage table in your log 
 files - are you requesting enough memory for your jobs? </li>
 <li>"errno=8: 'Exec format error'": Often, this is a Windows/Linux compatibility issue, 
-addressed in <a href="/dos-unix.shtml">this guide</a>.  It can also happen if your 
+addressed in <a href="{{ '/dos-unix' | relative_url}}">this guide</a>.  It can also happen if your
 executable is a bash script and doesn't have this exact heading on the first line: 
 <pre class="file">#!/bin/bash</pre> </li>
 <li>"Job failed to complete in 72 hrs": If your job ran past our 3 day time limit, 
@@ -98,7 +98,7 @@ Science Grid may be inaccessible using <code>condor_ssh_to_job</code>.
 <h2>A. Test Interactively</h2>
 
 <p>One way to see why a job didn't work is to run a sample job as an 
-interactive test.  We have a guide for doing this <a href="/testing.shtml#interactive">here</a>.  
+interactive test.  We have a guide for doing this <a href="{{ '/testing#interactive' | relative_url}}">here</a>.
 
 <a name="submit"></a>
 <h2>B. Check Support Files</h2>

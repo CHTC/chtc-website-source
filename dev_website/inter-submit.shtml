@@ -75,7 +75,7 @@ and <code>log</code> per your preferences.</li>
 <p>The above submit file will select for our Linux 6 (SL6- and 
 RHEL6-compatible) build machines by default.  If you think your 
 code requires a newer operating system, see 
-<a href="/os-transition.shtml">this guide</a> for how to access our build machine 
+<a href="{{'/os-transition' | relative_url }}">this guide</a> for how to access our build machine
 that is running CentOS 7.  
 </p>
 

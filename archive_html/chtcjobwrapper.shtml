@@ -17,7 +17,7 @@ you construct to specify details of the job.
 
 <p>It may be helpful to have an example submit file.  
 You can follow the directions given at 
-<a href="DAGenv.shtml">Submitting Jobs Using the DAG Environment</a>
+<a href="{{'DAGenv' | relative_url }}">Submitting Jobs Using the DAG Environment</a>
 through step 4, 
 which runs the script <code>mkdag</code>.
 Running this script creates HTCondor submit description files.
@@ -205,7 +205,7 @@ Required. The executable invoked by the <code>chtcjobwrapper</code> script.
 <ul>
 <li><code>--cmdtorun=compiledmatlabprogram</code>
 <br>For Matlab jobs, this is your compiled Matlab program.
-<a href="http://chtc.cs.wisc.edu/MATLABandR.shtml">Documentation on
+<a href="{{'/MATLABandR' | relative_url }}">Documentation on
 compiling your Matlab program is available here.</a>
 </li>
 

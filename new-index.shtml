@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: The Center for High Throughput Computing
 ---
 
@@ -18,10 +18,10 @@ is the shared utilization of autonomous resources toward a common goal,
 where all the elements are optimized for maximizing computational 
 throughput 
 (<a href="http://en.wikipedia.org/wiki/High-throughput_computing">Wikipedia entry</a>).
-View a <a href="includes/chtc_footage.wmv">Windows Media movie</a> interview with Miron Livny and other
-collaborators on the benefits of high throughput computing, or a <a href="includes/chtc.mov">Quicktime movie</a>
+View a <a href="{{ 'includes/chtc_footage.wmv' | relative_url }}">Windows Media movie</a> interview with Miron Livny and other
+collaborators on the benefits of high throughput computing, or a <a href="{{ 'includes/chtc.mov' | relative_url }}">Quicktime movie</a>
 that highlights several applications of HTC on the UW-Madison campus.
-You can also <a href="includes/chtc.mp3">listen</a> to an interview with Miron Livny and Brooklin Gore
+You can also <a href="{{ 'includes/chtc.mp3' | relative_url }}">listen</a> to an interview with Miron Livny and Brooklin Gore
 on the impact of High Throughput Computing to campus researchers, an excerpt from the
 <a href="http://itunes.apple.com/itunes-u/wid-challenge-transdisciplinary/id531782587?mt=2">Wisconsin Institutes for
 Discovery: Challenge of Transdisciplinary Science</a> pod cast series.
@@ -30,8 +30,8 @@ Discovery: Challenge of Transdisciplinary Science</a> pod cast series.
 The CHTC facilitates access to an ever-growing set of resources. The UW campus computing grid is comprised of pools of
 machines approaching a total of 10,000 cores. From July 2011 to June 2012, the CHTC provided <strong>70 Million CPU hours</strong>
 to campus researchers and off-campus collaborators. Learn more in our
-<a href='includes/CHTC-Engagement-Report-2011-2012.pdf'>2011-2012 Engagement Report</a>
- (<a href='includes/CHTC-Engagement-Report-2010-2011.pdf'>2010-2011 Report</a>).
+<a href="{{ 'includes/CHTC-Engagement-Report-2011-2012.pdf' | relative_url }}">2011-2012 Engagement Report</a>
+ (<a href="{{ 'includes/CHTC-Engagement-Report-2010-2011.pdf' | relative_url }}">2010-2011 Report</a>).
 
 <p>
 <strong>The CHTC is home to or supports the following projects:</strong>
@@ -66,7 +66,7 @@ public.
 </ul>
 
 <p>
-<a href="projects.shtml">Learn more</a>
+<a href="{{ 'projects' | relative_url }}">Learn more</a>
 about how the CHTC has helped advance a diverse body of research on campus.
 </p>
 

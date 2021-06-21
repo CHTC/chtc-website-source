@@ -164,7 +164,7 @@ to your Dockerfile and then run the build command again.</p>
 
 <p>This page describes how to interact with your new Docker image on your 
 own computer, before trying to run a job with it in CHTC: 
-<ul><li><a href="/dev_website/docker-test.shtml">Exploring Docker Containers</a> </li></ul>
+<ul><li><a href="{{'/dev_website/docker-test' | relative_url }}">Exploring Docker Containers</a> </li></ul>
 </p>
 
 <h2>5. Push to DockerHub</h2>
@@ -184,7 +184,7 @@ command first: </p>
 
 <p>To complete the process of running jobs using a Docker container on CHTC, see
 this guide: 
-<ul><li><a href="/docker-jobs.shtml">Running Docker Jobs in CHTC</a></li></ul>
+<ul><li><a href="{{'/docker-jobs' | relative_url }}">Running Docker Jobs in CHTC</a></li></ul>
 </p>
 
 <a name="examples"></a>

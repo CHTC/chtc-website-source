@@ -59,7 +59,7 @@ Note that using this version of Linux only will severely limit the number
 of servers available to run your jobs, as nearly our entire system is running
 a newer version of Linux.  If you have questions about this or how to get your 
 jobs to run on a newer version of Linux, talk to CHTC's Research Computing 
-Facilitators: <a href="/get-help.shtml">contact us or stop by office hours</a>.
+Facilitators: <a href="{{ '/get-help' | relative_url}}">contact us or stop by office hours</a>.
 </li>
 </ul>
 

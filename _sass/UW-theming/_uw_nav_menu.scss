@@ -1,0 +1,425 @@
+.uw-mobile-menu-button-bar {
+  display: none;
+  &.uw-is-visible {
+    display: block;
+  }
+
+  width: 100%;
+  background-color: $uw-red;
+  border: 0;
+  padding: 1.1rem 1rem 1.1rem 1rem;
+  color: $uw-white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+    margin-top: -.3rem;
+    margin-left: .7rem;
+    fill: $uw-white;
+    &:last-child {
+      display: inline;
+    }
+  }
+  &[aria-expanded="true"] svg {
+    display: none;
+    &:last-child {
+      display: inline;
+    }
+  }
+  &[aria-expanded="false"] svg {
+    display: inline;
+    &:last-child {
+      display: none;
+    }
+  }
+  &.uw-mobile-menu-button-bar-reversed {
+    background-color: $uw-white;
+    color: $uw-gray-darkest;
+    border-top: 1px solid $uw-gray-light;
+    border-bottom: 1px solid $uw-gray-light;
+    svg {
+      fill: $uw-gray-darkest;
+    }
+  }
+}
+
+
+// whether the menu button bar is visible is controlled
+// by javascript dynamically determing the best breakpoint for 
+// the menu item content instead of by using CSS media query
+// breakpoints; the state of #uw-top-menus is tied to the state
+// of .uw-mobile-menu-button-bar and assumes that #uw-top-menus
+// is an adjacent sibling of .uw-mobile-menu-button-bar
+
+// always show the menu to non-JS browsers
+.no-js #uw-top-menus.uw-is-visible.uw-hidden {
+  display: block;
+  visibility: visible;
+}
+
+// styles for all states of #uw-top-menus
+#uw-top-menus {
+  
+  &.uw-display-none {
+    display: none;
+  }
+  &.uw-is-visible {
+    display: block;
+    // we load page with the menu visibility hidden so we can 
+    // calculate the width of the menu
+    &.uw-hidden {
+      visibility: hidden;
+    }
+  }
+
+  .uw-nav-menu {
+    a {
+      display: inline-block;
+      font-size: 15px;
+      font-size: .925rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: white;
+      text-transform: uppercase;
+      border-bottom: .2rem solid rgba(0, 0, 0, 0);
+      &:hover {
+        text-decoration: none;
+        border-bottom-color: white;
+      }
+      &:active,&:focus {
+        text-decoration: none;
+      }
+    }
+    li {
+      list-style: none;
+    }
+
+    // used in uwmadison-160 theme to DOM-swap search form into
+    // mobile menu; drop from the Style Guide?
+    li.uw-search-form {
+      margin-top: 16px;
+      margin-top: 1rem;
+    }
+    ul {
+      padding: 0 16px;
+      padding: 0 1rem;
+      line-height: 1.625;
+      ul {
+        margin: 0;
+        a {
+          font-weight: 700;
+          text-transform: none;
+        }
+      }
+    }
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  .uw-nav-menu ul ul {
+    display: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transformY .2s ease-in-out, opacity .2s ease-in-out;
+    padding-bottom: .5rem;
+  }
+  .uw-nav-menu ul li.uw-dropdown.uw-is-active > ul {
+    display: block;
+    opacity: 1.0;
+    transform: scaleY(1);
+    animation: reveal .2s ease-in-out;
+  }
+
+  .uw-nav-menu ul ul ul {
+    display: none; // don't show grandchild menus
+    left: 100%;
+    top: 0;
+  }
+  .uw-nav-menu svg.uw-caret {
+    width: 1rem;
+    height: 1rem;
+    fill: white;
+    vertical-align: text-top;
+    display: inline;
+    margin-right: -1rem; // for preventing line wrapping
+    &:last-child {
+      display: none;
+    }
+  }
+  .uw-nav-menu .uw-is-active {
+    svg.uw-caret {
+      display: none;
+      &:last-child {
+        display: inline;
+      }
+    }
+  }
+
+  .uw-nav-menu.uw-nav-menu-reverse svg.uw-caret, .uw-nav-menu.uw-nav-menu-secondary-reverse svg.uw-caret {
+    fill: $uw-red;
+  }
+}
+
+
+// #uw-top-menus {
+//   display: none;
+//   &.uw-is-visible {
+//     display: block;
+//     // we load page with the menu visibility hidden so we can 
+//     // calculate the width of the menu
+//     &.uw-hidden {
+//       visibility: hidden;
+//     }
+//   }
+// }
+
+// styles for when the menu button is hidden; i.e. larger viewports
+#uw-top-menus.uw-horizontal {
+  .uw-nav-menu {
+    -webkit-font-smoothing: antialiased;
+    // display: block;
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+    background-color: $uw-red;
+    &.uw-nav-menu-reverse {
+      -webkit-font-smoothing: auto;
+      background-color: white;
+    }
+  }
+  .uw-nav-menu.uw-nav-menu-secondary {
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    margin-bottom: 0;
+    background-color: transparent;
+    width: auto;
+    display: inline-block;
+    > ul > li {
+      float: right;
+      > a {
+        font-weight: 700;
+        font-size: .825rem;
+        line-height: 2.2rem;
+        border-bottom: none;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        background-color: $uw-red;
+        &:hover {
+          border-bottom: none;
+        }
+      }
+    }
+    &.uw-nav-menu-secondary-reverse {
+      a {
+        color: $uw-gray-darker;
+        background-color: $uw-white;
+      }
+      ul ul a:hover {
+        border-bottom: .2rem solid $uw-red;
+      }
+    }
+  }
+  .uw-nav-menu ul {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: $uw-max-content-width;
+  }
+  .uw-nav-menu li {
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    padding: 0 16px;
+    padding: 0 .95rem;
+  }
+  .uw-nav-menu li li {
+    display: block;
+    padding: 8px;
+    padding: .5rem .5rem;
+    line-height: 1;
+    text-align: left;
+  }
+  .uw-nav-menu > ul > li {
+    text-align: center;
+  }
+  .uw-nav-menu > ul > li > a {
+    padding: 17px 0 1px;
+    padding: 1.05rem 0 0.1rem;
+    margin-bottom: 13px;
+    margin-bottom: .8rem;
+  }
+
+
+  .uw-nav-menu ul li.uw-dropdown > ul {
+    background-color: $uw-red;
+  }
+  .uw-nav-menu-reverse, .uw-nav-menu-secondary-reverse {
+    ul li.uw-dropdown > ul, .uw-nav-menu-secondary-reverse ul li.uw-dropdown > ul {
+      background-color: white;
+      a {
+        color: $uw-gray-darkest;
+        background-color: transparent;
+      }
+    }
+  }
+  .uw-nav-menu-reverse ul li.uw-dropdown > ul {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .uw-nav-menu-reverse-flat, .uw-nav-menu-secondary-reverse {
+    ul li.uw-dropdown > ul {
+      box-shadow: none;
+      border-left: 1px solid $uw-gray-light;
+      border-right: 1px solid $uw-gray-light;
+      border-bottom: 1px solid $uw-gray-light;
+    }
+  }
+  .uw-nav-menu.uw-nav-menu-reverse ul ul {
+    .uw-dropdown > a {
+      // background-color: white;
+      color: $uw-red;
+    }
+  }
+
+  .uw-nav-menu > ul > li.uw-dropdown > a, .uw-nav-menu.uw-nav-menu-reverse > ul > li.uw-dropdown > a {
+    padding-right: 1rem; // to prevent svg down caret wrapping
+  }
+  .uw-nav-menu > ul > li.uw-dropdown.uw-is-active > ul {
+    display: block;
+  }
+  .uw-nav-menu.uw-nav-menu-reverse a {
+    color: $uw-gray-darkest;
+    font-weight: 700;
+  }
+  .uw-nav-menu ul ul {
+    position: absolute;
+    left: 0;
+    width: 188px;
+    z-index: 99999;
+    display: none;
+  }
+
+  .uw-nav-menu {
+    > ul > li:first-child {
+      padding-left: 0;
+    }
+    > ul > li.current-menu-item > a,> ul > li.current-menu-parent > a {
+      border-bottom-color: white;
+    }
+
+    &.uw-nav-menu-reverse {
+      -webkit-font-smoothing: auto;
+      border-top: 1px solid $uw-gray-light;
+      border-bottom: 1px solid $uw-gray-light;
+      > ul > li:first-child {
+        padding-left: 0;
+      }
+      > ul > li > a {
+        padding: .3rem 0 .1rem;
+        margin-bottom: .8rem;
+        margin-top: .8rem;
+        border-bottom: .2rem solid transparent;
+        &:hover {
+          border-bottom: .2rem solid $uw-red;
+        }
+      }
+      > ul > li > a + ul > li > a:hover {
+        border-bottom: .2rem solid $uw-red;
+      }
+      > ul > li.current-menu-item > a, > ul > li.current-menu-parent > a {
+        border-bottom: .2rem solid $uw-red;
+      }
+    }
+  }
+
+  .uw-nav-menu ul ul a {
+    display: inline;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: auto;
+    width: 168px;
+  }
+}
+
+// styles for when the menu button is visible; i.e. smaller viewports
+#uw-top-menus.uw-stacked {
+  .uw-nav-menu {
+    background-color: darken($uw-page-bg, 2%);
+    a {
+      color: $uw-gray-darkest;
+      &:hover {
+        border-bottom-color: $uw-gray-light;
+        background-color: darken($uw-page-bg, 6%);
+      }
+    }
+    ul {
+      margin: 0;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      padding: 0;
+      display: block;
+      ul {
+        position: static;
+        padding: 0;
+        display: none;
+        a {
+          font-weight: 400;
+        }
+        ul {
+          margin-top: 0;
+        }
+      }
+    }
+    > ul > li {
+      display: block;
+      text-align: left;
+      padding: 0;
+      li a {
+        padding-left: 2rem;
+      }
+    }
+    > ul > li a {
+      padding: 1rem;
+      margin-bottom: 0;
+      margin-top: 0;
+      display: block;
+      border: none;
+      border-bottom: 1px solid $uw-gray-light;
+    }
+    &.uw-nav-menu-secondary {
+      border-top: 2px solid $uw-gray-light;
+      li a {
+        text-transform: none;
+        font-weight: 400;
+      }
+    }
+    svg.uw-caret {
+      color: $uw-red;
+      fill: $uw-red;
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -.2rem;
+    }
+  }
+}
+
+// fixed width element used for detecting getComputedStyle width support
+#test-get-computed-style-width {
+  width: 100px;
+  padding: 10px;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+}
