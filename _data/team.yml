@@ -1,0 +1,216 @@
+- priority: 3
+  name: "Aaron Moate"
+  image: "images/team/aaron-moate.png"
+  job_title: "Lead HTC Systems Administrator"
+  institution: "University of Wisconsin–Madison"
+  website:
+- priority: 2
+  name: "Brian Bockelman"
+  image: "images/team/brian-bockelman.jpg"
+  job_title: "FoCaS co-lead"
+  website:
+  institution: "Morgridge Institute"
+  description: "Bockelman is an Investigator at the Morgridge Institute for Research and co-lead of the FoCaS area."
+- priority: 3
+  name: "Brian Lin"
+  image: "images/team/brian-lin.jpg"
+  job_title: "OSG Software Area Coordinator"
+  institution: "University of Wisconsin–Madison"
+  website:
+- priority: 3
+  name: "Todd Tannenbaum"
+  image: "images/team/todd-tannenbaum.jpg"
+  job_title: "Software Development co-lead"
+  website:
+  institution: "University of Wisconsin–Madison"
+  description: "Tannenbaum is a Researcher and HTCondor Technical Lead at UW-Madison, and co-lead of PATh Software Development."
+- priority: 3
+  name: "Cannon Lock"
+  image: "images/team/cannon-lock.jpg"
+  job_title: "Front-End Web Developer"
+  institution: "Morgridge Institute"
+  website:
+- priority: 3
+  name: "Carl Edquist"
+  image: "images/team/carl-edquist.jpg"
+  job_title: "Software Integration Developer"
+  institution: "University of Wisconsin-Madison"
+- priority: 2
+  name: "Christina Koch"
+  image: "images/team/christina-koch.jpg"
+  job_title: "Research Computing Facilitator"
+  institution: "University of Wisconsin - Madison"
+  website: "https://wid.wisc.edu/people/christina-koch/"
+- priority: 3
+  name: "Derek Weitzel"
+  image: "images/team/derek-weitzel.png"
+  job_title: "Software Integration Developer"
+  institution: "University of Nebraska-Lincoln"
+  website: "https://derekweitzel.com"
+  description: "Derek Weitzel is an Assistant Research Professor at the Univeristy of Nebraska-Lincoln's Computer Science and Engineering Department."
+- priority: 3
+  name: "Diego Davila"
+  image: "images/team/diego-davila.jpg"
+  job_title: "Scientific Software Developer and Researcher"
+  institution: "University of California San Diego"
+  website:
+- priority: 3
+  name: "Emelie Fuchs"
+  image: "images/team/emelie-fuchs.jpg"
+  job_title: "Research Computing Facilitator"
+  institution: "University of Nebraska-Lincoln"
+  website:
+- priority: 3
+  name: "Frank Wuerthwein"
+  image: "images/team/frank-wuerthwein.jpg"
+  job_title: "OSG Executive Director"
+  website: "https://www-physics.ucsd.edu/fac_staff/fac_profile/faculty_description.php?person_id=494"
+  institution: "University of California San Diego"
+  description: "Wuerthwein is a Professor of Physics at UCSD and the Executive Director of the OSG."
+- priority: 3
+  name: "Greg Thain"
+  image: "images/team/greg-thain.jpg"
+  job_title: "Senior Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Igor Sfiligoi"
+  image: "images/team/igor-sfiligoi.jpg"
+  job_title: "Lead Scientific Software Developer and Researcher"
+  institution: "University of California San Diego"
+  website:
+  linkedinurl: "https://www.linkedin.com/in/igor-sfiligoi-73982a78/"
+- priority: 3
+  name: "Irene Landrum"
+  image: "images/team/irene-landrum.png"
+  job_title: "Project Manager"
+  website:
+  institution: "Morgridge Institute for Research"
+- priority: 3
+  name: "Jaime Frey"
+  image: "images/team/jaime-frey.jpg"
+  job_title: "Senior Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Janet Stathas"
+  image: "images/team/janet-stathas.jpg"
+  job_title: "Project Manager"
+  institution: "Morgridge Institue of Research"
+  website:
+- priority: 3
+  name: "Jason Patton"
+  image: "images/team/jason-patton.png"
+  job_title: "Software Integration Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Jeff Peterson"
+  image: "images/team/jeff-peterson.jpg"
+  job_title: "System Administrator"
+  website:
+  institution: "Morgridge Institute"
+- priority: 3
+  name: "John TJ Knoeller"
+  image: "images/team/john-knoeller.jpg"
+  job_title: "Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "John Thiltges"
+  image: "images/team/john-thiltges.jpg"
+  job_title: "Systems Administrator"
+  institution: "University of Nebraska-Lincoln"
+  website:
+- priority: 2
+  name: "Lauren Michael"
+  image: "images/team/lauren-michael.png"
+  job_title: "Lead Research Computing Facilitator"
+  website: "https://wid.wisc.edu/people/lauren-michael/"
+  institution: "University of Wisconsin–Madison"
+  description: "Michael is a Research Computing Facilitator at UW-Madison and co-lead of the FoCaS area."
+- priority: 3
+  name: "Lincoln Bryant"
+  image: "images/team/lincoln-bryant.png"
+  job_title: "DevOps Engineer"
+  institution: "University of Chicago"
+  website:
+- priority: 3
+  name: "Marian Zvada"
+  image: "images/team/marian-zvada.jpg"
+  job_title: "Systems Integrator"
+  institution: "University of Nebraska-Lincoln"
+  website:
+- priority: 3
+  name: "Mark Coatsworth"
+  image: "images/team/mark-coatsworth.jpg"
+  job_title: "Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Mats Rynge"
+  image: "images/team/mats-rynge.jpg"
+  job_title: "Systems Integrator"
+  institution: "University of Southern California - Information Sciences Institute"
+  website:
+- priority: 3
+  name: "Mátyás Selmeci"
+  image: "images/team/matyas-selmeci.jpg"
+  job_title: "Software Integration Developer"
+  institution: "University of Wisconsin–Madison"
+  website:
+- priority: 3
+  name: "Mike Stanfield"
+  image: "images/team/mike-stanfield.jpg"
+  job_title: "Security Area Coordinator"
+  institution: "Indiana University"
+  website:
+- priority: 1
+  name: "Miron Livny"
+  image: "images/team/miron-livny.png"
+  job_title: "Director"
+  website: "https://wid.wisc.edu/people/miron-livny/"
+  institution: "University of Wisconsin–Madison"
+  description: "Livny is a Professor of Computer Science and the lead of the PATh project."
+- priority: 3
+  name: "Pascal Paschos"
+  image: "images/team/pascal_paschos.png"
+  job_title: "OSG Collaborations Area Coordinator/Sr. Computational Scientist "
+  institution: "University of Chicago"
+  website:
+- priority: 3
+  name: Rob Gardner
+  image: images/team/Rob-Gardner.png
+  job_title: Collaborations Support Area Coordinator
+  institution: University of Chicago
+  website:
+- priority: 3
+  name: "Tim Slauson"
+  image: "images/team/silhouette.png"
+  job_title: "Lead HPC Systems Administrator"
+  institution:
+  website:
+- priority: 3
+  name: "Tim Cartwright"
+  image: "images/team/tim-cartwright.jpg"
+  job_title: "OSG Project Manager/XO"
+  institution: "University of Wisconsin–Madison"
+  website:
+- priority: 3
+  name: "Tim Theisen"
+  image: "images/team/tim-theisen.png"
+  job_title: "Senior Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Todd L Miller"
+  image: "images/team/todd-miller.png"
+  job_title: "Senior Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"
+- priority: 3
+  name: "Zach Miller"
+  image: "images/team/zach-miller.jpg"
+  job_title: "Systems Software Developer"
+  website:
+  institution: "University of Wisconsin-Madison"

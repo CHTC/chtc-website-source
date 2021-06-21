@@ -1,0 +1,14 @@
+---
+highlighter: none
+layout: content
+title: Our Staff
+---
+
+<div class="uw-full-row uw-pad-tb uw-light-grer-bg">
+    <div class="uw-row">
+        {% assign sorted_team = site.data.team | sort: "priority" %}
+        {% for member in sorted_team %}
+            {% include /components/team-card.html %}
+        {% endfor %}
+    </div>
+</div>
