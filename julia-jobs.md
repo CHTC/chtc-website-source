@@ -278,7 +278,7 @@ After creating a bash script to run Julia, then create a submit file
 to submit the job to run. 
 
 More details about setting up a submit file, including a submit file template, 
-can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld.md).
+can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld).
 
 ``` {.sub}
 # julia-job.sub
