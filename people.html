@@ -4,7 +4,21 @@ layout: content
 title: Our Staff
 ---
 
-<div class="uw-full-row uw-pad-tb uw-light-grer-bg">
+
+<div class="uw-full-row uw-pad-tb-l">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="uw-mini-bar">2021 Staff Picture</h2>
+            <img src="images/CHTC_Team_Photo_2021.jpg" alt="Team Zoom Photograph">
+        </div>
+    </div>
+</div>
+<div class="uw-full-row uw-pad-tb-l uw-light-grer-bg">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="uw-mini-bar">Staff Profiles</h2>
+        </div>
+    </div>
     <div class="uw-row">
         {% assign sorted_team = site.data.team | sort: "priority" %}
         {% for member in sorted_team %}
