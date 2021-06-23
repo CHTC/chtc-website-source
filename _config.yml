@@ -2,7 +2,7 @@ baseurl: ''
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
 
 # Google analytics
-google_analytics: G-V7WB8B4DTZ
+google_analytics: G-5FBPVMZYDF
 
 # Jekyll does not build hidden directories by default.
 include: [".well-known", ".htaccess"]
