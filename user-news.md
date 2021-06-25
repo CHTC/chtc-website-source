@@ -11,6 +11,21 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+## Campus power outages; multiple CHTC systems affected
+### Friday, June 25, 2021
+
+Greetings CHTC Users,
+
+As some of you may already know, there were some significant power outages earlier this morning, across multiple buildings on campus. CHTC's HPC Cluster is down, as well as portions of the HTC System, and we have been working immediately this morning to restore functionality.
+
+We will send additional updates as we have more details to share, and we appreciate your patience in the meantime.
+
+Thank you,
+
+Your CHTC Team
+
 ------------------------------------------------------------------------
 ## Limited email responses, no office hours on Thursday, June 17, new website look!!
 ### Wednesday, June 16, 2021
