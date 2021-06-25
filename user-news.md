@@ -12,6 +12,24 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 
+
+------------------------------------------------------------------------
+## Update on CHTC systems
+### Friday, June 25, 2021
+
+Greetings CHTC users, 
+
+An update from this morning’s message: 
+
+* **HTC system**: Functionality is restored for submit servers, though we are still rebooting execute servers (these will just be unavailable to run jobs until they’re up). Email us if you notice any problems accessing the HTC system. 
+* **HPC Cluster**: We are still working on bringing up the cluster’s network functionality after some issues due to the duration of the outage. For this reason, we need to keep the cluster down over the weekend, including login nodes. We will send another update about the cluster on Monday.
+
+Thank you for your patience during this unplanned outage, and continue to email chtc@cs.wisc.edu with any questions or issues.
+
+Regards,
+
+Your CHTC Team
+
 ------------------------------------------------------------------------
 ## Campus power outages; multiple CHTC systems affected
 ### Friday, June 25, 2021
