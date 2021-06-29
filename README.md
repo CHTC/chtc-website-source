@@ -111,3 +111,20 @@ can install and use the `pandoc` converter:
 You'll still want to go through and double check / clean up the text, but that's a good starting point. Once the 
 document is converted from markdown to html, the file extension should be `.md` instead. If you use the 
 command above, this means you can just delete the `.shtml` version of the file and commit the new `.md` one. 
+
+
+# Making Website Changes
+
+This repository uses [GitHub Actions](https://github.com/CHTC/chtc-website-source/tree/master/.github/workflows)
+to deploy a website preview from the `master` branch to the [web-preview repository](https://chtc.github.io/).
+The [production website](https://chtc.cs.wisc.edu/) is built automatically by GitHub Pages from the `production` branch.
+
+To make changes to the website, use the following workflow:
+
+1.  Submit a pull request with website updates to the `master` branch (the default) and request a review
+2.  Upon approval and merge of the pull request, changes can be previewed at [https://chtc.github.io/](https://chtc.github.io/).
+3.  If additional changes are necessary, repeat steps 1 and 2.
+4.  When satisfied with the preview website, submit a
+	[pull request](https://github.com/CHTC/chtc-website-source/compare/production...master)
+	from `production` to `master`
+5.  After the pull request from step 4 has been merged, verify the changes at [https://chtc.cs.wisc.edu/](https://chtc.cs.wisc.edu/)
