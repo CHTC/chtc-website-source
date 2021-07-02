@@ -40,7 +40,7 @@ with base Julia and Standard Library.
 	tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 	# add Julia binary to PATH
-	export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+	export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 	# run Julia script
 	julia my-script.jl
@@ -219,7 +219,7 @@ the Julia Standard library) use the example script directly below.
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 # add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 # run Julia script
 julia my-script.jl
@@ -238,7 +238,7 @@ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 tar -xzf my-project.tar.gz
 
 # add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 # add Julia packages to DEPOT variable
 export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 
