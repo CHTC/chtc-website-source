@@ -2,9 +2,9 @@ name: Deploy Development Site
 
 on:
   push:
-    branches: [production]
+    branches: [master]
   pull_request:
-    branches: [production]
+    branches: [master]
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest

@@ -1,9 +1,9 @@
 name: Deploy Production Site
 on:
   push:
-    branches: [master]
+    branches: [production]
   pull_request:
-    branches: [master]
+    branches: [production]
 jobs:
   build-and-maybe-deploy:
     runs-on: ubuntu-18.04
