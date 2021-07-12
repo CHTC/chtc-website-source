@@ -4,12 +4,6 @@
   website: "https://wid.wisc.edu/people/miron-livny/"
   institution: "University of Wisconsin–Madison"
   description: "Livny is a Professor of Computer Science and the lead of the PATh project."
-- name: "Brian Bockelman"
-  image: "images/team/brian-bockelman.jpg"
-  job_title: "FoCaS co-lead"
-  website:
-  institution: "Morgridge Institute"
-  description: "Bockelman is an Investigator at the Morgridge Institute for Research and co-lead of the FoCaS area."
 - name: "Lauren Michael"
   image: "images/team/lauren-michael.png"
   job_title: "Lead Research Computing Facilitator"
@@ -21,6 +15,12 @@
   job_title: "Research Computing Facilitator"
   institution: "University of Wisconsin - Madison"
   website: "https://wid.wisc.edu/people/christina-koch/"
+- name: "Brian Bockelman"
+  image: "images/team/brian-bockelman.jpg"
+  job_title: "FoCaS co-lead"
+  website:
+  institution: "Morgridge Institute"
+  description: "Bockelman is an Investigator at the Morgridge Institute for Research and co-lead of the FoCaS area."
 - name: "Todd Tannenbaum"
   image: "images/team/todd-tannenbaum.jpg"
   job_title: "Software Development co-lead"
@@ -46,39 +46,11 @@
   image: "images/team/carl-edquist.jpg"
   job_title: "Software Integration Developer"
   institution: "University of Wisconsin-Madison"
-- name: "Derek Weitzel"
-  image: "images/team/derek-weitzel.png"
-  job_title: "Software Integration Developer"
-  institution: "University of Nebraska-Lincoln"
-  website: "https://derekweitzel.com"
-  description: "Derek Weitzel is an Assistant Research Professor at the Univeristy of Nebraska-Lincoln's Computer Science and Engineering Department."
-- name: "Diego Davila"
-  image: "images/team/diego-davila.jpg"
-  job_title: "Scientific Software Developer and Researcher"
-  institution: "University of California San Diego"
-  website:
-- name: "Emelie Fuchs"
-  image: "images/team/emelie-fuchs.jpg"
-  job_title: "Research Computing Facilitator"
-  institution: "University of Nebraska-Lincoln"
-  website:
-- name: "Frank Wuerthwein"
-  image: "images/team/frank-wuerthwein.jpg"
-  job_title: "OSG Executive Director"
-  website: "https://www-physics.ucsd.edu/fac_staff/fac_profile/faculty_description.php?person_id=494"
-  institution: "University of California San Diego"
-  description: "Wuerthwein is a Professor of Physics at UCSD and the Executive Director of the OSG."
 - name: "Greg Thain"
   image: "images/team/greg-thain.jpg"
   job_title: "Senior Systems Software Developer"
   website:
   institution: "University of Wisconsin-Madison"
-- name: "Igor Sfiligoi"
-  image: "images/team/igor-sfiligoi.jpg"
-  job_title: "Lead Scientific Software Developer and Researcher"
-  institution: "University of California San Diego"
-  website:
-  linkedinurl: "https://www.linkedin.com/in/igor-sfiligoi-73982a78/"
 - name: "Irene Landrum"
   image: "images/team/irene-landrum.png"
   job_title: "Project Manager"
@@ -109,55 +81,20 @@
   job_title: "Systems Software Developer"
   website:
   institution: "University of Wisconsin-Madison"
-- name: "John Thiltges"
-  image: "images/team/john-thiltges.jpg"
-  job_title: "Systems Administrator"
-  institution: "University of Nebraska-Lincoln"
-  website:
-- name: "Lincoln Bryant"
-  image: "images/team/lincoln-bryant.png"
-  job_title: "DevOps Engineer"
-  institution: "University of Chicago"
-  website:
-- name: "Marian Zvada"
-  image: "images/team/marian-zvada.jpg"
-  job_title: "Systems Integrator"
-  institution: "University of Nebraska-Lincoln"
-  website:
 - name: "Mark Coatsworth"
   image: "images/team/mark-coatsworth.jpg"
   job_title: "Systems Software Developer"
   website:
   institution: "University of Wisconsin-Madison"
-- name: "Mats Rynge"
-  image: "images/team/mats-rynge.jpg"
-  job_title: "Systems Integrator"
-  institution: "University of Southern California - Information Sciences Institute"
-  website:
 - name: "Mátyás Selmeci"
   image: "images/team/matyas-selmeci.jpg"
   job_title: "Software Integration Developer"
   institution: "University of Wisconsin–Madison"
   website:
-- name: "Mike Stanfield"
-  image: "images/team/mike-stanfield.jpg"
-  job_title: "Security Area Coordinator"
-  institution: "Indiana University"
-  website:
-- name: "Pascal Paschos"
-  image: "images/team/pascal_paschos.png"
-  job_title: "OSG Collaborations Area Coordinator/Sr. Computational Scientist "
-  institution: "University of Chicago"
-  website:
-- name: Rob Gardner
-  image: images/team/Rob-Gardner.png
-  job_title: Collaborations Support Area Coordinator
-  institution: University of Chicago
-  website:
 - name: "Tim Slauson"
   image: "images/team/silhouette.png"
   job_title: "Lead HPC Systems Administrator"
-  institution:
+  institution: "University of Wisconsin–Madison"
   website:
 - name: "Tim Cartwright"
   image: "images/team/tim-cartwright.jpg"
