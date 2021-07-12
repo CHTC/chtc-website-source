@@ -27,6 +27,11 @@
   website:
   institution: "University of Wisconsin–Madison"
   description: "Tannenbaum is a Researcher and HTCondor Technical Lead at UW-Madison, and co-lead of PATh Software Development."
+- name: "Tim Cartwright"
+  image: "images/team/tim-cartwright.jpg"
+  job_title: "OSG Project Manager/XO"
+  institution: "University of Wisconsin–Madison"
+  website:
 - name: "Aaron Moate"
   image: "images/team/aaron-moate.png"
   job_title: "Lead HTC Systems Administrator"
@@ -111,11 +116,6 @@
 - name: "Tim Slauson"
   image: "images/team/silhouette.png"
   job_title: "Lead HPC Systems Administrator"
-  institution: "University of Wisconsin–Madison"
-  website:
-- name: "Tim Cartwright"
-  image: "images/team/tim-cartwright.jpg"
-  job_title: "OSG Project Manager/XO"
   institution: "University of Wisconsin–Madison"
   website:
 - name: "Tim Theisen"
