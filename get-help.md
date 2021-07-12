@@ -46,6 +46,8 @@ the annual [HTCondor Week conference](https://agenda.hep.wisc.edu/event/1579/).
 
 **Cancellations will be announced via email and on this webpage.**
 
+> **Office hours are cancelled on Thursday, July 15**
+
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
