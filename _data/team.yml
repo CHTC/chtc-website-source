@@ -32,6 +32,11 @@
   job_title: "Lead HTC Systems Administrator"
   institution: "University of Wisconsin–Madison"
   website:
+- name: "Brian Aydemir"
+  image: "images/team/Brian_Aydemir.jpeg"
+  job_title: "Systems Integration Developer"
+  institution: "University of Wisconsin-Madison"
+  website:
 - name: "Brian Lin"
   image: "images/team/brian-lin.jpg"
   job_title: "OSG Software Area Coordinator"
