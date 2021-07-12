@@ -10,7 +10,6 @@ title: Our Staff
     Profile](http://wid.wisc.edu/profile/lauren-michael/)
 -   Christina Koch, Research Computing Facilitator [WID
     Profile](http://wid.wisc.edu/profile/christina-koch/)
--   Jess Vera, Research Computing Facilitator
 -   Aaron Moate, Lead HTC Systems Administrator
 -   Tim Slauson, Lead HPC Systems Administrator
 -   Photo of [The Full CHTC
