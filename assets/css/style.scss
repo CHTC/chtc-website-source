@@ -13,3 +13,27 @@
   overflow-x: scroll;
   margin-bottom: 2rem;
 }
+
+.team-card {
+  .uw-card-content {
+    padding: 15px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+  .uw-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  img{
+    height: 20vw;
+    max-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+  }
+  .institution {
+    color: grey;
+  }
+}
