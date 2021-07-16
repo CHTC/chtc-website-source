@@ -23,7 +23,7 @@
   description: "Bockelman is an Investigator at the Morgridge Institute for Research and co-lead of the FoCaS area."
 - name: "Todd Tannenbaum"
   image: "images/team/todd-tannenbaum.jpg"
-  job_title: "Software Development co-lead"
+  job_title: "HTCondor Software Lead"
   website:
   institution: "University of Wisconsin–Madison"
   description: "Tannenbaum is a Researcher and HTCondor Technical Lead at UW-Madison, and co-lead of PATh Software Development."
