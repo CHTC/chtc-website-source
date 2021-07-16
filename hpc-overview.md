@@ -56,10 +56,10 @@ head nodes and/or disable user accounts that violate this policy**
 Violation of these policies may result in suspension of your account.
 
 **2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
-HPC users should not run single-core or single-node jobs to the HPC Cluster, given its 
+HPC users should not numerous jobs on the HPC Cluster that can individually finish within 7 days on a single node, given its 
 optimization for multi-node/MPI-based work. Users will 
-be asked to transition work appropriately to our high-throughput computing system, where they 
-will also experience better turnaround for such work.
+be asked to transition such work appropriately to our high-throughput computing (HTC) system, where they 
+will also experience better turnaround.
 
 **3. Maintain Copies of Essential Data in non-CHTC Locations**    
 The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
@@ -67,7 +67,7 @@ actively-running jobs should be kept on the filesystem. Once your jobs complete,
 your files should be removed from the cluster filesystem. Campus researchers have several options 
 for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
 which provides up to 5TB of storage for free per research PI. Our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) provides 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive) provides 
 step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
