@@ -40,7 +40,7 @@ with base Julia and Standard Library.
 	tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 	# add Julia binary to PATH
-	export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+	export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 	# run Julia script
 	julia my-script.jl

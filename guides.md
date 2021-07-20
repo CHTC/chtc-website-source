@@ -107,11 +107,11 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="{{ '/python-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Python Jobs</li></a>
 			<a href="{{ '/conda-installation' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using Conda Environments to Run Python Jobs</li></a>
 			<a href="{{ '/r-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running R Jobs</li></a>
-			<a href="{{ '/java-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Java jobs</li></a>
-			<a href="{{ '/julia-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Julia jobs</li></a>
+			<a href="{{ '/julia-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Julia Jobs</li></a>
+			<a href="{{ '/java-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Java Jobs</li></a>
 			<a href="{{ '/docker-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Using Software Installed in a Docker Container</li></a>
 			<a href="{{ '/docker-build' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Create a Docker Container</li></a>
-			<a href="{{ '/licensed-software' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Licensed Software on the HTC system</li></a>
+			<a href="{{ '/licensed-software' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Licensed Software on the HTC System</li></a>
 			<a href="{{ '/mpi-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Submitting Jobs that use MPI</li></a>
 		</ul>
 	</div>				

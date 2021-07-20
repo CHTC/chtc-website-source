@@ -18,6 +18,9 @@
             iframe.width = (newwidth) + "px";
         }
     </script>
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
     <script type="text/javascript" src="{{ '/assets/js/uw-style.min.js' | relative_url }}"></script>
     <link type="text/css" href="{{ '/web.css' | relative_url }}" rel="stylesheet">
     <link type="text/css" href="{{ '/assets/fonts/fonts.0.0.1.css' | relative_url }}" rel="stylesheet">
