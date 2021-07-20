@@ -1,11 +1,15 @@
+---
+layout: default
+---
 
-{% include template-1-openhead.shtml %}
-{% include template-2-opensidebar.shtml %}
-{% include template-3-sidebar.shtml %}
-{% include hpc-mainbody.shtml %}
-{% include template-hpc-guide-links.shtml %}
+{% include hpc-header.html %}
+{% include page-title.html title=page.title %}
 
-{{ content }}
-
-{% include template-5-finish.shtml %}
+<div class="uw-row-full">
+    <div class="uw-row">
+        <div class="uw-col uw-body">
+            {{ content }}
+        </div>
+    </div>
+</div>
 

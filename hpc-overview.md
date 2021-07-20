@@ -4,8 +4,7 @@ layout: hpc_layout
 title: HPC Cluster Overview
 ---
 
-# Content
- 
+{% capture content %}
 1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
 2. [HPC User Policies](#hpc-user-policies)  
 3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
@@ -13,7 +12,9 @@ title: HPC Cluster Overview
     - [Operating System and Software](#operating-system-and-software)
 4. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+      
 # High-Performance Computing at CHTC
 
 The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 
@@ -25,10 +26,10 @@ fits that above description is appropriate for the HPC Cluster. Computational
 work that can complete on a single node in less than a few days will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information, please see [Our Approach](/approach).
+information, please see [Our Approach](approach).
 
 To get access to the HPC Cluster, please complete our
-[New User Consultation Form](/form). After your request is received, 
+[New User Consultation Form](form). After your request is received, 
 a Research Computing Facilitator will follow up to discuss the computational needs 
 of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
@@ -55,10 +56,10 @@ head nodes and/or disable user accounts that violate this policy**
 Violation of these policies may result in suspension of your account.
 
 **2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
-HPC users should not run single-core or single-node jobs to the HPC Cluster, given its 
+HPC users should not numerous jobs on the HPC Cluster that can individually finish within 7 days on a single node, given its 
 optimization for multi-node/MPI-based work. Users will 
-be asked to transition work appropriately to our high-throughput computing system, where they 
-will also experience better turnaround for such work.
+be asked to transition such work appropriately to our high-throughput computing (HTC) system, where they 
+will also experience better turnaround.
 
 **3. Maintain Copies of Essential Data in non-CHTC Locations**    
 The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
@@ -66,7 +67,7 @@ actively-running jobs should be kept on the filesystem. Once your jobs complete,
 your files should be removed from the cluster filesystem. Campus researchers have several options 
 for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
 which provides up to 5TB of storage for free per research PI. Our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) provides 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive) provides 
 step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
@@ -114,7 +115,7 @@ All nodes in the HPC Cluster are running CentOS 7 Linux.
 
 The SLURM scheduler version is 20.02.2. 
 
-To see more details of other software on the cluster, see the [HPC Software page](/hpc-software). 
+To see more details of other software on the cluster, see the [HPC Software page](hpc-software). 
 
 ## Login Nodes
 

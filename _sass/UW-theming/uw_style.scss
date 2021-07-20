@@ -1,0 +1,31 @@
+@charset 'utf-8';
+/**
+ * UW Style
+ * Version 2.4.0
+ * Maintained by University Marketing, UW–Madison, web@umark.wisc.edu
+ */
+@import "vendor/foundation/unit";
+@import "vendor/foundation/breakpoint";
+
+@import 'uw_reset';
+@import 'uw_mixins';
+
+@import 'uw_vars';
+@import 'uw_typography';
+
+@import "uw_utils";
+@import "uw_content";
+@import 'uw_mini_bar';
+@import 'uw_global_bar';
+@import "uw_header";
+@import 'uw_nav_menu';
+@import 'uw_footer';
+@import 'uw_button';
+@import "uw_pagination";
+@import "uw_breadcrumbs";
+
+@import "uw_form";
+@import "uw_table";
+
+@import "uw_layouts";
+

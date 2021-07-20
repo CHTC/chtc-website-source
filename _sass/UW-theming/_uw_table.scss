@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+  margin-bottom: $uw-padding*2;
+  border-collapse: separate;
+  border-spacing: 0; 
+  border: 1px solid #dbdbdb;
+}
+tfoot, thead {
+  background: $uw-gray-footer-text-hover;
+  color: $uw-body-font;
+  border: 1px solid $uw-gray-lightest;
+}
+caption {
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+tbody {
+  border: 1px solid $uw-gray-lightest;
+  background-color: $uw-white;
+}
+tr {
+  background-color: transparent;
+}
+table tbody tr:nth-child(even) {
+  background-color: $uw-gray-footer-text-hover;
+}
+th, td {
+  padding: $uw-padding;
+  line-height: 1.35;
+}
+th {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+td {
+  font-size: 1.125rem;
+}
+

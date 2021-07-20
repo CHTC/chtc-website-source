@@ -19,9 +19,9 @@ of your software and a script (what we call the job's "executable") that runs
 your code.  We have guides for preparing: </p>
 
 <ul>
-<li><a href="/matlab-jobs.shtml">Matlab</a></li>
-<li><a href="/python-jobs.shtml">Python</a></li>
-<li><a href="/r-jobs.shtml">R</a></li>
+<li><a href="{{'/matlab-jobs' | relative_url }}">Matlab</a></li>
+<li><a href="{{'/python-jobs' | relative_url }}">Python</a></li>
+<li><a href="{{'/r-jobs' | relative_url }}">R</a></li>
 </ul>
 
 <p>Choose the right guide for you and follow the directions for compiling 
@@ -111,6 +111,6 @@ created in the second step.  You can use a different name for the directories
 (like <code>data</code> or <code>seed</code>), but you should use whatever 
 word they share in the final queue statement in place of "job".  </p>
 
-<p>Jobs can then be submitted as described in our <a href="/helloworld.shtml">
+<p>Jobs can then be submitted as described in our <a href="{{'/helloworld' | relative_url }}">
 Introduction to HTC Guide</a>, using <code>condor_submit</code>.  
 

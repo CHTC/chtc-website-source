@@ -1,0 +1,36 @@
+@mixin uw-mini-bar($align: left, $color: $uw-red) {
+  position: relative;
+  margin-top: 2.2rem;
+  &:before {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    content: '';
+    width: 2rem;
+    top: -12px;
+    background-color: $color;
+    @if $align == center {
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+// any element (e.g., heading) that has a short bar above it. For presentation-only.
+.uw-mini-bar {
+  @include uw-mini-bar();
+}
+h1.uw-mini-bar:before {
+  height: 4px;
+  width: 3rem;
+}
+
+.uw-mini-bar-center {
+  @include uw-mini-bar($align: center);
+}
+.uw-mini-bar-white {
+  @include uw-mini-bar($color: white);
+}
+.uw-mini-bar-white-center {
+  @include uw-mini-bar($align: center, $color: white);
+}

@@ -7,7 +7,7 @@
 <p>This guide assumes that you have gotten an account at CHTC 
 on the high throughput compute system and are ready to start 
 running jobs.  If you do *not* have an account at CHTC (or if you 
-aren't sure), fill out the <a href="/form.shtml">account request
+aren't sure), fill out the <a href="{{ '/form' | relative_url}}">account request
 form</a> or email CHTC's research computing facilitators at 
 <a href="">chtc@cs.wisc.edu</a>.  </p>
 
@@ -18,7 +18,7 @@ form</a> or email CHTC's research computing facilitators at
 gotten an email with your log in information.</p>
 
 <ul>
-<li class="spaced"><a href="/connecting.shtml">Connecting to CHTC</a>: 
+<li class="spaced"><a href="{{ '/connecting' | relative_url}}">Connecting to CHTC</a>:
 This guide has instructions on how 
 to log in, move files to and from the submit server, and use other command 
 line skills.</li>
@@ -30,8 +30,8 @@ Once you have logged in, we recommend learning about job submission using
 HTCondor.  
 
 <ul>
-<li class="spaced"><a href="/hello-world.shtml">Hello World</a>: Run a simple HTCondor job.</li>
-<li class="spaced"><a href="/condor_q.shtml">condor_q</a>: Learn about some of the different
+<li class="spaced"><a href="{{ '/hello-world' | relative_url}}">Hello World</a>: Run a simple HTCondor job.</li>
+<li class="spaced"><a href="{{ '/condor_q' | relative_url}}">condor_q</a>: Learn about some of the different
 options for <code>condor_q</code></li>
 </ul>
 
@@ -52,25 +52,25 @@ compiled binaries, you can use those.  For specific scripting
 languages or programs or using Docker containers, we have the following guides:</p>
 
 <ul>
-	<li class="spaced"><a href="/python-jobs.shtml">Running Python Jobs</a>: Run Python code or scripts in CHTC</li>
-	<li class="spaced"><a href="/r-jobs.shtml">Running R Jobs</a>: Run R code or scripts in CHTC </li>
-	<li class="spaced"><a href="/matlab-jobs.shtml">Running Matlab Jobs</a>: Run Matlab code or scripts in CHTC </li>
-	<li class="spaced"><a href="/docker-jobs.shtml">Using Docker to Run Jobs</a>: Use Docker containers to run software in CHTC</li>
+	<li class="spaced"><a href="{{ '/python-jobs' | relative_url}}">Running Python Jobs</a>: Run Python code or scripts in CHTC</li>
+	<li class="spaced"><a href="{{ '/r-jobs' | relative_url}}">Running R Jobs</a>: Run R code or scripts in CHTC </li>
+	<li class="spaced"><a href="{{ '/matlab-jobs' | relative_url}}">Running Matlab Jobs</a>: Run Matlab code or scripts in CHTC </li>
+	<li class="spaced"><a href="{{ '/docker-jobs' | relative_url}}">Using Docker to Run Jobs</a>: Use Docker containers to run software in CHTC</li>
 </ul>
 
 <p>If your program has to be compiled from source code, follow the instructions
-in our <a href="inter-submit.shtml">Build Job guide</a>. 
+in our <a href="{{ '/inter-submit' | relative_url}}">Build Job guide</a>.
 
 <h2>C. Prepare Your Data</h2>
 
-<p>Look at our <a href="/file-availability.shtml">File Availability page</a> to determine 
+<p>Look at our <a href="{{ '/file-availability' | relative_url}}">File Availability page</a> to determine
 what method is best to handle your data.  If you need access to 
 Squid or Gluster, email the CHTC facilitators.</p>
 
 <ul>
-	<li class="spaced"><a href="/file-availability.shtml">Using Default File Transfer</a>: HTCondor's default method of handling files</li>
-	<li class="spaced"><a href="/file-avail-squid.shtml">Using Squid</a>: Web server for repeated, medium-sized downloads</li>
-	<li class="spaced"><a href="/file-avail-gluster.shtml">Using Gluster</a>: File share for large files</li>
+	<li class="spaced"><a href="{{ '/file-availability' | relative_url}}">Using Default File Transfer</a>: HTCondor's default method of handling files</li>
+	<li class="spaced"><a href="{{ '/file-avail-squid' | relative_url}}">Using Squid</a>: Web server for repeated, medium-sized downloads</li>
+	<li class="spaced"><a href="{{ '/file-avail-gluster' | relative_url}}">Using Gluster</a>: File share for large files</li>
 </ul>
 
 <h1>4. Testing and Scaling Up</h1>
@@ -79,7 +79,7 @@ Squid or Gluster, email the CHTC facilitators.</p>
 step is to test what you've created and eventually submit a full batch of jobs</p>
 
 <ul>
-<li class="spaced"><a href="/testing.shtml">Testing Job Submissions and Scaling Up</a>: Test 
+<li class="spaced"><a href="{{ '/testing' | relative_url}}">Testing Job Submissions and Scaling Up</a>: Test
 and responsibly scale up to many jobs</li>
 </ul>
 
@@ -120,7 +120,7 @@ effective high-throughput computing in the following ways: </p>
 	is also getting a fair share of the resource.  </li>
 </ul>
 
-See our <a href="/troubleshooting.shtml">troubleshooting</a> guide for ongoing support. 
+See our <a href="{{ '/troubleshooting' | relative_url}}">troubleshooting</a> guide for ongoing support.
 
 <!--<h2>5. Expanding Your Limits</h2> -->
 

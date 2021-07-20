@@ -1,32 +1,27 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Your First CHTC Jobs
 ---
-
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "web.css" />
 
    
 So, you have an account on a submit node, and you are ready to run your
 first job in the CHTC. As we described in [Our
-Approach](http://chtc.cs.wisc.edu/approach.shtml), the CHTC is a
+Approach](/approach), the CHTC is a
 collection of distributed resources. The magic that enables you to run
 jobs on these resources is software, called
 [HTCondor](http://research.cs.wisc.edu/htcondor/), developed at the
 UW-Madison.
 
-Contents
-========
-
+{% capture content %}
 1.  [Let\'s first do, and then ask why](#first)
 2.  [What Else?](#else)
     -   [Removing Jobs](#remove)
     -   [The Importance of Testing](#importance)
     -   [Getting the Right Resources](#resource)
     -   [Time for a little homework](#homework)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 **1. Let\'s first do, and then ask why**
 ====================================
@@ -92,7 +87,7 @@ queue 3
 {:.sub}
 
 > For a \"template\" version of this submit file without the comments,
-> [click here](/files/template.sub).
+> [click here](files/template.sub).
 
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
@@ -161,12 +156,12 @@ your jobs. By default, `condor_q` shows jobs grouped into batches by
 batch name (if provided), or executable name. To show all of your jobs
 on individual lines, add the `-nobatch` option. For more details on this
 option, and other options to `condor_q`, see our [condor\_q
-guide](/condor_q.shtml).
+guide](condor_q).
 
 > **Potential Failures**
 >
 > If your jobs go on hold and you usually use a Windows laptop or
-> desktop, please see [this page](/dos-unix.shtml) for a potential
+> desktop, please see [this page](dos-unix) for a potential
 > diagnosis and solution.
 
 
@@ -313,7 +308,7 @@ files, as appropriate, and after running a few tests.
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
   |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
-Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
+Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](scaling-htc) guide.
 
 
 D. Run Your OWN Jobs
@@ -326,10 +321,10 @@ parameters, different input filenames, etc.), ways to organize your data, etc.
 You'll notice that it's part of a playlist of videos with topics for HTCondor users.
 
 [Our full set of CHTC
-online guides is available here](guides.shtml), and includes some specific 
+online guides is available here](guides), and includes some specific 
 examples for how to use various software within a job, or a Research Computing 
 Facilitation can help you get your software going. Remember to [Get
-Help](get-help.shtml) whenever you have questions or issues. That\'s
+Help](get-help) whenever you have questions or issues. That\'s
 what CHTC staff are here for.
 
 The full HTCondor manual is comprehensive

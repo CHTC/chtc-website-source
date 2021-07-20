@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: Usage Summary by Week
 ---
 
@@ -27,12 +27,12 @@ NOTES: 1) If a server with 16 cores is kept busy for 24 hours, it provides 16x24
 </div>
 <P>
 <div style="font-size:10pt">
-[ <a href="usage1.shtml">Yesterday</a>
-| <a href="usage7.shtml">Last 7 Days</a>
-| <a href="usage30.shtml">Last 30 Days</a>
-| <a href="usage90.shtml">Last 90 Days</a>
-| <a href="usage365.shtml">Last 365 Days</a> ]&nbsp;
-[ <a href="/includes/last1days/usage.xls">Open with Excel</a> ]&nbsp;
+[ <a href="{{ 'usage1' | relative_url }}">Yesterday</a>
+| <a href="{{ 'usage7' | relative_url }}">Last 7 Days</a>
+| <a href="{{ 'usage30' | relative_url }}">Last 30 Days</a>
+| <a href="{{ 'usage90' | relative_url }}">Last 90 Days</a>
+| <a href="{{ 'usage365' | relative_url }}">Last 365 Days</a> ]&nbsp;
+[ <a href="{{ '/includes/last1days/usage.xls' | relative_url }}">Open with Excel</a> ]&nbsp;
 [ <strong>Graph of Weekly Usage</strong> ]
 </div>
 <P>

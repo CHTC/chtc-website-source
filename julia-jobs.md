@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Julia Jobs on CHTC
 ---
 
@@ -40,7 +40,7 @@ with base Julia and Standard Library.
 	tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 	# add Julia binary to PATH
-	export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+	export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 	# run Julia script
 	julia my-script.jl
@@ -182,7 +182,7 @@ the interactive build job). A copy of `packages.tar.gz` will be present. **Be
 sure to check the size of the project tarball before proceeding to subsequent job 
 submissions.** If the file is >100MB please contact us at <chtc@cs.wisc.edu> so 
 that we can get you setup with access to our SQUID web proxy. More details 
-are available on our SQUID guide: [File Availability with SQUID](/file-avail-squid.md)
+are available on our SQUID guide: [File Availability with SQUID](file-avail-squid)
 
 ```
 [alice@submit]$ ls 
@@ -219,7 +219,7 @@ the Julia Standard library) use the example script directly below.
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 # add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 # run Julia script
 julia my-script.jl
@@ -238,7 +238,7 @@ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 tar -xzf my-project.tar.gz
 
 # add Julia binary to PATH
-export PATH=$_CONDOR_SCRATCH_DIR/julia-#-#-#/bin:$PATH
+export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 # add Julia packages to DEPOT variable
 export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 

@@ -1,0 +1,105 @@
+// adds red bottom border
+@mixin uw-boxed($padding: 1.5rem 2rem 1.5rem 2rem) {
+  background-color: $uw-white;
+  border-bottom: 4px solid $uw-red;
+  padding: $padding;
+  @include breakpoint($uw-main-nav-breakpoint) {
+    border-right: 1px solid $uw-gray-light;
+  }
+}
+
+
+// a full width photo
+.uw-hero {
+  line-height: .5;
+  img {
+    width: 100%;
+  }
+  &.uw-hero-constrained-height { // > 1200px fix hero height to 400px
+    @include breakpoint(1200px) {
+      img {
+        object-fit: cover;
+        object-position: 100% 100%;
+        max-height: 400px;
+      }
+    }
+  }
+}
+
+// floats and figures
+.uw-float-right {
+  float: right;
+}
+.uw-float-left {
+  float: left;
+}
+figure {
+  &.uw-float-right, &.uw-float-left {
+    float: none;
+  }
+  margin: 0 auto 1rem;
+  @include breakpoint(rem-calc(500)) {
+    margin: 0;
+    &.uw-float-right {
+      float: right;
+      margin: 0.5rem 0 2rem 2rem;
+    }
+    &.uw-float-left {
+      float: left;
+      margin: 0.5rem 2rem 2rem 0;
+    }
+    &.uw-float-25 {
+      width: 25%;
+    }
+    &.uw-float-33 {
+      width: 33.3333%;
+    }
+    &.uw-float-50 {
+      width: 50%;
+    }
+  }
+}
+
+figure img {
+  border: 1px solid $uw-gray-light;
+  &.uw-no-border {
+    border: none;
+  }
+}
+figure figcaption {
+  font-size: 1rem;
+  font-family: $uw-verlag-font;
+  line-height: 1.4;
+}
+.uw-credit {
+  text-transform: uppercase;
+  color: $uw-gray-darker;
+  font-size: 0.8rem;
+}
+
+
+// a generic content container with a thick bottom red border 
+// and thin gray right border
+.uw-content-box {
+  @include uw-boxed;
+  background-color: $uw-page-bg;
+  &.uw-content-box-bleed { // need an visual example for bleed
+    padding: 0 0 1.5rem 0;
+    > * {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    > .bleed { 
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  + .uw-content-box { // stacked content boxed have vertical spacing
+    margin-top: 3rem;
+  }
+}
+
+// if the body bg color is light gray, set the box bg color to white
+body.uw-light-gray-bg .uw-content-box {
+  background-color: #fff;
+}

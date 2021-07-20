@@ -113,5 +113,5 @@ modules are automatically unloaded.
 <p>In order to ensure that your job has the appropriate modules loaded when 
 it runs, we recommend adding the <code>module load</code> command to your 
 submit file, with the appropriate modules.  See our sample submit file in 
-the <a href="/HPCuseguide.shtml#batch-job">HPC Use Guide</a> to see what this looks like.
+the <a href="{{ '/HPCuseguide.shtml#batch-job' | relative_url}}">HPC Use Guide</a> to see what this looks like.
 </p>

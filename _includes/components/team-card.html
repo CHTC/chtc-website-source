@@ -1,0 +1,26 @@
+<div class="uw-card team-card">
+<div class="uw-card-content">
+    {% if member.website %}
+        <a href="{{ member.website }}">
+            <img src="{{ member.image | relative_url }}" alt="Headshot for {{member.name}}">
+        </a>
+    {% else %}
+        <img src="{{ member.image | relative_url }}" alt="Headshot for {{member.name}}">
+    {% endif %}
+    <div class="uw-card-copy">
+        <div>
+            <h2 class="uw-mini-bar">
+                {% if member.website %}
+                <a href="{{ member.website }}">{{ member.name }}</a>
+                {% else %}
+                {{ member.name }}
+                {% endif %}
+            </h2>
+            <p>{{member.job_title}}</p>
+        </div>
+        <div>
+            <span class="institution">{{member.institution}}</span>
+        </div>
+    </div>
+</div>
+</div>

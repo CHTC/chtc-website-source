@@ -15,15 +15,14 @@ CHTC maintains a SQUID web proxy from which pre-staged input files and
 executables can be downloaded into jobs using CHTC\'s proxy HTTP
 address.
 
-
-Contents
---------
-
-1.  [Applicability](#Appli)
+{% capture content %}
+1. [Applicability](#Appli)
 2.  [Using SQUID to Deliver Input Files](#use)
-    -   [Request a directory in SQUID](#request)
-    -   [Place files within your home directory](#place)
-    -   [Have HTCondor download the file to the working job](#have)
+    * [Request a directory in SQUID](#request)
+    * [Place files within your home directory](#place)
+    * [Have HTCondor download the file to the working job](#have)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 <a name="Appli"></a>
 
@@ -35,7 +34,7 @@ Contents
     same large file (or few files), including large software. It is not
     good for cases when each of many jobs needs a *different* large
     input file, in which case [our large data staging
-    location](/file-avail-largedata) should be used. Remember that
+    location](file-avail-largedata) should be used. Remember that
     you\'re always better off by pre-splitting a large input file into
     smaller job-specific files if each job only needs some of the large
     files\'s data. If each job needs a large set of many files, you

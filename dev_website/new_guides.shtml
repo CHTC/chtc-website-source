@@ -17,7 +17,7 @@ Guides will be added to the list as we can provide them. Please contact us
 <a name="gen"></a>
 <h1>General Computing</h1>
 <ul>
-    <li><a href="/approach.shtml">Our Approach: High Throughput Versus 
+    <li><a href="{{'/approach' | relative_url }}">Our Approach: High Throughput Versus
 High Performance Computing</a></li>
 </ul>
 
@@ -29,18 +29,18 @@ High Performance Computing</a></li>
 	<td width="48%"><blockquote>
   		<b>Basics and Policies</b>
   		<ul>
-  	   	<li><a href="/use-submit-node.shtml">Using CHTC's HTC Submit Nodes</a></li>
-		<li><a href="/check-quota.shtml">Checking Disk Quota and Usage</a></li>
+  	   	<li><a href="{{'/use-submit-node' | relative_url }}">Using CHTC's HTC Submit Nodes</a></li>
+		<li><a href="{{'/check-quota' | relative_url }}">Checking Disk Quota and Usage</a></li>
 		</ul>
   	</blockquote></td>
   	<td width="48%"><blockquote>
   		<b>Job Submission</b>
   		<ul>
-		<li><a href="/helloworld.shtml">Running Your First HTC Jobs</a></li>
-		<li><a href="/condor_q.shtml">Useful Options for condor_q</a></li>
-        <li><a href="/submit_variations.shtml">Submit file Variations</a></li>
-        <li><a href="/chtcrun-transition.shtml">Multiple Jobs in Different Directories</a></li>
-        <li><a href="/os-transition.shtml">Opting Into a New Operating System (CentOS 7)</a></li>
+		<li><a href="{{'/helloworld' | relative_url }}">Running Your First HTC Jobs</a></li>
+		<li><a href="{{'/condor_q' | relative_url }}">Useful Options for condor_q</a></li>
+        <li><a href="{{'/submit_variations' | relative_url }}">Submit file Variations</a></li>
+        <li><a href="{{'/chtcrun-transition' | relative_url }}">Multiple Jobs in Different Directories</a></li>
+        <li><a href="{{'/os-transition' | relative_url }}">Opting Into a New Operating System (CentOS 7)</a></li>
         </ul>
   	</blockquote></td>
   </tr>
@@ -48,19 +48,19 @@ High Performance Computing</a></li>
     <td><blockquote>
     <b>Handling Data in Jobs</b>
   	  <ul>
-        <li><a href="/file-availability.shtml">HTCondor File Transfer</a></li>
-        <li><a href="/file-avail-squid.shtml">File Availability with Squid Web Proxy</a></li>
-        <li><a href="/file-avail-gluster.shtml">File Availability with Gluster</a></li>
+        <li><a href="{{'/file-availability' | relative_url }}">HTCondor File Transfer</a></li>
+        <li><a href="{{'/file-avail-squid' | relative_url }}">File Availability with Squid Web Proxy</a></li>
+        <li><a href="{{'/file-avail-gluster' | relative_url }}">File Availability with Gluster</a></li>
     </ul>
     </blockquote></td>
   	<td><blockquote>
   	<b>Software Solutions</b>
   	 <ul>
-  	   <li><a href="/inter-submit.shtml">Compiling Software in an Interactive Job</a></li>
-  	   <li><a href="/matlab-jobs.shtml">Running Matlab Jobs</a></li>
-        <li><a href="/python-jobs.shtml">Running Python Jobs</a></li>
-	  <li><a href="/r-jobs.shtml">Running R Jobs</a></li>
-	  <!--<li><a href="/howto_overview_prev.shtml">CHTC Tools for Software Portability (no longer supported)</a></li>-->
+  	   <li><a href="{{'/inter-submit' | relative_url }}">Compiling Software in an Interactive Job</a></li>
+  	   <li><a href="{{'/matlab-jobs' | relative_url }}">Running Matlab Jobs</a></li>
+        <li><a href="{{'/python-jobs' | relative_url }}">Running Python Jobs</a></li>
+	  <li><a href="{{'/r-jobs' | relative_url }}">Running R Jobs</a></li>
+	  <!--<li><a href="{{'/howto_overview_prev' | relative_url }}">CHTC Tools for Software Portability (no longer supported)</a></li>-->
   	 </ul>
   	</blockquote></td>
   </tr>
@@ -68,19 +68,19 @@ High Performance Computing</a></li>
   	<td><blockquote>
   	<b>Special Use Cases</b>
   		<ul>
-    	<li><a href="/mpi-jobs.shtml">Submitting Jobs that use MPI</a></li>
-    	<li><a href="/docker-jobs.shtml">Submitting Jobs that use Docker</a></li>
-  	  	<li><a href="/high-memory-jobs.shtml">Submitting High Memory Jobs</a></li>
-    	<!--<li><a href="/gpu-jobs.shtml">Submitting Jobs that use GPUs</a></li>-->
+    	<li><a href="{{'/mpi-jobs' | relative_url }}">Submitting Jobs that use MPI</a></li>
+    	<li><a href="{{'/docker-jobs' | relative_url }}">Submitting Jobs that use Docker</a></li>
+  	  	<li><a href="{{'/high-memory-jobs' | relative_url }}">Submitting High Memory Jobs</a></li>
+    	<!--<li><a href="{{'/gpu-jobs' | relative_url }}">Submitting Jobs that use GPUs</a></li>-->
 		</ul>
   	</blockquote></td>
     	<td width="32%"><blockquote>
 		<b>Troubleshooting</b>
   		<ul>
-        <li><a href="/testing.shtml">Testing Jobs</a></li>
-<!--    <li><a href="/troubleshooting.shtml">Troubleshooting</a></li>
-        <li><a href="/chtcrun_troubleshooting.shtml">Troubleshooting in ChtcRun</a></li>-->
-        <li><a href="/dos-unix.shtml">Windows/Linux Incompatibility</a></li>
+        <li><a href="{{'/testing' | relative_url }}">Testing Jobs</a></li>
+<!--    <li><a href="{{'/troubleshooting' | relative_url }}">Troubleshooting</a></li>
+        <li><a href="{{'/chtcrun_troubleshooting' | relative_url }}">Troubleshooting in ChtcRun</a></li>-->
+        <li><a href="{{'/dos-unix' | relative_url }}">Windows/Linux Incompatibility</a></li>
         </ul>
 	</blockquote></td>
   </tr>
@@ -94,8 +94,8 @@ High Performance Computing</a></li>
   <tr>
     <td width="32%"><blockquote>
       <ul>
-      <li><a href="/HPCuseguide.shtml">HPC Cluster Basic Use Guide</a></li>
-      <li><a href="/MPIuseguide.shtml">MPI Use Guide</a></li>
+      <li><a href="{{'/HPCuseguide' | relative_url }}">HPC Cluster Basic Use Guide</a></li>
+      <li><a href="{{'/MPIuseguide' | relative_url }}">MPI Use Guide</a></li>
       </ul>
    </blockquote></td>
   </tr>
