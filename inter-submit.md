@@ -40,6 +40,8 @@ First, download the source code for your software to the submit server.
 Then create the following special submit file on the submit server,
 calling it something like `build.sub`.
 
+Note that you'll want to use `+IsBuildJob = true` to specifically match to CHTC's servers designated for compiling code (which include Matlab compilers and other compiling tools you may need). Compiling servers do not include specialized resources like GPUs, extreme amounts of RAM/disk, etc.; to build/test software in these cases, submit an interactive job without `+IsBuildJob`.
+
 ``` {.sub}
 # Software build file
 
