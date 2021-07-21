@@ -7,7 +7,7 @@ title: CHTC Tools for Matlab, R, and Python Portability
    type = "text/css"
    href = "bootstrap.css" />
 
-<p>This page is now the default overview page! Go to <a href="/howto_overview.shtml">the current overview
+<p>This page is now the default overview page! Go to <a href="{{'/howto_overview' | relative_url }}">the current overview
 page </a> for 
 our current software guides for Matlab, Python and R.</p>
 

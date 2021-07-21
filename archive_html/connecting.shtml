@@ -5,7 +5,7 @@ title: Connecting to CHTC
 
 This guide assumes that you have already gotten a CHTC account for either 
 our high throughput or high performance compute systems.  If you haven't, 
-see our <a href="/get-started.shtml">getting started</a> page. 
+see our <a href="{{'/get-started' | relative_url }}">getting started</a> page.
 
 <h1>Contents</h1>
 

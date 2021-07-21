@@ -1,11 +1,11 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Using CHTC's HTC Submit Servers 
 ---
 
 **If you have not yet requested a CHTC account and met with a Research
-Computing Facilitator, please fill out [this form](/form.shtml).**
+Computing Facilitator, please fill out [this form](form).**
 
 Recently created CHTC accounts will use our submit server 
 *submit1.chtc.wisc.edu*. Accounts older than March 2021 may be on 
@@ -29,7 +29,7 @@ VPN](https://it.wisc.edu/services/wiscvpn/).
 
 For more detailed information on connecting to CHTC services, both
 logging in and transferring files, see our [Connecting to CHTC
-guide](/connecting.shtml).
+guide](connecting).
 
 Data Practices
 --------------
@@ -62,7 +62,7 @@ order to keep the submit servers functional and usable by everyone:
 -   **Do not run programs on the submit servers.** The submit server is
     kept plenty busy just managing HTCondor jobs. Computational work,
     like compiling or testing code, should be submitted as HTCondor jobs. See our
-    [online guides](/guides.shtml) for the best compiling practices.
+    [online guides](guides) for the best compiling practices.
     Small scripts and commands (to compress data, create directories,
     etc.) that run within a few minutes on the submit server are okay,
     but their use should be minimized when possible.
@@ -81,12 +81,12 @@ order to keep the submit servers functional and usable by everyone:
     jobs running as possible without also compromising queue performance.
 -   **The default disk quota is 20 GB** in your `/home` directory, as a 
     starting point. You can track your use of disk space and your quota value,
-    using our [Quota Guide](/check-quota.shtml). If you need more space
+    using our [Quota Guide](check-quota). If you need more space
     for concurrent work, please send an email to chtc@cs.wisc.edu.
 -   **Submitting jobs with \"large\" files:** HTCondor\'s
     normal file transfer mechanism (\"transfer\_input\_files\") is good for 
     files up to 100MB in size (or 500MB total, per job). For jobs with larger
-    files, please see our guide on [File Availability](/file-availability.shtml) 
+    files, please see our guide on [File Availability](file-availability) 
     Options, and contact us to make arrangements.
 -   **No scheduled jobs.** Local execution and job submission should be
     manual (using `condor_submit`), or use a DAG or other approved workflow tool. Do not use cron 

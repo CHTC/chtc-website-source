@@ -16,7 +16,7 @@ a job to make sure that it's working correctly.  </p>
 
 <blockquote>
 If you are interested in using an interactive job to compile or build 
-code specifically on our build machines, see our guide on <a href="/inter-submit.shtml">
+code specifically on our build machines, see our guide on <a href="{{'/inter-submit' | relative_url}}">
 Compiling Code with an Interactive Job</a>
 </blockquote>
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Jobs Beyond CHTC Using Containers
 ---
 
@@ -12,7 +12,7 @@ the Open Science Grid using containers.
 Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. The default way to run 
 with containers in CHTC is by using Docker (see 
-our [Docker Jobs guide](/docker-jobs)). To run on resources outside of 
+our [Docker Jobs guide](docker-jobs)). To run on resources outside of 
 CHTC, like the campus grid or Open Science Grid, this process must be 
 modified slightly. 
 
@@ -21,7 +21,7 @@ modified slightly.
 To run a container-based job, you will first need access to a Docker container
 image that has been built and placed onto the
 [DockerHub](https://hub.docker.com/) website. See our 
-[Docker Jobs guide](/docker-jobs) for more information about containers in 
+[Docker Jobs guide](docker-jobs) for more information about containers in 
 general and how to find or create them. 
 
 # 2. Submit Container to be Staged Across CHTC and the OSG
@@ -63,5 +63,5 @@ queue 1
 {: .sub}
 
 Note that the above options **replace** the usual Docker options from 
-our [Docker Jobs Guide](/docker-jobs). You should **not**
+our [Docker Jobs Guide](docker-jobs). You should **not**
 include a `docker_image` option in the submit file if using the above setup. 

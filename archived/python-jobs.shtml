@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: Running Python Jobs on CHTC
 ---
 
@@ -7,7 +7,7 @@ title: Running Python Jobs on CHTC
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="../python-jobs.shtml">this page</a> for the new guides.
+<a href="{{ '/python-jobs' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 <p><b>To best understand the below information, users 
@@ -17,7 +17,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="{{ '/helloworld' | relative_url }}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -89,7 +89,7 @@ the submit server so that you can use it to submit your jobs. </p>
 <a name="interactive"></a>
 <li><p><b>Submit an Interactive Build Job</b></p>
 <p>Instructions for submitting an interactive build job are 
-here: <a href="http://chtc.cs.wisc.edu/inter-submit.shtml">http://chtc.cs.wisc.edu/inter-submit.shtml</a> <br>
+here: <a href="{{ '/inter-submit' | relative_url }}">http://chtc.cs.wisc.edu/inter-submit</a> <br>
 Note that you should replace <code>source_code.tar.gz</code> with the name of 
 the Python source tarball that you downloaded.  If you downloaded additional source 
 code for modules in <a href="#version">part A</a>, you should list those in the 
@@ -249,7 +249,7 @@ it executable permissions by running:
 <a name="submit"></a>
 <h1>3. Submitting Jobs</h1>
 
-A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+A sample submit file can be found in our <a href="{{ '/helloworld' | relative_url }}">hello world
 </a> example page.  You should make the following changes in order to run 
 Python jobs: 
 <ul>

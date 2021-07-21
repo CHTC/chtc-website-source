@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Using Software in a Container on the HPC Cluster
 ---
 

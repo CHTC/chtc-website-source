@@ -14,13 +14,13 @@ should already be familiar with:</b><br>
 	<li>Using the command-line to: navigate directories, 
 	create/edit/copy/move/delete files and directories, 
 	and run intended programs (aka "executables").</li>
-	<li>CHTC's <a href="/helloworld.shtml">Intro to Running HTCondor Jobs</a></li>
+	<li>CHTC's <a href="{{'/helloworld' | relative_url }}">Intro to Running HTCondor Jobs</a></li>
 	<li>CHTC's guides for In-job File Handling and 
-	<a href="/file-availability.shtml">File Availability Options</a></li>
+	<a href="{{'/file-availability' | relative_url }}">File Availability Options</a></li>
 </ol>
 
 <h2>Knowing When/Why to Use Gluster</h2>
-<p> Make sure to see our <a href="/file-avail-gluster.shtml">
+<p> Make sure to see our <a href="{{'/file-avail-gluster' | relative_url }}">
 File Availability guide</a>, for additional discussion 
 of Gluster, as compared to other CHTC options.</p>
 

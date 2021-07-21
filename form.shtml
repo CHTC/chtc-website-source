@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: CHTC Request Form
 ---
 
@@ -149,7 +149,7 @@ your research:<br>
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
-	Based upon information on our <a href="/approach.shtml">
+	Based upon information on our <a href="{{ '/approach' | relative_url }}">
 	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br>
 	<dl>
 	<dd><input type="radio" name="computingtype">High-throughput</dd>

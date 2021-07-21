@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Create a Portable Python Installation with Miniconda
 ---
 
@@ -188,8 +188,8 @@ Conda environment file. **If >100MB in size, you should NOT transfer the tar bal
 large data filesystem Staging. Please contact a research computing facilitators at 
 chtc@cs.wisc.edu to determine the best option for your jobs. 
 
-More information is available at [File Availability with Squid Web Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml) 
-and [Managing Large Data in HTC Jobs](http://chtc.cs.wisc.edu/file-avail-largedata.shtml).
+More information is available at [File Availability with Squid Web Proxy](/file-avail-squid) 
+and [Managing Large Data in HTC Jobs](/file-avail-largedata).
 
 ## 5. Create a Job Executable
 
@@ -230,7 +230,7 @@ In your submit file, make sure to have the following:
   **Since the `tar.gz` file will almost certainly be larger than 100MB, 
   please [email](mailto:chtc@cs.wisc.edu) us about different tools for 
   delivering the installation to your jobs, 
-  likely our [SQUID web proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml).**
+  likely our [SQUID web proxy](/file-avail-squid).**
 
 # Option 2: Install Miniconda Inside Each Job
 

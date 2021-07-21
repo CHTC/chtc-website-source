@@ -1,18 +1,18 @@
 ---
 highlighter: none
-layout: default
+layout: content
 title: Learning About Your Jobs Using condor_q
 ---
 
+{% capture content %}
 The `condor_q` command can be used for much more than just
 checking on whether your jobs are running or not! Read on to learn how
 you can use `condor_q` to answer many common questions about running
 jobs.
+{% endcapture %}
+{% include /components/markdown-container.html %}
 
-
-
-
-
+{% capture content %}
 1.  [Default `condor_q` output, in \"batches\"](#default)
 2.  [View all of your jobs (old condor\_q output).](#nobatch)
 3.  [View jobs from all users.](#all)
@@ -23,7 +23,10 @@ jobs.
 8.  [View all details about a job.](#long)
 9.  [View specific details about a job using auto-format.](#af)
 10. [View only specific types of jobs using a constraint](#constraint)
+{% endcapture %}
+{% include /components/directory.html %}  
 
+{% capture content %}
 Summary
 =======
 
@@ -169,7 +172,7 @@ entire hold reason:
 {:.term}
 
 If you aren\'t sure what your hold reason means, see our
-[troubleshooting guide](/troubleshooting#hold) or email
+[troubleshooting guide](troubleshooting#hold) or email
 chtc@cs.wisc.edu.
 
 <a name="bet"/>
@@ -344,3 +347,5 @@ You should see something very similar to running `condor_q -hold`!
 This page takes some of its content and formatting from [this HTCondor
 reference
 page](http://vivaldi.ll.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorUsefulCommands).
+{% endcapture %}
+{% include /components/markdown-container.html %}
