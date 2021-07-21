@@ -1,0 +1,61 @@
+// next previous page links
+.uw-pagination {
+  background-color: $uw-page-bg;
+  padding: 0 1rem;
+}
+.uw-pagination-prev-next {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > [class*="uw-pagination"] {
+    display: inline-block;
+  }
+}
+
+// page-numbered pagination
+// .uw-pagination-menu should be placed on a <nav> or
+// an element with role="navigation"
+.uw-pagination-menu ul {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  > li {
+    list-style: none;
+    > a {
+      background-color: $uw-page-bg;
+      display: inline-block;
+      padding: 0.75rem 1rem 1rem;
+      border-right: 1px solid darken($uw-page-bg,10%);
+      border-top: 1px solid  darken($uw-page-bg,10%);
+      border-bottom: 1px solid  darken($uw-page-bg,10%);
+      font-size: 0.875rem;
+      line-height: 16px;
+      height: 2.5rem;
+      &.uw-page-previous, &.uw-page-next {
+        font-size: 1rem;
+        // adding a decorative SVG icon
+        // aria-hidden on the svg should be true
+        // focusable on the svg should be false
+        // role on the svg should be presentation
+        svg {
+          width: 0.65rem;
+          height: auto;
+          vertical-align: -2px;
+        }
+      }
+      &:first-child {
+        border-left: 1px solid darken($uw-page-bg,10%);
+      }
+      &[aria-disabled=true] {
+        pointer-events: none;
+        color: #717171;
+      }
+      &:hover, &:focus {
+        background-color: $uw-anchor-color;
+        color: #fff;
+      }
+    }
+  }
+}

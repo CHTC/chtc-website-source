@@ -1,51 +1,46 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Your First CHTC Jobs
 ---
-
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "web.css" />
 
    
 So, you have an account on a submit node, and you are ready to run your
 first job in the CHTC. As we described in [Our
-Approach](http://chtc.cs.wisc.edu/approach.shtml), the CHTC is a
+Approach](/approach), the CHTC is a
 collection of distributed resources. The magic that enables you to run
 jobs on these resources is software, called
 [HTCondor](http://research.cs.wisc.edu/htcondor/), developed at the
 UW-Madison.
 
-Contents
-========
-
+{% capture content %}
 1.  [Let\'s first do, and then ask why](#first)
 2.  [What Else?](#else)
     -   [Removing Jobs](#remove)
     -   [The Importance of Testing](#importance)
     -   [Getting the Right Resources](#resource)
     -   [Time for a little homework](#homework)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 **1. Let\'s first do, and then ask why**
 ====================================
 
-Rather than having you read a bunch of stuff before hand, let\'s just
-run some jobs so you can see what happens, and we\'ll provide some
-additional discussion along the way. 
+We recommend that you also check out the 
+[HTCondor Job Submission Intro (video)](https://www.youtube.com/watch?v=p2X6s_7e51k&list=PLO7gMRGDPNumCuo3pCdRk23GDLNKFVjHn&index=2),
+but this example let's you just run some jobs so you can see what
+happens, with some additional discussion along the way. 
 
 We are going to run the traditional
 \'hello world\' program with a CHTC twist. In order to demonstrate the
-distributed resource nature of the CHTC, we will produce a \'Hello
-CHTC\' message 3 times, where each time is its own job. Since you are
-not directly invoking the execution of each job, you need to tell
-HTCondor *how* to run the jobs for you. The information needed is placed
-into a *submit file*, which defines variables that describe the set of
-jobs.
+distributed resource nature of CHTC's HTC System, we will produce a \'Hello
+CHTC\' message 3 times, where each message is produced within is its own \'job\'.
+Since you will not run execution commands yourself (HTCondor will do it for you), you need to tell
+HTCondor *how* to run the jobs for you in the form of a *submit file*, which
+describes the set of jobs.
 
 ***Note: You must be logged into an HTCondor submit machine for the
-following example to work***
+following example to work.***
 
 **1.** Copy the highlighted text below, and paste it into file called
 `hello-chtc.sub`, the submit file, in your home directory on the submit
@@ -56,13 +51,12 @@ machine.
 # My very first HTCondor submit file
 #
 # Specify the HTCondor Universe (vanilla is the default and is used
-#  for almost all jobs), the desired name of the HTCondor log file,
-#  and the desired name of the standard error file.  
-#  Wherever you see $(Cluster), HTCondor will insert the queue number
-#  assigned to this set of jobs at the time of submission.
+#  for almost all jobs) and your desired name of the HTCondor log file,
+#  which is where HTCondor will describe what steps it takes to run 
+#  your job. Wherever you see $(Cluster), HTCondor will insert the 
+#  queue number assigned to this set of jobs at the time of submission.
 universe = vanilla
 log = hello-chtc_$(Cluster).log
-error = hello-chtc_$(Cluster)_$(Process).err
 #
 # Specify your executable (single binary or a script that runs several
 #  commands), arguments, and a files for HTCondor to store standard
@@ -72,10 +66,11 @@ error = hello-chtc_$(Cluster)_$(Process).err
 executable = hello-chtc.sh
 arguments = $(Process)
 output = hello-chtc_$(Cluster)_$(Process).out
+error = hello-chtc_$(Cluster)_$(Process).err
 #
 # Specify that HTCondor should transfer files to and from the
 #  computer where each job runs. The last of these lines *would* be
-#  used if there were any other files needed for the executable to run.
+#  used if there were any other files needed for the executable to use.
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 # transfer_input_files = file1,/absolute/pathto/file2,etc
@@ -92,7 +87,7 @@ queue 3
 {:.sub}
 
 > For a \"template\" version of this submit file without the comments,
-> [click here](/files/template.sub).
+> [click here](files/template.sub).
 
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
@@ -161,12 +156,12 @@ your jobs. By default, `condor_q` shows jobs grouped into batches by
 batch name (if provided), or executable name. To show all of your jobs
 on individual lines, add the `-nobatch` option. For more details on this
 option, and other options to `condor_q`, see our [condor\_q
-guide](/condor_q.shtml).
+guide](condor_q).
 
 > **Potential Failures**
 >
 > If your jobs go on hold and you usually use a Windows laptop or
-> desktop, please see [this page](/dos-unix.shtml) for a potential
+> desktop, please see [this page](dos-unix) for a potential
 > diagnosis and solution.
 
 
@@ -313,27 +308,30 @@ files, as appropriate, and after running a few tests.
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
   |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
-Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](/scaling-htc.shtml) guide.
+Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](scaling-htc) guide.
 
 
-D. Now, time for a little homework
+D. Run Your OWN Jobs
 ----------------------------------
 
-To get the most of the CHTC, you will want to have a good understanding
-of how HTCondor works. **We HIGHLY recommend browsing the latest
-[HTCondor User Tutorial](https://agenda.hep.wisc.edu/event/1325/other-view?view=standard#20180521.detailed)
-from the international HTCondor Week conference.** 
+If you didn't check it out already, NOW is a great time to check out the 
+[HTCondor Job Submission Intro (video)](https://www.youtube.com/watch?v=p2X6s_7e51k&list=PLO7gMRGDPNumCuo3pCdRk23GDLNKFVjHn&index=2), 
+which introduces various ways to specify differences between jobs (e.g. 
+parameters, different input filenames, etc.), ways to organize your data, etc.
+You'll notice that it's part of a playlist of videos with topics for HTCondor users.
 
 [Our full set of CHTC
-online guides is available here.](guides.shtml) Remember to [Get
-Help](get-help.shtml) whenever you have questions or issues. That\'s
-what CHTC staff are here for. 
+online guides is available here](guides), and includes some specific 
+examples for how to use various software within a job, or a Research Computing 
+Facilitation can help you get your software going. Remember to [Get
+Help](get-help) whenever you have questions or issues. That\'s
+what CHTC staff are here for.
 
 The full HTCondor manual is comprehensive
 and lengthy, and Googling \"HTCondor examples\" may lead you to examples
 that really only work on another campus\'s HTCondor system. You can
 always dig into more details as you become more experienced, but the
-below pages of the manual may be a good place to start if you like
+below pages of the manual may be a good place to start, if you like
 manuals:
 
 -   [Road-map for Running

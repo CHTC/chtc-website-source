@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Submitting Multiple Jobs Using HTCondor
 ---
 
@@ -71,6 +71,16 @@ The most straightforward example of using `queue N` is to submit
 how to use the `Cluster` and `Process` variables to assign unique names 
 for the HTCondor `error`, `output`, and `log` files for each job in the batch:
 
+> This example is most similar to our [Intro to Running HTCondor
+> Jobs](/helloworld).
+
+This method addresses an example where you have multiple, numbered input
+files and want to run a job for each one. On the submit server, this
+might look like this:
+
+``` 
+[alice@submit]$ ls 
+0.data  1.data  2.data  my_exec  reference.data
 ```
 # 100jobs.sub
 # submit 100 identical jobs

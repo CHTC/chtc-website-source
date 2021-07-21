@@ -7,10 +7,10 @@
 
 It is important to manage your data well, in order to optimize your 
 use of high throughput computing.  Our default method of delivering 
-files and data to a job is <a href="/file-avail-transfer.shtml">HTCondor file 
+files and data to a job is <a href="{{'/file-avail-transfer' | relative_url}}">HTCondor file
 transfer</a>, however, this method becomes inefficient for large files and 
-it is important to use CHTC's other two methods (<a href="/file-avail-squid.shtml">
-SQUID web proxy</a> and <a href="/file-avail-gluster.shtml">Gluster file share</a>)
+it is important to use CHTC's other two methods (<a href="/file-avail-squid">
+SQUID web proxy</a> and <a href="{{'/file-avail-gluster' | relative_url}}">Gluster file share</a>)
 when appropriate.  This table contains a summary of appropriate data 
 management options, and there is a full description of each below the table.  
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: MPI Use Guide
 ---
 
@@ -134,5 +134,5 @@ are automatically unloaded.
 In order to ensure that your job has the appropriate modules loaded when
 it runs, we recommend adding the `module load` command to your submit
 file, with the appropriate modules. See our sample submit file in the
-[HPC Use Guide](/HPCuseguide.shtml#batch-job) to see what this looks
+[HPC Use Guide](HPCuseguide#batch-job) to see what this looks
 like.

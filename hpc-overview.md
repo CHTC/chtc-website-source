@@ -4,17 +4,17 @@ layout: hpc_layout
 title: HPC Cluster Overview
 ---
 
-# Content
- 
+{% capture content %}
 1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
-2. [New HPC Configuration](#new-hpc-configuration)
-3. [HPC User Policies](#hpc-user-policies)  
-4. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
+2. [HPC User Policies](#hpc-user-policies)  
+3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
     - [Partitions](#partitions)   
     - [Operating System and Software](#operating-system-and-software)
 4. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing home and software space](#tools-for-managing-home-and-software-space)
-
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+      
 # High-Performance Computing at CHTC
 
 The CHTC high-performance computing (HPC) cluster provides dedicated support for large, 
@@ -22,84 +22,100 @@ singular computations that use specialized software (i.e. MPI) to achieve intern
 parallelization of work across multiple servers of dozens to hundreds of cores. 
 
 ***Is high-performance computing right for me?*** Only computational work that 
-fits that above description is permitted on the HPC. All other computational 
-work, including single and multi-core (but single node) processes, that each complete 
-in less than 72 hours on a single node will be 
+fits that above description is appropriate for the HPC Cluster. Computational 
+work that can complete on a single node in less than a few days will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information about high-throughput computing, please see [Our Approach](/approach).
+information, please see [Our Approach](approach).
 
-To get access to the HPC, please complete our
-[Large-Scale Computing Request Form](/form). After your account request is received, 
-our Research Computing Facilitators will follow up with you and schedule a meeting 
-to discuss the computational needs of your research and connect you with computing 
+To get access to the HPC Cluster, please complete our
+[New User Consultation Form](form). After your request is received, 
+a Research Computing Facilitator will follow up to discuss the computational needs 
+of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
 
-# HPC User Policies
+# HPC Cluster User Policies
 
 Below is a list of policies that apply to all HPC users. 
 
-**1. Do Not Run Programs On The Login Nodes**   
-When you connect to the HPC, you are connected to a login node. The HPC login nodes have 
-limited computing resources that are occupied with running Slurm and managing job submission. 
+**1. Minimize Work on the Login Nodes**   
+The HPC Cluster login nodes have 
+limited computing resources that are occupied with running Slurm and managing job submission, 
+and are not suitable for testing your research software. 
 
-Users should only run basic commands (like `tar`, `cp`, `mkdir`) on the login nodes. The 
+Users may run basic data management commands (like `tar`, `cp`, `mkdir`) on the login nodes. The 
 execution of scripts, including cron, software, and software compilation on the login nodes
 is prohibited (and could VERY likely crash the head node). However, users may run small scripts 
-and commands (to compress data, create directories, etc.) that run within a few minutes but 
-their use should be minimized when possible. If you are unsure if your scripts are suitable 
-for running on the login nodes, please contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
+and commands (to compress data, create directories, etc.) that run within a few minutes, minimizing
+their use as much as possible. If you are unsure if your scripts are suitable 
+for running on the login nodes, consider using an interactive job or contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 **CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy**
 
 Violation of these policies may result in suspension of your account.
 
-**2. The HPC Is Reserved For MPI-enabled, Multi-node Jobs**   
-HPC users should not submit single-core or single-node jobs to the HPC. Users will 
-be asked to transition this kind of work to our high-throughput computing system.
+**2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
+HPC users should not numerous jobs on the HPC Cluster that can individually finish within 7 days on a single node, given its 
+optimization for multi-node/MPI-based work. Users will 
+be asked to transition such work appropriately to our high-throughput computing (HTC) system, where they 
+will also experience better turnaround.
 
-**3. HPC File System Is Not Backed-up**    
-All files on the HPC should be treated as temporary and only files necessary for 
-actively running jobs should be kept on the file system. Once your jobs complete, 
-your files should be removed from the HPC. Campus researchers have several options 
-for data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
-which provides up to 5TB of storage for free. Our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.shtml) provides 
-step-by-step instructions for transferring your data to and from the HPC and RsearchDrive.
+**3. Maintain Copies of Essential Data in non-CHTC Locations**    
+The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
+actively-running jobs should be kept on the filesystem. Once your jobs complete, 
+your files should be removed from the cluster filesystem. Campus researchers have several options 
+for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
+which provides up to 5TB of storage for free per research PI. Our guide 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive) provides 
+step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
 in our efforts to maintain filesystem performance for all users, though we will always 
 first ask users to remove excess data and minimize file counts before taking additional action.
 
+**NOTE: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+CHTC systems. If you have data security concerns or any questions about 
+data security in CHTC, please get in touch! We'll be happy to discuss.
+
 **4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs at a time. Additionally, user are restricted to a total of 600 cores 
-across all running jobs. Core limits do not apply on research group partitions of
-more than 600 cores.
+running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 600 cores 
+across all running jobs (core limits do not apply on research group partitions of
+more than 600 cores).
 
-**5. Job Priority Policy**   
+When determining which order to run jobs, the following policies are applies, in order or significance
+to job priority determinations:
 
 A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
 all queues. This "fair-share" policy means that users who have run many/larger jobs in the near-past 
-will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. We do 
-NOT have a strict "first-in-first-out" queue policy.
+will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
+(The cluster does not have a strict "first-in-first-out" queue policy.)
 
 B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
 the next most important factor for each job's priority is the amount of time that each job has already 
 waited in the queue. For all the jobs of a single user, these jobs will most closely follow a "first-in-first-out" policy.
 
-C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, as a means of 
-somewhat countering the inherently longer wait time necessary for allocating more cores to a single job.
+C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
+the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
+wasted time to deliberately drain nodes for larger jobs). So, among a user's jobs submitted at roughly the same time, 
+a larger job may run first, if the number of nodes necessary for the larger job is already available.
 
 # HPC Hardware and Configuration
 
 The HPC Cluster consists of two login nodes and many compute (aka execute) 
-nodes. All users log in at a login node, and all user files
-on the shared file sytem are accessible on all nodes.
+nodes. All users log in at a login node, and all user files on the shared file sytem are accessible on all nodes.
 Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
 they can work together as a single \"supercomputer\", depending on the
 number of CPUs you specify. 
+
+## Operating System and Software
+
+All nodes in the HPC Cluster are running CentOS 7 Linux. 
+
+The SLURM scheduler version is 20.02.2. 
+
+To see more details of other software on the cluster, see the [HPC Software page](hpc-software). 
 
 ## Login Nodes
 
@@ -109,59 +125,49 @@ The two login nodes for the cluster are:
 
 For more details on logging in, see the "Connecting to CHTC" guide linked above. 
 
-## Execute Nodes
+## Execute Nodes and Partitions
 
 Only execute nodes will be used for performing your computational work. 
 The execute nodes are organized into several \"partitions\", including 
 the `univ2`, `pre`, and `int` partitions which are available to 
 all HPC users as well as research group specific partitions that consist 
-of researcher owned hardware and which all HPC users can access on a 
+of researcher-owned hardware and which all HPC users can access on a 
 backfill capacity via the `pre` partition (more details below).
-
-## Partitions
 
   {:.gtable}
   | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
   | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Interactive | int | 6 | 1 hr | 1 hr | 1 | 20 | 128
+  | Interactive | int | 6 | 4 hrs | 1 hr | 1 | 20 | 128
   | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 20 | 128
   | Owners | *unique* | 124 | 7 days | 24 hrs | *unique* | 20 | 128
   | Astronomy Dept (differs) | astro3 | 24 | *4 days* | 24 hrs | 16 | 20 | 128
 
 
 - `univ2` consists of our second generation compute nodes, each with 20 
-CPU cores of 2.5 GHz and 128 GB of RAM. Like `univ`, jobs submitted to this partition 
-will not be pre-empted and can run for up to 7 days.
+CPU cores of 2.5 GHz and 128 GB of RAM. Jobs submitted to this partition 
+can request and use up to 7 days of running time.
 
 - `int` consists of two compute nodes is intended for short and immediate interactive 
 testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
 can run for up to 1 hour.
 
-- `pre` (i.e. pre-emptable) is an under-layed partition encompassing all HPC compute 
-nodes. This partiton is intended for more immediate turn-around of shorter and somewhat 
-smaller jobs, or for interactive sessions requiring more than the 30-minute limit of 
-the `int` partition. Jobs submitted to `pre` are pre-emptable and can run for up to 24 
-hours. `pre` partition jobs will run on any idle nodes, including researcher owned 
-compute nodes nodes, as back-fill meaning these jobs may be pre-empted by higher priority 
-jobs. However, pre-empted jobs will be re-queued when submitted with an sbatch script.
-
-## Operating System and Software
-
-All nodes in the HPC Cluster are running CentOS 7 Linux. 
-
-The SLURM scheduler version is 20.02.2. 
-
-To see more details of other software on the cluster, see the [HPC Software page](/hpc-software). 
+- `pre` (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
+nodes and is intended for more immediate turn-around of shorter, smaller, and/or 
+interactive sessions requiring more than the 30-minute limit of the `int` partition. 
+Jobs submitted to `pre` are run as back-fill on any idle nodes, including researcher-owned 
+compute nodes, meaning these jobs may be pre-empted by higher priority 
+jobs. By default, pre-empted jobs will be re-queued (to run again) if they were submitted with 
+an sbatch script.
 
 # Data Storage and Management
 
-**Data space in the HPC file system is not backed-up and should be
+**Data space in the HPC Cluster filesystem is not backed-up and should be
 treated as temporary by users**. Only files necessary for
-*actively-running* jobs should be kept on the file system, and files
-should be removed from the cluster when jobs complete. A copy of any
-essential files should be kept in an alternate, non-CHTC storage
-location.
+*actively-running* jobs should be kept on the filesystem, and files
+should be removed from the cluster when jobs complete. A primary copy of any
+essential files (e.g. software, submit files, input) should be kept in an 
+alternate, non-CHTC storage location.
 
 Each user will receive two primary data storage locations: 
 
@@ -178,17 +184,16 @@ To check how many files and directories you have in
 your `/home` or `/software` directory see the 
 [instructions below](#tools-for-managing-home-and-software-space).
 
-Increased quotas to either of these locations are available upon email 
-request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). In your request, 
+Increased quotas on either of these locations are available upon email 
+request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) after a user has 
+cleared out old data and run relevant test jobs to inform the request. In your request, 
 please include both size (in GB) and file/directory counts. If you don\'t 
 know how many files your installation creates, because it\'s more than 
 the current items quota, simply indicate that in your request.
 
 **CHTC Staff reserve the right to remove any significant amounts of data
 on the HPC Cluster** in our efforts to maintain filesystem performance
-for all users, though we will always first ask users to remove excess
-data and minimize file counts before taking additional action.
-
+for all users.
 
 **Local scratch space** of 500 GB is available on each execute node in
 `/scratch/local/$USER` and is automatically cleaned out upon completion

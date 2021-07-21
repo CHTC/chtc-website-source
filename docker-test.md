@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Exploring a Docker Container on Your Computer
 ---
 
@@ -249,5 +249,5 @@ messages, or email CHTC's Research Computing Facilitators.
 If your local test did run successfully, you are now ready to set up
 your Docker job to run on CHTC. 
 
-* [Docker Jobs](docker-jobs.shtml)
+* [Docker Jobs](docker-jobs)
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Get Help!
 ---
 
@@ -8,12 +8,11 @@ title: Get Help!
 
 ## Research Computing Facilitators
 
-To help researchers effectively utilize CHTC, CHTC has Research
-Computing Facilitators (RCFs) as a result of partnership with the
-Advanced Computing Initiative. Our RCFs can not only assist your in
+To help researchers effectively utilize computing resources, our Research
+Computing Facilitators (RCFs) not only assist your in
 implementing your computational work on CHTC compute resources
 resources, but can also point you to other on- and off-campus services
-related to computation and research IT needs. For example, RCFs can: 
+related to research computing and data needs. For example, RCFs can: 
 
 * Assist with planning your computational approach for a research
 problem 
@@ -28,7 +27,7 @@ problem
 ## Get An Account
 
 If you don't have an account yet, please fill out our [Request
-Form](/form.shtml), and we'll follow up quickly to set up a meeting time
+Form](form), and we'll follow up quickly to set up a meeting time
 and create accounts. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
@@ -39,27 +38,29 @@ We provide support via email at the address
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
 
+**Please note that replies to new account requests and email-based support
+requests may be delayed May 20-28, as CHTC staff prepare for and execute
+the annual [HTCondor Week conference](https://agenda.hep.wisc.edu/event/1579/).
+
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
 
- **Temporary Changes to Office Hours**
+> **Office hours are cancelled on Thursday, July 15**
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
--   **Tuesday/Thursday afternoons, from 3:00 - 5:00 pm.** 
+-   **Tuesday/Thursday afternoons, from 3:00 - 4:45 pm.** 
 
 To drop in, find the videoconference link in either your email (via 
 an announcement to chtc-users sent on Wed., March 11) or in the login message
 when you log into a CHTC server. 
 
-As always, if the times above don't work for you, please email use 
+As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
 
-
-
-[Click to sign-in for office hours](http://chtc.cs.wisc.edu/sign-in.shtml)
+[Click to sign-in for office hours](sign-in)
 
 
 <!-- For users who already have accounts, we have drop-in office hours on:

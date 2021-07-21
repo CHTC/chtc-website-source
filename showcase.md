@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: markdown-page
 title: 2011 Fall CHTC Showcase
 ---
 

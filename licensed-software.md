@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Using Licensed Software in CHTC
 ---
 
@@ -14,7 +14,7 @@ understanding of:**
 -   Using the command line to: navigate within directories,
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
--   [The CHTC\'s Intro to Running HTCondor Jobs](/helloworld.shtml)
+-   [The CHTC\'s Intro to Running HTCondor Jobs](helloworld)
 
 Overview
 ========
@@ -38,9 +38,9 @@ A. CHTC\'s Licensed Software Policies on the HTC System
 Our typical practice for software support in CHTC is for users to
 install and manage their own software installations. We have multiple
 guides to help users with [common software
-programs](/howto_overview.shtml) and additional support is always
+programs](howto_overview) and additional support is always
 available through [CHTC\'s research computing
-facilitators](/get-help.shtml).
+facilitators](get-help).
 
 However, certain software programs require paid licenses which can make
 it challenging for individual users to install the software and use the
@@ -99,7 +99,8 @@ then runs the program, like so:
 ``` 
 #!/bin/bash
 
-# Command to enable modules, and then load an appropriate software module
+# Commands to enable modules, and then load an appropriate software module
+export PATH
 . /etc/profile.d/modules.sh
 module load software
 
@@ -118,6 +119,7 @@ For example, to run a Comsol job, the script might look like this:
 ``` 
 #!/bin/bash
 
+export PATH
 . /etc/profile.d/modules.sh
 module load COMSOL/5.4
 
@@ -140,13 +142,6 @@ shown in the sample submit file below and include:
 
     ``` {.sub}
     requirements = (HasChtcSoftware == true)
-    ```
-
--   Use the **getenv = true** statement to set up the job\'s running
-    environment.
-
-    ``` {.sub}
-    getenv = true
     ```
 
 -   **Request accurate CPUs and memory.** Run at least one test job and
@@ -176,7 +171,6 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = (this should be a comma separate list of input files if needed)
 
-getenv = true
 # Requirement for accessing new set of software modules
 requirements = ( HasChtcSoftware == true ) 
 

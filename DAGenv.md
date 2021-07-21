@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Submitting Jobs Using the ChtcRun Package
 ---
 
@@ -47,7 +47,7 @@ Grid and national Open Science Grid.
     **For Matlab, Python, and R jobs, it is first essential to have
     completed the steps to compile your code dependencies, according to
     our [\"Compiling Matlab, Python and R Code\"
-    page.](http://chtc.cs.wisc.edu/MATLABandR.shtml)**
+    page.](/MATLABandR)**
 
     Make a directory within `ChtcRun` to house the project\'s input
     files and executables. For purposes of this example, assume that the
@@ -114,7 +114,7 @@ Grid and national Open Science Grid.
     amounts that should be requested for your jobs. For more information
     on testing, Flocking, and Glidein, please see the bottom of our
     [\"Run Your First HTC Jobs\"
-    guide](http://chtc.cs.wisc.edu/helloworld.shtml).
+    guide](/helloworld).
 
 4.  With a current working directory of `ChtcRun`, run `mkdag` with a
     job-specific set of command line arguments. The output from from

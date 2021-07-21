@@ -1,12 +1,12 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Transition to the Newly Configured HPC Cluster
 ---
 
 The HPC Cluster is being upgraded to a new configuration during October-November 2020. 
 If you have an account on our current HPC cluster (logging into `aci-service-1` or 
-`aci-service-2`) this page, along with our [User News page](/user-news), has 
+`aci-service-2`) this page, along with our [User News page](user-news), has 
 a summary of what you need to know and actions you need to take. 
 
 ## Changes in the New Configuration
@@ -35,7 +35,7 @@ for their HPC work.
 
 **Now**
 
-Review the updated use guides for the new cluster configuration here: [HPC Cluster user guides](/hpc-overview)
+Review the updated use guides for the new cluster configuration here: [HPC Cluster user guides](hpc-overview)
 
 Start removing all old and unneeded files from the current HPC cluster. 
 
@@ -47,7 +47,7 @@ Start removing all old and unneeded files from the current HPC cluster.
 2. Install your software on the new cluster. Note that we have a special directory 
 specifically for software installations on the new configuration -- software installs 
 can be placed into your `/software/username` directory. For full details on this and 
-the new modules, see the [software guide](/hpc-software). 
+the new modules, see the [software guide](hpc-software). 
 
 3. Test a job submission (or a few!) on the new cluster. 
 

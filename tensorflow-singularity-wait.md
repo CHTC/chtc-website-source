@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running Tensorflow Jobs
 ---
 
@@ -17,7 +17,7 @@ default file transfer or our SQUID web server. However, another option
 is to use a *container* system, where the software is installed in a
 *container image*. CHTC (and the OSG) have capabilities to access and
 start containers and run jobs inside them. One container option
-available in CHTC is [Docker](/docker-jobs.shtml); another is
+available in CHTC is [Docker](docker-jobs); another is
 Singularity.
 
 In CHTC, our Singularity support consists of running jobs inside a
@@ -111,7 +111,7 @@ above:
     ```
 
 For more information about GPUs and how GPU jobs work in CHTC, see our
-[GPU Jobs guide](/gpu-jobs.shtml).
+[GPU Jobs guide](gpu-jobs).
 
 > **Limited GPU availablity in CHTC**\
 > This Singularity/Tensorflow functionality is not yet available on
@@ -130,4 +130,4 @@ This Tensorflow environment can also be run on the Open Science Grid, or
 OSG, either as the CPU or GPU version.
 
 For more details on accessing the OSG, see [our guide for running
-outside CHTC, sections 3 and 4](/scaling-htc.shtml).
+outside CHTC, sections 3 and 4](scaling-htc).
