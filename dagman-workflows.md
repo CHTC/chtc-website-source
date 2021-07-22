@@ -4,7 +4,7 @@ layout: markdown-page
 title: Workflows with HTCondor's DAGMan
 ---
 
-# Overview
+## Overview
 
 If your work requires jobs that run in a particular sequence, you may benefit 
 from a workflow tool that submits and monitors jobs for you in the correct 
@@ -12,7 +12,7 @@ order. A simple workflow manager that integrates with HTCondor is DAGMan,
 or "DAG Manager" where DAG stands for the typical picture of a workflow, a 
 directed acyclic graph. 
 
-# Learning Resources
+## Learning Resources
 
 This talk (originally presented at HTCondor Week 2020) gives a good overview of 
 when to use DAGMan and its most useful features: 
