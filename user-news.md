@@ -12,6 +12,20 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## Reduced CHTC staff availability, Office Hours canceled next week (Aug 2-6)
+### Wednesday, July 28, 2021
+
+Greetings,
+
+CHTC's Research Computing Facilitators will have reduced responsiveness over the next two weeks (Aug 2 - 13) as we will all be teaching at the annual OSG User School. Our time will especially be limited next week (Aug 2-6) when Office Hours will also be canceled.
+
+Please continue to write to chtc@cs.wisc.ed with any questions or issues, and know that we’ll reply to you as soon as we can. We plan to resume Office Hours on Tuesday, August 10.
+
+Thank you,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## no office hours 7/15; limited email responses 7/19
 ### Monday, July 12, 2021
 
