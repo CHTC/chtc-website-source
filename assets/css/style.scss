@@ -2,6 +2,16 @@
 # this ensures Jekyll reads the file to be transformed into CSS later
 ---
 
+$grid-breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 1024px,
+  lg: 1200px,
+  xl: 1440px
+);
+
+// Bootstrap
+@import 'bootstrap/bootstrap-grid';
 
 // UW Theme
 @import 'UW-theming/uw_style';
@@ -14,10 +24,28 @@
   margin-bottom: 2rem;
 }
 
+.uw-card.promoted {
+  @include uw-flex-column(50%, map-get($breakpoints, medium));
+  padding: $uw-padding*1;
+  display: flex;
+  flex-direction: row;
+  .uw-card-content {
+    background-color: $uw-white;
+    flex-direction: row;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .uw-card-copy {
+    padding: 0 1rem 1rem;
+  }
+}
+
 .team-card {
   .uw-card-content {
+    width: 100%;
     padding: 15px;
-    max-width: 280px;
     display: flex;
     flex-direction: column;
   }
