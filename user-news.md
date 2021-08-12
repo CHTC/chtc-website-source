@@ -12,6 +12,28 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+## HPC Cluster Maintenance Aug 17
+### Wednesday, August 4
+
+Greetings CHTC users,
+
+This message is for users of our HPC Cluster. Users of only the HTC System can ignore.
+
+The HPC Cluster will be taken down after 9am on August 17 for some regular maintenance and to address issues remaining after the partial campus power outage at the end of June. We expect the downtime to potentially last through the end of the business day. We will notify users if more time is necessary.
+
+Potential impact to users:
+
+- So that jobs are not interrupted by the downtime, jobs submitted after Aug 10 will only run if requesting less time than remaining prior to the start of the downtime.
+
+- The contents of user directories in /scratch/local on login nodes will be wiped during the downtime, so users should make sure (as usual) that they have not left files in that location.
+
+Email us at chtc@cs.wisc.edu with any questions or issues.
+
+Regards,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## Reduced CHTC staff availability, Office Hours canceled next week (Aug 2-6)
 ### Wednesday, July 28, 2021
 
