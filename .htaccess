@@ -1,2 +1,8 @@
 # Display 404.html on 404
 ErrorDocument 404 /404.html
+
+# Redirect ".shtml" requests
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)\.shtml$
+RewriteRule ^ %1 [R=permanent,L]

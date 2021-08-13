@@ -38,15 +38,9 @@ We provide support via email at the address
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
 
-**Please note that replies to new account requests and email-based support
-requests may be delayed May 20-28, as CHTC staff prepare for and execute
-the annual [HTCondor Week conference](https://agenda.hep.wisc.edu/event/1579/).
-
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
-
-> **Office hours are cancelled on Thursday, July 15**
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:

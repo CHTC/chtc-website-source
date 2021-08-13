@@ -22,7 +22,7 @@ You will need the 64-bit, tarball compiled for general use on a Linux x86 system
 file name will resemble something like `julia-#.#.#-linux-x86_64.tar.gz`.
 
     * Tip: use `wget` to download directly to your `/home` directory on the 
-submit server, **OR** use `transfer_input_files = url` in your HTCondor submit files.
+submit server, **OR** use `transfer_input_files = url` in your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files.
 
 1. Submit an "interactive build" job to create a Julia project and 
 install packages, else skip to the next step.
@@ -47,8 +47,8 @@ with base Julia and Standard Library.
 	```
 	{: .file}
 
-    * For more details, including how to use Julia packages with your job, see the 
-    section on installing Julia packages below: [Installing Julia Packages](#install-julia-packages)
+    * For more details on the job submission, see the section 
+    below: [Submit Julia Jobs](#submit-julia-jobs)
 
 # Install Julia Packages
 
@@ -103,7 +103,7 @@ It may take a few minutes for the build job to start.
 ## Install Julia Packages Interactively
 
 Once the interactive jobs starts you should see the following
-inside job's the working directory:
+inside the job's working directory:
 
 ``` 
 bash-4.2$ ls -F
@@ -111,26 +111,48 @@ julia-#.#.#-linux-x86_64.tar.gz   tmp/    var/
 ```
 {:.term}
 
-Run the following commands to extract the Julia software, 
-add Julia to your `PATH`, create a `my-project/` directory to 
-install your packages to, tell Julia where to install your 
-packages, and start the Julia REPL.
+ Run the following commands 
+to extract the Julia software and add Julia to your `PATH`: 
 
-``` 
+```
 bash-4.2$ tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 bash-4.2$ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
+```
+{: .term}
+
+After these steps, you should be able to run Julia from the command line, e.g.
+
+```
+julia --version
+```
+{: .term}
+
+Now create a project directory to install your packages (we've called 
+it `my-project/` below) and tell Julia its name: 
+
+```
 bash-4.2$ mkdir my-project
 bash-4.2$ export JULIA_DEPOT_PATH=$PWD/my-project
-bash-4.2$ julia --project=my-project
 ```
-{:.term}
+{: .term}
 
 You can choose whatever name to use for this directory \-- if you have
 different projects that you use for different jobs, you could
 use a more descriptive name than "my-project".
 
-Once you've started up the Julia REPL (interpreter), start the Pkg REPL 
-by typing `]`. Then install and test packages:
+We will now use Julia to install any needed packages to the project directory 
+we created in the previous step. 
+
+Open Julia with the `--project` option set to the project directory: 
+
+``` 
+bash-4.2$ julia --project=my-project
+```
+{: .term}
+
+Once you've started up the Julia REPL (interpreter), start the Pkg REPL, used to 
+install packages, by typing `]`. Then install and test packages by using 
+Julia's `add Package` syntax. 
 
 ```
                _
@@ -166,7 +188,7 @@ julia> exit()
 ## Save Installed Packages For Later Jobs
 
 To use this project, and the associated installed packages, in 
-subsequent jobs, we need to have HTCondor return some files to 
+subsequent jobs, we need to have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> return some files to 
 the submit server by converting the `my-project/` directory
 to a tarball, before exiting the interactive job session:
 
@@ -195,7 +217,10 @@ my-project.tar.gz
 # Submit Julia Jobs
 
 To submit a job that runs a Julia script, create a bash 
-script and HTCondor submit file following the examples in this section.
+script and <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit file following the examples in this section.
+These examples assume that you have downloaded a copy of Julia for Linux as a `tar.gz` 
+file and if using packages, you have gone through the steps above to install them 
+and create an additional `tar.gz` file of the installed packages. 
 
 ## Create Executable Bash Script
 
@@ -215,16 +240,16 @@ the Julia Standard library) use the example script directly below.
 
 # julia-job.sh
 
-# extract Julia binaries tarball
+# extract Julia tar.gz file
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 
 # add Julia binary to PATH
 export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 
 # run Julia script
-julia my-script.jl
+julia script.jl
 ```
-{:.file}
+{: .file}
 
 ### Example Bash Script For Julia With Installed Packages
 
@@ -233,7 +258,7 @@ julia my-script.jl
 
 # julia-job.sh
 
-# extract Julia binaries tarball
+# extract Julia tar.gz file and project tar.gz file
 tar -xzf julia-#.#.#-linux-x86_64.tar.gz
 tar -xzf my-project.tar.gz
 
@@ -243,9 +268,9 @@ export PATH=$_CONDOR_SCRATCH_DIR/julia-#.#.#/bin:$PATH
 export JULIA_DEPOT_PATH=$_CONDOR_SCRATCH_DIR/my-project
 
 # run Julia script
-julia --project=my-project my-script.jl
+julia --project=my-project script.jl
 ```
-{:.file}
+{: .file}
 
 ## Create HTCondor Submit File 
 
@@ -253,7 +278,7 @@ After creating a bash script to run Julia, then create a submit file
 to submit the job to run. 
 
 More details about setting up a submit file, including a submit file template, 
-can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld.md).
+can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld).
 
 ``` {.sub}
 # julia-job.sub
@@ -279,11 +304,14 @@ queue 1
 
 If your Julia script needs to use packages installed for a project, 
 be sure to include `my-project.tar.gz` as in input file in `julia-job.sub`. 
-For project tarballs that are <100MB, you can follow the below example:
+For project tar.gz files that are <100MB, you can follow the below example:
 
 ``` {.sub}
 transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
 ```
+
+For project tar.gz files that are larger than 100MB, email a facilitator about 
+using SQUID.  
 
 Modify the CPU/memory request lines to match what is needed by the job. 
 Test a few jobs for disk space/memory usage in order to make sure your 
@@ -298,4 +326,4 @@ submit the job to run using the following command:
 ```
 [alice@submit]$ condor_submit julia-job.sub
 ```
-{:.term}
+{: .term}
