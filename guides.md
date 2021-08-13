@@ -77,7 +77,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="{{ '/multiple-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs</li></a>
 			<a href="{{ '/dagman-workflows' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs</li></a>
 			<a href="{{ '/multiple-job-dirs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs in Different Directories</li></a>
-			<!--<a href="{{ '/os-transition' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Opting Into a Specific Operating System</li></a>-->
+			<a href="{{ '/os-transition' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Opting Into a Specific Operating System</li></a>
 		</ul>
 	</div>
 		
