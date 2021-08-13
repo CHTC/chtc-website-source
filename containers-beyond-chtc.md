@@ -5,7 +5,7 @@ title: Running Jobs Beyond CHTC Using Containers
 ---
 
 This guide shows how to run jobs across CHTC and 
-the Open Science Grid using containers. 
+the <a href="http://www.opensciencegrid.org/">Open Science Grid</a> using containers. 
 
 # Overview
 

@@ -11,7 +11,7 @@ title: Computing Guides
 <p>
 Below is a list of guides for some of the most common tasks our users need to
 carry out as they begin and continue to use the resources at the CHTC. 
-Some of these are general computing solutions; others are specific to HTCondor
+Some of these are general computing solutions; others are specific to <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>
 or to the configuration of CHTC computing resources.
 <br />
 Guides will be added to the list as we can provide them. Please contact us
