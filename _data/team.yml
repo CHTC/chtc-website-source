@@ -113,6 +113,11 @@
   job_title: "System Administrator"
   website:
   institution: "Morgridge Institute"
+- name: "Joe Bartkowiak"
+  image: "images/team/silhouette.png"
+  job_title: "Systems Administrator"
+  website:
+  institution: "University of Wisconsin Madison"
 - name: "John TJ Knoeller"
   promoted: false
   image: "images/team/john-knoeller.jpg"
@@ -160,3 +165,4 @@
   job_title: "Systems Software Developer"
   website:
   institution: "University of Wisconsin-Madison"
+
