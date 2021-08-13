@@ -1,0 +1,41 @@
+// colors
+$uw-red: #c5050c !default;
+$uw-red-dark: #9B0000 !default;
+$uw-page-bg: #f7f7f7 !default;
+$uw-body-font: #494949 !default;
+$uw-gray-lightest: #e4e4e4 !default;
+$uw-gray-light: #cfcfcf !default;
+$uw-gray-footer-text: #adadad !default;
+$uw-gray-footer-text-hover: $uw-page-bg !default;
+$uw-gray-darker: #646569 !default;
+$uw-gray-darkest: #282728 !default;
+$uw-gray-medium: #8e8e92 !default;
+$uw-gray-blue: #dadfe1 !default;
+$uw-white: #fff !default;
+
+// link/anchor color
+$uw-anchor-color: #0479a8 !default;
+
+// foundation vars needed for using Foundation Table styling
+$white: $uw-white !default;
+$body-font-color: $uw-body-font !default;
+$global-margin: 1rem !default;
+$global-radius: 0 !default;
+$global-weight-bold: 700 !default;
+$global-left: ltr !default;
+
+// fonts
+$uw-verlag-font: "Verlag", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$uw-serif-font: Georgia,Times New Roman,Times,serif !default;
+$uw-vitesse-font: "Vitesse", "Helvetica Neue", "Helvetica", "Arial" !default;
+
+// layout
+$uw-max-content-width: 62.5em  !default;
+$uw-padding: 1rem !default;
+
+// images directory path relative to CSS
+$uw-img-path-relative-to-css: "images/" !default; // not currently in use
+
+// breakpoints 
+$uw-header-search-breakpoint: 500px !default;
+$uw-main-nav-breakpoint: 640px !default;

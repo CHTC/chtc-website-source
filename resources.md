@@ -1,11 +1,11 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: About CHTC Resources
 ---
 
 
-As you saw from the [About Our Approach](approach.shtml) document, the
+As you saw from the [About Our Approach](approach) document, the
 CHTC\'s resources are distributed across campus in several *pools*. A
 sample of resources (slots) available on a typical day in February of
 2012 is shown in this table:

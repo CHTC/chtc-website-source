@@ -1,0 +1,12 @@
+title: Amit Gandhi
+image: /images/gandhi.jpg
+description: >
+  I use CHTC to do structural estimation of economic models.  These problems boil down to
+  finding a value in a parameter space that best satisfies some objective criterion that is
+  derived from economic theory and is a function of the data.  The difficulty is that the
+  criterion is typically a complicated non-linear function of the parameter that requires
+  some intensive computations for each observation in the data.  For problems with lots of
+  data, this can become unwieldy!  Rather than work with an MPI model for distributed computing,
+  I have found that exploring the landscape of the objective function with the high throughput
+  CHTC approach allows me to much more quickly gain an understanding of the likely parameter values.
+  This greatly facilitates the econometric estimation of problems that otherwise would not be feasible.

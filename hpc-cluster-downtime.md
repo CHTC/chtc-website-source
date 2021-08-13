@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: HPC Clsuter Scheduled Downtime
 ---
 
@@ -59,7 +59,7 @@ The Below Policy Changes Will Take Effect after Nov. 17
 CHTC Staff Are:
 ---------------
 
-1.  updating the [HPC Cluster Use Guide](HPCuseguide.shtml) to reflect
+1.  updating the [HPC Cluster Use Guide](HPCuseguide) to reflect
     the above policy changes. (already done)
 2.  emailing researchers who have significant *total data* and/or a
     *large numbers of files* on the filesystem, in preparation for the

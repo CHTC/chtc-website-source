@@ -11,7 +11,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="{{ '/helloworld' | relative_url}}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -19,7 +19,7 @@ should already have an understanding of:</b>
 
 <p>This guide provides a generic overview of steps required to install scientific
 software for use in CHTC. If you are using Python, R, or Matlab, see our specific 
-installation and use guides here: <a href="/howto_overview.shtml">Guides for Matlab, Python and R</a>.</p>
+installation and use guides here: <a href="/howto_overview">Guides for Matlab, Python and R</a>.</p>
 
 <!--<p>Once you've created a portable software installation, see our <a href="">Job 
 Executable Creation</a> guide for more details of how to use your software in a job.</p>-->

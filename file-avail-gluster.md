@@ -4,7 +4,7 @@ layout: file_avail
 title: Using Gluster for Large Data and Software
 ---
 
-> NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED [HERE](/file-avail-largedata.shtml).
+> NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED [HERE](file-avail-largedata).
 > ==================================================================================================================
 >
 > \
@@ -17,7 +17,7 @@ title: Using Gluster for Large Data and Software
 >     are deleted.
 >
 > For more information, see recent entries on the [CHTC User News
-> page](/user-news.shtml).\
+> page](user-news).\
 > \
 > This page will be archived once the transition to the new system is
 > complete on April 15, 2020.
@@ -116,8 +116,8 @@ familiar with:**
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka \"executables\").
-2.  CHTC\'s [Intro to Running HTCondor Jobs](/helloworld.shtml)
-3.  CHTC\'s guide for [Typical File Transfer](/file-availability.shtml)
+2.  CHTC\'s [Intro to Running HTCondor Jobs](helloworld)
+3.  CHTC\'s guide for [Typical File Transfer](file-availability)
 
 <a name="staging"></a>
 

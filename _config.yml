@@ -1,8 +1,11 @@
+baseurl: ''
+exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
 
-exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
+# Google analytics
+google_analytics:
 
 # Jekyll does not build hidden directories by default.
-include: [".well-known"]
+include: [".well-known", ".htaccess"]
 
 markdown_ext : "md,shtml"
 
@@ -14,6 +17,9 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+sass:
+  style: compressed
 
 plugins:
   - jekyll-redirect-from

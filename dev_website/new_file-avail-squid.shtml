@@ -8,7 +8,7 @@
 <p>CHTC maintains a SQUID web proxy from which pre-staged input files 
 and executables can be downloaded into jobs using CHTC's proxy HTTP address.
 See the table below, or our 
-<a href="/file-availability.shtml">comprehensive file availability page</a> 
+<a href="{{'/file-availability' | relative_url }}">comprehensive file availability page</a>
 to make sure Squid is the right option for your jobs.  </p>
 
 <!--#include virtual="/includes/template-file-avail.shtml"-->

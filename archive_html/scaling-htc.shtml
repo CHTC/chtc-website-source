@@ -70,10 +70,10 @@ they have two major requirements: <p>
 
 <ul>
   <li><b>No "large" data</b>: All of the files for your jobs are 
-  in your home directory and/or in SQUID (the options listed on our <a href="/file-availability.shtml">file transfer
-  guide </a> and our <a href="/file-avail-squid.shtml">SQUID guide</a>), and 
+  in your home directory and/or in SQUID (the options listed on our <a href="{{'/file-availability' | relative_url }}">file transfer
+  guide </a> and our <a href="{{'/file-avail-squid' | relative_url }}">SQUID guide</a>), and
   output files are small enough to return to your home directory (less than 2 GB). We 
-  normally handle larger files in our large data filesystem (see our <a href="/file-avail-largedata.shtml">
+  normally handle larger files in our large data filesystem (see our <a href="{{'/file-avail-largedata' | relative_url }}">
   data staging guide</a>) which is only available 
   from CHTC.  </li>
   <li><b>Short or interruptable jobs</b>: Your job can run in under 8 hours -- 
@@ -116,7 +116,7 @@ can appending the <code>Poolname</code> requirement by using a double ampersand
 (<code>&&</code>) and then the additional requirement.)  </li>
 
 <li><b>Troubleshooting:</b> If your jobs don't run successfully on the UW Grid or OSG, 
-please <a href="/get-help.shtml">get in touch with a research computing facilitator</a>.</li>
+please <a href="{{'/get-help' | relative_url }}">get in touch with a research computing facilitator</a>.</li>
 
 <li><b>Scaling Up:</b> Once you have tested your jobs and they seem to be running successfully, 
 you are ready to submit a full batch of jobs that uses CHTC and the UW Grid/OSG.  

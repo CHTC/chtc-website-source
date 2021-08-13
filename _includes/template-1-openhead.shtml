@@ -18,5 +18,6 @@
     iframe.width= (newwidth) + "px";
   }
 </script>
+<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>{{ page.title }}</title>

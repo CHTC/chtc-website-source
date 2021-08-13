@@ -6,7 +6,7 @@
 
 <p>This guide assumes that you have gotten an account at CHTC 
 on one of our compute systems. If you do *not* have an account at CHTC (or if you 
-aren't sure), fill out the <a href="/form.shtml">account request
+aren't sure), fill out the <a href="{{'/form' | relative_url }}">account request
 form</a> or email CHTC's research computing facilitators at 
 <a href="">chtc@cs.wisc.edu</a>.  </p>
 
@@ -71,7 +71,7 @@ up a workflow, accessing resources outside CHTC, and more.  </p>
 <h2>1. Accessing the HTC system</h2>
 
 <ul>
-<li class="spaced"><a href="/connecting.shtml">Connecting to CHTC</a>: 
+<li class="spaced"><a href="{{'/connecting' | relative_url }}">Connecting to CHTC</a>:
 This guide has instructions on how 
 to log in, move files to and from the submit server, and use other command 
 line skills.</li>
@@ -80,8 +80,8 @@ line skills.</li>
 <h2>2. Practice HTCondor Job Submission</h2>
 
 <ul>
-<li class="spaced"><a href="/hello-world.shtml">Hello World</a>: Run a simple HTCondor job.</li>
-<li class="spaced"><a href="/condor_q.shtml">condor_q</a>: Learn about some of the different
+<li class="spaced"><a href="{{'/hello-world' | relative_url }}">Hello World</a>: Run a simple HTCondor job.</li>
+<li class="spaced"><a href="{{'/condor_q' | relative_url }}">condor_q</a>: Learn about some of the different
 options for <code>condor_q</code></li>
 </ul>
 
@@ -105,36 +105,36 @@ one job is going to do, and what the input and output will be.</p>
 run as is. </p>
 
 <p>If your program has to be compiled from source code, follow the instructions
-in our <a href="/inter-submit.shtml">Build Job guide</a> to start an interactive 
+in our <a href="{{'/inter-submit' | relative_url }}">Build Job guide</a> to start an interactive
 session for compiling. </p>
 
 <p>For specific scripting 
 languages or programs or using Docker containers, we have the following guides:</p>
 
 <ul>
-	<li class="spaced"><a href="/python-jobs.shtml">Running Python Jobs</a>: Run Python code or scripts in CHTC</li>
-	<li class="spaced"><a href="/r-jobs.shtml">Running R Jobs</a>: Run R code or scripts in CHTC </li>
-	<li class="spaced"><a href="/matlab-jobs.shtml">Running Matlab Jobs</a>: Run Matlab code or scripts in CHTC </li>
-	<li class="spaced"><a href="/docker-jobs.shtml">Using Docker to Run Jobs</a>: Use Docker containers to run software in CHTC</li>
-	<li class="spaced"><a href="/mpi-jobs.shtml">Running Jobs that use MPI</a>: Information about the HTC system's MPI capabilities</li>
+	<li class="spaced"><a href="{{'/python-jobs' | relative_url }}">Running Python Jobs</a>: Run Python code or scripts in CHTC</li>
+	<li class="spaced"><a href="{{'/r-jobs' | relative_url }}">Running R Jobs</a>: Run R code or scripts in CHTC </li>
+	<li class="spaced"><a href="{{'/matlab-jobs' | relative_url }}">Running Matlab Jobs</a>: Run Matlab code or scripts in CHTC </li>
+	<li class="spaced"><a href="{{'/docker-jobs' | relative_url }}">Using Docker to Run Jobs</a>: Use Docker containers to run software in CHTC</li>
+	<li class="spaced"><a href="{{'/mpi-jobs' | relative_url }}">Running Jobs that use MPI</a>: Information about the HTC system's MPI capabilities</li>
 </ul>
 
 <b>C. Prepare Your Data</b></br>
 
-<p>Look at our <a href="/file-availability.shtml">File Availability page</a> to determine 
+<p>Look at our <a href="{{'/file-availability' | relative_url }}">File Availability page</a> to determine
 what method is best to handle your data.  If you need access to 
 Squid or Gluster, email the CHTC facilitators.</p>
 
 <ul>
-	<li class="spaced"><a href="/file-availability.shtml">Using Default File Transfer</a>: HTCondor's default method of handling files</li>
-	<li class="spaced"><a href="/file-avail-squid.shtml">Using Squid</a>: Web server for repeated, medium-sized downloads</li>
-	<li class="spaced"><a href="/file-avail-gluster.shtml">Using Gluster</a>: File share for large files</li>
+	<li class="spaced"><a href="{{'/file-availability' | relative_url }}">Using Default File Transfer</a>: HTCondor's default method of handling files</li>
+	<li class="spaced"><a href="{{'/file-avail-squid' | relative_url }}">Using Squid</a>: Web server for repeated, medium-sized downloads</li>
+	<li class="spaced"><a href="{{'/file-avail-gluster' | relative_url }}">Using Gluster</a>: File share for large files</li>
 </ul>
 
 <h2>4. Testing and Scaling Up</h2>
 
 <ul>
-<li class="spaced"><a href="/testing.shtml">Testing Job Submissions and Scaling Up</a>: Test 
+<li class="spaced"><a href="{{'/testing' | relative_url }}">Testing Job Submissions and Scaling Up</a>: Test
 and responsibly scale up to many jobs</li>
 </ul>
 
@@ -175,12 +175,12 @@ effective high-throughput computing in the following ways: </p>
 	is also getting a fair share of the resource.  </li>
 </ul>
 
-See our <a href="/troubleshooting.shtml">troubleshooting</a> guide for ongoing support. 
+See our <a href="{{'/troubleshooting' | relative_url }}">troubleshooting</a> guide for ongoing support.
 
 <h2>5. Use Additional Features</h2>
 
 <ul>
-	<li><a href="/outside-chtc.shtml">Accessing Extra Resources by Running Jobs Outside CHTC</a></li>
+	<li><a href="{{'/outside-chtc' | relative_url }}">Accessing Extra Resources by Running Jobs Outside CHTC</a></li>
 </ul>
 
 <!--<h2>B. Create a Workflow (optional)</h2>
@@ -195,7 +195,7 @@ DAG guide -->
 <h2>1. Accessing the HPC cluster</h2>
 
 <ul>
-<li class="spaced"><a href="/connecting.shtml">Connecting to CHTC</a>: 
+<li class="spaced"><a href="{{'/connecting' | relative_url }}">Connecting to CHTC</a>:
 This guide has instructions on how 
 to log in, move files to and from the head nodes, and use other command 
 line skills.</li>
@@ -205,7 +205,7 @@ line skills.</li>
 
 <p>At the moment, we do not have a guide with a sample job that runs "out-of-the-box".  
 However, the sample submit file in <a href="/HPCuseguide.shtml#batch-job">section 3B</a> of the 
-<a href="/HPCuseguide.shtml">HPC Use Guide</a> can be modified to run a short, simple command like 
+<a href="{{'/HPCuseguide' | relative_url }}">HPC Use Guide</a> can be modified to run a short, simple command like
 <code>sleep</code> for those who want to practice using SLURM commands.</p>
 
 <h2>3. Preparing a Single Job</h2>
@@ -213,19 +213,19 @@ However, the sample submit file in <a href="/HPCuseguide.shtml#batch-job">sectio
 <b>A. Prepare Your Software</b></br>
 
 <ul>
-	<li class="spaced"><a href="/file-availability.shtml">Using the HPC cluster's default MPI modules</a></li>
+	<li class="spaced"><a href="{{'/file-availability' | relative_url }}">Using the HPC cluster's default MPI modules</a></li>
 </ul>
 
 <p>Whenever possible, installation and basic testing should be 
 performed in an interactive job, as described in <a href="/HPCuseguide.shtml#interactve-job">section 3A</a> of the 
-<a href="/HPCuseguide.shtml">HPC Use Guide</a> </p>
+<a href="{{'/HPCuseguide' | relative_url }}">HPC Use Guide</a> </p>
 
 <b>B. Create a Submit File</b></br>
 
 <p>Create a SLURM submit file that requests the resources necessary to your 
 job and runs your commands.  Make sure that you review the table of 
-partitions and associated nodes (found in <a href="/HPCuseguide.shtml#job-scheduling">section D</a> of the 
-<a href="/HPCuseguide.shtml">HPC Use Guide</a>) to make sure that you know which 
+partitions and associated nodes (found in <a href="{{ '/HPCuseguide.shtml#job-scheduling' | relative_url }}">section D</a> of the
+<a href="{{'/HPCuseguide' | relative_url }}">HPC Use Guide</a>) to make sure that you know which
 partition you want to use and that your resource request matches what is available 
 in that partition.</p>
 

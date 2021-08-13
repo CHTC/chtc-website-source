@@ -11,7 +11,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="http://chtc.cs.wisc.edu/helloworld.shtml">The CHTC's Intro 
+	<li><a href="{{'/helloworld' | relative_url }}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -31,7 +31,7 @@ code in jobs. See our list of supported versions here: <a href="#supported">CHTC
 <p>If you want to build your own copy of base Python or use the miniconda 
 Python distribution see these pages: 
 <ul>
-	<li><a href="/python-jobs.shtml">Building a Python installation</a></li>
+	<li><a href="{{'/python-jobs' | relative_url }}">Building a Python installation</a></li>
 	<!--<li>Using miniconda to install Python</li>-->
 </ul>
 </p>
@@ -257,7 +257,7 @@ Software Carpentry lesson</a>.
 <a name="submit"></a>
 <h1>3. Submitting Jobs</h1>
 
-<p>A sample submit file can be found in our <a href="/helloworld.shtml">hello world
+<p>A sample submit file can be found in our <a href="{{'/helloworld' | relative_url }}">hello world
 </a> example page.  You should make the following changes in order to run 
 Python jobs: </p>
 <ul>

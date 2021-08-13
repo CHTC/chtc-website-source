@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running HTC Jobs Using Docker Containers
 ---
 
@@ -57,9 +57,14 @@ tag (or tags) of the container to use in CHTC.
 ## B. Build Your Own Image
 
 You can also build your own Docker container image and upload it to
-DockerHub. See [this link to our guide on building containers](docker-build.shtml) or the [Docker
+DockerHub. See [this link to our guide on building containers](docker-build) or the [Docker
 documentation](https://docs.docker.com/engine/getstarted/) for more
 information.
+
+Simiilarly, we recommend using container tags. Importantly, whenever you make a significant change
+to your container, you will want to use a new tag name to ensure that your jobs are getting an
+updated version of the container, and not an 'old' version that has been cached by DockerHub 
+or CHTC.
 
 # 2. Submit File Customization
 
@@ -71,7 +76,7 @@ container to use.
 ## A. Using a Docker Image
 
 Start with a usual CHTC submit file like the one shown in our [Hello
-World](/helloworld.shtml) guide. Then, make the following two changes:
+World](helloworld) guide. Then, make the following two changes:
 
 1.  Change the universe from "vanilla" to "docker":
 
@@ -103,7 +108,7 @@ will already be present in the Docker container.
 If you want to test your jobs, you have two options: 
 
 * We have a guide on exploring and testing Docker containers on your own computer here: 
-    * [Exploring and Testing Docker Containers](docker-test.shtml)
+    * [Exploring and Testing Docker Containers](docker-test)
 * You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
 interactive flag with `condor_submit`: 
     ```

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Accessing Additional Resources by Running Outside of CHTC
 ---
 

@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: Running R Jobs on CHTC
 ---
 
@@ -11,7 +11,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](http://chtc.cs.wisc.edu/helloworld.shtml)
+    Jobs](/helloworld)
 
 Overview
 ========
@@ -28,7 +28,7 @@ This guide details the steps needed to:
 
 If you want to build your own copy of base R, see this archived page:
 
--   [Building a R installation](r-build.shtml)
+-   [Building a R installation](r-build)
 
 <a name="supported"></a>
 
@@ -324,7 +324,7 @@ would like, give it executable permissions by running:
 ==================
 
 A sample submit file can be found in our [hello
-world](/helloworld.shtml) example page. You should make the following
+world](helloworld) example page. You should make the following
 changes in order to run R jobs:
 
 -   Your `executable` should be the script that you wrote
@@ -359,6 +359,6 @@ changes in order to run R jobs:
 > the tarball using `transfer_input_files`. Instead, you should use
 > CHTC\'s web proxy, `squid`. To learn more about `squid` please see our
 > user guide [File Availability with Squid Web
-> Proxy](http://chtc.cs.wisc.edu/file-avail-squid.shtml). To request
+> Proxy](/file-avail-squid). To request
 > space on `squid`, email the research computing facilitators at
 > <chtc@cs.wisc.edu>.

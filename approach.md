@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: default
+layout: markdown-page
 title: About Our Approach
 ---
 
@@ -33,7 +33,7 @@ beyond-the-desktop needs, including tightly-coupled computations (e.g.
 MPI), high-memory work (e.g. metagenomics), and specialized
 hardware like GPUs.
 
-<img alt="chtc-pools" src="/includes/chtc-pools.png" width="500" style = "float:right; margin:20px; margin-right:0;"/>
+<img alt="chtc-pools" src="{{ '/includes/chtc-pools.png' | relative_url }}" width="500" style = "float:right; margin:20px; margin-right:0;"/>
 
 
 ## What kinds of applications run best in the CHTC?
@@ -62,7 +62,7 @@ While you may be excited at the prospect of harnessing 100,000 compute
 hours a day for your research, the most valuable thing we offer is,
 well, us. We have a small, yet dedicated team of professionals who eat,
 breathe and sleep distributed computing. [Request an
-account](get-started.shtml), and one of our dedicated Research Computing
+account](get-started), and one of our dedicated Research Computing
 Facilitators will follow up to provide specific recommendations to
 accelerate YOUR science.
 

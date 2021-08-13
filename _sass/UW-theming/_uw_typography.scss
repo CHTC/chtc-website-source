@@ -1,0 +1,414 @@
+body {
+  color: $uw-body-font;
+  font-family: $uw-verlag-font;
+  font-weight: 400;
+  line-height: 1.625;
+  position: relative;
+  background-color: #fff;
+  &.uw-white-bg {
+    background-color: #fff;
+  }
+  &.uw-light-gray-bg {
+    background-color: $uw-page-bg;
+  }
+}
+
+
+// override normalize
+abbr[title],acronym[title] {
+  border-bottom: none;
+  text-decoration: none;
+  color: currentColor;
+}
+
+// BEGIN BASE ELEMENT STYLES
+// Be careful when changing any of these style rules as they
+// might throw off like elements elsewhere if those elements
+// don't have explicit rules set for the same attributes.
+p, li {
+  font-size: rem-calc(18); // verlag is a small font
+  margin-bottom: 16px;
+  margin-bottom: 1.5rem;
+}
+.uw-body {
+  p, li, dd {
+    a {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}
+
+a {
+  color: $uw-anchor-color;
+  text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-transform: uppercase;
+}
+.uw-no-case-transform {
+  text-transform: none;
+}
+h1,h2 {
+  font-weight: 800;
+}
+h1, .uw-h1 {
+  font-size: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+}
+h2, .uw-h2 {
+  font-size: 1.3rem;
+  margin-top: 32px;
+  margin-top: 2rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+h3, .uw-h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 28px;
+  margin-top: 1.8rem;
+  margin-bottom: 14px;
+  margin-bottom: .9rem;
+  line-height: 1.4;
+}
+h4, h5, h6 {
+  font-size: 1rem;
+  margin-top: 28px;
+  margin-top: 1.8rem;
+  line-height: 1.4;
+  text-transform: none;
+}
+h5 {
+  font-size: .925rem;
+}
+h6 {
+  font-size: .85rem;
+}
+.small-gray-heading {
+  font-size: rem-calc(18);
+  color: $uw-gray-medium;
+  margin: 2rem 0 1rem 0;
+}
+
+@include breakpoint(40em) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+h2 + ul {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+ul, ol {
+  margin-left: 1.2rem;
+  li {
+    ul, ol {
+      margin-top: 1.5rem;
+      margin-left: 2.4rem;
+    }
+  }
+}
+ul {
+  list-style: disc;
+}
+ol li {
+  // list-style: decimal;
+}
+ol li li {
+  // list-style-type: lower-alpha;
+}
+
+ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-alpha;
+}
+ol ol ol {
+  list-style: lower-roman;
+}
+ol ol ol ol {
+  list-style: decimal;
+}
+
+.uw-list-tight {
+  margin-top: -1rem;
+}
+.uw-list-tight li {
+  margin-bottom: 0;
+}
+.uw-list-no_bullets {
+  margin-left: 0;
+  list-style: none;
+}
+.uw-list-multi_column {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  @include breakpoint(rem-calc(600)) {
+    li {
+      flex-basis: 50%;
+      max-width: 50%;
+      padding-right: 3rem;
+    }
+  }
+  @include breakpoint(rem-calc(900)) {
+    li {
+      flex-basis: 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+  @include breakpoint(rem-calc(1200)) {
+    li {
+      flex-basis: 25%;
+      max-width: 25%;
+    }
+  }
+}
+.uw-list-inline {
+  display: inline;
+  list-style: none;
+  margin-left: 0;
+  li {
+    display: inline;
+    &:before {
+      content: "\00b7";
+      padding: 0 0.5rem;
+    }
+    &:first-child:before {
+      content: "";
+      padding: 0;
+    }
+  }
+}
+
+dl {
+  margin: 0;
+  dd, dt {
+    font-size: rem-calc(18);
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-bottom: 1.5rem;
+  }
+}
+
+cite, em, i {
+  font-style: italic;
+}
+b,strong {
+  font-weight: bold;
+}
+
+td, th, caption {
+  font-size: rem-calc(18);
+}
+
+blockquote {
+  font-family: $uw-serif-font;
+  -webkit-font-smoothing: auto;
+  font-style: italic;
+  font-size: rem-calc(20);
+  // color: darken($uw-gray-medium,20%);
+  // font-weight: bold;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: .25rem solid $uw-red;
+  cite, + cite {
+    // padding-left: rem-calc(20);
+    // padding-right: rem-calc(20);
+    font-style: normal;
+    font: .9rem $uw-verlag-font;
+    text-transform: uppercase;
+    margin: 1rem 0 0 1.5rem;
+    display: block;
+    &:before {
+      content: "\2014";
+    }
+  }
+  cite {
+    margin-left: 0;
+  }
+  p {
+    font-size: rem-calc(20);
+  }
+  &.uw-stylized-quote {
+    font-family: $uw-vitesse-font;
+    margin-bottom: 0;
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+    p {
+      font-family: $uw-vitesse-font;
+      font-size: 1rem*1.1;
+      &:last-of-type {
+        margin-bottom: .5rem;
+      }
+    }
+    cite {
+      text-align: center;
+    }
+  }
+  &.uw-mini-bar-center {
+    margin-top: 2rem;
+    &:before {
+      margin-top: -1rem;
+      height: 6px;
+      width: 3rem;
+    }
+  }
+  @include breakpoint(small only) {
+    &.uw-mini-bar-center {
+      margin-top: 2rem;
+    }
+  }
+}
+
+blockquote em, blockquote i, blockquote cite {
+  font-style: normal;
+}
+
+address {
+  display: block;
+  margin: 0 0 1.625em;
+}
+
+pre {
+  background: #f4f4f4;
+  font: 13px "Courier 10 Pitch", Courier, monospace;
+  line-height: 1.5;
+  margin-bottom: 1.625em;
+  overflow: auto;
+  padding: 0.75em 1.625em;
+}
+code, kbd, samp, var {
+  font: 13px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+sup,
+sub {
+  font-size: .9rem;
+  height: 0;
+  line-height: 1;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  bottom: 1ex;
+}
+sub {
+  top: .5ex;
+}
+q {
+  &:before {
+    content: "\201C";
+  }
+  &:after {
+    content: "\201D";
+  }
+}
+
+// END BASE ELEMENT STYLES
+
+.uw-double-size-text {
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+.uw-small-text {
+  font-size: .9rem;
+}
+.uw-smaller-text {
+  font-size: .8rem;
+}
+@include breakpoint($uw-main-nav-breakpoint) {
+  .uw-double-size-text {
+    font-size: 2rem;
+    line-height: 1.625;
+  }
+}
+
+.uw-more-link {
+  text-transform: uppercase;
+  font-size: rem-calc(13);
+  font-weight: 800;
+  &.uw-more-link-black {
+    color: $uw-gray-darkest;
+  }
+}
+
+.uw-more-link {
+  svg {
+  width: .75rem;
+  height: .75rem;
+  vertical-align: -0.05rem;
+  margin-left: -.1rem;
+  fill: $uw-red;
+  } 
+}
+
+
+
+// container background colors
+.uw-gray-med-bg {
+  background-color: $uw-gray-medium
+}
+.uw-greyblue-bg {
+  background-color: $uw-gray-blue;
+}
+.uw-white-bg {
+  background-color: white;
+}
+.uw-light-grer-bg {
+  background-color: $uw-page-bg;
+}
+.uw-red-bg {
+  background-color: $uw-red;
+}
+
+.uw-red-bg, .uw-gray-med-bg {
+  color: white;
+  p,li,blockquote,a,a.uw-more-link,dd,dt,abbr,acronym,cite,strong {
+    color: white !important;
+  }
+  svg {
+    fill: white;
+  }
+  blockquote {
+    font-weight: 500;
+  }
+  a {
+    &.uw-more-link {
+      color: white;
+    }
+  }
+}
+
+// .vertical-gradient-to-top {
+//   @include linear-gradient(to top, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.0));  
+// }
+// .vertical-gradient-to-bottom {
+//   @include linear-gradient(to bottom, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.0));
+// }
+
+.uw-nowrap {
+  white-space: nowrap;
+}
+
+
+
+
