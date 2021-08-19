@@ -1,9 +1,16 @@
 ---
-layout: markdown-page
+layout: default
 ---
 
-<div class="row">
-    <div class="col-12 col-sm-9 col-md-8">
-        {{ content }}
+<div class="uw-row-full mb-4">
+    <div class="uw-row">
+        <div class="uw-col uw-body">
+            <div class="row">
+                <div class="col-12 col-sm-9 col-md-8">
+                    {% include page-title.html title=page.title %}
+                    {{ content }}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
