@@ -2,9 +2,9 @@ name: Deploy Development Site
 
 on:
   push:
-    branches: [master]
+    branches: [preview]
   pull_request:
-    branches: [master]
+    branches: [preview]
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
@@ -25,12 +25,12 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
-          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+          ssh-add - <<< "${{ secrets.PREVIEW_DEPLOY_KEY }}"
           ./script/cideploy
         env:
           #NO_PUSH: 1
-          TARGET_REPO: CHTC/chtc.github.io
-          BRANCH: development
+          TARGET_REPO: CHTC/web-preview
+          BRANCH: main
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
-        name: Deploy web pages on merge/push
+        name: Deploy preview web pages on merge/push
