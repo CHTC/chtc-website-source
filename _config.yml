@@ -12,11 +12,21 @@ markdown_ext : "md,shtml"
 highlighter: none
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: text-content
+      permalink: :title.html
+
+collections:
+  news:
+    permalink: /news/:path/
+    output: true
 
 sass:
   style: compressed
