@@ -149,14 +149,21 @@ shown in the sample submit file below and include:
     at once in the HTC system. If your software is in the table below, use 
     the concurrency limit name in your submit file like this:
     
-    `concurrency_limits = LIMIT_NAME`
-
+    `concurrency_limits = LIMIT_NAME:num_of_licenses_used`
+    
     | Software        | Concurrency Limit Name | Limit    | 
     | --------------- | ---------------------- | -------- | 
-    | ABAQUS          |                        | N        |
+    | ABAQUS          | ABAQUS                 | 50       |
     | ANSYS           | ANSYS_RESERCH          | 20       |
     | COMSOL (Physics) | COMSOL_PHYSICS        | 2        |
     | Lumerical       | LUMERICAL              | 3        | 
+
+    So if you were planning to run a job that used one ANSYS license, you would 
+    use: 
+    
+    ```
+    concurrency_limits = ANSYS_RESEARCH:1
+    ```
 
 -   **Request accurate CPUs and memory.** Run at least one test job and
     look at the log file produced by HTCondor to determine how much
@@ -189,7 +196,7 @@ transfer_input_files = (this should be a comma separate list of input files if n
 requirements = ( HasChtcSoftware == true ) 
 
 # If required, add the concurrency limit for your software and uncomment
-# concurrency_limits = LIMIT_NAME
+# concurrency_limits = LIMIT_NAME:num_of_licenses_used
 
 request_cpus = 1
 request_memory = 2GB
