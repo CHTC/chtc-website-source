@@ -359,7 +359,7 @@ for running GPU jobs:
 
 ## 3. Using GPUs on the Open Science Grid
 
-CHTC, as a member of the Open Science Grid (OSG) can access GPUs that
+CHTC, as a member of the <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> can access GPUs that
 are available on the OSG. See [this guide](scaling-htc) to know
 whether your jobs are good candidates for the OSG and then get in touch
 with CHTC's Research Computing Facilitators to discuss details. 

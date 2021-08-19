@@ -11,7 +11,7 @@ title: Computing Guides
 <p>
 Below is a list of guides for some of the most common tasks our users need to
 carry out as they begin and continue to use the resources at the CHTC. 
-Some of these are general computing solutions; others are specific to HTCondor
+Some of these are general computing solutions; others are specific to <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>
 or to the configuration of CHTC computing resources.
 <br />
 Guides will be added to the list as we can provide them. Please contact us
@@ -75,6 +75,7 @@ through the process of creating your own large-scale job submission, step-by-ste
 			<a href="{{ '/helloworld' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Running Your First HTC Jobs</li></a>
 			<a href="{{ '/condor_q' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Learning About Your Jobs Using <code>condor_q</code></li></a>
 			<a href="{{ '/multiple-jobs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs</li></a>
+			<a href="{{ '/dagman-workflows' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs</li></a>
 			<a href="{{ '/multiple-job-dirs' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important; border-radius: 1px;">Submitting Multiple Jobs in Different Directories</li></a>
 			<a href="{{ '/os-transition' | relative_url }}"><li class="list-group-item list-group-item-action list-group-item-dark h-100" style="width: auto; height: auto !important;">Opting Into a Specific Operating System</li></a>
 		</ul>

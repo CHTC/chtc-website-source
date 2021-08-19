@@ -12,6 +12,59 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+
+## HPC maintenance complete; no office hours on Tues, Aug 24
+### Wednesday, August 18
+
+Greetings CHTC users, 
+
+Due to facilitator vacation schedules, we will be canceling office hours on Tuesday, August 24 next week. 
+
+For users of our high performance computing (HPC) cluster: yesterday’s maintenance is now complete and log in access has been enabled through hpclogin1.chtc.wisc.edu. The second login node (hpclogin2.chtc.wisc.edu) is still being monitored and will be available for log in by the end of the week. 
+
+Contact us at chtc@cs.wisc.edu with any questions or observed issues. 
+
+Best, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
+## HPC Cluster Maintenance Aug 17
+### Wednesday, August 4
+
+Greetings CHTC users,
+
+This message is for users of our HPC Cluster. Users of only the HTC System can ignore.
+
+The HPC Cluster will be taken down after 9am on August 17 for some regular maintenance and to address issues remaining after the partial campus power outage at the end of June. We expect the downtime to potentially last through the end of the business day. We will notify users if more time is necessary.
+
+Potential impact to users:
+
+- So that jobs are not interrupted by the downtime, jobs submitted after Aug 10 will only run if requesting less time than remaining prior to the start of the downtime.
+
+- The contents of user directories in /scratch/local on login nodes will be wiped during the downtime, so users should make sure (as usual) that they have not left files in that location.
+
+Email us at chtc@cs.wisc.edu with any questions or issues.
+
+Regards,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
+## Reduced CHTC staff availability, Office Hours canceled next week (Aug 2-6)
+### Wednesday, July 28, 2021
+
+Greetings,
+
+CHTC's Research Computing Facilitators will have reduced responsiveness over the next two weeks (Aug 2 - 13) as we will all be teaching at the annual OSG User School. Our time will especially be limited next week (Aug 2-6) when Office Hours will also be canceled.
+
+Please continue to write to chtc@cs.wisc.ed with any questions or issues, and know that we’ll reply to you as soon as we can. We plan to resume Office Hours on Tuesday, August 10.
+
+Thank you,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
 ## no office hours 7/15; limited email responses 7/19
 ### Monday, July 12, 2021
 

@@ -55,7 +55,7 @@ portion of the data. By default, the submit file `executable`,
 * Advantages:  
 HTCondor file transfer is robust and is available on ANY of CHTC\'s
 accessible HTC resources including the UW Grid of campus pools, and the
-Open Science Grid.
+<a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
 
 * Data Security:  
 Files transferred with HTCondor transfer are owned by the job and
@@ -136,7 +136,7 @@ By default, the submit file `executable`, `output`, and
 
 # Transferring Output Files
 
-All of your HTCondor submit files should have the following attributes:
+All of your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files should have the following attributes:
 
 ``` {.sub}
 # my job submit file
@@ -191,7 +191,7 @@ directory.
 
 ## Select Specific Output Files To Transfer to `/home`
 
-As described above, HTCondor will transfer ALL new or modified files in the top level 
+As described above, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will transfer ALL new or modified files in the top level 
 directory of the job (where it ran on the execute server), back to the job's initial directory 
 on the submit server. If your jobs will produce multiple output 
 files but you only need to retain a subset of these output files, we recommend deleting the unrequired 
