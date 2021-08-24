@@ -13,6 +13,19 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Delayed email replies today and tomorrow
+### Tuesday, August 24
+
+Greetings CHTC users,
+
+We're writing to inform you that, due to staff outages, we may not be able to reply to you via chtc@cs.wisc.edu today (Tue, Aug 24) through tomorrow (Wed, Aug 25). Thank you for your patience. We currently plan to resume our usual responsiveness on Thursday, August 26.
+
+Regards, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
+
 ## HPC maintenance complete; no office hours on Tues, Aug 24
 ### Wednesday, August 18
 
