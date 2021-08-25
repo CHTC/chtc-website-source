@@ -20,7 +20,7 @@
   website: "https://wid.wisc.edu/people/christina-koch/"
 - name: "Brian Bockelman"
   promoted: true
-  image: "images/team/brian-bockelman.jpg"
+  image: "images/team/brian-bockelman.jpeg"
   job_title: "FoCaS co-lead"
   website:
   institution: "Morgridge Institute"
@@ -75,13 +75,13 @@
 - name: "Greg Thain"
   promoted: false
   image: "images/team/greg-thain.jpg"
-  job_title: "Senior Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Ian Ross"
   promoted: false
   job_title: "Systems Integration Developer"
-  image: "images/team/ian-ross.jpeg"
+  image: "images/team/ian-ross.jpg"
   institution: "University of Wisconsin-Madison"
 - name: "Irene Landrum"
   promoted: false
@@ -92,7 +92,7 @@
 - name: "Jaime Frey"
   promoted: false
   image: "images/team/jaime-frey.jpg"
-  job_title: "Senior Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Janet Stathas"
@@ -121,7 +121,7 @@
 - name: "John TJ Knoeller"
   promoted: false
   image: "images/team/john-knoeller.jpg"
-  job_title: "Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Kent Cramer III"
@@ -132,37 +132,37 @@
 - name: "Mark Coatsworth"
   promoted: false
   image: "images/team/mark-coatsworth.jpg"
-  job_title: "Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Mátyás Selmeci"
   promoted: false
   image: "images/team/matyas-selmeci.jpg"
-  job_title: "Software Integration Developer"
+  job_title: "Software Integration Engineer"
   institution: "University of Wisconsin–Madison"
   website:
 - name: "Tim Slauson"
   promoted: false
-  image: "images/team/silhouette.png"
+  image: "images/team/tim-slauson.jpg"
   job_title: "Lead HPC Systems Administrator"
   institution: "University of Wisconsin–Madison"
   website:
 - name: "Tim Theisen"
   promoted: false
   image: "images/team/tim-theisen.png"
-  job_title: "Senior Systems Software Developer"
+  job_title: "Release Manager"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Todd L Miller"
   promoted: false
   image: "images/team/todd-miller.png"
-  job_title: "Senior Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 - name: "Zach Miller"
   promoted: false
   image: "images/team/zach-miller.jpg"
-  job_title: "Systems Software Developer"
+  job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
 
