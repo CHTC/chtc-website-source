@@ -151,7 +151,7 @@ shown in the sample submit file below and include:
     
     `concurrency_limits = LIMIT_NAME:num_of_licenses_used`
     
-    | Software        | Concurrency Limit Name | Limit    | 
+    | Software        | Limit Name             | Limit    | 
     | --------------- | ---------------------- | -------- | 
     | ABAQUS          | ABAQUS                 | 50       |
     | ANSYS           | ANSYS_RESERCH          | 20       |
