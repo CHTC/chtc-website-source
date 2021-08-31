@@ -1,0 +1,12 @@
+<button id="{{ include.nav_id }}-button" class="uw-mobile-menu-button-bar uw-mobile-menu-button-bar-reversed uw-is-closed" data-menu="{{ include.nav_id }}" aria-label="Open menu" aria-expanded="true" aria-controls="{{ include.nav_id }}">{{ include.menu_name | default: "Menu" }}<svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-menu"></use></svg><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-close"></use></svg></button>
+<div id="{{ include.nav_id }}" class="uw-is-visible uw-horizontal" aria-hidden="false">
+    <div class="uw-main-nav">
+        <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
+            <ul id="{{ include.ul_id }}">
+                {% for nav_item in nav_items %}
+                    {% include navbar/nav-item.html %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>

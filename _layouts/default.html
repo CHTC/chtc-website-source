@@ -1,42 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
-    <script type="text/javascript">
-        function resizeIframe(iframe) {
-            var newheight;
-            var newwidth;
-
-            if (document.getElementById) {
-                newwidth = iframe.contentWindow.document.body.scrollWidth;
-                newheight = iframe.contentWindow.document.body.scrollHeight;
-            }
-
-            iframe.height = (newheight) + "px";
-            iframe.width = (newwidth) + "px";
-        }
-    </script>
-    {% if site.google_analytics and jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
-    <script type="text/javascript" src="{{ '/assets/js/uw-style.min.js' | relative_url }}"></script>
-    <link type="text/css" href="{{ '/web.css' | relative_url }}" rel="stylesheet">
-    <link type="text/css" href="{{ '/assets/fonts/fonts.0.0.1.css' | relative_url }}" rel="stylesheet">
-    <link type="text/css" href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% include head.html %}
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
+    {% include global_bar.html %}
     {% include header.html %}
-    {% include navigation-menu.html %}
-    <main id="main" class="site-main">
-        <article class="page type-page status-publish hentry">
-            {{ content }}
-        </article>
-    </main>
+    {% include navbar/main-navbar.html %}
+    {{ content }}
     {% include footer.html %}
 
     <!-- SVG icons -->
