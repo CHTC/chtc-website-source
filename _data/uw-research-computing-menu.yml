@@ -1,0 +1,41 @@
+nav_items:
+  - id: get-started
+    name: Get Started
+    url: /get-started
+  - id: menu-how-tos
+    name: How To's
+    url: /how-tos
+    sub_menu:
+      - url: /get-help
+        name: Get Help
+      - url: /guides
+        name: All User Guides
+      - url: /use-submit-nodes
+        name: Use an HTC Submit Server
+      - url: /helloworld
+        name: Run Your First HTC Jobs
+      - url: /howto_overview
+        name: HTC for MatLab, Python or R
+      - url: /hpc-overview
+        name: Use the HPC Cluster
+      - url: /cite-chtc
+        name: Cite CHTC Resources
+  - id: user-news
+    name: User News
+    url: /user-news
+  - id: menu-other-resources
+    name: Other Resources
+    url: /other-resources
+    sub_menu:
+      - url: /gpu-lab
+        name: CHTC GPU Lab
+      - url: http://research.cs.wisc.edu/htcondor/
+        name: HTCondor Project
+      - url: http://www.neos-server.org/
+        name: NEOS Optimization Service
+      - url: http://www.opensciencegrid.org/
+        name: Open Science Grid
+      - url: http://wid.wisc.edu/
+        name: WID (Wisconsin Institute for Discovery)
+
+
