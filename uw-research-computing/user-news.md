@@ -67,7 +67,7 @@ The CHTC facilitation team
 
 Greetings CHTC users, 
 
-Office hours are now shortened slightly - instead of running from 3 - 5pm on Tuesdays and Thursdays, they will end at 4:45pm. This change is also reflected on the CHTC website and [Get Help](/get-help) page.
+Office hours are now shortened slightly - instead of running from 3 - 5pm on Tuesdays and Thursdays, they will end at 4:45pm. This change is also reflected on the CHTC website and [Get Help](get-help) page.
 
 Our facilitation team will be out of the office on Monday, July 5 for observance of the July 4th holiday. 
 

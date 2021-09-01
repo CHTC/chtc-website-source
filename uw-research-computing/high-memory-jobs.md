@@ -107,7 +107,7 @@ C. Consult with Facilitators
 
 If you are unsure how to run high-memory jobs on CHTC, or if you\'re not
 sure if everything in this guide applies to you, get in touch with a
-research computing facilitator by emailing [chtc@cs.wisc.edu](chtc@cs.wisc.edu).
+research computing facilitator by emailing [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 
 <a name="running"></a>

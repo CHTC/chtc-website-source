@@ -42,7 +42,7 @@ address.
     file will still need to be less than 1 GB.
 
 * Access to SQUID:  
-    is granted upon request to [chtc@cs.wisc.edu](chtc@cs.wisc.edu). A user on CHTC submit
+    is granted upon request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). A user on CHTC submit
     servers may will be granted a user directory within `/squid`, which
     users should transfer data into via the CHTC transfer server
     (transfer.chtc.wisc.edu). As for all CHTC file space, users should
@@ -92,7 +92,7 @@ address.
 **2. Using SQUID to Deliver Input Files**
 -------------------------------------
 <a name="request"></a>
-1. **Request a directory in SQUID**. Write to [chtc@cs.wisc.edu](chtc@cs.wisc.edu) describing the data you\'d like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<a name="place"></a>  
+1. **Request a directory in SQUID**. Write to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) describing the data you\'d like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<a name="place"></a>  
 
 2.  **Place files within your `/squid/username` directory** via a CHTC
     transfer server (if from your laptop/desktop) or on the submit
