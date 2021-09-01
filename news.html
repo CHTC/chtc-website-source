@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: markdown-page
-title: CHTC News
+title: News
 ---
 
 {% assign articles = site.news %}
@@ -20,7 +20,7 @@ title: CHTC News
     </a>
 </h2>
 
-<h3 class="mt-0 text-light">{{ articles[article_index].date | date_to_long_string }}</h3>
+<h3 class="mt-0 text-muted">{{ articles[article_index].date | date_to_long_string }}</h3>
 <p>
     {{ articles[article_index].excerpt }}
 </p>
