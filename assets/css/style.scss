@@ -11,10 +11,17 @@ $grid-breakpoints: (
 );
 
 // Bootstrap
-@import 'bootstrap/bootstrap-grid';
+@import 'bootstrap';
 
 // UW Theme
 @import 'UW-theming/uw_style';
+
+#uw-sub-menus {
+  nav {
+    background-color: $uw-gray-lightest !important;
+    border-top: 0 !important;
+  }
+}
 
 .table-container {
   table {
