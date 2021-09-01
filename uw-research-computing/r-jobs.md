@@ -11,7 +11,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](/helloworld)
+    Jobs](helloworld)
 
 Overview
 ========
@@ -359,6 +359,6 @@ changes in order to run R jobs:
 > the tarball using `transfer_input_files`. Instead, you should use
 > CHTC\'s web proxy, `squid`. To learn more about `squid` please see our
 > user guide [File Availability with Squid Web
-> Proxy](/file-avail-squid). To request
+> Proxy](file-avail-squid). To request
 > space on `squid`, email the research computing facilitators at
 > <chtc@cs.wisc.edu>.

@@ -8,7 +8,7 @@ title: Running Matlab Jobs on CHTC
 **To best understand the below information, users should already have an understanding of:**
 
 -   Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka \"executables\").
--   [The CHTC's Intro to Running HTCondor Jobs](/helloworld)
+-   [The CHTC's Intro to Running HTCondor Jobs](helloworld)
 
 Overview
 ========
