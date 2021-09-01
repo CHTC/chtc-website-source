@@ -5,66 +5,71 @@ title: Using Software in a Container on the HPC Cluster
 ---
 
 
-Software that is packaged in a \"container\" (Docker or Singularity) can
-be run on the HPC cluster.
+Software that is packaged in a \"container\" can
+be run on the HPC cluster. This guide assumes that you are starting with 
+an existing Docker container and shows how to use it to run a job on the HPC cluster. 
 
-1.  [Put the container on the cluster](#container)
+The two steps to 
+1.  [Convert the container to a Singularity image file](#image)
 2.  [Run a job that uses the container](#command)
 
-<a name="container"></a>
+<a name="image"></a>
 
-**1. Downloading Containers**
--------------------------
+**1. Convert Container to Singularity Format**
+===================
 
-> **Note:** Until the HPC Cluster can be upgraded to a new version of
-> Singularity, the container that you use on the HPC cluster **must**
-> contain a home directory with your username. For now this means that
-> you\'ll need to create your own container that includes a command to
-> create this folder.
+We assume that there is a Docker container (either found
+or created by you) online that you want to use. To use this container 
+on the HPC cluster, it needs to be converted to a Singularity-format
+image file. To do this: 
 
-We assume that there is a Docker or Singularity container (either found
-or created by you) online that you want to use. We recommend downloading
-the container you want to use to your home directory in the HPC cluster.
+1. Log in to one of the HPC cluster log in nodes. 
+1. Start an interactive job: 
+	```
+	[alice@login]$ srun -n4 -N1 -p int --pty bash
+	```
 
-To do this:
+1.  Once the interactive job starts, you'll need to unset a shell environment
+variable that prevents download of the Docker container. 
+	```
+	[alice@int]$ unset HTTPS_PROXY
+	```
 
-1.  Log in to `aci-service-2.chtc.wisc.edu`.
-2.  Download the container into a file.
-    -   To download a container that\'s on DockerHub, run:
+1. Then, save the Docker container to a Singularity image. 
+	``` 
+	[alice@int]$ singularity build /software/alice/name.simg docker://user/image:version
+	```
+	{:.term}
+	
+	For example, if user \"Alice\" wanted to use the [\"Fenics\" container
+	provided on DockerHub](https://hub.docker.com/r/fenicsproject/stable),
+	and save it to a file named `fenics.simg`, she would run:
 
-        ``` 
-        [alice@service-2]$ singularity build name.simg docker://user/image:version
-        ```
-        {:.term}
+	``` 
+	[alice@int]$ singularity build /software/alice/fenics.simg docker://fenicsproject/stable:latest
+	```
+	{:.term}
 
-For example, if user \"Alice\" wanted to use the [\"Fenics\" container
-provided on DockerHub](https://hub.docker.com/r/fenicsproject/stable),
-and save it to a file named `fenics.simg`, she would run:
+	> This command will by default, pull the initial Docker container from 
+	> Docker Hub. If your Docker container is stored elsewhere, or you are 
+	> starting with a Singularity image, contact CHTC staff for specific instructions. 
 
-``` 
-[alice@service-2]$ singularity build fenics.simg docker://fenicsproject/stable:latest
-```
-{:.term}
+1. Once the command completes, type `exit` to leave the interactive job. 
+
 
 <a name="command"></a>
 
-**2. Using Containers**
+**2. Using Singularity Container Images**
 ===================
 
-To use a container in a job, the submit file will remain mostly the
-same; what will change is the job\'s primary command at the end of the
+To use a Singularity container in a job, the SLURM submit file will remain mostly the
+same; what will change is the job's primary command at the end of the
 file. This command will run your primary program inside the container
 file you\'ve downloaded.
 
 ``` {.sub}
 #!/bin/sh
-#SBATCH --partition=univ
-#SBATCH --time=0-04:30:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=16
-#SBATCH --mem-per-cpu=4000
-#SBATCH --error=job.%J.err
-#SBATCH --output=job.%J.out
+#SBATCH options
 
 singularity exec /path/to/container/file command-to-run
 ```
@@ -74,5 +79,12 @@ For example, if Alice wanted to run a script she had written
 following command at the end of her submit file:
 
 ``` {.sub}
-singularity exec /home/alice/containers/fenics.simg poisson.py
+singularity exec /software/alice/fenics.simg poisson.py
+```
+
+If you are using MPI to run the code, the MPI command needs to go before 
+the singularity command, like so: 
+
+``` {.sub}
+mpirun -np 40 singularity exec /software/alice/fenics.simg poisson.py
 ```
