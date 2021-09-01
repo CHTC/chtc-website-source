@@ -111,4 +111,4 @@ directories (like `data` or `seed`), but you should use whatever word
 they share in the final queue statement in place of \"job\".
 
 Jobs can then be submitted as described in our [Introduction to HTC
-Guide](/helloworld), using `condor_submit`.
+Guide](helloworld), using `condor_submit`.

@@ -84,7 +84,7 @@ Our NEW supported Python version (2.7.7) includes the full SciPy Stack
 except for iPython, as iPython (interactive) is not compatible with
 batch jobs. The following modules and their dependiences are included by
 default in our Python 2.7.7 capabilities (when using
-[ChtcRun](/DAGenv)):
+[ChtcRun](DAGenv)):
 
 -   numpy-1.8.1
 -   scipy-0.14.0
@@ -136,7 +136,7 @@ with the command
 
     chtc_buildPythonmodules --help
 
-Setting up your built Python code in the [ChtcRun package](/DAGenv).
+Setting up your built Python code in the [ChtcRun package](DAGenv).
 -------------------------------------------------------------------------------------------------
 
 The ChtcRun folder includes a `Pythonin` directory, which has it\'s own

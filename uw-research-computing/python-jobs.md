@@ -12,7 +12,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](/helloworld)
+    Jobs](helloworld)
 
 Overview
 ========

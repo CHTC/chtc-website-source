@@ -159,7 +159,7 @@ Required. The executable invoked by the `chtcjobwrapper` script.
 -   `--cmdtorun=compiledmatlabprogram`\
     For Matlab jobs, this is your compiled Matlab program.
     [Documentation on compiling your Matlab program is available
-    here.](/MATLABandR)
+    here.](MATLABandR)
 -   `--cmdtorun=myRentryscript.R`\
     For R jobs, this will be your entry script which may call other R
     files.
