@@ -13,7 +13,7 @@ nav_items:
         name: Get Help
       - url: /uw-research-computing/guides
         name: All User Guides
-      - url: /uw-research-computing/use-submit-nodes
+      - url: /uw-research-computing/use-submit-node
         name: Use an HTC Submit Server
       - url: /uw-research-computing/helloworld
         name: Run Your First HTC Jobs
