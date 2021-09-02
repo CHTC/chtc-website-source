@@ -7,7 +7,7 @@ title: Submitting Jobs Using the ChtcRun Package
 To facilitate the submission of large batches of jobs, especially
 batches for Matlab, Python, and R, the CHTC has created the ChtcRun
 package of scripts, files, and directories that will allow you to easily
-construct your own <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> workflow (or \"DAG\" batch). By following
+construct your own <a href="http://htcondor.org">HTCondor</a> workflow (or \"DAG\" batch). By following
 the ordered set of directions given here, you\'ll be able to easily set
 up and run a set of high-throughput computing jobs on CHTC-available
 resources, including those outside of the CHTC HTCondor Pool in the UW
@@ -120,7 +120,7 @@ Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a
     job-specific set of command line arguments. The output from from
     running `mkdag` will be a directory to hold eventual output from
     running the project\'s job(s), as well as control files: a DAG input
-    file for describing the DAG (called `mydag.dag`) and an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job
+    file for describing the DAG (called `mydag.dag`) and an <a href="http://htcondor.org">HTCondor</a> job
     submit description files for each of the node jobs within the DAG.
     One of the command line arguments to `mkdag` will specify the name
     of this directory.
@@ -158,7 +158,7 @@ Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a
         code from MATLAB or R to tell us if the job was successful. We
         determine if a job was successful by checking if at least one
         file was created that includes the pattern \"SubString\" in
-        it\'s filename, for each <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job submitted. This check is
+        it\'s filename, for each <a href="http://htcondor.org">HTCondor</a> job submitted. This check is
         identical to running
 
             ls *SubString*
@@ -168,7 +168,7 @@ Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a
 
     -   `--parg=ArgumentString`\
         This optional argument identifies a command line argument that
-        is to be passed to each invocation (as an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job) of the
+        is to be passed to each invocation (as an <a href="http://htcondor.org">HTCondor</a> job) of the
         executable. This argument will be listed multiple times to
         define more than one command line argument. Optionally, you can
         use \"\--parg=*unique*\" to pass the name of the job directory

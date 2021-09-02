@@ -5,7 +5,9 @@ title: Home
 
 <div class="uw-row-full uw-light-grer-bg">
     <div class="uw-row pt-3 pb-3">
-        <img src="images/HTC_Graphic.svg"  alt="CHTC Logo" />
+        <div class="uw-col">
+            <img src="{{ 'images/HTC_Graphic.svg' | relative_url }}"  alt="CHTC Logo" />
+        </div>
     </div>
 </div>
 <div class="uw-row-full">
@@ -17,7 +19,7 @@ title: Home
                 desc="
 __The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
 of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields__
+by insight from all fields.__
 
 [High Throughput Computing](htc) is a collection of principles and techniques which maximize the effective throughput
 of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
@@ -36,7 +38,7 @@ a national-scale environment for distributed HTC.
                 class=" flex-row-reverse mb-4 mt-4 "
                 title="HTCSS"
                 desc="
-The [HTCondor Software Suite (HTCSS)](https://htcondor.org) provides sites and users with the ability to manage and execute
+The [HTCondor Software Suite (HTCSS)](http://htcondor.org) provides sites and users with the ability to manage and execute
 HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
 helps solve computational problems through the application of the HTC principles.
                 "
@@ -55,7 +57,7 @@ Idea.  Researchers can place their workloads on an access point at
 CHTC and utilize the resources at CHTC, across the campus, and across
 the nation.
 
-### [Research Facilitation](research-facilation)
+### [Research Facilitation](uw-research-computing/get-help)
 CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
 their goals.  The Research Facilitation approach emphasizes teaching users skills and
 methodologies to manage & automate workloads on resources like those at CHTC, the campus,
@@ -81,7 +83,7 @@ or across the world.
     <div class="uw-row b-4">
         <div class="uw-col">
             {% include sub-title-desc-img-card.html
-                class=" mb-4 "
+                class=" mb-4 mt-4 "
                 title="OSG"
                 href="https://osg-htc.org"
                 desc="
@@ -95,10 +97,9 @@ in 2005.
                 img_alt="OSG Logo"
             %}
             {% include sub-title-desc-img-card.html
-                class=" mb-4 "
                 title="PATh"
                 href="https://path-cc.io/"
-                class=" flex-row-reverse mb-4"
+                class=" flex-row-reverse mb-4 mt-4"
                 desc="
 The Partnership to Advance Throughput Computing (PATh) is a partnership between
 CHTC and OSG to advance throughput computing.  Funded through a major investment
@@ -110,7 +111,7 @@ to access resources across the nation.
                 img_alt="PATh Logo"
             %}
             {% include sub-title-desc-img-card.html
-                class=" mb-4 "
+                class=" mb-4 mt-4 "
                 title="Morgridge Institute for Research"
                 href="https://morgridge.org/"
                 desc="
