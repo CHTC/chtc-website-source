@@ -6,6 +6,8 @@ nav_items:
     name: About
     url: /about
     sub_menu:
+      - url: /htc
+        name: What is HTC?
       - url: /approach
         name: Our Approach
       - url: /projects
