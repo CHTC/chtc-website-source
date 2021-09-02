@@ -21,7 +21,7 @@ starting a new project, we recommend using the updated process instead of the gu
 </p>
 <ul>
 	<li>Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka "executables").</li>
-	<li><a href="{{ '/helloworld' | relative_url }}">The CHTC's Intro to Running HTCondor Jobs</a></li>
+	<li><a href="{{ '/uw-research-computing//helloworld' | relative_url }}">The CHTC's Intro to Running HTCondor Jobs</a></li>
 </ul>
 
 <h1>Overview</h1>
@@ -183,7 +183,7 @@ permissions.  When that happens, they can be restored by running the following c
 a submit file for Matlab jobs.  The submit file for your job will be 
 different than the one used 
 to compile your code.  As a starting point for a submit file, 
-see our "hello world" example: <a href="{{ '/helloworld' | relative_url }}">http://chtc.cs.wisc.edu/helloworld</a>.
+see our "hello world" example: <a href="{{ '/uw-research-computing//helloworld' | relative_url }}">http://chtc.cs.wisc.edu/helloworld</a>.
 In what follows, replace our example <code>foo</code> and <code>run_foo.sh</code> 
 with the name of your binary and scripts.  </p>
 <ol>

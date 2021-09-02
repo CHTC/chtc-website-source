@@ -17,7 +17,7 @@ should already
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="{{ '/helloworld' | relative_url }}">The CHTC's Intro
+	<li><a href="{{ '/uw-research-computing//helloworld' | relative_url }}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -246,7 +246,7 @@ r-bloggers.com page</a>.  </p>
 The submit file you use for submitting your R jobs will be different from 
 the one you created in <a href="#build">part 1</a> for building your 
 R installation.  You'll want to create a new submit file; a good starting 
-point is the sample submit filee on our <a href="{{ '/helloworld' | relative_url }}">hello world
+point is the sample submit filee on our <a href="{{ '/uw-research-computing//helloworld' | relative_url }}">hello world
 </a> example page.  You should make the following changes in order to run 
 R jobs: 
 <ul>

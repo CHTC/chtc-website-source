@@ -26,7 +26,7 @@ fits that above description is appropriate for the HPC Cluster. Computational
 work that can complete on a single node in less than a few days will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information, please see [Our Approach](approach).
+information, please see [Our Approach](/approach).
 
 To get access to the HPC Cluster, please complete our
 [New User Consultation Form](form). After your request is received, 

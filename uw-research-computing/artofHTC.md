@@ -6,7 +6,7 @@ title: Running Your First CHTC Job
 
 So, you have access to a submit machine, have all the right accounts,
 and you are ready to run your first job in the CHTC. As we described in
-[Our Approach](approach), the CHTC is a
+[Our Approach](/approach), the CHTC is a
 collection of distributed resources. The magic that enables you to run
 jobs on these resources is software, called
 [HTCondor](http://htcondor.org), developed at the
