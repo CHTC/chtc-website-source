@@ -6,7 +6,7 @@ title: CHTC Tools for R and Python Portability
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="{{ '/uw-research-computing//howto_overview' | relative_url }}">this page</a> for the new guides.
+<a href="{{ '/uw-research-computing/howto_overview' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 
