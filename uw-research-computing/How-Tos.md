@@ -16,28 +16,28 @@ title: How To's
 <div class="uw-side-nav">
 <ul>
 <li>
-<a href="{{ '/get-started' | relative_url }}">Get Started</a>
+<a href="{{ '/uw-research-computing/get-started' | relative_url }}">Get Started</a>
 </li>
 <li>
-<a href="{{ '/get-help' | relative_url }}">Get Help</a>
+<a href="{{ '/uw-research-computing/get-help' | relative_url }}">Get Help</a>
 </li>
 <li>
-<a href="{{ '/guides' | relative_url }}">All User Guides</a>
+<a href="{{ '/uw-research-computing/guides' | relative_url }}">All User Guides</a>
 </li>
 <li>
-<a href="{{ '/use-submit-node' | relative_url }}">Use an HTC Submit Server</a>
+<a href="{{ '/uw-research-computing/use-submit-node' | relative_url }}">Use an HTC Submit Server</a>
 </li>
 <li>
-<a href="{{ '/helloworld' | relative_url }}">Run Your First HTC Jobs</a>
+<a href="{{ '/uw-research-computing/helloworld' | relative_url }}">Run Your First HTC Jobs</a>
 </li>
 <li>
-<a href="{{ '/howto_overview' | relative_url }}">HTC for MatLab, Python or R</a>
+<a href="{{ '/uw-research-computing/howto_overview' | relative_url }}">HTC for MatLab, Python or R</a>
 </li>
 <li>
-<a href="{{ '/hpc-overview' | relative_url }}">Use the HPC Cluster</a>
+<a href="{{ '/uw-research-computing/hpc-overview' | relative_url }}">Use the HPC Cluster</a>
 </li>
 <li>
-<a href="{{ '/cite-chtc' | relative_url }}">Cite CHTC Resources</a>
+<a href="{{ '/uw-research-computing/cite-chtc' | relative_url }}">Cite CHTC Resources</a>
 </li>
 </ul>
 </div>
