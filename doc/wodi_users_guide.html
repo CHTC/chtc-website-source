@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<TITLE>WoDi User Guide</TITLE>
+</HEAD>
+
+<BODY>
+<A HREF="../Condor.gif"><IMG ALIGN=MIDDLE SRC="../Condor-head.gif"></A>
+<H1>
+WoDi User Guide
+</H1>
+<HR>
+WoDi (short for Work Distributor) is intended to assist in writing
+"Master-Worker" style parallel applications.  In particular, WoDi is able
+to make decisions about what work tasks should be assigned to which worker
+processes.  WoDi also is able to monitor resources, and insure that the
+results of all work steps are reported exactly once to the master, even in
+a dynamic resource environment in which machines may be lost at any time.
+<P>
+
+WoDi is implemented as a library of routines which are called by the master
+and worker processes.  This library provides functions for starting WoDi,
+delimiting "cycles", and sending and receiving work steps.  A WoDi cycle is
+a collection of work steps which must all be completed before the next
+cycle can be started.  When cycles are used, WoDi will maintain a history
+of the CPU utilization of work steps within a cycle, and use this history
+to schedule future work steps.  A variety of log files are also produced,
+and some of these can be used by the DeVise visualization tool to visualize
+the execution of the program.
+<P>
+
+<H3>Overview of WoDi functions</H3>
+
+WoDi functions can be broken into two groups, those used by the master, and
+those used by the workers.  The vast majority of the functions are for use
+by the master.  The workers' only functions are for receiving work steps,
+and sending results.  A description of each library function follows.
+<P>
+
+<PRE WIDTH=80>
+int
+wodi_init(int init_bufs, int buflist[], int taglist[], int class_count, 
+         int class_needs[], char **slave_argv, int work_tag, int resp_tag,
+         int do_ordering);
+</PRE>
+
+wodi_init should be the first WoDi function invoked by the master process,
+it starts WoDi, and provides a lot of information required by WoDi to start
+running.  Because WoDi is responsible for starting new workers as machines
+become available, it needs enough information in order to successfully
+start these workers.  
+<P>
+
+The first three parameters provide to WoDi a collection of messages which
+should be sent to worker processes when they are first started.  init_bufs
+is the number of messages to be sent at start-up, buflist is an integer
+array of PVM buffer identifiers which will be sent with the corresponding
+tags in the taglist array.  If no initialization messages are needed
+init_bufs should be set to 0, and the values for buflist and taglist are
+not used.
+<P>
+
+The next two parameters, class_count and class_needs specify the number of
+machines the application would like to use.  Because this application must
+compete for resources with other users, it may not be able to allocate this
+number of machines, but this specifies an upper bound.  class_count is the
+number of machine classes or types which are to be used by the application.
+For a homogeneous run, this is always 1.  The class_needs array must be of
+size class_count, and provides the number of desired resources in each
+class.  If a negative value is given for the count, WoDi will use a
+heuristic based on the past history of work steps to estimate a good value
+for the number of machines to be used.
+<P>
+
+The slave_argv parameter gives an "argv" style name of the worker
+executable to run, and the command line arguments to be given.  This is
+very much like the argv given to the pvm_spawn() function.
+<P>
+
+work_tag and resp_tag give PVM message tags to be used for work and result
+messages.  If a non-zero value is given for do_ordering, WoDi will attempt
+to schedule the work steps of a cycle based on their past behavior.
+<P>
+
+<PRE WIDTH=80>
+int wodi_begin_cycle(int cycle_num, int cycle_bufs, int buflist[], int
+			taglist[], int step_count);
+</PRE>
+
+wodi_begin_cycle is used to specify the beginning of a new cycle of work
+steps.  The first parameter is simply a cycle number and is usually
+incremented starting from 0 on each call to this function.  cycle_bufs is
+the number of messages which will be sent to each worker at the beginning
+of the cycle.  These are usually used to update the state of each worker
+before entering the cycle.  buflist and taglist are the same as in
+wodi_init.  step_count gives the number of steps in this cycle.  The
+current implementation requires at the number of steps be the same for
+every cycle.
+<P>
+
+<PRE WIDTH=80>
+int wodi_end_cycle(int cycle_num, int cycle_bufs, int buflist[], 
+			int taglist[])
+</PRE>
+
+
+This function specifies the end of the cycle.  It is called when the master
+has received results from every step in the cycle.  The first parameter is
+the cycle number, and should be the same as in the most recent call to
+wodi_begin_cycle.  cycle_bufs, buflist, and taglist have the same meaning as
+in wodi_begin_cycle, and these messages will be sent to all workers
+immediately.
+<P>
+
+<PRE WIDTH=80>
+int wodi_sendwork(int step_num)
+</PRE>
+
+
+wodi_sendwork is used by the master to send a task to WoDi to be forwarded
+to a worker process.  A message specifying the task is assumed to have been
+packed into the current PVM send buffer.  In this way, wodi_sendwork is a
+replacement for a normal pvm_send().  The argument step_number assigns an
+identifier to this task.  It is usually a number between 0 and the
+step_count-1 as given to wodi_begin_cycle() when cycles are being used.
+<P>
+
+<PRE WIDTH=80>
+int wodi_recvresponse(int tag)
+</PRE>
+
+
+wodi_recvresponse is used by the master to receive a result from a worker.
+The tag provided should be the same as the resp_tag given to wodi_init().
+The return value of wodi_recvresponse() is an integer specifying what task
+this result is for.  This is the same integer given to wodi_sendwork() when
+the task was sent.  After calling wodi_recvresponse() the master can unpack
+the results just as after a call to pvm_recv().
+<P>
+
+<PRE WIDTH=80>
+int wodi_complete()
+</PRE>
+
+
+wodi_complete() is simply called by the master to terminate the WoDi program.
+<P>
+
+The remaining two functions are called by the worker processes, and not by
+the master.
+<P>
+
+<PRE WIDTH=80>
+int wodi_recvwork(int from_tid, int tag)
+</PRE>
+
+
+wodi_recvwork() is used to receive a work task.  The from_tid value should
+be -1, and the tag should be the same as the work_tag given by the master
+in the call to wodi_init().  Following a call to wodi_recvwork, a message
+corresponding to a work step can be unpacked just as in a call to
+pvm_recv().
+<P>
+
+<PRE WIDTH=80>
+int wodi_sendresponse(int to_tid, int tag)
+</PRE>
+
+
+wodi_sendresponse() is used to send a result message which has already been
+packed into the current PVM send buffer back to the master.  The to_tid
+value is not important, and the tag should be the same as the resp_tag
+given by the master in its call to wodi_init().
+<P>
+
+
+<H3>Compiling WoDi programs</H3>
+
+When compiling both the master and worker processes for use with WoDi, they
+must be linked with the WoDi library (wodi_lib.a).  The WoDi library should
+be placed before the PVM library (libpvm3.a) in the link line because it
+uses PVM functions.
+<P>
+
+
+<H3>Running WoDi programs under Condor</H3>
+
+To run a WoDi, or any other, program under Condor, you must first write a
+submission file and submit it to Condor.  A sample submission file is
+provided below.
+<P>
+
+<PRE WIDTH=80>
+universe = PVM
+executable = wodi_test
+arguments = foo bar
+output = wodi_out
+error = wodi_err
+machine_count = 1..1
+requirements = OpSys == "SunOS4.1.3" && Arch == "sun4m"
+queue
+</PRE>
+
+The first line specifies that this job will be using PVM.  The executable
+line specifies the name of the master executable program (presumably in the
+same directory as this submission file), and it should be started with the
+command line arguments "foo bar."  All output generated by the master will
+be written to the file wodi_out, and the standard error output will be on
+wodi_err.  Note that WoDi itself writes much output to the error file also.
+The machine_count line specifies that we would like somewhere between 1 and
+1 machines at startup.  That is, in this example, the program will start
+with exactly one machine ready.  The requirements expression specifies,
+essentially, that we want a Sun workstation.  More information on
+submitting jobs, and monitoring them while they run can be found in the
+condor_submit and other Condor man pages.
+<P>
+
+When the job starts running, the executable file "wodi" must also be in the
+directory where the submission was done.  Additionally, the executable for
+the worker processes must also be in this directory.
+<P>
+
+<HR>
+Last modified: Sun Nov 24 16:14:01 1996 by Jim Basney
+<ADDRESS>
+<A HREF="mailto:condor@cs.wisc.edu">condor@cs.wisc.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,2370 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.86 Copyright 1999 Radical Eye Software
+%%Title: cheap-cycles.dvi
+%%Pages: 16
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman Times-Italic Courier
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips -o cheap-cycles.ps cheap-cycles
+%DVIPSParameters: dpi=600
+%DVIPSSource:  TeX output 2001.05.12:0450
+%%BeginProcSet: /s/tetex/texmf/dvips/pstricks/pstricks.pro
+%!
+% PostScript prologue for pstricks.tex.
+% Version 97 patch 3, 98/06/01
+% For distribution, see pstricks.tex.
+%
+/tx@Dict 200 dict def tx@Dict begin
+/ADict 25 dict def
+/CM { matrix currentmatrix } bind def
+/SLW /setlinewidth load def
+/CLW /currentlinewidth load def
+/CP /currentpoint load def
+/ED { exch def } bind def
+/L /lineto load def
+/T /translate load def
+/TMatrix { } def
+/RAngle { 0 } def
+/Atan { /atan load stopped { pop pop 0 } if } def
+/Div { dup 0 eq { pop } { div } ifelse } def
+/NET { neg exch neg exch T } def
+/Pyth { dup mul exch dup mul add sqrt } def
+/PtoC { 2 copy cos mul 3 1 roll sin mul } def
+/PathLength@ { /z z y y1 sub x x1 sub Pyth add def /y1 y def /x1 x def }
+def
+/PathLength { flattenpath /z 0 def { /y1 ED /x1 ED /y2 y1 def /x2 x1 def
+} { /y ED /x ED PathLength@ } {} { /y y2 def /x x2 def PathLength@ }
+/pathforall load stopped { pop pop pop pop } if z } def
+/STP { .996264 dup scale } def
+/STV { SDict begin normalscale end STP  } def
+/DashLine { dup 0 gt { /a .5 def PathLength exch div } { pop /a 1 def
+PathLength } ifelse /b ED /x ED /y ED /z y x add def b a .5 sub 2 mul y
+mul sub z Div round z mul a .5 sub 2 mul y mul add b exch Div dup y mul
+/y ED x mul /x ED x 0 gt y 0 gt and { [ y x ] 1 a sub y mul } { [ 1 0 ]
+0 } ifelse setdash stroke } def
+/DotLine { /b PathLength def /a ED /z ED /y CLW def /z y z add def a 0 gt
+{ /b b a div def } { a 0 eq { /b b y sub def } { a -3 eq { /b b y add
+def } if } ifelse } ifelse [ 0 b b z Div round Div dup 0 le { pop 1 } if
+] a 0 gt { 0 } { y 2 div a -2 gt { neg } if } ifelse setdash 1
+setlinecap stroke } def
+/LineFill { gsave abs CLW add /a ED a 0 dtransform round exch round exch
+2 copy idtransform exch Atan rotate idtransform pop /a ED .25 .25
+% DG/SR modification begin - Dec. 12, 1997 - Patch 2
+%itransform translate pathbbox /y2 ED a Div ceiling cvi /x2 ED /y1 ED a
+itransform pathbbox /y2 ED a Div ceiling cvi /x2 ED /y1 ED a
+% DG/SR modification end
+Div cvi /x1 ED /y2 y2 y1 sub def clip newpath 2 setlinecap systemdict
+/setstrokeadjust known { true setstrokeadjust } if x2 x1 sub 1 add { x1
+% DG/SR modification begin - Jun.  1, 1998 - Patch 3 (from Michael Vulis)
+% a mul y1 moveto 0 y2 rlineto stroke /x1 x1 1 add def } repeat grestore }
+% def
+a mul y1 moveto 0 y2 rlineto stroke /x1 x1 1 add def } repeat grestore
+pop pop } def
+% DG/SR modification end
+/BeginArrow { ADict begin /@mtrx CM def gsave 2 copy T 2 index sub neg
+exch 3 index sub exch Atan rotate newpath } def
+/EndArrow { @mtrx setmatrix CP grestore end } def
+/Arrow { CLW mul add dup 2 div /w ED mul dup /h ED mul /a ED { 0 h T 1 -1
+scale } if w neg h moveto 0 0 L w h L w neg a neg rlineto gsave fill
+grestore } def
+/Tbar { CLW mul add /z ED z -2 div CLW 2 div moveto z 0 rlineto stroke 0
+CLW moveto } def
+/Bracket { CLW mul add dup CLW sub 2 div /x ED mul CLW add /y ED /z CLW 2
+div def x neg y moveto x neg CLW 2 div L x CLW 2 div L x y L stroke 0
+CLW moveto } def
+/RoundBracket { CLW mul add dup 2 div /x ED mul /y ED /mtrx CM def 0 CLW
+2 div T x y mul 0 ne { x y scale } if 1 1 moveto .85 .5 .35 0 0 0
+curveto -.35 0 -.85 .5 -1 1 curveto mtrx setmatrix stroke 0 CLW moveto }
+def
+/SD { 0 360 arc fill } def
+/EndDot { { /z DS def } { /z 0 def } ifelse /b ED 0 z DS SD b { 0 z DS
+CLW sub SD } if 0 DS z add CLW 4 div sub moveto } def
+/Shadow { [ { /moveto load } { /lineto load } { /curveto load } {
+/closepath load } /pathforall load stopped { pop pop pop pop CP /moveto
+load } if ] cvx newpath 3 1 roll T exec } def
+/NArray { aload length 2 div dup dup cvi eq not { exch pop } if /n exch
+cvi def } def
+/NArray { /f ED counttomark 2 div dup cvi /n ED n eq not { exch pop } if
+f { ] aload /Points ED } { n 2 mul 1 add -1 roll pop } ifelse } def
+/Line { NArray n 0 eq not { n 1 eq { 0 0 /n 2 def } if ArrowA /n n 2 sub
+def n { Lineto } repeat CP 4 2 roll ArrowB L pop pop } if } def
+/Arcto { /a [ 6 -2 roll ] cvx def a r /arcto load stopped { 5 } { 4 }
+ifelse { pop } repeat a } def
+/CheckClosed { dup n 2 mul 1 sub index eq 2 index n 2 mul 1 add index eq
+and { pop pop /n n 1 sub def } if } def
+/Polygon { NArray n 2 eq { 0 0 /n 3 def } if n 3 lt { n { pop pop }
+repeat } { n 3 gt { CheckClosed } if n 2 mul -2 roll /y0 ED /x0 ED /y1
+ED /x1 ED x1 y1 /x1 x0 x1 add 2 div def /y1 y0 y1 add 2 div def x1 y1
+moveto /n n 2 sub def n { Lineto } repeat x1 y1 x0 y0 6 4 roll Lineto
+Lineto pop pop closepath } ifelse } def
+/Diamond { /mtrx CM def T rotate /h ED /w ED dup 0 eq { pop } { CLW mul
+neg /d ED /a w h Atan def /h d a sin Div h add def /w d a cos Div w add
+def } ifelse mark w 2 div h 2 div w 0 0 h neg w neg 0 0 h w 2 div h 2
+div /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+setmatrix } def
+% DG modification begin - Jan. 15, 1997
+%/Triangle { /mtrx CM def translate rotate /h ED 2 div /w ED dup 0 eq {
+%pop } { CLW mul /d ED /h h d w h Atan sin Div sub def /w w d h w Atan 2
+%div dup cos exch sin Div mul sub def } ifelse mark 0 d w neg d 0 h w d 0
+%d /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+%setmatrix } def
+/Triangle { /mtrx CM def translate rotate /h ED 2 div /w ED dup
+CLW mul /d ED /h h d w h Atan sin Div sub def /w w d h w Atan 2
+div dup cos exch sin Div mul sub def mark 0 d w neg d 0 h w d 0
+d /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+% DG/SR modification begin - Jun.  1, 1998 - Patch 3 (from Michael Vulis)
+% setmatrix } def
+setmatrix pop } def
+% DG/SR modification end
+/CCA { /y ED /x ED 2 copy y sub /dy1 ED x sub /dx1 ED /l1 dx1 dy1 Pyth
+def } def
+/CCA { /y ED /x ED 2 copy y sub /dy1 ED x sub /dx1 ED /l1 dx1 dy1 Pyth
+def } def
+/CC { /l0 l1 def /x1 x dx sub def /y1 y dy sub def /dx0 dx1 def /dy0 dy1
+def CCA /dx dx0 l1 c exp mul dx1 l0 c exp mul add def /dy dy0 l1 c exp
+mul dy1 l0 c exp mul add def /m dx0 dy0 Atan dx1 dy1 Atan sub 2 div cos
+abs b exp a mul dx dy Pyth Div 2 div def /x2 x l0 dx mul m mul sub def
+/y2 y l0 dy mul m mul sub def /dx l1 dx mul m mul neg def /dy l1 dy mul
+m mul neg def } def
+/IC { /c c 1 add def c 0 lt { /c 0 def } { c 3 gt { /c 3 def } if }
+ifelse /a a 2 mul 3 div 45 cos b exp div def CCA /dx 0 def /dy 0 def }
+def
+/BOC { IC CC x2 y2 x1 y1 ArrowA CP 4 2 roll x y curveto } def
+/NC { CC x1 y1 x2 y2 x y curveto } def
+/EOC { x dx sub y dy sub 4 2 roll ArrowB 2 copy curveto } def
+/BAC { IC CC x y moveto CC x1 y1 CP ArrowA } def
+/NAC { x2 y2 x y curveto CC x1 y1 } def
+/EAC { x2 y2 x y ArrowB curveto pop pop } def
+/OpenCurve { NArray n 3 lt { n { pop pop } repeat } { BOC /n n 3 sub def
+n { NC } repeat EOC } ifelse } def
+/AltCurve { { false NArray n 2 mul 2 roll [ n 2 mul 3 sub 1 roll ] aload
+/Points ED n 2 mul -2 roll } { false NArray } ifelse n 4 lt { n { pop
+pop } repeat } { BAC /n n 4 sub def n { NAC } repeat EAC } ifelse } def
+/ClosedCurve { NArray n 3 lt { n { pop pop } repeat } { n 3 gt {
+CheckClosed } if 6 copy n 2 mul 6 add 6 roll IC CC x y moveto n { NC }
+repeat closepath pop pop } ifelse } def
+/SQ { /r ED r r moveto r r neg L r neg r neg L r neg r L fill } def
+/ST { /y ED /x ED x y moveto x neg y L 0 x L fill } def
+/SP { /r ED gsave 0 r moveto 4 { 72 rotate 0 r L } repeat fill grestore }
+def
+/FontDot { DS 2 mul dup matrix scale matrix concatmatrix exch matrix
+rotate matrix concatmatrix exch findfont exch makefont setfont } def
+/Rect { x1 y1 y2 add 2 div moveto x1 y2 lineto x2 y2 lineto x2 y1 lineto
+x1 y1 lineto closepath } def
+/OvalFrame { x1 x2 eq y1 y2 eq or { pop pop x1 y1 moveto x2 y2 L } { y1
+y2 sub abs x1 x2 sub abs 2 copy gt { exch pop } { pop } ifelse 2 div
+exch { dup 3 1 roll mul exch } if 2 copy lt { pop } { exch pop } ifelse
+/b ED x1 y1 y2 add 2 div moveto x1 y2 x2 y2 b arcto x2 y2 x2 y1 b arcto
+x2 y1 x1 y1 b arcto x1 y1 x1 y2 b arcto 16 { pop } repeat closepath }
+ifelse } def
+/Frame { CLW mul /a ED 3 -1 roll 2 copy gt { exch } if a sub /y2 ED a add
+/y1 ED 2 copy gt { exch } if a sub /x2 ED a add /x1 ED 1 index 0 eq {
+pop pop Rect } { OvalFrame } ifelse } def
+/BezierNArray { /f ED counttomark 2 div dup cvi /n ED n eq not { exch pop
+} if n 1 sub neg 3 mod 3 add 3 mod { 0 0 /n n 1 add def } repeat f { ]
+aload /Points ED } { n 2 mul 1 add -1 roll pop } ifelse } def
+/OpenBezier { BezierNArray n 1 eq { pop pop } { ArrowA n 4 sub 3 idiv { 6
+2 roll 4 2 roll curveto } repeat 6 2 roll 4 2 roll ArrowB curveto }
+ifelse } def
+/ClosedBezier { BezierNArray n 1 eq { pop pop } { moveto n 1 sub 3 idiv {
+6 2 roll 4 2 roll curveto } repeat closepath } ifelse } def
+/BezierShowPoints { gsave Points aload length 2 div cvi /n ED moveto n 1
+sub { lineto } repeat CLW 2 div SLW [ 4 4 ] 0 setdash stroke grestore }
+def
+/Parab { /y0 exch def /x0 exch def /y1 exch def /x1 exch def /dx x0 x1
+sub 3 div def /dy y0 y1 sub 3 div def x0 dx sub y0 dy add x1 y1 ArrowA
+x0 dx add y0 dy add x0 2 mul x1 sub y1 ArrowB curveto /Points [ x1 y1 x0
+y0 x0 2 mul x1 sub y1 ] def } def
+/Grid { newpath /a 4 string def /b ED /c ED /n ED cvi dup 1 lt { pop 1 }
+if /s ED s div dup 0 eq { pop 1 } if /dy ED s div dup 0 eq { pop 1 } if
+/dx ED dy div round dy mul /y0 ED dx div round dx mul /x0 ED dy div
+round cvi /y2 ED dx div round cvi /x2 ED dy div round cvi /y1 ED dx div
+round cvi /x1 ED /h y2 y1 sub 0 gt { 1 } { -1 } ifelse def /w x2 x1 sub
+0 gt { 1 } { -1 } ifelse def b 0 gt { /z1 b 4 div CLW 2 div add def
+/Helvetica findfont b scalefont setfont /b b .95 mul CLW 2 div add def }
+if systemdict /setstrokeadjust known { true setstrokeadjust /t { } def }
+{ /t { transform 0.25 sub round 0.25 add exch 0.25 sub round 0.25 add
+exch itransform } bind def } ifelse gsave n 0 gt { 1 setlinecap [ 0 dy n
+div ] dy n div 2 div setdash } { 2 setlinecap } ifelse /i x1 def /f y1
+dy mul n 0 gt { dy n div 2 div h mul sub } if def /g y2 dy mul n 0 gt {
+dy n div 2 div h mul add } if def x2 x1 sub w mul 1 add dup 1000 gt {
+pop 1000 } if { i dx mul dup y0 moveto b 0 gt { gsave c i a cvs dup
+stringwidth pop /z2 ED w 0 gt {z1} {z1 z2 add neg} ifelse h 0 gt {b neg}
+{z1} ifelse rmoveto show grestore } if dup t f moveto g t L stroke /i i
+w add def } repeat grestore gsave n 0 gt
+% DG/SR modification begin - Nov. 7, 1997 - Patch 1
+%{ 1 setlinecap [ 0 dx n div ] dy n div 2 div setdash }
+{ 1 setlinecap [ 0 dx n div ] dx n div 2 div setdash }
+% DG/SR modification end
+{ 2 setlinecap } ifelse /i y1 def /f x1 dx mul
+n 0 gt { dx n div 2 div w mul sub } if def /g x2 dx mul n 0 gt { dx n
+div 2 div w mul add } if def y2 y1 sub h mul 1 add dup 1000 gt { pop
+1000 } if { newpath i dy mul dup x0 exch moveto b 0 gt { gsave c i a cvs
+dup stringwidth pop /z2 ED w 0 gt {z1 z2 add neg} {z1} ifelse h 0 gt
+{z1} {b neg} ifelse rmoveto show grestore } if dup f exch t moveto g
+exch t L stroke /i i h add def } repeat grestore } def
+/ArcArrow { /d ED /b ED /a ED gsave newpath 0 -1000 moveto clip newpath 0
+1 0 0 b grestore c mul /e ED pop pop pop r a e d PtoC y add exch x add
+exch r a PtoC y add exch x add exch b pop pop pop pop a e d CLW 8 div c
+mul neg d } def
+/Ellipse { /mtrx CM def T scale 0 0 1 5 3 roll arc mtrx setmatrix } def
+/Rot { CP CP translate 3 -1 roll neg rotate NET  } def
+/RotBegin { tx@Dict /TMatrix known not { /TMatrix { } def /RAngle { 0 }
+def } if /TMatrix [ TMatrix CM ] cvx def /a ED a Rot /RAngle [ RAngle
+dup a add ] cvx def } def
+/RotEnd { /TMatrix [ TMatrix setmatrix ] cvx def /RAngle [ RAngle pop ]
+cvx def } def
+/PutCoor { gsave CP T CM STV exch exec moveto setmatrix CP grestore } def
+/PutBegin { /TMatrix [ TMatrix CM ] cvx def CP 4 2 roll T moveto } def
+/PutEnd { CP /TMatrix [ TMatrix setmatrix ] cvx def moveto } def
+/Uput { /a ED add 2 div /h ED 2 div /w ED /s a sin def /c a cos def /b s
+abs c abs 2 copy gt dup /q ED { pop } { exch pop } ifelse def /w1 c b
+div w mul def /h1 s b div h mul def q { w1 abs w sub dup c mul abs } {
+h1 abs h sub dup s mul abs } ifelse } def
+/UUput { /z ED abs /y ED /x ED q { x s div c mul abs y gt } { x c div s
+mul abs y gt } ifelse { x x mul y y mul sub z z mul add sqrt z add } { q
+{ x s div } { x c div } ifelse abs } ifelse a PtoC h1 add exch w1 add
+exch } def
+/BeginOL { dup (all) eq exch TheOL eq or { IfVisible not { Visible
+/IfVisible true def } if } { IfVisible { Invisible /IfVisible false def
+} if } ifelse } def
+/InitOL { /OLUnit [ 3000 3000 matrix defaultmatrix dtransform ] cvx def
+/Visible { CP OLUnit idtransform T moveto } def /Invisible { CP OLUnit
+neg exch neg exch idtransform T moveto } def /BOL { BeginOL } def
+/IfVisible true def } def
+end
+% END pstricks.pro
+
+%%EndProcSet
+%%BeginProcSet: tex.pro
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc
+% @@psencodingfile@{
+%   author = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry",
+%   version = "0.6",
+%   date = "1 July 1998",
+%   filename = "8r.enc",
+%   email = "tex-fonts@@tug.org",
+%   docstring = "Encoding for TrueType or Type 1 fonts
+%                to be used with TeX."
+% @}
+% 
+% Idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard Encoding + ISO Latin 1 + extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% 
+% (4) Remaining positions left undefined are for use in (hopefully)
+% upward-compatible revisions, if someday more characters are generally
+% available.
+% 
+% (5) hyphen appears twice for compatibility with both 
+% ASCII and Windows.
+% 
+/TeXBase1Encoding [
+% 0x00 (encoded characters from Adobe Standard not in Windows 3.1)
+  /.notdef /dotaccent /fi /fl
+  /fraction /hungarumlaut /Lslash /lslash
+  /ogonek /ring /.notdef
+  /breve /minus /.notdef 
+% These are the only two remaining unencoded characters, so may as
+% well include them.
+  /Zcaron /zcaron 
+% 0x10
+ /caron /dotlessi 
+% (unusual TeX characters available in, e.g., Lucida Bright)
+ /dotlessj /ff /ffi /ffl 
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ % very contentious; it's so painful not having quoteleft and quoteright
+ % at 96 and 145 that we move the things normally found there to here.
+ /grave /quotesingle 
+% 0x20 (ASCII begins)
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three /four /five /six /seven
+ /eight /nine /colon /semicolon /less /equal /greater /question
+% 0x40
+ /at /A /B /C /D /E /F /G /H /I /J /K /L /M /N /O
+% 0x50
+ /P /Q /R /S /T /U /V /W
+ /X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c /d /e /f /g /h /i /j /k /l /m /n /o
+% 0x70
+ /p /q /r /s /t /u /v /w
+ /x /y /z /braceleft /bar /braceright /asciitilde
+ /.notdef % rubout; ASCII ends
+% 0x80
+ /.notdef /.notdef /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /.notdef /.notdef /.notdef
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /.notdef /.notdef /Ydieresis
+% 0xA0
+ /.notdef % nobreakspace
+ /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot
+ /hyphen % Y&Y (also at 45); Windows' softhyphen
+ /registered
+ /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+%%EndProcSet
+%%BeginProcSet: texps.pro
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]/Metrics
+exch def dict begin Encoding{exch dup type/integertype ne{pop pop 1 sub
+dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get div def}
+ifelse}forall Metrics/Metrics currentdict end def[2 index currentdict
+end definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{
+dup sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1
+roll mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def
+dup[exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}
+if}forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}
+def end
+
+%%EndProcSet
+%%BeginProcSet: special.pro
+%!
+TeXDict begin/SDict 200 dict N SDict begin/@SpecialDefaults{/hs 612 N
+/vs 792 N/ho 0 N/vo 0 N/hsc 1 N/vsc 1 N/ang 0 N/CLIP 0 N/rwiSeen false N
+/rhiSeen false N/letter{}N/note{}N/a4{}N/legal{}N}B/@scaleunit 100 N
+/@hscale{@scaleunit div/hsc X}B/@vscale{@scaleunit div/vsc X}B/@hsize{
+/hs X/CLIP 1 N}B/@vsize{/vs X/CLIP 1 N}B/@clip{/CLIP 2 N}B/@hoffset{/ho
+X}B/@voffset{/vo X}B/@angle{/ang X}B/@rwi{10 div/rwi X/rwiSeen true N}B
+/@rhi{10 div/rhi X/rhiSeen true N}B/@llx{/llx X}B/@lly{/lly X}B/@urx{
+/urx X}B/@ury{/ury X}B/magscale true def end/@MacSetUp{userdict/md known
+{userdict/md get type/dicttype eq{userdict begin md length 10 add md
+maxlength ge{/md md dup length 20 add dict copy def}if end md begin
+/letter{}N/note{}N/legal{}N/od{txpose 1 0 mtx defaultmatrix dtransform S
+atan/pa X newpath clippath mark{transform{itransform moveto}}{transform{
+itransform lineto}}{6 -2 roll transform 6 -2 roll transform 6 -2 roll
+transform{itransform 6 2 roll itransform 6 2 roll itransform 6 2 roll
+curveto}}{{closepath}}pathforall newpath counttomark array astore/gc xdf
+pop ct 39 0 put 10 fz 0 fs 2 F/|______Courier fnt invertflag{PaintBlack}
+if}N/txpose{pxs pys scale ppr aload pop por{noflips{pop S neg S TR pop 1
+-1 scale}if xflip yflip and{pop S neg S TR 180 rotate 1 -1 scale ppr 3
+get ppr 1 get neg sub neg ppr 2 get ppr 0 get neg sub neg TR}if xflip
+yflip not and{pop S neg S TR pop 180 rotate ppr 3 get ppr 1 get neg sub
+neg 0 TR}if yflip xflip not and{ppr 1 get neg ppr 0 get neg TR}if}{
+noflips{TR pop pop 270 rotate 1 -1 scale}if xflip yflip and{TR pop pop
+90 rotate 1 -1 scale ppr 3 get ppr 1 get neg sub neg ppr 2 get ppr 0 get
+neg sub neg TR}if xflip yflip not and{TR pop pop 90 rotate ppr 3 get ppr
+1 get neg sub neg 0 TR}if yflip xflip not and{TR pop pop 270 rotate ppr
+2 get ppr 0 get neg sub neg 0 S TR}if}ifelse scaleby96{ppr aload pop 4
+-1 roll add 2 div 3 1 roll add 2 div 2 copy TR .96 dup scale neg S neg S
+TR}if}N/cp{pop pop showpage pm restore}N end}if}if}N/normalscale{
+Resolution 72 div VResolution 72 div neg scale magscale{DVImag dup scale
+}if 0 setgray}N/psfts{S 65781.76 div N}N/startTexFig{/psf$SavedState
+save N userdict maxlength dict begin/magscale true def normalscale
+currentpoint TR/psf$ury psfts/psf$urx psfts/psf$lly psfts/psf$llx psfts
+/psf$y psfts/psf$x psfts currentpoint/psf$cy X/psf$cx X/psf$sx psf$x
+psf$urx psf$llx sub div N/psf$sy psf$y psf$ury psf$lly sub div N psf$sx
+psf$sy scale psf$cx psf$sx div psf$llx sub psf$cy psf$sy div psf$ury sub
+TR/showpage{}N/erasepage{}N/copypage{}N/p 3 def @MacSetUp}N/doclip{
+psf$llx psf$lly psf$urx psf$ury currentpoint 6 2 roll newpath 4 copy 4 2
+roll moveto 6 -1 roll S lineto S lineto S lineto closepath clip newpath
+moveto}N/endTexFig{end psf$SavedState restore}N/@beginspecial{SDict
+begin/SpecialSave save N gsave normalscale currentpoint TR
+@SpecialDefaults count/ocount X/dcount countdictstack N}N/@setspecial{
+CLIP 1 eq{newpath 0 0 moveto hs 0 rlineto 0 vs rlineto hs neg 0 rlineto
+closepath clip}if ho vo TR hsc vsc scale ang rotate rwiSeen{rwi urx llx
+sub div rhiSeen{rhi ury lly sub div}{dup}ifelse scale llx neg lly neg TR
+}{rhiSeen{rhi ury lly sub div dup scale llx neg lly neg TR}if}ifelse
+CLIP 2 eq{newpath llx lly moveto urx lly lineto urx ury lineto llx ury
+lineto closepath clip}if/showpage{}N/erasepage{}N/copypage{}N newpath}N
+/@endspecial{count ocount sub{pop}repeat countdictstack dcount sub{end}
+repeat grestore SpecialSave restore end}N/@defspecial{SDict begin}N
+/@fedspecial{end}B/li{lineto}B/rl{rlineto}B/rc{rcurveto}B/np{/SaveX
+currentpoint/SaveY X N 1 setlinecap newpath}N/st{stroke SaveX SaveY
+moveto}N/fil{fill SaveX SaveY moveto}N/ellipse{/endangle X/startangle X
+/yrad X/xrad X/savematrix matrix currentmatrix N TR xrad yrad scale 0 0
+1 startangle endangle arc savematrix setmatrix}N end
+
+%%EndProcSet
+TeXDict begin 40258431 52099146 1000 600 600 (cheap-cycles.dvi)
+@start /Fa 140[47 53 3[66 7[40 53 1[53 16[86 82[{
+TeXBase1Encoding ReEncodeFont}7 119.552 /Times-Bold rf
+/Fb 141[26 3[33 2[29 9[33 97[{TeXBase1Encoding ReEncodeFont}4
+66.4176 /Times-Italic rf /Fc 139[22 7[18 10[33 97[{
+TeXBase1Encoding ReEncodeFont}3 66.4176 /Times-Bold rf
+/Fd 134[33 33 48 33 33 18 26 22 33 33 33 33 52 18 33
+1[18 33 33 22 29 33 29 33 29 11[48 41 37 2[37 1[48 59
+3[22 48 4[44 5[37 14[17 22 17 2[22 22 22 35[37 37 2[{
+TeXBase1Encoding ReEncodeFont}42 66.4176 /Times-Roman
+rf /Fe 204[25 25 25 49[{TeXBase1Encoding ReEncodeFont}3
+49.8132 /Times-Roman rf /Ff 204[29 29 29 49[{
+TeXBase1Encoding ReEncodeFont}3 58.1154 /Times-Roman
+rf /Fg 136[50 2[50 50 50 2[50 50 50 50 2[50 50 50 1[50
+50 50 1[50 51[50 45[{TeXBase1Encoding ReEncodeFont}16
+83.022 /Courier rf /Fh 104[74 42 28[37 37 55 37 42 23
+32 32 1[42 42 42 60 23 37 1[23 42 42 23 37 42 37 42 42
+10[51 60 46 42 51 1[51 60 55 69 46 1[37 28 60 60 51 51
+60 55 1[51 6[28 42 42 42 2[42 1[42 42 2[21 28 21 4[28
+36[42 2[{TeXBase1Encoding ReEncodeFont}56 83.022 /Times-Italic
+rf /Fi 134[42 42 60 42 46 28 32 37 46 46 42 46 69 23
+46 28 23 46 42 28 37 46 37 46 42 12[55 46 60 1[51 2[78
+1[65 1[32 65 65 2[60 60 55 60 7[42 42 42 42 42 42 42
+42 42 42 1[21 28 5[28 36[46 2[{TeXBase1Encoding ReEncodeFont}52
+83.022 /Times-Bold rf /Fj 105[42 27[37 42 42 60 42 42
+23 32 28 42 42 42 42 65 23 42 23 23 42 42 28 37 42 37
+42 37 3[28 1[28 51 1[60 78 60 60 51 46 55 1[46 60 60
+74 51 60 32 28 60 60 46 51 60 55 55 60 1[37 4[23 42 42
+42 42 42 42 42 42 42 42 23 21 28 21 2[28 28 28 65 2[42
+31[46 46 2[{TeXBase1Encoding ReEncodeFont}76 83.022 /Times-Roman
+rf /Fk 134[50 1[72 1[55 33 39 44 1[55 50 55 83 28 55
+1[28 55 50 33 44 55 44 55 50 9[100 13[39 2[61 2[72 1[72
+9[50 50 50 50 50 50 50 9[33 39[{TeXBase1Encoding ReEncodeFont}34
+99.6264 /Times-Bold rf /Fl 134[44 2[44 50 28 39 39 1[50
+50 50 72 3[28 2[28 44 50 44 1[50 9[83 1[72 1[50 5[83
+8[72 66 22[25 44[{TeXBase1Encoding ReEncodeFont}23 99.6264
+/Times-Italic rf /Fm 139[28 1[33 6[50 1[28 50 50 1[44
+13[94 18[72 68[{TeXBase1Encoding ReEncodeFont}9 99.6264
+/Times-Roman rf /Fn 134[72 1[104 1[80 48 56 64 1[80 72
+80 120 40 80 1[40 80 72 48 64 80 64 80 72 29[104 8[48
+58[{TeXBase1Encoding ReEncodeFont}23 143.462 /Times-Bold
+rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 600dpi
+TeXDict begin
+%%PaperSize: Letter
+
+%%EndSetup
+%%Page: 1 1
+1 0 bop 437 1441 a Fn(Cheap)34 b(cycles)h(fr)m(om)g(the)g(desktop)f(to)
+h(the)437 1578 y(dedicated)f(cluster:)42 b(combining)34
+b(opportunistic)437 1714 y(and)h(dedicated)f(scheduling)f(with)i
+(Condor)437 1930 y Fm(Derek)25 b(Wright)437 2046 y Fl(Department)f(of)g
+(Computer)h(Sciences,)437 2162 y(Univer)o(sity)f(of)g(W)-5
+b(isconsin,)23 b(Madison)437 2429 y Fk(Abstract)437 2597
+y Fj(Clusters)g(of)g(commodity)d(PC)k(hardw)o(are)d(running)f(Linux)i
+(are)g(becoming)f(widely)h(used)g(as)437 2697 y(computational)13
+b(resources.)23 b(Most)16 b(softw)o(are)g(for)f(controlling)f(clusters)
+i(relies)g(on)f(dedicated)437 2797 y(scheduling)26 b(algorithms.)46
+b(These)27 b(algorithms)g(assume)g(the)h(constant)f(a)n(v)n(ailability)
+g(of)g(re-)437 2896 y(sources)21 b(to)h(compute)e(\002x)o(ed)h
+(schedules.)29 b(Unfortunately)-5 b(,)18 b(due)j(to)h(hardw)o(are)e
+(and)i(softw)o(are)437 2996 y(f)o(ailures,)27 b(dedicated)d(resources)h
+(are)h(not)f(al)o(w)o(ays)i(a)n(v)n(ailable)e(o)o(v)o(er)f(the)i
+(long-term.)40 b(More-)437 3096 y(o)o(v)o(er)m(,)18 b(these)i
+(dedicated)f(scheduling)f(solutions)h(are)h(only)f(applicable)g(to)h
+(certain)f(classes)i(of)437 3195 y(jobs,)d(and)f(the)o(y)g(can)g(only)g
+(manage)f(clusters)i(or)f(lar)o(ge)g(SMP)h(machines.)23
+b(The)17 b(Condor)g(High)437 3295 y(Throughput)d(Computing)i(System)i
+(o)o(v)o(ercomes)d(these)j(limitations)f(by)g(combining)f(aspects)437
+3394 y(of)22 b(dedicated)g(and)g(opportunistic)e(scheduling)h(into)i(a)
+g(single)f(system.)33 b(Both)22 b(parallel)h(and)437
+3494 y(serial)e(jobs)g(are)f(managed)f(at)i(the)g(same)f(time,)h(allo)n
+(wing)f(a)h(simpler)f(interf)o(ace)g(for)g(the)g(user)437
+3594 y(and)26 b(better)g(resource)g(utilization.)43 b(This)27
+b(paper)e(describes)h(the)h(Condor)e(system,)j(de\002nes)437
+3693 y(opportunistic)22 b(scheduling,)h(e)o(xplains)f(ho)n(w)i(Condor)e
+(supports)h(MPI)h(jobs)g(with)g(a)g(combi-)437 3793 y(nation)15
+b(of)h(dedicated)f(and)h(opportunistic)e(scheduling,)h(and)h(sho)n(ws)g
+(the)g(adv)n(antages)f(gained)437 3893 y(by)23 b(such)g(an)h(approach.)
+32 b(An)23 b(e)o(xploration)e(of)i(future)g(w)o(ork)f(in)i(these)g
+(areas)f(concludes)f(the)437 3992 y(paper)-5 b(.)50 b(By)29
+b(using)f(both)g(desktop)f(w)o(orkstations)h(and)g(dedicated)g
+(clusters,)i(Condor)e(har)n(-)437 4092 y(nesses)e(all)h(a)n(v)n
+(ailable)e(computational)e(po)n(wer)i(to)h(enable)f(the)g(best)h
+(possible)g(science)f(at)i(a)437 4191 y(lo)n(w)20 b(cost.)437
+4365 y Fk(1)25 b(Intr)n(oduction)437 4533 y Fj(Science)i(and)f
+(industry)f(are)i(increasingly)e(reliant)i(on)f(lar)o(ge)g(amounts)g
+(of)g(computational)437 4633 y(po)n(wer)-5 b(.)33 b(W)m(ith)24
+b(more)e(CPU)i(c)o(ycles,)f(lar)o(ger)f(problems)g(can)h(be)g(solv)o
+(ed)f(and)h(more)f(accurate)437 4733 y(results)17 b(can)g(be)g
+(obtained.)23 b(Ho)n(we)n(v)o(er)m(,)15 b(lar)o(ge)h(quantities)h(of)g
+(computational)e(resources)h(ha)n(v)o(e)437 4832 y(not)k(al)o(w)o(ays)h
+(been)f(af)n(fordable)f(to)h(the)h(end)f(user)-5 b(.)27
+b(Small)20 b(research)g(groups)f(and)h(institutions)437
+4932 y(are)29 b(often)f(unable)g(to)h(acquire)e(the)i(resources)f
+(necessary)g(to)h(meet)g(their)f(computational)437 5032
+y(needs.)p eop
+%%Page: 2 2
+2 1 bop 602 626 a Fj(The)27 b(Condor)f(High)g(Throughput)e(Computing)h
+(System)i(has)g(sca)n(v)o(enged)f(otherwise)437 726 y(w)o(asted)g(CPU)g
+(c)o(ycles)g(from)e(desktop)h(w)o(orkstations)f(for)h(more)g(than)g(a)h
+(decade)e([1][2)n(][3)o(].)437 826 y(These)e(inconsistently)g(a)n(v)n
+(ailable)g(resources)f(ha)n(v)o(e)h(pro)o(v)o(en)e(to)j(be)g(a)g
+(signi\002cant)f(source)f(of)437 925 y(computational)26
+b(po)n(wer)m(,)j(enabling)f(scientists)h(to)g(solv)o(e)f(e)n(v)o(er)g
+(more)g(comple)o(x)f(problems.)437 1025 y(Condor)c(ef)n(\002ciently)g
+(harnesses)h(e)o(xisting)f(resources,)h(reducing)e(or)i(eliminating)f
+(the)h(need)437 1125 y(to)c(purchase)f(e)o(xpensi)n(v)o(e)f
+(supercomputer)g(time)i(or)g(equi)n(v)n(alent)e(hardw)o(are.)602
+1228 y(In)25 b(recent)g(years,)h(a)g(ne)n(w)f(trend)g(has)g(emer)o
+(ged.)39 b(Clusters)26 b(of)f(commodity)e(PC)j(hard-)437
+1327 y(w)o(are)g(running)e(Linux)h(are)i(becoming)d(widely)i(used)g(as)
+h(computational)c(resources.)42 b(The)437 1427 y(cost)30
+b(to)f(performance)d(ratio)j(for)g(such)g(clusters)g(is)i(unmatched)c
+(by)h(other)h(platforms.)51 b(It)437 1527 y(is)30 b(no)n(w)f(feasible)g
+(for)f(smaller)i(groups)d(to)j(purchase)e(and)g(maintain)h(their)f(o)n
+(wn)h(clusters.)437 1626 y(Ho)n(we)n(v)o(er)m(,)17 b(these)j(clusters)f
+(introduce)f(a)h(ne)n(w)g(set)i(of)e(problems)e(to)j(the)f(end)g(user)
+-5 b(.)25 b(There)18 b(are)437 1726 y(problems)j(with)h(both)f(the)h
+(dedicated)e(nature)h(of)h(the)g(resources)f(in)h(the)g(clusters,)h
+(and)e(with)437 1825 y(the)f(scheduling)f(systems)h(used)g(to)h(manage)
+e(these)h(resources.)437 1966 y Fi(1.1)g(Dedicated)f(r)o(esour)o(ces)h
+(ar)o(e)f(not)h(dedicated)437 2128 y Fj(Most)25 b(softw)o(are)g(for)f
+(controlling)f(clusters)i(relies)g(on)g(dedicated)e(scheduling)h
+(algorithms.)437 2228 y(These)j(algorithms)e(assume)i(the)f(constant)g
+(a)n(v)n(ailability)g(of)h(resources)f(to)h(compute)e(\002x)o(ed)437
+2327 y(schedules.)70 b(Unfortunately)-5 b(,)36 b(due)e(to)i(hardw)o
+(are)e(or)h(softw)o(are)g(f)o(ailures,)j(dedicated)c(re-)437
+2427 y(sources)f(are)h(not)g(al)o(w)o(ays)g(a)n(v)n(ailable)f(o)o(v)o
+(er)g(the)h(long-term.)63 b(Ev)o(erything)32 b(from)g(routine)437
+2527 y(system)17 b(maintenance)e(do)n(wn-time)h(and)g(scheduled)g
+(interacti)n(v)o(e)f(use,)j(to)f(disk)g(f)o(ailures,)g(net-)437
+2626 y(w)o(ork)k(outages,)g(and)g(other)g(une)o(xpected)e(problems,)i
+(can)g(cause)h(signi\002cant)f(problems)g(for)437 2726
+y(dedicated)e(scheduling)f(algorithms.)24 b(No)c(resource)f(is)i(al)o
+(w)o(ays)g(a)n(v)n(ailable.)602 2829 y(As)32 b(the)e(price)h(of)f
+(hardw)o(are)f(continues)g(to)i(decline,)i(the)d(size)h(and)f
+(computational)437 2928 y(po)n(wer)f(of)h(these)g(dedicated)f(clusters)
+h(continues)f(to)i(increase.)54 b(Ho)n(we)n(v)o(er)m(,)30
+b(the)h(increase)437 3028 y(in)g(size)h(also)f(increases)g(the)g
+(probability)e(of)h(hardw)o(are)g(f)o(ailure.)57 b(This)31
+b(compounds)d(the)437 3128 y(problems)19 b(introduced)f(by)h
+(scheduling)g(softw)o(are)h(that)g(assumes)g(continuous)f(a)n(v)n
+(ailability)-5 b(.)437 3268 y Fi(1.2)20 b(The)h(pr)o(oblems)f(with)h
+(dedicated)f(schedulers)437 3430 y Fj(Most)f(dedicated)e(scheduling)h
+(solutions)g(currently)f(in)i(use)g(are)f(only)g(applicable)g(to)h
+(certain)437 3530 y(classes)26 b(of)f(jobs,)i(and)d(can)h(only)g
+(manage)f(dedicated)g(clusters)h(or)g(lar)o(ge)f(SMP)i(machines.)437
+3630 y(If)e(users)h(ha)n(v)o(e)f(both)g(serial)h(and)f(parallel)g
+(applications)f(to)i(run,)g(the)o(y)f(are)g(often)g(forced)f(to)437
+3729 y(submit)k(their)g(jobs)g(to)g(separate)f(systems,)j(learn)e(a)g
+(dif)n(ferent)f(set)i(of)f(interf)o(aces)f(for)g(each)437
+3829 y(one,)e(use)g(dif)n(ferent)e(tools)h(to)h(monitor)e(the)i(jobs,)g
+(and)g(so)g(on.)35 b(Moreo)o(v)o(er)m(,)21 b(the)j(system)g(ad-)437
+3928 y(ministration)17 b(costs)j(are)e(increased,)g(since)h(the)f
+(administrators)f(must)i(install)g(and)f(maintain)437
+4028 y(separate)i(systems.)602 4131 y(It)29 b(may)f(be)h(dif)n
+(\002cult)e(or)i(impossible)f(to)g(ha)n(v)o(e)g(separate)g(schedulers)g
+(managing)e(the)437 4231 y(same)h(set)h(of)e(resources.)44
+b(As)28 b(a)f(result,)h(resource)e(o)n(wners)g(or)g(administrators)g
+(are)h(some-)437 4330 y(times)c(forced)f(to)h(partition)f(their)g
+(resources)g(into)h(separate)g(groups,)e(one)i(that)g(serv)o(es)g(par)n
+(-)437 4430 y(allel)32 b(applications)e(and)g(one)h(that)g(serv)o(es)g
+(serial)h(applications.)57 b(If)31 b(there)g(is)h(an)f(une)n(v)o(en)437
+4530 y(distrib)n(ution)19 b(of)i(w)o(ork)f(between)g(the)g(tw)o(o)h
+(dif)n(ferent)e(systems,)i(users)g(will)h(w)o(ait)f(for)f(one)g(set)437
+4629 y(of)g(resources)f(while)h(computers)f(in)h(the)h(other)e(set)i
+(are)f(idle.)437 4770 y Fi(1.3)g(The)h(Condor)f(solution)437
+4932 y Fj(Condor)c(o)o(v)o(ercomes)g(these)h(dif)n(\002culties)h(by)f
+(combining)e(aspects)j(of)f(dedicated)g(and)g(oppor)n(-)437
+5032 y(tunistic)f(scheduling)e(into)i(a)h(single)f(system.)23
+b Fh(Opportunistic)15 b(sc)o(heduling)f Fj(in)m(v)n(olv)o(es)h(placing)
+p eop
+%%Page: 3 3
+3 2 bop 437 626 a Fj(jobs)18 b(on)f(non-dedicated)e(resources)i(under)g
+(the)h(assumption)e(that)i(the)g(resources)f(might)g(not)437
+726 y(be)23 b(a)n(v)n(ailable)f(for)h(the)g(entire)f(duration)f(of)i
+(the)g(jobs.)33 b(Condor)22 b(mak)o(es)g(use)i(of)e(a)i(procedure)437
+826 y(kno)n(wn)c(as)j Fh(c)o(hec)n(kpointing)p Fj(,)c(where)i(the)g
+(computation)f(is)i(suspended)e(at)j(a)f(\002x)o(ed)f(point)g(and)437
+925 y(the)f(current)f(job)h(state)h(is)h(written)e(out)g(to)g(a)h
+(\002le[4)o(][5)o(].)26 b(The)20 b(resulting)f(checkpoint)f(\002le)j
+(can)437 1025 y(be)g(used)g(to)g(restart)g(the)g(application)f(at)h
+(the)g(point)g(in)g(its)h(e)o(x)o(ecution)d(when)h(the)h(checkpoint)437
+1125 y(w)o(as)h(tak)o(en.)k(Condor)20 b(can)h(insure)f(forw)o(ard)g
+(progress)f(of)i(its)h(jobs,)f(e)n(v)o(en)f(on)g(non-dedicated)437
+1224 y(resources,)f(by)h(using)f(checkpointing.)602 1326
+y(Instead)24 b(of)g(forcing)f(administrators)f(to)j(partition)e
+(resources,)h(Condor)f(manages)h(all)437 1426 y(resources)c(within)h(a)
+g(single)g(system.)28 b(Users)22 b(can)e(submit)h(a)h(wide)e(v)n
+(ariety)h(of)f(jobs)h(to)h(Con-)437 1525 y(dor)m(,)27
+b(from)f(serial)h(to)g(parallel)g(jobs,)h(including)d(both)h(PVM)h(\(P)
+o(arallel)g(V)-5 b(irtual)26 b(Machine\))437 1625 y(and)19
+b(MPI)i(\(Message)e(P)o(assing)h(Interf)o(ace\))f(applications.)k(This)
+e(\003e)o(xibility)e(allo)n(ws)h(the)g(user)437 1724
+y(to)h(spend)f(less)i(time)f(learning)e(ne)n(w)i(interf)o(aces)f(and)g
+(tools,)h(yielding)e(more)h(time)h(for)f(doing)437 1824
+y(the)26 b(research)f(the)o(y)h(ultimately)f(care)h(about.)42
+b(It)26 b(sa)n(v)o(es)h(time)f(and)f(mone)o(y)g(for)g(the)h(admin-)437
+1924 y(istrators)i(who)g(only)f(ha)n(v)o(e)h(to)g(maintain)f(a)i
+(single)f(system.)49 b(The)28 b(uni\002ed)f(approach)f(also)437
+2023 y(yields)20 b(high)f(resource)g(utilization)h(with)g(simple)g
+(dedicated)f(scheduling)g(algorithms.)602 2125 y(Dedicated)d
+(scheduling)f(w)o(as)i(introduced)d(in)j(the)g(6.3.X)e(de)n(v)o
+(elopment)f(series)j(of)g(Con-)437 2225 y(dor)-5 b(.)24
+b(Its)19 b(initial)g(release)f(w)o(as)i(v)o(ersion)d(6.3.0)g(\(April,)h
+(2001\).)23 b(This)18 b(release)h(ushers)f(in)g(a)h(ne)n(w)437
+2324 y(phase)30 b(in)g(Condor')-5 b(s)29 b(history)-5
+b(.)54 b(Throughout)27 b(most)j(of)g(its)i(e)o(xistence,)f(Condor)e
+(had)h(only)437 2424 y(pro)o(vided)19 b(opportunistic)h(scheduling)g
+(for)i(non-dedicated)c(resources.)30 b(No)n(w)-5 b(,)21
+b(Condor)g(has)437 2524 y(inte)o(grated)e(dedicated)f(and)i
+(opportunistic)e(scheduling)g(into)i(a)h(single)f(system.)602
+2625 y(The)k(follo)n(wing)e(sections)i(co)o(v)o(er)e(the)i(general)e
+(architecture)h(of)g(the)h(Condor)e(system,)437 2725
+y(ho)n(w)30 b(Condor)f(manages)h(both)g(dedicated)f(and)h
+(non-dedicated)e(resources)h(with)i(a)g(com-)437 2825
+y(bination)c(of)h(dedicated)e(and)i(opportunistic)e(scheduling,)i(why)f
+(some)h(of)g(the)g(traditional)437 2924 y(problems)23
+b(in)i(dedicated)f(scheduling)f(do)h(not)g(apply)g(to)h(this)g(hybrid)e
+(approach,)g(and)i(ho)n(w)437 3024 y(Condor)19 b(handles)h(v)n(arious)f
+(f)o(ailure)h(conditions.)25 b(An)c(e)o(xploration)d(of)i(future)f(w)o
+(ork)h(in)h(these)437 3124 y(areas)f(concludes)f(the)h(paper)-5
+b(.)437 3373 y Fk(2)25 b(Ar)n(chitectur)n(e)i(of)e(the)h(Condor)f
+(system)437 3533 y Fj(Condor)h(is)i(a)g(distrib)n(uted)f(batch)f
+(scheduling)g(system.)47 b(It)27 b(is)i(composed)c(of)i(a)h(collection)
+437 3632 y(of)21 b(dif)n(ferent)e(daemons)g(that)i(pro)o(vide)e(v)n
+(arious)g(services,)i(such)g(as)g(resource)f(management,)437
+3732 y(job)k(management,)e(matchmaking,)g(and)h(so)h(on.)36
+b(The)23 b(goal)h(of)f(Condor)g(is)h(to)g(pro)o(vide)e(the)437
+3832 y(highest)j(feasible)h(throughput)d(by)j(e)o(x)o(ecuting)e(the)i
+(most)g(jobs)g(o)o(v)o(er)e(e)o(xtended)g(periods)h(of)437
+3931 y(time.)602 4033 y(Condor)d(e)o(x)o(ercises)h(administrati)n(v)o
+(e)e(control)i(o)o(v)o(er)e(a)j Fh(Condor)f(pool)p Fj(.)33
+b(A)24 b(pool)e(is)j(a)e(set)437 4133 y(of)c(resources)g(that)h(all)g
+(report)f(to)g(a)i(single)e(daemon)f(called)i(the)f Fg(collector)p
+Fj(.)24 b(The)19 b Fg(col-)437 4232 y(lector)27 b Fj(is)h(the)f
+(central)g(repository)f(of)h(information)e(in)i(the)h(Condor)e(system.)
+46 b(Almost)437 4332 y(all)22 b(Condor)e(daemons)g(send)h(periodic)f
+(updates)g(to)h(the)h Fg(collector)p Fj(.)27 b(Each)21
+b(update)f(is)i(in)437 4432 y(the)h(form)e(of)i(a)g Fh(ClassAd)p
+Fj(,)h(a)f(data)f(structure)g(consisting)g(of)h(a)g(set)h(of)e(attrib)n
+(utes)h(describing)437 4531 y(a)f(speci\002c)f(entity)g(in)g(the)h
+(system.)28 b(Each)21 b(ClassAd)h(can)f(optionally)f(specify)g
+(requirements)437 4631 y(and)c(preferences)f(on)h(the)g(entities)h(it)h
+(is)f(looking)e(for)m(,)h(much)g(lik)o(e)h(classi\002ed)g(adv)o
+(ertisements)437 4731 y(in)24 b(a)h(ne)n(wspaper)-5 b(.)36
+b(Man)o(y)23 b(tools)h(and)g(daemons)f(perform)f(queries)h(against)h
+(the)g Fg(collec-)437 4830 y(tor)h Fj(to)f(acquire)g(information)e
+(about)h(other)h(parts)g(of)h(the)f(system.)38 b(The)24
+b(machine)g(where)437 4930 y(the)c Fg(collector)f Fj(runs)h(is)h
+(referred)e(to)h(as)h(the)f Fh(centr)o(al)g(mana)o(g)o(er)p
+Fj(.)602 5032 y(The)30 b(central)g(manager)f(also)i(runs)f(a)h(daemon)e
+(called)h(the)g Fg(negotiator)p Fj(,)i(which)p eop
+%%Page: 4 4
+4 3 bop 437 626 a Fj(periodically)25 b(performs)g(a)i
+Fh(ne)m(gotiation)d(cycle)p Fj(.)45 b(This)26 b(c)o(ycle)h(is)g(a)g
+(process)g(of)f Fh(matc)o(hmak-)437 726 y(ing)p Fj(,)d(where)f(the)i
+Fg(negotiator)d Fj(tries)j(to)f(\002nd)g(matches)f(between)g(v)n
+(arious)g(ClassAds,)j(in)437 826 y(particular)m(,)f(resource)g
+(requests)h(and)f(resource)g(of)n(fers[6)n(].)40 b(Once)24
+b(a)i(match)f(is)h(made,)f(both)437 925 y(parties)20
+b(are)g(noti\002ed)g(and)f(are)h(responsible)f(for)h(acting)g(on)f
+(that)i(match.)602 1048 y(Computational)e(resources)h(within)h(the)f
+(pool)g(are)h(managed)e(and)h(represented)f(to)i(the)437
+1148 y(system)g(by)f(a)h(daemon)f(called)g(the)h Fg(startd)p
+Fj(.)26 b(This)21 b(daemon)e(monitors)g(the)i(conditions)e(of)437
+1247 y(the)g(resource)e(where)i(it)g(runs,)g(publishes)f(resource)f(of)
+n(fer)h(ClassAds,)i(and)e(it)i(is)f(responsible)437 1347
+y(for)29 b(enforcing)e(the)j(resource)e(o)n(wner')-5
+b(s)29 b(polic)o(y)f(for)h(starting,)i(suspending,)f(and)f(e)n(victing)
+437 1447 y(jobs.)24 b(The)18 b(polic)o(y)f(is)i(de\002ned)e(by)g(a)i
+(set)g(of)e(boolean)g(e)o(xpressions)f(gi)n(v)o(en)h(in)h(a)h
+(con\002guration)437 1546 y(\002le)27 b(that)f(control)g(the)g
+(transitions)g(between)f(the)i(possible)f(states)h(the)g(resource)e
+(could)g(be)437 1646 y(in)e(\(idle,)g(running)e(a)i(job,)g(suspending)e
+(the)i(job,)f(gracefully)f(e)n(victing)h(the)h(job,)g(killing)f(the)437
+1746 y(job,)c(and)g(so)g(on\).)24 b(Resource)18 b(o)n(wners)f(can)h
+(specify)g(requirements)e(for)i(which)g(users)g(or)g(jobs)437
+1845 y(the)24 b(resource)e(is)j(willing)e(to)h(serv)o(e.)34
+b(Owners)24 b(can)f(also)h(specify)f(a)h(rank)f(\(in)g(an)h
+(arbitrarily)437 1945 y(comple)o(x)29 b(order\))h(for)h(which)f(users)i
+(or)f(jobs)g(a)g(resource)f(most)i(prefers)e(to)h(serv)o(e.)58
+b(An)o(y)437 2044 y(machine)23 b(running)g(a)i Fg(startd)f
+Fj(can)g(be)h(referred)d(to)j(as)g(an)g Fh(e)n(xecute)f(mac)o(hine)p
+Fj(,)g(since)h(it)g(is)437 2144 y(able)20 b(to)g(e)o(x)o(ecute)f
+(Condor)g(jobs.)602 2267 y(A)i(user')-5 b(s)20 b(job)f(is)i
+(represented)d(in)i(the)g(Condor)f(system)h(by)f(a)h(ClassAd.)26
+b(Users)20 b(submit)437 2367 y(their)e(jobs)g(to)g(a)g(daemon)f(called)
+h(the)g Fg(schedd)p Fj(.)23 b(This)18 b(daemon)f(maintains)g(a)i
+(persistent)e(job)437 2466 y(queue,)e(publishes)g(resource)f(request)h
+(ClassAds,)i(and)e(ne)o(gotiates)f(for)h(a)n(v)n(ailable)g(resources.)
+437 2566 y(After)j(it)i(recei)n(v)o(es)d(a)i(match)f(for)g(a)h(gi)n(v)o
+(en)e(job,)i(the)f Fg(schedd)g Fj(enters)h(into)f(a)h(claiming)f
+(proto-)437 2666 y(col)e(directly)g(with)g(the)g Fg(startd)p
+Fj(.)23 b(Through)14 b(this)j(protocol,)e(the)h Fg(schedd)f
+Fj(presents)h(the)g(job)437 2765 y(ClassAd)25 b(to)e(the)h
+Fg(startd)f Fj(and)g(requests)h(temporary)d(control)h(o)o(v)o(er)h(the)
+g(resource.)34 b(Once)437 2865 y(it)21 b(has)g(claimed)e(a)i(gi)n(v)o
+(en)e(resource,)g(the)h Fg(schedd)g Fj(performs)f(its)i(o)n(wn)f(local)
+g(scheduling)f(to)437 2964 y(decide)j(what)h(jobs)f(to)h(run.)32
+b(An)o(y)22 b(machine)g(running)f(a)i Fg(schedd)f Fj(can)h(be)f
+(referred)f(to)i(as)h(a)437 3064 y Fh(submit)c(mac)o(hine)p
+Fj(,)f(since)h(users)g(are)h(able)f(to)g(submit)g(Condor)f(jobs)h(from)
+f(that)h(host.)437 3228 y
+ 21443817 12651847 0 0 28943974 17366384 startTexFig
+ 437 3228 a
+%%BeginDocument: pool-idle.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: pool-idle.fig
+%%Creator: /s/transfig-3.2.1/exe/fig2dev Version 3.2 Patchlevel 1
+%%CreationDate: Sat May 12 04:50:07 2001
+%%For: wright@pinguino.cs.wisc.edu (Derek Wright)
+%%Orientation: Portrait
+%%BoundingBox: 0 0 440 264
+%%Pages: 0
+%%BeginSetup
+%%EndSetup
+%%Magnification: 1.0000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+-1.0 318.0 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y tr xrad yrad sc 0 0 1 startangle endangle arc
+	closepath
+	savematrix setmatrix
+	} def
+
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+%%EndProlog
+
+$F2psBegin
+10 setmiterlimit
+n -1000 6294 m -1000 -1000 l 8349 -1000 l 8349 6294 l cp clip
+ 0.06000 0.06000 sc
+7.500 slw
+% Ellipse
+n 3075 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+2775 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 3075 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+2775 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Polyline
+n 2505 3600 m 2400 3600 2400 4920 105 arcto 4 {pop} repeat
+  2400 5025 3645 5025 105 arcto 4 {pop} repeat
+  3750 5025 3750 3705 105 arcto 4 {pop} repeat
+  3750 3600 2505 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 2400 3900 m 3750 3900 l gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+2625 3825 m
+gs 1 -1 sc (Machine 2) col-1 sh gr
+% Ellipse
+n 975 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+675 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 975 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+675 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Polyline
+n 405 3600 m 300 3600 300 4920 105 arcto 4 {pop} repeat
+  300 5025 1545 5025 105 arcto 4 {pop} repeat
+  1650 5025 1650 3705 105 arcto 4 {pop} repeat
+  1650 3600 405 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 300 3900 m 1650 3900 l gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+525 3825 m
+gs 1 -1 sc (Machine 1) col-1 sh gr
+% Ellipse
+n 6375 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+6075 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 6375 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+6075 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Polyline
+n 5700 3900 m 7050 3900 l gs col-1 s gr 
+% Polyline
+n 5805 3600 m 5700 3600 5700 4920 105 arcto 4 {pop} repeat
+  5700 5025 6945 5025 105 arcto 4 {pop} repeat
+  7050 5025 7050 3705 105 arcto 4 {pop} repeat
+  7050 3600 5805 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+5925 3825 m
+gs 1 -1 sc (Machine N) col-1 sh gr
+% Ellipse
+n 4425 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 4725 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 5025 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 4425 1800 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+4125 1875 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 4425 2250 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+4125 2325 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Arc
+gs  clippath
+3400 2412 m 3300 2400 l 3389 2353 l 3280 2373 l 3291 2432 l cp
+clip
+n 3254.6 1742.8 658.8 11.6 86.0 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3400 2412 m 3300 2400 l 3389 2353 l 3418 2378 l 3400 2412 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2251 1944 m 2325 1875 l 2304 1973 l 2358 1877 l 2306 1847 l cp
+clip
+n 2437.5 2025.0 187.5 126.9 -126.9 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2251 1944 m 2325 1875 l 2304 1973 l 2266 1979 l 2251 1944 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2362 2418 m 2400 2325 l 2422 2423 l 2431 2312 l 2371 2308 l cp
+clip
+n -494.1 2170.6 2898.2 44.4 3.1 arcn
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2362 2418 m 2400 2325 l 2422 2423 l 2390 2445 l 2362 2418 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs n 509.6 3491.9 1519.3 45.5 4.1 arcn
+gs col-1 s gr
+ gr
+
+% Arc
+gs  clippath
+2557 2474 m 2625 2400 l 2612 2500 l 2659 2399 l 2604 2374 l cp
+clip
+n 4469.3 3344.3 2072.0 157.9 -152.9 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2557 2474 m 2625 2400 l 2612 2500 l 2575 2509 l 2557 2474 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2964 2493 m 2925 2400 l 3010 2454 l 2938 2369 l 2892 2408 l cp
+clip
+n 7050.0 -975.0 5329.8 103.8 140.7 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2964 2493 m 2925 2400 l 3010 2454 l 3002 2492 l 2964 2493 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs n 356.2 10237.5 7783.5 -45.9 -54.5 arcn
+gs col-1 s gr
+ gr
+
+% Arc
+gs n 3675.0 3825.0 1352.1 146.3 -160.6 arc
+gs col-1 s gr
+ gr
+
+% Arc
+gs  clippath
+3124 2413 m 3075 2325 l 3165 2369 l 3085 2293 l 3043 2337 l cp
+clip
+n 3600.0 1875.0 691.5 49.4 139.4 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3124 2413 m 3075 2325 l 3165 2369 l 3162 2407 l 3124 2413 l  cp gs 0.00 setgray ef gr  col-1 s
+% Ellipse
+n 2850 1800 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Ellipse
+n 2850 2250 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Polyline
+n 2280 1125 m 2175 1125 2175 2520 105 arcto 4 {pop} repeat
+  2175 2625 5070 2625 105 arcto 4 {pop} repeat
+  5175 2625 5175 1230 105 arcto 4 {pop} repeat
+  5175 1125 2280 1125 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 2175 1425 m 5175 1425 l gs col-1 s gr 
+% Polyline
+45.000 slw
+n 75 960 m 7305 960 l 7305 5250 l 75 5250 l cp gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+2925 1350 m
+gs 1 -1 sc (Central Manager ) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2475 1875 m
+gs 1 -1 sc (Negotiator) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2475 2325 m
+gs 1 -1 sc (Collector) col-1 sh gr
+$F2psEnd
+rs
+
+%%EndDocument
+
+ endTexFig
+ 776 5014 a Fj(Figure)f(1:)26 b(Architecture)18 b(of)i(a)h(Condor)e
+(pool)g(with)h(no)g(jobs)g(running)p eop
+%%Page: 5 5
+5 4 bop 602 626 a Fj(Se)n(v)o(eral)17 b(things)g(can)g(break)f(a)h
+(claim)h(and)e(either)h(create)g(a)h(ne)n(w)f(claim)g(with)g(a)h(dif)n
+(ferent)437 726 y Fg(schedd)p Fj(,)h(or)h(gi)n(v)o(e)g(the)g(resource)f
+(back)g(to)i(the)f(control)f(of)h(the)g Fg(startd)p Fj(:)541
+918 y(1.)41 b(The)16 b(resource)f(o)n(wner)h(can)g(start)h(using)f(the)
+h(resource)e(again)h(\(outside)g(of)g(the)g(Condor)645
+1018 y(system\).)51 b(By)30 b(def)o(ault,)g(Condor)e(is)i(con\002gured)
+d(to)i(e)n(vict)g(an)o(y)g(currently)e(running)645 1117
+y(jobs)18 b(and)h(release)g(an)o(y)f(claims.)25 b(This)19
+b(situation)f(is)i(referred)d(to)i(as)h(either)e Fh(e)o(viction)g
+Fj(or)645 1217 y Fh(owner)i(pr)m(eemption)p Fj(.)541
+1393 y(2.)41 b(A)21 b(user)f(with)h(a)h(higher)d(priority)g(\(based)h
+(on)h(resource)e(usage\))h(can)h Fh(pr)m(eempt)f Fj(the)h(e)o(x-)645
+1492 y(isting)e(job)m(.)k(Once)c(the)g(e)o(xisting)f(job)h(has)g(been)f
+(e)n(victed,)g(the)h Fg(schedd)f Fj(representing)645
+1592 y(the)29 b(ne)n(w)g(user)f(will)i(claim)f(the)h(resource)d(for)i
+(itself.)52 b(This)29 b(process)g(is)h(kno)n(wn)d(as)645
+1692 y Fh(priority)20 b(pr)m(eemption)p Fj(.)541 1867
+y(3.)41 b(A)21 b(user)f(or)h(job)f(that)h(is)h(rank)o(ed)d(higher)h(by)
+g(the)h(resource)e(can)i(enter)f(the)h(system)g(and)645
+1967 y(request)28 b(access)i(to)g(the)g(resource.)51
+b(The)29 b Fg(startd)g Fj(will)i(release)e(the)h(claim)f(from)645
+2066 y(the)f(lo)n(wer)n(-rank)o(ed)d(entity)-5 b(,)29
+b(and)e(grant)g(a)i(claim)f(to)g(the)g(higher)n(-rank)o(ed)c(one.)48
+b(This)645 2166 y(process)19 b(is)i(referred)e(to)h(as)h
+Fh(r)o(ank)f(pr)m(eemption)p Fj(.)541 2342 y(4.)41 b(The)33
+b Fg(schedd)f Fj(can)i(decide)e(it)i(no)f(longer)f(needs)h(the)h
+(resource)e(and)h(release)g(its)645 2441 y(claim.)602
+2633 y(T)-7 b(o)21 b(handle)e(the)h(lo)n(w-le)n(v)o(el)f(details)i(of)f
+(starting)f(an)i(application)d(on)i(a)h(gi)n(v)o(en)e(resource,)437
+2733 y(the)c Fg(schedd)g Fj(spa)o(wns)g(a)g Fg(shadow)g
+Fj(process.)23 b(T)-7 b(o)15 b(e)o(x)o(ecute)f(an)h(application)f
+(under)g(a)h Fg(startd)p Fj(,)437 2833 y(the)23 b Fg(shadow)g
+Fj(contacts)g(the)g Fg(startd)g Fj(and)f(requests)h(that)g(a)h
+Fg(starter)f Fj(process)f(be)i(cre-)437 2932 y(ated.)29
+b(The)21 b Fg(starter)g Fj(and)g Fg(shadow)g Fj(communicate)e(with)j
+(each)f(other)g(to)h(handle)e(all)i(the)437 3032 y
+(application-speci\002c)17 b(needs)i(for)g(staging)g(input)f(\002les,)i
+(starting)f(jobs,)h(mo)o(ving)d(output)h(\002les)437
+3132 y(when)g(the)h(jobs)g(complete,)f(and)g(reporting)e(the)j(e)o(xit)
+g(status)g(of)g(the)g(application)e(back)h(to)h(the)437
+3231 y Fg(schedd)p Fj(.)602 3333 y(The)c Fg(shadow)g
+Fj(also)g(enables)g Fh(r)m(emote)g(system)i(calls)e Fj(for)g(certain)f
+(opportunistic)f(jobs[5)o(].)437 3433 y(System)24 b(calls)h(performed)d
+(by)h(the)i(job)e(are)i(trapped)d(by)i(a)h(Condor)d(library)-5
+b(,)24 b(sent)g(o)o(v)o(er)f(the)437 3532 y(netw)o(ork)f(to)i(the)f
+Fg(shadow)p Fj(,)h(e)o(x)o(ecuted)e(locally)h(on)g(the)g(submit)g
+(machine,)g(and)g(the)h(results)437 3632 y(are)i(shipped)e(back)h(o)o
+(v)o(er)g(the)h(netw)o(ork)e(to)i(the)g(job)m(.)41 b(This)26
+b(allo)n(ws)g(remote)f(access)h(to)g(\002les)437 3732
+y(that)17 b(e)o(xist)g(only)g(on)f(the)h(local)g(\002le)h(system)f(of)g
+(the)g(submit)g(machine.)22 b(In)17 b(addition)f(to)h(remote)437
+3831 y(system)25 b(calls,)i(Condor)d(pro)o(vides)g(mechanisms)g(to)h
+(transfer)g(data)g(\002les)h(from)e(the)h(submit)437
+3931 y(machine)d(to)i(an)f(arbitrary)f(e)o(x)o(ecute)g(machine.)33
+b(This)23 b(allo)n(ws)h(an)o(y)f(job)g(to)g(stage)h(input)e(data)437
+4031 y(and)j(retrie)n(v)o(e)f(its)j(output)d(without)h(relying)g(upon)f
+(a)i(shared)f(\002le)h(system)g(or)f(relinking)f(the)437
+4130 y(application)19 b(with)h(Condor')-5 b(s)19 b(library)-5
+b(.)602 4232 y(The)17 b(v)n(arious)f(daemons)f(\()p Fg(schedd)p
+Fj(,)i Fg(startd)p Fj(,)g Fg(collector)e Fj(and)i Fg(negotiator)p
+Fj(\))437 4332 y(that)26 b(pro)o(vide)e(dif)n(ferent)h(services)h(in)g
+(the)g(Condor)f(system)h(are)g(completely)f(independent)437
+4431 y(from)c(each)g(other)-5 b(.)29 b(A)22 b(gi)n(v)o(en)f(machine)f
+(in)i(a)g(Condor)e(pool)h(can)h(run)f(an)o(y)f(number)g(of)i(them,)437
+4531 y(depending)d(on)j(what)g(services)g(are)g(needed)f(on)g(that)h
+(machine.)30 b(The)21 b(only)g(requirement)f(is)437 4631
+y(that,)k(by)f(de\002nition,)g(only)g(one)g Fg(collector)f
+Fj(and)h Fg(negotiator)f Fj(can)h(run)g(in)g(a)h(single)437
+4730 y(pool.)602 4832 y(In)i(addition)f(to)h(the)g(daemons)e(described)
+h(abo)o(v)o(e,)g(all)i(machines)e(in)h(a)g(Condor)f(pool)437
+4932 y(run)c(the)h Fg(master)f Fj(daemon,)g(which)g(spa)o(wns)g(an)o(y)
+g(other)g(Condor)g(daemons)f(a)j(machine)d(is)437 5032
+y(con\002gured)c(to)i(run,)f(and)h(acts)g(as)h(a)f(serv)o(er)f(for)h(a)
+g(number)e(of)i(remote)f(administration)f(tools.)p eop
+%%Page: 6 6
+6 5 bop 437 543 a
+ 21443817 16082857 0 0 30654300 23155179 startTexFig
+ 437 543 a
+%%BeginDocument: pool-busy.eps
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: pool-busy.fig
+%%Creator: /s/transfig-3.2.1/exe/fig2dev Version 3.2 Patchlevel 1
+%%CreationDate: Sat May 12 04:50:07 2001
+%%For: wright@pinguino.cs.wisc.edu (Derek Wright)
+%%Orientation: Portrait
+%%BoundingBox: 0 0 466 352
+%%Pages: 0
+%%BeginSetup
+%%EndSetup
+%%Magnification: 1.0000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+3.0 398.0 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y tr xrad yrad sc 0 0 1 startangle endangle arc
+	closepath
+	savematrix setmatrix
+	} def
+
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+%%EndProlog
+
+$F2psBegin
+10 setmiterlimit
+n -1000 7629 m -1000 -1000 l 8709 -1000 l 8709 7629 l cp clip
+ 0.06000 0.06000 sc
+7.500 slw
+% Ellipse
+n 975 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+675 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 975 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+675 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Polyline
+n 405 3600 m 300 3600 300 4920 105 arcto 4 {pop} repeat
+  300 5025 1545 5025 105 arcto 4 {pop} repeat
+  1650 5025 1650 3705 105 arcto 4 {pop} repeat
+  1650 3600 405 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 300 3900 m 1650 3900 l gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+525 3825 m
+gs 1 -1 sc (Machine 1) col-1 sh gr
+% Ellipse
+n 4425 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 4725 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 5025 4350 75 75 0 360 DrawEllipse gs 0.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 4425 1800 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+4125 1875 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 4425 2250 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+4125 2325 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Ellipse
+n 6375 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+6075 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 6375 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+6075 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Ellipse
+n 3075 4200 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+2775 4275 m
+gs 1 -1 sc (Startd) col-1 sh gr
+% Ellipse
+n 3075 4650 600 150 0 360 DrawEllipse gs col-1 s gr
+
+/Helvetica ff 180.00 scf sf
+2775 4725 m
+gs 1 -1 sc (Schedd) col-1 sh gr
+% Arc
+gs  clippath
+3124 2413 m 3075 2325 l 3165 2369 l 3085 2293 l 3043 2337 l cp
+clip
+n 3600.0 1875.0 691.5 49.4 139.4 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3124 2413 m 3075 2325 l 3165 2369 l 3162 2407 l 3124 2413 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+3400 2412 m 3300 2400 l 3389 2353 l 3280 2373 l 3291 2432 l cp
+clip
+n 3254.6 1742.8 658.8 11.6 86.0 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3400 2412 m 3300 2400 l 3389 2353 l 3418 2378 l 3400 2412 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2251 1944 m 2325 1875 l 2304 1973 l 2358 1877 l 2306 1847 l cp
+clip
+n 2437.5 2025.0 187.5 126.9 -126.9 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2251 1944 m 2325 1875 l 2304 1973 l 2266 1979 l 2251 1944 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2362 2418 m 2400 2325 l 2422 2423 l 2431 2312 l 2371 2308 l cp
+clip
+n -494.1 2170.6 2898.2 44.4 3.1 arcn
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2362 2418 m 2400 2325 l 2422 2423 l 2390 2445 l 2362 2418 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs n 509.6 3491.9 1519.3 45.5 4.1 arcn
+gs col-1 s gr
+ gr
+
+% Arc
+gs  clippath
+2557 2474 m 2625 2400 l 2612 2500 l 2659 2399 l 2604 2374 l cp
+clip
+n 4469.3 3344.3 2072.0 157.9 -152.9 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2557 2474 m 2625 2400 l 2612 2500 l 2575 2509 l 2557 2474 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+2964 2493 m 2925 2400 l 3010 2454 l 2938 2369 l 2892 2408 l cp
+clip
+n 7050.0 -975.0 5329.8 103.8 140.7 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 2964 2493 m 2925 2400 l 3010 2454 l 3002 2492 l 2964 2493 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs n 356.2 10237.5 7783.5 -45.9 -54.5 arcn
+gs col-1 s gr
+ gr
+
+% Arc
+gs  clippath
+5678 5522 m 5775 5550 l 5680 5582 l 5791 5580 l 5789 5520 l cp
+3749 5168 m 3675 5100 l 3775 5114 l 3674 5066 l 3649 5121 l cp
+clip
+n 5625.0 1125.0 4427.5 116.1 88.1 arcn
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 5678 5522 m 5775 5550 l 5680 5582 l 5655 5552 l 5678 5522 l  cp gs 0.00 setgray ef gr  col-1 s
+% arrowhead
+n 3749 5168 m 3675 5100 l 3775 5114 l 3784 5151 l 3749 5168 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+3776 5025 m 3675 5025 l 3758 4968 l 3652 5001 l 3669 5058 l cp
+5696 5037 m 5775 5100 l 5675 5093 l 5778 5133 l 5800 5077 l cp
+clip
+n 4625.2 7857.6 2987.7 -67.4 -108.5 arcn
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3776 5025 m 3675 5025 l 3758 4968 l 3790 4990 l 3776 5025 l  cp gs 0.00 setgray ef gr  col-1 s
+% arrowhead
+n 5696 5037 m 5775 5100 l 5675 5093 l 5663 5057 l 5696 5037 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+3674 4956 m 3600 5025 l 3621 4927 l 3567 5023 l 3619 5053 l cp
+clip
+ [60] 0 sd
+n 3487.5 4875.0 187.5 -53.1 53.1 arc
+gs col-1 s gr
+ gr
+ [] 0 sd
+% arrowhead
+n 3674 4956 m 3600 5025 l 3621 4927 l 3659 4921 l 3674 4956 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+6977 4960 m 6900 5025 l 6927 4928 l 6867 5021 l 6917 5054 l cp
+clip
+ [60] 0 sd
+n 6362.5 4592.5 689.9 -27.4 38.8 arc
+gs col-1 s gr
+ gr
+ [] 0 sd
+% arrowhead
+n 6977 4960 m 6900 5025 l 6927 4928 l 6965 4924 l 6977 4960 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+6974 5406 m 6900 5475 l 6921 5377 l 6867 5473 l 6919 5503 l cp
+clip
+ [60] 0 sd
+n 6787.5 5325.0 187.5 -53.1 53.1 arc
+gs col-1 s gr
+ gr
+ [] 0 sd
+% arrowhead
+n 6974 5406 m 6900 5475 l 6921 5377 l 6959 5371 l 6974 5406 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+5913 3950 m 5925 4050 l 5858 3975 l 5904 4076 l 5959 4051 l cp
+clip
+n 2449.7 5542.2 3782.1 -75.8 -23.2 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 5913 3950 m 5925 4050 l 5858 3975 l 5876 3941 l 5913 3950 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs  clippath
+3753 4511 m 3675 4575 l 3703 4478 l 3642 4571 l 3692 4604 l cp
+clip
+n 2011.7 3393.1 2040.4 -48.1 35.4 arc
+gs col-1 s gr
+ gr
+
+% arrowhead
+n 3753 4511 m 3675 4575 l 3703 4478 l 3741 4475 l 3753 4511 l  cp gs 0.00 setgray ef gr  col-1 s
+% Arc
+gs n 3675.0 3825.0 1352.1 146.3 -160.6 arc
+gs col-1 s gr
+ gr
+
+% Ellipse
+n 3075 5100 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Ellipse
+n 2850 1800 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Ellipse
+n 2850 2250 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Ellipse
+n 6375 5550 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Ellipse
+n 6375 5100 600 150 0 360 DrawEllipse gs col-1 s gr
+
+% Polyline
+n 2280 1125 m 2175 1125 2175 2520 105 arcto 4 {pop} repeat
+  2175 2625 5070 2625 105 arcto 4 {pop} repeat
+  5175 2625 5175 1230 105 arcto 4 {pop} repeat
+  5175 1125 2280 1125 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 2175 1425 m 5175 1425 l gs col-1 s gr 
+% Polyline
+n 2400 3900 m 3750 3900 l gs col-1 s gr 
+% Polyline
+n 2505 3600 m 2400 3600 2400 5295 105 arcto 4 {pop} repeat
+  2400 5400 3645 5400 105 arcto 4 {pop} repeat
+  3750 5400 3750 3705 105 arcto 4 {pop} repeat
+  3750 3600 2505 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 5805 3600 m 5700 3600 5700 5745 105 arcto 4 {pop} repeat
+  5700 5850 7020 5850 105 arcto 4 {pop} repeat
+  7125 5850 7125 3705 105 arcto 4 {pop} repeat
+  7125 3600 5805 3600 105 arcto 4 {pop} repeat
+ cp gs col-1 s gr 
+% Polyline
+n 5700 3900 m 7125 3900 l gs col-1 s gr 
+% Polyline
+n 450 5700 m 3750 5700 l 3750 6375 l 450 6375 l cp gs col-1 s gr 
+% Polyline
+ [60] 0 sd
+gs  clippath
+1104 6120 m 1200 6150 l 1104 6180 l 1215 6180 l 1215 6120 l cp
+clip
+n 600 6150 m 1200 6150 l gs col-1 s gr gr
+ [] 0 sd
+% arrowhead
+n 1104 6120 m 1200 6150 l 1104 6180 l 1080 6150 l 1104 6120 l  cp gs 0.00 setgray ef gr  col-1 s
+% Polyline
+gs  clippath
+1104 5820 m 1200 5850 l 1104 5880 l 1215 5880 l 1215 5820 l cp
+clip
+n 600 5850 m 1200 5850 l gs col-1 s gr gr
+
+% arrowhead
+n 1104 5820 m 1200 5850 l 1104 5880 l 1080 5850 l 1104 5820 l  cp gs 0.00 setgray ef gr  col-1 s
+% Polyline
+45.000 slw
+n 0 825 m 7665 825 l 7665 6585 l 0 6585 l cp gs col-1 s gr 
+/Helvetica ff 180.00 scf sf
+2925 1350 m
+gs 1 -1 sc (Central Manager ) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2475 1875 m
+gs 1 -1 sc (Negotiator) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2475 2325 m
+gs 1 -1 sc (Collector) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2625 3825 m
+gs 1 -1 sc (Machine 2) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+5925 3825 m
+gs 1 -1 sc (Machine N) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+2775 5175 m
+gs 1 -1 sc (Shadow) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+6075 5175 m
+gs 1 -1 sc (Starter) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+6075 5625 m
+gs 1 -1 sc (User Job) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+1275 6225 m
+gs 1 -1 sc (= Process created by fork\(\)) col-1 sh gr
+/Helvetica ff 180.00 scf sf
+1275 5925 m
+gs 1 -1 sc (= Communication pathway) col-1 sh gr
+$F2psEnd
+rs
+
+%%EndDocument
+
+ endTexFig
+ 815 2763 a Fj(Figure)20 b(2:)25 b(Architecture)19 b(of)h(a)g(Condor)f
+(pool)g(with)i(a)f(job)g(running)437 3043 y Fk(3)25 b(Condor')l(s)g
+(dedicated)i(scheduling)437 3210 y Fj(The)f(introduction)e(of)i
+(dedicated)e(resources)i(and)f(dedicated)g(scheduling)g(to)h(the)g
+(Condor)437 3309 y(system)c(created)g(a)g(fe)n(w)g(minor)f(changes)g
+(to)i(the)f(system)g(architecture.)29 b(A)23 b(ne)n(w)f(v)o(ersion)e
+(of)437 3409 y(the)k Fg(schedd)g Fj(contains)g(the)g(special)h
+(dedicated)e(scheduling)f(logic.)37 b(This)25 b Fg(schedd)f
+Fj(also)437 3508 y(performs)17 b(all)j(of)e(the)h(e)o(xisting)f
+(opportunistic)f(scheduling)g(services.)25 b(F)o(or)18
+b(e)o(xample)g(a)h(lar)o(ge)437 3608 y(Beo)n(wulf)26
+b(cluster)h(with)h(a)f(single)g(front-end)d(node)i(can)h(run)f(the)h
+(dedicated)f Fg(schedd)h Fj(on)437 3708 y(that)20 b(node)f(and)h(the)g
+Fg(schedd)g Fj(w)o(ould)f(handle)g(both)h(dedicated)f(and)g
+(opportunistic)f(jobs.)602 3813 y(Only)27 b(MPI)h(jobs)g(require)e
+(dedicated)g(scheduling)g(in)i(Condor)m(,)f(since)h(the)f(PVM)h(in-)437
+3913 y(terf)o(ace)23 b(can)h(handle)e(dynamic)h(resource)f(management,)
+g(with)i(nodes)f(coming)f(and)h(going)437 4013 y(from)16
+b(a)i(PVM)g(application[7)n(].)24 b(T)-7 b(o)17 b(support)g(MPI)g
+(applications,)g(modi\002ed)f(v)o(ersions)h(of)g(the)437
+4112 y Fg(shadow)23 b Fj(and)f Fg(starter)h Fj(were)g(needed.)32
+b(Because)24 b(of)f(Condor')-5 b(s)22 b(layered)g(architecture,)437
+4212 y(these)i(were)f(the)h(only)f(places)g(in)h(Condor)e(that)i(had)f
+(to)g(be)h(modi\002ed)e(to)i(support)e(this)i(ne)n(w)437
+4312 y(kind)19 b(of)h(application.)437 4466 y Fi(3.1)g(Con\002guring)f
+(a)i(Condor)f(pool)g(f)n(or)f(dedicated)h(scheduling)437
+4633 y Fj(T)-7 b(o)22 b(support)f(dedicated)f(jobs,)j(a)f(Condor)f
+(administrator)f(con\002gures)g(certain)i(resources)f(in)437
+4733 y(the)j(pool)f(to)h(be)g(controlled)e(by)h(the)h(dedicated)f
+(scheduler)-5 b(.)35 b(In)24 b(general,)f(there)g(is)i(no)f(limit)437
+4832 y(on)18 b(the)h(number)d(of)j(dedicated)e(schedulers)g(in)i(a)g
+(Condor)e(pool.)24 b(Ho)n(we)n(v)o(er)m(,)16 b(each)i(dedicated)437
+4932 y(resource)d(may)g(only)g(be)h(managed)e(by)i(a)g(single)g
+(dedicated)e(scheduler)-5 b(.)23 b(Therefore,)14 b(running)437
+5032 y(multiple)24 b(dedicated)f(schedulers)h(in)h(a)g(single)f(pool)g
+(results)h(in)g(greater)e(fragmentation)f(of)p eop
+%%Page: 7 7
+7 6 bop 437 626 a Fj(dedicated)23 b(resources.)35 b(This)25
+b(can)f(create)f(a)i(situation)f(where)f(jobs)h(will)h(not)f(run,)g
+(because)437 726 y(the)k(jobs)g(can)g(not)f(get)h(needed)f(resources.)
+47 b(There)28 b(is)g(little)h(bene\002t)f(to)g(ha)n(ving)f(multiple)437
+826 y(dedicated)19 b(schedulers,)g(particularly)f(at)j(the)f(cost)h(of)
+f(arti\002cial)g(resource)f(fragmentation.)602 929 y(T)-7
+b(o)17 b(con\002gure)d(a)j(dedicated)e(resource)g(under)f(a)j(gi)n(v)o
+(en)e(scheduler)m(,)g(the)h(resource)f(o)n(wner)437 1028
+y(or)21 b(administrator)e(sets)j(a)f(fe)n(w)g(lines)g(in)g(the)g
+Fg(startd)p Fj(')-5 b(s)21 b(con\002guration)d(\002le.)28
+b(The)20 b(resource)437 1128 y(adv)o(ertises)27 b(a)h(special)g(attrib)
+n(ute)g(in)g(its)h(ClassAd)f(that)g(says)h(which)e(dedicated)f
+(scheduler)437 1228 y(it)k(is)h(willing)e(to)h(be)f(managed)f(by)-5
+b(.)52 b(The)29 b(resource')-5 b(s)29 b(polic)o(y)f(for)h(starting)h
+(and)f(stopping)437 1327 y(jobs)j(must)h(also)g(be)f(modi\002ed)f(to)i
+(al)o(w)o(ays)g(allo)n(w)f(jobs)g(from)g(the)g(dedicated)f(scheduler)
+437 1427 y(to)26 b(start,)i(re)o(gardless)d(of)h(machine)f(state,)j
+(and)d(to)i(ne)n(v)o(er)d(e)n(vict)i(dedicated)f(jobs)h(once)g(the)o(y)
+437 1527 y(be)o(gin.)34 b(Finally)-5 b(,)23 b(the)h(resource)e(must)i
+(be)g(con\002gured)d(to)i(prefer)g(jobs)g(from)g(the)g(dedicated)437
+1626 y(scheduler)17 b(o)o(v)o(er)g(all)h(other)g(jobs.)24
+b(A)19 b(dedicated)e(resource)f(in)j(Condor)e(is)i(simply)e
+(con\002gured)437 1726 y(so)g(that)g(the)f(dedicated)f(scheduler)h(of)g
+(its)h(choice)f(has)h(the)g(highest)f(rank.)22 b(Condor')-5
+b(s)16 b(e)o(xisting)437 1825 y(opportunistic)26 b(scheduler)g
+(\(matchmak)o(er\))f(guarantees)i(that)h(if)g(the)g(dedicated)e
+(scheduler)437 1925 y(w)o(ants)e(to)g(claim)f(the)h(resource,)f(it)h
+(will)g(al)o(w)o(ays)g(be)g(allo)n(wed)e(to)i(do)f(so,)i(re)o(gardless)
+d(of)h(an)o(y)437 2025 y(other)e(conditions.)28 b(Once)21
+b(the)h(resource)e(has)i(been)f(claimed)h(by)f(the)h(dedicated)e
+(scheduler)m(,)437 2124 y(the)g(opportunistic)e(scheduler)h(ensures)h
+(that)g(no)g(other)f(jobs)h(can)g(preempt)f(it.)602 2227
+y(It)i(is)h(w)o(orth)e(noting)f(that)i(Condor)e(puts)i(no)f(other)g
+(requirements)f(on)h(a)h(resource)e(for)h(it)437 2327
+y(to)26 b(be)g(considered)e(dedicated.)40 b(If)25 b(the)h(o)n(wners)f
+(of)h(desk-top)e(w)o(orkstations)h(were)g(willing)437
+2427 y(to)30 b(allo)n(w)f(their)g(machines)g(to)h(be)f(con\002gured)e
+(in)j(this)g(w)o(ay)-5 b(,)31 b(those)e(w)o(orkstations)g(w)o(ould)437
+2526 y(be)e(dedicated)e(resources)h(in)h(Condor)m(,)g(and)f(w)o(ould)g
+(beha)n(v)o(e)g(e)o(xactly)g(lik)o(e)h(the)g(nodes)f(in)h(a)437
+2626 y(Beo)n(wulf)20 b(cluster)-5 b(.)602 2729 y(T)e(o)17
+b(aid)g(in)f(the)h(de\002nition)e(of)i(the)f(polic)o(y)g(e)o
+(xpressions,)f(the)i(dedicated)e(scheduler)g(adds)437
+2829 y(an)24 b(attrib)n(ute)g(to)g(all)g(resource)f(request)g(ClassAds)
+j(it)e(generates,)g(the)g(Scheduler)f(attrib)n(ute.)437
+2928 y(This)e(attrib)n(ute)f(identi\002es)g(each)g(ClassAd)h(as)g(a)g
+(request)f(of)g(a)h(particular)e(dedicated)g(sched-)437
+3028 y(uler)-5 b(.)27 b(The)21 b(o)n(wners)f(of)g(the)h(resources)f
+(can)h(easily)g(de\002ne)f(separate)g(policies)h(for)f(dedicated)437
+3128 y(and)k(opportunistic)f(jobs,)i(simply)g(by)f(including)f(tw)o(o)i
+(cases)h(in)f(each)f(polic)o(y)g(e)o(xpression,)437 3227
+y(one)g(case)h(for)f(when)g(the)h(Scheduler)e(attrib)n(ute)h
+(identi\002es)h(the)f(request)g(as)h(one)f(belonging)437
+3327 y(to)h(the)g(preferred)e(dedicated)h(scheduler)m(,)h(and)f(one)h
+(for)f(if)i(the)f(Scheduler)f(attrib)n(ute)g(is)i(not)437
+3426 y(de\002ned)19 b(or)h(points)g(to)g(a)h(dif)n(ferent)d(scheduler)
+-5 b(.)602 3530 y(Once)24 b(a)f(set)i(of)e(dedicated)f(resources)h(ha)n
+(v)o(e)g(been)f(con\002gured)g(and)g(a)i(ne)n(w)g Fg(schedd)437
+3629 y Fj(is)k(running,)f(users)g(are)h(free)f(to)g(submit)g(MPI)h
+(jobs)f(to)g(the)h(system.)46 b(Once)27 b(the)h Fg(schedd)437
+3729 y Fj(notices)20 b(MPI)g(jobs)g(in)h(the)f(queue,)f(the)h
+(dedicated)f(scheduler)g(logic)h(is)h(acti)n(v)n(ated.)437
+3870 y Fi(3.2)f(Making)g(r)o(esour)o(ces)f(dedicated)437
+4032 y Fj(If)k(the)h(dedicated)e(scheduler)h(has)h(idle)f(jobs)h(to)g
+(service,)g(it)g(will)g(query)f(the)g Fg(collector)437
+4131 y Fj(for)f(all)h(resources)f(that)h(are)f(con\002gured)f(to)h(be)h
+(under)e(its)j(control.)31 b(The)22 b(dedicated)g(sched-)437
+4231 y(uler)29 b(does)g(its)h(o)n(wn)e(matchmaking)f(to)i(\002nd)g
+(resources)f(it)i(could)e(claim)h(that)g(will)h(match)437
+4331 y(idle)25 b(MPI)g(jobs.)39 b(Once)25 b(resources)f(are)g
+(identi\002ed,)h(a)h(ClassAd)f(is)h(generated)d(and)i(sent)g(to)437
+4430 y(the)19 b(opportunistic)d(matchmak)o(er)m(,)h(requesting)g(ne)o
+(gotiation.)22 b(During)c(the)g(ne)o(xt)g(ne)o(gotiation)437
+4530 y(c)o(ycle,)30 b(the)e Fg(negotiator)f Fj(contacts)h(the)g
+(dedicated)g(scheduler)f(and)g(performs)g(match-)437
+4630 y(making)d(for)g(an)o(y)g(idle)h(resource)f(requests)g(\(which)g
+(are)h(modi\002ed)f(to)h(include)f(the)h(Sched-)437 4729
+y(uler)f(attrib)n(ute)h(described)e(abo)o(v)o(e,)h(and)g(to)h(require)e
+(that)i(an)o(y)e(resource)h(matched)f(with)i(the)437
+4829 y(request)20 b(must)g(be)g(managed)e(by)i(the)g(dedicated)f
+(scheduler\).)602 4932 y(Once)27 b(resources)g(are)g(matched,)h(the)f
+(dedicated)f(scheduler)g(claims)i(them)e(and)h(puts)437
+5032 y(them)f(under)e(its)j(control.)41 b(This)27 b(mo)o(v)o(es)d(the)i
+(resources)f(from)g(the)h(control)f(of)h(the)g(oppor)n(-)p
+eop
+%%Page: 8 8
+8 7 bop 437 626 a Fj(tunistic)24 b(scheduler)f(to)h(the)g(control)f(of)
+g(the)h(dedicated)f(scheduler)-5 b(.)35 b(Once)24 b(claimed)f(in)i
+(this)437 726 y(f)o(ashion,)i(the)f(dedicated)f(scheduler)g(can)h(run)g
+(an)o(y)f(jobs)i(it)g(w)o(ants)f(on)g(the)h(resource,)f(e)n(v)o(en)437
+826 y(dedicated)17 b(jobs)h(from)f(a)i(dif)n(ferent)d(user)i(than)g
+(the)g(one)g(whose)g(job)f(it)i(originally)e(ne)o(gotiated)437
+925 y(for)-5 b(.)38 b(The)24 b(k)o(e)o(y)g(is)i(that)f(the)f(resource)g
+(is)h(claimed)f(by)h(the)f(dedicated)g(scheduler)f(itself.)39
+b(So)437 1025 y(long)24 b(as)i(there)f(are)g(idle)g(MPI)g(jobs)g(that)g
+(match)g(this)h(resource,)e(the)i(dedicated)d(scheduler)437
+1125 y(will)e(use)f(the)h(resource.)602 1228 y(If)i(the)g(dedicated)e
+(scheduler)g(decides)i(that)f(a)i(gi)n(v)o(en)d(resource)g(is)j(no)e
+(longer)g(needed,)437 1328 y(it)27 b(can)f(release)g(its)h(claim)f(on)g
+(that)g(resource,)g(thereby)f(returning)f(it)j(to)f(the)g
+(opportunistic)437 1427 y(scheduler)-5 b(.)36 b(The)24
+b(resource)f(will)i(then)f(be)g(treated)g(as)g(an)o(y)g(other)f
+(non-dedicated)e(resource)437 1527 y(in)j(the)f(system.)35
+b(If)23 b(more)f(MPI)i(jobs)f(are)g(submitted,)g(the)h(dedicated)e
+(scheduler)g(starts)i(the)437 1626 y(process)19 b(all)g(o)o(v)o(er)f
+(again.)24 b(Depending)17 b(on)h(the)h(state)h(of)f(the)g(pool,)f(the)i
+(dedicated)d(scheduler)437 1726 y(may)24 b(be)g(matched)e(with)j(the)f
+(same)g(resource,)f(an)o(y)h(currently)e(running)g(opportunistic)f(job)
+437 1826 y(w)o(ould)i(be)g(preempted,)g(and)g(the)g(resource)f(w)o
+(ould)h(be)h(claimed)f(by)g(the)h(dedicated)e(sched-)437
+1925 y(uler)e(again.)437 2068 y Fi(3.3)g(Condor')m(s)f(dedicated)h
+(scheduling)h(algorithm)437 2231 y Fj(Condor)f(uses)h(a)h(basic)f
+(scheduling)e(algorithm)g(for)i(dedicated)f(MPI)h(jobs.)27
+b(A)22 b(global)e(FIFO)437 2330 y(queue)32 b(of)h(MPI)h(jobs)f(across)g
+(all)h(users)g(is)g(maintained.)63 b(At)34 b(the)f(start)h(of)f(a)g
+(dedicated)437 2430 y(scheduling)25 b(c)o(ycle,)j(the)f
+Fg(schedd)g Fj(performs)e(a)i(query)f(to)h(\002nd)g(all)g(resources)f
+(that)i(either)437 2530 y(are)20 b(claimed)f(or)g(could)g(be)g(claimed)
+g(for)g(dedicated)g(jobs.)25 b(Only)19 b(resources)g(in)g(this)i(list)f
+(will)437 2629 y(be)27 b(considered)d(by)j(the)f(dedicated)f(scheduler)
+-5 b(.)44 b(Once)26 b(the)h(dedicated)e(scheduler)g(has)i(the)437
+2729 y(list)f(of)g(resource)e(ClassAds,)j(it)g(sorts)e(them)g(by)g(the)
+h(time)f(the)o(y)g(w)o(ould)g(ne)o(xt)f(be)i(a)n(v)n(ailable)437
+2828 y(for)20 b(running)e(a)i(job)m(.)602 2932 y(The)j(dedicated)e
+(scheduler)h(considers)g(each)g(job)h(in)g(the)g(queue,)f(in)h(order)-5
+b(.)32 b(It)23 b(tries)g(to)437 3031 y(satisfy)f(the)g(requirements)f
+(of)g(the)h(job,)g(performing)d(its)k(o)n(wn)f(local)g(matchmaking)e
+(proce-)437 3131 y(dure.)35 b(If)23 b(the)h(\002rst)g(job)g(can)f(be)h
+(satis\002ed)g(by)f(resources)g(that)h(ha)n(v)o(e)f(already)g(been)g
+(claimed)437 3231 y(b)n(ut)g(are)f(no)n(w)g(idle,)h(those)f(resources)g
+(are)g(remo)o(v)o(ed)e(from)i(the)g(a)n(v)n(ailable)g(list,)i
+(allocated)e(to)437 3330 y(the)g(job,)g(and)f(the)h(ne)o(xt)f(job)g(is)
+i(considered.)28 b(If)22 b(the)g(job)f(at)i(the)f(head)f(of)g(the)h
+(queue)f(can)g(not)437 3430 y(be)29 b(serv)o(ed)e(by)h(currently)f
+(claimed)h(and)g(idle)h(resources,)g(the)g(dedicated)e(scheduler)g
+(sees)437 3530 y(if)d(it)g(could)f(satisfy)h(the)f(job)h(by)f(ne)o
+(gotiating)e(for)i(other)g(resources)g(that)g(are)h(currently)e(un-)437
+3629 y(claimed,)f(or)g(by)g(a)h(combination)d(of)i(already)f
+(claimed/idle)h(and)g(unclaimed)f(resources.)27 b(If)437
+3729 y(so,)20 b(an)o(y)e(resources)h(used)g(for)g(the)g(job)g(are)g
+(remo)o(v)o(ed)e(from)i(the)g(a)n(v)n(ailable)g(list,)i(and)d(the)i(ne)
+o(xt)437 3828 y(job)j(is)h(considered.)32 b(If)23 b(the)g(top)g(job)g
+(cannot)f(be)h(satis\002ed)h(at)g(all)f(by)g(claimed/idle)f(and)h(un-)
+437 3928 y(claimed)h(resources,)h(the)g(dedicated)e(scheduler)h(checks)
+g(if)h(enough)e(dedicated)g(resources)437 4028 y(e)o(xist)h(to)h
+(satisfy)g(this)g(job)m(.)36 b(If)24 b(so,)i(the)e(dedicated)f
+(scheduler)g(stops)i(scheduling)e(jobs,)i(and)437 4127
+y(w)o(aits)17 b(for)f(its)i(e)o(xisting)d(dedicated)g(jobs)i(to)f
+(\002nish)h(so)g(that)f(it)h(can)f(acquire)g(enough)e(resources)437
+4227 y(to)26 b(satisfy)g(the)g(lar)o(ge)f(job)g(at)h(the)g(front)f(of)g
+(the)h(queue.)41 b(If)25 b(not,)i(the)f(job)f(is)i(too)e(big)h(to)g
+(run)437 4327 y(\(until)e(more)g(resources)g(are)h(con\002gured)d(as)k
+(dedicated\),)e(so)h(the)g(scheduler)e(skips)i(o)o(v)o(er)e(it)437
+4426 y(and)d(considers)f(the)h(ne)o(xt)g(job)g(in)g(the)g(queue.)602
+4530 y(Once)f(all)h(scheduling)d(decisions)i(ha)n(v)o(e)g(been)f(made)h
+(in)g(a)h(gi)n(v)o(en)e(c)o(ycle,)g(the)h(dedicated)437
+4629 y(scheduler)k(can)h(be)o(gin)f(to)i(act)g(on)e(them.)37
+b(An)o(y)24 b(jobs)g(that)h(were)f(satis\002ed)h(by)f(claimed/idle)437
+4729 y(resources)h(are)h(spa)o(wned.)41 b(The)25 b(dedicated)g
+(scheduler)f(also)j(sends)f(out)f(resource)g(request)437
+4829 y(ClassAds)33 b(to)e(the)h(opportunistic)d(scheduler)h(for)h(an)o
+(y)f(unclaimed)g(resources)h(that)g(were)437 4928 y(needed.)24
+b(If)c(the)g(dedicated)f(scheduler)602 5032 y(By)32 b(maintaining)d(a)i
+(single)g(queue)f(across)h(all)h(users,)h(this)f(algorithm)d(can)i
+(lead)g(to)p eop
+%%Page: 9 9
+9 8 bop 437 626 a Fj(unf)o(air)28 b(resource)f(allocation.)49
+b(If)28 b(a)h(user)g(submits)f(a)h(lar)o(ge)f(number)f(of)h(MPI)h(jobs)
+f(at)h(the)437 726 y(same)e(time,)i(once)d(those)h(jobs)g(are)g(at)g
+(the)g(front)f(of)h(the)g(queue,)g(the)g(user)g(will)h(starv)o(e)f(all)
+437 826 y(other)f(users)h(until)g(the)g(jobs)g(complete.)44
+b(This)27 b(is)h(ob)o(viously)c(not)j(ideal.)45 b(It)27
+b(is)h(an)f(area)f(of)437 925 y(future)19 b(w)o(ork.)437
+1290 y Fk(4)k(Wh)o(y)f(some)h(traditional)g(pr)n(oblems)g(in)g
+(dedicated)i(scheduling)f(do)f(not)437 1407 y(apply)i(to)g(Condor)437
+1606 y Fj(Some)i(of)g(the)g(traditional)f(problems)f(found)h(in)h
+(dedicated)f(scheduling)f(do)i(not)g(apply)f(to)437 1706
+y(Condor)17 b(because)h(of)g(its)h(unique)e(combination)f(of)i
+(dedicated)f(and)h(opportunistic)e(schedul-)437 1806
+y(ing.)25 b(The)19 b(follo)n(wing)g(sections)h(discuss)h(these)f
+(problems)f(and)h(ho)n(w)f(Condor)g(a)n(v)n(oids)h(them.)437
+2054 y Fi(4.1)g(Back\002lling)437 2254 y Fj(In)h(dedicated)g
+(scheduling)f(systems,)i(one)g(of)f(the)h(more)f(dif)n(\002cult)g
+(problems)f(is)j(what)f(to)g(do)437 2354 y(with)17 b(holes)f(in)h(the)g
+(schedule.)23 b(F)o(or)16 b(a)h(v)n(ariety)f(of)h(reasons,)f(there)h
+(will)g(ine)n(vitably)e(be)i(periods)437 2453 y(of)23
+b(time)h(when)e(certain)h(resources)f(cannot)h(be)g(used)g(by)g(the)g
+(scheduler)-5 b(.)34 b(This)23 b(fragmenta-)437 2553
+y(tion)g(leads)g(to)h(poor)e(utilization)g(of)h(resources)f(and)h(lo)n
+(wer)g(o)o(v)o(erall)f(job)h(throughput)d(in)j(the)437
+2653 y(system.)602 2775 y(The)g(traditional)f(solution)h(to)g(this)h
+(problem)d(is)k(called)e Fh(bac)n(k\002lling)p Fj(.)32
+b(While)24 b(back\002ll-)437 2875 y(ing)k(can)f(tak)o(e)h(man)o(y)f
+(forms,)i(in)f(general,)g(it)h(attempts)f(to)g(\002ll)h(holes)f(in)g
+(the)g(schedule)f(by)437 2975 y(running)20 b(smaller)i(parallel)f(jobs)
+h(of)g(lo)n(wer)g(priority)e(in)j(an)f(attempt)f(to)h(k)o(eep)g(the)g
+(resources)437 3074 y(utilized)f(while)g(the)g(highest)g(priority)e
+(parallel)i(job)g(w)o(aits)h(for)f(enough)e(resources)h(to)h(be)o(gin)
+437 3174 y(e)o(x)o(ecution[8)l(][9)o(].)31 b(Ho)n(we)n(v)o(er)m(,)21
+b(the)h(holes)g(remain)f(if)h(there)g(are)g(not)f(enough)g(small)h
+(jobs,)g(or)437 3274 y(if)e(the)h(jobs)f(are)g(of)g(the)g(wrong)f(size)
+i(and)e(duration.)602 3396 y(Another)h(method)g(for)h(\002lling)g
+(holes)g(in)h(the)f(schedule)f(w)o(ould)h(be)g(to)h(try)f(to)g(run)g
+(serial)437 3496 y(jobs)h(on)h(the)f(empty)g(nodes.)31
+b(Ho)n(we)n(v)o(er)m(,)21 b(most)h(scheduling)f(systems)i(do)f(not)g
+(pro)o(vide)f(sup-)437 3596 y(port)f(for)g(opportunistic)e(e)o(x)o
+(ecution)g(of)i(serial)h(jobs.)26 b(If)20 b(the)h(serial)g(jobs)f(need)
+g(to)h(run)e(longer)437 3695 y(than)j(the)h(a)n(v)n(ailable)g(windo)n
+(w)f(in)h(the)g(schedule,)f(the)o(y)h(must)g(either)f(be)h(killed,)g
+(loosing)f(the)437 3795 y(w)o(ork)28 b(the)o(y)f(ha)n(v)o(e)h
+(completed,)h(or)f(the)o(y)f(will)j(delay)d(the)i(schedule,)g(leading)e
+(to)i(a)g(further)437 3895 y(reduction)18 b(in)j(utilization.)602
+4017 y(In)15 b(Condor)m(,)g(since)g(there)g(is)h(an)f(e)o(xisting)f
+(infrastructure)f(for)i(managing)e(non-dedicated)437
+4117 y(resources)21 b(with)h(opportunistic)e(scheduling,)g(an)o(y)h
+(holes)h(in)g(the)g(dedicated)f(schedule)g(may)437 4217
+y(be)g(\002lled)h(by)e(releasing)h(the)g(resources)f(the)h
+(opportunistic)e(scheduler')-5 b(s)20 b(control.)27 b(Because)437
+4316 y(the)g(jobs)h(that)f(will)h(run)e(on)h(these)h(resources)e(are)h
+(opportunistic,)g(the)o(y)f(are)i(already)e(pre-)437
+4416 y(pared,)31 b(e)n(v)o(en)d(e)o(xpecting,)i(to)g(be)g(preempted)d
+(at)k(an)o(y)e(time.)53 b(When)30 b(these)f(resources)g(are)437
+4515 y(again)21 b(needed)f(for)h(the)h(dedicated)e(schedule,)h(the)o(y)
+g(will)i(be)e(re-claimed)f(by)i(the)f(dedicated)437 4615
+y(scheduler)-5 b(.)53 b(Condor')-5 b(s)29 b(opportunistic)f(scheduling)
+g(system)i(already)e(handles)i(this)g(case,)437 4715
+y(just)h(as)g(if)g(a)g(desktop)e(w)o(orkstation')-5 b(s)29
+b(o)n(wner)h(had)f(returned)g(and)h(mo)o(v)o(ed)e(the)j(mouse)e(or)437
+4814 y(touched)23 b(the)h(k)o(e)o(yboard.)34 b(Condor)23
+b(will)i(tak)o(e)f(a)g(checkpoint)f(of)g(the)i(job,)f(and)g(migrate)f
+(the)437 4914 y(job)f(to)g(another)e(host,)i(or)g(put)f(it)i(back)e(in)
+h(the)g(queue)e(if)j(no)e(other)g(resources)g(are)h(a)n(v)n(ailable.)
+437 5014 y(Checkpointing)c(the)i(opportunistic)d(jobs)j(ensures)g(forw)
+o(ard)e(progress)h(during)g(back\002lling.)437 5113 y(This)h(leads)h
+(to)f(high)f(resource)g(utilization,)h(and)f(greater)h(o)o(v)o(erall)e
+(system)j(throughput.)p eop
+%%Page: 10 10
+10 9 bop 437 626 a Fi(4.2)20 b(Requiring)g(users)h(to)f(specify)g(a)h
+(job)f(duration)437 803 y Fj(Another)f(common)g(problem)g(that)i
+(arises)g(from)f(traditional)f(dedicated)h(schedulers)f(is)j(that)437
+903 y(users)30 b(must)f(specify)g(an)g(e)o(xpected)f(duration)f(for)i
+(an)o(y)g(job)g(the)o(y)f(submit)h(to)h(the)f(system.)437
+1002 y(Man)o(y)23 b(users)i(do)f(not)g(kno)n(w)f(ho)n(w)h(long)f(their)
+h(applications)f(will)i(run)f(ahead)f(of)h(time,)i(and)437
+1102 y(in)20 b(general,)f(it)i(is)g(impossible)f(to)g(kno)n(w)f
+(without)h(actually)f(e)o(x)o(ecuting)f(the)j(code.)2821
+1072 y Ff(1)602 1212 y Fj(The)d(result)h(of)f(this)h(requirement)d(is)k
+(that)e(in)h(practice)f(users)g(are)h(forced)e(to)h(guess)h(ho)n(w)437
+1312 y(long)28 b(their)g(programs)f(will)j(tak)o(e.)50
+b(Unfortunately)-5 b(,)28 b(there)g(is)i(a)f(high)f(price)g(for)g
+(guessing)437 1412 y(wrong.)23 b(F)o(or)17 b(most)g(schedulers,)g(a)h
+(job)f(that)h(e)o(xceeds)e(its)j(e)o(xpected)c(duration)h(will)i(be)g
+(killed,)437 1511 y(thereby)f(losing)g(all)i(the)f(w)o(ork)f
+(accomplished.)23 b(Users)18 b(are)g(therefore)f(encouraged)e(to)j
+(guess)437 1611 y(high.)37 b(Ho)n(we)n(v)o(er)m(,)23
+b(jobs)h(with)h(v)o(ery)e(long)h(durations)f(can)h(often)f(w)o(ait)i
+(longer)e(in)i(the)f(queue)437 1711 y(before)d(a)j(suf)n(\002ciently)d
+(lar)o(ge)h(slot)h(is)h(a)n(v)n(ailable)f(in)f(the)h(schedule.)32
+b(Some)22 b(schedulers)g(e)n(v)o(en)437 1810 y(char)o(ge)f(users)j
+(based)e(on)h(e)o(xpected)e(duration,)h(not)h(actual)g(usage.)33
+b(So,)24 b(guessing)e(too)h(high)437 1910 y(is)e(also)g(not)e(in)i(the)
+f(user')-5 b(s)20 b(interests.)26 b(This)20 b(lea)n(v)o(es)g(quite)g(a)
+h(dilemma)e(for)h(the)g(user)-5 b(.)602 2020 y(Users)18
+b(of)e(Condor)g(do)g(not)h(need)f(to)h(guess)f(a)i(duration.)k(Because)
+17 b(Condor')-5 b(s)15 b(dedicated)437 2120 y(scheduler)30
+b(can)h(release)g(or)g(reclaim)g(nodes)g(at)g(an)o(y)g(time)g(and)g
+(still)i(e)o(xpect)d(them)h(to)g(be)437 2220 y(utilized,)20
+b(it)h(does)f(not)g(need)f(to)i(mak)o(e)f(decisions)f(f)o(ar)i(into)f
+(the)g(future.)k(At)d(each)f(scheduling)437 2319 y(c)o(ycle,)f(Condor')
+-5 b(s)19 b(dedicated)f(scheduler)g(can)h(mak)o(e)h(the)f(best)h
+(decisions)f(possible)g(with)h(the)437 2419 y(current)29
+b(state)h(of)g(all)h(the)f(resources)f(under)f(its)j(control)e(and)g
+(the)h(jobs)g(in)g(its)h(queue.)53 b(If)437 2519 y(an)24
+b(idle)h(job)f(in)g(the)g(queue)f(could)h(run)f(if)i(more)e(resources)h
+(were)g(claimed,)g(the)g(dedicated)437 2618 y(scheduler)g(can)h(send)g
+(out)g(a)g(ClassAd)i(to)e(the)g(opportunistic)e(scheduler)h(to)h
+(request)g(more)437 2718 y(resources.)37 b(The)25 b(dedicated)e
+(scheduler)g(does)i(not)f(need)g(to)g(kno)n(w)g(ho)n(w)g(much)g(longer)
+f(the)437 2817 y(currently)f(running)g(jobs)j(will)f(tak)o(e,)h(since)g
+(it)g(can)f(mak)o(e)f(all)i(of)f(its)h(scheduling)e(decisions)437
+2917 y(assuming)28 b(those)h(resources)f(are)h(una)n(v)n(ailable.)50
+b(As)30 b(resources)e(become)f(a)n(v)n(ailable,)k(the)o(y)437
+3017 y(will)22 b(be)f(put)g(to)g(use)g(for)g(an)o(y)f(dedicated)g(jobs)
+h(in)g(the)h(queue.)k(If)21 b(the)g(job)g(at)h(the)f(head)f(of)h(the)
+437 3116 y(dedicated)i(queue)g(needs)h(more)f(resources)g(than)h(are)g
+(currently)e(a)n(v)n(ailable,)j(an)o(y)e(currently)437
+3216 y(claimed)d(b)n(ut)g(idle)g(dedicated)f(resources)g(can)h(be)g
+(released.)437 3514 y Fk(5)25 b(Condor)g(handles)h(failur)n(es)f(of)g
+(dedicated)h(r)n(esour)n(ces)437 3691 y Fj(The)k(Condor)f(system)h(has)
+h(been)e(managing)f(non-dedicated,)i(unreliable)e(resources)i(for)437
+3790 y(o)o(v)o(er)23 b(10)i(years.)38 b(All)25 b(le)n(v)o(els)g(of)g
+(Condor)e(are)i(designed)e(to)i(reco)o(v)o(er)e(gracefully)g(from)g
+(net-)437 3890 y(w)o(ork)30 b(or)g(hardw)o(are)g(f)o(ailures,)i
+(machines)e(disappearing)f(from)g(the)i(netw)o(ork,)h(and)e(other)437
+3989 y(f)o(ailures.)37 b(Condor')-5 b(s)23 b(support)g(for)h(managing)e
+(dedicated)h(applications)g(is)i(b)n(uilt)g(on)e(top)h(of)437
+4089 y(this)d(foundation)c(and)j(tak)o(es)g(adv)n(antage)f(of)h(all)g
+(of)g(the)g(e)o(xisting)g(rob)n(ustness.)602 4200 y(If)25
+b(a)f(submit)g(machine)f(crashes,)i(all)g(resources)e(claimed)h(by)g
+(its)h Fg(schedd)f Fj(will)h(shut)437 4299 y(do)n(wn)f(an)o(y)g
+(currently)f(running)f(jobs.)38 b(When)25 b(the)g(submit)f(machine)g
+(is)h(brought)e(back)h(up,)437 4399 y(a)d(persistent)f(log)g(\002le)h
+(of)g(the)f(job)g(queue)g(enables)g(the)g(system)h(to)g(automatically)e
+(re-spa)o(wn)437 4499 y(the)30 b(jobs)h(without)e(user)i(interv)o
+(ention.)53 b(If)30 b(the)g(jobs)h(were)f(opportunistic,)g(the)o(y)g
+(will)h(be)437 4598 y(restarted)24 b(from)g(their)g(last)h(checkpoint)e
+(\002le,)j(minimizing)d(lost)i(computation,)e(otherwise,)437
+4698 y(the)o(y)k(are)h(restarted)g(from)f(the)h(be)o(ginning.)46
+b(The)28 b(dedicated)f(scheduler)g(is)i(just)f(a)h(special)p
+437 4795 1087 4 v 528 4850 a Fe(1)557 4874 y Fd(If)15
+b(you)h(had)g(a)f(generic,)j(deterministic)h(method)d(to)g(decide)h(if)
+f(an)g(application)j(w)o(ould)e(complete)g Fc(at)f(all)g
+Fd(\(much)437 4953 y(less)k(ho)n(w)g(long)g(it)g(w)o(ould)h(tak)o(e\),)
+g(you)f(w)o(ould)g(ha)o(v)o(e)h(solv)o(ed)f(the)g(so-called)i('Halting)
+g(Problem')e(and)g(pro)o(v)o(ed)h(that)437 5032 y(P=NP)-7
+b(,)16 b(one)i(of)f(the)g(longest)i(outstanding)g(problems)f(in)f(all)h
+(of)f(Computer)i(Science.)p eop
+%%Page: 11 11
+11 10 bop 437 626 a Fj(case)23 b(of)g(the)f Fg(schedd)p
+Fj(,)h(so)g(the)g(same)g(f)o(ailure)f(mode)f(is)j(used)f(in)f(the)h(e)n
+(v)o(ent)f(of)g(a)i(hardw)o(are)437 726 y(f)o(ailure)c(at)g(the)h
+(dedicated)d(scheduler)-5 b(.)602 828 y(The)27 b(Condor)e(system)i(is)h
+(also)f(resilient)f(in)h(the)g(f)o(ace)g(of)f(a)h(hardw)o(are)f(f)o
+(ailure)g(of)g(the)437 928 y(central)15 b(manager)-5
+b(.)22 b(Once)16 b(matches)f(are)g(made)g(and)g(resources)g(are)g
+(claimed)g(by)g(local)h(sched-)437 1028 y(ulers)j(\(opportunistic)e(or)
+i(dedicated\),)f(the)h(central)g(manager)f(is)i(no)f(longer)f(needed)g
+(for)h(an)o(y)437 1127 y(part)25 b(of)h(the)f(job)g(e)o(x)o(ecution)f
+(protocol.)39 b(Currently)25 b(running)e(jobs)i(w)o(ould)g(not)h(e)n(v)
+o(en)e(kno)n(w)437 1227 y(that)g(the)g(central)f(manager)g(w)o(as)i(do)
+n(wn.)35 b(Once)24 b(jobs)g(complete,)f(the)h(local)g(schedulers)f(at-)
+437 1327 y(tempt)k(to)h(use)f(the)h(resources)e(the)o(y)h(ha)n(v)o(e)g
+(claimed)g(to)g(service)g(other)g(jobs)g(in)h(their)f(local)437
+1426 y(queues.)49 b(This)29 b(is)h(true)e(of)g(the)h(dedicated)e
+(scheduler)g(as)j(well,)h(since)e(it)g(will)g(\002rst)h(try)e(to)437
+1526 y(use)23 b(resources)f(it)i(has)f(already)f(claimed)h(to)g
+(service)f(an)o(y)h(idle)g(jobs)g(in)g(its)h(queue.)32
+b(Certain)437 1625 y(pool-monitoring)24 b(tools)k(will)h(f)o(ail)g(if)g
+(the)f(central)g(manager)e(is)k(do)n(wn,)f(b)n(ut)f(running)e(jobs)437
+1725 y(continue)19 b(to)h(run,)f(and)h(ne)n(w)g(jobs)g(may)g(be)g
+(scheduled.)602 1828 y(P)o(arallel)25 b(applications)f(create)h(their)g
+(o)n(wn)f(challenges)g(in)i(the)f(f)o(ace)g(of)g(f)o(ailures.)39
+b(If)25 b(a)437 1927 y(node)e(in)h(a)g(parallel)g(computation)d
+(crashes)j(due)g(to)g(a)g(hardw)o(are)f(f)o(ailure,)h(Condor)e(notices)
+437 2027 y(that)28 b(the)g(resource)e(went)i(a)o(w)o(ay)g(and)f(shuts)h
+(do)n(wn)f(the)h(rest)g(of)g(the)g(computation.)45 b(Since)437
+2126 y(Condor)19 b(does)i(not)f(yet)h(support)e(checkpointing)e(of)k
+(parallel)f(applications,)f(it)i(must)g(restart)437 2226
+y(the)c(job)g(from)f(the)i(be)o(ginning)c(when)j(enough)e(resources)h
+(are)i(a)n(v)n(ailable.)23 b(This)18 b(is)g(an)f(accept-)437
+2326 y(able)j(f)o(ailure)f(mode)g(in)g(the)h(absence)f(of)h
+(checkpointing.)h(So)f(long)f(as)i(the)f(job)f(is)i(re-queued)437
+2425 y(and)c(not)g(lost)h(as)h(a)f(result)f(of)h(a)g(hardw)o(are)e(f)o
+(ailure,)h(the)h(scheduling)e(system)i(is)g(doing)e(its)j(job)m(.)602
+2528 y(If)27 b(a)f(node)g(crashes)g(due)g(to)g(a)h(softw)o(are)f(f)o
+(ailure)g(on)g(the)g(part)g(of)h(the)f(parallel)g(appli-)437
+2627 y(cation)j(itself)h(\(for)e(e)o(xample,)j(a)e(se)o(gmentation)f
+(violation)g(in)i(the)f(user')-5 b(s)30 b(code\),)g(Condor)437
+2727 y(supports)d(tw)o(o)i(methods)e(to)h(propagate)e(the)i(error)f
+(back)h(to)g(the)g(user:)41 b(a)29 b(log)f(\002le)h(and)e(an)437
+2827 y(email)e(message)g(to)g(the)g(user)-5 b(.)39 b(When)25
+b(users)g(submit)g(jobs,)h(the)o(y)e(speci\002c)h(which)f(form)g(of)437
+2926 y(error)i(reporting,)g(if)h(an)o(y)-5 b(,)26 b(the)o(y)g(wish)i
+(to)e(use.)45 b(In)26 b(addition)g(to)h(notifying)d(the)j(user)g(of)f
+(the)437 3026 y(error)m(,)19 b(an)o(y)g(core)h(\002les)h(produced)d
+(are)i(shipped)f(back)g(to)i(the)f(submit)g(machine,)f(and)g(the)h(job)
+437 3125 y(lea)n(v)o(es)g(the)h(queue.)437 3378 y Fk(6)k(Futur)n(e)h(w)
+o(ork)437 3539 y Fj(Although)14 b(Condor')-5 b(s)15 b(approach)f(to)j
+(managing)d(dedicated)g(resources)h(by)h(a)h(combination)c(of)437
+3639 y(dedicated)23 b(and)h(opportunistic)e(scheduling)g(has)j(adv)n
+(antages)d(o)o(v)o(er)h(traditional)g(dedicated)437 3739
+y(schedulers,)18 b(there)i(is)g(a)g(considerable)e(amount)g(of)h
+(future)g(w)o(ork)f(that)i(is)h(both)d(possible)i(and)437
+3838 y(desired.)437 3975 y Fi(6.1)g(Incor)o(porating)f(user)i
+(priorities)f(into)g(the)g(dedicated)g(scheduler)437
+4136 y Fj(One)31 b(of)g(the)h(\002rst)g(steps)g(to)n(w)o(ards)e(impro)o
+(ving)f(Condor')-5 b(s)30 b(dedicated)g(scheduling)g(w)o(ould)437
+4236 y(be)f(to)g(incorporate)d(user)j(priorities)g(into)f(the)h
+(system.)51 b(Condor)28 b(currently)f(uses)j(a)f(basic)437
+4335 y(scheduling)i(polic)o(y)-5 b(,)33 b(with)f(a)h(global)e(queue)g
+(of)h(jobs.)61 b(An)32 b(impro)o(v)o(ement)d(w)o(ould)j(be)g(to)437
+4435 y(ha)n(v)o(e)18 b(a)i(separate)e(logical)h(queue)e(per)i(user)m(,)
+f(and)h(utilize)g(Condor')-5 b(s)18 b(user)g(priority)g(system)h(to)437
+4535 y(determine)24 b(the)i(order)e(in)i(which)f(queues)f(were)i
+(serviced.)40 b(While)26 b(this)g(w)o(ould)e(not)i(ef)n(fect)437
+4634 y(o)o(v)o(erall)19 b(system)h(ef)n(\002cienc)o(y)f(or)h
+(throughput,)d(it)k(w)o(ould)e(increase)h(f)o(airness.)437
+4771 y Fi(6.2)g(Kno)o(wing)f(when)i(to)f(claim)h(and)f(r)o(elease)g(r)o
+(esour)o(ces)437 4932 y Fj(The)j(unique)e(combination)g(of)h
+(opportunistic)f(and)i(dedicated)e(scheduling)h(in)h(Condor)e(in-)437
+5032 y(troduces)f(a)h(ne)n(w)f(problem:)25 b(when)20
+b(should)g(the)g(dedicated)g(scheduler)f(claim)i(or)f(release)h(its)p
+eop
+%%Page: 12 12
+12 11 bop 437 626 a Fj(resources?)44 b(Condor)25 b(currently)g(relies)i
+(on)f(relati)n(v)o(ely)g(simple)g(heuristics)h(to)g(mak)o(e)f(these)437
+726 y(decisions.)e(System)18 b(ef)n(\002cienc)o(y)f(\(and)g(therefore,)
+f(job)i(throughput\))c(could)j(be)h(enhanced)f(by)437
+826 y(e)o(xploring)k(more)h(accurate)g(and)h(sophisticated)f(methods)g
+(for)g(determining)f(the)j(best)f(time)437 925 y(to)d(initiate)h(these)
+f(resource)f(state)i(changes.)437 1081 y Fi(6.3)f(Scheduling)g(into)h
+(the)f(futur)o(e)g(using)h(job)f(duration)g(inf)n(ormation)437
+1248 y Fj(While)27 b(there)e(are)h(problems)f(that)h(arise)h(from)e
+(trying)g(to)h(force)g(users)g(to)g(specify)g(a)g(dura-)437
+1348 y(tion)c(for)g(their)g(dedicated)g(jobs)g(\(described)f(abo)o(v)o
+(e\),)g(there)h(are)g(bene\002ts)h(that)f(can)g(only)g(be)437
+1448 y(achie)n(v)o(ed)e(by)h(ha)n(ving)f(duration)g(information.)27
+b(Certain)21 b(resources)g(are)g(only)g(a)n(v)n(ailable)g(for)437
+1547 y(a)e(\002x)o(ed)g(period)e(of)i(time.)24 b(Condor')-5
+b(s)18 b(dedicated)g(scheduler)f(could)h(not)h(use)g(these)g(resources)
+437 1647 y(to)f(service)f(dedicated)f(jobs)i(unless)f(it)i(kne)n(w)d
+(\(or)h(at)h(least)h(e)o(xpected\))c(that)j(those)f(jobs)h(w)o(ould)437
+1746 y(complete)h(before)g(the)h(resources)f(became)h(una)n(v)n
+(ailable)e(again.)602 1852 y(Condor)j(w)o(ould)g(not)g(require)g(users)
+g(to)h(specify)f(a)h(job)g(duration.)28 b(Duration)20
+b(informa-)437 1952 y(tion)f(can)g(impro)o(v)o(e)e(response)h(time)h
+(by)g(allo)n(wing)f(Condor)f(to)j(use)f(resources)f(for)g(dedicated)437
+2051 y(jobs)i(that)g(w)o(ould)g(otherwise)f(only)h(be)g(a)n(v)n
+(ailable)g(for)f(opportunistic)f(scheduling.)437 2207
+y Fi(6.4)i(Allo)o(wing)g(a)g(hierar)o(ch)o(y)f(of)h(dedicated)g
+(schedulers)437 2374 y Fj(The)29 b(current)g(Condor)f(system)i(only)f
+(allo)n(ws)h(a)g(resource)f(to)h(be)g(controlled)e(by)h(a)h(single)437
+2474 y(dedicated)d(scheduler)-5 b(.)50 b(If)28 b(Condor)g(supported)e
+(job)j(durations)e(as)i(described)f(abo)o(v)o(e)f(and)437
+2574 y(w)o(as)33 b(making)e(schedules)h(into)g(the)g(future,)i(Condor)d
+(could)h(also)g(allo)n(w)h(a)f(hierarchy)e(of)437 2673
+y(dedicated)23 b(schedulers)g(to)h(control)f(a)i(single)f(resource.)35
+b(The)24 b(dedicated)f(scheduler)f(at)j(the)437 2773
+y(top)16 b(of)h(the)f(hierarchy)f(w)o(ould)g(ha)n(v)o(e)h(ultimate)h
+(control)e(o)o(v)o(er)g(the)i(resource.)23 b(Ho)n(we)n(v)o(er)m(,)15
+b(when)437 2873 y(that)24 b(scheduler)e(decided)h(it)h(no)f(longer)g
+(needed)f(the)i(resource,)f(instead)g(of)h(returning)e(it)i(to)437
+2972 y(the)c(opportunistic)e(scheduler)g(for)i(the)g(inde\002nite)f
+(future,)g(the)h(dedicated)e(scheduler)h(could)437 3072
+y(specify)27 b(ho)n(w)g(long)f(that)i(resource)e(should)g(be)i
+(considered)d(a)n(v)n(ailable.)46 b(Other)27 b(dedicated)437
+3171 y(schedulers)21 b(lo)n(wer)h(in)g(the)h(hierarchy)d(could)h(then)h
+(claim)g(the)g(resource,)g(if)g(the)o(y)g(could)f(use)437
+3271 y(it)g(within)f(the)g(gi)n(v)o(en)f(time)h(constraint.)602
+3377 y(A)26 b(hierarchy)d(of)i(dedicated)f(schedulers)g(w)o(ould)h(be)g
+(particularly)e(useful)i(in)g(a)h(situa-)437 3477 y(tion)g(where)g
+(multiple)g(Condor)f(pools)h(are)g(\003ock)o(ed)g(together)m(,)g(allo)n
+(wing)g(jobs)g(to)h(migrate)437 3576 y(between)g(the)h(pools[10)n(])
+1191 3546 y Ff(2)1224 3576 y Fj(.)49 b(The)27 b(dedicated)g(resources)g
+(in)h(each)g(pool)f(w)o(ould)g(rank)g(their)437 3676
+y(local)f(dedicated)f(scheduler)g(at)h(the)h(top)e(of)h(their)g
+(hierarchy)-5 b(.)40 b(If)26 b(the)g(resources)f(were)h(not)437
+3775 y(used)18 b(by)g(the)g(local)h(dedicated)e(scheduler)m(,)f(the)o
+(y)i(w)o(ould)g(allo)n(w)g(the)g(other)g(dedicated)f(sched-)437
+3875 y(ulers)j(within)g(the)g(\003ock)g(access.)25 b(This)20
+b(w)o(ould)g(enable)f(e)o(x)o(ecution)f(of)i(parallel)f(applications)
+437 3975 y(that)26 b(were)g(lar)o(ger)f(than)h(an)o(y)g(of)g(the)g
+(indi)n(vidual)e(pools,)j(assuming)f(there)f(were)i(suf)n(\002cient)437
+4074 y(dedicated)19 b(resources)g(a)n(v)n(ailable.)437
+4230 y Fi(6.5)h(Allo)o(wing)g(multiple)h(executables)e(within)i(the)g
+(same)f(application)437 4397 y Fj(Condor)26 b(supports)g(a)i(single)f
+(e)o(x)o(ecutable)f(\(which)g(therefore)g(is)i(bound)e(to)h(one)g
+(platform\))437 4497 y(within)32 b(a)h(gi)n(v)o(en)e(MPI)h(job)m(.)60
+b(Users)33 b(should)e(be)h(able)g(to)h(specify)e(multiple)h(e)o(x)o
+(ecutables)437 4597 y(within)22 b(the)g(same)g(job)m(.)30
+b(This)23 b(allo)n(ws)f(users)g(to)h(tak)o(e)f(adv)n(antage)e(of)i
+(resources)f(of)h(dif)n(ferent)437 4696 y(platforms)30
+b(within)g(a)h(single)g(computation.)54 b(It)31 b(also)g(allo)n(ws)g
+(for)f(more)g(comple)o(x)f(paral-)437 4796 y(lel)24 b(architectures)e
+(where)h(not)g(all)h(nodes)e(in)i(the)f(computation)e(use)i(the)h(same)
+f(e)o(x)o(ecutable.)p 437 4874 1087 4 v 528 4929 a Fe(2)557
+4953 y Fd(The)14 b(paper)i(referenced)h(here)e(is)g(out)g(of)f(date.)21
+b(Unfortunately)l(,)d(no)c(e)o(xisting)j(publications)h(describe)e
+(Condor')l(s)437 5032 y(current)j(\003ocking)f(mechanism.)p
+eop
+%%Page: 13 13
+13 12 bop 437 626 a Fj(Man)o(y)21 b(MPI)h(applications)f(circumv)o(ent)
+e(this)k(problem)d(by)h(including)f(multiple)i(sets)h(of)e(in-)437
+726 y(structions)f(within)g(a)g(single)h(e)o(x)o(ecutable,)d
+(conditionally)g(e)o(x)o(ecuting)g(one)h(set)i(based)f(on)g(the)437
+826 y(unique)g(identi\002er)i(of)f(each)h(node)f(in)h(the)g
+(computation.)2108 796 y Ff(3)2168 826 y Fj(This)g(solution)f(is)i
+(inef)n(\002cient,)e(as)437 925 y(it)k(requires)e(lar)o(ger)f(e)o(x)o
+(ecutables)h(to)h(be)g(mo)o(v)o(ed)e(around)g(the)i(system,)h(and)e
+(more)g(\(unused\))437 1025 y(data)30 b(loaded)g(into)g(memory)-5
+b(.)54 b(Users)31 b(could)f(split)h(these)f(separate)g(instruction)g
+(sets)h(into)437 1125 y(dif)n(ferent)23 b(stand-alone)g(e)o(x)o
+(ecutables,)h(so)h(that)f(each)h(node)e(w)o(ould)h(only)g(incur)g(the)g
+(cost)h(of)437 1224 y(bringing)18 b(in)i(the)h(instructions)e(it)i
+(needs.)437 1345 y Fi(6.6)f(Supporting)g(MPI)h(implementations)f(other)
+g(than)g(MPICH)437 1501 y Fj(MPICH)g(is)h(a)g(widely)e(used)h(and)f
+(portable)g(implementation)e(of)j(the)g(MPI)g(standard,)e(de)n(v)o(el-)
+437 1600 y(oped)29 b(at)h(Ar)o(gonne)d(National)j(Laboratory)d(and)i
+(Mississippi)i(State)f(Uni)n(v)o(ersity[11)m(][12)n(].)437
+1700 y(While)c(it)g(is)g(possibly)f(the)g(most)g(used)g(implementation)
+e(of)i(MPI,)h(it)g(is)g(certainly)e(not)h(the)437 1800
+y(only)k(one)f(\(for)h(e)o(xample:)42 b(LAM[13)n(],)32
+b(ScaMPI,)d(MPI/Pro,)i(and)e(a)h(number)d(of)i(v)o(endor)n(-)437
+1899 y(speci\002c)i(MPI)h(implementations\).)56 b(One)31
+b(of)g(the)g(great)g(strengths)f(of)h(MPI)h(is)g(that)f(it)h(is)437
+1999 y(a)f(standard[14)m(][15)n(].)56 b(A)30 b(single)h(computation)d
+(can)i(use)g(dif)n(ferent)f(e)o(x)o(ecutables,)i(link)o(ed)437
+2099 y(against)e(dif)n(ferent)f(implementations)g(of)h(the)h(standard,)
+g(and)f(all)i(nodes)d(will)j(be)e(able)h(to)437 2198
+y(communicate)21 b(with)h(each)h(other)-5 b(.)32 b(Man)o(y)21
+b(of)i(the)f(v)o(endor)n(-speci\002c)f(implementations)f(pro-)437
+2298 y(vide)25 b(better)h(performance)c(than)k(the)f(generic,)h
+(portable)f(implementations)e(on)j(the)f(gi)n(v)o(en)437
+2397 y(platform.)d(Dif)n(ferent)14 b(implementations)f(of)i(MPI)g
+(often)g(use)g(dif)n(ferent)f(methods)g(for)g(spa)o(wn-)437
+2497 y(ing)20 b(the)g(nodes,)f(and)h(Condor)f(only)g(supports)g(the)h
+(method)f(used)h(by)g(MPICH.)437 2618 y Fi(6.7)g(Dynamic)g(r)o(esour)o
+(ce)f(management)g(r)o(outines)h(in)h(the)f(MPI-2)g(standard)437
+2774 y Fj(The)26 b(de)g(f)o(acto)f(MPI)h(standard)f(\(v)o(ersion)g
+(1.2\))g(pro)o(vides)f(no)h(dynamic)g(resource)g(manage-)437
+2873 y(ment.)i(There)21 b(are)g(no)f(methods)g(for)h(adding)e
+(resources)i(to)g(an)g(e)o(xisting)f(MPI)h(computation)437
+2973 y(or)k(for)g(gracefully)e(remo)o(ving)g(resources.)39
+b(The)25 b(ne)n(w)h(v)o(ersion)e(of)h(standard,)g(MPI-2,)h(sup-)437
+3073 y(ports)17 b(a)i(number)d(of)h(dynamic)f(resource)h(management)f
+(routines[16)m(][17)n(].)24 b(Unfortunately)-5 b(,)437
+3172 y(there)20 b(are)h(no)g(implementations)e(of)h(MPI)h(that)g(fully)
+g(support)e(these)i(routines)f(at)i(this)f(time.)437
+3272 y(When)i(implementations)e(of)i(the)g(ne)n(w)f(standard)g(are)h(a)
+n(v)n(ailable,)g(Condor)f(will)i(ha)n(v)o(e)e(to)h(be)437
+3372 y(modi\002ed)d(to)h(support)e(the)i(dynamic)e(resource)h
+(management)e(interf)o(ace.)26 b(MPI-2)21 b(jobs)f(will)437
+3471 y(allo)n(w)f(more)f(\003e)o(xibility)h(in)g(scheduling,)f
+(including)f(the)i(use)g(of)g(non-dedicated)d(resources.)437
+3592 y Fi(6.8)k(Generic)g(dedicated)g(jobs)437 3748 y
+Fj(Some)k(parallel)g(applications)f(that)h(require)f(dedicated)f
+(resources)i(do)f(not)h(use)h(MPI.)f(Cer)n(-)437 3847
+y(tain)17 b(serial)g(applications)e(desire)i(access)g(to)g(dedicated)e
+(resources.)23 b(Condor)15 b(could)h(be)g(mod-)437 3947
+y(i\002ed)j(to)h(allo)n(w)f(users)h(to)f(specify)g(an)o(y)f(job)h(in)h
+(the)f(system)h(as)g(a)f(dedicated)f(job)m(.)24 b(This)c(w)o(ould)437
+4047 y(enable)g(users)h(of)f(Condor)g(to)h(submit)f(generic)g(parallel)
+g(dedicated)g(jobs,)g(not)h(just)g(applica-)437 4146
+y(tions)k(link)o(ed)f(against)h(MPI.)f(It)i(w)o(ould)e(also)h(allo)n(w)
+g(dedicated)f(scheduling)f(of)i(serial)g(jobs)437 4246
+y(that)30 b(can)f(not)g(be)g(checkpointed.)50 b(Dedicated)29
+b(scheduling)e(of)i(non-opportunistic)d(serial)437 4346
+y(jobs)g(w)o(ould)f(increase)h(the)g(lik)o(elihood)f(that)h(the)g(jobs)
+g(w)o(ould)g(e)o(x)o(ecute)e(until)i(completion,)437
+4445 y(thereby)19 b(impro)o(ving)e(o)o(v)o(erall)i(system)h
+(throughput.)437 4566 y Fi(6.9)g(Allo)o(wing)g(r)o(esour)o(ce)f(r)o
+(eser)o(v)o(ations)437 4722 y Fj(Man)o(y)k(users)g(desire)h(the)f
+(ability)h(to)f(mak)o(e)g(future)g(reserv)n(ations)f(on)h(dedicated)f
+(resources.)437 4822 y(F)o(or)j(e)o(xample,)g(a)h(user)f(might)g(need)f
+(to)i(run)e(an)h(interacti)n(v)o(e)f(application)g(on)h(a)h(number)d
+(of)p 437 4874 1087 4 v 528 4929 a Fe(3)557 4953 y Fd(Unfortunately)l
+(,)29 b(MPI)24 b(uses)h(the)g(term)g Fb(r)o(ank)g Fd(for)g(this)g
+(unique)h(identi\002er)m(,)j(which)d(is)e(completely)k(dif)n(ferent)437
+5032 y(from)17 b(the)g Fb(r)o(ank)h Fd(used)f(in)g(the)h(rest)g(of)f
+(Condor)h(to)f(specify)h(preferences.)p eop
+%%Page: 14 14
+14 13 bop 437 626 a Fj(dedicated)24 b(resources)h(at)h(a)g(certain)e
+(time.)41 b(Condor)24 b(should)h(be)g(able)h(to)f(support)f(reserv)n
+(a-)437 726 y(tions)f(and)f(ensure)g(that)g(no)g(jobs)h(are)g(running)d
+(on)i(an)o(y)g(of)g(the)h(requested)e(resources)h(at)h(the)437
+826 y(speci\002ed)i(time.)42 b(Since)26 b(Condor)e(needs)h(kno)n
+(wledge)f(of)h(the)h(future)e(to)i(support)e(resource)437
+925 y(reserv)n(ations,)19 b(job)g(duration)g(information)f(is)j
+(required.)437 1202 y Fi(6.10)e(Checkpointing)h(parallel)g
+(applications)437 1412 y Fj(Checkpointing)f(parallel)i(applications)f
+(is)i(a)g(dif)n(\002cult)f(task.)29 b(The)21 b(main)g(challenge)f(in)i
+(sup-)437 1511 y(porting)30 b(parallel)g(checkpointing)f(is)j
+(checkpointing)c(the)j(state)h(of)f(communication)e(be-)437
+1611 y(tween)c(nodes.)38 b(An)o(y)25 b(data)g(in)g(transit)g(between)f
+(nodes)g(is)i(both)f(dif)n(\002cult)f(and)g(essential)i(to)437
+1711 y(checkpoint.)56 b(Preliminary)29 b(research)h(at)i(UW)-5
+b(-Madison)30 b(has)h(demonstrated)e(the)i(ability)437
+1810 y(to)e(checkpoint)f(and)g(restart)i(MPI)f(applications,)h
+(including)e(netw)o(ork)g(state)i(and)f(data)g(in)437
+1910 y(transit[18)n(].)c(Other)19 b(methods)g(for)g(checkpointing)d
+(parallel)k(applications)e(attempt)h(to)h(\003ush)437
+2010 y(all)h(communication)c(pathw)o(ays)j(before)e(checkpointing[19)-5
+b(].)602 2137 y(Supporting)33 b(parallel)h(checkpointing)e(w)o(ould)j
+(signi\002cantly)f(alter)h(\(and)f(impro)o(v)o(e\))437
+2237 y(man)o(y)26 b(of)h(the)g(scheduling)f(problems)g(e)o(xplained)f
+(abo)o(v)o(e.)45 b(If)27 b(a)h(parallel)f(job)g(can)g(be)g(pre-)437
+2337 y(empted)19 b(without)h(loosing)g(all)h(pre)n(vious)e(w)o(ork,)g
+(the)i(scheduling)d(system)j(does)f(not)g(require)437
+2436 y(dedicated)k(resources.)40 b(Resources)25 b(could)f(be)i
+(con\002gured)d(to)i(be)h(dedicated)e(and)g(Condor)437
+2536 y(w)o(ould)d(steer)h(parallel)f(jobs)g(to)n(w)o(ards)h(those)f
+(resources.)28 b(Ho)n(we)n(v)o(er)m(,)20 b(Condor)g(could)h(sched-)437
+2636 y(ule)31 b(parallel)g(jobs)g(on)g(an)o(y)f(resources)g(it)i(had)e
+(access)i(to,)i(including)29 b(a)j(combination)c(of)437
+2735 y(dedicated)c(and)h(non-dedicated)d(nodes.)39 b(If)25
+b(Condor)f(supported)g(parallel)g(checkpointing,)437
+2835 y(it)e(could)f(pro)o(vide)e(resource)h(reserv)n(ations)g(without)h
+(an)o(y)f(kno)n(wledge)g(of)h(job)g(duration.)27 b(Fi-)437
+2934 y(nally)-5 b(,)17 b(Condor)f(could)h(pro)o(vide)e(periodic)h
+(checkpointing)f(of)i(parallel)g(applications,)g(which)437
+3034 y(w)o(ould)g(reduce)f(the)h(computational)e(time)j(lost)g(in)f
+(the)h(e)n(v)o(ent)e(of)h(hardw)o(are)f(or)h(softw)o(are)g(f)o(ail-)437
+3134 y(ures.)437 3527 y Fk(7)25 b(Conclusion)437 3736
+y Fj(By)g(using)e(both)g(desktop)g(w)o(orkstations)h(and)f(dedicated)g
+(clusters,)i(Condor)e(harnesses)h(all)437 3836 y(a)n(v)n(ailable)h
+(computational)d(po)n(wer)i(in)h(a)h(single)e(system.)40
+b(This)25 b(pro)o(vides)e(a)j(consistent)e(in-)437 3936
+y(terf)o(ace)k(for)h(users.)51 b(Since)29 b(the)g(same)g(resources)f
+(can)g(be)h(used)g(for)f(both)g(dedicated)g(and)437 4035
+y(opportunistic)20 b(jobs,)j(Condor)f(pro)o(vides)e(a)j(high)f(de)o
+(gree)f(of)i(system)g(utilization.)31 b(Some)22 b(of)437
+4135 y(the)16 b(traditional)e(problems)h(with)g(dedicated)g(scheduling)
+f(are)h(a)n(v)n(oided)g(by)g(this)i(unique)d(com-)437
+4235 y(bination)20 b(of)h(scheduling)e(models.)28 b(After)21
+b(years)g(of)g(managing)e(non-dedicated)f(resources,)437
+4334 y(the)j(Condor)e(system)j(is)f(resilient)g(in)g(the)g(f)o(ace)g
+(of)g(man)o(y)f(dif)n(ferent)f(types)i(of)f(hardw)o(are)g(and)437
+4434 y(softw)o(are)g(f)o(ailure.)27 b(This)20 b(rob)n(ustness)h(is)g
+(essential)h(for)e(high)g(job)g(throughput)e(on)i(dedicated)437
+4533 y(resources)26 b(as)i(well,)i(since)d(all)h(resources)e(are)i
+(prone)d(to)j(f)o(ailure.)46 b(W)m(ith)27 b(its)h(combination)437
+4633 y(of)23 b(dedicated)f(and)h(opportunistic)e(scheduling,)i(and)g
+(its)h(rob)n(ustness,)f(the)h(Condor)e(system)437 4733
+y(pro)o(vides)d(signi\002cant)h(computational)e(resources)i(to)h
+(end-users,)e(thereby)g(enabling)h(better)437 4832 y(science.)40
+b(There)25 b(are)g(man)o(y)f(areas)h(of)g(future)f(w)o(ork)h(relating)f
+(to)i(the)f(interaction)f(of)h(dedi-)437 4932 y(cated)h(and)f
+(opportunistic)f(scheduling)g(that)i(will)g(enhance)f(Condor')-5
+b(s)25 b(ability)g(to)h(pro)o(vide)437 5032 y(cheap,)19
+b(ef)n(fecti)n(v)o(e)g(c)o(ycles.)p eop
+%%Page: 15 15
+15 14 bop 437 626 a Fa(Refer)n(ences)479 812 y Fj([1])40
+b(Michael)35 b(Litzk)o(o)n(w)-5 b(.)78 b(Remote)36 b(UNIX:)g(T)l
+(urning)e(Idle)i(W)-7 b(orkstations)35 b(into)h(Cycle)617
+912 y(Serv)o(ers.)h(In)23 b Fh(Pr)l(oceedings)e(of)j(the)f(1987)e
+(Usenix)i(Summer)g(Conf)o(.)p Fj(,)g(pages)f(381\226384,)617
+1011 y(1987.)479 1168 y([2])40 b(Michael)22 b(Litzk)o(o)n(w)g(&)h
+(Miron)e(Li)n(vn)o(y)h(&)g(Matthe)n(w)h(Mutka.)36 b(Condor)21
+b(-)i(A)g(Hunter)e(of)617 1268 y(Idle)28 b(Workstations.)56
+b(In)28 b Fh(Pr)l(oceedings)f(of)i(the)g(8th)f(International)f(Confer)m
+(ence)h(on)617 1368 y(Distrib)n(uted)20 b(Computing)f(Systems)p
+Fj(,)h(pages)g(104\226111,)d(1988.)479 1525 y([3])40
+b(Jim)18 b(Basne)o(y)g(&)g(Miron)g(Li)n(vn)o(y)-5 b(.)22
+b(Deplo)o(ying)17 b(a)h(High)g(Throughput)c(Computing)j(Clus-)617
+1624 y(ter)-5 b(.)51 b(In)26 b(R.)i(Buyya,)f(editor)m(,)g
+Fh(High)g(P)-7 b(erformance)26 b(Cluster)i(Computing)p
+Fj(,)f(v)n(olume)e(1,)617 1724 y(chapter)19 b(5.)h(Prentice)g(Hall)g
+(PTR,)h(1999.)479 1881 y([4])40 b(Michael)15 b(Litzk)o(o)n(w)g(&)h(T)-7
+b(odd)14 b(T)-7 b(annenbaum)13 b(&)j(Jim)g(Basne)o(y)f(&)h(Miron)f(Li)n
+(vn)o(y)-5 b(.)17 b(Check-)617 1981 y(point)e(and)h(Migration)f(of)h
+(UNIX)g(Processes)h(in)f(the)g(Condor)f(Distrib)n(uted)h(Processing)617
+2081 y(System.)29 b(T)-6 b(echnical)19 b(Report)h(1346,)f(April)h
+(1997.)479 2238 y([5])40 b(Miron)23 b(Li)n(vn)o(y)f(&)i(Jim)g(Basne)o
+(y)f(&)h(Rajesh)g(Raman)g(&)f(T)-7 b(odd)23 b(T)-7 b(annenbaum.)38
+b(Mech-)617 2337 y(anisms)28 b(for)g(High)g(Throughput)d(Computing.)54
+b Fh(SPEEDUP)27 b(J)n(ournal)p Fj(,)i(11\(1\),)f(June)617
+2437 y(1997.)479 2594 y([6])40 b(Rajesh)33 b(Raman)f(&)h(Miron)f(Li)n
+(vn)o(y)f(&)h(Marvin)g(Solomon.)67 b(Matchmaking:)48
+b(Dis-)617 2694 y(trib)n(uted)29 b(Resource)g(Management)e(for)i(High)g
+(Throughput)d(Computing.)58 b(In)29 b Fh(Pr)l(o-)617
+2793 y(ceedings)15 b(of)i(the)f(Se)o(venth)f(IEEE)g(International)f
+(Symposium)h(on)h(High)g(P)-7 b(erformance)617 2893 y(Distrib)n(uted)20
+b(Computing)p Fj(,)f(July)h(1998.)479 3050 y([7])40 b(A.)17
+b(Geist)h(et)f(al.)23 b Fh(PVM:)17 b(Par)o(allel)g(Virtual)f(Mac)o
+(hine)g(\226)h(A)h(User)o(s')g(Guide)e(and)g(Tutorial)617
+3150 y(for)k(Network)o(ed)h(Par)o(allel)f(Computing)p
+Fj(.)27 b(Cambridge,)19 b(MA,)h(1994.)479 3307 y([8])40
+b(D.)19 b(G.)g(Feitelson)f(&)h(A.)g(M.)g(a.)f(W)-7 b(eil.)27
+b(Utilization)19 b(and)f(Predictability)f(in)i(Scheduling)617
+3407 y(the)i(IBM)h(SP2)g(with)g(Back\002lling.)32 b(In)22
+b Fh(Pr)l(oceedings)e(of)h(the)h(2nd)e(International)g(P)-7
+b(ar)n(-)617 3506 y(allel)20 b(Pr)l(ocessing)g(Symposium)p
+Fj(,)f(pages)h(542\226546,)d(Orlando,)h(Florida,)i(April)g(1998.)479
+3663 y([9])40 b(Brett)18 b(Bode)g(&)g(Da)n(vid)f(M.)h(Halstead)g(&)g
+(Rick)o(y)g(K)n(endall)f(&)h(Zhou)e(Lei.)24 b(The)18
+b(Portable)617 3763 y(Batch)j(Scheduler)f(and)g(the)h(Maui)g(Scheduler)
+f(on)h(Linux)f(Clusters.)32 b(In)21 b Fh(Pr)l(oceedings)617
+3863 y(of)30 b(the)g(4th)g(Annual)e(Linux)i(Showcase)e(and)h(Confer)m
+(ence)p Fj(,)j(Atlanta,)g(GA,)e(October)617 3962 y(2000.)437
+4119 y([10])40 b(D.)25 b(H.)g(J.)g(Epema)f(&)h(M.)g(Li)n(vn)o(y)e(&)i
+(R.)h(v)n(an)e(Dantzig)g(&)h(X.)g(Ev)o(ers)f(&)h(J.)g(Pruyne.)43
+b(A)617 4219 y(Worldwide)24 b(Flock)h(of)g(Condors)f(:)36
+b(Load)25 b(Sharing)f(among)f(Workstation)i(Clusters.)617
+4319 y Fh(J)n(ournal)19 b(on)h(Futur)m(e)f(Gener)o(ations)g(of)i
+(Computer)e(Systems)p Fj(,)i(12,)e(1996.)437 4476 y([11])40
+b(W)-8 b(.D.)29 b(Gropp)e(&)i(E.)f(Lusk)g(&)h(N.)f(Doss)h(&)g(A.)f
+(Skjellum.)55 b(A)29 b(High-Performance,)617 4576 y(Portable)i
+(Implementation)f(of)i(the)g(MPI)g(Message)g(Passing)h(Interf)o(ace)e
+(Standard.)617 4675 y Fh(P)-7 b(ar)o(allel)20 b(Computing)p
+Fj(,)e(22\(6\):789\226828,)d(September)k(1996.)437 4832
+y([12])40 b(W)-8 b(.D.)21 b(Gropp)d(&)j(E.)f(Lusk.)28
+b Fh(User')m(s)21 b(Guide)e(for)i(mpic)o(h,)e(a)h(Portable)f
+(Implementation)617 4932 y(of)31 b(MPI)p Fj(.)63 b(Mathematics)30
+b(and)g(Computer)f(Science)i(Di)n(vision,)h(Ar)o(gonne)d(National)617
+5032 y(Laboratory)-5 b(,)17 b(1996.)27 b(ANL-96/6.)p
+eop
+%%Page: 16 16
+16 15 bop 437 626 a Fj([13])40 b(Gre)o(g)27 b(Burns)g(&)h(Raja)g(Daoud)
+e(&)i(James)g(V)-9 b(aigl.)52 b(LAM:)28 b(An)g(Open)e(Cluster)i(En)m
+(vi-)617 726 y(ronment)22 b(for)i(MPI.)42 b(In)24 b(John)f(W)-8
+b(.)25 b(Ross,)h(editor)m(,)e Fh(Pr)l(oceedings)f(of)h(Super)m
+(computing)617 826 y(Symposium)19 b('94)p Fj(,)g(pages)h(379\226386.)d
+(Uni)n(v)o(ersity)i(of)h(T)-7 b(oronto,)18 b(1994.)437
+992 y([14])40 b(Message)21 b(P)o(assing)h(Interf)o(ace)e(F)o(orum.)31
+b(MPI:)22 b(A)g(Message-Passing)e(Interf)o(ace)g(Stan-)617
+1091 y(dard.)g Fh(International)15 b(J)n(ournal)g(of)i(Super)m
+(computer)d(Applications)p Fj(,)i(8\(3\2264\):165\226414,)617
+1191 y(1994.)437 1357 y([15])40 b(Marc)26 b(Snir)h(&)g(Ste)n(v)o(e)f(W)
+-8 b(.)28 b(Otto)f(&)f(Ste)n(v)o(en)g(Huss-Lederman)f(&)i(Da)n(vid)f(W)
+-8 b(.)28 b(W)-7 b(alk)o(er)617 1457 y(&)19 b(Jack)g(Dongarra.)24
+b Fh(MPI\227The)18 b(Complete)h(Refer)m(ence:)24 b(V)-9
+b(olume)18 b(1,)h(The)g(MPI)g(Cor)m(e)o(,)617 1556 y
+Fj(2nd)g(edition.)28 b(MIT)20 b(Press,)h(Cambridge,)e(MA,)h(1998.)437
+1722 y([16])40 b(Message)17 b(P)o(assing)h(Interf)o(ace)e(F)o(orum.)22
+b(MPI2:)h(A)18 b(Message)g(P)o(assing)f(Interf)o(ace)f(Stan-)617
+1822 y(dard.)46 b Fh(International)24 b(J)n(ournal)h(of)h(High)f(P)-7
+b(erformance)26 b(Computing)e(Applications)p Fj(,)617
+1922 y(12\(1\2262\):1\226299,)15 b(1998.)437 2088 y([17])40
+b(W)m(illiam)28 b(Gropp)f(&)h(Ste)n(v)o(en)g(Huss-Lederman)e(&)i(Andre)
+n(w)f(Lumsdaine)g(&)h(Ewing)617 2187 y(Lusk)23 b(&)h(Bill)h(Nitzber)o
+(g)d(&)i(W)m(illiam)g(Saphir)f(&)h(Marc)f(Snir)-5 b(.)41
+b Fh(MPI\227The)23 b(Complete)617 2287 y(Refer)m(ence:)33
+b(V)-9 b(olume)24 b(2,)h(The)g(MPI-2)f(Extensions)p Fj(.)43
+b(MIT)25 b(Press,)h(Cambridge,)e(MA,)617 2386 y(1998.)437
+2553 y([18])40 b(V)-5 b(ictor)93 b(C.)i(Zandy)d(&)i(Barton)f(P)-9
+b(.)94 b(Miller)-5 b(.)265 b Fh(Reliable)93 b(Soc)n(k)o(ets)p
+Fj(.)617 2652 y(http://www)-5 b(.cs.wisc.edu/paradyn/pape)o(rs/inde)n
+(x.)o(html#)o(ro)o(cks.)90 b(Uni)n(v)o(ersity)k(of)617
+2752 y(W)m(isconsin)20 b(\226)g(Madison,)f(2001.)437
+2918 y([19])40 b(G.)29 b(Stellner)-5 b(.)58 b(Cocheck:)43
+b(Checkpointing)26 b(and)j(Process)g(Migration)f(for)g(MPI.)58
+b(In)617 3017 y Fh(Pr)l(oceedings)15 b(of)i(the)g(International)d(P)-7
+b(ar)o(allel)16 b(Pr)l(ocessing)h(Symposium)p Fj(,)e(pages)h(526\226)
+617 3117 y(531,)j(Honolulu,)f(April)i(1996.)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF
