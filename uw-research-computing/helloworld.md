@@ -353,4 +353,4 @@ manuals:
 Ok, you have the basics! This should be enough background to get you
 started using the CHTC for the *real* problems you came to us for.
 Remember, we are here to help. Don\'t hesitate to contact us at
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu) with questions.
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with questions.

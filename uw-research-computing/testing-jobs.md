@@ -82,7 +82,7 @@ transferred to and from the execute nodes. Large input files will need
 to be staged on a proxy server or shared file system; small input files
 can use HTCondor\'s built-in file transfer system. If you have questions
 about how to handle your data, please email
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu) to get in touch with a research
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) to get in touch with a research
 computing facilitator who can advise you.
 
 In addition to these considerations, your script/program itself should

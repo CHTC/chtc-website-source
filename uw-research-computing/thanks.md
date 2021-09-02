@@ -9,7 +9,7 @@ var RecaptchaOptions = {
 </script>
 
 Thank you for your account request! You should get an email with "[CHTC Requests]" in the subject line within the next 
-few minutes and a <a href="{{ '/get-help' | relative_url }}">research 
+few minutes and a <a href="{{ '/uw-research-computing/get-help' | relative_url }}">research 
 computing facilitator</a> should be in touch within a business day. 
 
 If you don't get an email with the "CHTC Requests" subject or hear from a research computing facilitator within a 

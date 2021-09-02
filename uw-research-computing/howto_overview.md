@@ -20,27 +20,27 @@ title: CHTC Tools for Matlab, R, and Python Portability
 	<div class="uw-row">
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<a href="{{ '/matlab-jobs' | relative_url }}"><img src="{{ '/images/Matlab_Logo.png' | relative_url }}" alt="Matlab Logo"></a>
+				<a href="{{ '/uw-research-computing/matlab-jobs' | relative_url }}"><img src="{{ '/images/Matlab_Logo.png' | relative_url }}" alt="Matlab Logo"></a>
 				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar"><a href="{{ '/matlab-jobs' | relative_url }}">Running Matlab Jobs in CHTC</a></h2>
+					<h2 class="uw-mini-bar"><a href="{{ '/uw-research-computing/matlab-jobs' | relative_url }}">Running Matlab Jobs in CHTC</a></h2>
 				</div>
 			</div>
 		</div>
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<a href="{{ '/python-jobs' | relative_url }}">
+				<a href="{{ '/uw-research-computing/python-jobs' | relative_url }}">
 					<img src="{{ '/images/Python_Logo.png' | relative_url }}" alt="Python Logo">
 				</a>
 				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar"><a href="{{ '/python-jobs' | relative_url }}">Running Python Jobs in CHTC</a></h2>
+					<h2 class="uw-mini-bar"><a href="{{ '/uw-research-computing/python-jobs' | relative_url }}">Running Python Jobs in CHTC</a></h2>
 				</div>
 			</div>
 		</div>
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<a href="{{ '/r-jobs' | relative_url }}"><img src="{{ '/images/R_Logo.png' | relative_url }}" alt="R logo"></a>
+				<a href="{{ '/uw-research-computing/r-jobs' | relative_url }}"><img src="{{ '/images/R_Logo.png' | relative_url }}" alt="R logo"></a>
 				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar"><a href="{{ '/r-jobs' | relative_url }}">Running R Job in CHTC</a></h2>
+					<h2 class="uw-mini-bar"><a href="{{ '/uw-research-computing/r-jobs' | relative_url }}">Running R Job in CHTC</a></h2>
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,7 @@ title: CHTC Tools for Matlab, R, and Python Portability
                 If you are using a different software, the following guide will explain how to prepare your code to run your jobs on the CHTC pool
             </p>
             <p>
-                <a href="{{ '/inter-submit' | relative_url }}">
+                <a href="{{ '/uw-research-computing/inter-submit' | relative_url }}">
                     General Software Installation Instructions
                 </a>
             </p>
@@ -70,7 +70,7 @@ title: CHTC Tools for Matlab, R, and Python Portability
                 If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
             </p>
             <p>
-                For old guides not shown on this page, see our <a href="{{ 'archived/howto_overview' | relative_url }}">archived page</a>.
+                For old guides not shown on this page, see our <a href="{{ '/uw-research-computing/archived/howto_overview' | relative_url }}">archived page</a>.
             </p>
         </div>
     </div>

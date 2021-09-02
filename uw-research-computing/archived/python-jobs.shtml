@@ -7,7 +7,7 @@ title: Running Python Jobs on CHTC
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="{{ '/python-jobs' | relative_url }}">this page</a> for the new guides.
+<a href="{{ '/uw-research-computing/python-jobs' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 <p><b>To best understand the below information, users 
@@ -17,7 +17,7 @@ should already have an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="{{ '/helloworld' | relative_url }}">The CHTC's Intro
+	<li><a href="{{ '/uw-research-computing/helloworld' | relative_url }}">The CHTC's Intro
 	to Running HTCondor Jobs</a></li>
 </ul>
 
