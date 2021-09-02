@@ -24,7 +24,7 @@ Before you begin, review our below discussion of [MPI requirements and
 use cases](#require), to make sure that our multi-core MPI capabilities
 are the right solution for your computing problem. If you have any
 questions, contact a CHTC facilitator at
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu).
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 Once you know that you need to run multi-core jobs that use MPI on our
 HTC system, you will need to do the following:
@@ -48,7 +48,7 @@ speed up single computations that cannot be broken up and run as
 independent jobs. If you have questions about the advantages and
 disadvantages of running multi-core jobs versus single-core jobs,
 contact one of CHTC\'s facilitators at
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu).
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 Running on multiple CPUs can be enabled by the parallel programming
 standard MPI. For MPI jobs to compile and run, CHTC has a set of MPI
@@ -72,7 +72,7 @@ command from the submit server:
 
 Your software may require newer versions of MPI libraries than those
 available via our modules. If this is the case, send an email to
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu), to find out if we can install
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu), to find out if we can install
 that library into the module system.
 
 C. Submitting MPI jobs
@@ -130,7 +130,7 @@ If your MPI program is especially large (more than 100 MB, compiled), or
 if it can *only* run from the exact location to which it was installed,
 you may also need to take advantage of CHTC\'s shared software location
 or our public web proxy called Squid. Email CHTC\'s Research Computing
-Facilitators at [chtc@cs.wisc.edu](chtc@cs.wisc.edu) if this is the case.
+Facilitators at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if this is the case.
 
 
 <a name="script"/>

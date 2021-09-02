@@ -16,7 +16,7 @@ title: Other Resources
 <div class="uw-side-nav">
 <ul>
 <li>
-<a href="{{ '/gpu-lab' | relative_url }}">CHTC GPU Lab</a>
+<a href="{{ '/uw-research-computing/gpu-lab' | relative_url }}">CHTC GPU Lab</a>
 </li>
 <li>
 <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Project</a>

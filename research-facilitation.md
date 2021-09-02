@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: markdown-page
-title: Research Computing
+title: Research Facilitation
 ---
 
 RC facilitators serve as proactive and personalized guides, helping researchers

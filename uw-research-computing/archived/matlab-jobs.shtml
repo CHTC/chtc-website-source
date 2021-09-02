@@ -6,7 +6,7 @@ title: Running Matlab Jobs on CHTC
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="{{ '/matlab-jobs' | relative_url }}">this page</a> for the new guides.
+<a href="{{ '/uw-research-computing/matlab-jobs' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 <p><b>The examples and information in this guide work best for the below cases*:</b>
