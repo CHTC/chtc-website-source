@@ -249,7 +249,7 @@ it executable permissions by running:
 <a name="submit"></a>
 <h1>3. Submitting Jobs</h1>
 
-A sample submit file can be found in our <a href="{{ '/helloworld' | relative_url }}">hello world
+A sample submit file can be found in our <a href="{{ '/uw-research-computing//helloworld' | relative_url }}">hello world
 </a> example page.  You should make the following changes in order to run 
 Python jobs: 
 <ul>
