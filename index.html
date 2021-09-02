@@ -10,87 +10,162 @@ title: Home
 </div>
 <div class="uw-row-full">
     <div class="uw-row">
-        {% include title-desc-img-card.html
-            class=" mb-4 mt-4 "
-            title="Center for High Throughput Computing"
-            desc="This is where we discuss CHTC and how it has defined HTC. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum, neque sit amet posuere congue, augue justo semper velit, sit amet auctor elit sapien at nibh. Fusce feugiat vel nibh a gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse placerat consectetur lorem, vel hendrerit leo porta pulvinar. Cras nulla leo"
-            img_src="images/logos/CHTC_small_logo.svg"
-            img_alt="CHTC Small Logo"
-        %}
-        {% include title-desc-img-card.html
-            class=" flex-row-reverse mb-4 mt-4 "
-            title="HTCSS"
-            desc="This is where we discuss CHTC and how it has defined HTC. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum, neque sit amet posuere congue, augue justo semper velit, sit amet auctor elit sapien at nibh. Fusce feugiat vel nibh a gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse placerat consectetur lorem, vel hendrerit leo porta pulvinar. Cras nulla leo"
+        <div class="uw-col">
+            {% include title-desc-img-card.html
+                class=" mb-4 mt-4 "
+                title="Center for High Throughput Computing"
+                desc="
+__The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
+of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
+by insight from all fields__
+
+[High Throughput Computing](htc) is a collection of principles and techniques which maximize the effective throughput
+of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
+improved use of a computing resource, improved automation, and help drive the scientific problem forward.
+
+The team at CHTC develops technologies and services for HTC.  CHTC is the home of the [HTCondor Software
+Suite](https://htcondor.org) which has over 30 years of experience in tackling HTC problems;
+it manages shared computing resources
+for researchers on the UW-Madison campus; and it leads the [OSG Consortium](https://osg-htc.org),
+a national-scale environment for distributed HTC.
+                "
+                img_src="images/logos/CHTC_small_logo.svg"
+                img_alt="CHTC Small Logo"
+            %}
+            {% include title-desc-img-card.html
+                class=" flex-row-reverse mb-4 mt-4 "
+                title="HTCSS"
+                desc="
+The [HTCondor Software Suite (HTCSS)](https://htcondor.org) provides sites and users with the ability to manage and execute
+HTC workloads.  Whether it’s managing a single laptop or 250,000 cores at CERN, HTCondor
+helps solve computational problems through the application of the HTC principles.
+                "
             img_src="images/laptop.svg"
-            img_alt="Laptop"
-        %}
-        {% include title-desc-img-card.html
-            class=" mb-4 mt-4 "
-            title="Services"
-            desc="This is where we discuss CHTC and how it has defined HTC. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum, neque sit amet posuere congue, augue justo semper velit, sit amet auctor elit sapien at nibh. Fusce feugiat vel nibh a gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse placerat consectetur lorem, vel hendrerit leo porta pulvinar. Cras nulla leo"
-            img_src="images/microscope.svg"
-            img_alt="Microscope"
-        %}
+                img_alt="Laptop"
+            %}
+                {% include title-desc-img-card.html
+                class=" mb-4 mt-4 "
+                title="Services"
+                desc="
+### [UW Research Computing](uw-research-computing)
+CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison
+campus; this resource, which is free and shared, aims to advance the
+mission of the University of Wisconsin in support of the Wisconsin
+Idea.  Researchers can place their workloads on an access point at
+CHTC and utilize the resources at CHTC, across the campus, and across
+the nation.
+
+### [Research Facilitation](research-facilation)
+CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
+their goals.  The Research Facilitation approach emphasizes teaching users skills and
+methodologies to manage & automate workloads on resources like those at CHTC, the campus,
+or across the world.
+            "
+                img_src="images/microscope.svg"
+                img_alt="Microscope"
+            %}
+        </div>
     </div>
 </div>
 <div class="uw-row-full uw-light-grer-bg">
     <hr/>
     <div class="uw-row pb-4">
-        <h3 class="text-center display-2">
-            As part of its many services to UW-Madison and beyond,
-            the CHTC is home to or supports the following Research
-            Projects and Partners.
-        </h3>
+        <div class="uw-col">
+            <h3 class="text-center display-2">
+                As part of its many services to UW-Madison and beyond,
+                the CHTC is home to or supports the following Research
+                Projects and Partners.
+            </h3>
+        </div>
     </div>
-    <div class="uw-row">
-        {% include sub-title-desc-img-card.html
-            class=" mb-4 "
-            title="OSG"
-            desc="This is where we discuss CHTC and how it has defined HTC. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum, neque sit amet posuere congue, augue justo semper velit, sit amet auctor elit sapien at nibh. Fusce feugiat vel nibh a gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse placerat consectetur lorem, vel hendrerit leo porta pulvinar. Cras nulla leo"
-            img_src="images/logos/OSG-logo.svg"
-            img_alt="OSG Logo"
-        %}
-        {% include sub-title-desc-img-card.html
-            class=" mb-4 "
-            title="HTCSS"
-            url=""
-            class=" flex-row-reverse "
-            desc="This is where we discuss CHTC and how it has defined HTC. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum, neque sit amet posuere congue, augue justo semper velit, sit amet auctor elit sapien at nibh. Fusce feugiat vel nibh a gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse placerat consectetur lorem, vel hendrerit leo porta pulvinar. Cras nulla leo"
-            img_src="images/logos/HTCSS_Logo.png"
-            img_alt="OSG Logo"
-        %}
-    </div>
-    <div class="uw-row">
-        <div class="row justify-content-center">
-            {% assign card-class = "col-8 col-lg-4 col-md-5 col-sm-5" %}
-            {% include title-img-card.html
-                class=card-class
+    <div class="uw-row b-4">
+        <div class="uw-col">
+            {% include sub-title-desc-img-card.html
+                class=" mb-4 "
+                title="OSG"
+                href="https://osg-htc.org"
+                desc="
+The OSG is a consortium of research collaborations, campuses, national laboratories and software
+providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
+Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
+for the national science and engineering community and CHTC has been a major force in OSG since its inception
+in 2005.
+                "
+                img_src="images/logos/OSG-logo.svg"
+                img_alt="OSG Logo"
+            %}
+            {% include sub-title-desc-img-card.html
+                class=" mb-4 "
                 title="PATh"
                 href="https://path-cc.io/"
+                class=" flex-row-reverse mb-4"
+                desc="
+The Partnership to Advance Throughput Computing (PATh) is a partnership between
+CHTC and OSG to advance throughput computing.  Funded through a major investment
+from NSF, PATh helps advance HTC at a national level through support for
+HTCSS and provides a fabric of services for the NSF science and engineering community
+to access resources across the nation.
+                "
                 img_src="images/logos/PATh_Logo.png"
-                img_alt="PATh logo"
+                img_alt="PATh Logo"
             %}
-            {% include title-img-card.html
-                class=card-class
-                title="IRIS-HEP"
-                href="https://iris-hep.org/"
-                img_src="images/logos/IRIS-HEP_Logo.png"
-                img_alt="IRIS-HEP logo"
-            %}
-            {% include title-img-card.html
-                class=card-class
-                title="xDD"
-                href="https://xdd.wisc.edu/"
-                img_src="images/logos/xDD_Logo.svg"
-                img_alt="xDD logo"
-            %}
-            {% include title-img-card.html
-                class=card-class
-                title="Morgridge"
+            {% include sub-title-desc-img-card.html
+                class=" mb-4 "
+                title="Morgridge Institute for Research"
                 href="https://morgridge.org/"
-                img_src="images/logos/Morgridge_Logo.png"
-                img_alt="PATh logo"
+                desc="
+The Morgridge Institute for Research is a private, biomedical research institute
+located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
+partner with CHTC, investing in the vision of HTC and its ability to advance basic
+research.
+                "
+                img_src="images/logos/Morgridge_Logo.svg"
+                img_alt="Morgridge Logo"
             %}
+        </div>
+    </div>
+    <div class="uw-row pb-4">
+        <div class="uw-col">
+            <div class="row justify-content-center">
+
+                {% assign card-class = "col-8 col-lg-4 col-md-5 col-sm-5" %}
+                {% include title-img-card.html
+                    class=card-class
+                    title="xDD"
+                    href="https://xdd.wisc.edu/"
+                    img_src="images/logos/xDD_Logo.svg"
+                    img_alt="xDD logo"
+                %}
+                {% include title-img-card.html
+                    class=card-class
+                    title="IRIS-HEP"
+                    href="https://iris-hep.org/"
+                    img_src="images/logos/IRIS-HEP_Logo.png"
+                    img_alt="IRIS-HEP logo"
+                %}
+                {% include title-img-card.html
+                    class=card-class
+                    title="NEOS"
+                    href="https://neos-server.org/neos/"
+                    img_src="images/logos/NEOS_Logo.svg"
+                    img_alt="NEOS logo"
+                %}
+                {% include title-img-card.html
+                    class=card-class
+                    title="BRMB"
+                    href="https://bmrb.io/"
+                    img_src="images/logos/BRMB_Logo.svg"
+                    img_alt="BRMB logo"
+                %}
+                {% include title-img-card.html
+                    class=card-class
+                    title="Pegasus"
+                    href="https://pegasus.isi.edu/"
+                    img_src="images/logos/Pegasus_Logo.png"
+                    img_alt="Pegasus logo"
+                %}
+
+            </div>
         </div>
     </div>
 </div>

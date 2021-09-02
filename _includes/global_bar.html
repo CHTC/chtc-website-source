@@ -1,3 +1,11 @@
+{% include logic/is_in_uw_dir.html %}
+
 <div class="uw-global-bar" role="navigation">
     <a class="uw-global-name-link" href="http://www.wisc.edu" aria-label="University home page">U<span>niversity <span class="uw-of">of</span> </span>W<span>isconsin</span>–Madison</a>
+
+    {% if is_in_uw_dir %}
+    <a class="uw-global-name-link" href="/" aria-label="University home page">Go to CHTC Home</a>
+    {% else %}
+    <a class="uw-global-name-link" href="/uw-research-computing" aria-label="UW Research Computing Homepage">Go to UW Research Computing Home</a>
+    {% endif %}
 </div>

@@ -1,33 +1,36 @@
 nav_items:
+  - id: uw-research-computing-home
+    name: Home
+    url: /uw-research-computing
   - id: get-started
     name: Get Started
-    url: /get-started
+    url: /uw-research-computing/get-started
   - id: menu-how-tos
     name: How To's
-    url: /how-tos
+    url: /uw-research-computing/how-tos
     sub_menu:
-      - url: /get-help
+      - url: /uw-research-computing/get-help
         name: Get Help
-      - url: /guides
+      - url: /uw-research-computing/guides
         name: All User Guides
-      - url: /use-submit-nodes
+      - url: /uw-research-computing/use-submit-nodes
         name: Use an HTC Submit Server
-      - url: /helloworld
+      - url: /uw-research-computing/helloworld
         name: Run Your First HTC Jobs
-      - url: /howto_overview
+      - url: /uw-research-computing/howto_overview
         name: HTC for MatLab, Python or R
-      - url: /hpc-overview
+      - url: /uw-research-computing/hpc-overview
         name: Use the HPC Cluster
-      - url: /cite-chtc
+      - url: /uw-research-computing/cite-chtc
         name: Cite CHTC Resources
   - id: user-news
     name: User News
-    url: /user-news
+    url: /uw-research-computing/user-news
   - id: menu-other-resources
     name: Other Resources
-    url: /other-resources
+    url: /uw-research-computing/other-resources
     sub_menu:
-      - url: /gpu-lab
+      - url: /uw-research-computing/gpu-lab
         name: CHTC GPU Lab
       - url: http://research.cs.wisc.edu/htcondor/
         name: HTCondor Project
