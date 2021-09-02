@@ -20,7 +20,7 @@ li {
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="{{ '/inter-submit' | relative_url }}">this page</a> for the new guides.
+<a href="{{ '/uw-research-computing/inter-submit' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 <p>
@@ -28,7 +28,7 @@ The CHTC has two "build" machines configured for compiling code
 interactively. Furthermore, any CHTC execute server can be used for 
 testing commands and programs before submitting large batches of 
 non-interactive jobs ('typical' jobs like our 
-<a href="{{ '/uw-research-computing//helloworld' | relative_url }}">"hello-world"
+<a href="{{ '/uw-research-computing/helloworld' | relative_url }}">"hello-world"
 example).</a>
 <br /><br />
 <b>Typically, any compilable code to be run in CHTC should be compiled 
