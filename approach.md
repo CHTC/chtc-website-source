@@ -10,7 +10,7 @@ computational task into many smaller tasks for the fastest overall
 turnaround. Most of our users find HTC to be invaluable 
 in accelerating their computational work and thus their research. 
 We support thousands of multi-core computers and use the task
-scheduling software called <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>, developed right here in Madison, to
+scheduling software called <a href="http://htcondor.org">HTCondor</a>, developed right here in Madison, to
 run thousands of independent jobs on as many total processors as
 possible. These computers, or "machines", are distributed across several 
 collections that we call *pools* (similar to "clusters"). Because machines are

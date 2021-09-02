@@ -1,0 +1,5232 @@
+%!PS-Adobe-1.0
+%%Creator: cream:mike (& Litzkow,3393,262-6122,2221371)
+%%Title: stdin (ditroff)
+%%CreationDate: Mon Aug 19 09:49:35 1991
+%%EndComments
+% Start of psdit.pro -- prolog for ditroff translator
+% Copyright (c) 1985,1987 Adobe Systems Incorporated. All Rights Reserved. 
+% GOVERNMENT END USERS: See Notice file in TranScript library directory
+% -- probably /usr/lib/ps/Notice
+% RCS: $Header: /p/condor/repository/CONDOR_SRC/doc/POSTSCRIPT/experience.PS,v 1.1.1.1 1993/11/29 23:16:44 condor Exp $
+/$DITroff 180 dict def $DITroff begin
+
+/DocumentInitState [ matrix currentmatrix currentlinewidth currentlinecap
+currentlinejoin currentdash currentgray currentmiterlimit ] cvx def
+
+%% Psfig additions
+/startFig {
+	/SavedState save def
+	userdict maxlength dict begin
+	currentpoint transform
+
+	DocumentInitState setmiterlimit setgray setdash setlinejoin setlinecap
+		setlinewidth setmatrix
+
+	itransform moveto
+
+	/ury exch def
+	/urx exch def
+	/lly exch def
+	/llx exch def
+	/y exch 72 mul resolution div def
+	/x exch 72 mul resolution div def
+	
+	currentpoint /cy exch def /cx exch def
+
+	/sx x urx llx sub div def 	% scaling for x
+	/sy y ury lly sub div def	% scaling for y
+
+	sx sy scale			% scale by (sx,sy)
+
+	cx sx div llx sub
+	cy sy div ury sub translate
+	
+	/DefFigCTM matrix currentmatrix def
+
+	/initmatrix {
+		DefFigCTM setmatrix
+	} def
+	/defaultmatrix {
+		DefFigCTM exch copy
+	} def
+
+	/initgraphics {
+		DocumentInitState setmiterlimit setgray setdash 
+			setlinejoin setlinecap setlinewidth setmatrix
+		DefFigCTM setmatrix
+	} def
+
+	/showpage {
+		initgraphics
+	} def
+
+} def
+% Args are llx lly urx ury (in figure coordinates)
+/clipFig {
+	currentpoint 6 2 roll
+	newpath 4 copy
+	4 2 roll moveto
+	6 -1 roll exch lineto
+	exch lineto
+	exch lineto
+	closepath clip
+	newpath
+	moveto
+} def
+% doclip, if called, will always be just after a `startfig'
+/doclip { llx lly urx ury clipFig } def
+/endFig {
+	end SavedState restore
+} def
+/globalstart {
+	% Push details about the enviornment on the stack.
+	fontnum fontsize fontslant fontheight 
+	% firstpage 
+	mh my resolution slotno currentpoint 
+	pagesave restore gsave 
+} def
+/globalend {
+	grestore moveto
+	/slotno exch def /resolution exch def /my exch def
+	/mh exch def 
+	% /firstpage exch def
+	/fontheight exch def
+	/fontslant exch def /fontsize exch def /fontnum exch def
+	F
+	/pagesave save def
+} def
+
+%% end XMOD additions
+
+/fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def
+/xi {0 72 11 mul translate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/xiG {0 72 14 mul translate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/xiL {90 rotate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/@manualfeed {statusdict /manualfeed true put}def
+/PB{save /psv exch def currentpoint translate
+  resolution 72 div dup neg scale 0 0 moveto}def
+/PE{psv restore}def
+/m1 matrix def /m2 matrix def /m3 matrix def /oldmat matrix def
+/tan{dup sin exch cos div}bind def
+/point{resolution 72 div mul}bind def
+/dround	{transform round exch round exch itransform}bind def
+/xT{/devname exch def}def
+/xr{/mh exch def /my exch def /resolution exch def}def
+/xp{}def
+/xs{docsave restore end}def
+/xt{}def
+/xf{/fontname exch def /slotno exch def fontnames slotno get fontname eq not
+ {fonts slotno fontname findfont put fontnames slotno fontname put}if}def
+/xH{/fontheight exch def F}bind def
+/xS{/fontslant exch def F}bind def
+/s{/fontsize exch def /fontheight fontsize def F}bind def
+/f{/fontnum exch def F}bind def
+/F{fontheight 0 le {/fontheight fontsize def}if
+   fonts fontnum get fontsize point 0 0 fontheight point neg 0 0 m1 astore
+   fontslant 0 ne{1 0 fontslant tan 1 0 0 m2 astore m3 concatmatrix}if
+   makefont setfont .04 fontsize point mul 0 dround pop setlinewidth}bind def
+/X{exch currentpoint exch pop moveto show}bind def
+/N{3 1 roll moveto show}bind def
+/Y{exch currentpoint pop exch moveto show}bind def
+/S /show load def
+/ditpush{}def/ditpop{}def
+/AX{3 -1 roll currentpoint exch pop moveto 0 exch ashow}bind def
+/AN{4 2 roll moveto 0 exch ashow}bind def
+/AY{3 -1 roll currentpoint pop exch moveto 0 exch ashow}bind def
+/AS{0 exch ashow}bind def
+/MX{currentpoint exch pop moveto}bind def
+/MY{currentpoint pop exch moveto}bind def
+/MXY /moveto load def
+/cb{pop}def	% action on unknown char -- nothing for now
+/n{}def/w{}def
+/p{pop showpage pagesave restore /pagesave save def}def
+/abspoint{currentpoint exch pop add exch currentpoint pop add exch}def
+/dstroke{currentpoint stroke moveto}bind def
+/Dg{gsave}def
+/Dgi{rlineto}def
+/Dgl{stroke grestore moveto}def
+/Dl{2 copy gsave rlineto stroke grestore rmoveto}bind def
+/arcellipse{oldmat currentmatrix pop
+ currentpoint translate 1 diamv diamh div scale /rad diamh 2 div def
+ rad 0 rad -180 180 arc oldmat setmatrix}def
+/Dc{gsave dup /diamv exch def /diamh exch def arcellipse dstroke 
+    grestore diamh 0 rmoveto}def
+/De{gsave /diamv exch def /diamh exch def arcellipse dstroke
+    grestore diamh 0 rmoveto}def
+/Da{currentpoint /by exch def /bx exch def /fy exch def /fx exch def
+   /cy exch def /cx exch def /rad cx cx mul cy cy mul add sqrt def
+   /ang1 cy neg cx neg atan def /ang2 fy fx atan def cx bx add cy by add
+   2 copy rad ang1 ang2 arcn stroke exch fx add exch fy add moveto}def
+/Barray 200 array def % 200 values in a wiggle
+/D~{mark}def
+/D~~{counttomark Barray exch 0 exch getinterval astore /Bcontrol exch def pop
+ /Blen Bcontrol length def Blen 4 ge Blen 2 mod 0 eq and
+ {Bcontrol 0 get Bcontrol 1 get abspoint /Ycont exch def /Xcont exch def
+  Bcontrol 0 2 copy get 2 mul put Bcontrol 1 2 copy get 2 mul put
+  Bcontrol Blen 2 sub 2 copy get 2 mul put
+  Bcontrol Blen 1 sub 2 copy get 2 mul put
+  /Ybi /Xbi currentpoint 3 1 roll def def 0 2 Blen 4 sub
+  {/i exch def
+   Bcontrol i get 3 div Bcontrol i 1 add get 3 div
+   Bcontrol i get 3 mul Bcontrol i 2 add get add 6 div
+   Bcontrol i 1 add get 3 mul Bcontrol i 3 add get add 6 div
+   /Xbi Xcont Bcontrol i 2 add get 2 div add def
+   /Ybi Ycont Bcontrol i 3 add get 2 div add def
+   /Xcont Xcont Bcontrol i 2 add get add def
+   /Ycont Ycont Bcontrol i 3 add get add def
+   Xbi currentpoint pop sub Ybi currentpoint exch pop sub rcurveto
+  }for dstroke}if}def
+end
+/ditstart{$DITroff begin
+ /nfonts 60 def			% NFONTS makedev/ditroff dependent!
+ /fonts[nfonts{0}repeat]def
+ /fontnames[nfonts{()}repeat]def
+/docsave save def
+}def
+
+% character outcalls
+/oc {/pswid exch def /cc exch def /name exch def
+   /ditwid pswid fontsize mul resolution mul 72000 div def
+   /ditsiz fontsize resolution mul 72 div def
+   ocprocs name known{ocprocs name get exec}{name cb}
+   ifelse}def
+/fractm [.65 0 0 .6 0 0] def
+/fraction
+ {/fden exch def /fnum exch def gsave /cf currentfont def
+  cf fractm makefont setfont 0 .3 dm 2 copy neg rmoveto
+  fnum show rmoveto currentfont cf setfont(\244)show setfont fden show 
+  grestore ditwid 0 rmoveto} def
+/oce {grestore ditwid 0 rmoveto}def
+/dm {ditsiz mul}def
+/ocprocs 50 dict def ocprocs begin
+(14){(1)(4)fraction}def
+(12){(1)(2)fraction}def
+(34){(3)(4)fraction}def
+(13){(1)(3)fraction}def
+(23){(2)(3)fraction}def
+(18){(1)(8)fraction}def
+(38){(3)(8)fraction}def
+(58){(5)(8)fraction}def
+(78){(7)(8)fraction}def
+(sr){gsave .05 dm .16 dm rmoveto(\326)show oce}def
+(is){gsave 0 .15 dm rmoveto(\362)show oce}def
+(->){gsave 0 .02 dm rmoveto(\256)show oce}def
+(<-){gsave 0 .02 dm rmoveto(\254)show oce}def
+(==){gsave 0 .05 dm rmoveto(\272)show oce}def
+end
+% DIThacks fonts for some special chars
+50 dict dup begin
+/FontType 3 def
+/FontName /DIThacks def
+/FontMatrix [.001 0.0 0.0 .001 0.0 0.0] def
+/FontBBox [-220 -280 900 900] def% a lie but ...
+/Encoding 256 array def
+0 1 255{Encoding exch /.notdef put}for
+Encoding
+ dup 8#040/space put %space
+ dup 8#110/rc put %right ceil
+ dup 8#111/lt put %left  top curl
+ dup 8#112/bv put %bold vert
+ dup 8#113/lk put %left  mid curl
+ dup 8#114/lb put %left  bot curl
+ dup 8#115/rt put %right top curl
+ dup 8#116/rk put %right mid curl
+ dup 8#117/rb put %right bot curl
+ dup 8#120/rf put %right floor
+ dup 8#121/lf put %left  floor
+ dup 8#122/lc put %left  ceil
+ dup 8#140/sq put %square
+ dup 8#141/bx put %box
+ dup 8#142/ci put %circle
+ dup 8#143/br put %box rule
+ dup 8#144/rn put %root extender
+ dup 8#145/vr put %vertical rule
+ dup 8#146/ob put %outline bullet
+ dup 8#147/bu put %bullet
+ dup 8#150/ru put %rule
+ dup 8#151/ul put %underline
+ pop
+/DITfd 100 dict def
+/BuildChar{0 begin
+ /cc exch def /fd exch def
+ /charname fd /Encoding get cc get def
+ /charwid fd /Metrics get charname get def
+ /charproc fd /CharProcs get charname get def
+ charwid 0 fd /FontBBox get aload pop setcachedevice
+ 40 setlinewidth
+ newpath 0 0 moveto gsave charproc grestore
+ end}def
+/BuildChar load 0 DITfd put
+%/UniqueID 5 def
+/CharProcs 50 dict def
+CharProcs begin
+/space{}def
+/.notdef{}def
+/ru{500 0 rls}def
+/rn{0 750 moveto 500 0 rls}def
+/vr{20 800 moveto 0 -770 rls}def
+/bv{20 800 moveto 0 -1000 rls}def
+/br{20 770 moveto 0 -1040 rls}def
+/ul{0 -250 moveto 500 0 rls}def
+/ob{200 250 rmoveto currentpoint newpath 200 0 360 arc closepath stroke}def
+/bu{200 250 rmoveto currentpoint newpath 200 0 360 arc closepath fill}def
+/sq{80 0 rmoveto currentpoint dround newpath moveto
+    640 0 rlineto 0 640 rlineto -640 0 rlineto closepath stroke}def
+/bx{80 0 rmoveto currentpoint dround newpath moveto
+    640 0 rlineto 0 640 rlineto -640 0 rlineto closepath fill}def
+/ci{355 333 rmoveto currentpoint newpath 333 0 360 arc
+    50 setlinewidth stroke}def
+
+/lt{20 -200 moveto 0 550 rlineto currx 800 2cx s4 add exch s4 a4p stroke}def
+/lb{20 800 moveto 0 -550 rlineto currx -200 2cx s4 add exch s4 a4p stroke}def
+/rt{20 -200 moveto 0 550 rlineto currx 800 2cx s4 sub exch s4 a4p stroke}def
+/rb{20 800 moveto 0 -500 rlineto currx -200 2cx s4 sub exch s4 a4p stroke}def
+/lk{20 800 moveto 20 300 -280 300 s4 arcto pop pop 1000 sub
+    currentpoint stroke moveto
+    20 300 4 2 roll s4 a4p 20 -200 lineto stroke}def
+/rk{20 800 moveto 20 300 320 300 s4 arcto pop pop 1000 sub
+    currentpoint stroke moveto
+    20 300 4 2 roll s4 a4p 20 -200 lineto stroke}def
+/lf{20 800 moveto 0 -1000 rlineto s4 0 rls}def
+/rf{20 800 moveto 0 -1000 rlineto s4 neg 0 rls}def
+/lc{20 -200 moveto 0 1000 rlineto s4 0 rls}def
+/rc{20 -200 moveto 0 1000 rlineto s4 neg 0 rls}def
+end
+
+/Metrics 50 dict def Metrics begin
+/.notdef 0 def
+/space 500 def
+/ru 500 def
+/br 0 def
+/lt 250 def
+/lb 250 def
+/rt 250 def
+/rb 250 def
+/lk 250 def
+/rk 250 def
+/rc 250 def
+/lc 250 def
+/rf 250 def
+/lf 250 def
+/bv 250 def
+/ob 350 def
+/bu 350 def
+/ci 750 def
+/bx 750 def
+/sq 750 def
+/rn 500 def
+/ul 500 def
+/vr 0 def
+end
+
+DITfd begin
+/s2 500 def /s4 250 def /s3 333 def
+/a4p{arcto pop pop pop pop}def
+/2cx{2 copy exch}def
+/rls{rlineto stroke}def
+/currx{currentpoint pop}def
+/dround{transform round exch round exch itransform} def
+end
+end
+/DIThacks exch definefont pop
+
+ditstart
+(psc)xT
+576 1 1 xr
+1(Times-Roman)xf 1 f
+2(Times-Italic)xf 2 f
+3(Times-Bold)xf 3 f
+4(Times-BoldItalic)xf 4 f
+5(Helvetica)xf 5 f
+6(Helvetica-Bold)xf 6 f
+7(Courier)xf 7 f
+8(Courier-Bold)xf 8 f
+9(Symbol)xf 9 f
+10(DIThacks)xf 10 f
+10 s
+1 f
+xi
+%%EndProlog
+
+%%Page: 1 1
+10 s 10 xH 0 xS 1 f
+3 f
+14 s
+968 798(Experience)N
+1531(W)X
+(ith)S
+1802(The)X
+2016(Condor)X
+2411(Distributed)X
+2988(Batch)X
+3296(System)X
+1 f
+12 s
+2030 972(Mike)N
+2257(Litzkow)X
+2234 1080(and)N
+2057 1188(Miron)N
+2321(Livny)X
+1691 1362(Computer)N
+2100(Sciences)X
+2461(Department)X
+1594 1470(University)N
+2024(of)X
+2128(Wisconsin)X
+2558(\320)X
+2678(Madison)X
+1942 1578(mike@cs.wisc.edu)N
+1923 1686(miron@cs.wisc.edu)N
+3 f
+10 s
+576 1890(1.)N
+676(Introduction)X
+1 f
+776 2019(Many)N
+1030(organizations)X
+1529(now)X
+1734(own)X
+1939(hundreds)X
+2301(of)X
+576 2115(powerful)N
+906(workstations)X
+1355(which)X
+1590(are)X
+1728(connected)X
+2093(by)X
+2212(local)X
+576 2211(area)N
+732(networks.)X
+1087(It)X
+1157(is)X
+1232(common)X
+1534(practice)X
+1811(in)X
+1895(such)X
+2064(organiza-)X
+576 2307(tions)N
+759(to)X
+849(allocate)X
+1127(each)X
+1303(of)X
+1397(these)X
+1589(workstations)X
+2025(to)X
+2114(a)X
+2177(single)X
+576 2403(user)N
+740(who)X
+908(exercises)X
+1233(full)X
+1374(control)X
+1631(over)X
+1804(the)X
+1932(workstation's)X
+576 2499(resources.)N
+953(In)X
+1053(such)X
+1233(an)X
+1342(environment)X
+1780(we)X
+1907(can)X
+2051(\256nd)X
+2207(three)X
+576 2595(types)N
+769(of)X
+860(users,)X
+2 f
+1069(casual)X
+1 f
+1302(users)X
+1491(who)X
+1653(seldom)X
+1909(utilize)X
+2134(the)X
+2257(full)X
+576 2691(capacity)N
+889(of)X
+1001(their)X
+1192(machines,)X
+2 f
+1559(sporadic)X
+1 f
+1883(users)X
+2092(who)X
+2274(for)X
+576 2787(short)N
+769(periods)X
+1039(of)X
+1140(time)X
+1316(fully)X
+1501(utilize)X
+1735(the)X
+1867(capacity)X
+2169(of)X
+2270(the)X
+576 2883(workstation)N
+996(they)X
+1176(own,)X
+1376(and)X
+2 f
+1533(frustrated)X
+1 f
+1889(users)X
+2095(who)X
+2274(for)X
+576 2979(long)N
+743(periods)X
+1005(of)X
+1098(time)X
+1266(have)X
+1444(computing)X
+1812(demands)X
+2123(that)X
+2269(are)X
+576 3075(beyond)N
+852(the)X
+990(power)X
+1231(of)X
+1338(their)X
+1525(workstations.)X
+2013(Unlike)X
+2270(the)X
+576 3171(two)N
+736(other)X
+941(groups,)X
+1219(the)X
+1357(throughput)X
+1748(of)X
+1855(these)X
+2060(frustrated)X
+576 3267(users)N
+782(is)X
+876(limited)X
+1143(by)X
+1264(the)X
+1403(power)X
+1645(of)X
+1752(their)X
+1939(workstations.)X
+576 3363(They)N
+794(often)X
+1012(claim)X
+1243(that)X
+1416(their)X
+1616(productivity)X
+2060(could)X
+2292(be)X
+576 3459(signi\256cantly)N
+998(enhanced)X
+1329(if)X
+1405(they)X
+1569(had)X
+1711(access)X
+1943(to)X
+2031(the)X
+2155(unutil-)X
+576 3555(ized)N
+756(computing)X
+1144(capacity)X
+1458(of)X
+1571(workstations)X
+2027(owned)X
+2288(by)X
+576 3651(casual)N
+824(and)X
+987(sporadic)X
+1306(users.)X
+1558(Condor)X
+1845(is)X
+1944(a)X
+2026(distributed)X
+576 3747(batch)N
+780(system)X
+1032(that)X
+1182(was)X
+1337(designed)X
+1652(to)X
+1744(meet)X
+1931(the)X
+2060(challenge)X
+576 3843(posed)N
+786(by)X
+889(these)X
+1077(users,)X
+1285(namely)X
+1544(to)X
+1628(provide)X
+1895(convenient)X
+2269(ac-)X
+576 3939(cess)N
+752(to)X
+856(unutilized)X
+1218(workstations)X
+1669(while)X
+1889(preserving)X
+2270(the)X
+576 4035(rights)N
+787(of)X
+883(their)X
+1059(owners.)X
+1360(The)X
+1513(current)X
+1769(version)X
+2033(of)X
+2128(Condor)X
+576 4131(was)N
+734(installed)X
+1039(in)X
+1135(our)X
+1276(department)X
+1671(for)X
+1799(public)X
+2033(use)X
+2174(in)X
+2270(the)X
+576 4227(summer)N
+889(of)X
+1010(1988.)X
+1264(It)X
+1367(has)X
+1528(since)X
+1747(served)X
+2011(more)X
+2230(than)X
+576 4323(144,000)N
+857(jobs)X
+1011(that)X
+1152(have)X
+1325(consumed)X
+1672(more)X
+1859(than)X
+2019(6,000)X
+2221(days)X
+576 4419(of)N
+663(CPU.)X
+3 f
+576 4611(2.)N
+676(Guiding)X
+974(Principles)X
+1 f
+776 4740(Several)N
+1037(principles)X
+1373(have)X
+1545(driven)X
+1771(the)X
+1890(design)X
+2120(of)X
+2208(Con-)X
+576 4836(dor.)N
+771(First)X
+965(is)X
+1066(the)X
+1212(principal)X
+1544(that)X
+1711(workstation)X
+2136(owners)X
+576 4932(should)N
+826(always)X
+1086(have)X
+1275(the)X
+1410(resources)X
+1751(of)X
+1855(the)X
+1990(workstation)X
+576 5028(they)N
+751(own)X
+926(at)X
+1021(their)X
+1205(disposal.)X
+1543(This)X
+1721(is)X
+1810(to)X
+1908(guarantee)X
+2257(im-)X
+576 5124(mediate)N
+874(response,)X
+1219(which)X
+1459(is)X
+1556(the)X
+1699(reason)X
+1954(most)X
+2154(people)X
+576 5220(prefer)N
+805(a)X
+877(dedicated)X
+1221(workstation)X
+1635(over)X
+1814(access)X
+2056(to)X
+2154(a)X
+2226(time)X
+576 5316(sharing)N
+839(system.)X
+1128(The)X
+1280(second)X
+1530(principle)X
+1843(is)X
+1924(that)X
+2072(access)X
+2306(to)X
+576 5412(remote)N
+825(capacity)X
+1119(must)X
+1299(be)X
+1400(easy,)X
+1588(and)X
+1729(should)X
+1967(approximate)X
+576 5508(the)N
+699(local)X
+880(execution)X
+1217(environment)X
+1647(as)X
+1740(closely)X
+1993(as)X
+2086(possible.)X
+576 5604(Portability)N
+948(is)X
+1036(the)X
+1169(third)X
+1355(principle)X
+1674(behind)X
+1926(the)X
+2058(design)X
+2301(of)X
+576 5700(Condor.)N
+879(This)X
+1045(is)X
+1122(essential)X
+1422(due)X
+1562(to)X
+1648(rapid)X
+1837(developments)X
+2306(in)X
+576 5796(the)N
+696(workstations)X
+1127(on)X
+1228(which)X
+1445(Condor)X
+1706(operates.)X
+2035(For)X
+2167(exam-)X
+2528 1890(ple,)N
+2673(the)X
+2798(earliest)X
+3058(version)X
+3322(of)X
+3417(Condor)X
+3685(became)X
+3959(operational)X
+2528 2002(in)N
+2612(1984)X
+2794(when)X
+2990(it)X
+3056(ran)X
+3181(on)X
+3284(a)X
+3343(network)X
+3629(of)X
+3719(20)X
+3822(VAX)X
+4019(11/750s)X
+7 s
+4272 1970(1)N
+10 s
+2002(.)Y
+2528 2098(Six)N
+2661(years)X
+2858(later)X
+3028(we)X
+3149(are)X
+3275(running)X
+3551(Condor)X
+3818(on)X
+3924(our)X
+4057(network)X
+2528 2210(of)N
+2645(over)X
+2838(200)X
+3008(workstations)X
+3467(ranging)X
+3762(from)X
+3968(MC68000)X
+7 s
+4292 2178(2)N
+10 s
+2528 2322(based)N
+2752(workstations)X
+3202(to)X
+3305(MIPS)X
+7 s
+3491 2290(3)N
+10 s
+3560 2322(and)N
+3717(SPARC)X
+7 s
+3969 2290(4)N
+10 s
+4039 2322(worksta-)N
+2528 2434(tions)N
+2704(running)X
+2974(a)X
+3032(rainbow)X
+3317(of)X
+3406(UNIX)X
+7 s
+3607 2402(5)N
+10 s
+3657 2434(variants;)N
+3955(none)X
+4133(of)X
+4222(the)X
+2528 2530(original)N
+2797(machines)X
+3120(is)X
+3193(still)X
+3332(connected.)X
+3 f
+2528 2722(3.)N
+2628(Mechanisms)X
+3075(Used)X
+1 f
+2728 2851(Five)N
+2907(mechanisms)X
+3340(are)X
+3476(basic)X
+3678(to)X
+3777(the)X
+3912(operation)X
+4253(of)X
+2528 2947(Condor.)N
+2855(The)X
+3027(\256rst)X
+3198(is)X
+3298(a)X
+3381(mechanism)X
+3793(for)X
+3933(determining)X
+2528 3043(when)N
+2725(a)X
+2784(workstation)X
+3185(is)X
+3261(not)X
+3386(in)X
+3471(use)X
+3601(by)X
+3704(its)X
+3802(owner,)X
+4047(and)X
+4187(thus)X
+2528 3139(should)N
+2769(become)X
+3046(part)X
+3198(of)X
+3292(the)X
+3417(pool)X
+3586(of)X
+3680(available)X
+3997(machines.)X
+2528 3235(This)N
+2696(is)X
+2775(accomplished)X
+3242(by)X
+3348(measuring)X
+3708(both)X
+3876(the)X
+4000(CPU)X
+4182(load)X
+2528 3331(of)N
+2619(the)X
+2741(machine,)X
+3057(and)X
+3197(the)X
+3319(time)X
+3485(since)X
+3674(the)X
+3796(last)X
+3931(keyboard)X
+4253(or)X
+2528 3427(mouse)N
+2769(activity.)X
+3081(The)X
+3238(default)X
+3493(is)X
+3579(to)X
+3674(consider)X
+3979(a)X
+4048(machine)X
+2528 3523(``idle'')N
+2793(when)X
+3004(the)X
+3139(CPU)X
+3331(load)X
+3506(average)X
+3793(as)X
+3896(measured)X
+4240(by)X
+2528 3619(UNIX)N
+2764(is)X
+2852(less)X
+3008(than)X
+3182(0.3,)X
+3338(and)X
+3490(the)X
+3624(keyboard)X
+3959(and)X
+4111(mouse)X
+2528 3715(have)N
+2726(been)X
+2924(idle)X
+3090(for)X
+3230(at)X
+3334(least)X
+3527(15)X
+3653(minutes.)X
+3991(Individual)X
+2528 3811(workstation)N
+2966(owners)X
+3259(can)X
+3432(customize)X
+3818(each)X
+4027(of)X
+4155(these)X
+2528 3907(parameters)N
+2901(as)X
+2988(they)X
+3146(deem)X
+3340(appropriate.)X
+2728 4036(Second)N
+2993(is)X
+3075(a)X
+3140(mechanism)X
+3534(for)X
+3657(``fair'')X
+3907(allocation)X
+4253(of)X
+2528 4132(these)N
+2721(machines)X
+3052(to)X
+3142(users)X
+3335(who)X
+3500(haved)X
+3719(queued)X
+3978(jobs.)X
+4178(This)X
+2528 4228(task)N
+2687(is)X
+2770(handled)X
+3054(by)X
+3164(a)X
+3230(centralized)X
+3613(``machine)X
+3969(manager''.)X
+2528 4324(The)N
+2674(manager)X
+2971(allocates)X
+3272(machines)X
+3595(to)X
+3677(waiting)X
+3937(users)X
+4122(on)X
+4222(the)X
+2528 4420(basis)N
+2708(of)X
+2795(priority.)X
+3095(The)X
+3240(priority)X
+3500(is)X
+3573(calculated)X
+3920(according)X
+4258(to)X
+2528 4516(the)N
+2 f
+2649(up-down)X
+1 f
+2952(algorithm.)X
+3326(This)X
+3491(algorithm)X
+3825(periodically)X
+4231(in-)X
+2528 4612(creases)N
+2784(the)X
+2905(priority)X
+3168(of)X
+3259(those)X
+3452(users)X
+3641(who)X
+3803(have)X
+3979(been)X
+4155(wait-)X
+2528 4708(ing)N
+2672(for)X
+2808(resources,)X
+3174(and)X
+3332(reduces)X
+3620(the)X
+3760(priority)X
+4042(of)X
+4151(those)X
+2528 4804(users)N
+2724(who)X
+2893(have)X
+3077(received)X
+3382(resources)X
+3718(in)X
+3812(the)X
+3942(recent)X
+4171(past.)X
+2528 4900(The)N
+2676(purpose)X
+2953(of)X
+3043(the)X
+3164(algorithm)X
+3498(is)X
+3573(to)X
+3657(allow)X
+3857(heavy)X
+4071(users)X
+4258(to)X
+2528 4996(do)N
+2646(very)X
+2827(large)X
+3026(amounts)X
+3335(of)X
+3440(work,)X
+3663(but)X
+3803(still)X
+3960(protect)X
+4222(the)X
+8 s
+10 f
+2528 5068(hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh)N
+5 s
+1 f
+2700 5146(1)N
+8 s
+2736 5171(VAX)N
+2890(is)X
+2949(a)X
+2993(trademark)X
+3267(of)X
+3336(Digital)X
+3530(Equipment)X
+3827(Corporation)X
+5 s
+2700 5249(2)N
+8 s
+2736 5274(MC68000)N
+3012(is)X
+3071(a)X
+3115(trademark)X
+3389(of)X
+3458(Intel)X
+3591(Corporation.)X
+5 s
+2700 5352(3)N
+8 s
+2736 5377(MIPS)N
+2902(is)X
+2961(a)X
+3005(trademark)X
+3279(of)X
+3348(MIPS)X
+3514(Computer)X
+3786(Corporation.)X
+5 s
+2700 5455(4)N
+8 s
+2736 5480(SPARC)N
+2956(is)X
+3015(a)X
+3059(trademark)X
+3333(of)X
+3402(Sun)X
+3518(Microsystems.)X
+5 s
+2700 5558(5)N
+8 s
+2736 5583(UNIX)N
+2911(is)X
+2970(a)X
+3014(trademark)X
+3288(of)X
+3357(AT&T)X
+3547(Bell)X
+3670(Laboratories)X
+
+2 p
+%%Page: 2 2
+8 s 8 xH 0 xS 1 f
+10 s
+3 f
+1 f
+576 768(response)N
+877(time)X
+1039(for)X
+1153(less)X
+1293(frequent)X
+1581(users.)X
+776 897(Thirdly,)N
+1085(Condor)X
+1374(provides)X
+1699(a)X
+1784(remote)X
+2056(execution)X
+576 993(mechanism)N
+970(which)X
+1195(allows)X
+1433(its)X
+1537(users)X
+1731(to)X
+1822(run)X
+1957(remotely)X
+2270(the)X
+576 1089(same)N
+768(programs)X
+1099(that)X
+1247(they)X
+1413(had)X
+1557(been)X
+1737(used)X
+1912(to)X
+2002(running)X
+2279(lo-)X
+576 1185(cally)N
+757(after)X
+930(only)X
+1097(a)X
+1157(re-linking)X
+1497(step.)X
+1690(File)X
+1838(I/O)X
+1969(is)X
+2046(redirected)X
+576 1281(to)N
+666(the)X
+793(submitting)X
+1163(machine,)X
+1484(so)X
+1584(that)X
+1733(users)X
+1927(don't)X
+2125(need)X
+2306(to)X
+576 1377(worry)N
+807(about)X
+1024(moving)X
+1307(\256les)X
+1479(to)X
+1580(and)X
+1735(from)X
+1929(the)X
+2065(machines)X
+576 1473(where)N
+796(execution)X
+1131(actually)X
+1408(takes)X
+1596(place.)X
+1830(Also)X
+2005(by)X
+2109(creating)X
+576 1569(Condor)N
+840(programs)X
+1166(in)X
+1251(this)X
+1389(way,)X
+1566(users)X
+1754(are)X
+1876(able)X
+2033(to)X
+2118(write)X
+2306(in)X
+576 1665(a)N
+635(variety)X
+882(of)X
+973(source)X
+1207(languages)X
+1552(including)X
+1878(C,)X
+1975(FORTRAN,)X
+576 1761(and)N
+712(special)X
+955(simulation)X
+1312(languages)X
+1653(such)X
+1820(as)X
+1907(DeNet.)X
+776 1890(The)N
+940(fourth)X
+1175(mechanism)X
+1579(is)X
+1671(responsible)X
+2075(for)X
+2208(stop-)X
+576 1986(ping)N
+746(the)X
+872(execution)X
+1212(of)X
+1307(a)X
+1371(Condor)X
+1639(job)X
+1769(upon)X
+1957(the)X
+2083(\256rst)X
+2234(user)X
+576 2082(activity)N
+847(on)X
+958(the)X
+1087(hosting)X
+1353(machine.)X
+1696(As)X
+1816(soon)X
+1998(as)X
+2096(the)X
+2225(key-)X
+576 2178(board)N
+780(or)X
+868(mouse)X
+1098(becomes)X
+1400(active,)X
+1632(or)X
+1719(the)X
+1837(CPU)X
+2012(load)X
+2170(on)X
+2270(the)X
+576 2274(remote)N
+821(machine)X
+1115(rises)X
+1284(above)X
+1498(a)X
+1556(speci\256ed)X
+1863(level,)X
+2061(a)X
+2119(running)X
+576 2370(Condor)N
+842(job)X
+970(is)X
+1049(stopped.)X
+1364(This)X
+1532(provides)X
+1834(automatic)X
+2176(return)X
+576 2466(of)N
+663(the)X
+781(use)X
+908(of)X
+995(the)X
+1113(hosting)X
+1368(workstation)X
+1766(to)X
+1848(its)X
+1943(owner.)X
+776 2595(Finally)N
+1050(Condor)X
+1338(provides)X
+1662(a)X
+1747(transparent)X
+2153(check-)X
+576 2691(pointing)N
+876(mechanism)X
+1274(which)X
+1503(allows)X
+1745(it)X
+1822(to)X
+1917(take)X
+2084(a)X
+2153(check-)X
+576 2787(point)N
+766(of)X
+859(a)X
+922(running)X
+1198(job,)X
+1347(and)X
+1490(migrate)X
+1762(that)X
+1909(job)X
+2038(to)X
+2127(another)X
+576 2883(workstation)N
+988(when)X
+1196(the)X
+1328(machine)X
+1633(it)X
+1710(is)X
+1796(currently)X
+2119(running)X
+576 2979(on)N
+690(becomes)X
+1006(busy)X
+1192(with)X
+1369(non-Condor)X
+1791(activity.)X
+2106(This)X
+2283(al-)X
+576 3075(lows)N
+770(Condor)X
+1053(to)X
+1158(return)X
+1392(workstations)X
+1843(to)X
+1947(their)X
+2136(owners)X
+576 3171(promptly,)N
+922(yet)X
+1053(provide)X
+1332(assurance)X
+1679(to)X
+1775(Condor)X
+2049(users)X
+2248(that)X
+576 3267(their)N
+743(jobs)X
+896(will)X
+1040(make)X
+1234(progress,)X
+1546(and)X
+1682(eventually)X
+2036(complete.)X
+776 3396(To)N
+885(meet)X
+1061(the)X
+1179(portability)X
+1532(requirement,)X
+1961(all)X
+2062(these)X
+2248(\256ve)X
+576 3492(mechanisms)N
+1022(were)X
+1229(implemented)X
+1696(entirely)X
+1990(outside)X
+2270(the)X
+576 3588(UNIX)N
+819(kernel.)X
+1102(We)X
+1257(have)X
+1452(been)X
+1647(able)X
+1824(to)X
+1929(remove)X
+2213(most)X
+576 3684(machine)N
+915(dependent)X
+1311(constructs)X
+1702(from)X
+1924(all)X
+2070(of)X
+2203(these)X
+576 3780(mechanisms)N
+1009(except)X
+1256(checkpointing.)X
+1787(Even)X
+1989(checkpoint-)X
+576 3876(ing)N
+711(is)X
+797(quite)X
+989(portable,)X
+1304(but)X
+1438(does)X
+1617(depend)X
+1881(on)X
+1993(the)X
+2123(speci\256c)X
+576 3972(formats)N
+848(of)X
+942(the)X
+1067(``a.out'')X
+1361(and)X
+1505(``core'')X
+1780(\256les)X
+1941(for)X
+2063(each)X
+2239(sys-)X
+576 4068(tem.)N
+3 f
+576 4260(4.)N
+676(Experience)X
+1 f
+776 4389(The)N
+930(current)X
+1187(version)X
+1452(of)X
+1548(Condor)X
+1817(has)X
+1953(been)X
+2134(in)X
+2225(gen-)X
+576 4485(eral)N
+719(use)X
+848(by)X
+950 0.3375(researchers)AX
+1335(in)X
+1419(our)X
+1547(department)X
+1929(for)X
+2044(more)X
+2230(than)X
+576 4581(one)N
+719(year.)X
+925(Thousands)X
+1299(of)X
+1393(CPU)X
+1575(days)X
+1750(were)X
+1935(consumed)X
+2288(by)X
+576 4677(Condor)N
+850(jobs)X
+1017(over)X
+1194(the)X
+1326(last)X
+1470(year.)X
+1682(Condor)X
+1955(continuously)X
+576 4773(records)N
+835(the)X
+956(activity)X
+1219(of)X
+1309(its)X
+1407(users)X
+1595(and)X
+1734(information)X
+2135(regard-)X
+576 4869(ing)N
+700(workstations)X
+1131(availability.)X
+1553(We)X
+1687(have)X
+1861(developed)X
+2213(tools)X
+576 4965(to)N
+667(extract)X
+915(a)X
+980(wide)X
+1165(range)X
+1373(of)X
+1469(statistics)X
+1773(from)X
+1958(the)X
+2086(recorded)X
+576 5061(data.)N
+775(With)X
+960(the)X
+1083(help)X
+1246(of)X
+1337(these)X
+1526(statistics)X
+1825(we)X
+1943(have)X
+2119(pro\256led)X
+576 5157(the)N
+699(arrival)X
+934(pattern)X
+1182(of)X
+1274(jobs,)X
+1452(the)X
+1575(distribution)X
+1968(of)X
+2061(their)X
+2234(pro-)X
+576 5253(cessing)N
+837(demands)X
+1147(and)X
+1288(response)X
+1593(time,)X
+1779(and)X
+1919(the)X
+2041(manner)X
+2306(in)X
+576 5349(which)N
+795(workstations)X
+1227(in)X
+1312(our)X
+1442(department)X
+1826(are)X
+1948(used)X
+2118(by)X
+2221(their)X
+576 5445(owners.)N
+3 f
+2528 768(4.1.)N
+2688(Support)X
+2987(Required)X
+1 f
+2728 897(Condor)N
+2999(is)X
+3084(an)X
+3192(experimental)X
+3643(system)X
+3897(consisting)X
+4253(of)X
+2528 993(many)N
+2743(pieces)X
+2981(of)X
+3085(software)X
+3399(spread)X
+3646(over)X
+3825(more)X
+4026(than)X
+4200(200)X
+2528 1089(heterogeneous)N
+3020(workstations.)X
+3497(Also,)X
+3696(both)X
+3866(the)X
+3992(owners)X
+4253(of)X
+2528 1185(those)N
+2726(workstations)X
+3164(and)X
+3309(the)X
+3436(users)X
+3630(of)X
+3725(Condor)X
+3993(vary)X
+4164(from)X
+2528 1281(neophytes)N
+2884(to)X
+2977(very)X
+3151(sophisticated)X
+3601(users.)X
+3838(Such)X
+4030(a)X
+4098(system)X
+2528 1377(does)N
+2698(not)X
+2823(run)X
+2952(itself,)X
+3154(and)X
+3292(a)X
+3350(certain)X
+3591(amount)X
+3853(of)X
+3942(human)X
+4182(sup-)X
+2528 1473(port)N
+2679(is)X
+2754(required)X
+3044(to)X
+3128(keep)X
+3302(Condor)X
+3564(operational)X
+3948(and)X
+4087(all)X
+4190(par-)X
+2528 1569(ties)N
+2665(happy.)X
+2927(We)X
+3065(have)X
+3243(been)X
+3421(fortunate)X
+3737(in)X
+3825(that)X
+3971(only)X
+4138(a)X
+4199(few)X
+2528 1665(non-trivial)N
+2892(bugs)X
+3069(have)X
+3248(been)X
+3427(found)X
+3641(since)X
+3833(it)X
+3904(was)X
+4056(released)X
+2528 1761(for)N
+2683(general)X
+2980(use.)X
+3167(Due)X
+3361(to)X
+3483(the)X
+3641(complex)X
+3977(interaction)X
+2528 1857(between)N
+2823(the)X
+2948(Condor)X
+3215(processes)X
+3550(and)X
+3693(the)X
+3818(wide)X
+4002(variety)X
+4253(of)X
+2528 1953(platforms)N
+2858(on)X
+2961(which)X
+3180(Condor)X
+3443(runs,)X
+3623(however,)X
+3942(some)X
+4133(of)X
+4222(the)X
+2528 2049(simple)N
+2775(bugs)X
+2960(have)X
+3146(been)X
+3332(fairly)X
+3541(dif\256cult)X
+3829(to)X
+3926(track)X
+4122(down.)X
+2528 2145(Since)N
+2739(new)X
+2906(people)X
+3153(are)X
+3285(trying)X
+3509(out)X
+3644(Condor)X
+3916(all)X
+4028(the)X
+4158(time,)X
+2528 2241(there)N
+2715(are)X
+2840(frequent)X
+3135(questions)X
+3464(about)X
+3669(how)X
+3834(to)X
+3923(submit)X
+4167(jobs,)X
+2528 2337(or)N
+2642(what)X
+2845(to)X
+2954(expect)X
+3210(after)X
+3404(a)X
+3486(job)X
+3634(has)X
+3787(been)X
+3985(submitted.)X
+2528 2433(Though)N
+2805(such)X
+2980(questions)X
+3311(generally)X
+3639(don't)X
+3837(require)X
+4094(a)X
+4159(great)X
+2528 2529(deal)N
+2683(of)X
+2771(expertise)X
+3082(to)X
+3165(answer,)X
+3434(there)X
+3616(are)X
+3735(enough)X
+3991(of)X
+4078(them)X
+4258(to)X
+2528 2625(require)N
+2784(on)X
+2892(the)X
+3018(average)X
+3297(an)X
+3401(hour)X
+3577(or)X
+3673(two)X
+3822(a)X
+3887(week)X
+4086(of)X
+4182(sup-)X
+2528 2721(port.)N
+2728 2850(The)N
+2888(most)X
+3078(critical)X
+3336(support)X
+3612(task)X
+3777(is)X
+3866(responding)X
+4258(to)X
+2528 2946(those)N
+2729(owners)X
+2993(of)X
+3092(machines)X
+3427(who)X
+3597(feel)X
+3750(that)X
+3902(Condor)X
+4174(is)X
+4258(in)X
+2528 3042(some)N
+2747(way)X
+2931(interfering)X
+3320(with)X
+3512(their)X
+3709(own)X
+3897(use)X
+4055(of)X
+4173(their)X
+2528 3138(machine.)N
+2889(Such)X
+3098(complaints)X
+3498(must)X
+3702(be)X
+3826(answered)X
+4178(both)X
+2528 3234(promptly)N
+2851(and)X
+2998(diplomatically.)X
+3531(Workstation)X
+3958(owners)X
+4221(are)X
+2528 3330(not)N
+2663(used)X
+2843(to)X
+2938(the)X
+3069(concept)X
+3351(of)X
+3450(somebody)X
+3811(else)X
+3968(using)X
+4173(their)X
+2528 3426(machine)N
+2823(while)X
+3024(they)X
+3185(are)X
+3307(away,)X
+3520(and)X
+3659(are)X
+3782(in)X
+3868(general)X
+4129(suspi-)X
+2528 3522(cious)N
+2730(of)X
+2830(any)X
+2978(new)X
+3144(software)X
+3453(installed)X
+3756(on)X
+3868(their)X
+4047(systems.)X
+2528 3618(The)N
+2682(vast)X
+2840(majority)X
+3140(of)X
+3236(the)X
+3363(complaints)X
+3743(we)X
+3866(have)X
+4047(received)X
+2528 3714(have)N
+2720(turned)X
+2965(out)X
+3107(to)X
+3209(be)X
+3325(something)X
+3698(other)X
+3903(than)X
+4080(Condor)X
+2528 3810(slowing)N
+2821(the)X
+2959(response)X
+3280(time)X
+3462(of)X
+3569(the)X
+3707(machine)X
+4020(involved.)X
+2528 3906(Still)N
+2693(it)X
+2770(takes)X
+2968(a)X
+3037(fairly)X
+3244(sophisticated)X
+3695(knowledge)X
+4079(of)X
+4178(both)X
+2528 4002(Condor)N
+2789(and)X
+2926(UNIX)X
+3148(to)X
+3231(re-construct)X
+3636(what)X
+3813(happened)X
+4142(at)X
+4222(the)X
+2528 4098(time)N
+2699(of)X
+2795(the)X
+2922(alleged)X
+3183("intrusion",)X
+3581(and)X
+3725(explain)X
+3989(this)X
+4132(to)X
+4222(the)X
+2528 4194(workstation)N
+2937(owner.)X
+3209(Of)X
+3325(course)X
+3566(in)X
+3659(a)X
+3726(few)X
+3878(cases)X
+4080(Condor)X
+2528 4290(was)N
+2681(at)X
+2767(fault,)X
+2962(and)X
+3106(we)X
+3227(have)X
+3406(made)X
+3607(several)X
+3862(improvements)X
+2528 4386(to)N
+2610(Condor's)X
+2928("idleness)X
+3239(detection")X
+3586(algorithm)X
+3917(based)X
+4121(on)X
+4222(the)X
+2528 4482(particular)N
+2856(circumstances)X
+3331(leading)X
+3587(to)X
+3669(these)X
+3854(complaints.)X
+2728 4611(We)N
+2872(have)X
+3056(also)X
+3217(made)X
+3423(the)X
+3554(Condor)X
+3827(software)X
+4137(avail-)X
+2528 4707(able)N
+2687(to)X
+2774(the)X
+2896(wider)X
+3103(community)X
+3491(via)X
+3613(anonymous)X
+4006(ftp.)X
+4159(Over)X
+2528 4803(a)N
+2593(hundred)X
+2885(sites)X
+3056(in)X
+3147(the)X
+3274(US)X
+3406(and)X
+3552(Europe)X
+3814(have)X
+3996(picked)X
+4240(up)X
+2528 4899(Condor)N
+2808(so)X
+2919(far,)X
+3069(though)X
+3330(we)X
+3463(don't)X
+3671(have)X
+3862(knowledge)X
+4253(of)X
+2528 4995(how)N
+2690(many)X
+2892(sites)X
+3058(are)X
+3181(actively)X
+3460(using)X
+3658(it.)X
+3767(Time)X
+3961(spent)X
+4155(help-)X
+2528 5091(ing)N
+2653(with)X
+2817(installations)X
+3225(and)X
+3363(answering)X
+3715(questions)X
+4039(for)X
+4155(these)X
+2528 5187(sites)N
+2714(ranges)X
+2968(from)X
+3168(a)X
+3248(few)X
+3414(minutes)X
+3712(to)X
+3819(several)X
+4092(days)X
+4284(a)X
+2528 5283(month)N
+2766(during)X
+3009(academic)X
+3347(break)X
+3559(periods)X
+3828(when)X
+4035(universi-)X
+2528 5379(ties)N
+2659(often)X
+2844(work)X
+3029(on)X
+3129(installing)X
+3446(new)X
+3600(software.)X
+
+3 p
+%%Page: 3 3
+10 s 10 xH 0 xS 1 f
+3 f
+576 768(4.2.)N
+736(Condor)X
+1018(Users)X
+1230(Perspective)X
+1 f
+608 891 MXY
+1 setlinewidth
+2312 910 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2293 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2277 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2258 936 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2242 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2223 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2207 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2189 963 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+2172 1014 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2154 1041 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+2138 1068 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2119 1095 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2103 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2084 1119 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2068 1250 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2049 1277 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2033 1304 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2014 1355 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1998 1381 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1979 1435 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1963 1459 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1945 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1928 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1910 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1894 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1875 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1859 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1840 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1824 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1805 1590 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1789 1616 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1770 1670 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1754 1694 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1735 1748 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1719 1799 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1701 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1684 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1666 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1650 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1631 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1615 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1596 1852 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1580 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1561 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1545 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1526 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1507 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1491 1879 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1473 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1457 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1438 1903 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1422 1930 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1403 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1387 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1368 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1352 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1333 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1317 1957 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1298 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1282 1984 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1263 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1247 2008 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1229 2035 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1213 2062 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1194 2115 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1178 2166 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1159 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1143 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1124 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1108 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1089 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1073 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1054 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1038 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1019 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1003 2193 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+985 2220 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+969 2271 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+950 2298 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+934 2324 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+915 2348 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+899 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+880 2375 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+864 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+845 2402 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+829 MX
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+810 2429 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+794 2456 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+775 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+759 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+765 2461 MXY
+16 0 Dl
+19 0 Dl
+16 -27 Dl
+18 -27 Dl
+17 0 Dl
+18 -26 Dl
+16 0 Dl
+19 -27 Dl
+16 0 Dl
+19 -24 Dl
+16 -27 Dl
+19 -27 Dl
+16 -51 Dl
+19 -27 Dl
+16 -27 Dl
+19 0 Dl
+16 0 Dl
+18 0 Dl
+17 0 Dl
+18 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 -50 Dl
+19 -54 Dl
+16 -27 Dl
+19 -27 Dl
+16 -24 Dl
+19 0 Dl
+16 -27 Dl
+18 0 Dl
+17 -26 Dl
+18 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 -27 Dl
+19 -24 Dl
+16 0 Dl
+19 0 Dl
+16 -27 Dl
+19 0 Dl
+18 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 -54 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 -51 Dl
+19 -53 Dl
+16 -25 Dl
+18 -53 Dl
+16 -27 Dl
+19 -130 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 -25 Dl
+19 -53 Dl
+16 -27 Dl
+18 -51 Dl
+17 -27 Dl
+18 -27 Dl
+16 -131 Dl
+19 -24 Dl
+16 0 Dl
+19 -27 Dl
+16 -27 Dl
+19 -27 Dl
+16 -50 Dl
+19 -27 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+18 -27 Dl
+17 0 Dl
+18 0 Dl
+2309 2209 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2290 2131 MXY
+9 -21 Dl
+8 21 Dl
+-17 0 Dl
+2274 2104 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2256 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2240 2104 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2221 2182 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2205 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2186 2051 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+2170 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+2151 2000 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+2135 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2116 2024 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2100 2078 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+2081 1973 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2065 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2046 2104 MXY
+9 -21 Dl
+8 21 Dl
+-17 0 Dl
+2030 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+2012 2051 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1996 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1977 2182 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1961 2209 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1942 2131 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1926 2182 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1907 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1891 2260 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1872 2287 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1856 2209 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1837 2051 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1821 1973 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1802 2155 MXY
+8 -21 Dl
+9 21 Dl
+-17 0 Dl
+1786 2182 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1768 2287 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1751 MX
+9 -22 Dl
+8 22 Dl
+-17 0 Dl
+1733 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1717 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1698 2314 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1682 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1663 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1647 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1628 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1612 2260 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1593 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1577 2418 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1558 2445 MXY
+8 -21 Dl
+9 21 Dl
+-17 0 Dl
+1542 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1524 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1505 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1489 2391 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1470 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1454 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1435 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1419 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1400 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1384 2314 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1365 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1349 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1331 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1314 2260 MXY
+8 -21 Dl
+9 21 Dl
+-17 0 Dl
+1296 2236 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1280 2314 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1261 2287 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1245 2314 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1226 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1210 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1191 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1175 2418 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1156 2365 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1140 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1121 2391 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1105 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1086 2365 MXY
+9 -22 Dl
+8 22 Dl
+-17 0 Dl
+1070 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1052 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1036 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+1017 2287 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+1001 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+982 2340 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+966 2391 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+947 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+931 2418 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+912 2445 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+896 2418 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+877 2391 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+861 2418 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+842 MX
+9 -21 Dl
+8 21 Dl
+-17 0 Dl
+826 MX
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+808 2445 MXY
+8 -21 Dl
+8 21 Dl
+-16 0 Dl
+792 2472 MXY
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+773 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+757 MX
+8 -22 Dl
+8 22 Dl
+-16 0 Dl
+765 2461 MXY
+16 0 Dl
+19 0 Dl
+16 -27 Dl
+18 -27 Dl
+17 0 Dl
+18 0 Dl
+16 -26 Dl
+19 26 Dl
+16 27 Dl
+19 -27 Dl
+16 -26 Dl
+19 0 Dl
+16 -51 Dl
+19 -54 Dl
+16 0 Dl
+19 54 Dl
+16 0 Dl
+18 0 Dl
+17 24 Dl
+18 27 Dl
+16 0 Dl
+19 -27 Dl
+16 0 Dl
+19 53 Dl
+16 -53 Dl
+19 -24 Dl
+16 0 Dl
+19 -27 Dl
+16 -27 Dl
+19 27 Dl
+16 -78 Dl
+18 24 Dl
+17 81 Dl
+18 0 Dl
+16 -27 Dl
+19 0 Dl
+16 27 Dl
+19 24 Dl
+16 -24 Dl
+19 24 Dl
+16 0 Dl
+19 27 Dl
+16 -27 Dl
+19 0 Dl
+18 0 Dl
+16 80 Dl
+19 -27 Dl
+16 -53 Dl
+19 -105 Dl
+16 54 Dl
+19 0 Dl
+16 0 Dl
+19 0 Dl
+16 0 Dl
+19 27 Dl
+16 -54 Dl
+19 0 Dl
+16 0 Dl
+18 -105 Dl
+16 -26 Dl
+19 -183 Dl
+16 78 Dl
+19 158 Dl
+16 78 Dl
+19 -27 Dl
+16 -78 Dl
+19 0 Dl
+16 -50 Dl
+19 77 Dl
+16 -27 Dl
+19 -131 Dl
+16 0 Dl
+18 81 Dl
+17 -27 Dl
+18 27 Dl
+16 -159 Dl
+19 105 Dl
+16 -54 Dl
+19 108 Dl
+16 -132 Dl
+19 51 Dl
+16 0 Dl
+19 81 Dl
+16 50 Dl
+19 -77 Dl
+16 27 Dl
+18 -27 Dl
+17 27 Dl
+18 77 Dl
+3 f
+9 s
+1320 2593(Time)N
+1498(in)X
+1576(Weeks)X
+682 923(60)N
+608 2040 MXY
+5 setlinewidth
+754 891 MXY
+35 0 Dl
+682 1184(50)N
+1153 MY
+35 0 Dl
+682 1446(40)N
+1415 MY
+35 0 Dl
+682 1708(30)N
+1676 MY
+35 0 Dl
+682 1968(20)N
+1937 MY
+35 0 Dl
+682 2231(10)N
+2199 MY
+35 0 Dl
+718 2491(0)N
+2300 2533(90)N
+2336 2437 MXY
+0 35 Dl
+1774 2533(60)N
+1812 2437 MXY
+0 35 Dl
+1252 2533(30)N
+1288 2437 MXY
+0 35 Dl
+747 2533(0)N
+778 891 MXY
+0 1556 Dl
+1558 0 Dl
+776 891 MXY
+0 1559 Dl
+1560 0 Dl
+773 891 MXY
+0 1562 Dl
+1563 0 Dl
+770 891 MXY
+0 1565 Dl
+1566 0 Dl
+767 891 MXY
+0 1567 Dl
+1569 0 Dl
+765 891 MXY
+0 1570 Dl
+1571 0 Dl
+1 f
+2005 2305(weekly)N
+2024 1489(cumulative)N
+3 f
+11 s
+1054 2731(Number)N
+1388(of)X
+1483(Condor)X
+1793(Users)X
+9 s
+608 1416(#)N
+608 1518(o)N
+608 1578(f)N
+608 1698(U)N
+608 1758(s)N
+608 1818(e)N
+608 1878(r)N
+608 1937(s)N
+1 f
+10 s
+1337 2838(Figure)N
+1566(1)X
+776 3000(Currently)N
+1108(we)X
+1227(have)X
+1404(about)X
+1608(30)X
+1714(regular)X
+1968(Condor)X
+2234(cus-)X
+576 3096(tomers,)N
+842(and)X
+986(on)X
+1094(any)X
+1238(one)X
+1382(day)X
+1526(it)X
+1598(is)X
+1679(likely)X
+1889(that)X
+2037(6)X
+2105(to)X
+2194(10)X
+2301(of)X
+576 3192(them)N
+757(will)X
+902(have)X
+1075(Condor)X
+1336(jobs)X
+1490(in)X
+1573(the)X
+1692(queue.)X
+1946(As)X
+2057(shown)X
+2288(by)X
+576 3288(the)N
+694(Figure)X
+923(1,)X
+1003(these)X
+1188(numbers)X
+1484(are)X
+1603(constantly)X
+1952(growing.)X
+2279(To)X
+576 3384(these)N
+806(users)X
+1036(Condor)X
+1342(represents)X
+1734(access)X
+2006(to)X
+2134 0.4643(``free'')AX
+576 3480(machines.)N
+948(Over)X
+1138(the)X
+1265(past)X
+1423(six)X
+1545(months,)X
+1829(Condor)X
+2098(has)X
+2234(pro-)X
+576 3576(vided)N
+782(an)X
+886(overall)X
+1137(average)X
+1416(of)X
+1511(three)X
+1701(machines)X
+2033(to)X
+2124(each)X
+2301(of)X
+576 3672(its)N
+672(users)X
+857(on)X
+957(demand.)X
+1271(This)X
+1433(average)X
+1704(would)X
+1924(be)X
+2020(higher,)X
+2265(ex-)X
+576 3768(cept)N
+731(that)X
+872(there)X
+1054(were)X
+1232(a)X
+1289(large)X
+1471(number)X
+1737(of)X
+1825(requests)X
+2110(for)X
+2226(only)X
+576 3864(one)N
+717(machine)X
+1013(at)X
+1095(a)X
+1155(time.)X
+1361(Naturally,)X
+1708(when)X
+1906(condor)X
+2153(it)X
+2221(used)X
+576 3960(to)N
+665(run)X
+799(only)X
+968(a)X
+1031(single)X
+1250(job)X
+1380(at)X
+1466(a)X
+1530(time,)X
+1720(the)X
+1846(turnaround)X
+2226(time)X
+576 4056(for)N
+691(that)X
+832(job)X
+955(is)X
+1029(slightly)X
+1289(longer)X
+1515(than)X
+1674(if)X
+1744(the)X
+1862(job)X
+1984(were)X
+2161(run)X
+2288(on)X
+576 4152(the)N
+697(submitting)X
+1061(workstation)X
+1462(in)X
+1547(the)X
+1668(normal)X
+1918(way.)X
+2116(The)X
+2265(ad-)X
+576 4248(vantage)N
+863(though,)X
+1142(is)X
+1232(that)X
+1389(submittors)X
+1762(get)X
+1896(their)X
+2079(intensive)X
+576 4344(computations)N
+1044(done)X
+1237(on)X
+1354(a)X
+1427(remote)X
+1687(machine,)X
+2016(meanwhile)X
+576 4440(retaining)N
+890(full)X
+1030(use)X
+1166(of)X
+1262(their)X
+1438(own)X
+1605(machine)X
+1906(for)X
+2029(interactive)X
+576 4536(work.)N
+806(During)X
+1058(``good'')X
+1352(periods)X
+1614(\(nights)X
+1862(and)X
+2004(weekends\),)X
+576 4632(it)N
+645(is)X
+723(not)X
+850(unusual)X
+1123(to)X
+1209(\256nd)X
+1357(10)X
+1461(or)X
+1552(20)X
+1656(machines)X
+1983(working)X
+2274(for)X
+576 4728(a)N
+632(single)X
+843(user.)X
+776 4857(As)N
+934(mentioned)X
+1341(earlier,)X
+1637(Condor)X
+1947(is)X
+2070(primarily)X
+576 4953(designed)N
+883(to)X
+967(meet)X
+1145(the)X
+1265(needs)X
+1470(of)X
+1559(those)X
+1750(users)X
+1937(who)X
+2096(are)X
+2216(frus-)X
+576 5049(trated)N
+805(by)X
+931(the)X
+1076(limitations)X
+1464(of)X
+1578(computing)X
+1967(on)X
+2094(a)X
+2177(single)X
+576 5145(workstation.)N
+1021(A)X
+1106(look)X
+1275(at)X
+1359(the)X
+1483(remote)X
+1732(computing)X
+2100(capacity)X
+576 5241(consumed)N
+926(in)X
+1013(the)X
+1136(past)X
+1290(year)X
+1455(by)X
+1561(the)X
+1685(top)X
+1813(ten)X
+1937(Condor)X
+2203(users)X
+576 5337(as)N
+684(shown)X
+934(by)X
+1055(Table)X
+1279(1)X
+1360(reveals)X
+1629(that)X
+1790(indeed,)X
+2064(these)X
+2269(are)X
+2 f
+576 5433(heavy)N
+1 f
+786(users)X
+974(who)X
+1135(would)X
+1358(be)X
+1457(frustrated)X
+1788(with)X
+1953(only)X
+2118(a)X
+2177(single)X
+576 5529(machine)N
+871(at)X
+952(their)X
+1122(disposal.)X
+1447(The)X
+1595(demands)X
+1903(made)X
+2100(by)X
+2203(these)X
+576 5625(users)N
+761(are)X
+880(generally)X
+1199(``bursty''.)X
+2528 795(box;)N
+2712(cfI)X
+2845(s)X
+2919(sw\(1.6i\))X
+3227(n)X
+9 f
+(|)S
+1 f
+(l)S
+9 f
+3305(|)X
+1 f
+(l.)S
+3426(Top)X
+3598(Ten)X
+3766(Condor)X
+4049(Users)X
+4275(=)X
+2528 885(Rank)N
+2816(User)X
+3194(Name)X
+3598(CPU)X
+3978(Consumed)X
+3104 975(\(days+hours:minutes:seconds\))N
+4280(_)X
+2528 1065(1)N
+2816(leut)X
+3104(1327+05:41:44)X
+2528 1155(2)N
+2816(kang)X
+3104(1086+05:05:20)X
+2528 1245(3)N
+2816(kessler)X
+3104(484+20:01:36)X
+2528 1335(4)N
+2816(towell)X
+3104(429+13:28:40)X
+2528 1425(5)N
+2816(hsiao)X
+3104(342+07:56:32)X
+2528 1515(6)N
+2816(wood)X
+3104(319+18:51:20)X
+2528 1605(7)N
+2816(miron)X
+3104(262+01:09:42)X
+3858(8)X
+4146(harit-)X
+2528 1695(sa)N
+2669(238+06:32:12)X
+3295(9)X
+3583(denet)X
+3871(224+11:12:16)X
+2528 1785(10)N
+2816(shavlik)X
+3104(223+17:46:44)X
+3302 1908(Table)N
+3505(1)X
+2528 2070(A)N
+2606(common)X
+2906(pattern)X
+3149(is)X
+3222(for)X
+3336(a)X
+3392(user)X
+3546(to)X
+3629(consume)X
+3935(all)X
+4036(the)X
+4155(com-)X
+2528 2166(puting)N
+2764(capacity)X
+3064(available)X
+3386(for)X
+3512(a)X
+3579(week)X
+3780(or)X
+3878(two,)X
+4049(then)X
+4218(not)X
+2528 2262(request)N
+2799(any)X
+2954(capacity)X
+3261(for)X
+3394(several)X
+3661(weeks.)X
+3942(Presumably)X
+2528 2358(these)N
+2717(users)X
+2906(are)X
+3029(interpreting)X
+3426(results)X
+3658(from)X
+3837(the)X
+3958(last)X
+4092(experi-)X
+2528 2454(ments)N
+2772(and)X
+2942(planning)X
+3276(new)X
+3464(experiments)X
+3910(during)X
+4173(their)X
+2528 2550(``quiet'')N
+2820(periods.)X
+3120(Fortunately,)X
+3533(it)X
+3600(rarely)X
+3811(happens)X
+4097(that)X
+4240(all)X
+2528 2646(the)N
+2669(Condor)X
+2953(users)X
+3162(demand)X
+3460(cycles)X
+3705(at)X
+3807(the)X
+3949(same)X
+4158(time,)X
+2528 2742(though)N
+2773(the)X
+2893(pressure)X
+3183(of)X
+3272(the)X
+3392(academic)X
+3718(calendar)X
+4013(does)X
+4182(tend)X
+2528 2838(to)N
+2620(cause)X
+2829(high)X
+3001(demand)X
+3286(near)X
+3456(the)X
+3585(ends)X
+3763(of)X
+3861(semesters)X
+4204(and)X
+2528 2934(low)N
+2668(demand)X
+2942(between)X
+3230(semesters.)X
+2728 3063(Condor)N
+2996(users)X
+3189(very)X
+3360(much)X
+3566(appreciate)X
+3925(the)X
+4051(fact)X
+4200(that)X
+2528 3159(checkpointing)N
+3003(guarantees)X
+3368(their)X
+3536(jobs)X
+3690(will)X
+3834(complete,)X
+4168(even)X
+2528 3255(in)N
+2624(the)X
+2756(face)X
+2926(of)X
+3028(machine)X
+3335(crashes.)X
+3647(This)X
+3824(is)X
+3912(important)X
+4258(to)X
+2528 3351(users)N
+2731(who)X
+2907(submit)X
+3162(a)X
+3236(large)X
+3435(number)X
+3718(of)X
+3823(jobs)X
+3994(on)X
+4111(Friday)X
+2528 3447(afternoon)N
+2872(and)X
+3024(would)X
+3260(like)X
+3416(to)X
+3514(\256nd)X
+3674(them)X
+3870(completed)X
+4240(on)X
+2528 3543(Monday)N
+2835(morning,)X
+3166(even)X
+3358(in)X
+3459(the)X
+3596(event)X
+3809(of)X
+3915(a)X
+3990(temporary)X
+2528 3639(power)N
+2757(failure)X
+2995(during)X
+3232(the)X
+3358(weekend.)X
+3712(For)X
+3852(users)X
+4046(who)X
+4213(run)X
+2528 3735(very)N
+2700(long)X
+2871(jobs,)X
+3053(sometimes)X
+3424(taking)X
+3653(months)X
+3916(to)X
+4006(complete,)X
+2528 3831(this)N
+2663(feature)X
+2907(is)X
+2980(crucial.)X
+3 f
+2528 4023(4.3.)N
+2688(Machine)X
+3006(Donor's)X
+3302(Perspective)X
+1 f
+2728 4152(Many)N
+2938(machine)X
+3233(owners)X
+3489(who)X
+3651(don't)X
+3844(have)X
+4020(long)X
+4186(run-)X
+2528 4248(ning)N
+2697(and)X
+2840(CPU)X
+3022(intensive)X
+3337(jobs)X
+3496(``donate'')X
+3844(their)X
+4017(machines)X
+2528 4344(to)N
+2618(the)X
+2744(Condor)X
+3012(pool.)X
+3222(For)X
+3361(these)X
+3554(people)X
+3796(the)X
+3923(reward)X
+4176(is)X
+4258(in)X
+2528 4440(knowing)N
+2839(that)X
+2990(they)X
+3159(are)X
+3289(helping)X
+3560(out)X
+3693(their)X
+3871(colleagues)X
+4240(by)X
+2528 4536(donating)N
+2858(unused)X
+3135(cycles)X
+3386(which)X
+3632(would)X
+3882(otherwise)X
+4244(be)X
+2528 4632(wasted.)N
+2812(Still,)X
+2985(if)X
+3055(Condor)X
+3316(were)X
+3494(interfering)X
+3853(with)X
+4015(their)X
+4182(own)X
+2528 4728(use,)N
+2683(most)X
+2866(people)X
+3109(would)X
+3338(not)X
+3469(want)X
+3654(their)X
+3830(machine)X
+4131(in)X
+4222(the)X
+2528 4824(pool.)N
+2754(Since)X
+2975(in)X
+3080(our)X
+3230(environment)X
+3678(membership)X
+4117(in)X
+4222(the)X
+2528 4920(Condor)N
+2788(pool)X
+2950(is)X
+3023(entirely)X
+3288(voluntary,)X
+3635(the)X
+3753(number)X
+4018(of)X
+4106(people)X
+2528 5016(who)N
+2690(chose)X
+2897(to)X
+2983(donate)X
+3221(their)X
+3391(machines)X
+3717(is)X
+3793(a)X
+3852(good)X
+4035(indicator)X
+2528 5112(of)N
+2616(how)X
+2775(well)X
+2934(Condor)X
+3195(does)X
+3363(in)X
+3446(avoiding)X
+3747(such)X
+3915 0.2604(interference.)AX
+2528 5208(Out)N
+2689(of)X
+2797(some)X
+3007(200)X
+3168(workstation)X
+3587(owners,)X
+3880(only)X
+4062(about)X
+4280(5)X
+2528 5304(have)N
+2732(prohibited)X
+3113(us)X
+3236(from)X
+3445(running)X
+3747(Condor)X
+4040(on)X
+4173(their)X
+2528 5400(machines.)N
+2902(Another)X
+3196(5)X
+3267(have)X
+3450(noticed)X
+3716(some)X
+3915 0.2604(interference,)AX
+2528 5496(and)N
+2670(we)X
+2790(have)X
+2968(responded)X
+3324(by)X
+3430(con\256guring)X
+3826(Condor)X
+4093(to)X
+4182(start)X
+2528 5592(jobs)N
+2682(on)X
+2783(their)X
+2951(machines)X
+3274(only)X
+3436(after)X
+3604(the)X
+3722(keyboard)X
+4041(has)X
+4168(been)X
+2528 5688(idle)N
+2671(for)X
+2788(two)X
+2931(hours)X
+3132(or)X
+3222(more,)X
+3430(rather)X
+3641(than)X
+3803(after)X
+3975(the)X
+4097(default)X
+
+4 p
+%%Page: 4 4
+10 s 10 xH 0 xS 1 f
+3 f
+1 f
+576 768(of)N
+677(15)X
+791(minutes.)X
+1118(This)X
+1294(means)X
+1532(that)X
+1685(95%)X
+1865(of)X
+1965(the)X
+2096(machine)X
+576 864(owners)N
+831(have)X
+1006(been)X
+1181(happily)X
+1444(donating)X
+1747(their)X
+1917(unused)X
+2167(cycles)X
+576 960(without)N
+841(noticing)X
+1124(enough)X
+1381 0.2841(interference)AX
+1787(to)X
+1870(even)X
+2042(mention)X
+2324(it)X
+576 1056(to)N
+658(us.)X
+3 f
+576 1248(4.4.)N
+736(System)X
+1001(Perspective)X
+1 f
+608 1563 MXY
+1 setlinewidth
+2313 1698 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2298 1708 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2279 1742 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2264 1773 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2246 1791 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2230 1825 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2212 1846 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2196 1869 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2178 1908 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2163 1942 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2144 1975 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2129 2007 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2113 2071 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+2095 2097 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+2079 2126 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2061 2167 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+2046 2203 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2028 2260 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+2012 2283 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1994 2320 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1978 2348 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1960 2364 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1945 2382 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1929 2408 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1911 2421 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1895 2426 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1877 2436 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1861 2442 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1843 2449 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1828 2468 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1810 2483 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1794 2496 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1776 2507 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1760 2514 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1745 2535 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1726 2551 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1711 2564 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1693 2574 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1677 2600 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1659 2621 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1643 2636 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1625 2647 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1610 2657 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1591 2667 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1576 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1560 2678 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1542 2686 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1527 2712 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1508 2717 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1493 2730 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1475 2743 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1459 2745 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1441 2766 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1425 2771 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1407 2784 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1392 2787 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1376 2795 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1358 2802 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1342 2821 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1324 2826 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1309 2839 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1290 2857 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+1275 2878 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1257 2896 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1241 2943 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1223 MX
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1207 2950 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1192 MX
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1174 2958 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1158 2963 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1140 2969 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1124 2971 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1106 2976 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1090 2984 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1072 2997 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+1057 3010 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+1039 3018 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1023 3023 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+1007 3033 MXY
+0 11 Dl
+11 0 Dl
+0 -11 Dl
+-11 0 Dl
+989 3036 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+974 3041 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+955 3044 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+940 3052 MXY
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+922 3054 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+906 3057 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+888 3059 MXY
+0 11 Dl
+10 0 Dl
+0 -11 Dl
+-10 0 Dl
+872 3065 MXY
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+854 MX
+0 10 Dl
+11 0 Dl
+0 -10 Dl
+-11 0 Dl
+839 MX
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+823 MX
+0 10 Dl
+10 0 Dl
+0 -10 Dl
+-10 0 Dl
+828 3070 MXY
+16 0 Dl
+15 0 Dl
+19 0 Dl
+15 -5 Dl
+18 -3 Dl
+16 -3 Dl
+18 -2 Dl
+16 -8 Dl
+18 -3 Dl
+15 -5 Dl
+19 -2 Dl
+15 -11 Dl
+16 -5 Dl
+18 -8 Dl
+16 -13 Dl
+18 -13 Dl
+15 -7 Dl
+18 -6 Dl
+16 -2 Dl
+18 -5 Dl
+16 -6 Dl
+18 -7 Dl
+15 0 Dl
+16 -8 Dl
+18 0 Dl
+16 -47 Dl
+18 -18 Dl
+16 -21 Dl
+18 -18 Dl
+15 -13 Dl
+18 -5 Dl
+16 -18 Dl
+18 -8 Dl
+16 -8 Dl
+15 -3 Dl
+19 -13 Dl
+15 -5 Dl
+18 -20 Dl
+16 -3 Dl
+18 -13 Dl
+16 -13 Dl
+18 -5 Dl
+15 -26 Dl
+19 -8 Dl
+15 -10 Dl
+16 0 Dl
+18 -11 Dl
+15 -10 Dl
+19 -10 Dl
+15 -16 Dl
+18 -21 Dl
+16 -26 Dl
+18 -10 Dl
+16 -13 Dl
+18 -16 Dl
+15 -20 Dl
+16 -8 Dl
+18 -11 Dl
+16 -13 Dl
+18 -15 Dl
+15 -18 Dl
+19 -8 Dl
+15 -5 Dl
+18 -11 Dl
+16 -5 Dl
+18 -13 Dl
+16 -26 Dl
+15 -18 Dl
+18 -16 Dl
+16 -28 Dl
+18 -37 Dl
+16 -23 Dl
+18 -57 Dl
+16 -35 Dl
+18 -42 Dl
+15 -28 Dl
+18 -26 Dl
+16 -65 Dl
+16 -31 Dl
+18 -34 Dl
+15 -34 Dl
+19 -39 Dl
+15 -23 Dl
+18 -21 Dl
+16 -34 Dl
+18 -18 Dl
+16 -31 Dl
+18 -34 Dl
+15 -10 Dl
+828 3070 MXY
+16 0 Dl
+15 0 Dl
+19 0 Dl
+15 -5 Dl
+18 2 Dl
+16 -2 Dl
+18 0 Dl
+16 -3 Dl
+18 3 Dl
+15 -3 Dl
+19 3 Dl
+15 -6 Dl
+16 3 Dl
+18 -3 Dl
+16 -2 Dl
+18 0 Dl
+15 5 Dl
+18 0 Dl
+16 3 Dl
+18 0 Dl
+16 -3 Dl
+18 0 Dl
+15 5 Dl
+16 -5 Dl
+18 5 Dl
+16 -44 Dl
+18 26 Dl
+16 0 Dl
+18 3 Dl
+15 2 Dl
+18 11 Dl
+16 -13 Dl
+18 10 Dl
+16 -3 Dl
+15 8 Dl
+19 -13 Dl
+15 11 Dl
+18 -16 Dl
+16 16 Dl
+18 -11 Dl
+16 3 Dl
+18 8 Dl
+15 -24 Dl
+19 21 Dl
+15 -3 Dl
+16 8 Dl
+18 -8 Dl
+15 0 Dl
+19 -2 Dl
+15 -3 Dl
+18 -8 Dl
+16 -2 Dl
+18 15 Dl
+16 -5 Dl
+18 0 Dl
+15 -8 Dl
+16 16 Dl
+18 -3 Dl
+16 -2 Dl
+18 -5 Dl
+15 0 Dl
+19 7 Dl
+15 3 Dl
+18 -3 Dl
+16 3 Dl
+18 -8 Dl
+16 -10 Dl
+15 8 Dl
+18 0 Dl
+16 -11 Dl
+18 -8 Dl
+16 11 Dl
+18 -31 Dl
+16 18 Dl
+18 -5 Dl
+15 15 Dl
+18 0 Dl
+16 -36 Dl
+16 34 Dl
+18 -3 Dl
+15 -3 Dl
+19 -5 Dl
+15 18 Dl
+18 0 Dl
+16 -10 Dl
+18 16 Dl
+16 -13 Dl
+18 -3 Dl
+15 21 Dl
+3 f
+8 s
+1380 3197(Time)N
+1538(in)X
+1608(Weeks)X
+690 1592(7000)N
+608 3028 MXY
+5 setlinewidth
+818 1563 MXY
+34 0 Dl
+690 1808(6000)N
+1778 MY
+34 0 Dl
+690 2023(5000)N
+1994 MY
+34 0 Dl
+690 2238(4000)N
+2208 MY
+34 0 Dl
+690 2453(3000)N
+2423 MY
+34 0 Dl
+690 2669(2000)N
+2639 MY
+34 0 Dl
+690 2884(1000)N
+2854 MY
+34 0 Dl
+786 3097(0)N
+2304 3134(90)N
+2336 3046 MXY
+0 34 Dl
+1801 3134(60)N
+1834 3046 MXY
+0 34 Dl
+1297 3134(30)N
+1331 3046 MXY
+0 34 Dl
+812 3134(0)N
+841 1563 MXY
+0 1494 Dl
+1495 0 Dl
+839 1563 MXY
+0 1496 Dl
+1497 0 Dl
+836 1563 MXY
+0 1499 Dl
+1500 0 Dl
+834 1563 MXY
+0 1502 Dl
+1502 0 Dl
+831 1563 MXY
+0 1504 Dl
+1505 0 Dl
+828 1563 MXY
+0 1507 Dl
+1508 0 Dl
+1 f
+2114 2210(cumulative)N
+3 f
+11 s
+1080 3377(CPU)N
+1282(Provided)X
+1647(by)X
+1762(Condor)X
+1 f
+8 s
+2166 2993(weekly)N
+3 f
+608 2415(P)N
+608 2473(r)N
+608 2531(o)N
+608 2589(v)N
+616 2647(i)N
+608 2705(d)N
+608 2763(e)N
+608 2821(d)N
+608 1894(C)N
+608 1952(P)N
+608 2010(U)N
+608 2126(D)N
+608 2183(a)N
+608 2241(y)N
+608 2299(s)N
+1 f
+10 s
+1337 3484(Figure)N
+1566(2)X
+776 3646(From)N
+973(a)X
+1033(system)X
+1279(administrator's)X
+1788(point)X
+1977(of)X
+2069(view,)X
+2270(the)X
+576 3742(effect)N
+793(of)X
+893(Condor)X
+1166(is)X
+1251(to)X
+1345(increase)X
+1641(the)X
+1771(overall)X
+2026(computing)X
+576 3838(capacity)N
+879(of)X
+981(a)X
+1052(group)X
+1274(of)X
+1376(workstations)X
+1820(without)X
+2100(the)X
+2234(pur-)X
+576 3934(chase)N
+788(of)X
+887(additional)X
+1239(hardware.)X
+1611(As)X
+1732(shown)X
+1973(in)X
+2067(Figure)X
+2308(2,)X
+576 4030(Condor)N
+850(has)X
+991(provided)X
+1310(a)X
+1380(total)X
+1556(of)X
+1658(over)X
+1836(6000)X
+2031(CPU)X
+2221(days)X
+576 4126(over)N
+741(the)X
+861(past)X
+1012(90)X
+1113(weeks.)X
+1375(To)X
+1485(a)X
+1542(system)X
+1785(administrator,)X
+2253(this)X
+576 4222(corresponds)N
+984(to)X
+1066(the)X
+1184(purchase)X
+1490(and)X
+1627(maintenance)X
+2054(of)X
+2142(at)X
+2221(least)X
+576 4318(ten)N
+711(additional)X
+1068(workstations.)X
+1554(Actually)X
+1867(if)X
+1953(the)X
+2087(worksta-)X
+576 4414(tions)N
+763(were)X
+952(put)X
+1087(into)X
+1244(the)X
+1375(hands)X
+1595(of)X
+1695(individual)X
+2052(users,)X
+2270(the)X
+576 4510(number)N
+842(would)X
+1063(be)X
+1160(much)X
+1359(larger)X
+1568(than)X
+1727(that,)X
+1887(since)X
+2072(as)X
+2159(shown)X
+576 4606(in)N
+670(Figure)X
+911(3,)X
+1004(users)X
+1202(rarely)X
+1423(utilize)X
+1656(the)X
+1787(full)X
+1931(capacity)X
+2232(of)X
+2332(a)X
+576 4702(workstation)N
+974(over)X
+1137(the)X
+1255(long)X
+1417(run.)X
+776 4831(Condor)N
+1065(calculates)X
+1431(whether)X
+1739(a)X
+1824(machine)X
+2145(is)X
+2248(idle)X
+576 4927(based)N
+800(on)X
+921(the)X
+1059(UNIX)X
+1300(load)X
+1478(average,)X
+1789(and)X
+1945(elapsed)X
+2226(time)X
+576 5023(since)N
+767(the)X
+891(last)X
+1028(keyboard)X
+1353(activity.)X
+1659(Machines)X
+1998(whose)X
+2230(load)X
+576 5119(average)N
+862(is)X
+950(below)X
+1181(a)X
+1251(certain)X
+1504(threshold)X
+1836(and)X
+1986(whose)X
+2225(key-)X
+576 5215(board)N
+799(idle)X
+959(time)X
+1141(is)X
+1234(above)X
+1466(another)X
+1747(threshold)X
+2085(are)X
+2225(con-)X
+576 5311(sidered)N
+837(to)X
+928(be)X
+1032(idle.)X
+1220(Of)X
+1333(course)X
+1571(the)X
+1697(number)X
+1970(of)X
+2065(machines)X
+576 5407(which)N
+808(are)X
+943(considered)X
+1327(idle)X
+1484(at)X
+1579(any)X
+1732(one)X
+1885(time)X
+2064(will)X
+2225(vary)X
+576 5503(depending)N
+930(on)X
+1030(the)X
+1148(thresholds)X
+1497(used.)X
+2560 762 MXY
+1 setlinewidth
+2851 1633 MXY
+126 36 Dl
+125 24 Dl
+129 17 Dl
+126 16 Dl
+125 14 Dl
+126 14 Dl
+129 11 Dl
+125 10 Dl
+126 9 Dl
+126 11 Dl
+128 8 Dl
+4288 1505 MXY
+-16 0 Dl
+4280 1497 MXY
+0 16 Dl
+4160 1486 MXY
+-17 0 Dl
+4151 1477 MXY
+0 17 Dl
+4034 1472 MXY
+-17 0 Dl
+4026 1464 MXY
+0 16 Dl
+3908 1456 MXY
+-16 0 Dl
+3900 1447 MXY
+0 17 Dl
+3782 1436 MXY
+-16 0 Dl
+3774 1428 MXY
+0 17 Dl
+3654 1420 MXY
+-17 0 Dl
+3646 1412 MXY
+0 16 Dl
+3528 1399 MXY
+-16 0 Dl
+3520 1391 MXY
+0 15 Dl
+3402 1377 MXY
+-16 0 Dl
+3394 1369 MXY
+0 17 Dl
+3276 1350 MXY
+-16 0 Dl
+3268 1342 MXY
+0 16 Dl
+3148 1323 MXY
+-16 0 Dl
+3140 1314 MXY
+0 17 Dl
+3022 1287 MXY
+-16 0 Dl
+3014 1279 MXY
+0 16 Dl
+2896 1238 MXY
+-16 0 Dl
+2888 1230 MXY
+0 16 Dl
+1238 MY
+126 49 Dl
+126 36 Dl
+128 27 Dl
+126 27 Dl
+126 22 Dl
+126 21 Dl
+128 16 Dl
+126 20 Dl
+126 16 Dl
+125 14 Dl
+129 19 Dl
+3 f
+8 s
+3143 2409(Keyboard)N
+3433(Idle)X
+3556(time)X
+3692(\(hours\))X
+2560 1238 MXY
+5 setlinewidth
+2752 777 MXY
+35 0 Dl
+2752 927 MXY
+35 0 Dl
+2752 1078 MXY
+35 0 Dl
+2752 1228 MXY
+35 0 Dl
+2752 1378 MXY
+35 0 Dl
+2752 1527 MXY
+35 0 Dl
+2752 1678 MXY
+35 0 Dl
+2752 1828 MXY
+35 0 Dl
+2752 1978 MXY
+35 0 Dl
+2752 2128 MXY
+35 0 Dl
+4224 2343(3.00)N
+4280 2254 MXY
+0 35 Dl
+3970 2343(2.50)N
+4027 2254 MXY
+0 35 Dl
+3718 2343(2.00)N
+3774 2254 MXY
+0 35 Dl
+3464 2343(1.50)N
+3521 2254 MXY
+0 35 Dl
+3212 2343(1.00)N
+3268 2254 MXY
+0 35 Dl
+2958 2343(0.50)N
+3015 2254 MXY
+0 35 Dl
+2706 2343(0.00)N
+2776 762 MXY
+0 1503 Dl
+1504 0 Dl
+2773 762 MXY
+0 1506 Dl
+1507 0 Dl
+2770 762 MXY
+0 1509 Dl
+1510 0 Dl
+2768 762 MXY
+0 1511 Dl
+1512 0 Dl
+2765 762 MXY
+0 1514 Dl
+1515 0 Dl
+2762 762 MXY
+0 1517 Dl
+1518 0 Dl
+1 f
+3933 1770(with)N
+4063(condor)X
+3880 1434(without)N
+4092(condor)X
+3 f
+11 s
+3144 2585(System)N
+3434(Utilization)X
+8 s
+2675 799(100)N
+2699 951(90)N
+2699 1101(80)N
+2699 1250(70)N
+2699 1400(60)N
+2699 1549(50)N
+2699 1698(40)N
+2699 1848(30)N
+2699 1998(20)N
+2699 2147(10)N
+2720 2275(0)N
+2560 791(%)N
+2560 908(M)N
+2560 967(a)N
+2560 1026(c)N
+2560 1085(h)N
+2560 1144(i)N
+2560 1202(n)N
+2560 1261(e)N
+2560 1320(s)N
+2560 1437(/)N
+2560 1495(w)N
+2560 1613(L)N
+2560 1672(d)N
+2560 1789(A)N
+2560 1848(v)N
+2560 1907(g)N
+2560 2024(<)N
+2560 2142(0)N
+2560 2201(.)N
+2560 2259(3)N
+1 f
+10 s
+3289 2692(Figure)N
+3518(3)X
+2528 2854(Our)N
+2676(experience)X
+3048(is)X
+3124(that)X
+3267(a)X
+3326(load)X
+3487(average)X
+3762(of)X
+3853(0.3)X
+3977(and)X
+4117(a)X
+4177(key-)X
+2528 2950(board)N
+2742(idle)X
+2893(time)X
+3066(of)X
+3163(15)X
+3273(minutes)X
+3556(are)X
+3685(reasonable)X
+4059(choices,)X
+2528 3046(and)N
+2685(result)X
+2904(in)X
+3007(a)X
+3084(system)X
+3347(which)X
+3584(is)X
+3679(acceptable)X
+4061(to)X
+4165(most)X
+2528 3142(machine)N
+2831(donors.)X
+3119(Figure)X
+3358(3)X
+3428(summarizes)X
+3841(statistics)X
+4146(taken)X
+2528 3238(over)N
+2696(several)X
+2949(months)X
+3209(on)X
+3314(about)X
+3517(70)X
+3623(VAX)X
+3823(workstations)X
+4258(in)X
+2528 3334(our)N
+2658(department.)X
+3081(For)X
+3214(this)X
+3351(graph,)X
+3576(we)X
+3692(\256xed)X
+3874(the)X
+3994(load)X
+4154(aver-)X
+2528 3430(age)N
+2687(requirement)X
+3122(at)X
+3227(0.3,)X
+3394(and)X
+3558(plotted)X
+3828(the)X
+3974(portion)X
+4253(of)X
+2528 3526(machines)N
+2863(which)X
+3091(would)X
+3322(be)X
+3429(considered)X
+3808(idle)X
+3959(given)X
+4168(vari-)X
+2528 3622(ous)N
+2675(keyboard)X
+3010(idle)X
+3166(time)X
+3344(requirements.)X
+3840(The)X
+4002(top)X
+4141(curve)X
+2528 3718(shows)N
+2767(shows)X
+3006(how)X
+3183(many)X
+3399(machines)X
+3740(would)X
+3978(have)X
+4168(been)X
+2528 3814(considered)N
+2903(idle)X
+3051(without)X
+3323(Condor)X
+3591(in)X
+3681(the)X
+3807(picture,)X
+4078(and)X
+4222(the)X
+2528 3910(bottom)N
+2796(curve)X
+3017(shows)X
+3259(the)X
+3399(portion)X
+3672(of)X
+3780(machines)X
+4124(which)X
+2528 4006(remained)N
+2853(idle)X
+2999(even)X
+3177(with)X
+3345(Condor.)X
+3651(Using)X
+3868(the)X
+3992(15)X
+4098(minute)X
+2528 4102(idleness)N
+2807(criteria,)X
+3076(we)X
+3191(can)X
+3324(see)X
+3447(that)X
+3587(on)X
+3687(the)X
+3805(average)X
+4076(without)X
+2528 4198(Condor)N
+2799(about)X
+3009(70%)X
+3188(of)X
+3287(the)X
+3417(machines)X
+3752(would)X
+3984(have)X
+4168(been)X
+2528 4294(idle.)N
+2715(By)X
+2835(using)X
+3035(Condor,)X
+3322(we)X
+3443(reduced)X
+3725(the)X
+3850(portion)X
+4107(of)X
+4200(idle)X
+2528 4390(machines)N
+2851(to)X
+2933(about)X
+3132(43%.)X
+3340(These)X
+3553(numbers)X
+3850(would)X
+4071(be)X
+4168(even)X
+2528 4486(better,)N
+2757(if)X
+2832(there)X
+3019(were)X
+3202(always)X
+3451(enough)X
+3712(Condor)X
+3977(jobs)X
+4135(in)X
+4222(the)X
+2528 4582(queue)N
+2755(to)X
+2852(use)X
+2994(all)X
+3109(the)X
+3242(available)X
+3567(workstations;)X
+4034(even)X
+4222(the)X
+2528 4678(once)N
+2704(frustrated)X
+3036(users)X
+3225(don't)X
+3418(keep)X
+3593(the)X
+3714(system)X
+3959(100%)X
+4169(busy)X
+2528 4774(in)N
+2610(the)X
+2728(long)X
+2890(run.)X
+3 f
+2528 4966(5.)N
+2628(Future)X
+2884(Work)X
+1 f
+2728 5095(We)N
+2860(view)X
+3036(Condor)X
+3297(as)X
+3385(both)X
+3548(a)X
+3605("production")X
+4039(tool,)X
+4204(and)X
+2528 5191(an)N
+2633(experimental)X
+3081(system.)X
+3372(Work)X
+3584(on)X
+3693(increasing)X
+4052(both)X
+4222(the)X
+2528 5287(power)N
+2776(and)X
+2939(\257exibility)X
+3296(of)X
+3410(this)X
+3572(tool)X
+3744(is)X
+3845(ongoing.)X
+4195(The)X
+2528 5383(current)N
+2782(version)X
+3044(of)X
+3137(Condor)X
+3403(is)X
+3482(limited)X
+3734(to)X
+3822(running)X
+4096("single)X
+2528 5479(process")N
+2835(jobs,)X
+3021(though)X
+3276(many)X
+3487(such)X
+3668(jobs)X
+3835(may)X
+4007(be)X
+4117(run)X
+4258(in)X
+2528 5575(parallel)N
+2805(provided)X
+3125(they)X
+3298(don't)X
+3502(need)X
+3689(to)X
+3786(communicate)X
+4253(or)X
+2528 5671(synchronize.)N
+2991(An)X
+3124(example)X
+3432(of)X
+3535(such)X
+3718(a)X
+3790(trivially)X
+4079(parallel)X
+2528 5767(application)N
+2908(is)X
+2985(a)X
+3044(group)X
+3254(of)X
+3344(simulations)X
+3735(all)X
+3838(using)X
+4034(the)X
+4155(same)X
+
+5 p
+%%Page: 5 5
+10 s 10 xH 0 xS 1 f
+3 f
+1 f
+576 768(program,)N
+888(but)X
+1011(running)X
+1281(with)X
+1444(different)X
+1742(parameters)X
+2116(or)X
+2204(input)X
+576 864(\256les.)N
+781(Still,)X
+965(a)X
+1033(much)X
+1242(larger)X
+1461(\256eld)X
+1634(of)X
+1732(problems)X
+2061(would)X
+2292(be)X
+576 960(open)N
+754(to)X
+838(solution)X
+1117(by)X
+1219(Condor)X
+1481(if)X
+1552(the)X
+1672(processes)X
+2002(could)X
+2203(com-)X
+576 1056(municate.)N
+951(We)X
+1103(are)X
+1242(working)X
+1549(on)X
+1669(a)X
+1745(version)X
+2021(of)X
+2128(Condor)X
+576 1152(which)N
+807(manages)X
+1123(such)X
+1305(communication)X
+1838(using)X
+2047(the)X
+2181(Linda)X
+576 1248(primitives.)N
+975(Another)X
+1273(interesting)X
+1646(problem)X
+1947(is)X
+2034(expanding)X
+576 1344(the)N
+711(Condor)X
+988(pool)X
+1168(to)X
+1268(even)X
+1458(larger)X
+1684(groups)X
+1940(of)X
+2045(machines.)X
+576 1440(Currently)N
+906(all)X
+1009(the)X
+1130(machines)X
+1456(in)X
+1541(a)X
+1600(Condor)X
+1862(pool)X
+2026(must)X
+2203(com-)X
+576 1536(municate)N
+893(with)X
+1058(one)X
+1197("central)X
+1472(manager",)X
+1826(and)X
+1966(jobs)X
+2123(migrate)X
+576 1632(from)N
+766(machine)X
+1072(to)X
+1168(machine)X
+1473(without)X
+1750(regard)X
+1989(to)X
+2084(the)X
+2215("dis-)X
+576 1728(tance")N
+802(between)X
+1093(various)X
+1352(machines.)X
+1718(We)X
+1853(are)X
+1976(looking)X
+2244(into)X
+576 1824(ways)N
+773(of)X
+872(decentralizing)X
+1359(the)X
+1489(control)X
+1748(of)X
+1847(Condor)X
+2118(and)X
+2265(ex-)X
+576 1920(panding)N
+859(to)X
+946(an)X
+1047(environment)X
+1477(where)X
+1700(a)X
+1762(wide)X
+1944(area)X
+2105(network)X
+576 2016(is)N
+649(used)X
+816(to)X
+898(connect)X
+1168("clusters")X
+1499(of)X
+1586(workstations.)X
+3 f
+576 2208(6.)N
+676(Conclusions)X
+1 f
+776 2337(We)N
+929(believe)X
+1203(Condor)X
+1485(has)X
+1634(demonstrated)X
+2108(that)X
+2270(the)X
+576 2433(challenge)N
+904(of)X
+991(the)X
+1109(frustrated)X
+1437(users)X
+1622(can)X
+1754(be)X
+1850(met,)X
+2010(and)X
+2146(has)X
+2528 768(succeeded)N
+2884(in)X
+2971(meeting)X
+3255(a)X
+3317(large)X
+3504(portion)X
+3761(of)X
+3854(that)X
+4000(need)X
+4178(with)X
+2528 864(minimal)N
+2821 0.2841(interference)AX
+3233(to)X
+3322(the)X
+3447(workstation's)X
+3910(owners.)X
+4208(We)X
+2528 960(feel)N
+2678(that)X
+2827(the)X
+2954(need)X
+3135(for)X
+3259(Condor)X
+3529(or)X
+3626(a)X
+3692(similar)X
+3944(system)X
+4196(will)X
+2528 1056(continue)N
+2837(as)X
+2937(long)X
+3112(as)X
+3212(environments)X
+3681(where)X
+3911(workstations)X
+2528 1152(are)N
+2648(assigned)X
+2945(to)X
+3028(``exclusive'')X
+3461(use)X
+3590(by)X
+3692(individuals)X
+4069(are)X
+4190(pre-)X
+2528 1248(valent.)N
+2809(The)X
+2979(challenges)X
+3363(are)X
+3507(to)X
+3614(continue)X
+3934(to)X
+4040(adapt)X
+4258(to)X
+2528 1344(changes)N
+2817(in)X
+2909(that)X
+3059(environment,)X
+3514(and)X
+3660(expand)X
+3922(the)X
+4050(kinds)X
+4253(of)X
+2528 1440(jobs)N
+2681(which)X
+2897(Condor)X
+3157(can)X
+3289(run)X
+3416(effectively.)X
+3 f
+2528 1632(7.)N
+2628(Acknowledgements)X
+1 f
+2728 1761(This)N
+2891(research)X
+3181(is)X
+3255(supported)X
+3592(in)X
+3675(part)X
+3822(by)X
+3924(the)X
+4044(National)X
+2528 1857(Science)N
+2806(Foundation)X
+3197(under)X
+3407(grant)X
+3599(DCR-8521228)X
+4097(and)X
+4240(by)X
+2528 1953(a)N
+2609(Digital)X
+2877(Equipment)X
+3274(Corporation)X
+3707(External)X
+4025(Research)X
+2528 2049(Grant.)N
+2728 2178(The)N
+2880(authors)X
+3143(gratefully)X
+3482(acknowledge)X
+3934(the)X
+4060(work)X
+4253(of)X
+2528 2274(Anthony)N
+2831(Dayao)X
+3063(without)X
+3329(whom)X
+3551(the)X
+3671(statistics)X
+3968(and)X
+4106(graphs)X
+2528 2370(presented)N
+2856(here)X
+3015(would)X
+3235(not)X
+3357(have)X
+3529(been)X
+3701(possible.)X
+
+5 p
+%%Trailer
+xt
+
+xs

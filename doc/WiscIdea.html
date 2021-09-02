@@ -1,0 +1,328 @@
+<HTML>
+<HEAD>
+<TITLE>Hunting for wasted computing power</TITLE>
+</HEAD>
+
+<BODY>
+<center>
+<IMG ALIGN=MIDDLE SRC="condor2.gif"></A>
+<H1>
+<br>
+HUNTING FOR WASTED COMPUTING POWER
+<br>
+New Software for Computing Networks Puts Idle PC's to Work
+<br>
+
+<br>
+
+<br>
+by Scott Fields
+<br>
+1993 Research Sampler
+<br>
+University of Wisconsin-Madison
+<br>
+</H1></center
+
+<HR>
+
+Scattered throughout the world of science are personal computers just
+waiting to work.  While a university biologist grades papers, her
+computer sits unused.  On the desk of an engineering professor, a
+neglected workstation hums quietly through the night.  Idle computers
+mean wasted computing power.  And Miron Livny, a University of
+Wisconsin-Madison associate professor of computer sciences, hates waste.
+<P>
+Rather than see computers lie fallow, a group of computer
+scientists now led by Livny has been developing Condor, a software system
+that puts inactive computers back to work.  Like a vulture circling the
+desert, Condor scavenges for processing power that would otherwise be
+lost.
+<P>
+The idea behind Condor is simple.  It matches any computational
+jobs that computer users have with spare power in other owners'
+computers.  Computer owners don't have to modify their programs to use
+Condor.  They just have to agree to become part of a Condor network, a
+group of computers connected in such a way that messages can pass
+between them.
+<P>
+Condor lurks in the background of the network, nesting in a
+computer called the central manager-which can be any computer in the
+network-where it watches for inactive computers.  When it senses an idle
+machine, Condor swoops in to run a project on it.  When the owner
+resumes using the computer, Condor moves the project somewhere else.
+<P>
+In practice, however, Condor is more complicated.  Every
+computer in the pool must continually run parts of the Condor software
+that track activity on both the central manager and the local system.
+To do this, the computer must be capable of "multi-tasking," or running
+more than one piece of software simultaneously, the computer equivalent
+of walking and chewing gum at the same time.
+<P>
+Currently Condor runs only on workstations that use an
+operating system called UNIX.  This operating system-the software that
+lets a computer run other software applications-was selected because it
+can smoothly handle many applications at once and because it is wide-
+spread in the scientific community.  Livny says, however, that Condor
+could be modified to work with any multi-tasking operating system.
+
+<H3> 
+HATCHING AN IDEA
+</H3>
+
+<P>
+Just a year after Livny arrived at the university in 1984, a
+team of UW-Madison computer scientists-then including professors David
+DeWitt and Marvin Solomon-began the Condor project.  Livny had started
+thinking about how to exploit wasted processing power even earlier, when
+he was a graduate student at the Weizmann Institute in his native
+Israel.
+<P>
+At that time, he says, the rapid development of mini-computers
+marked a great shift in where computing power was located.  Instead of
+being concentrated in a single mainframe computer, an institution's
+computing power was now "distributed" into many small computers.  Livny
+soon realized that this shift would result in wasted computing capacity
+unless some way were found to harness that power.
+<P>
+Before personal computers became commonplace, Livny explains,
+scientists shared mainframe computers-often experiencing long delays as
+the computer processed jobs submitted ahead of theirs.  But these
+centralized systems, although frustrating to use, maximized a computer's
+processing power, because they ran 24 hours a day.
+<P>
+Personal computers eliminated the wait.  But, Livny says, while
+the recent explosion in personal computing has tremendously increased
+the amount of computing power-which computer scientists measure in
+number of computing "cycles"-that researchers own, there has not
+been a proportionate increase in the number of cycles available to any
+individual researcher.
+<P>
+"Ten years ago, what was owned and what was accessible were
+almost the same," Livny says.  "Now, because of distributed ownership,
+there is an increasing gap between what is owned and what is available
+for scientific computing.  What we are trying to do is narrow this gap."
+
+<H3> 
+MAKING IT FLY 
+</H3>
+
+Developing and debugging Condor's programming code took
+countless hours of work by a team of UW-Madison programmers headed by
+Michael Litzkow.  But the hardest task for Condor's developers, Livny
+says, was figuring out how to maintain a comfortable relationship
+between two communities of computer users:  the people who own computers
+but don't necessarily need more computing power, and people who want to
+borrow spare cycles.  Satisfying both groups was important, he explains,
+because administrators can't add a machine to the pool without its
+owner's permission.  "So if the owner is not happy," Livny says, "we
+lose the machine."
+<P>
+Meeting the varied demands of computer owners, however, is not so
+easy.  Condor must keep track of activity on every computer on networks
+that can include hundreds of computers.  It must know how soon it is
+allowed to start using a computer after the owner stops using it.  It
+must work both in environments where each individual uses just a single
+computer and in environments where any individual can log on to any
+computer.  And it must know how to share the resources of the network
+fairly.
+<P>
+Some researchers-Livny calls them "cycle monsters"-have an
+insatiable appetite for computer cycles.  Most of these "frustrated"
+owners are willing to sacrifice some convenience for a chance to tap
+into the ocean of computer power a Condor pool offers.
+<P>
+Many other researchers, however, rarely need more cycles than
+their own computers offer.  These scientists are often reluctant to join
+the Condor pool, since they think they have little to gain from it.
+"These `happy' or `almost-always-happy' owners are the ones that we have
+to convince," Livny says.
+<P>
+To lure them to Condor, the design team was careful to make the
+new system attractive to both heavy and light users, so the cycle
+monsters could feel free to do time-consuming research.  "The philosophy
+here is that we would like to encourage you to use as many cycles as
+possible and to do research projects that can run for weeks or months,"
+Livny explains.  "But we want to protect owners, whether or not they are
+heavy users."
+<P>
+The researcher who has a job to run sends an electronic message
+to a special piece of Condor software called the local scheduler.  The
+scheduler negotiates for cycles with another piece of software called
+the coordinator, which can be installed in any computer in the network.
+When the coordinator finds an idle computer, it will move the job
+there-if it is that researcher's turn.
+<P>
+Condor doesn't just run jobs in the order that it gets them.  To
+keep big jobs from draining the pool of cycles, Livny-working with then-
+graduate student Matt Mutka, now on the faculty of Michigan State
+University-developed a priority system called the Up-Down algorithm.  This
+system makes it possible for scientists who are running time-consuming
+research to coexist with people running shorter jobs.  The priority that
+the system assigns to a scientist's project decreases as the number of
+cycles the scientist uses increases.
+<P>
+"If you are heavy user, eventually you will have low priority
+when competing with other users.  Once you stop using the system, your
+priority starts to slowly go up," Livny says.  "We want to protect
+somebody who wants to come in and run 10 to 20 hours of computing time
+to have a better response time than someone who is running for months
+and months and months."
+<P>
+
+<H3> 
+THAT'S ONE HARD-WORKING BIRD
+</H3>
+<P>
+
+<P>
+Researchers who use Condor gain two major advantages:  they can have 
+many tasks running at once, and they can run big projects that otherwise
+might be too expensive to conduct.
+<P>
+Without access to scavenged computing cycles, Livny explains,
+many of the projects run on Condor would monopolize a single workstation
+for months, a luxury not many researchers can afford.  One UW-Madison
+graduate student, for example, consumed in just one month the number of
+cycles a single workstation would generate running around the clock for
+350 days.
+<P>
+Although some of the workstations that Condor links are
+relatively slow-running at just 10 to 20 MIPS (million instructions per
+second) rather than the hundreds of MIPS a mainframe computer might
+achieve-these workstation cycles are surplus, whereas time on a
+mainframe is expensive.
+
+<H3> 
+GROOMING CONDOR
+</H3>
+
+<P>
+But Condor's advantages have a price:  each task takes longer
+that it would running on a single machine.  All the juggling Condor must
+do wastes time.  Projects move from computer to computer.  Projects
+often must wait their turn.  Information must be moved in and out of
+electronic memory and the magnetic storage drives.  And if a computer's
+owner returns-signaled either by tapping a key or moving the computer's
+mouse-the project must be interrupted and moved either to another
+workstation or, if no other machine is available back to its home
+workstation.
+<P>
+Often, however, the guest project hasn't finished when Condor
+must yield the workstation.  If Condor had to restart from scratch every
+time a project was interrupted, many tasks-some of which can take
+months-would never end.  To make Condor more efficient and allow big jobs
+to finish, the design team incorporated "checkpoints," software markers
+that indicate how far a job has progressed.  When it places a checkpoint,
+Condor remembers the current status of the program, as well as any
+results that had been computed so far.  Then, when it restarts the
+project somewhere else, it can pick up at the checkpoint.
+<P>
+The idea of checkpoints is not new, Livny says.  But making
+checkpoints work presented a major challenge. Working outside of the
+UNIX operating system, Condor had to be able to remember, but not
+disrupt, the status of every detail of software running inside the
+operating system.
+<P>
+Originally Condor didn't place checkpoints until a workstation's
+owner returned.  But that forced the owner to wait while Condor
+completed its checkpoint calculations.  To speed things up, the team
+decided to place checkpoints periodically during the calculations.  Now
+Condor returns to the previous checkpoint and moves the task away almost
+immediately.  That can mean losing up to an hour's work, but, Livny
+says, a few lost cycles is the price of keeping workstation owners
+happy.
+<P>
+Although the design team tried to make Condor as friendly as
+possible some users still find it inconvenient.  For example, normally a
+person who takes a short break while using a software application that's
+loaded into the computer's electronic memory will be able to resume using
+the application immediately.  But if Condor moves in, it will displace
+the application.  Reloading may take 10 or 15 seconds.  Such delays,
+Livny says, can be bothersome for people who use their computers
+intermittently, making their machines frequent targets of Condor's
+scavenging excursions.
+<P>
+That's why the team modified Condor so that it could feed on
+unused machines only on a schedule that each owner approved.  For some,
+that means their computers aren't available to the pool until an hour or
+two after they normally leave for the day.  "We lose two or three hours
+of computing time for lunch and at the end of the day," Livny say, "but
+the fact that they join the pool means we gain 11 hours."      
+<P>
+
+
+<H3> 
+LEAVING THE NEST
+</H3>
+
+<P>
+Condor pools have spread to laboratories around the world.  But
+because the Condor system is available for free on electronic bulletin
+boards, a practice computer scientists use to share new ideas, Livny
+doesn't know where all of them are.  He has helped Condor users at the
+University of Michigan, Ohio State University, the Weizmann Institute in
+Israel, the CERN physics laboratory in Geneva, and the National
+High-Energy Physics Lab in the Netherlands.  At some of these sites,
+Livny says, Condor pools comprising hundreds of machines run thousands
+of jobs daily.
+<P>
+Some UW-Madison departments are employing Condor to carry out
+massive computing chores.  In the genetics department, for example,
+Condor-using machines in the computer sciences department-is helping
+decipher the genetic code of the bacterium Escherichia coli.  This vast
+joint-research project requires extensive computer searches, matching
+newly decoded DNA patterns to a database of known protein sequences.
+<P>
+At UW-Madison and universities around the world, Condor
+supporters are explaining its advantages to scientists reluctant to
+relinquish complete control of their workstations.  Recently, for
+example, Livny started working with researchers at the UW-Madison
+College of Engineering to find ways to use Condor for tasks currently
+run on supercomputers.  Big projects that demand rapid results, such as
+sophisticated modeling of the activity inside a nuclear reactor, he
+says, will probably continue to justify the expense of buying
+supercomputer time.  But others that involve highly repetitious tasks may
+be shifted to a new Condor network.
+
+<H3> 
+A FLOCK OF CONDORS
+</H3>
+
+<P>
+As Condor pools have multiplied, Livny's team has started work
+on the next logical extension of distributing computer resources.  "To
+go beyond the boundaries of individual networks in an institution," he
+says, "we speak now about a flock of Condors, where you have a Condor,
+and a Condor, and another Condor linked."
+<P>
+With the flock, there are even more problems to solve.  Just as
+each researcher in a Condor pool wants to control his or her own
+workstation, each research group in a flock wants to control its own
+Condor pool.  And Condor's decisions about where to send jobs become more
+difficult.
+<P>
+The Condor pools in the flock, he says, have to be able to
+decide whether to keep a job in a busy pool, or fly to the next idle
+pool.  "It's like joining a seemingly endless line in front of a teller
+and having a soothsayer tell you to beware of the empty teller on the
+next block.  Are you going to leave this line and run there?  Maybe
+everyone heard you and everyone is running there and you're better off
+standing here."
+<P>
+Livny's team is continuing to improve Condor.  Some of his
+graduate students are working on modifying the system so that a single
+job could be divided and run in parallel on many workstations at once.
+This would mean that running jobs on Condor would actually be faster
+than on a single workstation.  Livny, Michael Litzkow, and other team
+members are working with IBM on a commercial version of Condor, which
+would let businesses share their distributed resources.  And they are
+continuing to fine-tune Condor to make it the perfect hunter of idle
+workstations.
+<br>
+
+<br>
+
+<center>
+<IMG ALIGN=MIDDLE SRC="condor1.gif"></A>
+</center>
