@@ -7,7 +7,7 @@ title: Managing Large Data in HTC Jobs
 
 When submitting jobs to CHTC's High Throughput Computing (HTC) system, 
 there is a distinct location for staging data that is too large to be 
-handled at scale via the default <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer mechanism. This 
+handled at scale via the default <a href="http://htcondor.org">HTCondor</a> file transfer mechanism. This 
 location should be used for jobs that require input files larger than 100MB
 and/or that generate output files larger than 3-4GB. 
 
