@@ -25,7 +25,7 @@ computing infrastructure at UW-Madison.  It includes:
 		</div>
 		<div class="uw-card">
 			<div class="uw-card-content">
-				<img src="guide-icons/noun_people_1188645.png" alt="People Icon">
+				<img src="{{ 'guide-icons/noun_people_1188645.png' | relative_url }}" alt="People Icon">
 				<div class="uw-card-copy">
 					<h2 class="uw-mini-bar">Expertise</h2>
                     <p>A community of technical experts.</p>
