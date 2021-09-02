@@ -3,7 +3,7 @@
         <h1 class="uw-mini-bar">
             {{ include.title }}
         </h1>
-        <p>{{ include.desc }}</p>
+        <div>{{ include.desc | markdownify }}</div>
     </div>
     <div class="col-1 d-md-block d-none"></div>
     <div class="col-3 d-md-flex d-none">
