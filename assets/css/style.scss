@@ -16,10 +16,11 @@ $grid-breakpoints: (
 // UW Theme
 @import 'UW-theming/uw_style';
 
-#uw-sub-menus {
-  nav {
-    background-color: $uw-gray-lightest !important;
-    border-top: 0 !important;
+ul.uw-main-nav {
+  li {
+    a.active {
+      color: #c5050c;
+    }
   }
 }
 
