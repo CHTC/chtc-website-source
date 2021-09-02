@@ -154,7 +154,7 @@ messages, or email CHTC's Research Computing Facilitators. </p>
 <p>If your local test did run successfully, you are now ready to set up 
 your Docker job to run on CHTC.  
 <!--If you are building your own container, go back to our 
-<a href="/docker-build.shtml">Docker building</a> guide before moving 
+<a href="/docker-build">Docker building</a> guide before moving
 on to the next section of this guide. --></p>
 
 

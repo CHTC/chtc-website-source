@@ -1,4 +1,11 @@
 #!/bin/sh
 set -e
 
-bundle exec jekyll build
+if [ "$1" = "production" ]; then
+  echo "Building Site For Production...";
+  JEKYLL_ENV=production bundle exec jekyll build
+else
+  echo "Building Site For Development...";
+  bundle exec jekyll build
+fi;
+

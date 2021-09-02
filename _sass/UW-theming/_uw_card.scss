@@ -1,5 +1,5 @@
 .uw-card {
-  @include uw-flex-column(33.333333%, 500px);
+  @include uw-flex-column(33.333333%, map-get($breakpoints, medium));
   padding: $uw-padding*1;
   display: flex;
   .uw-card-content {

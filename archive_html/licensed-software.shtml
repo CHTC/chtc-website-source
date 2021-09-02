@@ -14,7 +14,7 @@ an understanding of:</b>
 	<li>Using the command line to: navigate within directories, 
 	create/copy/move/delete files and directories, and run their 
 	intended programs (aka "executables").</li>
-	<li><a href="/helloworld.shtml">The CHTC's 
+	<li><a href="{{ '/helloworld' | relative_url}}">The CHTC's
 	Intro to Running HTCondor Jobs</a></li>
 </ul>
 
@@ -47,8 +47,8 @@ April 20, 2020. See below for more details.</p></blockquote>
 
 <p>Our typical practice for software support in CHTC is for users to 
 install and manage their own software installations.  We have multiple 
-guides to help users with <a href="/howto_overview.shtml">common software programs</a> 
-and additional support is always available through <a href="/get-help.shtml">CHTC's 
+guides to help users with <a href="{{ '/howto_overview' | relative_url}}">common software programs</a>
+and additional support is always available through <a href="{{ '/get-help' | relative_url}}">CHTC's
 research computing facilitators</a>.
 
 <p>However, certain software programs require paid licenses which can make it challenging for 

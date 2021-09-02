@@ -1,19 +1,20 @@
-<a class="uw-show-on-focus" href="#main" id="uw-skip-link">Skip to main content</a>
-<div class="uw-global-bar" role="navigation">
-    <a class="uw-global-name-link" href="http://www.wisc.edu" aria-label="University home page">U<span>niversity <span class="uw-of">of</span> </span>W<span>isconsin</span>–Madison</a>
-</div>
+{% include logic/is_in_uw_dir.html %}
+
+{% assign href = "/" %}
+{% assign sub_title = "Center for High Throughput Computing" %}
+
 <header id="branding" class="uw-header">
-    <div class="uw-header-container">
+    <div class="uw-header-container mt-2 mb-2">
         <div class="uw-header-crest-title">
             <div class="uw-header-crest">
-                <a href="{{ '/' | relative_url }}"><img class="uw-crest-svg" src="{{'/images/uw-crest.svg' | relative_url}}" alt="Link to Website Home Page"></a>
+                <a href="{{ href | relative_url }}"><img class="uw-crest-svg" src="{{'/images/CHTC-logo-header.png' | relative_url}}" alt="Link to CHTC Home Page"></a>
             </div>
             <div class="uw-title-tagline">
                 <h1 id="site-title" class="uw-site-title">
-                    <a href="{{ '/' | relative_url }}" rel="home">CHTC</a>
+                    <a href="{{ href | relative_url }}" rel="home">CHTC</a>
                 </h1>
-                <a href="{{ '/' | relative_url }}" rel="home">
-                    <div id="site-description" class="uw-site-tagline">Center for High Throughput Computing</div>
+                <a href="{{ href | relative_url }}" rel="home">
+                    <div id="site-description" class="uw-site-tagline">{{ sub_title }}</div>
                 </a>
             </div>
         </div>

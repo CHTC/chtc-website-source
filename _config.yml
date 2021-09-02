@@ -1,19 +1,32 @@
 baseurl: ''
-exclude: [vendor, deploy_key.enc, TEMPLATE.shtml]
+exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
+
+# Google analytics
+google_analytics:
 
 # Jekyll does not build hidden directories by default.
-include: [".well-known"]
+include: [".well-known", ".htaccess"]
 
 markdown_ext : "md,shtml"
 
 highlighter: none
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: text-content
+      permalink: :title.html
+
+collections:
+  news:
+    permalink: /news/:path/
+    output: true
 
 sass:
   style: compressed

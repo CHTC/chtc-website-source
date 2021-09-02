@@ -1,0 +1,39 @@
+---
+highlighter: none
+layout: content
+title: Our Staff
+---
+
+
+<div class="uw-full-row uw-pad-b-l">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="uw-mini-bar">2021 Staff Picture</h2>
+            <img src="images/CHTC_Team_Photo_2021.jpg" alt="Team Zoom Photograph">
+        </div>
+    </div>
+</div>
+<div class="uw-full-row uw-pad-b-l uw-light-grer-bg">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="uw-mini-bar">Leadership</h2>
+        </div>
+    </div>
+    <div class="uw-row">
+        {% assign sorted_team = site.data.team | where: "promoted", true | sort: "name" %}
+        {% for member in sorted_team %}
+        {% include /components/team-card-promoted.html %}
+        {% endfor %}
+    </div>
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="uw-mini-bar">Staff</h2>
+        </div>
+    </div>
+    <div class="uw-row">
+        {% assign sorted_team = site.data.team | sort: "name" %}
+        {% for member in sorted_team %}
+            {% include /components/team-card.html %}
+        {% endfor %}
+    </div>
+</div>

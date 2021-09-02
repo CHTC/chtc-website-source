@@ -5,7 +5,7 @@ title: Running Tensorflow Jobs
 
 <p>This guide describes how to use a pre-built Tensorflow environment 
 (implemented as a <a href="http://singularity.lbl.gov/">Singularity container</a>)
-to run Tensorflow jobs in CHTC and on the Open Science Grid (OSG).</p>
+to run Tensorflow jobs in CHTC and on the <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a>.</p>
 
 <h2>Overview</h2>
 
@@ -15,7 +15,7 @@ default file transfer or our SQUID web server.  However, another option
 is to use a <i>container</i> system, where the software is installed in a <i>container 
 image</i>.  CHTC (and the OSG) have capabilities to access and start  
 containers and run jobs inside them.  One container option available in CHTC is 
-<a href="/docker-jobs.shtml">Docker</a>; another is Singularity.  </p>
+<a href="{{'/docker-jobs' | relative_url }}">Docker</a>; another is Singularity.  </p>
 
 <p>In CHTC, our Singularity support consists of running jobs inside a 
 pre-made Singularity container with an installation of Tensorflow.  
@@ -95,7 +95,7 @@ to take advantage of GPUs, make the following changes to the submit file above: 
 </ul>
 
 <p>For more information about GPUs and how GPU jobs work in CHTC, see our 
-<a href="/gpu-jobs.shtml">GPU Jobs guide</a>. 
+<a href="{{'/gpu-jobs' | relative_url }}">GPU Jobs guide</a>.
 
 <blockquote>
 <b>Limited GPU availablity in CHTC</b> <br>
@@ -113,8 +113,8 @@ support on all CHTC GPUs soon.
 or OSG, either as the CPU or GPU version.</p>
 
 <p>For more details on accessing the OSG, see 
-<a href="/scaling-htc.shtml">our guide for running outside CHTC, sections
+<a href="{{'/scaling-htc' | relative_url }}">our guide for running outside CHTC, sections
 3 and 4,</a>.
 <!-- and for GPUs on the OSG, 
-see the final section of <a href="/gpu-jobs.shtml">our GPU guide.</a>.-->
+see the final section of <a href="{{'/gpu-jobs' | relative_url }}">our GPU guide.</a>.-->
  </p>

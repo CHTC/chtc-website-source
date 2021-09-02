@@ -1,15 +1,16 @@
 ---
-layout: default
+layout: markdown-page
 title: Submitting Jobs Using the ChtcRun Package
 ---
 
 <p>To facilitate the submission of large batches of jobs, especially
  batches for Matlab, Python, and R, the CHTC has created the ChtcRun
  package of scripts, files, and directories that will allow you to easily
- construct your own HTCondor workflow (or "DAG" batch). By following the ordered
+ construct your own <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>
+ workflow (or "DAG" batch). By following the ordered
  set of directions given here, you'll be able to easily set up and run
  a set of high-throughput computing jobs on CHTC-available resources,
- including those outside of the CHTC HTCondor Pool in the UW Grid and
+ including those outside of the CHTC <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> Pool in the UW Grid and
  national Open Science Grid.
 </p>
 
@@ -55,7 +56,7 @@ within <code>ChtcRun</code>.
 
 <p>
 <b>For Matlab, Python, and R jobs, it is first essential to have completed       
- the steps to compile your code dependencies, according to our <a href ="http://chtc.cs.wisc.edu/MATLABandR.shtml">
+ the steps to compile your code dependencies, according to our <a href ="{{ '/MATLABandR' | relative_url}}">
 "Compiling Matlab, Python and R Code" page.</a></b>
 </p>
 
@@ -149,7 +150,7 @@ request_memory = (insert MB value)
  <code>process.log</code> file for each test job to determine the
  amounts that should be requested for your jobs.</br>
 For more information on testing, Flocking, and Glidein, please see the
- bottom of our <a href = "http://chtc.cs.wisc.edu/helloworld.shtml">"Run Your First HTC Jobs" guide</a>.
+ bottom of our <a href = "{{ '/helloworld' | relative_url}}">"Run Your First HTC Jobs" guide</a>.
 
 </li>
 
@@ -163,7 +164,7 @@ the project's job(s),
 as well as control files:
 a DAG input file for describing the DAG 
 (called <code>mydag.dag</code>)
-and an HTCondor job submit description files for each of the node jobs within
+and an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job submit description files for each of the node jobs within
 the DAG.
 One of the command line arguments to 
 <code>mkdag</code>
@@ -218,7 +219,7 @@ we cannot necessarily trust the return code from MATLAB or R
 to tell us if the job was successful.  
 We determine if a job was successful by checking if at least one 
 file was created that includes the pattern "SubString" in it's 
-filename, for each HTCondor job submitted.
+filename, for each <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job submitted.
 This check is identical to running
 <pre>ls *SubString*
 </pre>
@@ -227,7 +228,7 @@ in a job's output folder after the job completes to see that at least one file i
 
 <li> <code>--parg=ArgumentString</code>
 <br> This optional argument identifies a command line argument that
-is to be passed to each invocation (as an HTCondor job) of the executable.
+is to be passed to each invocation (as an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job) of the executable.
 This argument will be listed multiple times to define more than one
 command line argument. Optionally, you can use "--parg=<i>unique</i>" to 
 pass the name of the job directory as an argument to your code for each job.
