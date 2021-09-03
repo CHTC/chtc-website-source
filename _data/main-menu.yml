@@ -22,8 +22,6 @@ nav_items:
     sub_menu:
       - url: /uw-research-computing
         name: UW Research Computing
-      - url: /research-facilitation
-        name: Research Facilitation
   - id: technologies
     name: Technologies
     url: /technologies
