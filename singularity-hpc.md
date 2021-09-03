@@ -9,9 +9,29 @@ Software that is packaged in a \"container\" can
 be run on the HPC cluster. This guide assumes that you are starting with 
 an existing Docker container and shows how to use it to run a job on the HPC cluster. 
 
-The two steps to 
+Note that you may need to install a version of MPI to your container 
+when it is initially created. See the [notes](#notes) about this below. 
+
+The two steps to run a container on the HPC cluster: 
 1.  [Convert the container to a Singularity image file](#image)
 2.  [Run a job that uses the container](#command)
+
+<a name="name"></a>
+Notes about MPI and Containers
+==================
+
+There are two ways to run a Singularity container integrated with MPI: `hybrid` 
+mode and `bind` mode. 
+
+In `hybrid` mode, the container has its own copy of MPI **that is compatible 
+with a version of MPI already installed on the cluster**. 
+
+In `bind` mode, the code in the container has been compiled with MPI that 
+exists outside the container and there is no MPI installation in the container itself. 
+Again, **the version of MPI used needs to be compatible with one already installed
+on the cluster.**
+
+This will be relevant in how the job is executed later on: [Using Singularity Container Images](#command)
 
 <a name="image"></a>
 
@@ -54,8 +74,7 @@ variable that prevents download of the Docker container.
 	> Docker Hub. If your Docker container is stored elsewhere, or you are 
 	> starting with a Singularity image, contact CHTC staff for specific instructions. 
 
-1. Once the command completes, type `exit` to leave the interactive job. 
-
+1. Once the Singularity command completes, type `exit` to leave the interactive job. 
 
 <a name="command"></a>
 
@@ -65,26 +84,50 @@ variable that prevents download of the Docker container.
 To use a Singularity container in a job, the SLURM submit file will remain mostly the
 same; what will change is the job's primary command at the end of the
 file. This command will run your primary program inside the container
-file you\'ve downloaded.
+file you\'ve downloaded. The main MPI command will still be part of the 
+singularity command: 
 
 ``` {.sub}
 #!/bin/sh
 #SBATCH options
 
-singularity exec /path/to/container/file command-to-run
+module load MPI/version
+mpirun -np ## singularity exec /path/to/container/file command-to-run
 ```
 
 For example, if Alice wanted to run a script she had written
-(`poisson.py`) inside the downloaded fenics container, she would use the
+(`poisson.py`) inside the downloaded fenics container, using 40 cores, she would use the
 following command at the end of her submit file:
 
 ``` {.sub}
-singularity exec /software/alice/fenics.simg poisson.py
+mpirun -np 40 singularity exec /software/alice/fenics.simg ./poisson.py
 ```
 
-If you are using MPI to run the code, the MPI command needs to go before 
-the singularity command, like so: 
+The example shown above uses the "hybrid" model for running MPI, which assumes 
+that there is a copy of MPI installed **in the container** that matches what already 
+exists on the cluster. 
+
+If your container does **not** have it's own copy of MPI installed, you need 
+to use the "bind" model for running MPI which requires an additional flag and 
+the location of the main MPI directory: 
+
 
 ``` {.sub}
-mpirun -np 40 singularity exec /software/alice/fenics.simg poisson.py
+#!/bin/sh
+#SBATCH options
+
+module load MPI/version
+mpirun -np ## singularity exec --bind /path/to/cluster/MPI/dir/ /path/to/container/file command-to-run
 ```
+
+On CHTC's cluster, the GCC based version of OpenMPI is installed at the path:
+` /software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/`
+So the command(s) to run the "Alice" example above would be: 
+
+``` {.sub}
+MPI_DIR=/software/chtc/easybuild/v2/software/OpenMPI/4.0.5-GCC-9.3.0/
+mpirun -np 40 singularity exec --bind $MPI_DIR /software/alice/fenics.simg ./poisson.py
+```
+
+More details on the difference between using the "hybrid" and "bind" model 
+for MPI and Singularity is here: https://sylabs.io/guides/3.8/user-guide/mpi.html
