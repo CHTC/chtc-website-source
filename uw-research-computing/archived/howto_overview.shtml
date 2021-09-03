@@ -6,7 +6,7 @@ title: CHTC Tools for R and Python Portability
 <blockquote>
 These guides were replaced by a new, updated process on <b>Monday, October 21, 2019</b>. If you're 
 starting a new project, we recommend using the updated process instead of the guides below. See
-<a href="{{ '/howto_overview' | relative_url }}">this page</a> for the new guides.
+<a href="{{ '/uw-research-computing/howto_overview' | relative_url }}">this page</a> for the new guides.
 </blockquote>
 
 
@@ -22,19 +22,19 @@ Software like Matlab, R, and Python may or may not exist on CHTC-accessible
 <h2>Running Matlab Jobs</h2>
 If you are running Matlab jobs, the following guide will explain how to compile your code and 
 edit the scripts necessary to run your jobs on the CHTC pool: <br> 
-<ul><li><a href="{{ '/archived/matlab-jobs' | relative_url }}">Archived Matlab Jobs Guide</a></li>
+<ul><li><a href="{{ '/uw-research-computing/archived/matlab-jobs' | relative_url }}">Archived Matlab Jobs Guide</a></li>
 </ul>
 <h2>Running Python Jobs</h2>
 If you are running Python jobs, the following guide will explain how to 
 prepare your code and write a script to run your jobs 
 on the CHTC pool: <br> 
-<ul><li><a href="{{ '/archived/python-jobs' | relative_url }}">Archived Python Jobs Guide</a></li>
+<ul><li><a href="{{ '/uw-research-computing/archived/python-jobs' | relative_url }}">Archived Python Jobs Guide</a></li>
 </ul>
 
 <h2>Running R Jobs</h2>
 If you are running R jobs, the following guide will explain how to 
 prepare your code and write a script to run your jobs 
 on the CHTC pool: <br> 
-<ul><li><a href="{{ '/archived/r-jobs' | relative_url }}">Archived R Jobs Guide</a></li>
+<ul><li><a href="{{ '/uw-research-computing/archived/r-jobs' | relative_url }}">Archived R Jobs Guide</a></li>
 </ul>
 
