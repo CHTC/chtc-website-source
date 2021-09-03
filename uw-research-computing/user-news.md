@@ -12,6 +12,36 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
+
+## Delayed email replies today and tomorrow
+### Tuesday, August 24
+
+Greetings CHTC users,
+
+We're writing to inform you that, due to staff outages, we may not be able to reply to you via chtc@cs.wisc.edu today (Tue, Aug 24) through tomorrow (Wed, Aug 25). Thank you for your patience. We currently plan to resume our usual responsiveness on Thursday, August 26.
+
+Regards, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
+
+## HPC maintenance complete; no office hours on Tues, Aug 24
+### Wednesday, August 18
+
+Greetings CHTC users, 
+
+Due to facilitator vacation schedules, we will be canceling office hours on Tuesday, August 24 next week. 
+
+For users of our high performance computing (HPC) cluster: yesterday’s maintenance is now complete and log in access has been enabled through hpclogin1.chtc.wisc.edu. The second login node (hpclogin2.chtc.wisc.edu) is still being monitored and will be available for log in by the end of the week. 
+
+Contact us at chtc@cs.wisc.edu with any questions or observed issues. 
+
+Best, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
 ## HPC Cluster Maintenance Aug 17
 ### Wednesday, August 4
 

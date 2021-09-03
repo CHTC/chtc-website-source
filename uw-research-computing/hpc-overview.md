@@ -80,9 +80,9 @@ data security in CHTC, please get in touch! We'll be happy to discuss.
 
 **4. Fair-share Policy**  
 To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 600 cores 
+running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
 across all running jobs (core limits do not apply on research group partitions of
-more than 600 cores).
+more than 720 cores).
 
 When determining which order to run jobs, the following policies are applies, in order or significance
 to job priority determinations:
@@ -135,13 +135,13 @@ of researcher-owned hardware and which all HPC users can access on a
 backfill capacity via the `pre` partition (more details below).
 
   {:.gtable}
-  | Partition | p-name | \# nodes (N) | t-max | t-default | max nodes/job | cores/node (n) | RAM/node (GB) |
+  | Partition | p-name | \# nodes (N) | t-default | t-max | max nodes/job | cores/node (n) | RAM/node (GB) |
   | --- |
-  | University 2 | univ2 | 148 | 7 days | 1 day | 16 | 20 | 128
-  | Interactive | int | 6 | 4 hrs | 1 hr | 1 | 20 | 128
-  | Pre-emptable (backfill) | pre | 316 | 24 hrs | 4 hrs | 16 | 20 | 128
-  | Owners | *unique* | 124 | 7 days | 24 hrs | *unique* | 20 | 128
-  | Astronomy Dept (differs) | astro3 | 24 | *4 days* | 24 hrs | 16 | 20 | 128
+  | University 2 | univ2 | 148 | 1 day | 7 day | 16 | 20 | 128
+  | Interactive | int | 6 | 1 hr | 4 hrs | 1 | 20 | 128
+  | Pre-emptable (backfill) | pre | 316 | 4 hrs | 24 hrs | 16 | 20 | 128
+  | Owners | *unique* | 124 | 24 hrs | 7 days | *unique* | 20 | 128
+  | Astronomy Dept (differs) | astro3 | 24 | 24 hrs | *4 days* | 16 | 20 | 128
 
 
 - `univ2` consists of our second generation compute nodes, each with 20 
@@ -150,7 +150,7 @@ can request and use up to 7 days of running time.
 
 - `int` consists of two compute nodes is intended for short and immediate interactive 
 testing on a single node (up to 16 CPUs, 64 GB RAM). Jobs submitted to this partition 
-can run for up to 1 hour.
+can run for up to 4 hours.
 
 - `pre` (i.e. pre-emptable) is an under-layed partition encompassing all HPC Cluster 
 nodes and is intended for more immediate turn-around of shorter, smaller, and/or 
