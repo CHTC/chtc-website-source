@@ -65,7 +65,7 @@
 }
 
 // styles for all states of #uw-top-menus
-#uw-top-menus {
+#uw-top-menus, #uw-sub-menus {
   
   &.uw-display-none {
     display: none;
@@ -183,7 +183,7 @@
 // }
 
 // styles for when the menu button is hidden; i.e. larger viewports
-#uw-top-menus.uw-horizontal {
+#uw-top-menus.uw-horizontal, #uw-sub-menus.uw-horizontal {
   .uw-nav-menu {
     -webkit-font-smoothing: antialiased;
     // display: block;
@@ -354,7 +354,7 @@
 }
 
 // styles for when the menu button is visible; i.e. smaller viewports
-#uw-top-menus.uw-stacked {
+#uw-top-menus.uw-stacked, #uw-sub-menus.uw-stacked {
   .uw-nav-menu {
     background-color: darken($uw-page-bg, 2%);
     a {
