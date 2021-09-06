@@ -1,0 +1,28 @@
+
+{% if nav_item.sub_menu %}
+<li id="{{ nav_item.id }}" class="uw-dropdown">
+    <a href="{{ nav_item.url | relative_url }}" role="button" aria-haspopup="true" aria-expanded="false">
+        {{ nav_item.name }}
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use>
+        </svg>
+        <svg aria-hidden="true" class="uw-caret" focusable="false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-up"></use>
+        </svg>
+    </a>
+    <ul aria-hidden="true" aria-label="{{ nav_item.name }} submenu" class="uw-child-menu">
+
+    {% for sub_item in nav_item.sub_menu %}
+        <li>
+            <a href="{{ sub_item.url | relative_url }}">{{ sub_item.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>    
+
+{% else %}
+
+<li id="{{ nav_item.id }}">
+    <a href="{{ nav_item.url | relative_url }}" aria-current="page">{{ nav_item.name }}</a>
+</li>
+
+{% endif %}

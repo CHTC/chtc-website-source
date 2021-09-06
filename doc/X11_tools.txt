@@ -1,0 +1,198 @@
+
+
+
+
+
+
+
+
+
+
+
+	    BUILDING IMAKE, CPP, and MAKEDEPEND
+
+
+		      _M_i_c_h_a_e_l _L_i_t_z_k_o_w
+
+		Computer Sciences Department
+	     University	of Wisconsin - Madison
+		      mike@cs.wisc.edu
+
+
+
+
+
+
+
+
+_1.  _I_N_T_R_O_D_U_C_T_I_O_N
+
+   _I_m_a_k_e, _c_p_p, and _m_a_k_e_d_e_p_e_n_d are not part  of	_c_o_n_d_o_r,	 but
+   you	will  need  correctly working copies of	all three to
+   build  _c_o_n_d_o_r.   _I_m_a_k_e  is	a   program   for   building
+   "Makefiles"	which are customized for a particular set of
+   hardware, software, and local environment.  _I_m_a_k_e  accom-
+   plishes  much of this task by using _c_p_p to expand macros.
+   Since _i_m_a_k_e makes certain assumptions about the operation
+   of  _c_p_p  which  will	not be true in all installations, it
+   may be necessary to build a customized  _c_p_p	for  _i_m_a_k_e'_s
+   use.	 _M_a_k_e_d_e_p_e_n_d is a program for generating	dependencies
+   in "Makefiles" for C	programs which include header files.
+   Since  some	versions  of _m_a_k_e_d_e_p_e_n_d	do not parse certain
+   _c_p_p	directives  correctly,	you  may  need	the  version
+   included here even if you already have _m_a_k_e_d_e_p_e_n_d.
+
+   All three of	these programs are included in the _X_1_1	dis-
+   tribution,  and  are	 available from	MIT.  If you already
+   have	X11, you should	already	have these  programs  avail-
+   able.  They are included here for your convenience in the
+   event you do	not have  X11.	 Instructions  for  building
+   these  programs are included	in the X11 distribution, but
+   those instructions assume you want  to  build  the  whole
+   distribution.   These  instructions	are intended to	be a
+   "direct path" to building just these	three programs.	 The
+   _c_o_n_d_o_r developers assume no responsibility for their	com-
+   pleteness, correctness, etc.
+
+_2.  _B_U_I_L_D_I_N_G _I_M_A_K_E
+
+    (1)	  cd to	"imake"
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     2222////22228888////99992222
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     2222////22228888////99992222
+
+
+    (2)	  To build correct Makefiles, _i_m_a_k_e  must  determine
+	  which	 platform,  (both  hardware  and  variant of
+	  UNIX), it is running on.  It	depends	 on  certain
+	  unique strings being defined by your local version
+	  of _c_p_p to do this.  If your  local  _c_p_p  does	 not
+	  define  the  strings	which _i_m_a_k_e expects, you can
+	  build	a custom version of _i_m_a_k_e  which  will	pass
+	  those	 strings to _c_p_p	by using "-D<string>" on the
+	  command line.	 Some hardware platforms are  unique
+	  enough  that	the  unix variation is implicit.  In
+	  other	 cases	two  strings  are  used.   Determine
+	  whether  your	 local	_c_p_p  defines  the  necessary
+	  strings to identify your platform.   The  expected
+	  strings are as follows:
+
+	______________________________________________________
+	_|_S__t__r__i__n__g__(__s__)____________________________P__l__a__t__f__o__r__m________________________________________________|
+	|"RiscAIX"	       IBM R6000 running AIX3.1	      |
+	|"mips"	& "ultrix"     DecStation running ULTRIX 4.0  |
+	|"sun" & "mc68020"     SUN 3 running SunOS 4.1+	      |
+	|"sun" & "sparc"       SUN 4 running SunOS 4.1+	      |
+	|"mc68000" & "hp300"   HP Bobcat running BSD 4.3      |
+	|"vax" & "ultrix"      Vax running Ultrix 3.2	      |
+	|"i386"	& "sequent"    Sequent Symmetry	running	Dynix |
+	|"ibm032"	       IBM RT running BSD 4.3	      |
+	_|_____________________________________________________|
+
+
+    (3)	  If you need to customize your	_i_m_a_k_e to  pass	such
+	  strings to _c_p_p:
+
+	a.   To	"Makefile.ini" add "-D<PLATFORM_ID>" to	 the
+	     CFLAGS  macro,  where <PLATFORM_ID> is replaced
+	     by	any reasonable name for	your platform.
+
+	b.   To	"imakemdep.h" in the "cpp_argv"	 definition,
+	     add
+
+		 #ifdef	<PLATFORM_ID>
+		      "-D<PlatformId>",
+		 #endif
+
+	     where <PLATFORM_ID> matches the definition	 you
+	     added   to	  "Makefile.ini"   and	<PlatformId>
+	     matches the appropriate string(s) listed in the
+	     above  table.   Note,  if	two  identifiers are
+	     listed above, you will have to  add  two  lines
+	     here.
+
+	 (4)   On AIX 3.1.5 platforms, you will	also need to
+	       add   "_BSD"   to   the	 CFLAGS	  macro	  in
+	       "Makefile.ini".
+
+
+
+XXXX11111111 TTTTOOOOOOOOLLLLSSSS						   2222
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     2222////22228888////99992222
+
+
+	 (5)   Compile	 _i_m_a_k_e	 by   running	 "make	  -f
+	       Makefile.ini".
+
+_3.  _B_U_I_L_D_I_N_G _C_P_P
+
+    (1)	  Some versions	of _c_p_p will not	accept "/**/"  as  a
+	  zero length separator.  This will cause constructs
+	  like
+
+	      /**/# Makefile comment line
+
+	  to be	flagged	as errors.  If this is the case	with
+	  your _c_p_p, you	will need to build a special version
+	  to use with _i_m_a_k_e.  Just try running such  a	line
+	  through  your	 local	version	 of _c_p_p	to determine
+	  whether you have the problem.
+
+    (2)	  If you do need the special _c_p_p, go  into  the	 _c_p_p
+	  directory  and  build	it.  Hopefully no customiza-
+	  tion will be needed.
+
+_4.  _M_A_K_E_D_E_P_E_N_D
+
+    (1)	  You will also	need a correctly working version  of
+	  "makedepend".	  This program reads a set of source
+	  files	along with the flags which will	be given  to
+	  the C	compiler when those sources are	compiled and
+	  generates a set of dependence	lines to be added to
+	  the local Makefile.
+
+	  There	are some versions  of  this  program  around
+	  which	incorrectly process lines of the form:
+
+	  #if <expression>
+
+	  Since	condor uses this  construct  extensively  to
+	  include  the	correct	 header	 files for different
+	  platforms, you will need a correctly working	ver-
+	  sion.	  A shell script version called	"mdepend.sh"
+	  is included here.  It	is much	slower that the	com-
+	  piled	version, but should work correctly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+XXXX11111111 TTTTOOOOOOOOLLLLSSSS						   3333
+
+
+

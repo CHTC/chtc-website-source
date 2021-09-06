@@ -1,0 +1,159 @@
+
+These installation instructions apply to the binary distributions of
+version 5 Condor.
+
+These distributions are available in source form also, but we are not
+attempting to provide instructions on how to build condor from the
+source this time around.  We have found that there is a great deal of
+variation of the availability and in the implementation of the tools we
+use to build Condor, and we can no longer keep up with the questions
+and problems that arise.  We don't want to discourage anybody from
+building and modifying the code to meet their needs, it's just that if
+you choose to go this route, you're on your own.
+
+The binary distribution is packaged in the following 4 directories:
+
+    bin		- executable programs
+    lib		- libraries to link condor user programs and scripts
+    doc		- postscript and ascii versions of documents
+    examples	- C, Fortran, and C++ example programs
+
+You should plan to install "bin" and "lib" under a common directory in
+some well known location so that your users can find the condor
+programs and libraries in a consistent place.  The doc directory can go
+wherever is customary at your site.  The examples directory could also
+go anywhere, but the "Makefiles" do contain relative references to the
+"lib" directory.  If you move the examples directories, you will need to
+change the "Makefiles" before you can build the examples.
+
+SOLARIS SPECIFIC NOTE: Condor no longer needs to run under the root
+user-id *on Solaris only*.  Instead, all daemons may be run under the
+condor user-id.  We do not recommend mixing root daemons with condor
+daemons.  Some documents will still refer to the need for the root
+user-id.  You can ignore those parts.
+
+1. Un-compress and un-tar the distribution.  Example: you want to install
+   all the condor related stuff in "/usr/condor".
+	1. mkdir /usr/condor
+	2. cd /usr/condor
+	3. (fetch the distribution file)
+	4. uncompress condor_5.1a_DecAlpha.tar.Z
+	5. tar xf condor_5.1a_DecAlpha.tar
+
+2. One machine in your condor pool will act as a "central manager"
+   for the pool.  You should decide which machine will serve that
+   function, and install Condor there first.  Because of the importance
+   of this machine, we recommend you pick one which is likely to be
+   reliable, or at least to get rebooted promptly if it does crash.
+
+3. Each machine in your pool will need a "condor" account, and a
+   "condor" group.  Condor's UID and GID should be consistent across all
+   machines in your pool.  You can easily add machines to your pool 
+   at any time, but you should decide at this point where your
+   condor home directories will be located.  You should install
+   the "condor" account for at least your central manager machine now.
+
+4. Several of the programs must be "setgid condor".  Go to
+the condor "bin" directory and make certain that the following programs
+have owner "condor", group "condor", and permission "-rwxrwsr-x":
+	condor_globalq
+	condor_history
+	condor_jobqueue
+	condor_preen
+	condor_prio
+	condor_q
+	condor_rm
+	condor_submit
+	condor_summary
+	condor_throttle.generic
+
+
+5. If Condor's home directory will be shared across the machines in
+   your pool, you will need to create a directory for each machine where
+   it can keep machine specific data.  Make the directories under
+   Condor's home directory, and name each directory with the hostname
+   of the machine whose data it will hold.
+
+   If Condor's home directory will not be shared across the machines in
+   your pool, you don't need to do this.
+
+6. If condor runs into a problem at your site, it will send mail describing
+   what went wrong.  You need to decide who should get such mail.  You
+   may want to make this an alias so that you can change the recipient
+   of the mail later without changing condor.
+
+7. Once a week Condor will try to send a status report back to its
+   authors.  This function can be defeated, but if there is any
+   way within reason that you can allow this at your site, we would
+   really appreciate your cooperation.  This kind of information
+   is really helpful to us in determining (and demonstrating) the
+   effectiveness of our work.  Our internet mailing address is
+	condor_admin@cs.wisc.edu
+   please consider whether you can send mail to this address from your
+   site, or whether you can make some modification of the address to
+   get the mail delivered.  You will be asked for this information
+   later.
+
+8. Some of the scripts and configuration files in the binary distribution
+   will need to be customized for your installation.  A program called
+   "condor_customize" is provided for this (in the "bin" directory).
+   The program will ask you 5 things, providing defaults for each.  You
+   should be prepared to answer these questions before you run the
+   customization program.
+
+    a. Which host you want act as the central manager for your Condor pool.
+       See step 2 above.
+    b. The local email address where you want Condor to notify you
+       regarding problems.  See step 5 above.
+    c. The email address where condor can send a weekly status report
+       back to its authors. See step 6 above.
+    d. The pathname of the directory which contains the "bin" and
+       "lib" directories.  See step 1 above.
+    e. The pathname of the directory which contains the machine specific
+       data.  See step 4 above.  Note: two macros are available to
+       simplify the specification of this directory.  The $(TILDE)
+       macro translates to the name of Condor's home directory on
+       whatever machine it is evaluated on, and the $(HOSTNAME)
+       macro evaluates to the hostname of whatever machine it is
+       evaluated on.  Thus if you have separate home directories for
+       all the condor accounts in your pool you could specify
+	    $(TILDE)
+       for this value, and if you have a shared home directory for condor
+       you could specify
+	   $(TILDE)/$(HOSTNAME)
+
+9. Build subdirectories to hold the machine specific data by running
+   "condor_init" on each machine you want in your pool. N.B. you must
+   be "root" when you run "condor_init" (except on Solaris).
+
+
+10. Start the condor daemons by running "condor_on" on each machine you
+   want in your pool.  N.B. you must be "root" when you run this
+   program (except on Solaris).
+
+11. Ensure that condor is running.  You can run
+	ps -e | egrep condor_
+    on you central manager machine you should have processes for
+
+	condor_master
+	condor_collector
+	condor_negotiator
+	condor_kbdd
+	condor_startd
+	condor_schedd
+
+    On all other machines in your pool you should have processes for
+
+	condor_master
+	condor_kbdd
+	condor_startd
+	condor_schedd
+
+	(Suns and HP's don't run "condor_kbdd" as they dont' need it.)
+
+12. Ensure that the condor daemons are communicating.  You can
+    run "condor_status" to get a one line summary of the status
+    of each machine in your pool.
+
+13. Try building and running some test jobs.  A separate document
+    describes how to link and run these jobs.
