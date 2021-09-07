@@ -4,6 +4,6 @@
 <title>Center for High Throughput Computing</title>
 </head>
 <body>
-<h1><a href="http://chtc.cs.wisc.edu/user-meeting/">Center for High Throughput Computing</a></h1>
+<h1><a href="{{'/user-meeting/' | relative_url }}">Center for High Throughput Computing</a></h1>
 </body>
 </html>

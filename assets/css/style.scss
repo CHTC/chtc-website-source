@@ -1,0 +1,78 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+---
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 1024px,
+  lg: 1200px,
+  xl: 1440px
+);
+
+// Bootstrap
+@import 'bootstrap';
+
+// UW Theme
+@import 'UW-theming/uw_style';
+
+// Navbar
+#uw-sub-menus {
+  nav.uw-nav-menu {
+    background-color: #f7f7f7 !important;
+  }
+}
+
+#branding-sub {
+  background-color: #f7f7f7 !important;
+}
+
+.table-container {
+  table {
+    margin-bottom: 0px;
+  }
+  overflow-x: scroll;
+  margin-bottom: 2rem;
+}
+
+.uw-card.promoted {
+  @include uw-flex-column(50%, map-get($breakpoints, medium));
+  padding: $uw-padding*1;
+  display: flex;
+  flex-direction: row;
+  .uw-card-content {
+    background-color: $uw-white;
+    flex-direction: row;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .uw-card-copy {
+    padding: 0 1rem 1rem;
+  }
+}
+
+.team-card {
+  .uw-card-content {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .uw-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  img{
+    height: 20vw;
+    max-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+  }
+  .institution {
+    color: grey;
+  }
+}

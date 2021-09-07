@@ -64,7 +64,7 @@ tags) of the container to use in CHTC.</p>
 See the <a href="https://docs.docker.com/engine/getstarted/">Docker 
 documentation</a> for more information.</p>  
 <!-- <p>You can also build your own Docker image and upload it to DockerHub.  
-See <a href="/docker-build.shtml">our guide for building Docker containers</a>, 
+See <a href="/docker-build">our guide for building Docker containers</a>,
 which includes examples of building containers based on python and R.  You can 
 also check out the official <a href="https://docs.docker.com/engine/getstarted/">Docker 
 documentation</a>.  -->
@@ -80,7 +80,7 @@ Docker container to use.  </p>
 <h2>A. Using a Docker Image</h2>
 
 Start with a usual CHTC submit file like the one shown in our 
-<a href="/helloworld.shtml">Hello World</a> guide.  Then, make the following
+<a href="/helloworld">Hello World</a> guide.  Then, make the following
 two changes: 
 <ol>
 <li>Change the universe from "vanilla" to "docker": 

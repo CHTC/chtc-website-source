@@ -10,7 +10,7 @@ or MATLAB m files) specific to the job. The second
  step allows you to submit many jobs using the built program or program components
  you've created here. For this 
 second step, see our guide for setting up and submitting multiple jobs with the 
-<a href="DAGenv.shtml">ChtcRun Package</a>.
+<a href="{{'DAGenv' | relative_url }}">ChtcRun Package</a>.
 <br />
 <h2>When and Why to Compile Code for CHTC Jobs</h2>
 R jobs must be compiled if additional 
@@ -20,7 +20,7 @@ All MATLAB jobs run at the CHTC must be compiled in order to be run on multiple
 machines (per Matlab's license requirements). 
 <br /><b>All other code compiling for CHTC jobs needs to be completed 
 on one of our designated "build machines" using an interactive submit file and 
-instructions that you can find <a href="inter-submit.shtml">here</a>.</b> 
+instructions that you can find <a href="{{'inter-submit' | relative_url }}">here</a>.</b>
 <br><br>
 The tools below (chtc_mcc, chtc_buildRlibs, and chtc_buildPythonmodules) are
  part of the "chtc-utils" suite of tools. These are installed on all CHTC-owned
@@ -102,7 +102,7 @@ Our NEW supported Python version (2.7.7) includes the full SciPy Stack
  except for iPython, as iPython (interactive) is not compatible with batch
  jobs. The following modules and their dependiences are included by default
  in our Python 2.7.7 capabilities (when using
- <a href="http://chtc.cs.wisc.edu/DAGenv.shtml">ChtcRun</a>):
+ <a href="{{'http://chtc.cs.wisc.edu/DAGenv' | relative_url }}">ChtcRun</a>):
 <ul>
 <li>numpy-1.8.1</li>
 <li>scipy-0.14.0</li>

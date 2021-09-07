@@ -80,7 +80,7 @@ all the commands run successfully.</li>
 </ul>
 
 If everything works on the first try, great!  You can move on.  
-If you encounter any errors, see our <a href="/troubleshooting.shtml">troubleshooting guide</a>.</li>
+If you encounter any errors, see our <a href="{{'/troubleshooting' | relative_url }}">troubleshooting guide</a>.</li>
 
 <li class="spaced">Before leaving the interactive session, make sure that you've removed any 
 new files that you don't want to return to the submit server (this may include 
@@ -148,8 +148,8 @@ move on to the next step. </p>
 are different ways to submit multiple jobs in HTCondor -- see our 
 guides here to choose a way that works for your jobs: </p>
 <ul>
-<li><a href="/multiple-jobs.shtml">Submit File Variations</a> - different HTCondor options for submitting multiple jobs</li>
-<li><a href="/multiple-job-dirs.shtml">Organizing Files in Multiple Directories</a> - how to implement a particular job submission directory structure</li>
+<li><a href="{{'/multiple-jobs' | relative_url }}">Submit File Variations</a> - different HTCondor options for submitting multiple jobs</li>
+<li><a href="{{'/multiple-job-dirs' | relative_url }}">Organizing Files in Multiple Directories</a> - how to implement a particular job submission directory structure</li>
 </ul>
 
 <p>Once you've changed your submit file to handle multiple jobs, 

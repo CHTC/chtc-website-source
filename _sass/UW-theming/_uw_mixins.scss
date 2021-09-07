@@ -1,0 +1,94 @@
+
+// simple media query mixins
+// @mixin uw-breakpoint($width) {
+//   @media (min-width: $width) { @content; }
+// }
+// @mixin uw-breakpoint-max($width) {
+//   @media (max-width: $width) { @content; }
+// }
+
+// linear gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+
+// uw-nav-menu submenu class name subsitution
+// this allows for easier overriding of the submenu class name
+@mixin uw-dropdown($class_name: "uw-dropdown") {
+  .uw-nav-menu ul li.#{$class_name}.uw-is-active > ul {
+    display: block;
+    opacity: 1.0;
+    transform: scaleY(1);
+    animation: reveal .2s ease-in-out;
+  }
+  .uw-nav-menu ul > li > ul > li.#{$class_name} > ul {
+    display: none;
+  }
+  @include breakpoint($uw-main-nav-breakpoint) {
+    .uw-nav-menu ul li.#{$class_name} > ul {
+      background-color: $uw-red;
+    }
+    .uw-nav-menu-reverse, .uw-nav-menu-secondary-reverse {
+      ul li.#{$class_name} > ul, .uw-nav-menu-secondary-reverse ul li.#{$class_name} > ul {
+        background-color: white;
+        a {
+          color: $uw-gray-darkest;
+          background-color: transparent;
+        }
+      }
+    }
+    .uw-nav-menu-reverse ul li.#{$class_name} > ul {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .uw-nav-menu-reverse-flat, .uw-nav-menu-secondary-reverse {
+      ul li.#{$class_name} > ul {
+        box-shadow: none;
+        border-left: 1px solid $uw-gray-light;
+        border-right: 1px solid $uw-gray-light;
+        border-bottom: 1px solid $uw-gray-light;
+      }
+    }
+    .uw-nav-menu.uw-nav-menu-reverse ul ul {
+      .#{$class_name} > a {
+        // background-color: white;
+        color: $uw-red;
+      }
+    }
+  }
+}
+
+// hide from non screen readers
+@mixin uw-element-invisible {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+
+// width-constrained container
+@mixin uw-container($max-width: 100%) {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// flexed column
+@mixin uw-flex-column($width: 100%, $breakpoint: $uw-main-nav-breakpoint) {
+  flex-basis: 100%;
+  max-width: 100%;
+  @include breakpoint($breakpoint) {
+    flex-basis: $width;
+    max-width: $width;
+  }
+}

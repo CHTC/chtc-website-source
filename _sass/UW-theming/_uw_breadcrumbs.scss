@@ -1,0 +1,24 @@
+.uw-breadcrumbs {
+  margin: $uw-padding 0;
+  padding: 0 $uw-padding;
+  ul {
+    margin-left: 0;
+  }
+  @include uw-container($uw-max-content-width);
+  display: flex;
+  flex-flow: row wrap;
+  li {
+    list-style: none;
+    text-transform: uppercase;
+    float: left;
+    color: black;
+    font-size: .7875rem;
+    margin-bottom: 0;
+  }
+  li:not(:last-child)::after {
+      color: $uw-gray-darker;
+      content: "/";
+      margin: 0 .5rem;
+      position: relative;
+  }
+}
