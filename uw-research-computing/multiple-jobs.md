@@ -301,17 +301,7 @@ initial_dir = $(state_dir)
 transfer_input_files = input.data	
 executable = compare_states
 
-<<<<<<< HEAD:multiple-jobs.md
 ... remaining submit details ...
-=======
-Here, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will create a job for each state in the list and use that
-state\'s directory as the \"initialdir\" - the directory where the job
-will actually be submitted. Therefore, in `transfer_input_files`, we can
-use `input.data` without using the directory name in the path, and to
-use the `united-states.data` file, we need to indicate it is in the
-directory above the state directory. The output file will also go into
-the state directory.
->>>>>>> master:uw-research-computing/multiple-jobs.md
 
 queue state_dir from state-dirs.txt
 ```
