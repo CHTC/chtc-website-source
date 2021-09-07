@@ -47,7 +47,7 @@ with user-defined variables. Additional examples and use cases are provided furt
 
 These `queue` options are also described in the following video from HTCondor Week 2020: 
 <a href="https://www.youtube.com/watch?v=m7dQChJH5LU">
-	<img alt="2020 HTCondor Week Presentation" src="https://raw.githubusercontent.com/OSGConnect/connectbook/master/images/multi-job-submit-video-thumbnail.png" width="360" height="204"></a>
+	<img alt="2020 HTCondor Week Presentation" src="https://raw.githubusercontent.com/CHTC/chtc-website-source/master/images/multi-job-submit-video-thumbnail.png" width="360" height="204"></a>
 
 [Submitting Multiple Jobs Using HTCondor Video](https://www.youtube.com/watch?v=m7dQChJH5LU)
 
