@@ -6,7 +6,7 @@ title: Running Tensorflow Jobs
 
 This guide describes how to use a pre-built Tensorflow environment
 (implemented as a [Singularity container](http://singularity.lbl.gov/))
-to run Tensorflow jobs in CHTC and on the <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a>.
+to run Tensorflow jobs in CHTC and on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.
 
 Overview
 --------
@@ -23,14 +23,14 @@ Singularity.
 In CHTC, our Singularity support consists of running jobs inside a
 pre-made Singularity container with an installation of Tensorflow. This
 Singularity set up is very flexible: it is accessible both in CHTC and
-on the Open Science Grid, and can be used to run Tensorflow either with
+on the OS Pool, and can be used to run Tensorflow either with
 CPUs or GPUs. This guide starts with a basic CPU example, but then goes
 on to describe how to use the Singularity Tensorflow container for GPUs,
-and also how to run on the Open Science Grid.
+and also how to run on the [OS Pool](https://osg-htc.org/about/open_science_pool/).
 
 1.  [Basic Tensorflow Job Template](#template)
 2.  [Using Tensorflow on GPUs](#gpus)
-3.  [Using Tensorflow on the OSG](#osg)
+3.  [Using Tensorflow on the OS Pool](#osg)
 
 <a name="template"></a>
 
@@ -117,7 +117,7 @@ For more information about GPUs and how GPU jobs work in CHTC, see our
 > This Singularity/Tensorflow functionality is not yet available on
 > CHTC\'s newer GPUs with a sufficiently high CUDA Capability.
 > Therefore, for now, the best way to use this Singularity/Tensorflow
-> environment with GPUs is by running jobs on the Open Science Grid (see
+> environment with GPUs is by running jobs on the OS Pool (see
 > below). We are working on having Singularity support on all CHTC GPUs
 > soon.
 
@@ -126,8 +126,7 @@ For more information about GPUs and how GPU jobs work in CHTC, see our
 **3. Running on OSG**
 -----------------
 
-This Tensorflow environment can also be run on the Open Science Grid, or
-OSG, either as the CPU or GPU version.
+This Tensorflow environment can also be run on the OS Pool either as the CPU or GPU version.
 
 For more details on accessing the OSG, see [our guide for running
 outside CHTC, sections 3 and 4](scaling-htc).

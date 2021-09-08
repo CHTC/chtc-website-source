@@ -11,7 +11,7 @@ construct your own <a href="http://htcondor.org">HTCondor</a> workflow (or \"DAG
 the ordered set of directions given here, you\'ll be able to easily set
 up and run a set of high-throughput computing jobs on CHTC-available
 resources, including those outside of the CHTC HTCondor Pool in the UW
-Grid and national <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
+Grid and national <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.
 
 1.  From within your home directory on the submit node, in a directory
     of your choice, download the ChtcRun package:

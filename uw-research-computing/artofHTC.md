@@ -205,7 +205,7 @@ case as well.
 completed), you can send your jobs to even more computers than are in
 the CHTC Pool (where your jobs will run, by default). Refer to the table
 below for tips on how to send your jobs to the rest of the UW Grid and
-to the national [Open Science Grid](http://www.opensciencegrid.org/).
+to the national [OS Pool](https://osg-htc.org/about/open_science_pool/).
 
 Getting the Right Resources
 ---------------------------
@@ -220,7 +220,7 @@ files, as appropriate, and after running a few tests.
   | request\_disk = *kilobytes* | Matches each job to a slot with at least this much disk space, in units of KB. |
   | request\_memory = *megabytes* | Matches each job to a slot with at least this much memory (RAM), in units of MB.|
   | +WantFlocking = true | Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~4 hours, on average, or checkpointing jobs. |
-  | +WantGlideIn = true | Also send jobs to the Open Science Grid (OSG). <br> Good for jobs that are less than \~2 hours, on average, or checkpointing jobs. |
+  | +WantGlideIn = true | Also send jobs to the [OS Pool](https://osg-htc.org/about/open_science_pool/). <br> Good for jobs that are less than \~2 hours, on average, or checkpointing jobs. |
 
 
 Now, time for a little homework

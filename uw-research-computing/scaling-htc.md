@@ -14,7 +14,7 @@ Contents
 
 1.  [Why run on additional resources outside CHTC?](#why)
     -   [The UW Grid](#uw)
-    -   [The Open Science Grid (OSG)](#osg)
+    -   [The OSG Consortium](#osg)
 2.  [Job Qualifications](#job)
 3.  [Submitting Jobs to Run Beyond CHTC](#submit)
 
@@ -25,7 +25,7 @@ Contents
 ================================================
 
 Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and Open Science Grid include thousands of computers,
+size! The UW Grid and OS Pool include thousands of computers,
 addition to what\'s already available in CHTC. Most CHTC users who run
 on CHTC, the UW Grid, and the OSG can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
@@ -48,18 +48,18 @@ We call sending jobs to other pools on campus *flocking*.
 
 <a name="osg"></a>
 
-B. The Open Science Grid (OSG)
+B. The OSG Consortium
 ------------------------------
 
-The <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> is a group of universities and research labs
+The <a href="http://www.osg-htc.org/">OSG Consortium</a> is a group of universities and research labs
 who have agreed to share their unused computational resources with each
 other. If a job is submitted from an OSG submission point, it can run in
-the OSG pool associated with that submission point. This OSG pool is the
+the [OS pool](https://osg-htc.org/about/open_science_pool/) associated with that submission point. This OSG pool is the
 result of going out to other members of the OSG and finding if they have
 any unused computers that are available to run jobs. These unused
 computers then form a pool of resources where jobs can go run.
 
-CHTC is a member of the Open Science Grid, so our submit servers,
+CHTC is a member of the OSG Consortium, so our submit servers,
 besides sending jobs to CHTC computers (the default), can send jobs to
 the OSG. We call sending jobs to other institutions *gliding*.
 
@@ -98,7 +98,7 @@ the following to your submit file:
 
 {:.gtable}
   | +WantFlocking = true | Also send jobs to other HTCondor Pools on campus (UW Grid)<br>Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
-  | +WantGlideIn = true  | Also send jobs to the Open Science Grid (OSG). <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
+  | +WantGlideIn = true  | Also send jobs to the OS Pool. <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
 
 To guarantee maximum efficiency, **please do the following steps
 whenever submitting a new type of job to the UW Grid or OSG:**
