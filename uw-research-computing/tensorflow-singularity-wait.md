@@ -15,7 +15,7 @@ Typically, software in CHTC jobs is installed or compiled locally by
 individual users and then brought along to each job, either using the
 default file transfer or our SQUID web server. However, another option
 is to use a *container* system, where the software is installed in a
-*container image*. CHTC (and the OSG) have capabilities to access and
+*container image*. CHTC (and the OS Pool) have capabilities to access and
 start containers and run jobs inside them. One container option
 available in CHTC is [Docker](docker-jobs); another is
 Singularity.
@@ -123,10 +123,10 @@ For more information about GPUs and how GPU jobs work in CHTC, see our
 
 <a name="osg"></a>
 
-**3. Running on OSG**
+**3. Running on OS Pool**
 -----------------
 
 This Tensorflow environment can also be run on the OS Pool either as the CPU or GPU version.
 
-For more details on accessing the OSG, see [our guide for running
+For more details on accessing the OS Pool, see [our guide for running
 outside CHTC, sections 3 and 4](scaling-htc).

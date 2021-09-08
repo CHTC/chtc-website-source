@@ -33,7 +33,7 @@ title: CHTC Projects
 		It is an expanding alliance of more than 100 universities, national laboratories, 
 		scientific collaborations, and software developers, all combining their computational resources with one 
 		another for maximal throughput of large-scale computational work. 
-		CHTC users have automatica and FREE access to OSG's considerable computing and storage resources.
+		CHTC users have automatic and FREE access to OSG's considerable computing and storage resources.
 		</p>
 
 	</a>

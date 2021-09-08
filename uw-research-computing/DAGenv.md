@@ -106,7 +106,7 @@ Grid and national <a href="https://osg-htc.org/about/open_science_pool/">OS Pool
         request_disk = (insert KB value)
         request_memory = (insert MB value)
         +WantFlocking = true    (to send jobs shorter than 4 hours to the UW Grid)
-        +WantGlidein = true (to send jobs shorter than 2 hours to the OSG)
+        +WantGlidein = true (to send jobs shorter than 2 hours to the OS Pool)
 
     **If you are not aware of how much disk or memory your jobs need, it
     is ESSENTIAL to first test 5-10 jobs**, and then look at the
