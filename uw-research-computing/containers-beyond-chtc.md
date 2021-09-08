@@ -52,7 +52,7 @@ requirements = ( HAS_SINGULARITY || (HasSingularity && HAS_CVMFS_oasis_openscien
 
 ...executable, input files...
 
-# Run on the campus grid and Open Science Grid
+# Run on the campus grid and OS Pool
 +WantFlocking = true
 +WantGlidein = true
 
