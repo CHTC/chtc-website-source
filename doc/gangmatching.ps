@@ -1,0 +1,792 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.86 Copyright 1999 Radical Eye Software
+%%Title: initial.dvi
+%%Pages: 2
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman CMSY10 Times-Italic Courier
+%%+ Helvetica-Bold
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips initial
+%DVIPSParameters: dpi=1200
+%DVIPSSource:  TeX output 2000.06.01:1306
+%%BeginProcSet: /s/tetex/texmf/dvips/pstricks/pstricks.pro
+%!
+% PostScript prologue for pstricks.tex.
+% Version 97 patch 3, 98/06/01
+% For distribution, see pstricks.tex.
+%
+/tx@Dict 200 dict def tx@Dict begin
+/ADict 25 dict def
+/CM { matrix currentmatrix } bind def
+/SLW /setlinewidth load def
+/CLW /currentlinewidth load def
+/CP /currentpoint load def
+/ED { exch def } bind def
+/L /lineto load def
+/T /translate load def
+/TMatrix { } def
+/RAngle { 0 } def
+/Atan { /atan load stopped { pop pop 0 } if } def
+/Div { dup 0 eq { pop } { div } ifelse } def
+/NET { neg exch neg exch T } def
+/Pyth { dup mul exch dup mul add sqrt } def
+/PtoC { 2 copy cos mul 3 1 roll sin mul } def
+/PathLength@ { /z z y y1 sub x x1 sub Pyth add def /y1 y def /x1 x def }
+def
+/PathLength { flattenpath /z 0 def { /y1 ED /x1 ED /y2 y1 def /x2 x1 def
+} { /y ED /x ED PathLength@ } {} { /y y2 def /x x2 def PathLength@ }
+/pathforall load stopped { pop pop pop pop } if z } def
+/STP { .996264 dup scale } def
+/STV { SDict begin normalscale end STP  } def
+/DashLine { dup 0 gt { /a .5 def PathLength exch div } { pop /a 1 def
+PathLength } ifelse /b ED /x ED /y ED /z y x add def b a .5 sub 2 mul y
+mul sub z Div round z mul a .5 sub 2 mul y mul add b exch Div dup y mul
+/y ED x mul /x ED x 0 gt y 0 gt and { [ y x ] 1 a sub y mul } { [ 1 0 ]
+0 } ifelse setdash stroke } def
+/DotLine { /b PathLength def /a ED /z ED /y CLW def /z y z add def a 0 gt
+{ /b b a div def } { a 0 eq { /b b y sub def } { a -3 eq { /b b y add
+def } if } ifelse } ifelse [ 0 b b z Div round Div dup 0 le { pop 1 } if
+] a 0 gt { 0 } { y 2 div a -2 gt { neg } if } ifelse setdash 1
+setlinecap stroke } def
+/LineFill { gsave abs CLW add /a ED a 0 dtransform round exch round exch
+2 copy idtransform exch Atan rotate idtransform pop /a ED .25 .25
+% DG/SR modification begin - Dec. 12, 1997 - Patch 2
+%itransform translate pathbbox /y2 ED a Div ceiling cvi /x2 ED /y1 ED a
+itransform pathbbox /y2 ED a Div ceiling cvi /x2 ED /y1 ED a
+% DG/SR modification end
+Div cvi /x1 ED /y2 y2 y1 sub def clip newpath 2 setlinecap systemdict
+/setstrokeadjust known { true setstrokeadjust } if x2 x1 sub 1 add { x1
+% DG/SR modification begin - Jun.  1, 1998 - Patch 3 (from Michael Vulis)
+% a mul y1 moveto 0 y2 rlineto stroke /x1 x1 1 add def } repeat grestore }
+% def
+a mul y1 moveto 0 y2 rlineto stroke /x1 x1 1 add def } repeat grestore
+pop pop } def
+% DG/SR modification end
+/BeginArrow { ADict begin /@mtrx CM def gsave 2 copy T 2 index sub neg
+exch 3 index sub exch Atan rotate newpath } def
+/EndArrow { @mtrx setmatrix CP grestore end } def
+/Arrow { CLW mul add dup 2 div /w ED mul dup /h ED mul /a ED { 0 h T 1 -1
+scale } if w neg h moveto 0 0 L w h L w neg a neg rlineto gsave fill
+grestore } def
+/Tbar { CLW mul add /z ED z -2 div CLW 2 div moveto z 0 rlineto stroke 0
+CLW moveto } def
+/Bracket { CLW mul add dup CLW sub 2 div /x ED mul CLW add /y ED /z CLW 2
+div def x neg y moveto x neg CLW 2 div L x CLW 2 div L x y L stroke 0
+CLW moveto } def
+/RoundBracket { CLW mul add dup 2 div /x ED mul /y ED /mtrx CM def 0 CLW
+2 div T x y mul 0 ne { x y scale } if 1 1 moveto .85 .5 .35 0 0 0
+curveto -.35 0 -.85 .5 -1 1 curveto mtrx setmatrix stroke 0 CLW moveto }
+def
+/SD { 0 360 arc fill } def
+/EndDot { { /z DS def } { /z 0 def } ifelse /b ED 0 z DS SD b { 0 z DS
+CLW sub SD } if 0 DS z add CLW 4 div sub moveto } def
+/Shadow { [ { /moveto load } { /lineto load } { /curveto load } {
+/closepath load } /pathforall load stopped { pop pop pop pop CP /moveto
+load } if ] cvx newpath 3 1 roll T exec } def
+/NArray { aload length 2 div dup dup cvi eq not { exch pop } if /n exch
+cvi def } def
+/NArray { /f ED counttomark 2 div dup cvi /n ED n eq not { exch pop } if
+f { ] aload /Points ED } { n 2 mul 1 add -1 roll pop } ifelse } def
+/Line { NArray n 0 eq not { n 1 eq { 0 0 /n 2 def } if ArrowA /n n 2 sub
+def n { Lineto } repeat CP 4 2 roll ArrowB L pop pop } if } def
+/Arcto { /a [ 6 -2 roll ] cvx def a r /arcto load stopped { 5 } { 4 }
+ifelse { pop } repeat a } def
+/CheckClosed { dup n 2 mul 1 sub index eq 2 index n 2 mul 1 add index eq
+and { pop pop /n n 1 sub def } if } def
+/Polygon { NArray n 2 eq { 0 0 /n 3 def } if n 3 lt { n { pop pop }
+repeat } { n 3 gt { CheckClosed } if n 2 mul -2 roll /y0 ED /x0 ED /y1
+ED /x1 ED x1 y1 /x1 x0 x1 add 2 div def /y1 y0 y1 add 2 div def x1 y1
+moveto /n n 2 sub def n { Lineto } repeat x1 y1 x0 y0 6 4 roll Lineto
+Lineto pop pop closepath } ifelse } def
+/Diamond { /mtrx CM def T rotate /h ED /w ED dup 0 eq { pop } { CLW mul
+neg /d ED /a w h Atan def /h d a sin Div h add def /w d a cos Div w add
+def } ifelse mark w 2 div h 2 div w 0 0 h neg w neg 0 0 h w 2 div h 2
+div /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+setmatrix } def
+% DG modification begin - Jan. 15, 1997
+%/Triangle { /mtrx CM def translate rotate /h ED 2 div /w ED dup 0 eq {
+%pop } { CLW mul /d ED /h h d w h Atan sin Div sub def /w w d h w Atan 2
+%div dup cos exch sin Div mul sub def } ifelse mark 0 d w neg d 0 h w d 0
+%d /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+%setmatrix } def
+/Triangle { /mtrx CM def translate rotate /h ED 2 div /w ED dup
+CLW mul /d ED /h h d w h Atan sin Div sub def /w w d h w Atan 2
+div dup cos exch sin Div mul sub def mark 0 d w neg d 0 h w d 0
+d /ArrowA { moveto } def /ArrowB { } def false Line closepath mtrx
+% DG/SR modification begin - Jun.  1, 1998 - Patch 3 (from Michael Vulis)
+% setmatrix } def
+setmatrix pop } def
+% DG/SR modification end
+/CCA { /y ED /x ED 2 copy y sub /dy1 ED x sub /dx1 ED /l1 dx1 dy1 Pyth
+def } def
+/CCA { /y ED /x ED 2 copy y sub /dy1 ED x sub /dx1 ED /l1 dx1 dy1 Pyth
+def } def
+/CC { /l0 l1 def /x1 x dx sub def /y1 y dy sub def /dx0 dx1 def /dy0 dy1
+def CCA /dx dx0 l1 c exp mul dx1 l0 c exp mul add def /dy dy0 l1 c exp
+mul dy1 l0 c exp mul add def /m dx0 dy0 Atan dx1 dy1 Atan sub 2 div cos
+abs b exp a mul dx dy Pyth Div 2 div def /x2 x l0 dx mul m mul sub def
+/y2 y l0 dy mul m mul sub def /dx l1 dx mul m mul neg def /dy l1 dy mul
+m mul neg def } def
+/IC { /c c 1 add def c 0 lt { /c 0 def } { c 3 gt { /c 3 def } if }
+ifelse /a a 2 mul 3 div 45 cos b exp div def CCA /dx 0 def /dy 0 def }
+def
+/BOC { IC CC x2 y2 x1 y1 ArrowA CP 4 2 roll x y curveto } def
+/NC { CC x1 y1 x2 y2 x y curveto } def
+/EOC { x dx sub y dy sub 4 2 roll ArrowB 2 copy curveto } def
+/BAC { IC CC x y moveto CC x1 y1 CP ArrowA } def
+/NAC { x2 y2 x y curveto CC x1 y1 } def
+/EAC { x2 y2 x y ArrowB curveto pop pop } def
+/OpenCurve { NArray n 3 lt { n { pop pop } repeat } { BOC /n n 3 sub def
+n { NC } repeat EOC } ifelse } def
+/AltCurve { { false NArray n 2 mul 2 roll [ n 2 mul 3 sub 1 roll ] aload
+/Points ED n 2 mul -2 roll } { false NArray } ifelse n 4 lt { n { pop
+pop } repeat } { BAC /n n 4 sub def n { NAC } repeat EAC } ifelse } def
+/ClosedCurve { NArray n 3 lt { n { pop pop } repeat } { n 3 gt {
+CheckClosed } if 6 copy n 2 mul 6 add 6 roll IC CC x y moveto n { NC }
+repeat closepath pop pop } ifelse } def
+/SQ { /r ED r r moveto r r neg L r neg r neg L r neg r L fill } def
+/ST { /y ED /x ED x y moveto x neg y L 0 x L fill } def
+/SP { /r ED gsave 0 r moveto 4 { 72 rotate 0 r L } repeat fill grestore }
+def
+/FontDot { DS 2 mul dup matrix scale matrix concatmatrix exch matrix
+rotate matrix concatmatrix exch findfont exch makefont setfont } def
+/Rect { x1 y1 y2 add 2 div moveto x1 y2 lineto x2 y2 lineto x2 y1 lineto
+x1 y1 lineto closepath } def
+/OvalFrame { x1 x2 eq y1 y2 eq or { pop pop x1 y1 moveto x2 y2 L } { y1
+y2 sub abs x1 x2 sub abs 2 copy gt { exch pop } { pop } ifelse 2 div
+exch { dup 3 1 roll mul exch } if 2 copy lt { pop } { exch pop } ifelse
+/b ED x1 y1 y2 add 2 div moveto x1 y2 x2 y2 b arcto x2 y2 x2 y1 b arcto
+x2 y1 x1 y1 b arcto x1 y1 x1 y2 b arcto 16 { pop } repeat closepath }
+ifelse } def
+/Frame { CLW mul /a ED 3 -1 roll 2 copy gt { exch } if a sub /y2 ED a add
+/y1 ED 2 copy gt { exch } if a sub /x2 ED a add /x1 ED 1 index 0 eq {
+pop pop Rect } { OvalFrame } ifelse } def
+/BezierNArray { /f ED counttomark 2 div dup cvi /n ED n eq not { exch pop
+} if n 1 sub neg 3 mod 3 add 3 mod { 0 0 /n n 1 add def } repeat f { ]
+aload /Points ED } { n 2 mul 1 add -1 roll pop } ifelse } def
+/OpenBezier { BezierNArray n 1 eq { pop pop } { ArrowA n 4 sub 3 idiv { 6
+2 roll 4 2 roll curveto } repeat 6 2 roll 4 2 roll ArrowB curveto }
+ifelse } def
+/ClosedBezier { BezierNArray n 1 eq { pop pop } { moveto n 1 sub 3 idiv {
+6 2 roll 4 2 roll curveto } repeat closepath } ifelse } def
+/BezierShowPoints { gsave Points aload length 2 div cvi /n ED moveto n 1
+sub { lineto } repeat CLW 2 div SLW [ 4 4 ] 0 setdash stroke grestore }
+def
+/Parab { /y0 exch def /x0 exch def /y1 exch def /x1 exch def /dx x0 x1
+sub 3 div def /dy y0 y1 sub 3 div def x0 dx sub y0 dy add x1 y1 ArrowA
+x0 dx add y0 dy add x0 2 mul x1 sub y1 ArrowB curveto /Points [ x1 y1 x0
+y0 x0 2 mul x1 sub y1 ] def } def
+/Grid { newpath /a 4 string def /b ED /c ED /n ED cvi dup 1 lt { pop 1 }
+if /s ED s div dup 0 eq { pop 1 } if /dy ED s div dup 0 eq { pop 1 } if
+/dx ED dy div round dy mul /y0 ED dx div round dx mul /x0 ED dy div
+round cvi /y2 ED dx div round cvi /x2 ED dy div round cvi /y1 ED dx div
+round cvi /x1 ED /h y2 y1 sub 0 gt { 1 } { -1 } ifelse def /w x2 x1 sub
+0 gt { 1 } { -1 } ifelse def b 0 gt { /z1 b 4 div CLW 2 div add def
+/Helvetica findfont b scalefont setfont /b b .95 mul CLW 2 div add def }
+if systemdict /setstrokeadjust known { true setstrokeadjust /t { } def }
+{ /t { transform 0.25 sub round 0.25 add exch 0.25 sub round 0.25 add
+exch itransform } bind def } ifelse gsave n 0 gt { 1 setlinecap [ 0 dy n
+div ] dy n div 2 div setdash } { 2 setlinecap } ifelse /i x1 def /f y1
+dy mul n 0 gt { dy n div 2 div h mul sub } if def /g y2 dy mul n 0 gt {
+dy n div 2 div h mul add } if def x2 x1 sub w mul 1 add dup 1000 gt {
+pop 1000 } if { i dx mul dup y0 moveto b 0 gt { gsave c i a cvs dup
+stringwidth pop /z2 ED w 0 gt {z1} {z1 z2 add neg} ifelse h 0 gt {b neg}
+{z1} ifelse rmoveto show grestore } if dup t f moveto g t L stroke /i i
+w add def } repeat grestore gsave n 0 gt
+% DG/SR modification begin - Nov. 7, 1997 - Patch 1
+%{ 1 setlinecap [ 0 dx n div ] dy n div 2 div setdash }
+{ 1 setlinecap [ 0 dx n div ] dx n div 2 div setdash }
+% DG/SR modification end
+{ 2 setlinecap } ifelse /i y1 def /f x1 dx mul
+n 0 gt { dx n div 2 div w mul sub } if def /g x2 dx mul n 0 gt { dx n
+div 2 div w mul add } if def y2 y1 sub h mul 1 add dup 1000 gt { pop
+1000 } if { newpath i dy mul dup x0 exch moveto b 0 gt { gsave c i a cvs
+dup stringwidth pop /z2 ED w 0 gt {z1 z2 add neg} {z1} ifelse h 0 gt
+{z1} {b neg} ifelse rmoveto show grestore } if dup f exch t moveto g
+exch t L stroke /i i h add def } repeat grestore } def
+/ArcArrow { /d ED /b ED /a ED gsave newpath 0 -1000 moveto clip newpath 0
+1 0 0 b grestore c mul /e ED pop pop pop r a e d PtoC y add exch x add
+exch r a PtoC y add exch x add exch b pop pop pop pop a e d CLW 8 div c
+mul neg d } def
+/Ellipse { /mtrx CM def T scale 0 0 1 5 3 roll arc mtrx setmatrix } def
+/Rot { CP CP translate 3 -1 roll neg rotate NET  } def
+/RotBegin { tx@Dict /TMatrix known not { /TMatrix { } def /RAngle { 0 }
+def } if /TMatrix [ TMatrix CM ] cvx def /a ED a Rot /RAngle [ RAngle
+dup a add ] cvx def } def
+/RotEnd { /TMatrix [ TMatrix setmatrix ] cvx def /RAngle [ RAngle pop ]
+cvx def } def
+/PutCoor { gsave CP T CM STV exch exec moveto setmatrix CP grestore } def
+/PutBegin { /TMatrix [ TMatrix CM ] cvx def CP 4 2 roll T moveto } def
+/PutEnd { CP /TMatrix [ TMatrix setmatrix ] cvx def moveto } def
+/Uput { /a ED add 2 div /h ED 2 div /w ED /s a sin def /c a cos def /b s
+abs c abs 2 copy gt dup /q ED { pop } { exch pop } ifelse def /w1 c b
+div w mul def /h1 s b div h mul def q { w1 abs w sub dup c mul abs } {
+h1 abs h sub dup s mul abs } ifelse } def
+/UUput { /z ED abs /y ED /x ED q { x s div c mul abs y gt } { x c div s
+mul abs y gt } ifelse { x x mul y y mul sub z z mul add sqrt z add } { q
+{ x s div } { x c div } ifelse abs } ifelse a PtoC h1 add exch w1 add
+exch } def
+/BeginOL { dup (all) eq exch TheOL eq or { IfVisible not { Visible
+/IfVisible true def } if } { IfVisible { Invisible /IfVisible false def
+} if } ifelse } def
+/InitOL { /OLUnit [ 3000 3000 matrix defaultmatrix dtransform ] cvx def
+/Visible { CP OLUnit idtransform T moveto } def /Invisible { CP OLUnit
+neg exch neg exch idtransform T moveto } def /BOL { BeginOL } def
+/IfVisible true def } def
+end
+% END pstricks.pro
+
+%%EndProcSet
+%%BeginProcSet: tex.pro
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc
+% @@psencodingfile@{
+%   author = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry",
+%   version = "0.6",
+%   date = "1 July 1998",
+%   filename = "8r.enc",
+%   email = "tex-fonts@@tug.org",
+%   docstring = "Encoding for TrueType or Type 1 fonts
+%                to be used with TeX."
+% @}
+% 
+% Idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard Encoding + ISO Latin 1 + extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% 
+% (4) Remaining positions left undefined are for use in (hopefully)
+% upward-compatible revisions, if someday more characters are generally
+% available.
+% 
+% (5) hyphen appears twice for compatibility with both 
+% ASCII and Windows.
+% 
+/TeXBase1Encoding [
+% 0x00 (encoded characters from Adobe Standard not in Windows 3.1)
+  /.notdef /dotaccent /fi /fl
+  /fraction /hungarumlaut /Lslash /lslash
+  /ogonek /ring /.notdef
+  /breve /minus /.notdef 
+% These are the only two remaining unencoded characters, so may as
+% well include them.
+  /Zcaron /zcaron 
+% 0x10
+ /caron /dotlessi 
+% (unusual TeX characters available in, e.g., Lucida Bright)
+ /dotlessj /ff /ffi /ffl 
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ % very contentious; it's so painful not having quoteleft and quoteright
+ % at 96 and 145 that we move the things normally found there to here.
+ /grave /quotesingle 
+% 0x20 (ASCII begins)
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three /four /five /six /seven
+ /eight /nine /colon /semicolon /less /equal /greater /question
+% 0x40
+ /at /A /B /C /D /E /F /G /H /I /J /K /L /M /N /O
+% 0x50
+ /P /Q /R /S /T /U /V /W
+ /X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c /d /e /f /g /h /i /j /k /l /m /n /o
+% 0x70
+ /p /q /r /s /t /u /v /w
+ /x /y /z /braceleft /bar /braceright /asciitilde
+ /.notdef % rubout; ASCII ends
+% 0x80
+ /.notdef /.notdef /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /.notdef /.notdef /.notdef
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /.notdef /.notdef /Ydieresis
+% 0xA0
+ /.notdef % nobreakspace
+ /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot
+ /hyphen % Y&Y (also at 45); Windows' softhyphen
+ /registered
+ /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+%%EndProcSet
+%%BeginProcSet: texps.pro
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]/Metrics
+exch def dict begin Encoding{exch dup type/integertype ne{pop pop 1 sub
+dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get div def}
+ifelse}forall Metrics/Metrics currentdict end def[2 index currentdict
+end definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{
+dup sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1
+roll mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def
+dup[exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}
+if}forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}
+def end
+
+%%EndProcSet
+%%BeginFont: CMSY10
+%!PS-AdobeFont-1.1: CMSY10 1.0
+%%CreationDate: 1991 Aug 15 07:20:57
+
+% Copyright (C) 1997 American Mathematical Society.  All Rights Reserved.
+
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.0) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMSY10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle -14.035 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMSY10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 102 /braceleft put
+dup 103 /braceright put
+readonly def
+/FontBBox{-29 -960 1116 775}readonly def
+/UniqueXX 5000820 def
+currentdict end
+currentfile eexec
+9b9c1569015f2c1d2bf560f4c0d52257bac8ced9b09a275ab231194ecf829352
+05826f4e975dcecec72b2cf3a18899ccde1fd935d09d813b096cc6b83cdf4f23
+b9a60db41f9976ac333263c908dcefcdbd4c8402ed00a36e7487634d089fd45a
+f4a38a56a4412c3b0baffaeb717bf0de9ffb7a8460bf475a6718b0c73c571145
+d026957276530530a2fbefc6c8f67052788e6703bb5ee49533870bca1f113ad8
+3750d597b842d8d96c423ba1273ddd32f3a54a912a443fcd44f7c3a6fe3956b0
+aa1e784aaec6fce08dae0c76da9d0a3eba57b98a6233d9e9f0c3f00fcc6b2c6a
+9ba23af389e6dfff4efec3de05d6276c6be417703ce508377f25960ef4ed83b4
+9b01b873f3a639ce00f356229b6477a081933fef3bb80e2b9dffa7f75567b1fa
+4d739b772f8d674e567534c6c5bbf1cf615372be20b18472f7aa58be8c216dbd
+df81cc0a86b6d8318ca68fe22c8af13b54d7576fe4ca5a7af9005ea5cc4edb79
+c0ab668e4fec4b7f5a9eb5f0e4c088cd818ecc4feb4b40ec8bd2981bf2336074
+b64c430035b7d4eb41c5714c319ae0c7f0df32ef5dcc37f92d07de68eaa6635c
+c697b73bb4a8c4d61094d93f3f5119eb5c0d3c866928a9874369479f9f975ea2
+19aac878a5010410e0ebbcb4ce3d618a0d9780c5c0a29567a9934743afae84a2
+8161b6ed099b2c8440a0582db5ba6f5d75dace2ec9d93bd7171cef03b636b194
+90143825f45ace0d7c36d91d61d02e56c97f1a8a9a45a49b0d4394d3ad86c2e5
+6d840e1e18b2e345e48c8445d4d11fc3987fee6fb0a9eb0181a7866d2ae248cd
+2b9d9590067e6225be7f3651676a325ea2bc07fd20adc5f964199d09d9982976
+b5b040271bc85f098b4c376b5325679bda8bb90d9cdd6748fe06c595c35d0063
+0ed3f84ace92a39f04fd29cb0d0128aab9c06d1f91b337972be6b606d0178ae4
+870d80679e0bfe59e536283b27dc5dec4d592a7efdf829c06e2622e9a80cb04f
+a173d1499d223126b0813fa3e517a236989bd6c1e1aa23716aa6a5341fcf011b
+58a54716906527af766fc455c964adc664988564f29e70ddfe18e693c0a46748
+547a817dde27fcce4fc841be641a3b97912c59b6006822c0e799cea0e44188a4
+29b818120e0a67006f63f46b5a11ff6ecfb60fb825937d75baf2f8fbd826e084
+5e19003e86d8a115606b73b83d48646e6720d8d0a527098f534bcfb8270db723
+c085e974b106190599d7dcd2bab5865a16b4d58d2f7dcb4b36391b40b344d6da
+4a48ad9583ba6e46b604c61cbe162e
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+
+%%EndFont 
+TeXDict begin 40258431 52099146 1000 1200 1200 (initial.dvi)
+@start /Fa 134[66 66 100 1[75 42 58 58 1[75 75 75 108
+42 66 1[42 75 75 42 66 75 66 75 75 9[124 3[75 2[91 1[100
+3[66 50 108 108 91 91 108 100 1[91 6[50 2[75 8[37 50
+37 2[50 50 50 39[{TeXBase1Encoding ReEncodeFont}43 149.44
+/Times-Italic rf /Fb 105[75 27[66 75 75 108 75 75 42
+58 50 1[75 75 75 116 42 75 42 42 75 75 50 66 75 66 75
+66 3[50 1[50 91 2[141 2[91 83 100 1[83 1[108 133 91 108
+58 50 108 108 83 91 108 100 100 108 6[42 75 75 75 75
+75 75 75 75 75 2[37 50 37 2[50 50 37[83 2[{
+TeXBase1Encoding ReEncodeFont}64 149.44 /Times-Roman
+rf /Fc 82[61 56[61 71 81 3[102 4[51 102 91 1[81 1[81
+1[91 19[172 5[142 3[132 15[91 1[91 2[46 46[{
+TeXBase1Encoding ReEncodeFont}17 182.648 /Times-Bold
+rf /Fd 82[55 54[92 101 55 92 65 101 2[101 148 46 2[46
+101 101 1[92 101 92 101 92 19[138 101 5[101 2[120 1[120
+13[92 92 92 2[46 46[{TeXBase1Encoding ReEncodeFont}27
+166.044 /Helvetica-Bold rf /Fe 130[70 1[70 70 70 1[70
+70 70 70 70 70 70 70 70 70 70 70 70 1[70 70 70 70 70
+70 70 70 70 1[70 1[70 1[70 2[70 1[70 70 70 70 70 1[70
+70 70 70 70 70 70 70 70 70 70 70 70 70 1[70 2[70 70 70
+70 70 70 70 1[70 70 70 70 70 70 70 70 70 70 70 70 3[70
+70 3[70 70 33[{TeXBase1Encoding ReEncodeFont}73 116.231
+/Courier rf /Ff 138[100 100 100 100 100 100 100 100 100
+100 100 1[100 100 2[100 1[100 100 100 14[100 1[100 1[100
+1[100 3[100 4[100 20[100 46[{TeXBase1Encoding ReEncodeFont}24
+166.044 /Courier rf /Fg 104[166 2[74 74 24[74 83 83 120
+83 83 46 65 55 83 83 83 83 129 46 83 46 46 83 83 55 74
+83 74 83 74 3[55 1[55 3[157 2[101 92 111 1[92 120 120
+148 101 1[65 55 120 120 92 101 1[111 111 120 5[46 46
+1[83 83 83 1[83 83 83 83 2[42 55 42 2[55 55 55 35[92
+92 2[{TeXBase1Encoding ReEncodeFont}66 166.044 /Times-Roman
+rf /Fh 133[65 74 74 111 74 83 46 65 65 1[83 83 83 120
+46 74 1[46 83 83 46 74 83 74 83 83 3[65 1[65 3[138 9[138
+3[55 1[120 101 4[101 11[83 6[42 55 42 2[55 55 36[83 83
+2[{TeXBase1Encoding ReEncodeFont}40 166.044 /Times-Italic
+rf /Fi 138[111 66 78 88 2[100 111 166 55 111 1[55 111
+100 66 88 111 88 111 100 9[199 2[133 1[144 1[122 2[188
+133 4[155 122 2[144 1[144 11[100 100 100 100 100 2[50
+66 45[{TeXBase1Encoding ReEncodeFont}35 199.253 /Times-Bold
+rf /Fj 152[100 100 102[{}2 199.253 /CMSY10 rf /Fk 134[100
+1[144 100 100 55 78 66 2[100 100 155 55 1[55 55 100 1[66
+88 100 88 1[88 9[188 1[144 1[111 133 4[177 122 2[66 4[144
+3[184 8[100 1[100 1[100 100 100 100 1[50 1[50 44[{
+TeXBase1Encoding ReEncodeFont}36 199.253 /Times-Roman
+rf /Fl 138[133 80 93 106 2[120 133 199 66 133 1[66 133
+120 1[106 1[106 1[120 14[173 4[226 77[{TeXBase1Encoding ReEncodeFont}17
+239.103 /Times-Bold rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 1200dpi
+TeXDict begin
+%%PaperSize: Letter
+
+%%EndSetup
+%%Page: 1 1
+1 0 bop 756 749 a Fl(Resour)l(ce)59 b(Management)g(thr)l(ough)f
+(Multilateral)i(Matchmaking)1752 1380 y Fk(Rajesh)51
+b(Raman,)f(Miron)g(Li)-5 b(vn)m(y)48 b(and)i(Marvin)g(Solomon)923
+1612 y(Uni)-5 b(v)m(ersity)50 b(of)g(W)-8 b(isconsin,)49
+b(1210)f(W)-16 b(est)51 b(Dayton)e(Street,)j(Madison)d(WI)h(53703)2230
+1845 y Fj(f)p Fk(raman,miron,solomon)p Fj(g)p Fk(@cs.wisc.edu)1233
+2545 y Fi(Abstract)-166 2944 y Fh(F)-12 b(eder)n(ated)43
+b(distrib)m(uted)g(systems)g(pr)-6 b(esent)42 b(ne)n(w)h(c)n(halleng)n
+(es)h(to)-365 3143 y(r)-6 b(esour)g(ce)31 b(mana)n(g)n(ement,)j(whic)n
+(h)e(cannot)h(be)f(met)h(by)g(con)-7 b(ventional)-365
+3342 y(systems)59 b(that)i(employ)f(r)-6 b(elatively)59
+b(static)i(r)-6 b(esour)g(ce)58 b(models)i(and)-365 3542
+y(centr)n(alized)f(allocator)n(s.)107 b(W)-15 b(e)60
+b(pr)-6 b(e)n(viously)58 b(ar)-6 b(gued)60 b(that)h(Matc)n(h-)-365
+3741 y(making)g(pr)-7 b(o)n(vides)60 b(an)i(ele)-7 b(gant)61
+b(and)g(r)-7 b(ob)m(ust)60 b(r)-6 b(esour)g(ce)59 b(mana)n(g)n(e-)-365
+3940 y(ment)j(solution)g(for)f(these)g(highly)h(dynamic)g(en)-7
+b(vir)g(onments)60 b([5].)-365 4139 y(Although)72 b(powerful)e(and)h
+(\003e)m(xible)n(,)78 b(multiparty)71 b(policies)f(\(e)n(.g)n(.,)-365
+4339 y(co-allocation\))80 b(cannot)f(be)g(accomodated)g(by)g(Matc)n
+(hmaking)n(.)-365 4538 y(In)e(this)f(paper)f(we)h(pr)-6
+b(esent)75 b(Gang-Matc)n(hing)n(,)85 b(a)76 b(multilater)n(al)-365
+4737 y(matc)n(hmaking)41 b(formalism)g(to)h(addr)-6 b(ess)39
+b(this)j(de\002ciency)-9 b(.)-365 5385 y Fi(1.)49 b(Matchmaking)-166
+5801 y Fg(Resource)83 b(management)g(via)g(Matchmaking)g(occurs)g(as)g
+(a)-365 6000 y(four)m(-step)50 b(process.)74 b(Entities)50
+b(\(i.e.,)g(serv)n(ers)e(and)h(customers\))g(re-)-365
+6199 y(quiring)d(matchmaking)g(services)e(e)n(xpress)g(their)i
+(characteristics,)-365 6398 y(constraints)60 b(and)h(preferences)f(to)h
+(a)f(Matchmak)n(er)h(in)g Fh(classi\002ed)-365 6598 y(advertisements)c
+Fg(\(Step)j(1\))f(.)103 b(Figure)60 b(1)f(sho)l(ws)f(a)h(w)n
+(orkstation')-9 b(s)-365 6797 y(classad,)70 b(where)c(the)f
+Ff(Constraint)d Fg(and)k Ff(Rank)e Fg(e)n(xpressions)-365
+6996 y(identify)58 b(the)e(machine')-9 b(s)56 b(constraints)h(and)f
+(preferences)g(respec-)-365 7195 y(ti)l(v)n(ely)-11 b(.)58
+b(Attrib)m(utes)44 b(of)g(candidate)f(classads)g(are)g(accessed)f(via)i
+(the)-365 7395 y(pseudo-attrib)m(ute)i Ff(other)p Fg(.)65
+b(The)46 b(Matchmak)n(er)g(emplo)n(ys)h(a)f(v)n(ery)-365
+7594 y(generic)f Fh(matc)n(hmaking)f(algorithm)h Fg(to)g(create)f
+(matches)g(incorpo-)-365 7793 y(rating)60 b(the)f(constraints)g(and)g
+(preferences)f(of)i(entities)f(\(Step)h(2\).)-365 7993
+y(Matched)h(entities)h(are)g(then)g(noti\002ed,)67 b(and)62
+b(their)g(classads)f(dis-)-365 8192 y(carded)45 b(\(Step)g(3\).)63
+b(Finally)-11 b(,)46 b(matched)e(entities)h(establish)f(an)h(allo-)-365
+8391 y(cation)g(through)h(a)f(claiming)h(process)e(that)i(does)e(not)i
+(in)-7 b(v)m(olv)n(e)45 b(the)-365 8590 y(Matchmak)n(er)c(\(Step)h
+(4\).)-166 8790 y(Man)n(y)33 b(comple)n(x)f(and)h(useful)g(policies)g
+(may)g(be)g(de\002ned)g(within)-365 8989 y(this)80 b(frame)l(w)n(ork;)
+101 b(interested)80 b(readers)f(are)h(referred)h(to)f(refer)m(-)-365
+9188 y(ence)41 b([6])h(for)g(sophisticated)f(real-w)n(orld)h(e)n
+(xamples.)-365 9637 y Fi(2.)49 b(The)h(License)h(Management)f(Pr)l
+(oblem)-166 10052 y Fg(Man)n(y)e(programs)i(emplo)n(y)f(softw)n(are)g
+(licenses)f(to)h(implement)-365 10251 y(program)63 b(use)f(policies.)
+114 b(F)n(or)63 b(e)n(xample,)j(the)c(program)h(may)g(be)-365
+10451 y(v)l(alid)32 b(only)h(to)f(certain)g(users,)h(or)f(on)g(certain)
+g(w)n(orkstations)g(or)h(sub-)-365 10650 y(nets.)60 b(Softw)n(are)46
+b(licenses)d(must)i(therefore)g(be)g(managed)f(as)g(\002rst-)3948
+2456 y Fe([)69 b(Type)418 b(=)69 b("Machine";)4087 2589
+y(KeybrdIdle=)e('00:23:12';)g(//)i(h:m:s)4087 2722 y(Disk)418
+b(=)69 b(323.4M;)347 b(//)69 b(mbytes)4087 2855 y(Memory)278
+b(=)69 b(256M;)487 b(//)69 b(mbytes)4087 2988 y(LoadAvg)208
+b(=)69 b(0.042969;)4087 3121 y(Arch)418 b(=)69 b("INTEL";)4087
+3254 y(OpSys)417 b("LINUX";)4087 3386 y(KFlops)278 b(=)69
+b(21893;)4087 3519 y(Name)418 b(=)69 b("foo.cs.wisc.edu";)4087
+3652 y(Rank)418 b(=)69 b(1G)g(-)h(other.ImageSize;//smaller)63
+b(is)69 b(better)4087 3785 y(Constraint=)e(other.Type=="Job")e(&&)70
+b(other.Owner!="rival")4785 3918 y(&&)f(LoadAvg)f(<)h(0.3)g(&&)g
+(KeybrdIdle>'00:15')3948 4051 y(])4362 4582 y Fd(Figure)48
+b(1.)f(Classad)h(describing)g(a)f(Mac)n(hine)3948 5126
+y Fg(class)37 b(resources.)49 b(Ho)l(we)l(v)n(er)-7 b(,)38
+b(the)h(Matchmaking)f(solution)h(to)g(this)3948 5325
+y(problem)56 b(requires)f Fh(thr)-6 b(ee)55 b Fg(participants)g(in)h
+(the)f(match)h(\(i.e.,)h(job,)3948 5524 y(w)n(orkstation)44
+b(and)g(license\),)g(which)g(cannot)g(be)g(accomodated)f(by)3948
+5723 y(con)-7 b(v)n(entional)41 b(\(bilateral\))h(Matchmaking.)4147
+5928 y(W)-13 b(e)57 b(consider)h(the)g(follo)l(wing)g(speci\002c)g
+(problem:)85 b(A)58 b(job)g(re-)3948 6127 y(quires)47
+b(a)g(w)n(orkstation)h(and)f(a)g(softw)n(are)h(license)e(to)i(run)g
+(success-)3948 6326 y(fully)-11 b(.)51 b(Ho)l(we)l(v)n(er)-7
+b(,)38 b(there)h(are)g(a)g(limited)g(number)h(of)f(licenses,)f(each)
+3948 6525 y(of)k(which)f(is)g(v)l(alid)h(only)f(on)h(certain)f(w)n
+(orkstations.)4147 6730 y(The)f(g)o(ang-matching)g(solution)f(to)h
+(this)g(problem)g(may)f(be)h(eas-)3948 6929 y(ily)51
+b(generalized)g(to)g(enforce)h(more)f(sophisticated)g(license)f(man-)
+3948 7128 y(agement)86 b(policies,)97 b(and)87 b(solv)n(e)f(more)h
+(general)f(co-allocation)3948 7327 y(problems,)34 b(b)m(ut)g(a)f
+(detailed)h(discussion)e(of)i(these)f(issues)f(is)i(be)n(yond)3948
+7527 y(the)41 b(scope)g(of)h(this)f(paper)-9 b(.)3948
+8007 y Fi(3)o(.)50 b(Gang-Matching)4147 8453 y Fg(The)75
+b(g)o(ang-matching)h(e)n(xtension)e(replaces)h(a)g(re)n(gular)g(clas-)
+3948 8652 y(sad')-9 b(s)46 b(single)h(implicit)h(bilateral)f(match)g
+(imperati)l(v)n(e)f(with)i(an)f(e)n(x-)3948 8852 y(plicit)64
+b Fh(list)i Fg(of)e(required)g(bilateral)g(matches.)117
+b(The)64 b(classad)e(rep-)3948 9051 y(resenting)52 b(the)h(g)o
+(ang-match)g(request)g(for)g(the)g(Job-W)-13 b(orkstation-)3948
+9250 y(License)41 b(e)n(xample)f(is)h(illustrated)h(in)g(Figure)g(2.)
+4147 9454 y(The)g Ff(Ports)e Fg(attrib)m(ute)h(is)h(a)f(list)h(that)g
+(represents)f(the)g(matches)3948 9654 y(required)h(to)h(satisfy)f(the)g
+(job)-7 b(.)55 b(In)42 b(the)h(g)o(ang-matching)f(model,)h(bi-)3948
+9853 y(lateral)61 b(matching)h(occurs)g(between)f(ports)h(of)g
+(classads)e(instead)3948 10052 y(of)53 b(entire)g(classads)f(themselv)n
+(es.)84 b(Each)53 b(port)h(de\002nes)e(a)h Ff(Label)3948
+10251 y Fg(which)38 b(names)f(the)h(candidate)g(bound)g(to)h(that)f
+(port,)h(replacing)f(the)3948 10451 y(\002x)n(ed)f Ff(other)g
+Fg(pseudo-attrib)m(ute.)49 b(The)38 b(scope)f(of)i(a)f(label)f(e)n
+(xtends)3948 10650 y(from)i(the)f(port)g(of)h(declaration)e(to)i(the)f
+(end)g(of)g(the)g(port)h(list.)50 b(Thus,)p eop
+%%Page: 2 2
+2 1 bop -365 74 a Fe([)70 b(Type)138 b(=)70 b("Job";)-225
+206 y(Owner)e(=)i("raman";)-225 339 y(Cmd)208 b(=)70
+b("run_sim";)-225 472 y(Ports)e(=)i({)-156 605 y([)209
+b(//)70 b(request)d(a)j(workstation)-16 738 y(Label)e(=)i("cpu";)-16
+871 y(ImageSize)d(=)j(28M;)-16 1003 y(Rank)f(=)g(cpu.KFlops/1E3)d(+)k
+(cpu.Memory/32;)-16 1136 y(Constraint)d(=)123 1269 y
+(cpu.Type=="Machine")e(&&)k(cpu.Arch=="INTEL")d(&&)123
+1402 y(cpu.OpSys=="LINUX")f(&&)70 b(cpu.Memory>=Imagesize;)-156
+1535 y(],[)209 b(//)69 b(request)f(a)h(license)123 1668
+y(Label)g(=)g("license";)123 1800 y(Host)g(=)h(cpu.Name;)d(//)i(cpu)g
+(name)123 1933 y(Rank)g(=)h(0;)123 2066 y(Constraint)d(=)263
+2199 y(license.Type=="License")d(&&)69 b(license.App==Cmd;)123
+2332 y(])h(})f(])359 2863 y Fd(Figure)48 b(2.)e(A)g(gang\255matc)n(h)k
+(request)-365 3195 y Fe([)70 b(Type)138 b(=)70 b("License";)-225
+3328 y(App)208 b(=)70 b("sim_app";)-225 3460 y(ValidHost=)d
+("foo.cs.wisc.edu";)-225 3593 y(Ports)h(=)i({)f([)h(Label)e(=)h
+("requester";)612 3726 y(Rank)138 b(=)69 b(0;)612 3859
+y(Constraint=requester.Type=="Job")890 3992 y(&&)h
+(requester.Host==ValidHost)542 4125 y(])f(})h(])325 4656
+y Fd(Figure)48 b(3.)f(License)h(Ad)n(ver)s(tisement)-365
+5209 y Fg(e)n(xpressions)i(in)i(the)g(\223license\224)f(port)h(can)f
+(refer)i(to)f(the)f(\223cpu\224)h(la-)-365 5409 y(bel)j(b)m(ut)f(not)h
+Fh(vice)e(ver)n(sa)p Fg(.)89 b(Port)56 b(labels)d(are)i(pri)l(v)l(ate)f
+(and)g(local)h(to)-365 5608 y(the)40 b(hosting)g(classad)e(to)j(pre)l
+(v)n(ent)e(namespace)f(pollution)j(and)f(col-)-365 5807
+y(lisions.)-166 6016 y(Since)d(label)f(scopes)e(e)n(xtend)i(be)n(yond)f
+(the)h(port)h(of)f(declaration,)-365 6215 y(information)63
+b(may)e(be)g(con)-7 b(v)n(e)n(yed)60 b(from)i(one)f(match)g(locality)h
+(to)-365 6415 y(another)-9 b(.)48 b(From)34 b(Figures)e(2)h(and)g(3,)h
+(we)e(see)g(that)g(the)h(license')-9 b(s)32 b(con-)-365
+6614 y(straint)50 b(on)g Ff(requester.Host)45 b Fg(is)50
+b(con)-7 b(v)n(e)n(yed)49 b(to)h Ff(cpu.Name)-365 6813
+y Fg(by)d(the)g(job)f(classad.)66 b(Thus,)47 b(the)g(gi)l(v)n(en)f
+(license)g(is)g(only)h(v)l(alid)g(on)-365 7012 y(the)42
+b(machine)f(\223foo.cs.wisc.edu.)-12 b(\224)-365 7457
+y Fc(3.1)q(.)45 b(Cr)m(eating)g(Gang\255Matches)-166
+7901 y Fg(Intuiti)l(v)n(ely)-11 b(,)37 b(a)e(g)o(ang-match)g(is)h
+(obtained)f(by)g(binding)h(each)e(un-)-365 8101 y(bound)f(port)g(of)g
+(a)f(classad)f(to)i(a)f(compatible)h(port)g(of)g(a)f(ne)l(w)g(classad)
+-365 8300 y(until)50 b(all)g(ports)g(are)g(bound.)75
+b(Our)50 b(algorithm)h(proceeds)e(by)g(pick-)-365 8499
+y(ing)36 b(job)g(classads)e(in)i(priority)h(order)f(and)g(then)g(using)
+f(a)h(top-do)l(wn,)-365 8698 y(backtracking)c(algorithm)i(to)f
+(marshall)f(the)h(required)g(g)o(ang.)48 b(Since)-365
+8898 y(only)d(a)f(single)g(job)g(is)g(serv)n(ed)f(at)i(a)f(time,)g
+(deadlock)g(is)g(pre)l(v)n(ented.)-365 9097 y(P)n(artial)53
+b(e)l(v)l(aluation)f(and)h(inde)n(xing)f(of)h(both)g(attrib)m(utes)f
+(and)h(con-)-365 9296 y(straints)35 b(f)n(acilitate)h(ef)l(\002cient)f
+(identi\002cation)h(of)g(compatible)f(ports.)-365 9790
+y Fi(4.)49 b(Related)i(W)-15 b(ork)-166 10251 y Fg(Matchmaking)59
+b(is)g(widely)g(studied)g(in)g(agent)g(systems.)103 b(The)-365
+10451 y(adv)n(ertising)58 b(languages)f(of)i(A)-7 b(CL)58
+b([2)q(])g(and)g(RETSIN)-6 b(A)60 b([7])f(sup-)-365 10650
+y(port)j(reasoning)e(so)h(that)g(v)n(ery)g(general)g(beha)m(viors)f
+(may)h(be)g(de-)3948 166 y(scribed)56 b(and)h(inferred.)99
+b(In)58 b(contrast)f(to)g(these)f(kno)l(wledge-base)3948
+365 y(representations,)40 b(classads)g(emplo)n(y)i(a)f(database)f
+(representation.)4147 565 y(Man)n(y)67 b(resource)g(management)h
+(systems)f([8,)g(4,)h(3])g(process)3948 764 y(jobs)35
+b(by)h(using)g(resources)f(that)h(are)g(identi\002ed)g(e)n(xplicitly)g
+(through)3948 963 y(a)47 b(job)h(control)h(language,)f(or)g(implicitly)
+-11 b(,)50 b(by)e(submitting)g(the)g(job)3948 1162 y(to)61
+b(a)f(queue)g(associated)f(with)i(a)g(resource)f(set.)108
+b(Jobs)59 b(requiring)3948 1362 y(multiple)51 b(resources)e(must)i(be)f
+(submitted)h(to)g(special)e(queues)h(\227)3948 1561 y(there)g(is)h(no)f
+(general)h(mechanism)f(to)h(marshal)f(a)g(unique)h(mix)g(of)3948
+1760 y(resources.)100 b(In)58 b(Glob)m(us)g([1],)k(customers)c
+(describe)f(required)i(re-)3948 1959 y(sources)33 b(in)i(a)f(resource)g
+(speci\002cation)g(language)g(\(RSL\))i(based)d(on)3948
+2159 y(a)52 b(pre-de\002ned)g(schema)f(of)h(the)g(resources)f
+(database.)82 b(Ho)l(we)l(v)n(er)-7 b(,)3948 2358 y(resources)54
+b(cannot)h(place)g(constraints)g(on)g(requests,)j(precluding)3948
+2557 y(policies)41 b(such)g(as)f(the)i(Job-License-W)-13
+b(orkstation)41 b(e)n(xample.)3948 3008 y Fi(5)o(.)50
+b(Conclusions)e(and)h(Futur)l(e)i(Resear)l(ch)4147 3426
+y Fg(Bilateral)42 b(matchmaking)h(is)f(implemented)h(and)f(hea)m(vily)g
+(used)3948 3625 y(in)i(the)g(production)h(releases)d(of)j(the)f(Condor)
+g(system.)58 b(The)44 b(\003e)n(xi-)3948 3825 y(bility)37
+b(and)g(generality)f(of)i(this)e(approach)h(in)g(highly)g(dynamic)f
+(and)3948 4024 y(distrib)m(uted)g(en)-7 b(vironments)36
+b(ha)m(v)n(e)f(been)g(e)n(xperienced)g(in)h(practice.)3948
+4223 y(W)-13 b(e)52 b(are)h(in)g(the)g(process)f(of)h(inte)n(grating)g
+(g)o(ang-matching)h(e)n(xten-)3948 4422 y(sions)48 b(to)i(the)f
+(bilateral)h(frame)l(w)n(ork.)75 b(W)-13 b(e)48 b(are)h(also)g(in)-7
+b(v)n(estig)o(ating)3948 4622 y(optimization)42 b(techniques)f(to)h
+(increase)e(the)i(ef)l(\002cienc)n(y)f(of)h(identi-)3948
+4821 y(fying)50 b(g)o(angs,)i(and)e(de\002ning)g(impro)n(v)n(ed)g
+(protocols)g(for)h(adv)n(ertis-)3948 5020 y(ing)41 b(and)h(claiming.)
+3948 5471 y Fi(Refer)l(ences)3967 5873 y Fb([1])82 b(K.)38
+b(Czajk)o(o)l(wski,)e(I.)i(F)n(oster)-6 b(,)37 b(C.)h(K)l(esselman,)h
+(S.)f(Martin,)e(W)-14 b(.)39 b(Smith,)4224 6055 y(and)61
+b(S.)f(T)-7 b(ueck)o(e.)129 b(A)60 b(Resource)h(Management)g
+(Architecture)e(for)4224 6238 y(Metacomputing)36 b(Systems.)3967
+6405 y([2])82 b(M.)33 b(Genesereth,)g(,)h(N.)e(Singh,)g(and)g(M.)g
+(Syed.)42 b(A)32 b(distrib)m(uted)d(anon)n(y-)4224 6588
+y(mous)j(kno)l(wledge)f(sharing)g(approach)h(to)f(softw)o(are)g
+(interoperation.)4224 6771 y(In)38 b Fa(Pr)-7 b(oc.)39
+b(of)f(the)f(Int'l)g(Symposium)g(on)g(F)-7 b(ifth)38
+b(Gener)n(ation)e(Comput-)4224 6953 y(ing)h(Systems)p
+Fb(,)h(pages)f(125\226139,)f(1994.)3967 7121 y([3])82
+b(R.)39 b(Henderson)g(and)g(D.)g(T)-12 b(weten.)60 b(Portable)38
+b(Batch)g(System:)50 b(Exter)m(-)4224 7303 y(nal)j(reference)g
+(speci\002cation.)102 b(T)-10 b(echnical)52 b(report,)k(N)-5
+b(ASA,)53 b(Ames)4224 7486 y(Research)38 b(Center)-6
+b(,)38 b(1996.)3967 7654 y([4])82 b(B.)40 b(C.)f(Neumann)g(and)g(S.)h
+(Rao.)60 b(The)40 b(prospero)e(resource)h(manager:)4224
+7836 y(A)48 b(scalable)g(frame)l(w)o(ork)e(for)h(processor)g
+(allocation)f(in)h(distrib)m(uted)4224 8019 y(systems.)55
+b Fa(Concurr)-6 b(ency:)47 b(Pr)n(actice)37 b(and)f(Experience)p
+Fb(,)j(June)f(1994.)3967 8186 y([5])82 b(R.)46 b(Raman,)j(M.)d(Li)l(vn)
+n(y)-10 b(,)47 b(and)f(M.)f(Solomon.)80 b(Matchmaking:)62
+b(Dis-)4224 8369 y(trib)m(uted)55 b(resource)j(management)f(for)g
+(high-throughput)52 b(comput-)4224 8552 y(ing.)44 b(In)33
+b Fa(Pr)-7 b(oc.)34 b(of)f(the)f(7th)g(IEEE)i(Int'l)e(Symp)g(on)h(High)
+f(P)-12 b(erformance)4224 8734 y(Distrib)m(uted)36 b(Computing)e
+(\(HPDC7\))p Fb(,)j(July)f(1998.)3967 8902 y([6])82 b(R.)52
+b(Raman,)57 b(M.)52 b(Li)l(vn)n(y)-10 b(,)56 b(and)c(M.)g(Solomon.)100
+b(Matchmaking:)75 b(An)4224 9084 y(e)n(xtensible)67 b(frame)l(w)o(ork)g
+(for)g(distib)m(uted)e(resource)j(management.)4224 9267
+y Fa(Cluster:)105 b(J)l(ournal)67 b(of)f(Softwar)-6 b(e)o(,)74
+b(Networks)67 b(and)f(Applications)p Fb(,)4224 9450 y(2\(2\),)37
+b(1999.)3967 9617 y([7])82 b(K.)31 b(Sycara,)h(K.)e(Deck)o(er)-6
+b(,)32 b(A.)f(P)n(annu,)g(M.)f(W)-6 b(illiamson,)31 b(and)e(D.)i(Zeng.)
+4224 9800 y(Distrib)m(uted)g(intelligent)g(agents.)46
+b Fa(IEEE)34 b(Expert)p Fb(,)h(pages)f(36\22646,)f(dec)4224
+9982 y(1996.)3967 10150 y([8])82 b(S.)42 b(Zhou.)68 b(LSF:)42
+b(Load)g(sharing)e(in)h(lar)m(ge-scale)i(heterogenous)d(dis-)4224
+10332 y(trib)m(uted)k(systems.)83 b(In)46 b Fa(Pr)-7
+b(oc.)47 b(W)-14 b(orkshop)47 b(on)e(Cluster)h(Computing)p
+Fb(,)4224 10515 y(1992.)3719 11148 y Fg(2)p eop
+%%Trailer
+end
+userdict /end-hook known{end-hook}if
+%%EOF

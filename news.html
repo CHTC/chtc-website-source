@@ -1,0 +1,32 @@
+---
+highlighter: none
+layout: markdown-page
+title: News
+---
+
+{% assign articles = site.news %}
+{% assign num_articles = articles.size %}
+{% assign num_articles_sub_one = num_articles | minus: 1 %}
+
+{% for article_index in (0..num_articles_sub_one) %}
+
+<h2 class="uw-mini-bar">
+{% if articles[article_index].external_url %}
+    <a href="{{ articles[article_index].external_url }}">
+{% else %}
+    <a href="{{ articles[article_index].url | relative_url }}">
+{% endif %}
+    {{ articles[article_index].title }}
+    </a>
+</h2>
+
+<h3 class="mt-0 text-muted">{{ articles[article_index].date | date_to_long_string }}</h3>
+<p>
+    {{ articles[article_index].excerpt }}
+</p>
+
+{% unless article_index == num_articles_sub_one %}
+<hr/>
+{% endunless %}
+{% endfor %}
+

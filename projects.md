@@ -21,7 +21,6 @@ title: Projects Using the CHTC
                 Many researchers are currently using the CHTC for computational tasks.
                 Here are descriptions of some of the researchers and research groups
                 at the University of Wisconsin that work closely with the CHTC.
-                <a href="{{ '/map' | relative_url }}">See where CHTC users are located on campus</a>.
             </p>
 		</div>
 	</div>

@@ -10,7 +10,7 @@ computational task into many smaller tasks for the fastest overall
 turnaround. Most of our users find HTC to be invaluable 
 in accelerating their computational work and thus their research. 
 We support thousands of multi-core computers and use the task
-scheduling software called <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>, developed right here in Madison, to
+scheduling software called <a href="http://htcondor.org">HTCondor</a>, developed right here in Madison, to
 run thousands of independent jobs on as many total processors as
 possible. These computers, or "machines", are distributed across several 
 collections that we call *pools* (similar to "clusters"). Because machines are
@@ -61,8 +61,8 @@ inter-node networking.
 While you may be excited at the prospect of harnessing 100,000 compute
 hours a day for your research, the most valuable thing we offer is,
 well, us. We have a small, yet dedicated team of professionals who eat,
-breathe and sleep distributed computing. [Request an
-account](get-started), and one of our dedicated Research Computing
+breathe and sleep distributed computing. If you are a UW-Madison Researcher, you can [request an
+account](uw-research-computing/get-started), and one of our dedicated Research Computing
 Facilitators will follow up to provide specific recommendations to
 accelerate YOUR science.
 

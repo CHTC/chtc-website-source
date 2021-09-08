@@ -1,0 +1,10 @@
+<div class="row justify-content-center {{ include.class }}">
+    <div class="col-10 col-md-8">
+        <h1><a href="{{ include.href }}">{{ include.title }}</a></h1>
+        <p>{{ include.desc }}</p>
+    </div>
+    <div class="col-1 d-md-block d-none"></div>
+    <a href="{{ include.href }}" class="col-3 d-md-flex d-none">
+        <img class="w-100 mt-auto mb-auto" src="{{ include.img_src | relative_url }}" alt="{{ include.img_alt }}" />
+    </a>
+</div>
