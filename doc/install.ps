@@ -1,0 +1,6804 @@
+%!PS-Adobe-1.0
+%%Creator: goya:condor ()
+%%Title: stdin (ditroff)
+%%CreationDate: Wed Oct  9 23:08:15 1991
+%%EndComments
+% Start of psdit.pro -- prolog for ditroff translator
+% Copyright (c) 1985,1987 Adobe Systems Incorporated. All Rights Reserved. 
+% GOVERNMENT END USERS: See Notice file in TranScript library directory
+% -- probably /usr/lib/ps/Notice
+% RCS: $Header: /p/condor/repository/CONDOR_SRC/doc/POSTSCRIPT/install.PS,v 1.1.1.1 1993/11/29 23:16:43 condor Exp $
+/$DITroff 180 dict def $DITroff begin
+
+/DocumentInitState [ matrix currentmatrix currentlinewidth currentlinecap
+currentlinejoin currentdash currentgray currentmiterlimit ] cvx def
+
+%% Psfig additions
+/startFig {
+	/SavedState save def
+	userdict maxlength dict begin
+	currentpoint transform
+
+	DocumentInitState setmiterlimit setgray setdash setlinejoin setlinecap
+		setlinewidth setmatrix
+
+	itransform moveto
+
+	/ury exch def
+	/urx exch def
+	/lly exch def
+	/llx exch def
+	/y exch 72 mul resolution div def
+	/x exch 72 mul resolution div def
+	
+	currentpoint /cy exch def /cx exch def
+
+	/sx x urx llx sub div def 	% scaling for x
+	/sy y ury lly sub div def	% scaling for y
+
+	sx sy scale			% scale by (sx,sy)
+
+	cx sx div llx sub
+	cy sy div ury sub translate
+	
+	/DefFigCTM matrix currentmatrix def
+
+	/initmatrix {
+		DefFigCTM setmatrix
+	} def
+	/defaultmatrix {
+		DefFigCTM exch copy
+	} def
+
+	/initgraphics {
+		DocumentInitState setmiterlimit setgray setdash 
+			setlinejoin setlinecap setlinewidth setmatrix
+		DefFigCTM setmatrix
+	} def
+
+	/showpage {
+		initgraphics
+	} def
+
+} def
+% Args are llx lly urx ury (in figure coordinates)
+/clipFig {
+	currentpoint 6 2 roll
+	newpath 4 copy
+	4 2 roll moveto
+	6 -1 roll exch lineto
+	exch lineto
+	exch lineto
+	closepath clip
+	newpath
+	moveto
+} def
+% doclip, if called, will always be just after a `startfig'
+/doclip { llx lly urx ury clipFig } def
+/endFig {
+	end SavedState restore
+} def
+/globalstart {
+	% Push details about the enviornment on the stack.
+	fontnum fontsize fontslant fontheight 
+	% firstpage 
+	mh my resolution slotno currentpoint 
+	pagesave restore gsave 
+} def
+/globalend {
+	grestore moveto
+	/slotno exch def /resolution exch def /my exch def
+	/mh exch def 
+	% /firstpage exch def
+	/fontheight exch def
+	/fontslant exch def /fontsize exch def /fontnum exch def
+	F
+	/pagesave save def
+} def
+
+%% end XMOD additions
+
+/fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def
+/xi {0 72 11 mul translate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/xiG {0 72 14 mul translate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/xiL {90 rotate 72 resolution div dup neg scale 0 0 moveto
+  /fontnum 1 def /fontsize 10 def /fontheight 10 def /fontslant 0 def F
+  /pagesave save def}def
+/@manualfeed {statusdict /manualfeed true put}def
+/PB{save /psv exch def currentpoint translate
+  resolution 72 div dup neg scale 0 0 moveto}def
+/PE{psv restore}def
+/m1 matrix def /m2 matrix def /m3 matrix def /oldmat matrix def
+/tan{dup sin exch cos div}bind def
+/point{resolution 72 div mul}bind def
+/dround	{transform round exch round exch itransform}bind def
+/xT{/devname exch def}def
+/xr{/mh exch def /my exch def /resolution exch def}def
+/xp{}def
+/xs{docsave restore end}def
+/xt{}def
+/xf{/fontname exch def /slotno exch def fontnames slotno get fontname eq not
+ {fonts slotno fontname findfont put fontnames slotno fontname put}if}def
+/xH{/fontheight exch def F}bind def
+/xS{/fontslant exch def F}bind def
+/s{/fontsize exch def /fontheight fontsize def F}bind def
+/f{/fontnum exch def F}bind def
+/F{fontheight 0 le {/fontheight fontsize def}if
+   fonts fontnum get fontsize point 0 0 fontheight point neg 0 0 m1 astore
+   fontslant 0 ne{1 0 fontslant tan 1 0 0 m2 astore m3 concatmatrix}if
+   makefont setfont .04 fontsize point mul 0 dround pop setlinewidth}bind def
+/X{exch currentpoint exch pop moveto show}bind def
+/N{3 1 roll moveto show}bind def
+/Y{exch currentpoint pop exch moveto show}bind def
+/S /show load def
+/ditpush{}def/ditpop{}def
+/AX{3 -1 roll currentpoint exch pop moveto 0 exch ashow}bind def
+/AN{4 2 roll moveto 0 exch ashow}bind def
+/AY{3 -1 roll currentpoint pop exch moveto 0 exch ashow}bind def
+/AS{0 exch ashow}bind def
+/MX{currentpoint exch pop moveto}bind def
+/MY{currentpoint pop exch moveto}bind def
+/MXY /moveto load def
+/cb{pop}def	% action on unknown char -- nothing for now
+/n{}def/w{}def
+/p{pop showpage pagesave restore /pagesave save def}def
+/abspoint{currentpoint exch pop add exch currentpoint pop add exch}def
+/dstroke{currentpoint stroke moveto}bind def
+/Dg{gsave}def
+/Dgi{rlineto}def
+/Dgl{stroke grestore moveto}def
+/Dl{2 copy gsave rlineto stroke grestore rmoveto}bind def
+/arcellipse{oldmat currentmatrix pop
+ currentpoint translate 1 diamv diamh div scale /rad diamh 2 div def
+ rad 0 rad -180 180 arc oldmat setmatrix}def
+/Dc{gsave dup /diamv exch def /diamh exch def arcellipse dstroke 
+    grestore diamh 0 rmoveto}def
+/De{gsave /diamv exch def /diamh exch def arcellipse dstroke
+    grestore diamh 0 rmoveto}def
+/Da{currentpoint /by exch def /bx exch def /fy exch def /fx exch def
+   /cy exch def /cx exch def /rad cx cx mul cy cy mul add sqrt def
+   /ang1 cy neg cx neg atan def /ang2 fy fx atan def cx bx add cy by add
+   2 copy rad ang1 ang2 arcn stroke exch fx add exch fy add moveto}def
+/Barray 200 array def % 200 values in a wiggle
+/D~{mark}def
+/D~~{counttomark Barray exch 0 exch getinterval astore /Bcontrol exch def pop
+ /Blen Bcontrol length def Blen 4 ge Blen 2 mod 0 eq and
+ {Bcontrol 0 get Bcontrol 1 get abspoint /Ycont exch def /Xcont exch def
+  Bcontrol 0 2 copy get 2 mul put Bcontrol 1 2 copy get 2 mul put
+  Bcontrol Blen 2 sub 2 copy get 2 mul put
+  Bcontrol Blen 1 sub 2 copy get 2 mul put
+  /Ybi /Xbi currentpoint 3 1 roll def def 0 2 Blen 4 sub
+  {/i exch def
+   Bcontrol i get 3 div Bcontrol i 1 add get 3 div
+   Bcontrol i get 3 mul Bcontrol i 2 add get add 6 div
+   Bcontrol i 1 add get 3 mul Bcontrol i 3 add get add 6 div
+   /Xbi Xcont Bcontrol i 2 add get 2 div add def
+   /Ybi Ycont Bcontrol i 3 add get 2 div add def
+   /Xcont Xcont Bcontrol i 2 add get add def
+   /Ycont Ycont Bcontrol i 3 add get add def
+   Xbi currentpoint pop sub Ybi currentpoint exch pop sub rcurveto
+  }for dstroke}if}def
+end
+/ditstart{$DITroff begin
+ /nfonts 60 def			% NFONTS makedev/ditroff dependent!
+ /fonts[nfonts{0}repeat]def
+ /fontnames[nfonts{()}repeat]def
+/docsave save def
+}def
+
+% character outcalls
+/oc {/pswid exch def /cc exch def /name exch def
+   /ditwid pswid fontsize mul resolution mul 72000 div def
+   /ditsiz fontsize resolution mul 72 div def
+   ocprocs name known{ocprocs name get exec}{name cb}
+   ifelse}def
+/fractm [.65 0 0 .6 0 0] def
+/fraction
+ {/fden exch def /fnum exch def gsave /cf currentfont def
+  cf fractm makefont setfont 0 .3 dm 2 copy neg rmoveto
+  fnum show rmoveto currentfont cf setfont(\244)show setfont fden show 
+  grestore ditwid 0 rmoveto} def
+/oce {grestore ditwid 0 rmoveto}def
+/dm {ditsiz mul}def
+/ocprocs 50 dict def ocprocs begin
+(14){(1)(4)fraction}def
+(12){(1)(2)fraction}def
+(34){(3)(4)fraction}def
+(13){(1)(3)fraction}def
+(23){(2)(3)fraction}def
+(18){(1)(8)fraction}def
+(38){(3)(8)fraction}def
+(58){(5)(8)fraction}def
+(78){(7)(8)fraction}def
+(sr){gsave .05 dm .16 dm rmoveto(\326)show oce}def
+(is){gsave 0 .15 dm rmoveto(\362)show oce}def
+(->){gsave 0 .02 dm rmoveto(\256)show oce}def
+(<-){gsave 0 .02 dm rmoveto(\254)show oce}def
+(==){gsave 0 .05 dm rmoveto(\272)show oce}def
+end
+% DIThacks fonts for some special chars
+50 dict dup begin
+/FontType 3 def
+/FontName /DIThacks def
+/FontMatrix [.001 0.0 0.0 .001 0.0 0.0] def
+/FontBBox [-220 -280 900 900] def% a lie but ...
+/Encoding 256 array def
+0 1 255{Encoding exch /.notdef put}for
+Encoding
+ dup 8#040/space put %space
+ dup 8#110/rc put %right ceil
+ dup 8#111/lt put %left  top curl
+ dup 8#112/bv put %bold vert
+ dup 8#113/lk put %left  mid curl
+ dup 8#114/lb put %left  bot curl
+ dup 8#115/rt put %right top curl
+ dup 8#116/rk put %right mid curl
+ dup 8#117/rb put %right bot curl
+ dup 8#120/rf put %right floor
+ dup 8#121/lf put %left  floor
+ dup 8#122/lc put %left  ceil
+ dup 8#140/sq put %square
+ dup 8#141/bx put %box
+ dup 8#142/ci put %circle
+ dup 8#143/br put %box rule
+ dup 8#144/rn put %root extender
+ dup 8#145/vr put %vertical rule
+ dup 8#146/ob put %outline bullet
+ dup 8#147/bu put %bullet
+ dup 8#150/ru put %rule
+ dup 8#151/ul put %underline
+ pop
+/DITfd 100 dict def
+/BuildChar{0 begin
+ /cc exch def /fd exch def
+ /charname fd /Encoding get cc get def
+ /charwid fd /Metrics get charname get def
+ /charproc fd /CharProcs get charname get def
+ charwid 0 fd /FontBBox get aload pop setcachedevice
+ 40 setlinewidth
+ newpath 0 0 moveto gsave charproc grestore
+ end}def
+/BuildChar load 0 DITfd put
+%/UniqueID 5 def
+/CharProcs 50 dict def
+CharProcs begin
+/space{}def
+/.notdef{}def
+/ru{500 0 rls}def
+/rn{0 750 moveto 500 0 rls}def
+/vr{20 800 moveto 0 -770 rls}def
+/bv{20 800 moveto 0 -1000 rls}def
+/br{20 770 moveto 0 -1040 rls}def
+/ul{0 -250 moveto 500 0 rls}def
+/ob{200 250 rmoveto currentpoint newpath 200 0 360 arc closepath stroke}def
+/bu{200 250 rmoveto currentpoint newpath 200 0 360 arc closepath fill}def
+/sq{80 0 rmoveto currentpoint dround newpath moveto
+    640 0 rlineto 0 640 rlineto -640 0 rlineto closepath stroke}def
+/bx{80 0 rmoveto currentpoint dround newpath moveto
+    640 0 rlineto 0 640 rlineto -640 0 rlineto closepath fill}def
+/ci{355 333 rmoveto currentpoint newpath 333 0 360 arc
+    50 setlinewidth stroke}def
+
+/lt{20 -200 moveto 0 550 rlineto currx 800 2cx s4 add exch s4 a4p stroke}def
+/lb{20 800 moveto 0 -550 rlineto currx -200 2cx s4 add exch s4 a4p stroke}def
+/rt{20 -200 moveto 0 550 rlineto currx 800 2cx s4 sub exch s4 a4p stroke}def
+/rb{20 800 moveto 0 -500 rlineto currx -200 2cx s4 sub exch s4 a4p stroke}def
+/lk{20 800 moveto 20 300 -280 300 s4 arcto pop pop 1000 sub
+    currentpoint stroke moveto
+    20 300 4 2 roll s4 a4p 20 -200 lineto stroke}def
+/rk{20 800 moveto 20 300 320 300 s4 arcto pop pop 1000 sub
+    currentpoint stroke moveto
+    20 300 4 2 roll s4 a4p 20 -200 lineto stroke}def
+/lf{20 800 moveto 0 -1000 rlineto s4 0 rls}def
+/rf{20 800 moveto 0 -1000 rlineto s4 neg 0 rls}def
+/lc{20 -200 moveto 0 1000 rlineto s4 0 rls}def
+/rc{20 -200 moveto 0 1000 rlineto s4 neg 0 rls}def
+end
+
+/Metrics 50 dict def Metrics begin
+/.notdef 0 def
+/space 500 def
+/ru 500 def
+/br 0 def
+/lt 250 def
+/lb 250 def
+/rt 250 def
+/rb 250 def
+/lk 250 def
+/rk 250 def
+/rc 250 def
+/lc 250 def
+/rf 250 def
+/lf 250 def
+/bv 250 def
+/ob 350 def
+/bu 350 def
+/ci 750 def
+/bx 750 def
+/sq 750 def
+/rn 500 def
+/ul 500 def
+/vr 0 def
+end
+
+DITfd begin
+/s2 500 def /s4 250 def /s3 333 def
+/a4p{arcto pop pop pop pop}def
+/2cx{2 copy exch}def
+/rls{rlineto stroke}def
+/currx{currentpoint pop}def
+/dround{transform round exch round exch itransform} def
+end
+end
+/DIThacks exch definefont pop
+
+ditstart
+(psc)xT
+576 1 1 xr
+1(Times-Roman)xf 1 f
+2(Times-Italic)xf 2 f
+3(Times-Bold)xf 3 f
+4(Times-BoldItalic)xf 4 f
+5(Helvetica)xf 5 f
+6(Helvetica-Bold)xf 6 f
+7(Courier)xf 7 f
+8(Courier-Bold)xf 8 f
+9(Symbol)xf 9 f
+10(DIThacks)xf 10 f
+10 s
+1 f
+xi
+%%EndProlog
+
+%%Page: 1 1
+10 s 10 xH 0 xS 1 f
+18 s
+1216 1155(CO)N
+(N)S
+1520(D)X
+1624(O)X
+1728(R)X
+1860(IN)X
+2012(STA)X
+(LLA)S
+2564(TIO)X
+2804(N)X
+2944(G)X
+3048(U)X
+3152(ID)X
+3304(E)X
+2 f
+10 s
+2038 1311(Michael)N
+2321(Litzkow)X
+1 f
+1794 1491(Computer)N
+2134(Sciences)X
+2435(Department)X
+1739 1581(University)N
+2097(of)X
+2184(Wisconsin)X
+2542(-)X
+2589(Madison)X
+2002 1671(mike@cs.wisc.edu)N
+3 f
+576 2178(1.)N
+676(GENERAL)X
+1 f
+896 2301(This)N
+1063(document)X
+1404(explains)X
+1696(how)X
+1859(to)X
+1946(create)X
+2164(and)X
+2305(install)X
+2 f
+2525(condor)X
+1 f
+2777(from)X
+2959(the)X
+3083(source.)X
+3 f
+3359(To)X
+3478(do)X
+3588(this,)X
+3758(you)X
+3908(will)X
+696 2391(need)N
+879(the)X
+1009(capability)X
+1369(of)X
+1459(becoming)X
+1811(super)X
+2025(user)X
+2195(on)X
+2302(all)X
+2408(of)X
+2497(the)X
+2626(machines)X
+2968(where)X
+3200(you)X
+3346(want)X
+3537(condor)X
+3799(to)X
+3888(run.)X
+1 f
+696 2481(We)N
+830(also)X
+981(assume)X
+1239(that)X
+1381(you)X
+1523(are)X
+1645(familiar)X
+1922(with)X
+2087(local)X
+2266(procedures)X
+2642(for)X
+2759(creating)X
+3041(UNIX)X
+9 f
+3242(\322)X
+1 f
+3328(accounts,)X
+3652(and)X
+3791(allocat-)X
+696 2571(ing)N
+820(user)X
+976(and)X
+1114(group)X
+1323(id)X
+1407(numbers.)X
+1745(In)X
+1834(addition,)X
+2138(if)X
+2209(you)X
+2351(wish)X
+2524(to)X
+2608(use)X
+2737(NFS)X
+9 f
+2883(\322)X
+1 f
+2968(to)X
+3052(share)X
+3244(some)X
+3435(of)X
+3524(the)X
+2 f
+3644(condor)X
+1 f
+3893(exe-)X
+696 2661(cutables)N
+991(and)X
+1138(libraries)X
+1432(between)X
+1731(machines,)X
+2085(you)X
+2236(will)X
+2391(need)X
+2574(to)X
+2667(be)X
+2774(familiar)X
+3059(with)X
+3232(exporting)X
+3570(and)X
+3717(importing)X
+696 2751(NFS)N
+862(\256le)X
+984(systems.)X
+3 f
+576 2937(2.)N
+676(REQUIRED)X
+1127(TOOLS)X
+1 f
+896 3060(Building)N
+1196(this)X
+1332(version)X
+1589(of)X
+2 f
+1677(condor)X
+1 f
+1925(requires)X
+2205(use)X
+2334(of)X
+2 f
+2423(imake)X
+1 f
+2637(and)X
+2 f
+2775(makedepend)X
+1 f
+3199(which)X
+3417(are)X
+3538(part)X
+3685(of)X
+3774(the)X
+3894(X11)X
+696 3150(distribution.)N
+2 f
+1129(Imake)X
+1 f
+1351(is)X
+1429(a)X
+1490(program)X
+1787(for)X
+1906(creating)X
+2190(``Make\256les'')X
+2639(which)X
+2860(are)X
+2984(customized)X
+3374(for)X
+3493(a)X
+3553(particular)X
+3885(plat-)X
+696 3240(form)N
+877(and)X
+1018(local)X
+1200(environment.)X
+1671(This)X
+1839(is)X
+1918(accomplished)X
+2385(by)X
+2491(combining)X
+2859(information)X
+3263(in)X
+3351(a)X
+3413(generic)X
+3676(description)X
+696 3330(of)N
+784(a)X
+841(``Make\256le'',)X
+1274(called)X
+1486(an)X
+1582(``Imake\256le'',)X
+2033(along)X
+2231(with)X
+2393(con\256guration)X
+2840(\256les)X
+2993(which)X
+3209(have)X
+3381(been)X
+3553(customized)X
+3938(for)X
+696 3420(your)N
+875(particular)X
+1215(platform)X
+1523(and)X
+1671(your)X
+1850(local)X
+2038(site.)X
+2 f
+2222(Makedepend)X
+1 f
+2666(is)X
+2752(a)X
+2821(program)X
+3126(for)X
+3253(adding)X
+3504(dependencies)X
+3970(to)X
+696 3510(``Make\256les'')N
+1148(for)X
+1270(C)X
+1351(programs)X
+1681(which)X
+1904(use)X
+2038(various)X
+2301(include)X
+2564(\256les.)X
+2764(These)X
+2983(tools)X
+3165(are)X
+3291(available)X
+3608(from)X
+3791(MIT)X
+3965(as)X
+696 3600(part)N
+844(of)X
+934(the)X
+1055(X11)X
+1216(distribution.)X
+1647(In)X
+1737(case)X
+1899(you)X
+2042(do)X
+2145(not)X
+2270(have)X
+2445(them,)X
+2648(they)X
+2809(are)X
+2931(included)X
+3231(in)X
+3317(this)X
+3456(distribution)X
+3848(in)X
+3934(the)X
+696 3690("CONDOR/imake_tools")N
+1542(directory.)X
+1901(Instructions)X
+2308(for)X
+2431(building)X
+2726(them)X
+2915(are)X
+3043(given)X
+3250(in)X
+3340(a)X
+3404(separate)X
+3696(document,)X
+696 3780(``Building)N
+1049(Imake,)X
+1290(Cpp,)X
+1463(and)X
+1599(Makedepend''.)X
+3 f
+576 3966(3.)N
+676(OPERATIONS)X
+1224(IN)X
+1333(A)X
+1411(HETEROGENEOUS)X
+2162(ENVIRONMENT)X
+1 f
+896 4089(Most)N
+1081(local)X
+1258(area)X
+1414(networks)X
+1729(contain)X
+1986(a)X
+2043(variety)X
+2287(of)X
+2375(machine)X
+2668(and)X
+2805(operating)X
+3129(system)X
+3372(types.)X
+3603(We)X
+3737(refer)X
+3912(to)X
+3996(a)X
+696 4179(particular)N
+1031(combination)X
+1457(of)X
+1550(machine)X
+1848(architecture)X
+2254(and)X
+2396(UNIX)X
+2623(variant)X
+2872(as)X
+2965(a)X
+3027(``platform''.)X
+3477(To)X
+3592(maximize)X
+3934(the)X
+696 4269(sharing)N
+958(of)X
+1051(resources,)X
+2 f
+1401(condor)X
+1 f
+1654(attempts)X
+1951(to)X
+2039(provide)X
+2310(some)X
+2505(interoperability)X
+3025(between)X
+3319(the)X
+3443(various)X
+3705(platforms.)X
+696 4359(This)N
+859(does)X
+1027(add)X
+1164(some)X
+1354(complication)X
+1792(to)X
+1874(the)X
+2 f
+1992(condor)X
+1 f
+2239(code,)X
+2431(and)X
+2567(will)X
+2711(require)X
+2959(some)X
+3148(consideration)X
+3600(by)X
+3700(the)X
+3818(person)X
+696 4449(creating)N
+975(and)X
+1111(installing)X
+1428(the)X
+2 f
+1546(condor)X
+1 f
+1793(executables.)X
+2 f
+896 4572(Condor)N
+1 f
+1166(is)X
+1245(designed)X
+1556(so)X
+1653(that)X
+1799(all)X
+1905(of)X
+1998(the)X
+2122(various)X
+2384(machines)X
+2713(may)X
+2877(reside)X
+3095(in)X
+3183(a)X
+3245(single)X
+3462 0.3295(``resource'')AX
+3870(pool.)X
+696 4662(All)N
+819(of)X
+907(the)X
+2 f
+1026(condor)X
+1 f
+1274(daemons)X
+1580(communicate)X
+2033(through)X
+2303(XDR)X
+9 f
+2472(\322)X
+1 f
+2556(library)X
+2791(routines,)X
+3090(and)X
+3227(are)X
+3347(thus)X
+3502(compatible)X
+3880(even)X
+696 4752(between)N
+986(machines)X
+1311(which)X
+1529(use)X
+1658(different)X
+1957(byte)X
+2117(ordering.)X
+2451(Users)X
+2656(of)X
+2745(a)X
+2803(machine)X
+3097(of)X
+3186(any)X
+3323(particular)X
+3652(architecture)X
+696 4842(and)N
+833(operating)X
+1157(system)X
+1400(type)X
+1560(will)X
+1706(be)X
+1804(able)X
+1960(to)X
+2044(submit)X
+2283(jobs)X
+2438(to)X
+2522(be)X
+2620(run)X
+2749(on)X
+2851(other)X
+3038(architecture)X
+3440(and)X
+3578(operating)X
+3903(sys-)X
+696 4932(tem)N
+838(combinations.)X
+1331(\(Of)X
+1465(course)X
+1697(those)X
+1888(jobs)X
+2043(will)X
+2189(need)X
+2363(to)X
+2447(be)X
+2545(compiled)X
+2865(and)X
+3003(linked)X
+3225(for)X
+3341(the)X
+3461(appropriate)X
+3849(target)X
+696 5038 0.1488(architecture/operating)AN
+1421(system)X
+1663(combination.\))X
+7 s
+2110 5006(1)N
+8 s
+10 f
+576 5110(hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh)N
+9 f
+748 5201(\322)N
+1 f
+799(UNIX)X
+974(is)X
+1033(a)X
+1077(trademark)X
+1351(of)X
+1420(AT&T.)X
+9 f
+748 5292(\322)N
+1 f
+799(NFS)X
+933(is)X
+992(a)X
+1036(trademark)X
+1310(of)X
+1379(Sun)X
+1495(Microsystems.)X
+9 f
+748 5383(\322)N
+1 f
+799(XDR)X
+950(is)X
+1009(a)X
+1053(trademark)X
+1327(of)X
+1396(Sun)X
+1512(Microsystems.)X
+5 s
+748 5461(1)N
+8 s
+5486(Currently)Y
+1030(it)X
+1083(is)X
+1143(not)X
+1242(possible)X
+1469(to)X
+1536(submit)X
+1728(jobs)X
+1852(compiled)X
+2108(for)X
+2200(R6000)X
+2389(machines)X
+2648(from)X
+2790(other)X
+2939(platforms,)X
+3218(nor)X
+3321(is)X
+3382(it)X
+3436(possible)X
+3664(to)X
+3732(submit)X
+3925(jobs)X
+576 5558(compiled)N
+830(for)X
+920(other)X
+1067(platforms)X
+1328(from)X
+1468(R6000)X
+1655(machines.)X
+3 f
+10 s
+576 6048(Version)N
+863(4.1b)X
+3788(10/9/91)X
+
+2 p
+%%Page: 2 2
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+10 f
+556 682(i)N
+567(iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii)X
+3 f
+12 s
+752 772(Supported)N
+1207(Architecture)X
+1755(and)X
+1933(Operating)X
+2379(System)X
+2696(Combinations)X
+1 f
+10 s
+736 862(Architecture)N
+1258(Operating)X
+1599(System)X
+1954(Description)X
+10 f
+696 864(i)N
+727(iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii)X
+696 880(i)N
+727(iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii)X
+1 f
+736 962(R6000)N
+9 f
+949(\322)X
+1 f
+1258(AIX31)X
+9 f
+1481(\322)X
+1 f
+1954(IBM)X
+2125(R6000)X
+2358(running)X
+2627(AIX)X
+2790(3.1\262)X
+736 1052(MIPS)N
+9 f
+922(\322)X
+1 f
+1258(ULTRIX)X
+9 f
+1552(\322)X
+1 f
+1954(DECstation)X
+2347(3100)X
+2527(running)X
+2796(Ultrix)X
+3007(3.0+)X
+736 1142(MIPS)N
+1258(ULTRIX40)X
+1954(DECstation)X
+2347(3100)X
+2527(running)X
+2796(Ultrix)X
+3007(4.0+)X
+736 1232(SPARC)N
+9 f
+988(\322)X
+1 f
+1258(SUNOS41)X
+9 f
+1600(\322)X
+1 f
+1954(Sun)X
+2098(3)X
+2158(running)X
+2427(SunOs4.1)X
+736 1322(MC68020)N
+9 f
+1060(\322)X
+1 f
+1258(SUNOS41)X
+1954(Sun)X
+2098(4)X
+2158(running)X
+2427(SunOs4.1)X
+736 1412(I386)N
+9 f
+883(\322)X
+1 f
+1258(DYNIX)X
+9 f
+1517(\322)X
+1 f
+1954(Sequent)X
+2232(symmetry)X
+2572(running)X
+2841(Dynix)X
+736 1502(VAX)N
+9 f
+910(\322)X
+1 f
+1258(ULTRIX)X
+1954(Vax)X
+2108(running)X
+2377(Ultrix)X
+2588(3.0+)X
+736 1592(MC68020)N
+1258(BSD43)X
+9 f
+1493(\322)X
+1 f
+1954(HP)X
+2076(9000)X
+2256(running)X
+2525(BSD4.3+)X
+736 1682(SGI)N
+1258(IRIX332)X
+9 f
+1543(\322)X
+1 f
+1954(Silicon)X
+2200(Graphics)X
+2510(4D)X
+2628(running)X
+2897(IRIX)X
+3082(3.3.1+)X
+10 f
+696 1692(i)N
+727(iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii)X
+696(c)X
+1642(c)Y
+1562(c)Y
+1482(c)Y
+1402(c)Y
+1322(c)Y
+1242(c)Y
+1162(c)Y
+1082(c)Y
+1002(c)Y
+922(c)Y
+842(c)Y
+762(c)Y
+3327 1692(c)N
+1642(c)Y
+1562(c)Y
+1482(c)Y
+1402(c)Y
+1322(c)Y
+1242(c)Y
+1162(c)Y
+1082(c)Y
+1002(c)Y
+922(c)Y
+842(c)Y
+762(c)Y
+3 f
+576 1848(4.)N
+676(PLANNING)X
+1 f
+3 f
+696 2034(4.1.)N
+856(Sharing)X
+1146(Source)X
+1 f
+1016 2157(If)N
+1093(you)X
+1236(use)X
+1366(NFS,)X
+1555(you)X
+1698(can)X
+1833(maintain)X
+2136(the)X
+2 f
+2258(condor)X
+1 f
+2509(source)X
+2743(on)X
+2847(a)X
+2907(single)X
+3122(machine.)X
+3458(It)X
+3531(is)X
+3608(then)X
+3770(possible)X
+816 2247(to)N
+915(build)X
+1116(object)X
+1349(trees)X
+1538(for)X
+1669(the)X
+1804(various)X
+2077(platforms)X
+2420(either)X
+2639(on)X
+2755(the)X
+2889(source)X
+3135(machine)X
+3443(or)X
+3546(on)X
+3662(the)X
+3796(various)X
+816 2337(machines)N
+1139(for)X
+1253(which)X
+1469(those)X
+1659(objects)X
+1907(are)X
+2027(being)X
+2226(built.)X
+2433(If)X
+2508(you)X
+2649(do)X
+2750(not)X
+2873(use)X
+3001(NFS,)X
+3188(you)X
+3329(will)X
+3474(need)X
+3647(to)X
+3730(distribute)X
+816 2427(the)N
+934(source)X
+1164(tree)X
+1305(to)X
+1387(the)X
+1505(appropriate)X
+1891(machines)X
+2214(using)X
+2407(``rcp'')X
+2638(or)X
+2725(``rdist''.)X
+984 2472 MXY
+2880 
+2068 
+24.00 
+344.00 
+553.00 
+724.00 
+startFig 
+%!PS-Adobe-2.0 EPSF-1.2
+%%%DocumentFonts: Times-Roman Times-Bold Times-Italic
+%%%Pages: 1
+%%%BoundingBox: 24 344 553 724
+%%%EndComments
+
+/IdrawDict 53 dict def
+IdrawDict begin
+
+/reencodeISO {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+/Encoding ISOLatin1Encoding def
+currentdict end definefont
+} def
+
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/minus/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+/ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] def
+/Times-Roman reencodeISO def
+/Times-Bold reencodeISO def
+/Times-Italic reencodeISO def
+
+/arrowHeight 8 def
+/arrowWidth 4 def
+/none null def
+/numGraphicParameters 17 def
+/stringLimit 65535 def
+
+/Begin {
+save
+numGraphicParameters dict begin
+} def
+
+/End {
+end
+restore
+} def
+
+/SetB {
+dup type /nulltype eq {
+pop
+false /brushRightArrow idef
+false /brushLeftArrow idef
+true /brushNone idef
+} {
+/brushDashOffset idef
+/brushDashArray idef
+0 ne /brushRightArrow idef
+0 ne /brushLeftArrow idef
+/brushWidth idef
+false /brushNone idef
+} ifelse
+} def
+
+/SetCFg {
+/fgblue idef
+/fggreen idef
+/fgred idef
+} def
+
+/SetCBg {
+/bgblue idef
+/bggreen idef
+/bgred idef
+} def
+
+/SetF {
+/printSize idef
+/printFont idef
+} def
+
+/SetP {
+dup type /nulltype eq {
+pop true /patternNone idef
+} {
+dup -1 eq {
+/patternGrayLevel idef
+/patternString idef
+} {
+/patternGrayLevel idef
+} ifelse
+false /patternNone idef
+} ifelse
+} def
+
+/BSpl {
+0 begin
+storexyn
+newpath
+n 1 gt {
+0 0 0 0 0 0 1 1 true subspline
+n 2 gt {
+0 0 0 0 1 1 2 2 false subspline
+1 1 n 3 sub {
+/i exch def
+i 1 sub dup i dup i 1 add dup i 2 add dup false subspline
+} for
+n 3 sub dup n 2 sub dup n 1 sub dup 2 copy false subspline
+} if
+n 2 sub dup n 1 sub dup 2 copy 2 copy false subspline
+patternNone not brushLeftArrow not brushRightArrow not and and { ifill } if
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+n 2 sub dup n 1 sub dup rightarrow
+} if
+end
+} dup 0 4 dict put def
+
+/Circ {
+newpath
+0 360 arc
+patternNone not { ifill } if
+brushNone not { istroke } if
+} def
+
+/CBSpl {
+0 begin
+dup 2 gt {
+storexyn
+newpath
+n 1 sub dup 0 0 1 1 2 2 true subspline
+1 1 n 3 sub {
+/i exch def
+i 1 sub dup i dup i 1 add dup i 2 add dup false subspline
+} for
+n 3 sub dup n 2 sub dup n 1 sub dup 0 0 false subspline
+n 2 sub dup n 1 sub dup 0 0 1 1 false subspline
+patternNone not { ifill } if
+brushNone not { istroke } if
+} {
+Poly
+} ifelse
+end
+} dup 0 4 dict put def
+
+/Elli {
+0 begin
+newpath
+4 2 roll
+translate
+scale
+0 0 1 0 360 arc
+patternNone not { ifill } if
+brushNone not { istroke } if
+end
+} dup 0 1 dict put def
+
+/Line {
+0 begin
+2 storexyn
+newpath
+x 0 get y 0 get moveto
+x 1 get y 1 get lineto
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+0 0 1 1 rightarrow
+end
+} dup 0 4 dict put def
+
+/MLine {
+0 begin
+storexyn
+newpath
+n 1 gt {
+x 0 get y 0 get moveto
+1 1 n 1 sub {
+/i exch def
+x i get y i get lineto
+} for
+patternNone not brushLeftArrow not brushRightArrow not and and { ifill } if
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+n 2 sub dup n 1 sub dup rightarrow
+} if
+end
+} dup 0 4 dict put def
+
+/Poly {
+3 1 roll
+newpath
+moveto
+-1 add
+{ lineto } repeat
+closepath
+patternNone not { ifill } if
+brushNone not { istroke } if
+} def
+
+/Rect {
+0 begin
+/t exch def
+/r exch def
+/b exch def
+/l exch def
+newpath
+l b moveto
+l t lineto
+r t lineto
+r b lineto
+closepath
+patternNone not { ifill } if
+brushNone not { istroke } if
+end
+} dup 0 4 dict put def
+
+/Text {
+ishow
+} def
+
+/idef {
+dup where { pop pop pop } { exch def } ifelse
+} def
+
+/ifill {
+0 begin
+gsave
+patternGrayLevel -1 ne {
+fgred bgred fgred sub patternGrayLevel mul add
+fggreen bggreen fggreen sub patternGrayLevel mul add
+fgblue bgblue fgblue sub patternGrayLevel mul add setrgbcolor
+eofill
+} {
+eoclip
+originalCTM setmatrix
+pathbbox /t exch def /r exch def /b exch def /l exch def
+/w r l sub ceiling cvi def
+/h t b sub ceiling cvi def
+/imageByteWidth w 8 div ceiling cvi def
+/imageHeight h def
+bgred bggreen bgblue setrgbcolor
+eofill
+fgred fggreen fgblue setrgbcolor
+w 0 gt h 0 gt and {
+l b translate w h scale
+w h true [w 0 0 h neg 0 h] { patternproc } imagemask
+} if
+} ifelse
+grestore
+end
+} dup 0 8 dict put def
+
+/istroke {
+gsave
+brushDashOffset -1 eq {
+[] 0 setdash
+1 setgray
+} {
+brushDashArray brushDashOffset setdash
+fgred fggreen fgblue setrgbcolor
+} ifelse
+brushWidth setlinewidth
+originalCTM setmatrix
+stroke
+grestore
+} def
+
+/ishow {
+0 begin
+gsave
+fgred fggreen fgblue setrgbcolor
+printFont printSize scalefont setfont
+/descender 0 printFont /FontBBox get 1 get printFont /FontMatrix
+get transform exch pop def
+/vertoffset 1 printSize sub descender sub def {
+0 vertoffset moveto show
+/vertoffset vertoffset printSize sub def
+} forall
+grestore
+end
+} dup 0 2 dict put def
+
+/patternproc {
+0 begin
+/patternByteLength patternString length def
+/patternHeight patternByteLength 8 mul sqrt cvi def
+/patternWidth patternHeight def
+/patternByteWidth patternWidth 8 idiv def
+/imageByteMaxLength imageByteWidth imageHeight mul
+stringLimit patternByteWidth sub min def
+/imageMaxHeight imageByteMaxLength imageByteWidth idiv patternHeight idiv
+patternHeight mul patternHeight max def
+/imageHeight imageHeight imageMaxHeight sub store
+/imageString imageByteWidth imageMaxHeight mul patternByteWidth add string def
+0 1 imageMaxHeight 1 sub {
+/y exch def
+/patternRow y patternByteWidth mul patternByteLength mod def
+/patternRowString patternString patternRow patternByteWidth getinterval def
+/imageRow y imageByteWidth mul def
+0 patternByteWidth imageByteWidth 1 sub {
+/x exch def
+imageString imageRow x add patternRowString putinterval
+} for
+} for
+imageString
+end
+} dup 0 12 dict put def
+
+/min {
+dup 3 2 roll dup 4 3 roll lt { exch } if pop
+} def
+
+/max {
+dup 3 2 roll dup 4 3 roll gt { exch } if pop
+} def
+
+/arrowhead {
+0 begin
+transform originalCTM itransform
+/taily exch def
+/tailx exch def
+transform originalCTM itransform
+/tipy exch def
+/tipx exch def
+/dy tipy taily sub def
+/dx tipx tailx sub def
+/angle dx 0 ne dy 0 ne or { dy dx atan } { 90 } ifelse def
+gsave
+originalCTM setmatrix
+tipx tipy translate
+angle rotate
+newpath
+0 0 moveto
+arrowHeight neg arrowWidth 2 div lineto
+arrowHeight neg arrowWidth 2 div neg lineto
+closepath
+patternNone not {
+originalCTM setmatrix
+/padtip arrowHeight 2 exp 0.25 arrowWidth 2 exp mul add sqrt brushWidth mul
+arrowWidth div def
+/padtail brushWidth 2 div def
+tipx tipy translate
+angle rotate
+padtip 0 translate
+arrowHeight padtip add padtail add arrowHeight div dup scale
+arrowheadpath
+ifill
+} if
+brushNone not {
+originalCTM setmatrix
+tipx tipy translate
+angle rotate
+arrowheadpath
+istroke
+} if
+grestore
+end
+} dup 0 9 dict put def
+
+/arrowheadpath {
+newpath
+0 0 moveto
+arrowHeight neg arrowWidth 2 div lineto
+arrowHeight neg arrowWidth 2 div neg lineto
+closepath
+} def
+
+/leftarrow {
+0 begin
+y exch get /taily exch def
+x exch get /tailx exch def
+y exch get /tipy exch def
+x exch get /tipx exch def
+brushLeftArrow { tipx tipy tailx taily arrowhead } if
+end
+} dup 0 4 dict put def
+
+/rightarrow {
+0 begin
+y exch get /tipy exch def
+x exch get /tipx exch def
+y exch get /taily exch def
+x exch get /tailx exch def
+brushRightArrow { tipx tipy tailx taily arrowhead } if
+end
+} dup 0 4 dict put def
+
+/midpoint {
+0 begin
+/y1 exch def
+/x1 exch def
+/y0 exch def
+/x0 exch def
+x0 x1 add 2 div
+y0 y1 add 2 div
+end
+} dup 0 4 dict put def
+
+/thirdpoint {
+0 begin
+/y1 exch def
+/x1 exch def
+/y0 exch def
+/x0 exch def
+x0 2 mul x1 add 3 div
+y0 2 mul y1 add 3 div
+end
+} dup 0 4 dict put def
+
+/subspline {
+0 begin
+/movetoNeeded exch def
+y exch get /y3 exch def
+x exch get /x3 exch def
+y exch get /y2 exch def
+x exch get /x2 exch def
+y exch get /y1 exch def
+x exch get /x1 exch def
+y exch get /y0 exch def
+x exch get /x0 exch def
+x1 y1 x2 y2 thirdpoint
+/p1y exch def
+/p1x exch def
+x2 y2 x1 y1 thirdpoint
+/p2y exch def
+/p2x exch def
+x1 y1 x0 y0 thirdpoint
+p1x p1y midpoint
+/p0y exch def
+/p0x exch def
+x2 y2 x3 y3 thirdpoint
+p2x p2y midpoint
+/p3y exch def
+/p3x exch def
+movetoNeeded { p0x p0y moveto } if
+p1x p1y p2x p2y p3x p3y curveto
+end
+} dup 0 17 dict put def
+
+/storexyn {
+/n exch def
+/y n array def
+/x n array def
+n 1 sub -1 0 {
+/i exch def
+y i 3 2 roll put
+x i 3 2 roll put
+} for
+} def
+
+%%%EndProlog
+
+%%I Idraw 9 Grid 4 
+
+%%%Page: 1 1
+
+Begin
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 0.888889 0 0 0.888889 0 0 ] concat
+/originalCTM matrix currentmatrix def
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 -4 -124 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 313 720 ] concat
+%%I
+[
+(CONDOR)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 320 755 ] concat
+%%I
+[
+(~condor)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 322 591 ] concat
+%%I
+[
+(R6000)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 156.5 423.5 ] concat
+%%I
+377 633 377 607 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 161.5 423.5 ] concat
+%%I
+359 553 323 481 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 161.5 423.5 ] concat
+%%I
+377 553 449 411 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 161.5 423.5 ] concat
+%%I
+323 553 109 429 Line
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -22 189.5 ] concat
+%%I 4
+170 385
+170 573
+533 573
+533 385
+4 Poly
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 82 -35 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 72 646 ] concat
+%%I
+[
+(\(~condor/SPARC_OBJ\))
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 81 664 ] concat
+%%I
+[
+(SPARC_SUNOS41)
+] Text
+End
+
+End %I eop
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 269 656 ] concat
+%%I
+[
+(MIPS_ULTRIX)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 341 629 ] concat
+%%I
+[
+(R6000_AIX31)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 395 656 ] concat
+%%I
+[
+(src)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 475 656 ] concat
+%%I
+[
+(doc)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 449 629 ] concat
+%%I
+[
+(config)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 129 414.5 ] concat
+%%I
+460 571 550 483 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 129 414.5 ] concat
+%%I
+478 571 676 429 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 129 414.5 ] concat
+%%I
+496 571 712 483 Line
+End
+
+End %I eop
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 322.5 408 ] concat
+%%I
+[
+(Figure 1)
+] Text
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 -9 224 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 207 548 ] concat
+%%I
+[
+(~condor)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 218 473 ] concat
+%%I
+[
+(SUN 4)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -126 -17.5 ] concat
+%%I 4
+238 474
+238 573
+480 573
+480 474
+4 Poly
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -182 228 ] concat
+%%I
+429 301 474 284 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -191 219 ] concat
+%%I
+411 310 366 293 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 252 503 ] concat
+%%I
+[
+(SPARC_OBJ)
+] Text
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t u
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 139 505 ] concat
+%%I
+[
+(CONDOR)
+] Text
+End
+
+Begin %I Rect
+%%I b 13107
+2 0 0 [2 2 2 2 2 2 2 2] 15 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 -167 334 ] concat
+%%I
+609 310 735 346 Rect
+End
+
+End %I eop
+
+End %I eop
+
+Begin %I Rect
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -23 108.5 ] concat
+%%I
+54 282 642 703 Rect
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 18 223 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 422 544 ] concat
+%%I
+[
+(~condor)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 415 473 ] concat
+%%I
+[
+(DECstation)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 89 -17.5 ] concat
+%%I 4
+283 474
+283 573
+444 573
+444 474
+4 Poly
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 33 228 ] concat
+%%I
+415 301 415 283 Line
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 279.25 0.5 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 139 505 ] concat
+%%I
+[
+(CONDOR)
+] Text
+End
+
+Begin %I Rect
+%%I b 13107
+2 0 0 [2 2 2 2 2 2 2 2] 15 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 -167 334 ] concat
+%%I
+609 310 735 346 Rect
+End
+
+End %I eop
+
+End %I eop
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-i-*-140-*
+Times-Italic 14 SetF
+%%I t
+[ 1 0 0 1 85.25 630 ] concat
+%%I
+[
+(nfs)
+(mount)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-i-*-140-*
+Times-Italic 14 SetF
+%%I t
+[ 1 0 0 1 555.25 637 ] concat
+%%I
+[
+(nfs)
+(mount)
+] Text
+End
+
+Begin %I BSpl
+%%I b 65535
+1 0 1 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -148.25 203 ] concat
+%%I 6
+269 519
+202 519
+202 416
+430 416
+336 389
+444 389
+6 BSpl
+End
+
+Begin %I BSpl
+%%I b 65535
+1 0 1 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -148.25 203 ] concat
+%%I 6
+655 523
+744 523
+744 420
+569 416
+668 398
+525 389
+6 BSpl
+End
+
+End %I eop
+
+showpage
+
+%%%Trailer
+
+end
+endFig 
+8 s
+10 f
+576 4612(hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh)N
+1 f
+748 4703(\262)N
+796(Checkpointing)X
+1189(is)X
+1248(not)X
+1346(currently)X
+1592(supported)X
+1860(on)X
+1940(R6000/AIX)X
+2258(machines.)X
+9 f
+748 4794(\322)N
+1 f
+799(R6000)X
+986(and)X
+1094(AIX)X
+1223(are)X
+1316(trademarks)X
+1615(of)X
+1684(International)X
+2026(Business)X
+2270(Machines)X
+2534(Corporation.)X
+9 f
+748 4885(\322)N
+1 f
+799(VAX)X
+953(and)X
+1061(ULTRIX)X
+1311(are)X
+1404(trademarks)X
+1703(of)X
+1772(Digital)X
+1966(Equipment)X
+2263(Corporation.)X
+9 f
+748 4976(\322)N
+1 f
+799(MIPS)X
+965(is)X
+1024(a)X
+1068(trademark)X
+1342(of)X
+1411(Mips)X
+1559(Computer)X
+1831(Systems.)X
+9 f
+748 5067(\322)N
+1 f
+799(SPARC)X
+1019(is)X
+1078(a)X
+1122(trademark)X
+1396(of)X
+1465(Sparc)X
+1626(International.)X
+9 f
+748 5158(\322)N
+1 f
+799(SunOS)X
+997(is)X
+1056(a)X
+1100(trademark)X
+1374(of)X
+1443(Sun)X
+1559(Microsystems.)X
+9 f
+748 5249(\322)N
+1 f
+799(HP9000)X
+1025(is)X
+1084(a)X
+1128(trademark)X
+1402(of)X
+1471(Hewlett)X
+1689(Packard.)X
+9 f
+748 5340(\322)N
+1 f
+799(MC68020)X
+1075(is)X
+1134(a)X
+1178(trademark)X
+1452(of)X
+1521(Motorola)X
+1775(Semiconductor)X
+2178(Corporation.)X
+9 f
+748 5431(\322)N
+1 f
+799(Symmetry)X
+1082(and)X
+1190(Dynix)X
+1366(are)X
+1459(a)X
+1503(trademarks)X
+1802(of)X
+1871(Sequent)X
+2093(Computer)X
+2365(Systems.)X
+9 f
+748 5522(\322)N
+1 f
+799(BSD)X
+940(4.3)X
+1036(is)X
+1095(a)X
+1139(trademark)X
+1413(of)X
+1482(the)X
+1576(Regents)X
+1798(of)X
+1867(the)X
+1961(University)X
+2247(of)X
+2316(California.)X
+9 f
+748 5613(\322)N
+1 f
+799(IRIX)X
+946(is)X
+1005(a)X
+1049(trademark)X
+1323(of)X
+1392(Silicon)X
+1590(Graphics)X
+1836(Incorporated.)X
+3 f
+10 s
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(2)X
+
+3 p
+%%Page: 3 3
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+1016 762(Figure)N
+1259(1)X
+1334(illustrates)X
+1680(sharing)X
+1951(of)X
+2053(the)X
+2186(condor)X
+2444(source,)X
+2709(con\256guration,)X
+3191(and)X
+3342(document)X
+3693(directories)X
+816 852(between)N
+1105(three)X
+1287(different)X
+1585(platforms.)X
+1953(In)X
+2041(this)X
+2177(case)X
+2337(the)X
+2456(MIPS_ULTRIX)X
+2996(and)X
+3132(R6000_AIX31)X
+3628(object)X
+3844(direc-)X
+816 942(tories)N
+1023(and)X
+1168(all)X
+1277(the)X
+1404(non-object)X
+1776(directories)X
+2144(reside)X
+2365(physically)X
+2723(on)X
+2832(the)X
+2960(R6000.)X
+3243(The)X
+3398(SPARC_SUNOS41)X
+816 1032(object)N
+1047(directory)X
+1372(resides)X
+1630(physically)X
+1994(on)X
+2109(the)X
+2242(SUN)X
+2436(4.)X
+2550(Both)X
+2739(the)X
+2871(SUN)X
+3065(4)X
+3139(and)X
+3289(the)X
+3421(DECstation)X
+3828(mount)X
+816 1122(``\304condor/CONDOR'')N
+1570(from)X
+1762(the)X
+1897(R6000.)X
+2187(Note)X
+2380(that)X
+2537(``SPARC_SUNOS41'')X
+3316(is)X
+3406(a)X
+3479(symbolic)X
+3809(link)X
+3970(to)X
+816 1212(``\304condor/SPARC_OBJ''.)N
+1698(From)X
+1899(the)X
+2025(point)X
+2217(of)X
+2312(view)X
+2496(of)X
+2591(the)X
+2716(R6000,)X
+2976(this)X
+3118(is)X
+3198(a)X
+3261(dangling)X
+3568(symbolic)X
+3888(link,)X
+816 1302(but)N
+938(from)X
+1114(the)X
+1232(point)X
+1416(of)X
+1503(view)X
+1679(of)X
+1766(the)X
+1884(SUN)X
+2064(4)X
+2124(it)X
+2188(is)X
+2261(valid)X
+2441(and)X
+2577(points)X
+2792(into)X
+2936(the)X
+3054(local)X
+3230(disk.)X
+3 f
+696 1488(4.2.)N
+856(Sharing)X
+1146(Objects)X
+1 f
+1016 1611(Once)N
+1213(you)X
+1360(have)X
+1539(compiled)X
+1864(executables)X
+2266(suitable)X
+2542(for)X
+2663(the)X
+2788(machines)X
+3118(you)X
+3265(wish)X
+3443(to)X
+3532(include)X
+3795(in)X
+3885(your)X
+2 f
+816 1701(condor)N
+1 f
+1067(pool,)X
+1253(you)X
+1396(will)X
+1543(need)X
+1718(to)X
+1803(make)X
+2000(those)X
+2192(executables)X
+2590(available)X
+2903(on)X
+3006(the)X
+3127(member)X
+3413(machines.)X
+3779(Follow-)X
+816 1791(ing)N
+938(these)X
+1123(instructions)X
+1516(for)X
+1631(building)X
+1918(``condor'')X
+2270(for)X
+2385(a)X
+2442(particular)X
+2771(platform)X
+3068(type)X
+3227(will)X
+3372(result)X
+3571(in)X
+3654(the)X
+3773(creation)X
+816 1881(of)N
+912(a)X
+977(platform)X
+1282(speci\256c)X
+1556(object)X
+1781(directory)X
+2100(under)X
+2312(the)X
+2439(``CONDOR'')X
+2913(directory.)X
+3271(Examples)X
+3615(of)X
+3710(such)X
+3885(plat-)X
+816 1971(form)N
+1004(speci\256c)X
+1281(directories)X
+1652(are)X
+1783(the)X
+1913(``MIPS_ULTRIX40'')X
+2653(and)X
+2801(``R6000_AIX31'')X
+3417(shown)X
+3658(in)X
+3752(\256gure)X
+3972(2.)X
+816 2061(Each)N
+1004(platform)X
+1307(speci\256c)X
+1579(object)X
+1802(directory)X
+2118(will)X
+2268(contain)X
+2530(several)X
+2784(subdirectories)X
+3260(for)X
+3380(building)X
+3672(the)X
+3796(various)X
+2 f
+816 2151(condor)N
+1 f
+1069(programs)X
+1398(and)X
+1540(libraries.)X
+1869(Also)X
+2046(each)X
+2220(platform)X
+2522(speci\256c)X
+2793(object)X
+3015(directory)X
+3332(will)X
+3483(contain)X
+3746(a)X
+3809(special)X
+816 2241(subdirectory)N
+1254(called)X
+1483 0.2417(``release_dir''.)AX
+2021(Copies)X
+2280(of)X
+2384(all)X
+2501(the)X
+2636(completely)X
+3028(linked)X
+3264(programs)X
+3603(and)X
+3755(archived)X
+816 2331(libraries)N
+1104(\(but)X
+1258(no)X
+1363(``.o'')X
+1556(\256les\))X
+1741(will)X
+1890(be)X
+1991(placed)X
+2226(there.)X
+2452(In)X
+2544(the)X
+2667(following)X
+3003(discussion)X
+3362(the)X
+3486(pathname)X
+3824(of)X
+3917(this)X
+816 2421(platform)N
+1117(speci\256c)X
+1387 0.2589(``release_dir'')AX
+1873(will)X
+2022(be)X
+2123(referred)X
+2404(to)X
+2491(as)X
+2583(<RELEASE_DIR>.)X
+3267(Another)X
+3554(very)X
+3721(important)X
+816 2511(pathname)N
+1158(is)X
+1241(the)X
+1369(one)X
+1515(which)X
+1741(you)X
+1891(will)X
+2045(set)X
+2164(up)X
+2274(for)X
+2398(your)X
+2575(users)X
+2771(to)X
+2864(access)X
+3101(the)X
+2 f
+3230(condor)X
+1 f
+3488(software.)X
+3836(In)X
+3934(the)X
+816 2601(example)N
+1124(shown)X
+1369(in)X
+1467(\256gure)X
+1690(2)X
+1766(this)X
+1917(is)X
+2006(``/usr/uw/condor''.)X
+2675(For)X
+2822(the)X
+2956(following)X
+3302(discussion,)X
+3690(this)X
+3840(``well)X
+816 2691(known'')N
+1110(directory)X
+1422(will)X
+1568(be)X
+1667(referred)X
+1946(to)X
+2031(as)X
+2121(<INSTALL_DIR>.)X
+2786(Note)X
+2965(that)X
+3108(<RELEASE_DIR>)X
+3750(will)X
+3897(be)X
+3996(a)X
+816 2781(different)N
+1118(pathname)X
+1455(for)X
+1574(every)X
+1778(platform)X
+2079(type,)X
+2262(while)X
+2464(<INSTALL_DIR>)X
+3090(should)X
+3327(be)X
+3427(same)X
+3616(pathname)X
+3952(on)X
+816 2871(every)N
+1016(platform.)X
+1353(When)X
+1566(you)X
+1707(install)X
+2 f
+1923(condor)X
+1 f
+2171(you)X
+2312(will)X
+2457(need)X
+2630(to)X
+2714(make)X
+2910(the)X
+3030(software)X
+3329(in)X
+3413(<RELEASE_DIR>)X
+816 2961(available)N
+1129(to)X
+1213(your)X
+1382(users)X
+1569(under)X
+1774(the)X
+1894(name)X
+2090(<INSTALL_DIR>.)X
+2754(There)X
+2964(are)X
+3085(a)X
+3143(number)X
+3410(of)X
+3499(possible)X
+3783(ways)X
+3970(to)X
+816 3051(do)N
+916(this.)X
+1091(To)X
+1200(include)X
+1456(the)X
+1574(machine)X
+1866(where)X
+2083(you)X
+2223(did)X
+2345(the)X
+2463(compilation)X
+2865(in)X
+2948(the)X
+3067(pool,)X
+3250(you)X
+3391(might)X
+3598(want)X
+3775(to)X
+3858(make)X
+816 3141(<INSTALL_DIR>)N
+1453(a)X
+1524(symbolic)X
+1852(link)X
+2011(to)X
+2108(<RELEASE_DIR>.)X
+2802(For)X
+2948(other)X
+3148(machines)X
+3486(in)X
+3583(the)X
+3716(pool,)X
+3912(you)X
+816 3231(might)N
+1023(choose)X
+1268(to)X
+1352(use)X
+1481(the)X
+1601(compilation)X
+2005(machine)X
+2299(as)X
+2388(a)X
+2446(\256leserver;)X
+2789(in)X
+2873(this)X
+3010(case)X
+3171(you)X
+3313(can)X
+3447(use)X
+3576(NFS)X
+3744(to)X
+3828(mount)X
+816 3321(the)N
+938(appropriate)X
+1328(<RELEASE_DIR>)X
+1971(as)X
+2061(<INSTALL_DIR>)X
+2686(on)X
+2789(those)X
+2981(machines.)X
+3347(If)X
+3424(the)X
+3545(machines)X
+3871(to)X
+3956(be)X
+816 3411(in)N
+902(the)X
+2 f
+1025(condor)X
+1 f
+1277(pool)X
+1444(already)X
+1706(have)X
+1883(some)X
+2077(of)X
+2169(their)X
+2341(executables)X
+2741(remotely)X
+3051(mounted)X
+3356(from)X
+3537(\256leservers,)X
+3912(you)X
+816 3501(might)N
+1026(want)X
+1206(to)X
+1292(copy)X
+1472(<RELEASE_DIR>)X
+2115(onto)X
+2281(the)X
+2403(\256leservers)X
+2757(using)X
+2954(``rcp'')X
+3189(or)X
+3280(``rdist''.)X
+3594(In)X
+3685(any)X
+3825(case)X
+3988(it)X
+816 3591(is)N
+891(strongly)X
+1175(suggested)X
+1513(that)X
+1655(you)X
+1797(make)X
+1993(the)X
+2 f
+2113(condor)X
+1 f
+2362(libraries)X
+2647(and)X
+2785(executables)X
+3182(available)X
+3494(to)X
+3578(your)X
+3747(users)X
+3934(via)X
+816 3681(the)N
+934(same)X
+1119(path)X
+1277(name)X
+1471(on)X
+1571(all)X
+1671(machines.)X
+984 3726 MXY
+2880 
+2037 
+24.00 
+343.00 
+561.00 
+723.00 
+startFig 
+%!PS-Adobe-2.0 EPSF-1.2
+%%%DocumentFonts: Times-Bold Times-Roman Times-Italic
+%%%Pages: 1
+%%%BoundingBox: 24 343 561 723
+%%%EndComments
+
+/IdrawDict 53 dict def
+IdrawDict begin
+
+/reencodeISO {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+/Encoding ISOLatin1Encoding def
+currentdict end definefont
+} def
+
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/minus/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+/ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] def
+/Times-Bold reencodeISO def
+/Times-Roman reencodeISO def
+/Times-Italic reencodeISO def
+
+/arrowHeight 8 def
+/arrowWidth 4 def
+/none null def
+/numGraphicParameters 17 def
+/stringLimit 65535 def
+
+/Begin {
+save
+numGraphicParameters dict begin
+} def
+
+/End {
+end
+restore
+} def
+
+/SetB {
+dup type /nulltype eq {
+pop
+false /brushRightArrow idef
+false /brushLeftArrow idef
+true /brushNone idef
+} {
+/brushDashOffset idef
+/brushDashArray idef
+0 ne /brushRightArrow idef
+0 ne /brushLeftArrow idef
+/brushWidth idef
+false /brushNone idef
+} ifelse
+} def
+
+/SetCFg {
+/fgblue idef
+/fggreen idef
+/fgred idef
+} def
+
+/SetCBg {
+/bgblue idef
+/bggreen idef
+/bgred idef
+} def
+
+/SetF {
+/printSize idef
+/printFont idef
+} def
+
+/SetP {
+dup type /nulltype eq {
+pop true /patternNone idef
+} {
+dup -1 eq {
+/patternGrayLevel idef
+/patternString idef
+} {
+/patternGrayLevel idef
+} ifelse
+false /patternNone idef
+} ifelse
+} def
+
+/BSpl {
+0 begin
+storexyn
+newpath
+n 1 gt {
+0 0 0 0 0 0 1 1 true subspline
+n 2 gt {
+0 0 0 0 1 1 2 2 false subspline
+1 1 n 3 sub {
+/i exch def
+i 1 sub dup i dup i 1 add dup i 2 add dup false subspline
+} for
+n 3 sub dup n 2 sub dup n 1 sub dup 2 copy false subspline
+} if
+n 2 sub dup n 1 sub dup 2 copy 2 copy false subspline
+patternNone not brushLeftArrow not brushRightArrow not and and { ifill } if
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+n 2 sub dup n 1 sub dup rightarrow
+} if
+end
+} dup 0 4 dict put def
+
+/Circ {
+newpath
+0 360 arc
+patternNone not { ifill } if
+brushNone not { istroke } if
+} def
+
+/CBSpl {
+0 begin
+dup 2 gt {
+storexyn
+newpath
+n 1 sub dup 0 0 1 1 2 2 true subspline
+1 1 n 3 sub {
+/i exch def
+i 1 sub dup i dup i 1 add dup i 2 add dup false subspline
+} for
+n 3 sub dup n 2 sub dup n 1 sub dup 0 0 false subspline
+n 2 sub dup n 1 sub dup 0 0 1 1 false subspline
+patternNone not { ifill } if
+brushNone not { istroke } if
+} {
+Poly
+} ifelse
+end
+} dup 0 4 dict put def
+
+/Elli {
+0 begin
+newpath
+4 2 roll
+translate
+scale
+0 0 1 0 360 arc
+patternNone not { ifill } if
+brushNone not { istroke } if
+end
+} dup 0 1 dict put def
+
+/Line {
+0 begin
+2 storexyn
+newpath
+x 0 get y 0 get moveto
+x 1 get y 1 get lineto
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+0 0 1 1 rightarrow
+end
+} dup 0 4 dict put def
+
+/MLine {
+0 begin
+storexyn
+newpath
+n 1 gt {
+x 0 get y 0 get moveto
+1 1 n 1 sub {
+/i exch def
+x i get y i get lineto
+} for
+patternNone not brushLeftArrow not brushRightArrow not and and { ifill } if
+brushNone not { istroke } if
+0 0 1 1 leftarrow
+n 2 sub dup n 1 sub dup rightarrow
+} if
+end
+} dup 0 4 dict put def
+
+/Poly {
+3 1 roll
+newpath
+moveto
+-1 add
+{ lineto } repeat
+closepath
+patternNone not { ifill } if
+brushNone not { istroke } if
+} def
+
+/Rect {
+0 begin
+/t exch def
+/r exch def
+/b exch def
+/l exch def
+newpath
+l b moveto
+l t lineto
+r t lineto
+r b lineto
+closepath
+patternNone not { ifill } if
+brushNone not { istroke } if
+end
+} dup 0 4 dict put def
+
+/Text {
+ishow
+} def
+
+/idef {
+dup where { pop pop pop } { exch def } ifelse
+} def
+
+/ifill {
+0 begin
+gsave
+patternGrayLevel -1 ne {
+fgred bgred fgred sub patternGrayLevel mul add
+fggreen bggreen fggreen sub patternGrayLevel mul add
+fgblue bgblue fgblue sub patternGrayLevel mul add setrgbcolor
+eofill
+} {
+eoclip
+originalCTM setmatrix
+pathbbox /t exch def /r exch def /b exch def /l exch def
+/w r l sub ceiling cvi def
+/h t b sub ceiling cvi def
+/imageByteWidth w 8 div ceiling cvi def
+/imageHeight h def
+bgred bggreen bgblue setrgbcolor
+eofill
+fgred fggreen fgblue setrgbcolor
+w 0 gt h 0 gt and {
+l b translate w h scale
+w h true [w 0 0 h neg 0 h] { patternproc } imagemask
+} if
+} ifelse
+grestore
+end
+} dup 0 8 dict put def
+
+/istroke {
+gsave
+brushDashOffset -1 eq {
+[] 0 setdash
+1 setgray
+} {
+brushDashArray brushDashOffset setdash
+fgred fggreen fgblue setrgbcolor
+} ifelse
+brushWidth setlinewidth
+originalCTM setmatrix
+stroke
+grestore
+} def
+
+/ishow {
+0 begin
+gsave
+fgred fggreen fgblue setrgbcolor
+printFont printSize scalefont setfont
+/descender 0 printFont /FontBBox get 1 get printFont /FontMatrix
+get transform exch pop def
+/vertoffset 1 printSize sub descender sub def {
+0 vertoffset moveto show
+/vertoffset vertoffset printSize sub def
+} forall
+grestore
+end
+} dup 0 2 dict put def
+
+/patternproc {
+0 begin
+/patternByteLength patternString length def
+/patternHeight patternByteLength 8 mul sqrt cvi def
+/patternWidth patternHeight def
+/patternByteWidth patternWidth 8 idiv def
+/imageByteMaxLength imageByteWidth imageHeight mul
+stringLimit patternByteWidth sub min def
+/imageMaxHeight imageByteMaxLength imageByteWidth idiv patternHeight idiv
+patternHeight mul patternHeight max def
+/imageHeight imageHeight imageMaxHeight sub store
+/imageString imageByteWidth imageMaxHeight mul patternByteWidth add string def
+0 1 imageMaxHeight 1 sub {
+/y exch def
+/patternRow y patternByteWidth mul patternByteLength mod def
+/patternRowString patternString patternRow patternByteWidth getinterval def
+/imageRow y imageByteWidth mul def
+0 patternByteWidth imageByteWidth 1 sub {
+/x exch def
+imageString imageRow x add patternRowString putinterval
+} for
+} for
+imageString
+end
+} dup 0 12 dict put def
+
+/min {
+dup 3 2 roll dup 4 3 roll lt { exch } if pop
+} def
+
+/max {
+dup 3 2 roll dup 4 3 roll gt { exch } if pop
+} def
+
+/arrowhead {
+0 begin
+transform originalCTM itransform
+/taily exch def
+/tailx exch def
+transform originalCTM itransform
+/tipy exch def
+/tipx exch def
+/dy tipy taily sub def
+/dx tipx tailx sub def
+/angle dx 0 ne dy 0 ne or { dy dx atan } { 90 } ifelse def
+gsave
+originalCTM setmatrix
+tipx tipy translate
+angle rotate
+newpath
+0 0 moveto
+arrowHeight neg arrowWidth 2 div lineto
+arrowHeight neg arrowWidth 2 div neg lineto
+closepath
+patternNone not {
+originalCTM setmatrix
+/padtip arrowHeight 2 exp 0.25 arrowWidth 2 exp mul add sqrt brushWidth mul
+arrowWidth div def
+/padtail brushWidth 2 div def
+tipx tipy translate
+angle rotate
+padtip 0 translate
+arrowHeight padtip add padtail add arrowHeight div dup scale
+arrowheadpath
+ifill
+} if
+brushNone not {
+originalCTM setmatrix
+tipx tipy translate
+angle rotate
+arrowheadpath
+istroke
+} if
+grestore
+end
+} dup 0 9 dict put def
+
+/arrowheadpath {
+newpath
+0 0 moveto
+arrowHeight neg arrowWidth 2 div lineto
+arrowHeight neg arrowWidth 2 div neg lineto
+closepath
+} def
+
+/leftarrow {
+0 begin
+y exch get /taily exch def
+x exch get /tailx exch def
+y exch get /tipy exch def
+x exch get /tipx exch def
+brushLeftArrow { tipx tipy tailx taily arrowhead } if
+end
+} dup 0 4 dict put def
+
+/rightarrow {
+0 begin
+y exch get /tipy exch def
+x exch get /tipx exch def
+y exch get /taily exch def
+x exch get /tailx exch def
+brushRightArrow { tipx tipy tailx taily arrowhead } if
+end
+} dup 0 4 dict put def
+
+/midpoint {
+0 begin
+/y1 exch def
+/x1 exch def
+/y0 exch def
+/x0 exch def
+x0 x1 add 2 div
+y0 y1 add 2 div
+end
+} dup 0 4 dict put def
+
+/thirdpoint {
+0 begin
+/y1 exch def
+/x1 exch def
+/y0 exch def
+/x0 exch def
+x0 2 mul x1 add 3 div
+y0 2 mul y1 add 3 div
+end
+} dup 0 4 dict put def
+
+/subspline {
+0 begin
+/movetoNeeded exch def
+y exch get /y3 exch def
+x exch get /x3 exch def
+y exch get /y2 exch def
+x exch get /x2 exch def
+y exch get /y1 exch def
+x exch get /x1 exch def
+y exch get /y0 exch def
+x exch get /x0 exch def
+x1 y1 x2 y2 thirdpoint
+/p1y exch def
+/p1x exch def
+x2 y2 x1 y1 thirdpoint
+/p2y exch def
+/p2x exch def
+x1 y1 x0 y0 thirdpoint
+p1x p1y midpoint
+/p0y exch def
+/p0x exch def
+x2 y2 x3 y3 thirdpoint
+p2x p2y midpoint
+/p3y exch def
+/p3x exch def
+movetoNeeded { p0x p0y moveto } if
+p1x p1y p2x p2y p3x p3y curveto
+end
+} dup 0 17 dict put def
+
+/storexyn {
+/n exch def
+/y n array def
+/x n array def
+n 1 sub -1 0 {
+/i exch def
+y i 3 2 roll put
+x i 3 2 roll put
+} for
+} def
+
+%%%EndProlog
+
+%%I Idraw 9 Grid 4 
+
+%%%Page: 1 1
+
+Begin
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 0.888889 0 0 0.888889 0 0 ] concat
+/originalCTM matrix currentmatrix def
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 501.5 412 ] concat
+%%I
+[
+(Figure 2)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -23 108.5 ] concat
+%%I 4
+54 281
+54 702
+651 702
+651 281
+4 Poly
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 -206 13 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 434 406 ] concat
+%%I
+[
+(FILESERVER)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 126 -7.49998 ] concat
+%%I 4
+291 397
+291 572
+425 572
+425 397
+4 Poly
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 471 496 ] concat
+%%I
+[
+(uw)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 461 464 ] concat
+%%I
+[
+(condor)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 497 433 ] concat
+%%I
+[
+(lib)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 453 433 ] concat
+%%I
+[
+(bin)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 205.75 258 ] concat
+%%I
+549 444 549 416 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 205.75 268 ] concat
+%%I
+539 360 513 336 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 205.75 268 ] concat
+%%I
+557 360 583 336 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 205.75 322 ] concat
+%%I
+549 444 549 414 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 457 527 ] concat
+%%I
+[
+(usr.sparc)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 480 562 ] concat
+%%I
+[
+(/)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 205.75 289 ] concat
+%%I
+549 444 549 418 Line
+End
+
+End %I eop
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 61.0001 605 ] concat
+%%I
+[
+(DECstation)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -255 189.5 ] concat
+%%I 4
+309 397
+309 612
+403 612
+403 397
+4 Poly
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 90.0001 692 ] concat
+%%I
+[
+(uw)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 80.0001 657 ] concat
+%%I
+[
+(condor)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -175.25 455 ] concat
+%%I
+549 444 549 408 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -175.25 523 ] concat
+%%I
+547 434 547 406 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 89.0001 723 ] concat
+%%I
+[
+(usr)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 99.0001 759 ] concat
+%%I
+[
+(/)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -175.25 485 ] concat
+%%I
+547 446 547 418 Line
+End
+
+Begin %I Rect
+%%I b 13107
+2 0 0 [2 2 2 2 2 2 2 2] 15 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 -107.25 389 ] concat
+%%I
+367 504 465 540 Rect
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 83 420 ] concat
+%%I
+[
+(SUN 4)
+] Text
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 -250 5.50009 ] concat
+%%I 4
+304 397
+304 572
+398 572
+398 397
+4 Poly
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -170.25 325 ] concat
+%%I
+547 434 547 406 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 94 525 ] concat
+%%I
+[
+(usr)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 104 561 ] concat
+%%I
+[
+(/)
+] Text
+End
+
+Begin %I Rect
+%%I b 13107
+2 0 0 [2 2 2 2 2 2 2 2] 15 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 -34.25 210.5 ] concat
+%%I
+249 601 303 627 Rect
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 375 761 ] concat
+%%I
+[
+(CONDOR)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 382 796 ] concat
+%%I
+[
+(~condor)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-bold-r-*-140-*
+Times-Bold 14 SetF
+%%I t
+[ 1 0 0 1 528 609 ] concat
+%%I
+[
+(R6000)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 218.5 464.5 ] concat
+%%I
+377 633 377 607 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 232.5 487.5 ] concat
+%%I
+295 513 225 469 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 223.5 478.5 ] concat
+%%I
+331 531 261 451 Line
+End
+
+Begin %I Poly
+%%I b 65535
+2 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 1 0 0 1 40 244.5 ] concat
+%%I 4
+170 342
+170 557
+569 557
+569 342
+4 Poly
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 327 720 ] concat
+%%I
+[
+(src)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 376 711 ] concat
+%%I
+[
+(doc)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 332 702 ] concat
+%%I
+[
+(config)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 191 469.5 ] concat
+%%I
+414 549 396 487 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 191 469.5 ] concat
+%%I
+442 549 408 405 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 191 469.5 ] concat
+%%I
+460 549 550 469 Line
+End
+
+Begin %I Pict
+%%I b u
+%%I cfg u
+%%I cbg u
+%%I f u
+%%I p u
+%%I t
+[ 1 0 0 1 -140 -52.9999 ] concat
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 493 719 ] concat
+%%I
+[
+(R6000_AIX31)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 506 688 ] concat
+%%I
+[
+(release_dir)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 555 661 ] concat
+%%I
+[
+(lib)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 511 661 ] concat
+%%I
+[
+(bin)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 263.75 478 ] concat
+%%I
+549 444 549 426 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 263.75 496 ] concat
+%%I
+539 354 513 336 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 263.75 496 ] concat
+%%I
+557 354 583 336 Line
+End
+
+End %I eop
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 410 701 ] concat
+%%I
+[
+(SPARC_SUNOS41)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 173.75 443 ] concat
+%%I
+171 498 397 604 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 219 683 ] concat
+%%I
+[
+(MIPS_ULTRIX40)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 241 652 ] concat
+%%I
+[
+(release_dir)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 290 625 ] concat
+%%I
+[
+(lib)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 246 625 ] concat
+%%I
+[
+(bin)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -1.24994 442 ] concat
+%%I
+549 444 549 426 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -1.24994 460 ] concat
+%%I
+541 354 513 336 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 -1.24994 460 ] concat
+%%I
+559 354 583 336 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 568 729 ] concat
+%%I
+[
+(uw)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 558 694 ] concat
+%%I
+[
+(condor)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 302.75 492 ] concat
+%%I
+549 444 549 408 Line
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 302.75 560 ] concat
+%%I
+547 434 547 406 Line
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 567 760 ] concat
+%%I
+[
+(usr)
+] Text
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-r-*-140-*
+Times-Roman 14 SetF
+%%I t
+[ 1 0 0 1 577 796 ] concat
+%%I
+[
+(/)
+] Text
+End
+
+Begin %I Line
+%%I b 65535
+1 0 0 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+%%I p
+0 SetP
+%%I t
+[ 0.5 0 0 0.5 302.75 522 ] concat
+%%I
+547 446 547 418 Line
+End
+
+Begin %I Rect
+%%I b 13107
+2 0 0 [2 2 2 2 2 2 2 2] 15 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 370.75 426 ] concat
+%%I
+367 504 465 540 Rect
+End
+
+Begin %I BSpl
+%%I b 65535
+1 0 1 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 259.25 404.5 ] concat
+%%I 5
+594 535
+540 501
+352 419
+486 509
+352 455
+5 BSpl
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-i-*-140-*
+Times-Italic 14 SetF
+%%I t
+[ 1 0 0 1 484.25 673 ] concat
+%%I
+[
+(symbolic)
+(link)
+] Text
+End
+
+Begin %I BSpl
+%%I b 65535
+1 0 1 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 1.75 404.5 ] concat
+%%I 4
+249 491
+437 455
+319 501
+463 483
+4 BSpl
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-i-*-140-*
+Times-Italic 14 SetF
+%%I t
+[ 1 0 0 1 152.25 678 ] concat
+%%I
+[
+(nfs)
+(mount)
+] Text
+End
+
+Begin %I BSpl
+%%I b 65535
+1 0 1 [] 0 SetB
+%%I cfg Black
+0 0 0 SetCFg
+%%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%%I t
+[ 0.5 0 0 0.5 -57.25 404.5 ] concat
+%%I 4
+357 223
+597 223
+445 267
+607 257
+4 BSpl
+End
+
+Begin %I Text
+%%I cfg Black
+0 0 0 SetCFg
+%%I f *-times-medium-i-*-140-*
+Times-Italic 14 SetF
+%%I t
+[ 1 0 0 1 152.25 548 ] concat
+%%I
+[
+(nfs)
+(mount)
+] Text
+End
+
+End %I eop
+
+showpage
+
+%%%Trailer
+
+end
+endFig 
+3 f
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(3)X
+
+4 p
+%%Page: 4 4
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+1016 762(Figure)N
+1248(2)X
+1311(illustrates)X
+1645(the)X
+1767(user's)X
+1983(access)X
+2213(to)X
+2299(the)X
+2 f
+2421(condor)X
+1 f
+2672(software)X
+2973(on)X
+3077(three)X
+3262(different)X
+3563(platforms.)X
+3934(On)X
+816 852(the)N
+1161(R6000,)X
+1641(``/usr/uw/condor'')X
+2480(is)X
+2779(a)X
+3061(symbolic)X
+3600(link)X
+3970(to)X
+816 942 0.1161(``\304condor/CONDOR/R6000_AIX31/release_dir''.)AN
+2521(On)X
+2693(the)X
+2865(DECstation)X
+3312(``/usr/uw/condor'')X
+3979(is)X
+816 1032(remotely)N
+1157(mounted)X
+1493(from)X
+1705(the)X
+1859(R6000)X
+2128(which)X
+2380(is)X
+2489(acting)X
+2741(as)X
+2864(a)X
+2956(\256leserver.)X
+3351(On)X
+3505(the)X
+3659(DECstation)X
+816 1122(``/usr/uw/condor'')N
+1429(is)X
+1502(remotely)X
+1807(mounted)X
+2107(from)X
+2283(a)X
+2339(dedicated)X
+2667(\256leserver.)X
+3 f
+696 1308(4.3.)N
+856(Administrative)X
+1392(Details)X
+1 f
+1016 1431(Each)N
+1200(machine)X
+1495(which)X
+1714(is)X
+1790(a)X
+1849(member)X
+2135(of)X
+2225(the)X
+2 f
+2346(condor)X
+1 f
+2596(pool)X
+2761(will)X
+2909(need)X
+3085(to)X
+3171(have)X
+3347(a)X
+3407(``condor'')X
+3762(account.)X
+816 1521(If)N
+898(you)X
+1046(use)X
+1181(NFS,)X
+1375(it)X
+1447(will)X
+1599(be)X
+1703(necessary)X
+2044(for)X
+2166(all)X
+2274(of)X
+2369(the)X
+2495(``condor'')X
+2854(accounts)X
+3162(to)X
+3251(share)X
+3448(common)X
+3755(user)X
+3916(and)X
+816 1611(group)N
+1028(id's.)X
+2 f
+1213(Condor)X
+1 f
+1482(must)X
+1662(have)X
+1839(its)X
+1940(own)X
+2104(group)X
+2317(id.)X
+2445(Group)X
+2676(id's)X
+2822(such)X
+2995(as)X
+3088(``daemon'')X
+3476(or)X
+3569(``bin'')X
+3805(are)X
+3930(not)X
+816 1701(suitable)N
+1091(for)X
+1211(use)X
+1344(by)X
+2 f
+1450(condor.)X
+1 f
+1743(Each)X
+1930(``condor'')X
+2286(account)X
+2561(will)X
+2710(need)X
+2887(a)X
+2948(home)X
+3151(directory)X
+3466(containing)X
+3829(3)X
+3894(sub-)X
+816 1791(directories,)N
+1203(``log'',)X
+1462(``spool'',)X
+1792(and)X
+1937 0.2955(``execute''.)AX
+2360(A)X
+2447(script)X
+2654(is)X
+2736(provided)X
+3050(which)X
+3275(will)X
+3428(create)X
+3650(these)X
+3844(direc-)X
+816 1881(tories)N
+1032(with)X
+1212(the)X
+1347(proper)X
+1594(ownership)X
+1965(and)X
+2118(mode.)X
+2373(If)X
+2464(you)X
+2621(choose)X
+2881(to)X
+2980(have)X
+3169(these)X
+3371(directories)X
+3747(remotely)X
+816 1971(mounted,)N
+1136(be)X
+1232(sure)X
+1386(each)X
+2 f
+1554(condor)X
+1 f
+1802(machine)X
+2095(has)X
+2223(its)X
+2319(own)X
+2478(private)X
+2722(version)X
+2979(of)X
+3067(these)X
+3253(directories.)X
+3653(Each)X
+3835(``con-)X
+816 2061(dor'')N
+1042(account)X
+1356(will)X
+1544(have)X
+1760(two)X
+1944(\256les)X
+2141(in)X
+2267(the)X
+2429(home)X
+2671(directory)X
+3025(called)X
+3281(``condor_con\256g'')X
+3916(and)X
+816 2151(``condor_con\256g.local''.)N
+1672(It)X
+1790(is)X
+1912(intended)X
+2257(that)X
+2446(``Condor_con\256g'')X
+3103(be)X
+3248(shared)X
+3527(via)X
+3694(NFS,)X
+3930(but)X
+816 2241(``condor_con\256g.local'')N
+1594(should)X
+1838(be)X
+1945(private.)X
+2239(In)X
+2337(this)X
+2483(way)X
+2648(you)X
+2798(can)X
+2940(use)X
+3077(``condor_con\256g'')X
+3678(to)X
+3770(globally)X
+816 2331(con\256gure)N
+1164(your)X
+1356(condor)X
+1624(pool,)X
+1831(and)X
+1992(use)X
+2144(``condor_con\256g.local'')X
+2936(to)X
+3043(make)X
+3263(changes)X
+3568(for)X
+3708(individual)X
+816 2421(machines.)N
+1182(Finally,)X
+1451(each)X
+1622(member)X
+1908(machine)X
+2202(will)X
+2348(need)X
+2522(to)X
+2606(start)X
+2766(the)X
+2 f
+2886(condor)X
+1 f
+3135(daemons)X
+3442(at)X
+3522(boot)X
+3686(time.)X
+3890(This)X
+816 2511(will)N
+962(be)X
+1060(done)X
+1238(by)X
+1340(placing)X
+1598(an)X
+1696(entry)X
+1883(in)X
+1967(``/etc/rc'')X
+2298(or)X
+2387 0.1953(``/etc/rc.local'')AX
+2895(which)X
+3114(starts)X
+3306(the)X
+3427 0.1838(``condor_master''.)AX
+816 2601(The)N
+973(master)X
+1219(will)X
+1375(determine)X
+1727(which)X
+1954(daemons)X
+2270(should)X
+2514(be)X
+2621(run)X
+2759(on)X
+2870(its)X
+2976(machine,)X
+3299(and)X
+3446(will)X
+3601(monitor)X
+3885(their)X
+816 2691(health,)N
+1052(restarting)X
+1375(them)X
+1555(and)X
+1691(mailing)X
+1955(system)X
+2197(personnel)X
+2529(about)X
+2727(problems)X
+3045(as)X
+3132(necessary.)X
+1016 2814(In)N
+1112(addition)X
+1403(to)X
+1494(the)X
+1621(member)X
+1913(machines,)X
+2265(you)X
+2414(will)X
+2567(need)X
+2748(to)X
+2840(designate)X
+3173(one)X
+3319(machine)X
+3621(to)X
+3713(act)X
+3837(as)X
+3934(the)X
+816 2904(``central)N
+1110(manager''.)X
+1502(The)X
+1648(central)X
+1888(manager)X
+2186(will)X
+2331(run)X
+2459(two)X
+2600(extra)X
+2781(daemons)X
+3086(which)X
+3302(communicate)X
+3754(with)X
+3916(and)X
+816 2994(coordinate)N
+1183(the)X
+1309(daemons)X
+1622(on)X
+1730(all)X
+1838(member)X
+2130(machines.)X
+2502(These)X
+2723(daemons)X
+3037(will)X
+3190(also)X
+3348(be)X
+3453(started)X
+3696(and)X
+3841(moni-)X
+816 3084(tored)N
+1001(by)X
+1101(the)X
+1219(master.)X
+3 f
+576 3270(5.)N
+676(CREATING)X
+1127(AND)X
+1321(DISTRIBUTING)X
+1931(EXECUTABLES)X
+1 f
+736 3393(\(1\))N
+950(Create)X
+1188(a)X
+1252(user)X
+1414(account)X
+1692(for)X
+1814(``condor'',)X
+2193(on)X
+2301(the)X
+2427(machine)X
+2727(where)X
+2952(you)X
+3100(want)X
+3284(to)X
+3374(maintain)X
+3682(the)X
+3809(condor)X
+950 3483(source)N
+1191(\256les,)X
+1375(and)X
+1522(set)X
+1642(up)X
+1753(a)X
+1820(condor)X
+2073(group)X
+2290(there)X
+2481(as)X
+2578(well.)X
+2786(Change)X
+3061(directory)X
+3381(to)X
+3473(the)X
+3601(condor)X
+3854(home)X
+950 3573(directory)N
+1260(and)X
+1396(run)X
+1523(as)X
+1610(``condor'',)X
+1981(e.g.)X
+2117(``su)X
+2262(condor''.)X
+736 3696(\(2\))N
+950(Extract)X
+1229(the)X
+1374(``\304condor/CONDOR'')X
+2139(directory)X
+2476(from)X
+2679(the)X
+2825(distribution)X
+3241(\256le,)X
+3411(e.g.)X
+3595(``uncompress)X
+950 3786(Condor.tar.Z'',)N
+1458(then)X
+1616(``tar)X
+1775(xf)X
+1862(Condor.tar''.)X
+736 3909(\(3\))N
+950(If)X
+1032(you)X
+1180(wish)X
+1359(to)X
+1449(make)X
+1652(executables)X
+2056(for)X
+2179(a)X
+2244(platform)X
+2549(type)X
+2716(other)X
+2910(than)X
+3077(the)X
+3204(machine)X
+3505(where)X
+3731(you)X
+3880(have)X
+950 3999(extracted)N
+1279(the)X
+1411(tape,)X
+1599(you)X
+1752(will)X
+1909(need)X
+2094(to)X
+2189(either)X
+2405(copy)X
+2594(the)X
+2725(\256les)X
+2891(to)X
+2986(the)X
+3117(``compilation'')X
+3640(machine,)X
+3965(or)X
+950 4089(preferably)N
+1306(remotely)X
+1616(mount)X
+1845(them)X
+2030(via)X
+2153(NFS.)X
+2364(In)X
+2456(any)X
+2597(case,)X
+2781(all)X
+2886(the)X
+3009(condor)X
+3257(\256les)X
+3415(should)X
+3653(have)X
+3831(owner)X
+950 4179(``condor'',)N
+1324(and)X
+1463(group)X
+1673(``condor''.)X
+2067(You)X
+2228(should)X
+2464(always)X
+2709(be)X
+2807(running)X
+3078(as)X
+3167(``condor'')X
+3520(when)X
+3716(you)X
+3858(make)X
+950 4269(condor)N
+1193(executables.)X
+736 4392(\(4\))N
+950(Determine)X
+1311(which)X
+1529(versions)X
+1818(of)X
+2 f
+1907(imake)X
+1 f
+2099(,)X
+2 f
+2141(cpp)X
+1 f
+2257(,)X
+2299(and)X
+2 f
+2437(makedepend)X
+1 f
+2861(you)X
+3003(will)X
+3150(use.)X
+3320(If)X
+3397(you)X
+3540(want)X
+3719(to)X
+3804(use)X
+3934(the)X
+950 4482(versions)N
+1251(supplied)X
+1556(with)X
+1732(this)X
+1881(distribution,)X
+2303(you)X
+2456(should)X
+2702(build)X
+2899(and)X
+3048(install)X
+3276(them)X
+3469(now.)X
+3680(Regardless)X
+950 4572(where)N
+1170(you)X
+1314(obtain)X
+1538(your)X
+2 f
+1709(imake)X
+1 f
+1901(,)X
+1945(you)X
+2089(will)X
+2237(want)X
+2417(to)X
+2503(invoke)X
+2745(it)X
+2813(with)X
+2979(a)X
+3039(standard)X
+3335(set)X
+3448(of)X
+3539(parameters)X
+3916(and)X
+950 4662(with)N
+1119(a)X
+1182(particular)X
+1517(environment)X
+1949(so)X
+2047(that)X
+2194(it)X
+2265(behaves)X
+2551(as)X
+2645(assumed)X
+2948(in)X
+3036(these)X
+3227(instructions.)X
+3666(We)X
+3804(recom-)X
+950 4752(mend)N
+1161(that)X
+1315(you)X
+1469(set)X
+1592(up)X
+1706(an)X
+1816(alias)X
+1997(for)X
+2125(the)X
+2257(appropriate)X
+2657(invocation)X
+3029(on)X
+3143(your)X
+3324(compilation)X
+3740(machine.)X
+950 4842(Ideally)N
+1199(this)X
+1340(would)X
+1565(be)X
+1666(done)X
+1847(in)X
+1934(the)X
+2 f
+2057(condor)X
+1 f
+2309(login)X
+2498(shell)X
+2674(script.)X
+2917(Some)X
+3124(versions)X
+3416(of)X
+2 f
+3508(imake)X
+1 f
+3725(automati-)X
+950 4932(cally)N
+1145(invoke)X
+2 f
+1402(make)X
+1 f
+1611(on)X
+1730(the)X
+1867(generated)X
+2219(``Make\256le'',)X
+2671(while)X
+2889(others)X
+3125(do)X
+3245(not.)X
+3427(These)X
+3659(instructions)X
+950 5022(assume)N
+1212(that)X
+2 f
+1358(make)X
+1 f
+1554(will)X
+1704(be)X
+1806(invoked)X
+2090(separately,)X
+2462(and)X
+2604(your)X
+2776(alias)X
+2948(can)X
+3085(include)X
+3346(the)X
+3469(``-s)X
+3606(Make\256le'')X
+3970(to)X
+950 5112(achieve)N
+1217(this)X
+1353(behavior)X
+1655(if)X
+1725(it)X
+1790(is)X
+1865(is)X
+1940(not)X
+2064(the)X
+2184(default)X
+2429(for)X
+2545(your)X
+2714(version)X
+2972(of)X
+2 f
+3061(imake)X
+1 f
+3253(.)X
+3315(Also,)X
+3508(you)X
+3650(will)X
+3796(need)X
+3970(to)X
+950 5202(tell)N
+2 f
+1077(imake)X
+1 f
+1294(where)X
+1515(your)X
+2 f
+1686(condor)X
+1 f
+1937(con\256guration)X
+2388(\256les)X
+2545(are)X
+2668(by)X
+2772(using)X
+2969(the)X
+3091(``-I'')X
+3277(\257ag.)X
+3461(For)X
+3596(example)X
+3892(on)X
+3996(a)X
+950 5292(machine)N
+1242(where)X
+1459(the)X
+1577(default)X
+2 f
+1820(imake)X
+1 f
+2032(behavior)X
+2333(is)X
+2406(to)X
+2488(execute)X
+2 f
+2754(make)X
+1 f
+2924(,)X
+2964(your)X
+3131(alias)X
+3298(might)X
+3504(look)X
+3666(like)X
+9 s
+1110 5406(alias)N
+1260(imake)X
+1454('imake)X
+1672(-s)X
+1742(Make\256le)X
+2016(-I/u/condor/CONDOR/con\256g')X
+10 s
+950 5529(Since)N
+2 f
+1153(imake)X
+1 f
+1370(expects)X
+1636(very)X
+1804(speci\256c)X
+2074(behavior)X
+2380(from)X
+2561(the)X
+2 f
+2685(cpp)X
+1 f
+2827(program)X
+3125(it)X
+3195(invokes,)X
+3490(it)X
+3560(may)X
+3724(be)X
+3826(neces-)X
+950 5619(sary)N
+1113(to)X
+1204(tell)X
+2 f
+1335(imake)X
+1 f
+1556(to)X
+1646(use)X
+1781(a)X
+1845(special)X
+2096(version.)X
+2400(You)X
+2566(can)X
+2706(do)X
+2814(this)X
+2957(by)X
+3065(placing)X
+3329(the)X
+3455(pathname)X
+3795(in)X
+3885(your)X
+950 5709(environment)N
+1383(variable)X
+1670(``IMAKECPP''.)X
+2250(Again,)X
+2494(this)X
+2637(should)X
+2878(be)X
+2982(done)X
+3167(in)X
+3258(the)X
+2 f
+3385(condor)X
+1 f
+3641(login)X
+3834(script,)X
+950 5799(and)N
+1086(the)X
+1204(command)X
+1540(might)X
+1746(look)X
+1908(like)X
+3 f
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(4)X
+
+5 p
+%%Page: 5 5
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+9 s
+1110 753(setenv)N
+1312(IMAKECPP)X
+1694(/usr/lpp/X11/Xamples/util/cpp/cpp)X
+10 s
+736 909(\(5\))N
+950(``Cd'')X
+1171(to)X
+1253(the)X
+1371(``CONDOR/con\256g'')X
+2059(directory,)X
+2389(and)X
+2525(edit)X
+2665(the)X
+2783(``site.def'')X
+3145(\256le.)X
+984 1032(Top)N
+1184 1122(Pathname)N
+1534(of)X
+1635(directory)X
+1959(where)X
+2190(you)X
+2344(will)X
+2502(keep)X
+2688(condor)X
+2945(sources)X
+3220(and)X
+3370(objects.)X
+3672(Use)X
+3832(of)X
+3934(the)X
+1184 1212 0.2955(``$\(TILDE\)'')AN
+1656(macro)X
+1895(is)X
+1986(encouraged)X
+2395(here)X
+2571(so)X
+2679(that)X
+2836(you)X
+2993(can)X
+3142(build)X
+3343(on)X
+3460(several)X
+3725(platforms)X
+1184 1302(without)N
+1448(requiring)X
+1762(\304condor)X
+2032(to)X
+2114(be)X
+2210(the)X
+2328(same)X
+2513(pathname)X
+2845(on)X
+2945(all)X
+3045(of)X
+3132(them.)X
+9 s
+1344 1416($\(TILDE\)/CONDOR)N
+10 s
+1184 1539(should)N
+1417(be)X
+1513(appropriate)X
+1899(in)X
+1981(most)X
+2156(cases.)X
+984 1662(InstallDir)N
+1184 1752(Pathname)N
+1521(where)X
+1739(you)X
+1881(will)X
+2027(ultimately)X
+2373(install)X
+2590(condor)X
+2835(executables)X
+3232(and)X
+3370(libraries.)X
+3695(This)X
+3859(is)X
+3934(the)X
+1184 1842(pathname)N
+1516(referred)X
+1792(to)X
+1874(as)X
+1961(<INSTALL_DIR>)X
+2583(in)X
+2665(these)X
+2850(instructions.)X
+984 1965(TmpDir)N
+1184 2055(Pathname)N
+1528(of)X
+1623(directory)X
+1941(where)X
+2166(you)X
+2314(wish)X
+2493(temporary)X
+2851(\256les)X
+3012(to)X
+3102(be)X
+3206(placed)X
+3444(during)X
+3682(the)X
+3809(condor)X
+1184 2145(building)N
+1470(and)X
+1606(testing)X
+1839(process.)X
+984 2268(CFlags)N
+1184 2358(Global)N
+1422(\257ags)X
+1593(to)X
+1675(the)X
+1793(C)X
+1866(compiler)X
+2171(which)X
+2387(you)X
+2527(will)X
+2671(want)X
+2847(used)X
+3014(on)X
+3114(all)X
+3214(platforms,)X
+3561(e.g.)X
+3717(``-g''.)X
+984 2481(CentralMgrHost)N
+1184 2571(Hostname)N
+1529(of)X
+1616(machine)X
+1908(where)X
+2125(you)X
+2265(will)X
+2409(run)X
+2536(condor's)X
+2837(central)X
+3076(manager)X
+3373(processes.)X
+984 2694(CondorAdministrator)N
+1184 2784(Mailing)N
+1463(address)X
+1730(of)X
+1823(person)X
+2063(who)X
+2227(will)X
+2378(be)X
+2481(responsible)X
+2873(for)X
+2994(managing)X
+3337(and)X
+3480(maintaining)X
+3889(con-)X
+1184 2874(dor)N
+1311(at)X
+1389(your)X
+1556(site.)X
+1727(Condor)X
+1987(will)X
+2131(send)X
+2298(mail)X
+2460(about)X
+2658(problems)X
+2976(to)X
+3058(this)X
+3193(address.)X
+984 2997(YpLib)N
+1184 3087(If)N
+1259(you)X
+1400(run)X
+1528(``Yellow)X
+1839(Pages'',)X
+2121(set)X
+2231(this)X
+2367(to)X
+2450(the)X
+2569(pathname)X
+2903(of)X
+2992(the)X
+3112(associated)X
+3464(library,)X
+3720(otherwise)X
+1184 3177(leave)N
+1374(it)X
+1438(blank.)X
+736 3300(\(6\))N
+950(``Cd'')X
+1185(to)X
+1281(the)X
+1413(``CONDOR/con\256g'')X
+2115(directory,)X
+2459(and)X
+2609(edit)X
+2763(the)X
+2895(appropriate)X
+3295(platform)X
+3605(con\256guration)X
+950 3390(\256le,)N
+1101(e.g.)X
+1246(if)X
+1324(you)X
+1473(want)X
+1658(to)X
+1749(build)X
+1941(condor)X
+2192(for)X
+2314(a)X
+2378(Sun)X
+2530(4,)X
+2618(edit)X
+2766(``SPARC_SUNOS41.cf''.)X
+3659(Only)X
+3847(a)X
+3911(few)X
+950 3480(items)N
+1143(will)X
+1287(need)X
+1459(to)X
+1541(be)X
+1637(changed.)X
+984 3603(Tilde)N
+1184 3693(Pathname)N
+1525(of)X
+1617(\304condor)X
+1892(on)X
+1997(the)X
+2120(compilation)X
+2527(machine.)X
+2864(This)X
+3031(may)X
+3195(be)X
+3297(different)X
+3600(from)X
+3782(\304condor)X
+1184 3783(on)N
+1284(the)X
+1402(machine)X
+1694(where)X
+1911(you)X
+2051(store)X
+2227(the)X
+2345(condor)X
+2588(source)X
+2818(directories,)X
+3197(see)X
+3320(\256gure)X
+3527(1.)X
+984 3906(SimpleLibC)N
+1184 3996(Pathname)N
+1520(of)X
+1607(the)X
+1725(C)X
+1798(library.)X
+984 4119(XLibPath)N
+1184 4209(Pathname)N
+1525(of)X
+1617(the)X
+1740(X)X
+1823(library.)X
+2102(If)X
+2181(you)X
+2326(don't)X
+2520(run)X
+2652(the)X
+2775(X)X
+2858(window)X
+3141(system)X
+3389(on)X
+3495(machines)X
+3824(of)X
+3917(this)X
+1184 4299(platform)N
+1480(type,)X
+1658(don't)X
+1847(worry)X
+2059(about)X
+2257(the)X
+2375(X)X
+2453(library)X
+2687(pathname,)X
+3039(but)X
+3161(set)X
+3270(``HAS_X'')X
+3656(to)X
+3738(``NO''.)X
+984 4422(XExtLibPath)N
+1184 4512(Pathname)N
+1537(of)X
+1641(the)X
+1776(X)X
+1871(extension)X
+2215(library.)X
+2506(If)X
+2597(you)X
+2754(don't)X
+2960(have)X
+3149(an)X
+3262(X)X
+3357(extension)X
+3701(library)X
+3952(on)X
+1184 4602(machines)N
+1556(of)X
+1692(this)X
+1876(platform)X
+2221(type,)X
+2447(don't)X
+2684(worry)X
+2944(about)X
+3190(this)X
+3373(pathname,)X
+3773(but)X
+3943(set)X
+1184 4692(``HAS_X_EXTENSIONS'')N
+2104(to)X
+2186(``NO''.)X
+984 4815(MkDepend)N
+1184 4905(Pathname)N
+1530(of)X
+1627(the)X
+2 f
+1755(makedepend)X
+1 f
+2187(program)X
+2489(you)X
+2639(intend)X
+2869(to)X
+2961(use.)X
+3138(This)X
+3311(could)X
+3520(be)X
+3627(a)X
+3694(previously)X
+1184 4995(existing)N
+1457(X11)X
+1615(version,)X
+1891(or)X
+1978(the)X
+2096(shell)X
+2267(script)X
+2465(provided)X
+2770(in)X
+2852(this)X
+2987(distribution)X
+3375(tape.)X
+984 5118(TypicalMemory)N
+1184 5208(The)N
+1332(amount)X
+1595(of)X
+1685(physical)X
+1975(memory)X
+2266(which)X
+2486(will)X
+2634(be)X
+2734(typical)X
+2976(on)X
+3080(platforms)X
+3411(of)X
+3502(this)X
+3641(type)X
+3803(at)X
+3885(your)X
+1184 5298(installation.)N
+1600(Information)X
+2004(about)X
+2203(individual)X
+2548(machines)X
+2872(which)X
+3088(don't)X
+3277(\256t)X
+3363(the)X
+3481(norm)X
+3670(can)X
+3802(be)X
+3898(cus-)X
+1184 5388(tomized)N
+1462(later.)X
+736 5511(\(7\))N
+950(If)X
+1029(you)X
+1174(are)X
+1298(setting)X
+1536(up)X
+1641(Condor)X
+1906(on)X
+2011(an)X
+2112(R6000)X
+2350(system,)X
+2617(you)X
+2763(should)X
+3002(set)X
+3117(up)X
+3223(alternate)X
+3526(entry)X
+3717(points)X
+3938(for)X
+950 5601(both)N
+1119(the)X
+1244(C)X
+1324(and)X
+1467(FORTRAN)X
+1867(compilers)X
+2210(to)X
+2299(aid)X
+2424(in)X
+2513(the)X
+2638(correct)X
+2889(linking)X
+3142(of)X
+3236(condor)X
+3485(programs.)X
+3854(Note:)X
+950 5691(building)N
+1236(the)X
+1354(condor)X
+1597(test)X
+1728(software)X
+2025(depends)X
+2308(on)X
+2408(these)X
+2593(entry)X
+2778(points.)X
+3 f
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(5)X
+
+6 p
+%%Page: 6 6
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+984 762(C)N
+1057(compiler)X
+1184 852(Edit)N
+1342(the)X
+1465(``/etc/xlc.cfg'')X
+1957(\256le)X
+2084(and)X
+2225(create)X
+2443(two)X
+2588(new)X
+2747(con\256guration)X
+3199(stanzas,)X
+3476(one)X
+3617(called)X
+3835(``con-)X
+1184 942(dorcc'')N
+1451(and)X
+1601(another)X
+1876(called)X
+2102(``ckptcc''.)X
+2494(Both)X
+2683(stanzas)X
+2949(should)X
+3196(be)X
+3305(copied)X
+3552(from)X
+3741(``bsdcc'')X
+1184 1032(with)N
+1346(the)X
+1464(following)X
+1795(changes.)X
+2114(For)X
+2245 0.3068(``condorcc'')AX
+2668(change)X
+9 s
+1344 1146(/lib/libc.a)N
+10 s
+1184 1269(to)N
+9 s
+1344 1383(<INSTALL_DIR>/lib/libcondor.a)N
+10 s
+1184 1506(For)N
+1315(``ckptcc'')X
+1653(change)X
+9 s
+1344 1620(/lib/libc.a)N
+10 s
+1184 1743(to)N
+9 s
+1344 1857(<INSTALL_DIR>/lib/libckpt.a)N
+10 s
+1184 1980(For)N
+1315(both)X
+1477(``ckptcc'')X
+1815(and)X
+1951 0.3068(``condorcc'')AX
+2374(change)X
+9 s
+1344 2094(/lib/crt0.o)N
+10 s
+1184 2217(to)N
+9 s
+1344 2331(<INSTALL_DIR>/lib/condor_rt0.o)N
+10 s
+1184 2454(and)N
+1320(add)X
+9 s
+1344 2568(-bI:<INSTALL_DIR>/lib/syscall.exp)N
+10 s
+1184 2691(to)N
+1268(the)X
+1388(``libraries'')X
+1781(line.)X
+1963(Finally,)X
+2231(create)X
+2446(links)X
+2623(from)X
+2801(``/bin/bsdcc'')X
+3260(to)X
+3344(``/bin/condorcc'')X
+3916(and)X
+1184 2781(``/bin/ckptcc''.)N
+984 2904(FORTRAN)N
+1377(compiler)X
+1184 2994(Edit)N
+1342(the)X
+1465(``/etc/xlf.cfg'')X
+1949(\256le)X
+2077(and)X
+2219(create)X
+2438(two)X
+2584(new)X
+2744(con\256guration)X
+3197(stanzas,)X
+3475(one)X
+3617(called)X
+3835(``con-)X
+1184 3084(dorxlf'')N
+1459(and)X
+1599(another)X
+1864(called)X
+2080(``ckptxlf''.)X
+2479(Both)X
+2658(stanzas)X
+2914(should)X
+3151(be)X
+3251(copied)X
+3489(from)X
+3669(``xlf'')X
+3890(with)X
+1184 3174(the)N
+1302(following)X
+1633(changes.)X
+1952(For)X
+2083(``condorxlf'')X
+2523(change)X
+9 s
+1344 3288(/lib/libc.a)N
+10 s
+1184 3411(to)N
+9 s
+1344 3525(<INSTALL_DIR>/lib/libcondor.a)N
+10 s
+1184 3648(For)N
+1315(``ckptxlf'')X
+1670(change)X
+9 s
+1344 3762(/lib/libc.a)N
+10 s
+1184 3885(to)N
+9 s
+1344 3999(<INSTALL_DIR>/lib/libckpt.a)N
+10 s
+1184 4122(For)N
+1315(both)X
+1477(``ckptxlf'')X
+1832(and)X
+1968(``condorxlf'')X
+2408(change)X
+9 s
+1344 4236(/lib/crt0.o)N
+10 s
+1184 4359(to)N
+9 s
+1344 4473(<INSTALL_DIR>/lib/condor_rt0.o)N
+10 s
+1184 4596(and)N
+1320(add)X
+9 s
+1344 4710(-bI:<INSTALL_DIR>/lib/syscall.exp)N
+10 s
+1184 4833(to)N
+1270(the)X
+1392(``libraries'')X
+1787(line.)X
+1971(Finally,)X
+2241(create)X
+2458(links)X
+2637(from)X
+2817(``usr/bin/xlf'')X
+3282(to)X
+3368(``usr/bin/condorxlf'')X
+1184 4923(and)N
+1320(``usr/bin/ckptxlf''.)X
+976 5046(The)N
+1130 0.3068(``condorcc'')AX
+1562(and)X
+1707(``condorxlf'')X
+2156(entries)X
+2399(will)X
+2552(link)X
+2705(programs)X
+3038(for)X
+3162(execution)X
+3504(by)X
+3614(condor.)X
+3907(The)X
+976 5136(``ckptcc'')N
+1326(and)X
+1474(``ckptxlf'')X
+1841(entries)X
+2086(will)X
+2241(link)X
+2396(programs)X
+2730(for)X
+2855(local)X
+3042(execution)X
+3385(with)X
+3558(checkpointing.)X
+976 5226(Example)N
+1281(``xlc.cfg'')X
+1630(and)X
+1766(``xlf.cfg'')X
+2106(\256les)X
+2259(are)X
+2378(included)X
+2674(in)X
+2756(the)X
+2874(``con\256g'')X
+3202(directory.)X
+736 5349(\(8\))N
+950(Create)X
+1185(an)X
+1286(object)X
+1507(tree)X
+1653(for)X
+1772(the)X
+1895(speci\256c)X
+2166(platform)X
+2468(type)X
+2632(for)X
+2752(which)X
+2974(you)X
+3120(are)X
+3245(building)X
+3537(executables.)X
+3978(If)X
+950 5439(you)N
+1097(have)X
+1276(the)X
+1401(condor)X
+1651(source)X
+1888(remotely)X
+2200(mounted,)X
+2526(and)X
+2668(want)X
+2850(to)X
+2938(use)X
+3071(the)X
+3195(trick)X
+3368(shown)X
+3603(in)X
+3691(\256gure)X
+3904(1)X
+3970(to)X
+950 5529(build)N
+1136(your)X
+1305(executables)X
+1702(on)X
+1805(the)X
+1926(physical)X
+2216(disk)X
+2372(of)X
+2462(the)X
+2583(compilation)X
+2988(machine,)X
+3303(set)X
+3415(up)X
+3518(the)X
+3639(directory)X
+3952(on)X
+950 5619(the)N
+1077(compilation)X
+1488(machine)X
+1788(and)X
+1932(the)X
+2058(symbolic)X
+2379(link)X
+2531(now.)X
+2737(For)X
+2876(the)X
+3002(example)X
+3302(shown,)X
+3559(the)X
+3685(commands)X
+950 5709(executed)N
+1256(on)X
+1356(the)X
+1474(Sun)X
+1618(4)X
+1678(were)X
+3 f
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(6)X
+
+7 p
+%%Page: 7 7
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+1270 762(mkdir)N
+1481(\304condor/SPARC_OBJ)X
+1270 852(ln)N
+1352(-s)X
+1430(\304condor/SPARC_OBJ)X
+2156(\304condor/CONDOR/SPARC_SUNOS41)X
+950 975(To)N
+1069(build)X
+1263(the)X
+1391(object)X
+1617(tree,)X
+1788(``cd'')X
+2002(to)X
+2094(the)X
+2222(``\304condor/CONDOR'')X
+2970(directory)X
+3290(and)X
+3436(\256rst)X
+3590(run)X
+3728(``imake'')X
+950 1065(then)N
+1108(``make''.)X
+736 1188(\(9\))N
+950(If)X
+1024(you)X
+1164(are)X
+1284(building)X
+1571(executables)X
+1967(for)X
+2082(an)X
+2179(R6000)X
+2413(system,)X
+2676(you)X
+2817(will)X
+2962(need)X
+3135(to)X
+3218(make)X
+3413(<RELEASE_DIR>)X
+950 1278(accessible)N
+1298(as)X
+1387(<INSTALL_DIR>)X
+2011(on)X
+2113(the)X
+2233(compilation)X
+2637(machine)X
+2931(at)X
+3011(this)X
+3147(time.)X
+3350(This)X
+3513(is)X
+3587(because)X
+3863(some)X
+950 1368(of)N
+1040(the)X
+2 f
+1161(condor)X
+1 f
+1411(programs)X
+1737(will)X
+1884(be)X
+1983(built)X
+2152(using)X
+2348(a)X
+2407(shared)X
+2640(library.)X
+2917(The)X
+3066(AIX)X
+3233(load)X
+3395(routine)X
+3646(will)X
+3794(need)X
+3970(to)X
+950 1458(be)N
+1050(able)X
+1208(to)X
+1294(\256nd)X
+1442(that)X
+1586(library)X
+1824(at)X
+1906(execution)X
+2242(time)X
+2408(and)X
+2548(will)X
+2696(search)X
+2926(for)X
+3044(it)X
+3112(at)X
+3193(a)X
+3252(pathname)X
+3587(compiled)X
+3908(into)X
+950 1548(the)N
+1116(affected)X
+1444(program.)X
+1825(It)X
+1943(is)X
+2065(therefore)X
+2425(desirable)X
+2784(that)X
+2973(this)X
+3157(pathname)X
+3538(is)X
+3660(relative)X
+3970(to)X
+950 1638(<INSTALL_DIR>)N
+1586(rather)X
+1808(than)X
+1980(<RELEASE_DIR>)X
+2633(so)X
+2738(that)X
+2892(if)X
+2975(you)X
+3128(later)X
+3304(copy)X
+3493(executables)X
+3901(to)X
+3996(a)X
+950 1728(machine)N
+1245(other)X
+1433(than)X
+1594(the)X
+1715(compilation)X
+2120(machine,)X
+2435(that)X
+2578(library)X
+2815(can)X
+2950(still)X
+3092(be)X
+3191(found.)X
+3441(The)X
+3590(``Imake\256les'')X
+950 1818(supplied)N
+1241(with)X
+1403(this)X
+1538(distribution)X
+1926(are)X
+2045(set)X
+2154(up)X
+2254(to)X
+2336(do)X
+2436(it)X
+2500(that)X
+2640(way.)X
+736 1941(\(10\))N
+950(``Cd'')X
+1173(to)X
+1257(the)X
+1377(newly)X
+1595(created)X
+1850(object)X
+2068(directory)X
+2380(for)X
+2496(the)X
+2616(platform)X
+2914(type)X
+3074(of)X
+3163(interest,)X
+3442(and)X
+3581(compile)X
+3862(all)X
+3965(of)X
+950 2031(condor)N
+1193(by)X
+1293(running)X
+1562(``make)X
+1810(release''.)X
+736 2154(\(11\))N
+950(Make)X
+1157(condor)X
+1404(available)X
+1718(to)X
+1804(all)X
+1908(of)X
+1999(the)X
+2121(machines)X
+2448(you)X
+2592(wish)X
+2767(to)X
+2853(have)X
+3029(in)X
+3116(your)X
+3288(pool)X
+3455(as)X
+3547(appropriate)X
+3938(for)X
+950 2244(your)N
+1121(site.)X
+1296(This)X
+1462(may)X
+1624(mean)X
+1821(creating)X
+2103(a)X
+2162(symbolic)X
+2478(link,)X
+2645(distributing)X
+3036(to)X
+3121(a)X
+3180(\256leserver,)X
+3522(or)X
+3612(granting)X
+3902(per-)X
+950 2334(mission)N
+1218(to)X
+1300(other)X
+1485(machines)X
+1808(to)X
+1890(mount)X
+2114(the)X
+2232(condor)X
+2475(software)X
+2772(via)X
+2890(NFS.)X
+3096(See)X
+3232(\256gure)X
+3439(2.)X
+736 2457(\(12\))N
+950(You)X
+1156(will)X
+1348(also)X
+1545(need)X
+1765(to)X
+1895(install)X
+2158(the)X
+2 f
+2324(condor)X
+1 f
+2619(man)X
+2825(pages.)X
+3116(These)X
+3376(will)X
+3569(be)X
+3714(found)X
+3970(in)X
+950 2547(``CONDOR/doc/man/{manl,catl}''.)N
+2160(The)X
+2317(exact)X
+2519(commands)X
+2898(will)X
+3054(vary)X
+3229(somewhat)X
+3586(depending)X
+3952(on)X
+950 2637(the)N
+1074(situation)X
+1375(at)X
+1459(your)X
+1632(site.)X
+1809(If)X
+1889(you)X
+2035(mount)X
+2265(your)X
+2438(man)X
+2602(pages)X
+2811(on)X
+2917(a)X
+2979(shared)X
+3215(\256leserver,)X
+3560(they)X
+3725(may)X
+3890(look)X
+950 2727(something)N
+1303(like)X
+1443(this:)X
+9 s
+1110 2841(rcp)N
+1220(manl/*)X
+1438(<\256leserver>:/usr/man/manl)X
+1110 2922(rcp)N
+1220(catl/*)X
+1398(<\256leserver>:/usr/man/catl)X
+10 s
+736 3078(\(13\))N
+950(To)X
+1059(make)X
+1253(and)X
+1389(install)X
+1604(executables)X
+1999(for)X
+2113(other)X
+2298(platforms,)X
+2645(go)X
+2745(back)X
+2917(to)X
+2999(step)X
+3148(3.)X
+3 f
+576 3264(6.)N
+676(STARTING)X
+1113(CONDOR)X
+1489(AND)X
+1683(ADDING)X
+2028(MEMBERS)X
+2461(TO)X
+2596(THE)X
+2784(POOL)X
+1 f
+696 3387(Complete)N
+1032(the)X
+1155(following)X
+1491(steps)X
+1676(on)X
+1781(each)X
+1954(machine)X
+2251(you)X
+2396(want)X
+2577(to)X
+2664(add)X
+2805(to)X
+2892(the)X
+3015(condor)X
+3263(resource)X
+3562(pool.)X
+3770(Add)X
+3934(the)X
+696 3477(machine)N
+992(which)X
+1212(will)X
+1360(act)X
+1478(as)X
+1569(the)X
+1691(``central)X
+1988(manager'')X
+2343(\256rst.)X
+3 f
+2531(N.B.)X
+2706(all)X
+2814(of)X
+2905(the)X
+3036(steps)X
+3229(in)X
+3319(setting)X
+3570(up)X
+3682(a)X
+3746(member)X
+696 3567(of)N
+783(the)X
+910(condor)X
+1170(pool)X
+1336(will)X
+1480(require)X
+1754(you)X
+1898(to)X
+1985(operate)X
+2264(as)X
+2355(the)X
+2482(super)X
+2693(user.)X
+1 f
+736 3690(\(1\))N
+950(Create)X
+1188(an)X
+1293(account)X
+1572(for)X
+1695(``condor'')X
+2055(on)X
+2164(the)X
+2291(member)X
+2583(machine.)X
+2924(Be)X
+3042(sure)X
+3205(to)X
+3296(use)X
+3432(the)X
+3559(same)X
+3753(user)X
+3916(and)X
+950 3780(group)N
+1157(id's)X
+1297(on)X
+1397(all)X
+1497(member)X
+1780(machines.)X
+736 3903(\(2\))N
+950(If)X
+1030(you)X
+1176(are)X
+1301(planning)X
+1607(to)X
+1695(access)X
+1927(the)X
+2052(condor)X
+2302(executables)X
+2704(on)X
+2811(this)X
+2953(machine)X
+3252(via)X
+3377(a)X
+3440(remotely)X
+3752(mounted)X
+950 3993(\256le)N
+1083(system,)X
+1355(make)X
+1559(sure)X
+1723(that)X
+1873(\256le)X
+2005(system)X
+2257(is)X
+2340(currently)X
+2660(mounted,)X
+2990(and)X
+3136(that)X
+3286(there)X
+3477(is)X
+3560(an)X
+3666(appropriate)X
+950 4083(entry)N
+1135(in)X
+1217(``/etc/fstab'')X
+1639(so)X
+1730(that)X
+1870(it)X
+1934(will)X
+2078(get)X
+2196(mounted)X
+2496(whenever)X
+2829(the)X
+2947(machine)X
+3239(is)X
+3312(booted.)X
+950 4206(For)N
+1081(example)X
+1373(on)X
+1473(a)X
+1529(Sun)X
+1673(4)X
+1733(running)X
+2002(SunOs)X
+2235(4.1)X
+2355(the)X
+2473(fstab)X
+2649(entry)X
+2834(might)X
+3040(look)X
+3202(something)X
+950 4296(like:)N
+9 s
+1552 4410(<\256leserver>:<some)N
+2142(path>/SPARC_SUNOS41/release)X
+3146(<RELEASEDIR>)X
+3696(nfs)X
+3812(ro)X
+1110 4491(0)N
+1164(0)X
+10 s
+736 4680(\(3\))N
+950(Run)X
+1105(the)X
+1225(script)X
+1425(``condor_init''.)X
+1964(This)X
+2129(will)X
+2276(link)X
+2423(``condor_con\256g'')X
+3017(to)X
+3102(a)X
+3161(site)X
+3295(speci\256c)X
+3563(version)X
+3822(of)X
+3912(that)X
+950 4770(\256le,)N
+1093(and)X
+1230(create)X
+1444(the)X
+1563(``log'',)X
+1814(``spool'',)X
+2136(and)X
+2273 0.3250(``execute'')AX
+2647(directories)X
+3006(with)X
+3168(correct)X
+3412(ownership)X
+3766(and)X
+3902(per-)X
+950 4860(missions.)N
+736 4983(\(4\))N
+950(Run)X
+1135(the)X
+1285(script)X
+1515(``condor_on''.)X
+2059(This)X
+2254(will)X
+2431(create)X
+2677(and)X
+2846(edit)X
+3019(``condor_con\256g.local'')X
+3819(setting)X
+950 5073(``START_DAEMONS'')N
+1779(to)X
+1873(``True'')X
+2165(so)X
+2268(that)X
+2419(the)X
+2548(condor)X
+2802(daemons)X
+3118(are)X
+3248(able)X
+3413(to)X
+3506(run,)X
+3664(then)X
+3833(it)X
+3908(will)X
+950 5163(actually)N
+1224(start)X
+1382(them.)X
+736 5286(\(5\))N
+950(At)X
+1050(this)X
+1185(point)X
+1369(the)X
+1487(member)X
+1771(machine)X
+2064(should)X
+2298(be)X
+2395(fully)X
+2567(operational.)X
+2989(On)X
+3108(all)X
+3209(machines)X
+3533(you)X
+3674(should)X
+3908(\256nd)X
+950 5376(the)N
+1073 0.1838(``condor_master'',)AX
+1703(``condor_startd'',)X
+2297(and)X
+2438 0.2031(``condor_schedd'')AX
+3056(running.)X
+3369(Machines)X
+3705(which)X
+3925(run)X
+950 5466(the)N
+1074(X)X
+1158(window)X
+1442(system,)X
+1710(should)X
+1949(also)X
+2104(be)X
+2206(running)X
+2481(the)X
+2605(``condor_kbdd''.)X
+3203(Additionally)X
+3634(the)X
+3759(``central)X
+950 5556(manager'')N
+1304(machine)X
+1599(should)X
+1835(be)X
+1933(running)X
+2204(the)X
+2324 0.1842(``condor_collector'')AX
+2998(and)X
+3136(``condor_negotiator''.)X
+3894(You)X
+950 5646(can)N
+1082(check)X
+1290(to)X
+1372(see)X
+1495(that)X
+1635(the)X
+1753(proper)X
+1983(daemons)X
+2288(are)X
+2407(running)X
+2676(with)X
+9 s
+1110 5760(ps)N
+1192(-ax)X
+9 f
+1302(|)X
+1 f
+1334(egrep)X
+1512(condor)X
+3 f
+10 s
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(7)X
+
+8 p
+%%Page: 8 8
+10 s 10 xH 0 xS 3 f
+576 474(Version)N
+863(4.1b)X
+3788(10/9/91)X
+1 f
+950 762(You)N
+1117(should)X
+1359(also)X
+1517(run)X
+1653(``condor_status'')X
+2235(to)X
+2326(see)X
+2458(that)X
+2607(the)X
+2734(new)X
+2897(machine)X
+3199(shows)X
+3429(up)X
+3539(in)X
+3631(the)X
+3759(resource)X
+950 852(pool.)N
+1155(If)X
+1232(you)X
+1375(wish)X
+1549(to)X
+1634(run)X
+1764(some)X
+1956(trivial)X
+2170(jobs)X
+2326(to)X
+2411(check)X
+2622(operation)X
+2948(of)X
+3038(all)X
+3141(the)X
+2 f
+3262(condor)X
+1 f
+3512(software,)X
+3831(exam-)X
+950 942(ple)N
+1081(user)X
+1248(programs)X
+1584(and)X
+1733(``job)X
+1922(description'')X
+2365(\256les)X
+2532(have)X
+2718(been)X
+2904(compiled)X
+3236(and)X
+3386(are)X
+3519(provided)X
+3838(in)X
+3934(the)X
+950 1032(``condor_test_suite_C'')N
+1736(and)X
+1872(``condor_test_suite_F'')X
+2649(directories.)X
+736 1155(\(6\))N
+950(Add)X
+1108(lines)X
+1279(to)X
+1361(``/etc/rc'')X
+1690(or)X
+1777 0.1953(``/etc/rc.local'')AX
+2282(which)X
+2498(will)X
+2642(start)X
+2800 0.1953(``condor_master'')AX
+3405(at)X
+3483(boot)X
+3645(time.)X
+950 1278(The)N
+1095(entry)X
+1280(will)X
+1424(look)X
+1586(something)X
+1939(like)X
+2079(this:)X
+1270 1401(if)N
+1339([)X
+1386(-f)X
+1460(/usr/uw/condor/bin/condor_master)X
+2588(];)X
+2657(then)X
+1430 1491(/usr/uw/condor/bin/condor_master;)N
+2580(echo)X
+2752(-n)X
+2839(')X
+2886(condor')X
+3196(>/dev/console)X
+1270 1581(\256)N
+950 1737(Note:)N
+1148(do)X
+1248(not)X
+1370(attempt)X
+1630(to)X
+1712(run)X
+1839(this)X
+1974(command)X
+2310(now,)X
+2488(condor)X
+2731(is)X
+2804(already)X
+3061(running.)X
+3 f
+576 1923(7.)N
+676(Copyright)X
+1047(Information)X
+1 f
+696 2046(Copyright)N
+1040(1986,)X
+1240(1987,)X
+1440(1988,)X
+1640(1989,)X
+1840(1990,)X
+2040(1991)X
+2220(by)X
+2320(the)X
+2438(Condor)X
+2698(Design)X
+2945(Team)X
+696 2169(Permission)N
+1071(to)X
+1153(use,)X
+1300(copy,)X
+1496(modify,)X
+1767(and)X
+1903(distribute)X
+2225(this)X
+2361(software)X
+2659(and)X
+2796(its)X
+2892(documentation)X
+3389(for)X
+3504(any)X
+3641(purpose)X
+3916(and)X
+696 2259(without)N
+969(fee)X
+1097(is)X
+1179(hereby)X
+1427(granted,)X
+1717(provided)X
+2031(that)X
+2180(the)X
+2307(above)X
+2528(copyright)X
+2864(notice)X
+3089(appear)X
+3333(in)X
+3424(all)X
+3533(copies)X
+3767(and)X
+3912(that)X
+696 2349(both)N
+862(that)X
+1006(copyright)X
+1337(notice)X
+1557(and)X
+1697(this)X
+1836(permission)X
+2212(notice)X
+2433(appear)X
+2673(in)X
+2760(supporting)X
+3127(documentation,)X
+3648(and)X
+3789(that)X
+3934(the)X
+696 2439(name)N
+892(of)X
+981(the)X
+1100(University)X
+1459(of)X
+1547(Wisconsin)X
+1906(not)X
+2029(be)X
+2126(used)X
+2294(in)X
+2377(advertising)X
+2754(or)X
+2842(publicity)X
+3147(pertaining)X
+3493(to)X
+3576(distribution)X
+3965(of)X
+696 2529(the)N
+821(software)X
+1125(without)X
+1396(speci\256c,)X
+1688(written)X
+1942(prior)X
+2125(permission.)X
+2543(The)X
+2695(University)X
+3061(of)X
+3156(Wisconsin)X
+3522(and)X
+3666(the)X
+3792(Condor)X
+696 2619(Design)N
+950(team)X
+1133(make)X
+1334(no)X
+1440(representations)X
+1952(about)X
+2156(the)X
+2280(suitability)X
+2625(of)X
+2718(this)X
+2859(software)X
+3162(for)X
+3282(any)X
+3424(purpose.)X
+3744(It)X
+3819(is)X
+3898(pro-)X
+696 2709(vided)N
+894("as)X
+1014(is")X
+1120(without)X
+1384(express)X
+1645(or)X
+1732(implied)X
+1996(warranty.)X
+696 2832(THE)N
+894(UNIVERSITY)X
+1417(OF)X
+1561(WISCONSIN)X
+2048(AND)X
+2264(THE)X
+2462(CONDOR)X
+2842(DESIGN)X
+3178(TEAM)X
+3447(DISCLAIM)X
+3876(ALL)X
+696 2922(WARRANTIES)N
+1247(WITH)X
+1482(REGARD)X
+1836(TO)X
+1968(THIS)X
+2171(SOFTWARE,)X
+2647(INCLUDING)X
+3118(ALL)X
+3299(IMPLIED)X
+3649(WARRAN-)X
+696 3012(TIES)N
+894(OF)X
+1025(MERCHANTABILITY)X
+1824(AND)X
+2027(FITNESS.)X
+2391(IN)X
+2506(NO)X
+2652(EVENT)X
+2945(SHALL)X
+3233(THE)X
+3419(UNIVERSITY)X
+3930(OF)X
+696 3102(WISCONSIN)N
+1172(OR)X
+1313(THE)X
+1499(CONDOR)X
+1867(DESIGN)X
+2191(TEAM)X
+2448(BE)X
+2580(LIABLE)X
+2895(FOR)X
+3080(ANY)X
+3284(SPECIAL,)X
+3658(INDIRECT)X
+696 3192(OR)N
+839(CONSEQUENTIAL)X
+1539(DAMAGES)X
+1967(OR)X
+2110(ANY)X
+2316(DAMAGES)X
+2744(WHATSOEVER)X
+3328(RESULTING)X
+3806(FROM)X
+696 3282(LOSS)N
+931(OF)X
+1073(USE,)X
+1284(DATA)X
+1547(OR)X
+1698(PROFITS,)X
+2077(WHETHER)X
+2509(IN)X
+2634(AN)X
+2790(ACTION)X
+3133(OF)X
+3274(CONTRACT,)X
+3764(NEGLI-)X
+696 3372(GENCE)N
+987(OR)X
+1122(OTHER)X
+1413(TORTIOUS)X
+1834(ACTION,)X
+2182(ARISING)X
+2532(OUT)X
+2722(OF)X
+2849(OR)X
+2985(IN)X
+3095(CONNECTION)X
+3641(WITH)X
+3876(THE)X
+696 3462(USE)N
+867(OR)X
+998(PERFORMANCE)X
+1608(OF)X
+1730(THIS)X
+1928(SOFTWARE.)X
+696 3585(Authors:)N
+1096(Allan)X
+1294(Bricker,)X
+1575(Michael)X
+1858(J.)X
+1929(Litzkow,)X
+2236(and)X
+2372(others.)X
+1096 3675(University)N
+1454(of)X
+1541(Wisconsin,)X
+1919(Computer)X
+2259(Sciences)X
+2560(Dept.)X
+3 f
+576 6048(INSTALLATION)N
+1208(GUIDE)X
+3992(8)X
+
+8 p
+%%Trailer
+xt
+
+xs

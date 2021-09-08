@@ -1,0 +1,7 @@
+{% include logic/is_in_uw_dir.html %}
+{% if is_in_uw_dir %}
+
+    {% assign nav_items = site.data.uw-research-computing-menu.nav_items %}
+    {% include navbar/sub-navbar.html menu_name="UW-Research Computing" %}
+
+{% endif %}
