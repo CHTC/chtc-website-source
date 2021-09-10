@@ -1,9 +1,11 @@
-name: Build/deploy web pages
+name: Deploy Production Site
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
+  schedule:
+    - cron: '0 0 * * *'
 jobs:
   build-and-maybe-deploy:
     runs-on: ubuntu-18.04
@@ -26,6 +28,7 @@ jobs:
         env:
           #NO_PUSH: 1
           TARGET_REPO: CHTC/chtc.github.io
+          BRANCH: master
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
         name: Deploy web pages on merge/push

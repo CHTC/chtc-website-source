@@ -1,10 +1,10 @@
-
-name: Deploy preview web area
+name: Deploy Development Site
 
 on:
   push:
     branches: [preview]
-
+  pull_request:
+    branches: [preview]
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
@@ -18,7 +18,6 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
       - run: |
-          sed -i "s|baseurl: ''|baseurl: '/web-preview'|" _config.yml
           ./script/cibuild
         name: Build web pages
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
