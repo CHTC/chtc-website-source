@@ -43,7 +43,6 @@ $grid-breakpoints: (
   .uw-card-content {
     background-color: $uw-white;
     flex-direction: row;
-    width: 100%;
     img {
       width: 100%;
     }
@@ -55,7 +54,6 @@ $grid-breakpoints: (
 
 .team-card {
   .uw-card-content {
-    width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
