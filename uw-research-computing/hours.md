@@ -9,7 +9,7 @@ and which resource collection provided those hours. The following resource colle
 are available to campus researchers:
 <P>
 <ul>
-<li><strong>OSG</strong> - <a href="https://www.opensciencegrid.org/bin/view">Open Science Grid</a> (<a href="http://display.grid.iu.edu/">all</a> OSG activity)
+<li><strong>OSG</strong> - <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a> (<a href="http://display.grid.iu.edu/">all</a> OSG activity)
 <li><strong>CAE</strong> - Computer Aided Engineering Department resources
 <li><strong>CS</strong> - Computer Science Department  resources
 <li><strong>CHTC</strong> - Center for High Throughput Computing resources

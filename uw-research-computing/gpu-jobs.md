@@ -357,9 +357,9 @@ for running GPU jobs:
 - they do not have access to CHTC's large data `/staging` file system
 - they do not have Docker capability
 
-## 3. Using GPUs on the Open Science Grid
+## 3. Using GPUs on the OS Pool
 
-CHTC, as a member of the <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> can access GPUs that
-are available on the OSG. See [this guide](scaling-htc) to know
-whether your jobs are good candidates for the OSG and then get in touch
+CHTC, as a member of the [OSG Consortium](http://www.osg-htc.org/) can access GPUs that
+are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). See [this guide](scaling-htc) to know
+whether your jobs are good candidates for the OS Pool and then get in touch
 with CHTC's Research Computing Facilitators to discuss details. 

@@ -14,7 +14,7 @@ Contents
 
 1.  [Why run on additional resources outside CHTC?](#why)
     -   [The UW Grid](#uw)
-    -   [The Open Science Grid (OSG)](#osg)
+    -   [The OSG Consortium](#osg)
 2.  [Job Qualifications](#job)
 3.  [Submitting Jobs to Run Beyond CHTC](#submit)
 
@@ -25,9 +25,9 @@ Contents
 ================================================
 
 Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and Open Science Grid include thousands of computers,
+size! The UW Grid and OS Pool include thousands of computers,
 addition to what\'s already available in CHTC. Most CHTC users who run
-on CHTC, the UW Grid, and the OSG can get more than 100,000 computer
+on CHTC, the UW Grid, and the OS Pool can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
 learn more about these resources.
 
@@ -48,18 +48,18 @@ We call sending jobs to other pools on campus *flocking*.
 
 <a name="osg"></a>
 
-B. The Open Science Grid (OSG)
+B. The OSG Consortium
 ------------------------------
 
-The <a href="http://www.opensciencegrid.org/">Open Science Grid (OSG)</a> is a group of universities and research labs
+The <a href="http://www.osg-htc.org/">OSG Consortium</a> is a group of universities and research labs
 who have agreed to share their unused computational resources with each
 other. If a job is submitted from an OSG submission point, it can run in
-the OSG pool associated with that submission point. This OSG pool is the
-result of going out to other members of the OSG and finding if they have
+the [OS pool](https://osg-htc.org/about/open_science_pool/) associated with that submission point. This OSG pool is the
+result of going out to other members of the OS Pool and finding if they have
 any unused computers that are available to run jobs. These unused
 computers then form a pool of resources where jobs can go run.
 
-CHTC is a member of the Open Science Grid, so our submit servers,
+CHTC is a member of the OSG Consortium, so our submit servers,
 besides sending jobs to CHTC computers (the default), can send jobs to
 the OSG. We call sending jobs to other institutions *gliding*.
 
@@ -93,12 +93,12 @@ to us, they have two major requirements:
 =====================================
 
 If your jobs meet the characteristics above and you would like to use
-either the UW Grid or OSG to run jobs, in addition to CHTC, you can add
+either the UW Grid or OS Pool to run jobs, in addition to CHTC, you can add
 the following to your submit file:
 
 {:.gtable}
   | +WantFlocking = true | Also send jobs to other HTCondor Pools on campus (UW Grid)<br>Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
-  | +WantGlideIn = true  | Also send jobs to the Open Science Grid (OSG). <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
+  | +WantGlideIn = true  | Also send jobs to the OS Pool. <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
 
 To guarantee maximum efficiency, **please do the following steps
 whenever submitting a new type of job to the UW Grid or OSG:**
@@ -118,11 +118,11 @@ whenever submitting a new type of job to the UW Grid or OSG:**
     (`&&`) and then the additional requirement.)
 
 2.  **Troubleshooting:** If your jobs don\'t run successfully on the UW
-    Grid or OSG, please [get in touch with a research computing
+    Grid or OS Pool, please [get in touch with a research computing
     facilitator](get-help).  
     
 3.  **Scaling Up:** Once you have tested your jobs and they seem to be
     running successfully, you are ready to submit a full batch of jobs
-    that uses CHTC and the UW Grid/OSG. **REMOVE** the `Poolname`
+    that uses CHTC and the UW Grid/OS Pool. **REMOVE** the `Poolname`
     requirement from the test jobs but leave the `+wantFlocking` and
     `+wantGlidein` lines.

@@ -9,7 +9,7 @@ When submitting jobs to CHTC's High Throughput Computing (HTC) system,
 there is a distinct location for staging data that is too large to be
 handled at scale via the default HTCondor file transfer mechanism
 but needs to be accessed outside of CHTC
-(for example, data for jobs that run on the <a href="http://www.opensciencegrid.org/">Open Science Grid</a>).
+(for example, data for jobs that run on the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>).
 
 **To best understand the below information, users should already be
 familiar with:**
@@ -91,7 +91,7 @@ creation permission at any time.
 ## D. Data Access Within Jobs
 
 Data in a CHTC S3 bucket can be accessed from jobs running almost
-anywhere (including most of OSG). HTCondor automatically matches and
+anywhere (including most of OS Pool). HTCondor automatically matches and
 runs jobs that use S3 buckets only on machines that support S3 data
 transfers.
 

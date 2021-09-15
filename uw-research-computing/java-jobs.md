@@ -13,7 +13,7 @@ beyond. There are two ways to run Java code from a CHTC submit server:
 -   [Run jobs in CHTC only, using the default Java version
     (1.8)](#default)
 -   [Use a newer version of Java and/or run jobs beyond CHTC (on the UW
-    Grid or Open Science Grid) (recommended)](#portable)
+    Grid or OS Pool) (recommended)](#portable)
 
 You should only use \*one\* of these options to run Java code, not both.
 
@@ -47,7 +47,7 @@ Portable Java
 =============
 
 To use a newer version of Java and/or to run outside of CHTC on the UW
-Grid and/or Open Science Grid:
+Grid and/or OS Pool:
 
 1. Download the Linux x64 Java/JDK tar file (the .tar.gz ending \*not\*
 .rpm) from the [Oracle

@@ -8,7 +8,7 @@ title: CHTC Tools for Matlab, R, and Python Portability
 		<div class="uw-col uw-body">
             <p>
              Software like Matlab, R, and Python may or may not exist on CHTC-accessible
-             compute hardware (especially on the UW Grid and Open Science Grid). Even if
+             compute hardware (especially on the UW Grid and OS Pool). Even if
              it is installed, it may not be the version you need. So, in order to get
              your jobs running on as many computers as possible, we are happy to work with
              you to create scripts that will bring  along your R, Matlab, or Python dependencies (like libraries and modules).

@@ -25,7 +25,7 @@ title: Other Resources
 <a href="http://www.neos-server.org/">NEOS Optimization Service</a>
 </li>
 <li>
-<a href="http://www.opensciencegrid.org/">Open Science Grid</a>
+<a href="http://www.osg-htc.org/">OSG Consortium</a>
 </li>
 <li>
 <a href="http://wid.wisc.edu/">WID (Wisconsin Institute for Discovery)</a>
