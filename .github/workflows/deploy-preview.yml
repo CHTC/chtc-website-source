@@ -1,0 +1,55 @@
+name: Deploy Web Previews
+on:
+  push:
+    branches:
+      - preview-**
+  pull_request:
+    branches:
+      - preview-**
+
+jobs:
+  Deploy-Web-Preview:
+    if: ${{ github.repository_owner == 'CHTC' }}
+    runs-on: ubuntu-18.04
+    env:
+      preview_url: https://github.com/CHTC/web-preview.git
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get branch name
+        run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
+      - name: Configure for Dev Preview
+        run: |
+          rm CNAME -f
+          sed -i "s|baseurl: ''|baseurl: '/web-preview/${{ env.BRANCH_NAME }}'|" _config.yml
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git commit -am "GHA: CHTC #$GITHUB_RUN_NUMBER"
+
+      - name: Setup SSH Keys and known_hosts
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.WEB_PREVIEW_DEPLOY_KEY }}
+
+      - name: Build and Deploy
+        run: |
+          bundle exec jekyll build
+          mkdir temp-dir
+          mv _site ${{ env.BRANCH_NAME }}
+          mv ${{ env.BRANCH_NAME }} temp-dir
+
+          git add temp-dir
+          git commit -m "Build Branch Website"
+          SPLIT_BRANCH=$(git subtree split --prefix temp-dir temp-branch)
+
+          git remote add web-preview ${{ env.preview_url }}
+          git fetch --all
+          git checkout -b preview web-preview/main
+          git merge $SPLIT_BRANCH -m "Merge Split Branch" --allow-unrelated-histories -X theirs
+          git push web-preview HEAD:main

@@ -1,0 +1,33 @@
+name: Deploy Web Previews
+on:
+  delete:
+    branches:
+      - preview-**
+
+jobs:
+  Delete Preview Page:
+    if: ${{ github.repository_owner == 'CHTC' }}
+    runs-on: ubuntu-18.04
+    env:
+      preview_url: https://github.com/CHTC/web-preview.git
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get branch name
+        run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
+      - name: Setup SSH Keys and known_hosts
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.WEB_PREVIEW_DEPLOY_KEY }}
+
+      - name: Build and Deploy
+        run: |
+          git remote add web-preview ${{ env.preview_url }}
+          git fetch --all
+          git checkout -b preview web-preview/main
+          git rm -rf ${{ env.BRANCH_NAME }}
+          git add .
+          git commit -m "Remove the Deleted Branch"
+          git push web-preview HEAD:main
