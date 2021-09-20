@@ -22,7 +22,7 @@ title: News
 
 <h3 class="mt-0 text-muted">{{ articles[article_index].date | date_to_long_string }}</h3>
 <p>
-    {{ articles[article_index].excerpt }}
+    {{ articles[article_index].excerpt | markdownify | strip_html | markdownidfy }}
 </p>
 
 {% unless article_index == num_articles_sub_one %}
