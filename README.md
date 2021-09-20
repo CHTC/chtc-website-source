@@ -45,6 +45,24 @@ branch; then pull from the original CHTC Github repository:
 	git checkout master
 	git pull origin master
 
+## Testing Changes on Remote
+
+:exclamation: This is a new feature!
+
+To test changes on a publicly viewable development location do the following steps.
+
+- Populate a branch with the changes you would like to preview and prepend the name of the branch with 'preview-'
+  - For this example we will call our branch 'preview-helloworld'
+- Push the branch to the remote repository at 'https://github.com/CHTC/chtc-website-source.git'
+- View the changes at:
+	- https://chtc.github.io/web-preview/<preview-branch>/
+	- In this demo we would look in https://chtc.github.io/web-preview/preview-helloworld/
+	
+**You can continue to push commits to this branch and have them populate on the preview at this point!**
+
+- When you are satisfied with these changes you can create a PR to merge into master
+- Delete the preview branch and Github will take care of the garbage collection!
+
 ## Testing Changes Locally
 
 ### Quickstart (Unix Only)
