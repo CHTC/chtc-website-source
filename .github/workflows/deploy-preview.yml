@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - preview-**
-  pull_request:
-    branches:
-      - preview-**
 
 jobs:
   Deploy-Web-Preview:
@@ -30,7 +27,7 @@ jobs:
           sed -i "s|baseurl: ''|baseurl: '/web-preview/${{ env.BRANCH_NAME }}'|" _config.yml
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git commit -am "GHA: CHTC #$GITHUB_RUN_NUMBER"
+          git commit -am "GHA: path-cc/path-cc.github.io #$GITHUB_RUN_NUMBER"
 
       - name: Setup SSH Keys and known_hosts
         uses: webfactory/ssh-agent@v0.5.3
@@ -39,6 +36,7 @@ jobs:
 
       - name: Build and Deploy
         run: |
+          git checkout -b temp-branch
           bundle exec jekyll build
           mkdir temp-dir
           mv _site ${{ env.BRANCH_NAME }}
@@ -53,3 +51,7 @@ jobs:
           git checkout -b preview web-preview/main
           git merge $SPLIT_BRANCH -m "Merge Split Branch" --allow-unrelated-histories -X theirs
           git push web-preview HEAD:main
+
+      - name: Print the preview url
+        run: |
+          echo "Your Preview URL: https://chtc.github.io/web-preview/${{ env.BRANCH_NAME }}/"
