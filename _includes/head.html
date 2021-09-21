@@ -15,6 +15,12 @@
         iframe.width = (newwidth) + "px";
     }
 </script>
+{% if jekyll.environment == 'production' %}
+
+{% else %}
+<meta name="robots" content="noindex">
+{% endif %}
+
 {% if site.google_analytics and jekyll.environment == 'production' %}
 {% include analytics.html %}
 {% endif %}
