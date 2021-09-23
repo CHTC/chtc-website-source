@@ -7,7 +7,7 @@ publish: true
 
 
 In the face of the pandemic, science needed to adapt. 
-This article by the [Morgridge Institute for Research](https://morgridge.org/) provides a thoughtful look into how Wisconsin researchers have pivoted in these challenging times to come together and work for the public good. 
+The article below by the [Morgridge Institute for Research](https://morgridge.org/) provides a thoughtful look into how Wisconsin researchers have pivoted in these challenging times to come together and work for the public good. 
 One of these pivots occurred in the spring of 2020, when Morgridge and the CHTC issued a call for projects investigating COVID-19, resulting in five major collaborations that leveraged the power of HTC.
 
 For a closer look into how the CHTC and countless others have learned, grown, and adapted during the pandemic, read the full Morgridge article: 
