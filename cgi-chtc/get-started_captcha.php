@@ -62,19 +62,19 @@ if(isset($_POST["captcha"])) {
 
     // Send them to the the thanks page
     header( "Content-Type: text/html\n" );
-    header( "Location: https://chtc.cs.wisc.edu/thanks\n\n" );
+    header( "Location: https://chtc.cs.wisc.edu/uw-research-computing/thanks\n\n" );
 
   } else { // User failed captcha
     // Send them back to the form page
     header( "Content-Type: text/html\n" );
-    header( "Location: https://chtc.cs.wisc.edu/form\n\n" );
+    header( "Location: https://chtc.cs.wisc.edu/uw-research-computing/form\n\n" );
 
   }
 
 } else { // Some bot didn't even set the captcha field
   // Send them back to the form page, I guess?
   header( "Content-Type: text/html\n" );
-  header( "Location: https://chtc.cs.wisc.edu/form\n\n" );
+  header( "Location: https://chtc.cs.wisc.edu/uw-research-computing/form\n\n" );
 
 }
 
