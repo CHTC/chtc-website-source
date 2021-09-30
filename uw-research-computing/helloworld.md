@@ -87,7 +87,7 @@ queue 3
 {:.sub}
 
 > For a \"template\" version of this submit file without the comments,
-> [click here](files/template.sub).
+> [click here](/uw-research-computing/files/template.sub).
 
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
