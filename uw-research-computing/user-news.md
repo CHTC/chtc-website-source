@@ -13,6 +13,20 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Network upgrades Oct 6 - No downtime expected
+### Monday, October 4, 2021
+
+Greetings CHTC users!
+
+An upgrade of the Discovery server room network will be performed during business hours this Wednesday, October 6, while CHTC services continue to operate. We expect that this maintenance will NOT affect CHTC systems or require any downtime, but will notify users ASAP if there are any unforeseen issues. Systems in this datacenter include the HPC Cluster (least likely to be affected), some HTC submit servers, and a portion of the HTC execute nodes (where jobs run).
+
+As usual, please contact us with any questions or issues you notice by emailing chtc@cs.wisc.edu
+
+Thank you,
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Delayed email replies today and tomorrow
 ### Tuesday, August 24
 
