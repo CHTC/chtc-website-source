@@ -17,7 +17,7 @@ jobs:
       - run: |
           ./script/cibuild production
         name: Build web pages
-      - uses: CannonLock/search_index_build@master
+      - uses: CannonLock/search_index_build/.github/workflows/build_search_bar.yml@master
         with:
           parameter-file-path: .search-bar.json
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
