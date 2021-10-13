@@ -19,7 +19,7 @@ jobs:
         name: Build web pages
       - uses: CannonLock/search_index_build@master
         with:
-          parameter-file-path: .search-bar.json
+          parameter_file_path: .search-bar.json
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
       - run: |
           mkdir -p ~/.ssh
