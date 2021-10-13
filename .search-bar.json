@@ -3,7 +3,7 @@
   "exclude_paths" : [],
   "meta_data_output": "_site/search/meta_data.json",
   "index_output": "_site/search/index.json",
-  "key_tags" : [{"key" : ["tag0", "tag1"]}],
+  "key_tags" : [{"key" : ["tag0", "tag1"]} ],
   "ref" : "root_relative_url",
   "fields" : []
 }
