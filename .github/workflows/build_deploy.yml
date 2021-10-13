@@ -4,6 +4,7 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+
 jobs:
   build-and-maybe-deploy:
     runs-on: ubuntu-18.04
@@ -16,6 +17,9 @@ jobs:
       - run: |
           ./script/cibuild production
         name: Build web pages
+      - uses: CannonLock/search_index_build/action.yml
+        with:
+          parameter-file-path: .search-bar.json
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
       - run: |
           mkdir -p ~/.ssh
