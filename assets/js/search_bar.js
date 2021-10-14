@@ -56,15 +56,15 @@ const MainSearchBar = {
     create_results_html: function(metadata){
         let html =  "<div id='search-card' class='result card'>" +
             "<div class='card-body'>" +
-            "<div class='card-title'>" +
+            "<div class='card-title text-left'>" +
             "<a href='" + metadata.id + "'>" + metadata.title + "</a>" +
             "</div>" +
+            "<h6 class='card-subtitle'>" + metadata.id.slice(0,-5) + "</h6>"
             "</div>" +
             "</div>"
 
         return html
     }
 }
-
 
 window.onload = MainSearchBar.set_up_search_bar()
