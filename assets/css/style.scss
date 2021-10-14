@@ -12,7 +12,8 @@ $grid-breakpoints: (
 $primary: #c5050c;
 
 // Bootstrap
-@import 'bootstrap/bootstrap';
+@import 'bootstrap/bootstrap-utilities';
+@import 'bootstrap/bootstrap-grid';
 
 // UW Theme
 @import 'UW-theming/uw_style';
