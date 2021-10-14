@@ -1,0 +1,70 @@
+// This page hosts the code that is used on every single page.
+
+// If your js function does not need to be on every page don't put it here!
+
+const MainSearchBar = {
+    id: "main-search-bar",
+    idx_path: "../../assets/search/index.json",
+    metadata_path: "../../assets/search/metadata.json",
+    node: undefined,
+    input_node: undefined,
+    result_node: undefined,
+    idx: undefined,
+    metadata: undefined,
+    set_up_search_bar: async function(){
+        this.node = document.getElementById(this.id)
+        this.input_node = this.node.querySelector("input")
+        this.result_node = this.node.querySelector(".search-results")
+
+        let idx_data = await fetch(this.idx_path)
+        let idx_json = await idx_data.json()
+
+        this.idx = lunr.Index.load(idx_json)
+
+        this.input_node.setAttribute("placeholder", "Search CHTC")
+
+        this.input_node.addEventListener("keyup", () => this.populate_search())
+
+        this.metadata = await fetch(this.metadata_path).then(data => data.json())
+    },
+    get_metadata: function(key) {
+        return this.metadata[key]
+    },
+    populate_search: async function() {
+
+        // Remove the current results
+        this.result_node.innerHTML = ""
+
+        let query = this.input_node.value
+
+        if(query == ""){
+            return
+        }
+
+        let results = this.idx.search(query).slice(0, 5)
+
+        for (const result of results) {
+
+            let new_result_node = document.createElement("div")
+            this.result_node.appendChild(new_result_node)
+
+            let metadata = await this.get_metadata(result.ref)
+            let complete_metadata = {id:result.ref, ...metadata}
+            new_result_node.innerHTML = this.create_results_html(complete_metadata)
+        }
+    },
+    create_results_html: function(metadata){
+        let html =  "<div id='search-card' class='result card'>" +
+            "<div class='card-body'>" +
+            "<div class='card-title'>" +
+            "<a href='" + metadata.id + "'>" + metadata.title + "</a>" +
+            "</div>" +
+            "</div>" +
+            "</div>"
+
+        return html
+    }
+}
+
+
+window.onload = MainSearchBar.set_up_search_bar()

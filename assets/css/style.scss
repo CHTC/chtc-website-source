@@ -9,12 +9,30 @@ $grid-breakpoints: (
   lg: 1200px,
   xl: 1440px
 );
+$primary: #c5050c;
 
 // Bootstrap
-@import 'bootstrap';
+@import 'bootstrap/bootstrap';
 
 // UW Theme
 @import 'UW-theming/uw_style';
+
+// Search Bar
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  color: $secondary;
+  padding: map-get($spacers, 2);
+  @include media-breakpoint-up(md){
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .results-dropdown {
+    height: 0px;
+    z-index: 100;
+  }
+}
 
 // Navbar
 #uw-sub-menus {

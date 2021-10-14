@@ -18,9 +18,14 @@
 {% if site.google_analytics and jekyll.environment == 'production' %}
 {% include analytics.html %}
 {% endif %}
+
 <script type="text/javascript" src="{{ '/assets/js/uw-style.js' | relative_url }}"></script>
+<script src="https://unpkg.com/lunr/lunr.js" type="text/javascript" async></script>
+<script type="text/javascript" src="{{ '/assets/js/search_bar.js' | relative_url }}" defer></script>
+
 <link type="text/css" href="{{ '/web.css' | relative_url }}" rel="stylesheet">
 <link type="text/css" href="{{ '/assets/fonts/fonts.0.0.1.css' | relative_url }}" rel="stylesheet">
 <link type="text/css" href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
