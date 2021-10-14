@@ -34,10 +34,17 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.WEB_PREVIEW_DEPLOY_KEY }}
 
-      - name: Build and Deploy
+      - name: Build Website
         run: |
           git checkout -b temp-branch
           bundle exec jekyll build
+
+      - uses: CannonLock/search_index_build@master
+        with:
+          parameter_file_path: .search-bar.json
+
+      - name: Deploy
+        run: |
           mkdir temp-dir
           mv _site ${{ env.BRANCH_NAME }}
           mv ${{ env.BRANCH_NAME }} temp-dir
