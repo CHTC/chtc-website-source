@@ -1,11 +1,14 @@
+---
+    layout: blank
+---
 // This page hosts the code that is used on every single page.
 
 // If your js function does not need to be on every page don't put it here!
 
 const MainSearchBar = {
     id: "main-search-bar",
-    idx_path: "../../assets/search/index.json",
-    metadata_path: "../../assets/search/metadata.json",
+    idx_path: "{{ '../../assets/search/index.json' | relative_url }}",
+    metadata_path: "{{ '../../assets/search/metadata.json' | relative_url }}",
     node: undefined,
     input_node: undefined,
     result_node: undefined,
@@ -24,6 +27,12 @@ const MainSearchBar = {
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
         this.input_node.addEventListener("keyup", () => this.populate_search())
+        this.input_node.addEventListener("focusout", () => {
+            setTimeout(() => {this.result_node.hidden = true}, 150)
+        })
+        this.input_node.addEventListener("focus", () => {
+            this.result_node.hidden = false;
+        })
 
         this.metadata = await fetch(this.metadata_path).then(data => data.json())
     },

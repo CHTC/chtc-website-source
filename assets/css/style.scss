@@ -28,12 +28,6 @@ $primary: #c5050c;
     padding-left: 0px;
     padding-right: 0px;
   }
-  input~.results-dropdown{
-    display:none;
-  }
-  input:focus~.results-dropdown{
-    display:block;
-  }
   .results-dropdown {
     height: 0px;
     z-index: 100;
