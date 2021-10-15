@@ -14,17 +14,28 @@ const MainSearchBar = {
     result_node: undefined,
     idx: undefined,
     metadata: undefined,
-    load_data: async function() {
-        this.metadata = localStorage.getItem("main_metadata")
-        if(!this.metadata){
-            this.metadata = await fetch(this.metadata_path).then(data => data.json())
-            localStorage.setItem("main_metadata", this.metadata)
-        }
+    load_data: async function(cache=true) {
 
-        this.idx = localStorage.getItem("main_index")
-        if(!this.idx){
-            this.idx = await fetch(this.idx_path).then(data => data.json()).then(idx => lunr.Index.load(idx))
-            localStorage.setItem("main_index", this.idx)
+        if(cache){  // Check for cached data. If there use it, else load and populate it
+            this.metadata = JSON.parse(sessionStorage.getItem("main_metadata"))
+            if(!this.metadata){
+                this.metadata = await fetch(this.metadata_path).then(data => data.json())
+                sessionStorage.setItem("main_metadata", JSON.stringify(this.metadata))
+            }
+
+            let index = JSON.parse(sessionStorage.getItem("main_index"))
+            if(!index){
+                index = await fetch(this.idx_path).then(data => data.json())
+                this.idx = lunr.Index.load(index)
+                sessionStorage.setItem("main_index", JSON.stringify(index))
+            } else {
+                this.idx = lunr.Index.load(index)
+            }
+        } else {
+            this.metadata = await fetch(this.metadata_path).then(data => data.json())
+
+            let index = await fetch(this.idx_path).then(data => data.json())
+            this.idx = lunr.Index.load(index)
         }
     },
     set_up_search_bar: async function(){
@@ -32,7 +43,7 @@ const MainSearchBar = {
         this.input_node = this.node.querySelector("input")
         this.result_node = this.node.querySelector(".search-results")
 
-        this.load_data()
+        await this.load_data()
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
