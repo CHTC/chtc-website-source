@@ -15,16 +15,16 @@ function makeDelay(ms) {
     };
 };
 
-const MainSearchBar = {
-    id: "main-search-bar",
-    idx_path: "{{ 'assets/search/index.json' | relative_url }}",
-    metadata_path: "{{ 'assets/search/metadata.json' | relative_url }}",
-    node: undefined,
-    input_node: undefined,
-    result_node: undefined,
-    idx: undefined,
-    metadata: undefined,
-    load_data: async function(cache=true) {
+function SearchBar(id, index_path, metadata_path) {
+    this.id = id
+    this.index_path = index_path
+    this.metadata_path = metadata_path
+    this.node = undefined
+    this.input_node = undefined
+    this.result_node = undefined
+    this.idx = undefined
+    this.metadata = undefined
+    this.load_data = async function(cache=true) {
 
         if(cache){  // Check for cached data. If there use it, else load and populate it
             this.metadata = JSON.parse(sessionStorage.getItem("main_metadata"))
@@ -35,7 +35,7 @@ const MainSearchBar = {
 
             let index = JSON.parse(sessionStorage.getItem("main_index"))
             if(!index){
-                index = await fetch(this.idx_path).then(data => data.json())
+                index = await fetch(this.index_path).then(data => data.json())
                 this.idx = lunr.Index.load(index)
                 sessionStorage.setItem("main_index", JSON.stringify(index))
             } else {
@@ -44,11 +44,11 @@ const MainSearchBar = {
         } else {
             this.metadata = await fetch(this.metadata_path).then(data => data.json())
 
-            let index = await fetch(this.idx_path).then(data => data.json())
+            let index = await fetch(this.index_path).then(data => data.json())
             this.idx = lunr.Index.load(index)
         }
-    },
-    set_up_search_bar: async function(){
+    }
+    this.set_up_search_bar = async function(){
         this.node = document.getElementById(this.id)
         this.input_node = this.node.querySelector("input")
         this.result_node = this.node.querySelector(".search-results")
@@ -57,7 +57,9 @@ const MainSearchBar = {
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
-        this.input_node.addEventListener("keyup", () => {makeDelay(1000)(this.populate_search)})
+        this.input_node.addEventListener("keyup", () => {
+            makeDelay(1000)(() => this.populate_search.call(this))
+        })
         this.input_node.addEventListener("focusout", () => {
             setTimeout(() => {this.result_node.hidden = true}, 150)
         })
@@ -66,34 +68,34 @@ const MainSearchBar = {
         })
 
 
-    },
-    get_metadata: function(key) {
+    }
+    this.get_metadata = function(key) {
         return this.metadata[key]
-    },
-    populate_search: async function() {
+    }
+    this.populate_search = async function() {
 
         // Remove the current results
-        MainSearchBar.result_node.innerHTML = ""
+        this.result_node.innerHTML = ""
 
-        let query = MainSearchBar.input_node.value
+        let query = this.input_node.value
 
         if(query == ""){
             return
         }
 
-        let results = MainSearchBar.idx.search(query).slice(0, 5)
+        let results = this.idx.search(query).slice(0, 5)
 
         for (const result of results) {
 
             let new_result_node = document.createElement("div")
-            MainSearchBar.result_node.appendChild(new_result_node)
+            this.result_node.appendChild(new_result_node)
 
-            let metadata = await MainSearchBar.get_metadata(result.ref)
+            let metadata = await this.get_metadata(result.ref)
             let complete_metadata = {id:result.ref, ...metadata}
-            new_result_node.innerHTML = MainSearchBar.create_results_html(complete_metadata)
+            new_result_node.innerHTML = this.create_results_html(complete_metadata)
         }
-    },
-    create_results_html: function(metadata){
+    }
+    this.create_results_html = function(metadata){
         let html =  "<div id='search-card' class='result card'>" +
             "<div class='card-body'>" +
             "<div class='card-title text-left'>" +
@@ -107,4 +109,10 @@ const MainSearchBar = {
     }
 }
 
-window.onload = MainSearchBar.set_up_search_bar()
+window.onload = () => {
+    const MainSearchBar = new SearchBar("main-search-bar",
+        "{{ 'assets/search/index.json' | relative_url }}",
+        "{{ 'assets/search/metadata.json' | relative_url }}")
+
+    MainSearchBar.set_up_search_bar()
+}
