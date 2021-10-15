@@ -19,11 +19,27 @@ function SearchBar(id, index_path, metadata_path) {
     this.id = id
     this.index_path = index_path
     this.metadata_path = metadata_path
-    this.node = undefined
-    this.input_node = undefined
-    this.result_node = undefined
+    this.node = document.getElementById(this.id)
+    this.input_node = this.node.querySelector("input")
+    this.result_node = this.node.querySelector(".search-results")
     this.idx = undefined
     this.metadata = undefined
+
+    this.load_search_bar = async function(){
+        await this.load_data()
+
+        this.input_node.setAttribute("placeholder", "Search CHTC")
+
+        this.input_node.addEventListener("keyup", () => {
+            makeDelay(1000)(() => this.populate_search.call(this))
+        })
+        this.input_node.addEventListener("focusout", () => {
+            setTimeout(() => {this.result_node.hidden = true}, 150)
+        })
+        this.input_node.addEventListener("focus", () => {
+            this.result_node.hidden = false;
+        })
+    }
     this.load_data = async function(cache=true) {
 
         if(cache){  // Check for cached data. If there use it, else load and populate it
@@ -47,27 +63,6 @@ function SearchBar(id, index_path, metadata_path) {
             let index = await fetch(this.index_path).then(data => data.json())
             this.idx = lunr.Index.load(index)
         }
-    }
-    this.set_up_search_bar = async function(){
-        this.node = document.getElementById(this.id)
-        this.input_node = this.node.querySelector("input")
-        this.result_node = this.node.querySelector(".search-results")
-
-        await this.load_data()
-
-        this.input_node.setAttribute("placeholder", "Search CHTC")
-
-        this.input_node.addEventListener("keyup", () => {
-            makeDelay(1000)(() => this.populate_search.call(this))
-        })
-        this.input_node.addEventListener("focusout", () => {
-            setTimeout(() => {this.result_node.hidden = true}, 150)
-        })
-        this.input_node.addEventListener("focus", () => {
-            this.result_node.hidden = false;
-        })
-
-
     }
     this.get_metadata = function(key) {
         return this.metadata[key]
@@ -107,12 +102,12 @@ function SearchBar(id, index_path, metadata_path) {
 
         return html
     }
+
+    this.load_search_bar()
 }
 
 window.onload = () => {
     const MainSearchBar = new SearchBar("main-search-bar",
         "{{ 'assets/search/index.json' | relative_url }}",
         "{{ 'assets/search/metadata.json' | relative_url }}")
-
-    MainSearchBar.set_up_search_bar()
 }
