@@ -7,8 +7,8 @@
 
 const MainSearchBar = {
     id: "main-search-bar",
-    idx_path: "{{ '/assets/search/index.json' | relative_url }}",
-    metadata_path: "{{ '/assets/search/metadata.json' | relative_url }}",
+    idx_path: "{{ 'assets/search/index.json' | relative_url }}",
+    metadata_path: "{{ 'assets/search/metadata.json' | relative_url }}",
     node: undefined,
     input_node: undefined,
     result_node: undefined,
