@@ -5,6 +5,16 @@
 
 // If your js function does not need to be on every page don't put it here!
 
+
+
+function makeDelay(ms) {
+    var timer = 0;
+    return function(callback){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+    };
+};
+
 const MainSearchBar = {
     id: "main-search-bar",
     idx_path: "{{ 'assets/search/index.json' | relative_url }}",
@@ -47,7 +57,7 @@ const MainSearchBar = {
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
-        this.input_node.addEventListener("keyup", () => this.populate_search())
+        this.input_node.addEventListener("keyup", () => {makeDelay(1000)(this.populate_search)})
         this.input_node.addEventListener("focusout", () => {
             setTimeout(() => {this.result_node.hidden = true}, 150)
         })
@@ -63,24 +73,24 @@ const MainSearchBar = {
     populate_search: async function() {
 
         // Remove the current results
-        this.result_node.innerHTML = ""
+        MainSearchBar.result_node.innerHTML = ""
 
-        let query = this.input_node.value
+        let query = MainSearchBar.input_node.value
 
         if(query == ""){
             return
         }
 
-        let results = this.idx.search(query).slice(0, 5)
+        let results = MainSearchBar.idx.search(query).slice(0, 5)
 
         for (const result of results) {
 
             let new_result_node = document.createElement("div")
-            this.result_node.appendChild(new_result_node)
+            MainSearchBar.result_node.appendChild(new_result_node)
 
-            let metadata = await this.get_metadata(result.ref)
+            let metadata = await MainSearchBar.get_metadata(result.ref)
             let complete_metadata = {id:result.ref, ...metadata}
-            new_result_node.innerHTML = this.create_results_html(complete_metadata)
+            new_result_node.innerHTML = MainSearchBar.create_results_html(complete_metadata)
         }
     },
     create_results_html: function(metadata){
