@@ -14,15 +14,25 @@ const MainSearchBar = {
     result_node: undefined,
     idx: undefined,
     metadata: undefined,
+    load_data: async function() {
+        this.metadata = localStorage.getItem("main_metadata")
+        if(!this.metadata){
+            this.metadata = await fetch(this.metadata_path).then(data => data.json())
+            localStorage.setItem("main_metadata", this.metadata)
+        }
+
+        this.idx = localStorage.getItem("main_index")
+        if(!this.idx){
+            this.idx = await fetch(this.idx_path).then(data => data.json()).then(idx => lunr.Index.load(idx))
+            localStorage.setItem("main_index", this.idx)
+        }
+    },
     set_up_search_bar: async function(){
         this.node = document.getElementById(this.id)
         this.input_node = this.node.querySelector("input")
         this.result_node = this.node.querySelector(".search-results")
 
-        let idx_data = await fetch(this.idx_path)
-        let idx_json = await idx_data.json()
-
-        this.idx = lunr.Index.load(idx_json)
+        this.load_data()
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
@@ -34,7 +44,7 @@ const MainSearchBar = {
             this.result_node.hidden = false;
         })
 
-        this.metadata = await fetch(this.metadata_path).then(data => data.json())
+
     },
     get_metadata: function(key) {
         return this.metadata[key]
