@@ -30,7 +30,7 @@ function SearchBar(id, index_path, metadata_path) {
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
-        this.input_node.addEventListener("keyup", () => {
+        this.input_node.addEventListener("input", () => {
             makeDelay(1000)(() => this.populate_search.call(this))
         })
         this.input_node.addEventListener("focusout", () => {
