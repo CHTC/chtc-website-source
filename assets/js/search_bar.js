@@ -80,15 +80,26 @@ function SearchBar(id, index_path, metadata_path) {
 
         let results = this.idx.search(query).slice(0, 5)
 
-        for (const result of results) {
-
-            let new_result_node = document.createElement("div")
-            this.result_node.appendChild(new_result_node)
-
-            let metadata = await this.get_metadata(result.ref)
-            let complete_metadata = {id:result.ref, ...metadata}
-            new_result_node.innerHTML = this.create_results_html(complete_metadata)
+        if( !results.length ){
+            this.create_result_node().innerHTML = this.create_results_html({'id': "", 'title': 'No Results'})
+            return
         }
+
+        for (const result of results) {
+            this.create_result(result.ref)
+        }
+    }
+    this.create_result_node = function(){
+        let new_result_node = document.createElement("div")
+        this.result_node.appendChild(new_result_node)
+        return new_result_node
+    }
+    this.create_result =  async function(ref){
+
+        let new_result_node = this.create_result_node()
+        let metadata = await this.get_metadata(ref)
+        let complete_metadata = {id:ref, ...metadata}
+        new_result_node.innerHTML = this.create_results_html(complete_metadata)
     }
     this.create_results_html = function(metadata){
         let html =  "<div id='search-card' class='result card'>" +
