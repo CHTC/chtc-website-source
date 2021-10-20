@@ -1,22 +1,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }}</title>
-<script type="text/javascript">
-    function resizeIframe(iframe) {
-        var newheight;
-        var newwidth;
+{% if jekyll.environment == 'production' %}
 
-        if (document.getElementById) {
-            newwidth = iframe.contentWindow.document.body.scrollWidth;
-            newheight = iframe.contentWindow.document.body.scrollHeight;
-        }
+<meta name="google-site-verification" content="lCkv5T7d4arQ-RPy5tUh6QyB5b3g6dlYtGxotDj1anQ" />
 
-        iframe.height = (newheight) + "px";
-        iframe.width = (newwidth) + "px";
-    }
-</script>
-{% if site.google_analytics and jekyll.environment == 'production' %}
+{% if site.google_analytics %}
 {% include analytics.html %}
+{% endif %}
+
 {% endif %}
 <script type="text/javascript" src="{{ '/assets/js/uw-style.js' | relative_url }}"></script>
 <link type="text/css" href="{{ '/web.css' | relative_url }}" rel="stylesheet">
