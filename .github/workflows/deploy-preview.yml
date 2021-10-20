@@ -39,7 +39,7 @@ jobs:
           git checkout -b temp-branch
           bundle exec jekyll build
 
-      - uses: CannonLock/search_index_build@master
+      - uses: CHTC/search_index_build@V1
         with:
           parameter_file_path: .search-bar.json
 
