@@ -13,8 +13,10 @@ pre {
 }
 
 pre.term {
-    border-left: 0px solid #323232;
     padding: 0.5em 0.5em;
+
+    background: #484848;
+    color: #F0F0F0;
 }
 
 pre.sub {
