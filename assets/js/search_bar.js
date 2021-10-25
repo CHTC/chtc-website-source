@@ -12,6 +12,27 @@ function makeDelay(ms) {
     };
 };
 
+function create_html(data){
+    let href = ""
+    if(data.href){
+        href = "href='" + data.href + "'"
+    }
+
+    let html = "" +
+        "<div class='result card'>" +
+        "<a " + href + ">" +
+        "<div class='card-body p-0 p-sm-3'>" +
+        "<div class='card-title text-left mb-2'>" +
+        data.title +
+        "</div>" +
+        "<h6 class='card-subtitle text-primary'>" + data.subtitle + "</h6>"
+    "</div>" +
+    "</a>" +
+    "</div>"
+
+    return html
+}
+
 function SearchBar(id, index_path, metadata_path) {
     this.id = id
     this.index_path = index_path
@@ -22,7 +43,7 @@ function SearchBar(id, index_path, metadata_path) {
     this.idx = undefined
     this.metadata = undefined
     this.results = []
-    this.input_focus = undefined
+    this.lose_focus = undefined
     this.load_search_bar = async function(){
         await this.load_data()
 
@@ -32,19 +53,22 @@ function SearchBar(id, index_path, metadata_path) {
             makeDelay(1000)(() => this.search.call(this))
         })
         this.input_node.addEventListener("focusout", () => {
-            this.input_focus = setTimeout(() => {
+            if(this.lose_focus){
                 this.result_node.hidden = true
                 this.populate_results(5)
-            }, 150)
+            } else {
+                this.lose_focus = true
+                this.input_node.focus()
+            }
         })
-        this.result_node.addEventListener("click",() => {
-            clearTimeout(this.input_focus)
-            this.input_node.focus()
+        this.result_node.addEventListener("mousedown",() => {
+            this.lose_focus = false
         })
         this.input_node.addEventListener("focus", () => {
             this.result_node.hidden = false;
         })
     }
+    this.focus_input
     this.load_data = async function(cache=true) {
 
         if(cache){  // Check for cached data. If there use it, else load and populate it
@@ -86,10 +110,14 @@ function SearchBar(id, index_path, metadata_path) {
 
         this.result_node.innerHTML = ""
 
+        if(length == undefined){
+            length = (this.results.length > 15) ? 15 : this.results.length
+        }
+
         let results_to_populate = this.results.slice(0, length)
 
         if( !results_to_populate.length ){
-            this.create_result_node().innerHTML = this.create_html({'title': 'No Results', "subtitle": ""})
+            this.create_result_node().innerHTML = create_html({'title': 'No Results', "subtitle": ""})
             return
         }
 
@@ -97,8 +125,8 @@ function SearchBar(id, index_path, metadata_path) {
              await this.create_result(result.ref)
         }
 
-        if( this.results.length > 5 && results_to_populate.length != this.results.length ){
-            this.create_result_node().innerHTML = this.create_html({'href': "javascript:MainSearchBar.populate_results()", 'title': 'Show All Results', 'subtitle': ""})
+        if( this.results.length > 5 && results_to_populate.length <= 5 ){
+            this.create_result_node().innerHTML = create_html({'href': "javascript:MainSearchBar.populate_results()", 'title': 'Show All Results', 'subtitle': ""})
         }
     }
     this.create_result_node = function(){
@@ -115,35 +143,16 @@ function SearchBar(id, index_path, metadata_path) {
     }
     this.create_result_html = function(metadata){
         let data = {
-            "href": metadata.id,
+            "href": "{{ '' | relative_url }}" + metadata.id,
             "title": metadata.title,
             "subtitle": metadata.id.slice(0,-5)
         }
 
-        return this.create_html(data)
-    }
-    this.create_html = function(data){
-        let href = ""
-        if(data.href){
-            href = "href='" + data.href + "'"
-        }
-
-        let html = "" +
-            "<div class='result card'>" +
-            "<a " + href + ">" +
-            "<div class='card-body p-0 p-sm-3'>" +
-            "<div class='card-title text-left mb-2'>" +
-            data.title +
-            "</div>" +
-            "<h6 class='card-subtitle text-primary'>" + data.subtitle + "</h6>"
-            "</div>" +
-            "</a>" +
-            "</div>"
-
-        return html
+        return create_html(data)
     }
 
     this.load_search_bar()
+    this.search()
 }
 
 window.onload = () => {
