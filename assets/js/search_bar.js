@@ -1,14 +1,11 @@
 ---
     layout: blank
 ---
-// This page hosts the code that is used on every single page.
 
-// If your js function does not need to be on every page don't put it here!
-
-
+let MainSearchBar;
 
 function makeDelay(ms) {
-    var timer = 0;
+    let timer = 0;
     return function(callback){
         clearTimeout (timer);
         timer = setTimeout(callback, ms);
@@ -24,17 +21,25 @@ function SearchBar(id, index_path, metadata_path) {
     this.result_node = this.node.querySelector(".search-results")
     this.idx = undefined
     this.metadata = undefined
-
+    this.results = []
+    this.input_focus = undefined
     this.load_search_bar = async function(){
         await this.load_data()
 
         this.input_node.setAttribute("placeholder", "Search CHTC")
 
         this.input_node.addEventListener("input", () => {
-            makeDelay(1000)(() => this.populate_search.call(this))
+            makeDelay(1000)(() => this.search.call(this))
         })
         this.input_node.addEventListener("focusout", () => {
-            setTimeout(() => {this.result_node.hidden = true}, 150)
+            this.input_focus = setTimeout(() => {
+                this.result_node.hidden = true
+                this.populate_results(5)
+            }, 150)
+        })
+        this.result_node.addEventListener("click",() => {
+            clearTimeout(this.input_focus)
+            this.input_node.focus()
         })
         this.input_node.addEventListener("focus", () => {
             this.result_node.hidden = false;
@@ -67,26 +72,33 @@ function SearchBar(id, index_path, metadata_path) {
     this.get_metadata = function(key) {
         return this.metadata[key]
     }
-    this.populate_search = async function() {
-
-        // Remove the current results
-        this.result_node.innerHTML = ""
-
+    this.search = function() {
         let query = this.input_node.value
 
         if(query == ""){
             return
         }
 
-        let results = this.idx.search(query).slice(0, 5)
+        this.results = this.idx.search(query)
+        this.populate_results(5)
+    }
+    this.populate_results = async function(length) {
 
-        if( !results.length ){
-            this.create_result_node().innerHTML = this.create_results_html({'id': "", 'title': 'No Results'})
+        this.result_node.innerHTML = ""
+
+        let results_to_populate = this.results.slice(0, length)
+
+        if( !results_to_populate.length ){
+            this.create_result_node().innerHTML = this.create_html({'title': 'No Results', "subtitle": ""})
             return
         }
 
-        for (const result of results) {
-            this.create_result(result.ref)
+        for (const result of results_to_populate) {
+             await this.create_result(result.ref)
+        }
+
+        if( this.results.length > 5 && results_to_populate.length != this.results.length ){
+            this.create_result_node().innerHTML = this.create_html({'href': "javascript:MainSearchBar.populate_results()", 'title': 'Show All Results', 'subtitle': ""})
         }
     }
     this.create_result_node = function(){
@@ -99,16 +111,33 @@ function SearchBar(id, index_path, metadata_path) {
         let new_result_node = this.create_result_node()
         let metadata = await this.get_metadata(ref)
         let complete_metadata = {id:ref, ...metadata}
-        new_result_node.innerHTML = this.create_results_html(complete_metadata)
+        new_result_node.innerHTML = this.create_result_html(complete_metadata)
     }
-    this.create_results_html = function(metadata){
-        let html =  "<div id='search-card' class='result card'>" +
-            "<div class='card-body'>" +
-            "<div class='card-title text-left'>" +
-            "<a href='" + metadata.id + "'>" + metadata.title + "</a>" +
+    this.create_result_html = function(metadata){
+        let data = {
+            "href": metadata.id,
+            "title": metadata.title,
+            "subtitle": metadata.id.slice(0,-5)
+        }
+
+        return this.create_html(data)
+    }
+    this.create_html = function(data){
+        let href = ""
+        if(data.href){
+            href = "href='" + data.href + "'"
+        }
+
+        let html = "" +
+            "<div class='result card'>" +
+            "<a " + href + ">" +
+            "<div class='card-body p-0 p-sm-3'>" +
+            "<div class='card-title text-left mb-2'>" +
+            data.title +
             "</div>" +
-            "<h6 class='card-subtitle'>" + metadata.id.slice(0,-5) + "</h6>"
+            "<h6 class='card-subtitle text-primary'>" + data.subtitle + "</h6>"
             "</div>" +
+            "</a>" +
             "</div>"
 
         return html
@@ -118,7 +147,7 @@ function SearchBar(id, index_path, metadata_path) {
 }
 
 window.onload = () => {
-    const MainSearchBar = new SearchBar("main-search-bar",
+    MainSearchBar = new SearchBar("main-search-bar",
         "{{ 'assets/search/index.json' | relative_url }}",
         "{{ 'assets/search/metadata.json' | relative_url }}")
 }
