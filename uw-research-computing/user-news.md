@@ -13,6 +13,19 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Office Hours cancelled today (Nov 2)
+### November 2, 2021
+
+Greetings,
+
+Due to a decrease in availability this afternoon, CHTC's Research Computing Facilitators will need to cancel today’s office hours. Please continue to write to chtc@cs.wisc.edu with any questions or issues, and know that we’ll reply to you as soon as we can. We plan to resume Office Hours on Thursday, November 4.
+
+Thank you,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Network upgrades Oct 6 - No downtime expected
 ### Monday, October 4, 2021
 
@@ -103,20 +116,7 @@ On Monday, July 19, responses to our main email address (chtc@cs.wisc.edu) will 
 
 Best,
 
-The CHTC facilitation team 
-
-------------------------------------------------------------------------
-## CHTC office hour changes; staff out on Monday, July 5
-### Tuesday, June 29, 2021
-
-Greetings CHTC users, 
-
-Office hours are now shortened slightly - instead of running from 3 - 5pm on Tuesdays and Thursdays, they will end at 4:45pm. This change is also reflected on the CHTC website and [Get Help](get-help) page.
-
-Our facilitation team will be out of the office on Monday, July 5 for observance of the July 4th holiday. 
-
-Best,
-The CHTC facilitation team 
+The CHTC facilitation team
 
 ------------------------------------------------------------------------
 
