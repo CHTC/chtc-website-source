@@ -1,0 +1,12 @@
+AuthUserFile /p/condor/public/developers/dev-webpage-passwd
+AuthName "Condor Developers"
+AuthType Basic
+<Limit GET>
+require valid-user
+</Limit>
+
+#AddHandler perl-script .html
+#PerlHandler HTML::Mason::ApacheHandler
+#PerlSetVar MasonCompRoot /s/www/html/condor/developers
+#PerlSetVar MasonDataDir /p/condor/public/mason
+#DefaultType text/html
