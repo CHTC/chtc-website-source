@@ -5,7 +5,7 @@ exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
 google_analytics:
 
 # Jekyll does not build hidden directories by default.
-include: [".well-known", ".htaccess"]
+include: [".well-known", ".htaccess", ".gitignore"]
 
 markdown_ext : "md,shtml"
 
