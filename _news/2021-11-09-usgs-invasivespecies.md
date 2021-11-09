@@ -4,12 +4,14 @@ date: 2021-11-09T12:00:00+00:00
 excerpt: Researchers at the USGS are using HTC to pinpoint potential invasive species for the United States.
 image_src: images/USGS-collage.jpg
 image_alt: Sattelite image collage graphic
---- 
+---   
+
 
 <figure>
   <img src="{{ '/images/USGS-collage.jpg' | relative_url }}" alt="Sattelite image collage graphic"/>
   <figcaption class="figure-caption">From left to right: Mississippi River Delta, Colorado Rocky Mountains, Kansas’s Milford Lake. Images by <a href="https://unsplash.com/@usgs">USGS on Unsplash.</a><br/></figcaption>
-</figure>
+</figure>  
+
 
 Benjamin Franklin famously advised that an ounce of prevention is worth a pound of cure, and researcher [Richard Erickson](https://www.usgs.gov/staff-profiles/richard-erickson?qt-staff_profile_science_products=0#qt-staff_profile_science_products) has taken this advice to heart in his mission to protect our lakes and wildlife from invasive species. As a research ecologist at the United States Geological Survey’s (USGS) Upper Midwest Environmental Sciences Center, Erickson uses computation to identify invasive species before they pose a threat to U.S. ecosystems. 
 
