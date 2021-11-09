@@ -4,7 +4,7 @@ layout: markdown-page
 title: Submitting Jobs Using chtcjobwrapper
 ---
 
-<p class="underconstruction">This section is under construction</p>
+<div class="alert alert-warning" role="alert">This section is under construction</div>
 
 Getting your job to run requires submitting an <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> job. All
 HTCondor jobs specify details about the job in a file called a submit
