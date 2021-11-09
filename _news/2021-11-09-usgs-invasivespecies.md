@@ -1,5 +1,5 @@
 ---
-title: "Leveraging compute environments for the protection of natural environments" 
+title: "Protecting ecosystems with HTC" 
 date: 2021-11-09T12:00:00+00:00
 excerpt: Researchers at the USGS are using HTC to pinpoint potential invasive species for the United States.
 image_src: images/USGS-collage.jpg
