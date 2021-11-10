@@ -19,11 +19,13 @@ Greetings,
  
 Due to just-confirmed maintenance for the cooling infrastructure in one of CHTC’s server rooms, we will experience full HPC Cluster and partial HTC System outages beginning in the afternoon on Thursday, November 18, with service being restored by Monday, November 22.
  
+ 
 **Impacts to the HPC Cluster**
 
 All hardware (head nodes, execute nodes, storage) in the HPC cluster will be powered down during the planned outage.
 
 To prevent HPC Cluster jobs from being interrupted by the downtime, we will begin draining the nodes one week prior to the downtime. **Jobs submitted requesting time that would exceed the November 18 downtime** will not run until after the cluster is back up, but will be accepted into the queue. Jobs can still run on the cluster within the week before the downtime, IF their time request (“--time=” in the submit file) indicates that they will complete before the morning of November 18.
+ 
  
 **Impacts to the HTC System**
 
