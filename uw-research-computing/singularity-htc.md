@@ -92,7 +92,7 @@ requirements = (HasSingularity == true)
 - **For Image Files > 1GB use Shared Software Directory**
 
 If the Singularity image file is larger than 1GB, request a shared `/software` directory 
-from the CHTC facilitators by emailing chtc@cs.wisc.edu. 
+from the CHTC facilitators by emailing chtc@cs.wisc.edu. Note that the image should NOT be transferred to the job via `transfer_input_files`.
 
 Once the image is placed in `/software`, use the following submit file options: 
 
