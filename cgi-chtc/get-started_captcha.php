@@ -32,6 +32,7 @@ if(isset($_POST["captcha"])) {
   $recaptcha_data = json_decode(trim($json_response), True);
   $recaptcha_success = $recaptcha_data["success"];
 
+  $messg = "";
   foreach ($_POST as $key=>$value) {
     //printf("[$key] => $value\n");
     $messg = $messg . "[$key] => $value\n";
