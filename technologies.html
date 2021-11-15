@@ -7,34 +7,94 @@ title: Technologies
 <div class="uw-full-row">
     <div class="uw-row">
         <div class="uw-col">
+            <p>
+                Through decades of research CHTC has developed many technologies that take advantage of High Throughput Computing.
+                Look below to see all active and non-active projects that have been pioneered by CHTC.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="uw-full-row bg-light">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="text-muted">Active</h2>
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <h2>Job Management System APIs</h2>
-                    <ul>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/birdbath/">BirdBath</a></li>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/chirp/">Chirp</a></li>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/gahp/">GAHP</a></li>
-                    </ul>
-                    <h2>Matchmaking</h2>
-                    <ul>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/classad/classad.html">ClassAds</a></li>
-                    </ul>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org">HTCSS</a></h2>
+                    <p>
+                        Whether your idea of large scale computing is your desktop or a planet-wide pool of resources, HTCSS provides the technologies for managing workloads and all your computing resources.  HTCSS consists of four main components: the Access Point (AP), the Central Manager (CM), the Execution Point (EP), and the Compute Element (CE).
+                    </p>
                 </div>
-
-                <div class="col-12 col-md-6">
-                    <h2>Remote Execution and Interposition Agents</h2>
-                    <ul>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/checkpointing.html">Checkpointing</a></li>
-                    </ul>
-                    <h2>Workload Management</h2>
-                    <ul>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/dagman/dagman.html">DAGMan</a></li>
-                        <li><a href="https://osg-bosco.github.io/docs/">BOSCO</a></li>
-                        <li><a href="https://research.cs.wisc.edu/htcondor/mw/">Master-Worker</a></li>
-                    </ul>
+                <div class="col-6">
+                    <h2><a href="https://ewms.science/">Event Workflow Management Service</a></h2>
+                    <p>
+                        The main goal of the Event Workflow Management Service (EWMS) project is to advance the state of task scheduling and management by combining the handling of small, discrete events with the computing scale of modern scientific collaborations.
+                    </p>
+                    <p>
+                        EWMS is a workflow management system built on HTCondor designed to process billions of fine grained events. It optimizes scheduling to fit work units into smaller resource envelopes and pipelines data transfer.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="uw-full-row">
+    <div class="uw-row">
+        <div class="uw-col">
+            <h2 class="text-muted">Inactive</h2>
+        </div>
+    </div>
+</div>
+<div class="uw-full-row">
+    <div class="uw-row">
+        <div class="uw-col">
+            <div class="row">
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/birdbath/">Bird Bath</a></h2>
+                    <p>
+                        BirdBath was HTCondor's entry into the world of Web Services. Its goal was to augment some of the core HTCondor daemons with Simple Object Access Protocol (SOAP) interfaces so that they can be queried and controlled through programs other than the standard HTCondor command-line tools. The main interfaces are currently to the Schedd for submitting and querying jobs, and the Collector for accessing information about a HTCondor pool.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://osg-bosco.github.io/docs/">Bosco</a></h2>
+                    <p>
+                        BOSCO is a job submission manager designed to help researchers manage large numbers (~1000s) of job submissions to the different resources that they can access on a campus (initially a PBS cluster running Linux).
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/checkpointing">Checkpointing</a></h2>
+                    <p>
+                        Checkpointing was developed to continue a vacated job without a complete loss of computation time. HTCondor does this by using a checkpoint of a job’s state. A checkpoint is generated just before a job vacates a machine. The checkpoint is then used as a starting point for the job after migration.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/chirp/">Chirp</a></h2>
+                    <p>
+                        Chirp is a lightweight I/O protocol and filesystem for grid computing. It consists of familiar operations such as open(), read(), write(), and close(). In addition, Chirp provides a variety of authentication methods, allowing remote users to identify themselves with strong Globus or Kerberos credentials.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/classad/classad">Classads</a></h2>
+                    <p>
+                        Classified Advertisements (classads) are the lingua franca of HTCondor. They are used for describing jobs, workstations, and other resources. They are exchanged by HTCondor processes to schedule jobs. They are logged to files for statistical and debugging purposes. They are used to enquire about current state of the system.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/dagman/dagman">DAGMan</a></h2>
+                    <p>
+                        DAGMan (Directed Acyclic Graph Manager) is a meta-scheduler for HTCondor. It manages dependencies between jobs at a higher level than the HTCondor Scheduler.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2><a href="https://htcondor.org/gahp/">GAHP</a></h2>
+                    <p>
+                        The object of the Grid ASCII Helper Protocol (GAHP) is to allow the use of the client library or package of a grid or cloud service via a simple ASCII-based protocol. A process which implements GAHP is referred to as a GAHP server. GAHP is designed to handle both synchronous (blocking) and asynchronous (non-blocking) calls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
