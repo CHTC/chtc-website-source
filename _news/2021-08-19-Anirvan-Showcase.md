@@ -5,6 +5,7 @@ excerpt: Anirvan Shukla, a User School participant in 2016, spoke at this year's
 publish: true
 image_src: images/Anirvan-Showcase-1.png
 image_alt: Proton-proton collision
+author: Josephine Watkins
 --- 
 
 By Josephine Watkins

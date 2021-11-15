@@ -4,7 +4,8 @@ date: 2021-08-19T12:00:00+00:00
 excerpt: During the OSG School Showcase, Hannah Moshontz, a postdoctoral fellow at UW-Madison’s Department of Psychology, described her experience of using high throughput computing (HTC) for the very first time, when taking on an entirely new project within the field of psychology.
 publish: true
 image_src: images/Hannah-Showcase.jpg
-image_alt: Brain Model 
+image_alt: Brain Model
+author: Josephine Watkins
 --- 
 
 By Josephine Watkins
