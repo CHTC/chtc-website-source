@@ -154,7 +154,7 @@ shown in the sample submit file below and include:
     | Software        | Limit Name             | Limit    | 
     | --------------- | ---------------------- | -------- | 
     | ABAQUS          | ABAQUS                 | 50       |
-    | ANSYS           | ANSYS_RESERCH          | 20       |
+    | ANSYS           | ANSYS_RESEARCH         | 20       |
     | COMSOL (Physics) | COMSOL_PHYSICS        | 2        |
     | Lumerical       | LUMERICAL              | 3        | 
 
