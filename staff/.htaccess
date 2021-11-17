@@ -5,8 +5,9 @@ AuthType Basic
 require valid-user
 </Limit>
 
-#AddHandler perl-script .html
+AddHandler cgi-script .pl
+DefaultType text/html
+
 #PerlHandler HTML::Mason::ApacheHandler
 #PerlSetVar MasonCompRoot /s/www/html/condor/developers
 #PerlSetVar MasonDataDir /p/condor/public/mason
-#DefaultType text/html
