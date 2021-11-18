@@ -33,7 +33,7 @@ default:
 
 *corehours*: A description of your corehours that is displayed. Format is not important. Example is "9:00 AM to 5:00 PM"
 
-*DailyEmail*: If ‘Yes’ the you receive a daily email with who is out, otherwise should be omitted entirely.
+*DailyEmail*: If ‘Yes’ then you will receive a daily email with who is out, otherwise should be omitted entirely.
 
 *Email*: Your preferred email address. Defaults to filename@cs.wisc.edu so you will likely want to change this
 
