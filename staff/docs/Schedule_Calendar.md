@@ -111,7 +111,7 @@ To mark full day outages you create an event with the "All day" attribute ticked
 To mark partial time you must do two different things.
 
 1. Append the amount of hours this outage is taking with a colon separating the title.
-    - For Example, if you have a two hour doctor appt. you would mark SICK:2
+    - For Example, if you have a four hour doctor appt. you would mark SICK:4
     - For Example, if you leave for vacation half a day early you would mark VACATION:4
 
 2. Mark the time you are _*in*_ the office on Google
