@@ -1,3 +1,8 @@
+---
+layout: markdown-page
+title: Adding News Articles
+---
+
 Table of Contents
 - [Using Markdown](#using-markdown)
 - [Adding Articles](#adding-article-to-the-website)
@@ -79,22 +84,22 @@ Images can be added using either MD or HTML.
         - All classes that can be used can be found [here](https://getbootstrap.com/docs/5.0/utilities/api/), but the ones you are most likely to use are [float](https://getbootstrap.com/docs/5.0/utilities/float/), and [image](https://getbootstrap.com/docs/5.0/content/images/) classes.
     - Example: The below markdown shows the demo image with the class ```float-right``` which positions the image to the right of the text.
         ```markdown
-            {: .float-right }
-            ![Demonstration Image](/images/docs/demo_image.jpg)
+        {: .float-right }
+        ![Demonstration Image](/images/docs/demo_image.jpg)
         ```
 
 2. HTML
     - Images added with html will use the '[img]((https://www.w3schools.com/tags/tag_img.asp))' tag.
     - The syntax for this is:
         ```
-            <img class="optional-class" src="/path/to/image" alt="Description of image for the visually impaired"
+        <img class="optional-class" src="/path/to/image" alt="Description of image for the visually impaired"
         ```
     - Using HTML gives you more options such as having [figure captions](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
         ```html
-            <figure>
-               <img src="/path/to/image" alt="Description">
-                <figcaption>The image caption</figcaption>
-            </figure>
+        <figure>
+           <img src="/path/to/image" alt="Description">
+            <figcaption>The image caption</figcaption>
+        </figure>
         ``` 
 
 
