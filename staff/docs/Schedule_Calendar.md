@@ -15,6 +15,10 @@ This section will describe how to create your yaml file, you can find a verbose 
 Name: "<name>"
 ShortName: "<shortname>"
 corehours: "<corehours>"
+DailyEmail: "Yes" # ( or omit line entirely )
+Email: “<email>”
+Office: “<location>”
+Phone: “<phone>” # Office and/or Cell - This is read as a string so format how you want
 calendarurl: "<calendarurl>"
 default:
   starttime: "<starttime>"
@@ -28,6 +32,14 @@ default:
 *ShortName*: Your file name, should be unique and obviously you. Good choice for George Washington would be "gwashington".
 
 *corehours*: A description of your corehours that is displayed. Format is not important. Example is "9:00 AM to 5:00 PM"
+
+*DailyEmail*: If ‘Yes’ the you receive a daily email with who is out, otherwise should be omitted entirely.
+
+*Email*: Your preferred email address. Defaults to filename@cs.wisc.edu so you will likely want to change this
+
+*Office*: Your office location. Example => “4261 CS”
+
+*Phone*: Your phone number(s). Example => “+1 608 265 5736 (office) <br> +1 608 576 0351 (cell)”
 
 *calendarurl*: The url to your outage calendar. Details on obtaining this found [below](#creating-your-ical-url).
 
@@ -48,13 +60,13 @@ To power your outage calendar you need to create a google calendar which is sole
 1. Go to [https://calendar.google.com/](https://calendar.google.com/) and sign in with your preferred account. You can use @morgridge.org and @wisc.edu.
 2. Create a new calendar
     - Name and Description do not matter
-    - ![Add Container Image](../../images/add_new_calendar.jpg)
+    - ![Add Container Image](../../images/docs/add_new_calendar.jpg)
 
 3. Go into Calendar settings and retrieve the Secret Address
     - Go to calendar Settings
-      ![Go to Calendar Settings](../../images/go_to_calendar_settings.jpg)
+      ![Go to Calendar Settings](../../images/docs/go_to_calendar_settings.jpg)
     - Get the secret calendar url ( Will warn not to give this out )  
-      ![Get Secret Calendar URL](../../images/get_calendar_url.jpg)
+      ![Get Secret Calendar URL](../../images/docs/get_calendar_url.jpg)
 
 4. Post this address into your yaml file as the calendarurl
 
@@ -85,9 +97,9 @@ When converting your google calendar to the CHTC schedule format Start, End, and
 
 For Instance if you mark your title in Google as "Sick" and the description as "Wisdom Tooth Surgery and Recovery" the schedule output will be as so.
 
-![Google Event Demo](../../images/demo_outage.jpg)
+![Google Event Demo](../../images/docs/demo_outage.jpg)
 
-![Google Event Demo Schedule App](../../images/demo_outage_schedule_app.jpg)
+![Google Event Demo Schedule App](../../images/docs/demo_outage_schedule_app.jpg)
 
 
 ##### Marking Full day/days Out
