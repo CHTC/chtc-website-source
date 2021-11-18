@@ -10,8 +10,6 @@ nav_items:
         name: What is HTC?
       - url: /approach
         name: Our Approach
-      - url: /projects
-        name: Our Customers
       - url: /people
         name: Our Staff
       - url: /jobs
