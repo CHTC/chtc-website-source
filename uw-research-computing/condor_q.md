@@ -355,7 +355,7 @@ To remove a job held in the queue, run:
 ```
 {:.term}
 
-This will remove the job in the queue. Once you have made changes to allow the job to run successfully, the job can be resubmitted using `condor_q`.
+This will remove the job in the queue. Once you have made changes to allow the job to run successfully, the job can be resubmitted using `condor_submit`.
 
 ------------------------------------------------------------------------
 
