@@ -106,9 +106,15 @@ sleep 180
 ```
 {:.file}
 
-When HTCondor runs this executable, it will pass the \$(Process) value
+
+By using the \"\$1\" variable in our executable, we are telling HTCondor to fetch the value of the agrument in the first position in the submit file and to insert it in location of \"\$1\" in our executable file. 
+
+Therefore, when HTCondor runs this executable, it will pass the \$(Process) value
 for each job and `hello-chtc.sh` will insert that value for \"\$1\",
 above.
+
+More information on special variables like \"\$1\", \"\$2\", and \"\$@\" can be found [here](https://swcarpentry.github.io/shell-novice/06-script/index.html). 
+
 
 **3.** Now, submit your job to the queue using `condor_submit`:
 
