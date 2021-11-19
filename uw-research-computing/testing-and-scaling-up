@@ -1,7 +1,3 @@
-# Adapted from https://support.opensciencegrid.org/support/solutions/articles/12000076552-always-test-a-few-jobs-before-submitting-many
-# RL came up with the 500 job cutoff, so it still needs to be discussed by group. 
-
-
 
 [title]: - "Optimizing HTCondor Submit File Resource Requests"
 
@@ -126,57 +122,3 @@ and largest inputs to examine the range of resources that these jobs may need.**
 
 For assistance or questions, please email the CHTC team at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). 
 
-
-
-
-
-________________________________________________________________________________________________________________________________________________
-# Troubleshooting Held Jobs
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| condor_history <UserID>     | Lists recent jobs        |
-| quota -vs   | The output will list your total data usage under blocks, your soft quota, and your hard limit at which point your jobs will no longer be allowed to save data.        |
-
-
-## Avoid Exceeding Disk Quotas
-
-Each OSG Connect user is granted 50 GB of storage in their `/home` directory and 
-
-500 GB of storage in their `/public` directory. This may seem like a lot, but 
-when running 100's or 1000's of jobs even small output can add up quickly. If 
-these quotas are exceeded, jobs will fail or go on hold when attempting returning output.
-
-To prevent errors or workflow interruption, be sure to estimate the 
-input and output needed for all of your concurrently running 
-jobs. By default, after your job terminates HTCondor will transfer back 
-any new or modified files from the top-level directory where the job ran, 
-back to your `/home` directory. Efficiently manage output by including steps 
-to remove intermediate and/or unnecessary files as part of your job. 
-
-This guide will describe best pactices and general tips for testing 
-your job resource requests **before** scaling up to submitting your full set of jobs. 
-Additional information is also available from the following 2020 OSG Virtual 
-Pilot School lecture video:<a href="https://youtu.be/oMAvxsFJaw4">
-	<img alt="2020 VSP dHTC with HTCondor" src="https://raw.githubusercontent.com/OSGConnect/connectbook/master/images/2020-vsp-intro-dHTC-HTcondor-thumbnail.png" width="360" height="204"></a>
-
-[Introduction to High Throughput Computing with HTCondor](https://youtu.be/oMAvxsFJaw4)
-    - Alternatively, `condor_history` can be used to query details from 
-    recently completed job submissions.
-    
-        - Depending on how long you expect or test your jobs to take on a single core, you may need to identify a
-    non-default [JobDurationCategory](12000083468), or consider implementing self-checkpointing (email us!).
-    
-    
-	- If you find that memory usage will vary greatly across a 
-batch of jobs, we can assist you with creating dynamic memory requests 
-in your submit files.
-
-Requesting Memory, Disk Space, and number of CPUs (Optimize Job Resource Requests)
-
-# Workflow Management
-
-To help manage complicated workflows, consider a workflow manager such 
-as HTCondor's built-in [DAGman](https://research.cs.wisc.edu/htcondor/dagman/dagman.html)
-or the HTCondor-compatible [Pegasus](https://support.opensciencegrid.org/support/solutions/articles/5000639789-pegasus) 
-workflow tool.
