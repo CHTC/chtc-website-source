@@ -29,7 +29,7 @@ default:
 
 *Name*: First Last
 
-*ShortName*: Your file name, should be unique and obviously you. Good choice for George Washington would be "gwashington".
+*ShortName*: (Optional, defaults to First Name if not specified) Should be unique and obviously you. If your name is “George Washington” and George Foreman also works in your group, “GeorgeW” would be a good choice.
 
 *corehours*: A description of your corehours that is displayed. Format is not important. Example is "9:00 AM to 5:00 PM"
 
