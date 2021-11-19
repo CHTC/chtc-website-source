@@ -10,7 +10,7 @@ title: Schedule Calendar Guide
 
 This section will describe how to create your yaml file, you can find a verbose template file on [afs](https://research.cs.wisc.edu/htcondor/developers/schedules/sample_yaml_schedule.html) or use the one below.
 
-*\<shortname>.yml*
+*\<filename>.yml*
 ```
 Name: "<name>"
 ShortName: "<shortname>"
