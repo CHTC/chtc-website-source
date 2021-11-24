@@ -25,12 +25,12 @@ Contents
 ================================================
 
 Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and OS Pool include thousands of computers,
-addition to what\'s already available in CHTC. Most CHTC users who run
+size! The UW Grid and Open Science Pool (OS Pool) include thousands of computers,
+addition to what\'s already available in CHTC, including specialized 
+hardware resources like GPUs. Most CHTC users who run
 on CHTC, the UW Grid, and the OS Pool can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
 learn more about these resources.
-
 
 <a name="uw"></a>
 
@@ -54,7 +54,7 @@ B. The OSG Consortium
 The <a href="http://www.osg-htc.org/">OSG Consortium</a> is a group of universities and research labs
 who have agreed to share their unused computational resources with each
 other. If a job is submitted from an OSG submission point, it can run in
-the [OS pool](https://osg-htc.org/about/open_science_pool/) associated with that submission point. This OSG pool is the
+the [Open Science Pool](https://osg-htc.org/about/open_science_pool/) associated with that submission point. This OSG pool is the
 result of going out to other members of the OS Pool and finding if they have
 any unused computers that are available to run jobs. These unused
 computers then form a pool of resources where jobs can go run.
@@ -73,18 +73,21 @@ Not all jobs will run well outside of CHTC. Because these jobs are
 running all over the campus or country, on computers that don\'t belong
 to us, they have two major requirements:
 
--   **No \"large\" data**: All of the files for your jobs are in your
-    home directory and/or in SQUID (the options listed on our [file
+-   **Moderate Data Sizes**: Ideally, all of the files for your jobs should be
+    in your home directory and/or in SQUID (the options listed on our [file
     transfer guide](file-availability) and our [SQUID
     guide](file-avail-squid)), and output files are small enough
-    to return to your home directory (less than 2 GB). We normally
-    handle larger files in our large data filesystem (see our [data
-    staging guide](file-avail-largedata)) which is only available
-    from CHTC.  
+    to return to your home directory (less than 2 GB).  If your data files 
+    are large enough to use our large data file system ("staging", see our [data
+    staging guide](file-avail-largedata)) and you would like to use external
+    resource, please [contact us](chtc@cs.wisc.edu)!  In certain cases, we may be 
+    able to support larger data needs outside of CHTC. 
 
 -   **Short or interruptable jobs**: Your job can run in under 8 hours
     \-- either it finishes in that amount of time, or it
-    self-checkpoints at least that frequently.
+    self-checkpoints at least that frequently. If you would like to implement
+    self-checkpointing for a longer code, we are happy to provide resources 
+    and guidance. 
 
 
 <a name="submit"></a>
