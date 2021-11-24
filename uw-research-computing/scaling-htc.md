@@ -26,7 +26,7 @@ Contents
 
 Running on other resources in addition to CHTC has one huge benefit:
 size! The UW Grid and Open Science Pool (OS Pool) include thousands of computers,
-addition to what\'s already available in CHTC, including specialized 
+in addition to what\'s already available in CHTC, including specialized 
 hardware resources like GPUs. Most CHTC users who run
 on CHTC, the UW Grid, and the OS Pool can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
