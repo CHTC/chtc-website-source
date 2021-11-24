@@ -80,7 +80,7 @@ to us, they have two major requirements:
     to return to your home directory (less than 2 GB).  If your data files 
     are large enough to use our large data file system ("staging", see our [data
     staging guide](file-avail-largedata)) and you would like to use external
-    resource, please [contact us](chtc@cs.wisc.edu)!  In certain cases, we may be 
+    resources, please [contact us](chtc@cs.wisc.edu)!  In certain cases, we may be 
     able to support larger data needs outside of CHTC. 
 
 -   **Short or interruptable jobs**: Your job can run in under 8 hours
