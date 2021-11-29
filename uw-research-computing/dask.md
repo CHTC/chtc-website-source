@@ -41,7 +41,7 @@ local resources and running on something like the CHTC pool.
 
 ## When should I use Dask at CHTC?
 
-Several use cased are described below for considering the use of Dask for parallelism 
+Several use cases are described below for considering the use of Dask for parallelism 
 in CHTC instead of the [traditional HTCondor workflow](helloworld) 
 of creating jobs and DAGs:
 
