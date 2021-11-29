@@ -1,6 +1,6 @@
 {
   "site_root" : "_site",
-  "exclude_paths" : ["doc/**", "includes/**", "uw-research-computing/archived/**", "**/thanks.md"],
+  "exclude_paths" : ["doc/**", "includes/**", "uw-research-computing/archived/**", "**/thanks.md", "**/404.md"],
   "meta_data_output": "_site/assets/search/meta_data.json",
   "index_output": "_site/assets/search/index.json",
   "key_tags" : [{"high" : ["h1", "h2", "h3", "h4", "h5"]}, {"medium" : ["b", "code", "pre"]}],
