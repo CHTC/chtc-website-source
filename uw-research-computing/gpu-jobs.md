@@ -112,9 +112,10 @@ For those who would like to pursue alternative GPU resources, see our list of
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type</th>
+    <th>GPU Type/CUDADeviceName</th>
     <th>CUDACapability</th>
     <th>HasCHTCStaging</th>
+    <th>CUDADriverVersion</th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -128,6 +129,7 @@ For those who would like to pursue alternative GPU resources, see our list of
     <td>Tesla P100-PCIE-16GB</td>
     <td>6.0</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
   <tr>
     <td>4</td>
@@ -136,14 +138,16 @@ For those who would like to pursue alternative GPU resources, see our list of
     <td>GeForce RTX 2080 Ti</td>
     <td>7.5</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
   <tr>
     <td>1</td>
     <td>gpulab2004</td>
     <td>4</td>
-    <td>A100</td>
+    <td>A100-SXM4-40GB</td>
     <td>8.0</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
 </table>
 
@@ -217,6 +221,13 @@ attributes shown above. If you want a certain class of GPU, use CUDACapability:
 	code so that it can run across GPU types and without needing the
 	latest version of CUDA.
 
+- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
+	```
+	requirements = (CUDACapability == 7.5) && (CUDADeviceName = "GeForce RTX 2080 Ti")
+	```
+	{:.sub}
+	Ensure all specified requirements match the attributes of the machine in interest. HTCondor matches jobs to gpus that match all specified requirements. Otherwise, the jobs will sit idle indefinitely
+ 
 A complete sample submit file is shown below. There are also example submit files and 
 job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
 in CHTC's Github organization. 
