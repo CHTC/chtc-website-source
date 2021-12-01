@@ -34,6 +34,33 @@ a national-scale environment for distributed HTC.
                 img_src="images/logos/CHTC_Small_Logo.svg"
                 img_alt="CHTC Small Logo"
             %}
+        </div>
+    </div>
+</div>
+<div class="uw-row-full bg-light py-4">
+    <div class="uw-row">
+        <div class="uw-col">
+            <div class="row">
+                {% assign ordered_news = site.news | sort: "date" | reverse %}
+                {% for news in ordered_news limit:3 %}
+                    {% include news-posting.html
+                        class=" col-4 "
+                        href=news.url
+                        title=news.title
+                        author=news.author
+                        src=news.image_src
+                        alt=news.image_alt
+                        date=news.date
+                        excerpt=news.excerpt
+                    %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uw-row-full">
+    <div class="uw-row">
+        <div class="uw-col">
             {% include title-desc-img-card.html
                 class=" flex-row-reverse mb-4 mt-4 "
                 title="HTCSS"
