@@ -43,8 +43,8 @@ describes the set of jobs.
 following example to work.***
 
 **1.** Copy the highlighted text below, and paste it into file called
-`hello-chtc.sub`, the submit file, in your home directory on the submit
-machine.
+`hello-chtc.sub` (we recommend using a command line text editor) in your home directory on the submit
+machine. This is the file you will submit to HTCondor to describe your jobs (known as the submit file).
 
 ``` 
 # hello-chtc.sub

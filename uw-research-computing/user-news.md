@@ -13,6 +13,50 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Full HPC and Partial HTC Outages Nov 18 - Nov 22
+### November 10, 2021
+Greetings,
+ 
+Due to just-confirmed maintenance for the cooling infrastructure in one of CHTC’s server rooms, we will experience full HPC Cluster and partial HTC System outages beginning in the afternoon on Thursday, November 18, with service being restored by Monday, November 22.
+ 
+ 
+**Impacts to the HPC Cluster**
+
+All hardware (head nodes, execute nodes, storage) in the HPC cluster will be powered down during the planned outage.
+
+To prevent HPC Cluster jobs from being interrupted by the downtime, we will begin draining the nodes one week prior to the downtime. **Jobs submitted requesting time that would exceed the November 18 downtime** will not run until after the cluster is back up, but will be accepted into the queue. Jobs can still run on the cluster within the week before the downtime, IF their time request (“--time=” in the submit file) indicates that they will complete before the morning of November 18.
+ 
+ 
+**Impacts to the HTC System**
+
+The following components of the HTC system will be powered down during the outage: 
+* a subset of HTC execute nodes
+* the following submit servers may go down (and would likely be inaccessible for through Nov 22), but we hope to keep them up: submit2.chtc.wisc.edu, submit3.chtc.wisc.edu, learn.chtc.wisc.edu
+
+While jobs on the affected submit servers and execute servers will be interrupted when they go down, they will remain in the queue to run again once the submit servers are back up. Otherwise, HTC users should not be impacted by this outage. 
+ 
+It is possible the exact dates of the outage may shift, and we realize this is somewhat short notice, but plan to provide a reminder or update at least one day prior to the start of the downtime.
+ 
+Please contact us at chtc@cs.wisc.edu with any questions or concerns. 
+ 
+Best, 
+Your CHTC team
+
+------------------------------------------------------------------------
+
+## Office Hours cancelled today (Nov 2)
+### November 2, 2021
+
+Greetings,
+
+Due to a decrease in availability this afternoon, CHTC's Research Computing Facilitators will need to cancel today’s office hours. Please continue to write to chtc@cs.wisc.edu with any questions or issues, and know that we’ll reply to you as soon as we can. We plan to resume Office Hours on Thursday, November 4.
+
+Thank you,
+
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Network upgrades Oct 6 - No downtime expected
 ### Monday, October 4, 2021
 
@@ -103,20 +147,7 @@ On Monday, July 19, responses to our main email address (chtc@cs.wisc.edu) will 
 
 Best,
 
-The CHTC facilitation team 
-
-------------------------------------------------------------------------
-## CHTC office hour changes; staff out on Monday, July 5
-### Tuesday, June 29, 2021
-
-Greetings CHTC users, 
-
-Office hours are now shortened slightly - instead of running from 3 - 5pm on Tuesdays and Thursdays, they will end at 4:45pm. This change is also reflected on the CHTC website and [Get Help](get-help) page.
-
-Our facilitation team will be out of the office on Monday, July 5 for observance of the July 4th holiday. 
-
-Best,
-The CHTC facilitation team 
+The CHTC facilitation team
 
 ------------------------------------------------------------------------
 

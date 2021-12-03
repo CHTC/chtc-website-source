@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: markdown-page
-title: Using CHTC's HTC Submit Servers 
+title: Policies for Using HTC Submit Servers
 ---
 
 **If you have not yet requested a CHTC account and met with a Research
@@ -13,11 +13,11 @@ either *submit1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*.
 Access to other submit servers is granted for
 specific purposes and will have been indicated to you by CHTC staff.
 
-Connecting to CHTC Submit Servers
+Connecting to HTC Submit Servers
 ---------------------------------
 
-When your CHTC account is active, you can connect to one of our submit
-servers with an SSH connection (\"Putty\" for Windows, putty.org;
+Once your account is active, you can connect to your designated submit
+server with an SSH connection (\"Putty\" for Windows, putty.org;
 \"Terminal\" for Linux/Max). Note, however, that our submit servers only
 accept connections from campus networks. Off-campus connections have
 been disabled for security purposes. If you need to connect from off
