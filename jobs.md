@@ -31,7 +31,7 @@ Benefits
 
 The University of Wisconsin-Madison is a great place to work. You can
 [read about the benefits in detail
-elsewhere](http://www.bussvc.wisc.edu/ecbs/benefits/newemp-introduction-reg.html).
+elsewhere](https://hr.wisc.edu/benefits/).
 (Note that CHTC Staff are considered as *Unclassified* academic staff,
 and have different benefits from *Classified* staff.) In short, we have
 five weeks of vacation/personal time per year, very good health

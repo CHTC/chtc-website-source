@@ -45,7 +45,7 @@ access to a submit node:
     system adminstration support, you may be able to have HTCondor
     installed on your desktop and configured to submit into our campus
     resources. Another option that is under development is
-    [Bosco](https://twiki.grid.iu.edu/bin/view/CampusGrids/BoSCO), a
+    [Bosco](https://osg-bosco.github.io/docs/), a
     user-installable software package that lets you submit jobs into
     resources managed by HTCondor, PBS or SGE.
 

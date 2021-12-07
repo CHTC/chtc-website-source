@@ -328,7 +328,7 @@ One common use of constraints is to find all jobs that are running,
 held, or idle. To do this, use a constraint with the `JobStatus`
 attribute and the appropriate status number - the status codes can be
 found in [Appendix
-A](http://research.cs.wisc.edu/htcondor/manual/current/12_Appendix_A.html)
+A](https://htcondor.readthedocs.io/en/latest/codes-other-values/job-event-log-codes.html?highlight=status%20codes)
 of the HTCondor Manual.
 
 Remember [`condor_q -hold`](#hold) from before? In the background, the

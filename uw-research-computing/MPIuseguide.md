@@ -23,7 +23,7 @@ cluster.
 There are multiple MPI libraries installed on the cluster, many compiled
 in at least two ways (see below). The SLURM scheduler also has
 integrated libraries for most MPI versions, which you can read about
-[here](https://computing.llnl.gov/linux/slurm/mpi_guide.html).
+[here](https://slurm.schedmd.com/mpi_guide.html).
 
 There are ten different MPI libraries installed:
 
@@ -134,5 +134,5 @@ are automatically unloaded.
 In order to ensure that your job has the appropriate modules loaded when
 it runs, we recommend adding the `module load` command to your submit
 file, with the appropriate modules. See our sample submit file in the
-[HPC Use Guide](HPCuseguide#batch-job) to see what this looks
+[HPC Use Guide](/uw-research-computing/archived/HPCuseguide.html#batch-job) to see what this looks
 like.
