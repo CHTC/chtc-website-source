@@ -104,6 +104,9 @@ export PATH
 . /etc/profile.d/modules.sh
 module load software
 
+# For Lumerical (the license requires a home directory)
+export HOME=$_CONDOR_SCRATCH_DIR
+
 # Command to run your software from the command line
 cmd -options input.file
 ```
