@@ -148,8 +148,8 @@ To make sure that your setup worked, try running:
 
 The output should match the version number that you want to be using!
 
-> If you brought along your own package directory, un-tar it here and
-> skip the directory creation step below.
+> If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
+> skip the directory creation step below (i.e. you do not need to run `mkdir packages` because this directory already exists and should have been brought along in your submit file).
 
 **2. Install packages**
 
@@ -179,17 +179,18 @@ Then start the R console:
 ```
 {:.term}
 
-In the R terminal, first, set the package installation location, and
-then install your packages using `install.packages`.
+In the R terminal, install your packages using `install.packages`.
 
 ``` 
 > install.packages("package_name")
 ```
 {:.term}
 
+Replace "package_name" with the name of the package you wish to install. 
+
 The first time you will be prompted to choose a \"CRAN mirror\" - this
-is where R is downloading the package. Choose any `http` (not `https`!)
-option.
+is where R is downloading the package. Choose any option that does **not** state `https`
+by the name as we only want locations with `http` configuration. 
 
 If you need a Bioconductor package you will first need to install the
 Bioconductor installation manager, then use Bioconductor to install your
