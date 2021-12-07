@@ -6,7 +6,7 @@ title: HPC Cluster Overview
 
 {% capture content %}
 1. [High-Performance Computing at CHTC](#high-performance-computing-at-chtc)  
-2. [HPC User Policies](#hpc-user-policies)  
+2. [HPC User Policies](#hpc-cluster-user-policies)  
 3. [HPC Hardware and Configuration](#hpc-hardware-and-configuration)  
     - [Execute Nodes and Partitions](#execute-nodes-and-partitions)   
     - [Operating System and Software](#operating-system-and-software)

@@ -134,7 +134,7 @@ The output of the above command should match the version number that you just in
 After your R compilation has completed, if any additional R packages are required for your work, 
 please follow the steps in our [R Jobs](r-jobs.html) guide 
 starting with the `export` commands shown in step 
-[1.B.1](r-jobs.html#b.-install-the-packages). After creating a compressed tar 
+[1.B.1](r-jobs.html#b-install-the-packages). After creating a compressed tar 
 archive of your `packages` directory return the the next steps in this guide.
 
 ## 5. Create A Portable Copy of Your R Installation

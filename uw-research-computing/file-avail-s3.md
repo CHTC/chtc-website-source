@@ -28,7 +28,7 @@ Contents
 3.  [Using Staged Files in a Job](#3-using-staged-files-in-a-job)
 	- [Transferring Large Input Files](#a-transferring-large-input-files)
 	- [Moving Large Output Files](#b-moving-large-output-files)
-4.  [Checking your Data Use and File Counts](#4-checking-your-data-use-and-object-counts)
+4.  [Checking your Data Use and File Counts](#4-checking-your-data-use-and-file-counts)
 
 # 1. Policies and Intended Use
 

@@ -14,12 +14,12 @@ jobs on these resources is software, called
 UW-Madison.
 
 {% capture content %}
-1.  [Let\'s first do, and then ask why](#first)
-2.  [What Else?](#else)
-    -   [Removing Jobs](#remove)
-    -   [The Importance of Testing](#importance)
-    -   [Getting the Right Resources](#resource)
-    -   [Time for a little homework](#homework)
+1.  [Let\'s first do, and then ask why](#1-lets-first-do-and-then-ask-why)
+2.  [What Else?](#2-what-else)
+    -   [Removing Jobs](#a-removing-jobs)
+    -   [The Importance of Testing](#b-the-importance-of-testing)
+    -   [Getting the Right Resources](#c-getting-the-right-resources)
+    -   [Time for a little homework](#d-run-your-own-jobs)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 

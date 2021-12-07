@@ -29,9 +29,9 @@ of new \"high-memory\" work that is different from what you\'ve run
 before.** We\'ll happily help you with some personalized tips and
 considerations for getting your work done most efficiently.
 
-1.  [High Memory Resources in CHTC](#resources)
-2.  [Getting Started](#get-started)
-3.  [Running High Memory Jobs](#running)
+1.  [High Memory Resources in CHTC](#1-high-memory-resources-in-chtc)
+2.  [Getting Started](#2-getting-started)
+3.  [Running High Memory Jobs](#3-running-high-memory-job)
 
 
 <a name="resoures"></a>
@@ -126,7 +126,7 @@ a good starting point for building your high memory job submit file. The
 following are places where it\'s important to customize:
 
 -   **`request_memory`**: It is crucial to make this request as accurate
-    as you can by [testing](#testing) at a small scale if possible (see
+    as you can by [testing](#b-testing) at a small scale if possible (see
     above). Online documentation/help pages or your colleagues\'
     experience is another source of information about required memory.  
 

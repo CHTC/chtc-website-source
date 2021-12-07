@@ -68,7 +68,7 @@ CHTC Staff Are:
 Please understand that all of the above changes are aimed at improving
 filesystem performance for everyone, based upon common complaints in the
 last 6 months. We do our best to minimize cluster downtime (including
-quick response after recent power outages[\*](#power)) and have come to
+quick response after recent power outages*) and have come to
 the above decision after considerable conversation with specific users
 and based upon suggestions from other cluster-providing organizations.
 
