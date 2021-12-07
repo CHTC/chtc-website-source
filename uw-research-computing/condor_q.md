@@ -173,7 +173,7 @@ entire hold reason:
 {:.term}
 
 If you aren\'t sure what your hold reason means, see our
-[troubleshooting guide](troubleshooting#hold) or email
+[troubleshooting guide](troubleshooting.html#hold) or email
 chtc@cs.wisc.edu.
 
 <a name="bet"/>

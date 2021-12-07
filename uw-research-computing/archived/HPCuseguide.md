@@ -6,7 +6,7 @@ title: HPC Cluster Basic Use Guide
 
 > **Notice:** The HPC cluster is currently being transitioned to a 
 >  new configuration. Please start new and move existing workflows 
-> to the new configuration described in [these guides](hpc-overview).
+> to the new configuration described in [these guides](hpc-overview.html).
 > 
 > This page will be archived when we have fully transitioned the cluster 
 > to the new configuration on November 24, 2020. 
@@ -25,7 +25,7 @@ Cluster.\
 \
 Before using the campus-shared HPC Cluster or any CHTC computing
 resource, **you will need to obtain access** by filling out the
-[Large-Scale Computing Request Form](form) on
+[Large-Scale Computing Request Form](form.html) on
 our website so that our Research Computing Facilitators can make sure to
 match you to the best computing resources (including non-CHTC
 services).\
@@ -33,7 +33,7 @@ services).\
 If you have been using the HPC Cluster already, and believe your
 research group would benefit from purchasing prioritized hardware to add
 to the HPC Cluster, please see our [**information regarding buy-in
-options for access to your own priority queue.**](hpc-buy-in)
+options for access to your own priority queue.**](hpc-buy-in.html)
 
 Contents
 ========
@@ -285,7 +285,7 @@ more time. Please email chtc@cs.wisc.edu if you can\'t find the
 compiler you need or have other issues.\
 \
 **For more specific details on compiling and running MPI code**\
-Please see our [HPC Cluster MPI Use Guide](MPIuseguide) for information
+Please see our [HPC Cluster MPI Use Guide](MPIuseguide.html) for information
 about the availability of specific libraries and how to load modules for
 them.
 

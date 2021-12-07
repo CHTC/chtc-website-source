@@ -4,7 +4,7 @@ layout: file_avail
 title: Using Gluster for Large Data and Software
 ---
 
-> NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED [HERE](file-avail-largedata).
+> NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED [HERE](file-avail-largedata.html).
 > ==================================================================================================================
 >
 > \
@@ -17,7 +17,7 @@ title: Using Gluster for Large Data and Software
 >     are deleted.
 >
 > For more information, see recent entries on the [CHTC User News
-> page](user-news).\
+> page](user-news.html).\
 > \
 > This page will be archived once the transition to the new system is
 > complete on April 15, 2020.
@@ -58,7 +58,7 @@ software within Gluster will be available only to jobs running in the
 CHTC Pool, and only a portion of the pool.
 
 * Access to Gluster:  
-is granted upon request to [chtc@cs.wisc.edu](chtc@cs.wisc.edu)  and consultation with a
+is granted upon request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu)  and consultation with a
 Research Computing Facilitator.
 
 * Limitations:  
@@ -74,7 +74,7 @@ Research Computing Facilitator.
         directory should ever be listed in these lines of the submit file.
     -   **Capacity** Each user is allowed a certain amount of space in
         Gluster, though we can increase this space for special requests to
-        [chtc@cs.wisc.edu](chtc@cs.wisc.edu) 
+        [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) 
 <br>
 * Data Security:  
 Files placed in Gluster are owned by the user, and only the user\'s own
@@ -90,7 +90,7 @@ back at a later date.
 * Allowed Data Amounts:  
 As of July 25, 2017, initial quotas of 10GB of 100 files have been
 implemented for every folder within Gluster. Request to
-[chtc@cs.wisc.edu](chtc@cs.wisc.edu)  and consultation with an RCF will be necessary for
+[chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu)  and consultation with an RCF will be necessary for
 increasing this quota.
 
 * KEEP COPIES:  
@@ -108,7 +108,7 @@ PROBLEMATIC USER DATA AT ANY TIME IN ORDER TO PRESERVE PERFORMANCE.**
 
 -   you already have an account on a CHTC-administered submit server
 -   you already have a user directory in the HTC Gluster system, after
-    requesting it via email discussion to [chtc@cs.wisc.edu](chtc@cs.wisc.edu) 
+    requesting it via email discussion to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) 
 
 **To best understand the below information, users should already be
 familiar with:**
@@ -116,8 +116,8 @@ familiar with:**
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka \"executables\").
-2.  CHTC\'s [Intro to Running HTCondor Jobs](helloworld)
-3.  CHTC\'s guide for [Typical File Transfer](file-availability)
+2.  CHTC\'s [Intro to Running HTCondor Jobs](helloworld.html)
+3.  CHTC\'s guide for [Typical File Transfer](file-availability.html)
 
 <a name="staging"></a>
 
@@ -254,7 +254,7 @@ If your software will ONLY work if it remains in the same location where
 it was first installedi, and there are barriers to installing it within
 the working directory of every job (install-on-the-fly), please contact
 us for assistance. DO NOT PLACE SOFTWARE IN GLUSTER WITHOUT PERMISSION
-AND INPUT FROM CHTC STAFF: [chtc@cs.wisc.edu](chtc@cs.wisc.edu)
+AND INPUT FROM CHTC STAFF: [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu)
 
 <a name="within"></a>
 

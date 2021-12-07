@@ -26,10 +26,10 @@ fits that above description is appropriate for the HPC Cluster. Computational
 work that can complete on a single node in less than a few days will be 
 best supported by our larger high-throughput computing (HTC) system (which also
 includes specialized hardware for extreme memory, GPUs, and other cases). For more 
-information, please see [Our Approach](/approach).
+information, please see [Our Approach](/approach.html).
 
 To get access to the HPC Cluster, please complete our
-[New User Consultation Form](form). After your request is received, 
+[New User Consultation Form](form.html). After your request is received, 
 a Research Computing Facilitator will follow up to discuss the computational needs 
 of your research and connect you with computing 
 resources (including non-CHTC services) that best fit your needs.
@@ -67,7 +67,7 @@ actively-running jobs should be kept on the filesystem. Once your jobs complete,
 your files should be removed from the cluster filesystem. Campus researchers have several options 
 for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
 which provides up to 5TB of storage for free per research PI. Our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive) provides 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.html) provides 
 step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
 
 CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
@@ -115,7 +115,7 @@ All nodes in the HPC Cluster are running CentOS 7 Linux.
 
 The SLURM scheduler version is 20.02.2. 
 
-To see more details of other software on the cluster, see the [HPC Software page](hpc-software). 
+To see more details of other software on the cluster, see the [HPC Software page](hpc-software.html). 
 
 ## Login Nodes
 

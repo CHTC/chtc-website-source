@@ -9,14 +9,14 @@ In order to submit jobs to our campus-wide collection of resources, you
 will need access to a submit node. There are several options for getting
 access to a submit node:
 
-1.  **[Use ours](use-submit-node).** We operate a submit node that
+1.  **[Use ours](use-submit-node.html).** We operate a submit node that
     is shared by many researchers. This is a great way to get started
     quickly, and it is sufficient if you do not need to run tens of
     thousands of jobs with heavy data transfer requirements.
 2.  **Use your department\'s.** Perhaps your department already has its
     own submit node, in which case you can contact your local
     administrator for an account. You will still need to provide all the
-    info requested on the [getting started](get-started) form, so
+    info requested on the [getting started](get-started.html) form, so
     we can set up things on our end. The benefits of using a
     departmental or group submit node are: access to data on local file
     systems; limited impact from other, potentially new users; and,
@@ -51,5 +51,5 @@ access to a submit node:
 
 Still not sure what option is right for you? No worries. This is one of
 the topics we discuss in our initial consultation. To schedule an
-initial consultation, fill out our [getting started](get-started)
+initial consultation, fill out our [getting started](get-started.html)
 form.

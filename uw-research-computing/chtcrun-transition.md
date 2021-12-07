@@ -19,9 +19,9 @@ The first time you submit jobs, you will need to prepare a portable
 version of your software and a script (what we call the job\'s
 \"executable\") that runs your code. We have guides for preparing:
 
--   [Matlab](matlab-jobs)
--   [Python](python-jobs)
--   [R](r-jobs)
+-   [Matlab](matlab-jobs.html)
+-   [Python](python-jobs.html)
+-   [R](r-jobs.html)
 
 Choose the right guide for you and follow the directions for compiling
 your code (Matlab) or building an installation (Python, R). Also follow
@@ -112,4 +112,4 @@ directories (like `data` or `seed`), but you should use whatever word
 they share in the final queue statement in place of \"job\".
 
 Jobs can then be submitted as described in our [Introduction to HTC
-Guide](helloworld), using `condor_submit`.
+Guide](helloworld.html), using `condor_submit`.
