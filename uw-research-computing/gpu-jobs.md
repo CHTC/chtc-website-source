@@ -112,10 +112,10 @@ For those who would like to pursue alternative GPU resources, see our list of
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type/CUDADeviceName</th>
-    <th>CUDACapability</th>
-    <th>HasCHTCStaging</th>
-    <th>CUDADriverVersion</th>
+    <th>GPU Type(<code>CUDADeviceName</code>)</th>
+    <th><code>CUDACapability</code></th>
+    <th><code>HasCHTCStaging</code></th>
+    <th>Max <code>CUDADriverVersion</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -223,10 +223,10 @@ attributes shown above. If you want a certain class of GPU, use CUDACapability:
 
 - **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
 	```
-	requirements = (CUDACapability == 7.5) && (CUDADeviceName = "GeForce RTX 2080 Ti")
+	requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
 	```
 	{:.sub}
-	Ensure all specified requirements match the attributes of the machine in interest. HTCondor matches jobs to gpus that match all specified requirements. Otherwise, the jobs will sit idle indefinitely
+	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
  
 A complete sample submit file is shown below. There are also example submit files and 
 job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
