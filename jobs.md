@@ -75,7 +75,7 @@ Positions pertaining to \"HTCondor\" and \"CHTC\" search terms can also
 be found on the [University\'s Position Vacancy List
 (PVL)](http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&search-keyword=chtc).
 
-### [Software Engineer - HTCSS](https://morgridge.org/job-posting/assistant-systems-administrator/)
+### [Software Engineer - HTCSS](https://jobs.hr.wisc.edu/en-us/job/511586/software-engineer)
 
 Join the Center for High Throughput Computing (CHTC) as a software engineer working implementing the next generation of large-scale distributed computing actively used by many of the largest science projects in the word! This is the perfect opportunity for a recent graduate to gain valuable experience developing system software in a large-scale Linux environment using Python and/or C++. You will work with an experienced team of colleagues to support and enhance the HTCondor Software Suite which enables scientists and engineers to solve computational problems using systems ranging from a laptop to hundreds of thousands of CPU cores at some of the largest scientific facilities on earth. Your workplace will be in upcoming start-of-the-art Computer, Data & Information Science building to be built in the center of campus. Our software has been used to manage the Hubble Space Telescope, render movies at DreamWorks, and deliver the necessary compute cycles for two Nobel prizes. The preferred applicant will be self-motivated and able to work as part of a dynamic team, as well as possessing good communication skills and a desire for continuous learning. Our Center is supportive of staff continuing their education; numerous team members have subsequently pursued graduate degrees.
 
