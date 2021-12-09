@@ -1,0 +1,21 @@
+<a href="{{ include.href | relative_url }}" class="news-post {{ include.class }}">
+    <div class="d-flex flex-column p-2">
+        <div class="img-container">
+            <img class="img-fluid" src="{{ include.src | relative_url }}" alt="{{ include.alt }}" />
+        </div>
+        <h3 class="my-1 text-dark">{{ include.title }}</h3>
+        <div class="text-dark d-flex flex-row justify-content-between">
+            <div class="w-auto">
+                By: {{ include.author }}
+            </div>
+            <div class="w-auto">
+                {{ include.date | date: "%b %d, %Y" }}
+            </div>
+        </div>
+        <div>
+            <p class="text-dark mb-0">
+                {{ include.excerpt }}
+            </p>
+        </div>
+    </div>
+</a>
