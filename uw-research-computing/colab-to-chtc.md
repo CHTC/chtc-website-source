@@ -2,7 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Going from Google Colab to CHTC's GPU Lab
-published: true
+published: false
 ---
 
 # Overview
