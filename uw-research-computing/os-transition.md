@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: The HTC System is Transitioning to a Newer Linux Version (CentOS 7)
+published: false
 ---
 
 CHTC staff have upgraded the default operating system on our high

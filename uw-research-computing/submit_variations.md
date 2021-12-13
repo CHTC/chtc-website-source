@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: HTCondor Submit File Variations
+published: false
 ---
 
 
