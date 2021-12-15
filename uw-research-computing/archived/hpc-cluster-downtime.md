@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: markdown-page
-title: HPC Cluster Scheduled Downtime
+title: HPC Clsuter Scheduled Downtime
 published: false
 ---
 
