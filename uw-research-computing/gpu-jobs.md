@@ -271,12 +271,11 @@ queue 1
 It is important to still request at least one CPU per job to do the
 processing that is not well-suited to the GPU.
 
-Note that HTCondor will make sure your job has access to the GPU -- you
-shouldn't need to set any environmental variables or other options
-related to the GPU, except what is needed inside your code. HTCondor will
+Note that HTCondor will make sure your job has access to the GPU; it will
 set the environment variable `CUDA_VISIBLE_DEVICES` to indicate which GPU(s)
-your code should run on. Your code should not modify this environment variable.
-It will be read by CUDA to select the appropriate GPU(s).
+your code should run on. It will be read by CUDA to select the appropriate 
+GPU(s). Your code should not modify this environment variable or manually 
+select which GPU to run on, as this could result in two jobs sharing a GPU. 
 
 It is possible to request multiple GPUs. Before doing so, make sure you're 
 using code that can utilize multiple GPUs and then submit a test job to confirm 
