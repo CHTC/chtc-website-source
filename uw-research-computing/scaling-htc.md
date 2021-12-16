@@ -25,7 +25,7 @@ Contents
 ================================================
 
 Running on other resources in addition to CHTC has one huge benefit:
-size! The UW Grid and Open Science Pool (OS Pool) include thousands of computers,
+size! The UW Grid and OSG include thousands of computers,
 addition to what\'s already available in CHTC, including specialized 
 hardware resources like GPUs. Most CHTC users who run
 on CHTC, the UW Grid, and the OS Pool can get more than 100,000 computer
@@ -34,7 +34,7 @@ learn more about these resources.
 
 <a name="uw"></a>
 
-A. The UW Grid
+A. UW Grid
 --------------
 
 What we call the \"UW Grid\" is a collection of all the groups and
@@ -48,20 +48,14 @@ We call sending jobs to other pools on campus *flocking*.
 
 <a name="osg"></a>
 
-B. The OSG Consortium
+B. OSG Pool
 ------------------------------
 
-The <a href="http://www.osg-htc.org/">OSG Consortium</a> is a group of universities and research labs
-who have agreed to share their unused computational resources with each
-other. If a job is submitted from an OSG submission point, it can run in
-the [Open Science Pool](https://osg-htc.org/about/open_science_pool/) associated with that submission point. This OSG pool is the
-result of going out to other members of the OS Pool and finding if they have
-any unused computers that are available to run jobs. These unused
-computers then form a pool of resources where jobs can go run.
+CHTC maintains an OSG pool for the campus community, which includes 
+resources contributed by campuses, national labs, and other institutions 
+across and beyond the US.
 
-CHTC is a member of the OSG Consortium, so our submit servers,
-besides sending jobs to CHTC computers (the default), can send jobs to
-the OSG. We call sending jobs to other institutions *gliding*.
+We call sending jobs to other institutions in our OSG pool *gliding*.
 
 
 <a name="job"></a>
@@ -73,15 +67,12 @@ Not all jobs will run well outside of CHTC. Because these jobs are
 running all over the campus or country, on computers that don\'t belong
 to us, they have two major requirements:
 
--   **Moderate Data Sizes**: Ideally, all of the files for your jobs should be
-    in your home directory and/or in SQUID (the options listed on our [file
-    transfer guide](file-availability) and our [SQUID
-    guide](file-avail-squid)), and output files are small enough
-    to return to your home directory (less than 2 GB).  If your data files 
-    are large enough to use our large data file system ("staging", see our [data
-    staging guide](file-avail-largedata)) and you would like to use external
-    resource, please [contact us](chtc@cs.wisc.edu)!  In certain cases, we may be 
-    able to support larger data needs outside of CHTC. 
+-   **Moderate Data Sizes**: We can support input file sizes of up to 
+	20 GB per file per job. This covers input files that would normally be 
+	transferred out of a `/home` directory or use SQUID, in addition to larger 
+	files up to 20GB. Outputs per job can be of similar sizes. If your input or 
+	output files are larger than 1GB, or you have any other questions about 
+	handling data on resources beyond CHTC, please [contact us](chtc@cs.wisc.edu)! 
 
 -   **Short or interruptable jobs**: Your job can run in under 8 hours
     \-- either it finishes in that amount of time, or it
