@@ -273,7 +273,10 @@ processing that is not well-suited to the GPU.
 
 Note that HTCondor will make sure your job has access to the GPU -- you
 shouldn't need to set any environmental variables or other options
-related to the GPU, except what is needed inside your code.
+related to the GPU, except what is needed inside your code. HTCondor will
+set the environment variable `CUDA_VISIBLE_DEVICES` to indicate which GPU(s)
+your code should run on. Your code should not modify this environment variable.
+It will be read by CUDA to select the appropriate GPU(s).
 
 It is possible to request multiple GPUs. Before doing so, make sure you're 
 using code that can utilize multiple GPUs and then submit a test job to confirm 
