@@ -112,7 +112,7 @@ For those who would like to pursue alternative GPU resources, see our list of
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type(<code>CUDADeviceName</code>)</th>
+    <th>GPU Type (<code>CUDADeviceName</code>)</th>
     <th><code>CUDACapability</code></th>
     <th><code>HasCHTCStaging</code></th>
     <th>Max <code>CUDADriverVersion</code></th>
