@@ -9,6 +9,8 @@ author: Josephine Watkins
 
 ***Researchers at the USGS are using HTC to pinpoint potential invasive species for the United States.***
 
+By Josephine Watkins
+
 <figure>
   <img src="{{ '/images/USGS-collage.jpg' | relative_url }}" alt="Sattelite image collage graphic"/>
   <figcaption class="figure-caption">From left to right: Mississippi River Delta, Colorado Rocky Mountains, Kansas’s Milford Lake. Images by <a href="https://unsplash.com/@usgs">USGS on Unsplash.</a><br/></figcaption>
