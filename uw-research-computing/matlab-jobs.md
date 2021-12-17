@@ -304,5 +304,5 @@ produces different random values when Matlab runs for the first time.
 Deliberately choosing your own different random seed values for each job
 can be another way to ensure different results.
 
-> For older version of this guide, see out [archived
+> For older version of this guide, see our [archived
 > page](archived/matlab-jobs).

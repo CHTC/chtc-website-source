@@ -13,13 +13,13 @@ of the UW-Madison Center For High Throughput Computing (CHTC) in the
 Department of Computer Sciences. The CHTC is supported by UW-Madison,
 the Advanced Computing Initiative, the Wisconsin Alumni Research
 Foundation, the Wisconsin Institutes for Discovery, and the National
-Science Foundation, and is an active member of the Open Science Grid,
+Science Foundation, and is an active member of the OSG Consortium,
 which is supported by the National Science Foundation and the U.S.
 Department of Energy\'s Office of Science.\
 \
 (Last updated Jan 6, 2021)\
 \
-[Appropriate acknowledgement of Open Science Grid resources is described here](https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid)
+[Appropriate acknowledgement of OSG resources is described here](https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid)
   
 <br>
 
@@ -58,10 +58,10 @@ in 2020, and individual users regularly obtain in excess of 10,000 CPU
 hours per day. Temporary storage space for large files can support up 
 to hundreds of terabytes of total working data. Should these resources 
 not be sufficient for your project, the CHTC can also engage computing 
-resources from across the campus grid and the Open Science Grid (OSG), 
+resources from across the campus grid and the [OS Pool](https://opensciencegrid.org/about/open_science_pool/), 
 an NSF-supported and expanding alliance of more than 60 universities, 
 national laboratories, scientific collaborations, and software developers. 
-We frequently obtain in excess of 150,000 free CPU hours per day from OSG, 
+We frequently obtain in excess of 150,000 free CPU hours per day from OS Pool, 
 with individual users achieving up to 100,000 CPU hours per day, across 
 all of these.\
 \

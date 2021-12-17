@@ -5,7 +5,7 @@ title: Running Jobs Beyond CHTC Using Containers
 ---
 
 This guide shows how to run jobs across CHTC and 
-the <a href="http://www.opensciencegrid.org/">Open Science Grid</a> using containers. 
+the <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a> using containers. 
 
 # Overview
 
@@ -13,7 +13,7 @@ Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. The default way to run 
 with containers in CHTC is by using Docker (see 
 our [Docker Jobs guide](docker-jobs)). To run on resources outside of 
-CHTC, like the campus grid or Open Science Grid, this process must be 
+CHTC, like the campus grid or [OS Pool](https://osg-htc.org/about/open_science_pool/), this process must be 
 modified slightly. 
 
 # 1. Choose or Create a Docker Container Image
@@ -36,7 +36,7 @@ Github, contact chtc@cs.wisc.edu.
 
 Once your container is included in the list of Docker images, a 
 copy of the container will be placed into a data space 
-called `CVMFS` which is available on both CHTC and across the Open Science Grid. 
+called `CVMFS` which is available on both CHTC and across OS Pool. 
 
 # 3. Use Singularity Submit File Options
 
@@ -52,7 +52,7 @@ requirements = ( HAS_SINGULARITY || (HasSingularity && HAS_CVMFS_oasis_openscien
 
 ...executable, input files...
 
-# Run on the campus grid and Open Science Grid
+# Run on the campus grid and OS Pool
 +WantFlocking = true
 +WantGlidein = true
 

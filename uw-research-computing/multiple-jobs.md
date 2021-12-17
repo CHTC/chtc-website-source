@@ -4,444 +4,325 @@ layout: markdown-page
 title: Submitting Multiple Jobs Using HTCondor
 ---
 
+# Overview
 
-**To best understand the below information, users should already
-have an understanding of:**
+HTCondor has several convenient features for streamlining high-throughput 
+job submission. This guide provides several examples 
+of how to leverage these features to **submit multiple jobs with a 
+single submit file.**
 
-1.  Using the command line to: navigate within directories,
-    create/copy/move/delete files and directories, and run their
-    intended programs (aka \"executables\").  
+*Why submit multiple jobs with a single submit file?*
 
-2.  [The CHTC\'s Intro to Running HTCondor
-    Jobs](helloworld)
-3.  The importance of indicating the below submit file lines, which are
-    left out of the below examples for simplicity:
+Users should submit multiple jobs using a single submit file, or where applicable, as few 
+separate submit files as needed. Using HTCondor multi-job submission features is more 
+efficient for users and will help ensure reliable operation of the the login nodes.
 
-    ``` {.sub}
-    universe = vanilla    # or other
-    request_memory = < MB >
-    request_disk = < KB >
-    request_cpus = < positive integer >
-    should_transfer_files = YES
-    when_to_transfer_output = ON_EXIT    # or other
-    ```
+Many options exist for streamlining your submission of multiple jobs, 
+and this guide only covers a few examples of what is truly possible with 
+HTCondor. If you are interested in a particular approach that isn't described here, 
+please contact [CHTC's research computing facilitators](chtc@cs.wisc.edu) and we will 
+work with you to identify options to meet the needs of your work.
 
-Overview
-========
+# Submit Multiple Jobs Using `queue`
 
-One of <a href="http://research.cs.wisc.edu/htcondor/">HTCondor's</a> features is the ability to submit many similar jobs
-using one submit file. This is accomplished by using:
+All HTCondor submit files require a `queue` attribute (which must also be 
+the last line of the submit file). By default, `queue` will submit one job, but 
+users can also configure the `queue` attribute to behave like a for loop 
+that will submit multiple jobs, with each job varying as predefined by the user.
 
-> -   a \"queue\" keyword, that indicates how many jobs to run
-> -   *variables* in the submit file, taking the place of information
->     that will change with each job, such as input files, input
->     directories, or code arguments. Variables in an HTCondor submit
->     file look like this: `$(variable_name)`
+Below are different HTCondor submit file examples for submitting batches of multiple 
+jobs and, where applicable, how to indicate the differences between jobs in a batch 
+with user-defined variables. Additional examples and use cases are provided further below:
 
-There are different ways to \"queue\" multiple jobs and indicate the
-difference between them using variables.
+1.  ***[queue <N\>](#process)*** - will submit *N* number of jobs. Examples 
+    include performing replications, where the same job must be repeated *N* number 
+    of times, looping through files named with numbers, and looping through 
+    a matrix where each job uses information from a specific row or column.
+2.  ***[queue <var\> from <list\>](#foreach)*** - will loop through a 
+    list of file names, parameters, etc. as defined in separate text file (i.e. *<list>*). 
+    This `queue` option is very flexible and provides users with many options for 
+    submitting multiple jobs.
+3.  **[Organizing Jobs Into Individual Directories](#initialdir)** -
+    another option that can be helpful in organizing multi-job submissions.
 
-1.  **[Using Integer-Numbered Input Files](#process)** - assumes that
-    each job needs a different (numbered) input file
-2.  **[Using Any Unique Input File Names](#foreach)** - assumes that
-    each job needs a different input file
-3.  **[Variations Beyond Input Files](#discussion)**  
-    A.  **[Varying arguments](#args)** - assumes that each job needs a
-        different set of input arguments  
-    B.  **[Supplying multiple variables per job](#multiple-args)** -
-        assumes that multiple items (input files, arguments,
-        directories) are changing for each job
-4.  **[Organizing Jobs in Individual Directories](#initialdir)** -
-    another option that can be helpful in organizing job submissions.
+These `queue` options are also described in the following video from HTCondor Week 2020: 
+<a href="https://www.youtube.com/watch?v=m7dQChJH5LU">
+	<img alt="2020 HTCondor Week Presentation" src="https://raw.githubusercontent.com/CHTC/chtc-website-source/master/images/multi-job-submit-video-thumbnail.png" width="360" height="204"></a>
 
-These options are also described in this video from HTCondor Week 2020: 
-* [Submitting Multiple Jobs Using HTCondor](https://www.youtube.com/watch?v=m7dQChJH5LU)
+[Submitting Multiple Jobs Using HTCondor Video](https://www.youtube.com/watch?v=m7dQChJH5LU)
 
+What makes these `queue` options powerful is the ability to use user-defined 
+variables to specify details about your jobs in the HTCondor submit file. The 
+examples below will include the use of `$(variable_name)` to specify details 
+like input file names, file locations (aka paths), etc. **When selecting a 
+variable name, users must avoid bespoke HTCondor submit file variables 
+such as `Cluster`, `Process`, `output`, and `input`, `arguments`, etc.**
 
-Many options exist for streamlining your submission of multiple jobs,
-and this guide only covers a few such options of what is truly possible with
-HTCondor. If you are interested in a particular approach that isn't listed here, [contact a Research
-Computing Facilitator](mailto:chtc@cs.wisc.edu) and we can advise on the
-best implementation.
+## 1. Use `queue N` in you HTCondor submit files<a name="process"></a>
 
+When using `queue N`, HTCondor will submit a total of *N* 
+jobs, counting from 0 to *N* - 1 and each job will be assigned 
+a unique `Process` id number spanning this range of values. Because 
+the `Process` variable will be unique for each job, it can be used in 
+the submit file to indicate unique filenames and filepaths for each job.
 
-<a name="process"></a>
+The most straightforward example of using `queue N` is to submit 
+*N* number of identical jobs. The example shown below demonstrates 
+how to use the `Cluster` and `Process` variables to assign unique names 
+for the HTCondor `error`, `output`, and `log` files for each job in the batch:
 
-**1. Submitting Multiple Jobs Using Integer-Numbered Input Files**
-==============================================================
-
-> This example is most similar to our [Intro to Running HTCondor
-> Jobs](helloworld).
-
-This method addresses an example where you have multiple, numbered input
-files and want to run a job for each one. On the submit server, this
-might look like this:
-
-``` 
-[alice@submit]$ ls 
-0.data  1.data  2.data  my_exec  reference.data
 ```
-{:.term}
+# 100jobs.sub
+# submit 100 identical jobs
 
-Suppose we want to run \"my\_exec\" three times, once for each \".data\"
-file, and where every job needs the \"reference.data\" file. We will use
-HTCondor\'s built in `$(Process)` variable to create multiple numbered
-jobs, each using a different input file. In a submit file, this will
-look like this:
+log = job_$(Cluster)_$(Process).log
+error = job_$(Cluster)_$(Process).err
+output = job_$(Cluster)_$(Process).out
 
-``` {.sub}
-# Submit File
-executable = my_exec
-transfer_input_files = $(Process).data, reference.data
-output = $(Process).out
+... remaining submit details ...
 
-queue 3
+queue 100
 ```
+{: .sub}
 
-Here the `queue 3` line will create 3 jobs. Each job will be assigned a
-unique \"Process\" number, starting at 0 and ending at 2. For each job,
-the appropriate number will replace `$(Process)` in the submit file
-above. This means that each job will get a unique input file.
+For each job, the appropriate number, `0, 1, 2, ... 99` will replace `$(Process)`. 
+`$(Cluster)` will be a unique number assigned to the entire 100 job batch. Each 
+time you run `condor_submit job.sub`, you will be provided 
+with the `Cluster` number which you will also see in the output produced by 
+the command `condor_q`.
 
-More generally, for \"queue *N*\" in the submit file, the \$(Process)
-variable will start with \"0\" and end with *N*-1, such that you can use
-\$(Process) to indicate unique filenames and filepaths.
+If a uniquely named results file needs to be returned by each job, 
+`$(Process)` and `$(Cluster)` can also be used as `arguments`, and anywhere 
+else as needed, in the submit file:
 
-Once the job(s) finishes running, the directory on the submit server
-should look like this:
-
-``` 
-[alice@submit]$ ls
-0.data  0.out  1.data  1.out  2.data  2.out  my_exec  reference.data
 ```
-{:.term}
+arguments = $(Cluster)_$(Process).results
 
+... remaining submit details ...
 
-> ### Starting at One
->
-> What if your files are numbered 1 - 100 instead of 0 - 99? Instead of
-> renaming your files, you can do the following. In your submit file,
-> use:
->
-> ``` {.sub}
-> plusone = $(Process) + 1
-> NewProcess = $INT(plusone, %d)
-> ```
->
-> Then use `$(NewProcess)` anywhere in the submit file that you would
-> have normally used `$(Process)`.
->
-> Note that there is nothing special about the names `plusone` and
-> `NewProcess` - you can use any names you want as variables.
-
-
-<a name="foreach"></a>
-
-**2. Submitting Multiple Jobs Using Unique Input Files**
-====================================================
-
-[The previous examples](#process) are great for numbered files but it\'s
-not always convenient to use this naming scheme. It is possible to write
-a single submit file that uses different non-numbered files or
-directories by using a different `queue` statement.
-
-Suppose we have a program called `compare_states` and we want to run it
-on data from three different states, Iowa, Missouri and Wisconsin. In
-our submit directory, that looks like this:
-
-``` 
-[alice@submit]$ ls
-compare_states  iowa.data  missouri.data  united-states.data  wisconsin.data
+queue 100
 ```
-{:.term}
+{:.sub}
 
-Here, we want to create a job for each state, and use the
-`united-states.data` file for all three jobs.
+Be sure to properly format the `arguments` statement according to the 
+executable used by the job.
 
-First, we will make a list of each data file that we want to use in an
-individual job:
+***What if my jobs are not identical?*** `queue N` may still be a great 
+option! Additional examples for using this option include:
 
-**`state_list.txt`**
+### A. Use integer numbered input files
 
-``` 
-iowa.data
-missouri.data
+```
+[user@login]$ ls *.data
+0.data   1.data   2.data   3.data
+...      97.data  98.data  99.data
+```
+{: .term}
+
+In the submit file, use:
+
+```
+transfer_input_files = $(Process).data
+
+... remaining submit details ...
+
+queue 100
+```
+{: .sub}
+
+### B. Specify a row or column number for each job
+
+$(Process) can be used to specify a unique row or column of information in a 
+matrix to be used by each job in the batch. The matrix needs to then be transferred 
+with each job as input. For exmaple:
+
+```
+transfer_input_files = matrix.csv
+arguments = $(Process)
+
+... remaining submit details ...
+
+queue 100
+```
+{: .sub}
+
+The above exmaples assumes that your job is set up to use an argument to 
+specify the row or column to be used by your software.
+
+### C. Need *N* to start at 1
+
+If your input files are numbered 1 - 100 instead of 0 - 99, or your matrix 
+row starts with 1 instead of 0, you can perform basic arithmetic in the submit 
+file:
+
+```
+plusone = $(Process) + 1
+NewProcess = $INT(plusone,%d)
+arguments = $(NewProcess)
+
+... remaining submit details ...
+
+queue 100
+```
+{: .sub}
+
+Then use `$(NewProcess)` anywhere in the submit file that you would
+have otherwise used `$(Process)`. Note that there is nothing special about the 
+names `plusone` and `NewProcess`, you can use any names you want as variables.
+
+## 2. Submit multiple jobs with one or more distinct variables per job<a name="foreach"></a>
+
+Think about what's different between each job that needs to be submitted. 
+Will each job use a different input file or combination of software parameters? Do 
+some of the jobs need more memory or disk space? Do you want to use a different 
+software or script on a common set of input files? Using `queue <var> from <list>` 
+in your submit files can make that possible! `<var>` can be a single user-defined 
+variable or comma-separated list of variables to be used anywhere in the submit file. 
+`<list>` is a plain text file that defines `<var>` for each individual job to be submitted in the batch.
+
+Suppose you need to run a program called `compare_states` that will run on 
+on the following set of input files: `illinois.data`, `nebraska.data`, and 
+`wisconsin.data` and each input file can analyzed as a separate job.
+
+To create a submit file that will submit all three jobs, first create a 
+text file that lists each `.data` file (one file per line). 
+This step can be performed directly on the login node, for example:
+
+```
+[user@state-analysis]$ ls *.data > states.txt
+[user@state-analysis]$ cat states.txt
+illinois.data
+nebraska.data
 wisconsin.data
 ```
-{:.file}
+{: .term}
 
-Then, in the submit file, we will use that list as part of the `queue`
-statement. We will choose a name for the items in the list; in this
-case, we\'ve chosen the word \"state\".
+Then, in the submit file, following the pattern `queue <var> from <list>`,
+replace `<var>` with a variable name like `state` and replace `<list>` 
+with the list of `.data` files saved in `states.txt`:
 
-``` {.sub}
-# Submit File
+```
+queue state from states.txt
+```
+{: .sub}
+
+For each line in `states.txt`, HTCondor will submit a job and the variable 
+`$(state)` can be used anywhere in the submit file to represent the name of the `.data` file 
+to be used by that job. For the first job, `$(state)` will be `illinois.data`, for the 
+second job `$(state)` will be `nebraska.data`, and so on. For example:
+
+```
+# run_compare_states_per_state.sub
+
+transfer_input_files = $(state)
+arguments = $(state)
 executable = compare_states
-transfer_input_files = $(state),united-states.data
-out = $(state).out
 
-queue state from state_list.txt
+... remaining submit details ...
+
+queue state from states.txt
 ```
+{: .sub}
 
-That final \"queue\...from\" statement will create a job for every file
-in our list. It will assign each file to the \"state\" variable in turn.
-In the rest of the submit file, `$(state)` will be replaced by the
-values in the list, one value for each job. Here we\'ve used the values
-from the list to transfer the appropriate input file and name the log
-file. When the job completes, the home directory would look like this:
+### Use multiple variables for each job
 
-``` 
-[alice@submit]$ ls
-compare_states  iowa.data.out  missouri.data.out   wisconsin.data
-iowa.data       missouri.data  united-states.data  wisconsin.data.out
+Let's imagine that each state `.data` file contains data spanning several 
+years and that each job needs to analyze a specific year of data. Then 
+the `states.txt` file can be modified to specify this information:
+
 ```
-{:.term}
+[user@state-analysis]$ cat states.txt
+illinois.data, 1995
+illinois.data, 2005
+nebraska.data, 1999
+nebraska.data, 2005
+wisconsin.data, 2000
+wisconsin.data, 2015
+```
+{: .term}
 
+Then modify the `queue` to define two `<var>` named `state` and `year`:
 
-> **Tips for creating a list**
->
-> If you want a quick way to create a list of files like
-> \"state\_list.txt\", use the shell command `ls` and the greater-than
-> symbol `>` to list your files and then save them. For example:
->
-> ``` 
-> [alice@submit]$ ls *.data > my_files.txt
-> ```
-> {:.term}
->
-> Will list all files that end with the \".data\" extension and save
-> them to a file called \"my\_files.txt\".
+```
+queue state,year from states.txt
+```
+{: .sub}
 
-> **Naming Variables**
->
-> You can use any names you like in the \"queue \... from\" statement:
->
-> ``` {.sub}
-> queue year from list.txt
-> queue state from list.txt
-> queue x from list.txt
-> ```
->
-> We recommend using a descriptive name so that it is easier to read
-> your submit file.
+Then the variables `$(state)` and `$(year)` can be used in the submit file:
 
-
-<a name="list"></a>
-
-Other Ways of Listing Files
----------------------------
-
-There are two other ways to provide a list, where you would like each
-item in the list to create its own job. In the examples below, we are
-assuming the same program and files as above.
-
-<a name="matching"></a>
-
-**a. Create jobs \"matching\" a file pattern**
-
-This method of submission creates a job for each file or directory that
-matches the pattern provided in your submit file.
-
-``` {.sub}
-# Submit File
+```
+# run_compare_states_by_year.sub
+arguments = $(state) $(year)
+transfer_input_files = $(state)
 executable = compare_states
-transfer_input_files = $(state),united-states.data
-out = $(state).out
 
-queue state matching *.data
+... remaining submit details ...
+
+queue state,year from states.txt
 ```
-
-In this case, we have generated a list by using the pattern `*.data`; a
-job will be created for each file that ends with the \"data\" suffix.
-
-
-<a name="in"></a>
-
- **b. Create jobs from a list written into the submit file**
-
-In this final example, the list of desired items is written directly
-into the submit file using the syntax \"queue \... in ( \... )\"
-
-``` {.sub}
-# Submit File
-executable = compare_states
-transfer_input_files = $(state),united-states.data
-out = $(state).out
-
-queue state in (iowa.data 
-                missouri.data 
-                wisconsin.data)
-```
-
-
-<a name="discussion"></a>
-
-**3. Customizing Multiple Job Submissions**
-=======================================
-
-If your code doesn\'t require unique input files to run multiple jobs,
-keep reading to find other ways to provide many jobs with a different
-value: either an argument or combination of values.
-
-
-<a name="args"></a>
-
-A. Varying arguments
---------------------
-
-Suppose we want to analyze a particular state over several years, and
-this option is set using a command line argument:
-
-``` 
-$ compare_states -y 2015 -i wisconsin.data -o wisconsin_2015.out
-```
-{:.term}
-
-For this example, the year will be changing, not the state, so we will
-create a list of the years to analyze.
-
-**`year_list.txt`**
-
-``` 
-2013
-2014
-2015
-```
-{:.file}
-
-In the submit file, we use the same \"queue \... from\" syntax as
-before, but with a different variable name (\"year\") and fill in the
-arguments line with a variable.
-
-``` {.sub}
-executable = compare_states
-arguments = -y $(year) -i wisconsin.data -o wisconsin_$(year).out
-transfer_input_files = wisconsin.data, united-states.data
-
-queue year from year_list.txt
-```
-
-
-<a name="multiple-args"></a>
-
-B. Using Multiple Arguments
----------------------------
-
-The method of job submission shown above in a [queue \...
-from](#foreach) statement can also be used to submit jobs using multiple
-values. Suppose that we want to run two jobs for each state file - one
-for 2013 and one for 2015, using the same syntax as [before](#args):
-
-``` 
-$ compare_states -y 2015 -i wisconsin.data -o wisconsin_2015.out
-```
-{:.term}
-
-We will create a list of each combination that we want to run:
-
-**`states_list.txt`**
-
-``` 
-2013, wisconsin
-2015, wisconsin
-2013, missouri
-2015, missouri
-2013, iowa
-2015, iowa
-```
-{:.file}
-
-Then, in the submit file, we use the same \"queue \... from\" syntax as
-before, but we include two variables (one for each value in the line)
-that we can use in the submit file.
-
-``` {.sub}
-executable = compare_states
-arguments = -y $(year) -i $(state).data -o $(state)_$(year).out
-transfer_input_files = $(state).data, united-states.data
-
-queue year,state from states_list.txt
-```
-
-This setup will create six jobs, one for each line in the
-`states_list.txt` file.
-
+{: .sub}
 
 <a name="initialdir"></a>
-
-**4. Dividing Jobs Into Multiple Directories**
-==========================================
+## 3. Organizing Jobs Into Individual Directories
 
 One way to organize jobs is to assign each job to its own directory,
 instead of putting files in the same directory with unique names. To
 continue our \"compare\_states\" example, suppose there\'s a directory
 for each state you want to analyze, and each of those directories has
-its own input file, like so:
+its own input file named `input.data`:
 
-``` 
-[alice@submit]$ ls -F
-compare_states  iowa/  missouri/  united-states.data  wisconsin/
+```
+[user@state-analysis]$ ls -F
+compare_states  illinois/  nebraska/  wisconsin/
 
-[alice@submit]$ ls -F wisconsin/
+[user@state-analysis]$ ls -F illinois/
 input.data
 
-[alice@submit]$ ls -F missouri/
+[user@state-analysis]$ ls -F nebraska/
 input.data
 
-[alice@submit]$ ls -F iowa/
+[user@state-analysis]$ ls -F wisconsin/
 input.data
 ```
-{:.term}
+{: .term}
 
-We will use two features to submit jobs. First, like we have done for
-the previous examples, create a list of the items that are changing for
-each job. In this case, it will be each directory.
+The HTCondor submit file attribute `initialdir` can be used 
+to define a specific directory from which each job in the batch will be 
+submitted. The default `initialdir` location is the directory from which the 
+command `condor_submit myjob.sub` is executed. 
 
-**`states_list.txt`**
+Combining `queue var from list` with `initiadir`, each line of *<list>* will include 
+the path to each state directory and `initialdir` set to this path for 
+each job:
 
-``` 
-iowa
-missouri
+```
+#state-per-dir-job.sub
+initial_dir = $(state_dir)
+transfer_input_files = input.data	
+executable = compare_states
+
+... remaining submit details ...
+
+queue state_dir from state-dirs.txt
+```
+{: .sub}
+
+Where `state-dirs.txt` is a list of each directory with state data:
+
+```	
+[user@state-analysis]$ cat state-dirs.txt
+illinois
+nebraska
 wisconsin
 ```
-{:.file}
+{: .term}
 
-There will be a \"queue \... from\" statement to create a job for each
-directory in the list. However, we will add another item to the submit
-file called \"initialdir\" that will submit each job out of its own
-directory:
+**Notice that `executable = compare_states` has remained unchanged in the above example. 
+When using `initialdir`, only the input and output file path (including the HTCondor log, error, and 
+output files) will be changed by `initialdir`**.
 
-``` {.sub}
-# Submit File
-executable = compare_states
-initialdir = $(state)
-transfer_input_files = input.data, ../united-states.data
-out = job.out
-
-queue state from states_list.txt
-```
-
-Here, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will create a job for each state in the list and use that
-state\'s directory as the \"initialdir\" - the directory where the job
-will actually be submitted. Therefore, in `transfer_input_files`, we can
-use `input.data` without using the directory name in the path, and to
-use the `united-states.data` file, we need to indicate it is in the
-directory above the state directory. The output file will also go into
-the state directory.
-
-After the job runs, the job directories would look like this:
-
-``` 
-[alice@submit]$ ls -F
-compare_states  iowa/  missouri/  united-states.data  wisconsin/
-
-[alice@submit]$ ls -F wisconsin/
-input.data  job.out
-
-[alice@submit]$ ls -F missouri/
-input.data  job.out
-
-[alice@submit]$ ls -F iowa/
-input.data  job.out
-```
-{:.term}
+In this example, HTCondor will create a job for each directory in `state-dirs.txt` and use 
+that state\'s directory as the `initialdir` from which the job will be submitted. 
+Therefore, `transfer_input_files = input.data` can be used without specifying 
+the path to this `input.data` file. Any output generated by the job will then be returned to the `initialdir` 
+location.

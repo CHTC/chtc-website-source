@@ -55,12 +55,12 @@ portion of the data. By default, the submit file `executable`,
 * Advantages:  
 HTCondor file transfer is robust and is available on ANY of CHTC\'s
 accessible HTC resources including the UW Grid of campus pools, and the
-<a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
+<a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.
 
 * Data Security:  
 Files transferred with HTCondor transfer are owned by the job and
 protected by user permissions in the CHTC pool. When signaling your jobs
-to run on the UW Grid (Flocking) or the Open Science Grid (Glidein),
+to run on the UW Grid (Flocking) or the OS Pool (Glidein),
 your files will exist on someone else\'s computer only for the duration
 of each job. Please feel free to email us if you have data security
 concerns regarding HTCondor file transfer, as encryption options are

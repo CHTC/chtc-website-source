@@ -15,12 +15,19 @@
         iframe.width = (newwidth) + "px";
     }
 </script>
+{% if jekyll.environment == 'production' %}
+
+{% else %}
+<meta name="robots" content="noindex">
+{% endif %}
+
 {% if site.google_analytics and jekyll.environment == 'production' %}
 {% include analytics.html %}
 {% endif %}
 <script type="text/javascript" src="{{ '/assets/js/uw-style.js' | relative_url }}"></script>
-<link type="text/css" href="{{ '/web.css' | relative_url }}" rel="stylesheet">
 <link type="text/css" href="{{ '/assets/fonts/fonts.0.0.1.css' | relative_url }}" rel="stylesheet">
 <link type="text/css" href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+{% include logic/is_in_uw_dir.html %}
+{% if is_in_uw_dir %}<link type="text/css" href="{{ '/assets/css/research-style.css' | relative_url }}" rel="stylesheet">{% endif %}
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

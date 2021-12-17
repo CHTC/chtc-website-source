@@ -104,6 +104,9 @@ export PATH
 . /etc/profile.d/modules.sh
 module load software
 
+# For Lumerical (the license requires a home directory)
+export HOME=$_CONDOR_SCRATCH_DIR
+
 # Command to run your software from the command line
 cmd -options input.file
 ```
@@ -144,6 +147,27 @@ shown in the sample submit file below and include:
     requirements = (HasChtcSoftware == true)
     ```
 
+-   **Add a concurrency limit.** For software with limited licenses, we have 
+    implemented concurrency limits, which control the number of jobs running 
+    at once in the HTC system. If your software is in the table below, use 
+    the concurrency limit name in your submit file like this:
+    
+    `concurrency_limits = LIMIT_NAME:num_of_licenses_used`
+    
+    | Software        | Limit Name             | Limit    | 
+    | --------------- | ---------------------- | -------- | 
+    | ABAQUS          | ABAQUS                 | 50       |
+    | ANSYS           | ANSYS_RESEARCH         | 20       |
+    | COMSOL (Physics) | COMSOL_PHYSICS        | 2        |
+    | Lumerical       | LUMERICAL              | 3        | 
+
+    So if you were planning to run a job that used one ANSYS license, you would 
+    use: 
+    
+    ```
+    concurrency_limits = ANSYS_RESEARCH:1
+    ```
+
 -   **Request accurate CPUs and memory.** Run at least one test job and
     look at the log file produced by HTCondor to determine how much
     memory and disk space your jobs actually use. We recommend
@@ -173,6 +197,9 @@ transfer_input_files = (this should be a comma separate list of input files if n
 
 # Requirement for accessing new set of software modules
 requirements = ( HasChtcSoftware == true ) 
+
+# If required, add the concurrency limit for your software and uncomment
+# concurrency_limits = LIMIT_NAME:num_of_licenses_used
 
 request_cpus = 1
 request_memory = 2GB

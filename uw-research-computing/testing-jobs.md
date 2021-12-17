@@ -33,7 +33,7 @@ effective high-throughput computing in the following ways:
 -   **Making good choices:** knowing how big and how long your jobs are,
     and the size of input/output files will show you how to most
     effectively use CHTC resources. Jobs under 2 hrs or so? Allow your
-    jobs to flock and glide to the UW Grid and <a href="http://www.opensciencegrid.org/">Open Science Grid</a>. Input
+    jobs to flock and glide to the UW Grid and <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>. Input
     files of more than 5 GB? You should probably be using the CHTC large
     file staging area. Longer jobs? Include a line in your submit file
     restricting your jobs to the CHTC servers that guarantee 72 hours.
@@ -75,7 +75,7 @@ of CHTC servers, jobs are guaranteed to run for 72 hours. Jobs that run
 for longer than 72 hours will fail, unless they have implemented a
 self-checkpointing method that allows them to resume after being
 evicted. Jobs that are shorter, around 2-4 hours, are good candidates to
-run on the UW Grid and/or <a href="http://www.opensciencegrid.org/">Open Science Grid</a>.
+run on the UW Grid and/or <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>.
 
 Input and output file size will impact how your files will be
 transferred to and from the execute nodes. Large input files will need

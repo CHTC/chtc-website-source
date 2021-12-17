@@ -18,7 +18,7 @@ assigned to individual jobs, many users can be running jobs on a pool at any
 given time, all managed by HTCondor.
 
 The diagram below shows some of the largest pools on campus and also
-shows our connection to the US-wide <a href="http://www.opensciencegrid.org/">Open Science Grid</a> where UW computing
+shows our connection to the US-wide <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a> where UW computing
 work can "backfill" available computers all over the country. The number
 under each resource name shows an approximate number of computing hours
 available to campus researchers for a typical week in Fall 2013. As

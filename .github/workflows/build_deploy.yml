@@ -17,6 +17,10 @@ jobs:
           ./script/cibuild production
         name: Build web pages
       # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
+      - name: Add the schedule file symlink
+        run: |
+          cd _site/staff
+          ln -s /p/condor/public/html/developers/schedules schedules
       - run: |
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts

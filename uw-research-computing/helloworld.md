@@ -43,8 +43,8 @@ describes the set of jobs.
 following example to work.***
 
 **1.** Copy the highlighted text below, and paste it into file called
-`hello-chtc.sub`, the submit file, in your home directory on the submit
-machine.
+`hello-chtc.sub` (we recommend using a command line text editor) in your home directory on the submit
+machine. This is the file you will submit to HTCondor to describe your jobs (known as the submit file).
 
 ``` 
 # hello-chtc.sub
@@ -87,7 +87,7 @@ queue 3
 {:.sub}
 
 > For a \"template\" version of this submit file without the comments,
-> [click here](files/template.sub).
+> [click here](/uw-research-computing/files/template.sub).
 
 **2.** Now, create the executable that we specified above: copy the text
 below and paste it into a file called `hello-chtc.sh`
@@ -289,7 +289,7 @@ will suffer in that case as well.
 completed), you can send your jobs to even more computers than are in
 the CHTC Pool (where your jobs will run, by default). Refer to the table
 below for tips on how to send your jobs to the rest of the UW Grid and
-to the national [Open Science Grid](http://www.opensciencegrid.org/).
+to the national [OS Pool](https://osg-htc.org/about/open_science_pool/).
 
 
 
@@ -306,9 +306,9 @@ files, as appropriate, and after running a few tests.
   | `request_disk = `*`kilobytes`*  |  Matches each job to a slot with at least this much disk space, in units of KB. |
   |`request_memory = `*`megabytes`*  |  Matches each job to a slot with at least this much memory (RAM), in units of MB.|
   |`+WantFlocking = true`  |  Also send jobs to other HTCondor Pools on campus (UW Grid) <br> Good for jobs that are less than \~8 hours, or checkpoint at least that frequently.|
-  |`+WantGlideIn = true`  |  Also send jobs to the Open Science Grid (OSG).<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
+  |`+WantGlideIn = true`  |  Also send jobs to the OS Pool.<br> Good for jobs that are less than \~8 hours (or checkpoint at least that frequently), and have been tested for portability. (Contact Us for more details).|
 
-Learn more about sending jobs to the UW Grid and OSG in our [Scaling Beyond Local HTC Capacity](scaling-htc) guide.
+Learn more about sending jobs to the UW Grid and OS pool in our [Scaling Beyond Local HTC Capacity](scaling-htc) guide.
 
 
 D. Run Your OWN Jobs

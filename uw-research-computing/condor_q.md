@@ -23,6 +23,7 @@ jobs.
 8.  [View all details about a job.](#long)
 9.  [View specific details about a job using auto-format.](#af)
 10. [View only specific types of jobs using a constraint](#constraint)
+11. [Remove a held job from the queue](#remove)
 {% endcapture %}
 {% include /components/directory.html %}  
 
@@ -341,6 +342,20 @@ attribute. Try running:
 {:.term}
 
 You should see something very similar to running `condor_q -hold`!
+
+<a name="remove"/>
+
+**11. Remove a held job from the queue**
+------------------------------------------------------
+
+To remove a job held in the queue, run:
+
+```
+[alice@submit]$ condor_rm <JobID>
+```
+{:.term}
+
+This will remove the job in the queue. Once you have made changes to allow the job to run successfully, the job can be resubmitted using `condor_submit`.
 
 ------------------------------------------------------------------------
 
