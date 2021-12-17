@@ -1,6 +1,7 @@
 ---
 layout: markdown-page
 title: 2011 Fall CHTC Showcase
+published: false
 ---
 
 <h2>Free to all UW-Madison Campus Researchers</h2>
