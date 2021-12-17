@@ -5,28 +5,24 @@ title: Transferring Files Between CHTC and ResearchDrive
 ---
 
 UW Madison provides a shared data storage for research called [ResearchDrive](https://it.wisc.edu/services/researchdrive/). It 
-is possible to transfer files directly between ResearchDrive and CHTC's large data system. The 
-instructions in this guide may also work for accessing other data services on campus; contact us if you 
-would like to know more.
+is possible to transfer files directly between ResearchDrive and CHTC's systems. The 
+instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you 
+would like to know more. 
 
 ## A. Pre-Requisites
 
 In order to follow the steps in this guide, you need: 
-1. Access to a ResearchDrive share, either as PI or member of your PI's group. 
-2. Access to CHTC's "transfer" server, `transfer.chtc.wisc.edu`. 
-
-The instructions provided here are for transferring large input and output files to 
-and from CHTC's large data location on the HTC System, `/staging/`. However, it is also 
-possible to transfer files directly between a submit server `/home` directory and ResearchDrive 
-using the same steps. 
+1. Access to a ResearchDrive data share, either as PI or member of your PI's group. 
+2. A CHTC account
 
 ## B. Transferring Files
 
-To transfer data between ResearchDrive and `/staging`, do the following: 
+To transfer data between ResearchDrive and CHTC, do the following: 
 
-1. **Log in:** Log into the transfer server, `transfer.chtc.wisc.edu`. 
-2. **Choose a folder:** Navigate to the folder in `/staging` where you would like to get or put files. 
-3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
+1. **Log in:** Log into the server you would normally use to transfer files into CHTC. For moving files to and from 
+your home directory, this will be the submit server. For moving files to and from staging, use the transfer server, `transfer.chtc.wisc.edu`. 
+3. **Choose a folder:** Navigate to the folder in CHTC where you would like to get or put files. 
+4. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
     [alice@transfer]$ smbclient -k //research.drive.wisc.edu/PI-Name
@@ -64,12 +60,13 @@ many files, at a time and is best for transferring a few files in a session. How
 using the `*` wildcard character.
 
 To transfer multiple files at once, first you must turn off the `smbclient` file transfer prompt, 
-then use either `mget` or `mput` for your file transfer. For example, if you have multiple `fastq.gz` 
+then use either `mget` or `mput` for your file transfer. For example, if you have multiple `fastq.gz` files
 to transfer to `/staging`:
 
-1. **Log in:** Log into the transfer server, `transfer.chtc.wisc.edu`. 
-2. **Choose a folder:** Navigate to the folder in `/staging` where you would like transfer your files to. 
-3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
+1. **Log in:** Log into the server you would normally use to transfer files into CHTC. For this example, transferring 
+2. files into staging, we would log into `transfer.chtc.wisc.edu`. 
+3. **Choose a folder:** Navigate to the folder in `/staging` where you would like transfer your files to. 
+4. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
     [alice@transfer]$ smbclient -k //research.drive.wisc.edu/PI-Name
@@ -94,8 +91,8 @@ your PI:
 As another example, use `smbclient` to transfer multiple `tar.gz` output files 
 after your jobs complete:
 
-1. **Log in:** Log into the transfer server, `transfer.chtc.wisc.edu`. 
-2. **Choose a folder:** Navigate to the appropriate directory in `/staging` where your output is located.
+1. **Log in:** Log into the server you would normally use to transfer files into CHTC.
+2. **Choose a folder:** Navigate to the appropriate directory in `/home` or `/staging` where your output is located.
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
