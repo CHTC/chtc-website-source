@@ -1,8 +1,8 @@
 ---
 layout: content
-title: Projects Using the CHTC
+title: CHTC Partners Using CHTC Technologies and Services
 ---
-
+<!--
 <div class="uw-row-full">
 	<div class="uw-row">
 		<div class="uw-col uw-body">
@@ -25,6 +25,7 @@ title: Projects Using the CHTC
 		</div>
 	</div>
 </div>
+-->
 <div class="uw-row-full uw-light-grer-bg">
 {% for project_hash in site.data.projects %}
     {% assign project = project_hash[1] %}
