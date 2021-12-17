@@ -25,7 +25,9 @@ function create_html(data){
         "<div class='card-title text-left mb-2'>" +
         data.title +
         "</div>" +
-        "<h6 class='card-subtitle text-primary'>" + data.subtitle + "</h6>"
+        "<div>" +
+        "<h6 class='card-subtitle text-primary text-left'>" + data.subtitle + "</h6>" +
+        "</div>" +
     "</div>" +
     "</a>" +
     "</div>"
