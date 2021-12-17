@@ -2,6 +2,7 @@
 highlighter: none
 layout: file_avail
 title: Using Gluster for Large Data and Software
+published: false
 ---
 
 > NOTE: GLUSTER HAS BEEN REPLACED BY A NEW LARGE DATA STAGING SYSTEM, DESCRIBED [HERE](file-avail-largedata).
