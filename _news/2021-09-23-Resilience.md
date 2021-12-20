@@ -3,6 +3,8 @@ title: "Resilience: How COVID-19 challenged the scientific world"
 date: 2021-09-23T12:00:00+00:00
 excerpt: In the face of the pandemic, scientists needed to adapt. This article by the Morgridge Institute for Research provides a thoughtful look into how individuals and organizations, including the CHTC, have pivoted in these challenging times.
 publish: true
+image_src: images/resilience-hero-large.jpeg
+image_alt: Hero Image for Morgridge Article Courtesy of Morgridge
 --- 
 
 

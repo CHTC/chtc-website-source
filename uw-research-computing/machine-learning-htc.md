@@ -74,6 +74,8 @@ convolutional neural networks, have enough dependencies that our usual installat
 processes work less reliably. The following options are the best way to handle the complexity 
 of these software tools.  
 
+Please be aware of which CUDA library version you are using to run your code. 
+
 A. Using Docker Containers
 --------------------------
 
@@ -106,3 +108,9 @@ The Python package manager conda is a popular tool for installing and
 managing machine learning tools.
 See [this guide](conda-installation.html) for information on how 
 to use conda to provide dependencies for CHTC jobs.
+
+
+Note that when installing TensorFlow using `conda`, it is important to install 
+not the generic `tensorflow` package, but `tensorflow-gpu`. This ensures that 
+the installation will include the `cudatoolkit` and `cudnn` dependencies
+required for TensorFlow 's GPU capability. 

@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Managing Large Data in HTC Jobs
+published: false
 ---
 
 # Data Transfer Solutions By File Size

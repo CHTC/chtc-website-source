@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Transition to the Newly Configured HPC Cluster
+published: false
 ---
 
 The HPC Cluster is being upgraded to a new configuration during October-November 2020. 
