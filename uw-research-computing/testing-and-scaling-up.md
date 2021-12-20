@@ -16,7 +16,7 @@ turnaround time for completing a whole batch.
 If you have questions or are unsure if and how your work can be broken up, please contact us at 
 <chtc@cs.wisc.edu>.
 
-# Requesting the Number of CPUs, Memory, and Disk Space for the HTCondor submit file
+# Requesting the Number of CPUs, Memory, and Disk Space for the HTCondor Submit File
 
 In the HTCondor submit file, you must explicitly request the number of 
 CPUs (i.e. cores), and the amount of disk and memory that the job needs 
@@ -42,6 +42,7 @@ and use multiple cpus.
     - There is limited support for multicore work in our high througput system. For large-scale multicore jobs, contact a Research Computing Facilitator at <chtc@cs.wisc.edu>. 
     
 **Requesting Disk Space**
+
 - To inform initial disk requests always look at the size of your input 
 files. At a minimumm, you need to request enough disk to support all 
 of the input files, executable, and the output you expect, but don't forget that the standard 'error' and 'output'
@@ -71,6 +72,7 @@ is to adjust memory requests for subsequent jobs based on the results
 of these test jobs.**
 
 **Importance of Test Jobs**
+
 - Once you have run a test job using a small number of jobs, **Review the bottom of the HTCondor `log` files from your test jobs to see how many cpus and how much memory and disk space were used.** HTCondor will report 
 the memory, disk, and cpu usage of your jobs in a table at the *bottom* of this file. You can use these values to inform the parameters for future jobs. 
 
@@ -90,7 +92,7 @@ using HTC or you are an experienced user starting a new workflow:
 **Step 2: Submit a few (3-10) test jobs using a single submit file**
       - Once you have a single test job that completes successfully, the next 
         step is to submit a small batch of test jobs (e.g. 3 - 10 jobs) 
-        [**using a single submit file**](https://support.opensciencegrid.org/support/solutions/articles/12000073165). Use this small-scale 
+        [**using a single submit file**](https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs). Use this small-scale 
         multi-job submission test to ensure that all jobs complete successfully, produce the 
         desired output, and do not conflict with each other when submitted together. 
         
