@@ -331,7 +331,7 @@ found in [Appendix
 A](https://htcondor.readthedocs.io/en/latest/codes-other-values/job-event-log-codes.html?highlight=status%20codes)
 of the HTCondor Manual.
 
-Remember [`condor_q -hold`](#hold) from before? In the background, the
+Remember [`condor_q -hold`](#determine-why-jobs-are-on-hold) from before? In the background, the
 `-hold` option is constraining the list of jobs to jobs that are on hold
 (using the `JobStatus` attribute) and then printing out the `HoldReason`
 attribute. Try running:
