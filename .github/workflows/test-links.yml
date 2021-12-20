@@ -1,5 +1,5 @@
 name: Check Links
-on: pull_request
+on: [pull_request, workflow_dispatch]
 
 jobs:
   Check-Website-Links:
