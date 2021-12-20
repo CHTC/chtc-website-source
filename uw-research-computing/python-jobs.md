@@ -27,9 +27,6 @@ This guide details the steps needed to:
 2.  [Write a script that uses Python and your packages](#script)
 3.  [Submit jobs](#submit)
 
-If you want to build your own copy of base Python, see this archived
-page: [Building a Python installation](archived/python-jobs.html)
-
 If you want to use conda to manage your Python package dependencies, 
 read this guide as background material,
 then read [our guide on using conda](conda-installation.html).

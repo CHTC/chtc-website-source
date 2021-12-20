@@ -260,7 +260,3 @@ installation folder.
 ```
 {:.term}
 
-
-
-> For older version of this guide, see out [archived
-> page](archived/inter-submit.html).

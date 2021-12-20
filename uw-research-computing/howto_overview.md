@@ -69,9 +69,6 @@ title: CHTC Tools for Matlab, R, and Python Portability
             <p>
                 If your software is complex and hard to setup, please don't hesitate to contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> with any questions. 
             </p>
-            <p>
-                For old guides not shown on this page, see our <a href="{{ '/uw-research-computing/archived/howto_overview.html' | relative_url }}">archived page</a>.
-            </p>
         </div>
     </div>
 </div>
