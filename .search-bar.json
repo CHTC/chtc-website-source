@@ -11,6 +11,6 @@
     {"id": "high", "boost": 10},
     {"id":  "medium", "boost":  5},
     {"id": "content", "boost":  5},
-    {"id": "file_terms", "boost":  5}
+    {"id": "file_terms", "boost":  7}
   ]
 }
