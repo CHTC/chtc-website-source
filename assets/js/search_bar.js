@@ -113,7 +113,7 @@ function SearchBar(id, index_path, metadata_path) {
 
         let results_to_populate = this.results.slice(0, length)
 
-        if( !results_to_populate.length ){
+        if( !results_to_populate.length && this.input_node.value != "" ){
             this.create_result_node().innerHTML = create_html({'title': 'No Results', "subtitle": ""})
             return
         }
