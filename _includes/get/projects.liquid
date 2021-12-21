@@ -1,0 +1,7 @@
+{% assign projects = "" | split : "" %}
+
+{% for project in site.data.projects %}
+    {% assign projects = projects | push: project[1] %}
+{% endfor %}
+
+{% assign projects = projects | sort: "date" | reverse %}
