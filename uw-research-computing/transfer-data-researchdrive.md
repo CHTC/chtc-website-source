@@ -5,29 +5,26 @@ title: Transferring Files Between CHTC and ResearchDrive
 ---
 
 UW Madison provides a shared data storage for research called [ResearchDrive](https://it.wisc.edu/services/researchdrive/). It 
-is possible to transfer files directly between ResearchDrive and CHTC's large data system. The 
-instructions in this guide may also work for accessing other data services on campus; contact us if you 
-would like to know more.
+is possible to transfer files directly between ResearchDrive and CHTC's systems. The 
+instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you 
+would like to know more. 
 
 ## A. Pre-Requisites
 
-In order to follow the steps in this guide, you need access to a ResearchDrive share, either as PI or member of your PI's group. 
-
-The instructions provided here are for transferring large input and output files to 
-and from CHTC's large data location on the HTC System, `/staging/`. However, it is also 
-possible to transfer files directly between a submit server `/home` directory and ResearchDrive 
-using the same steps. 
+In order to follow the steps in this guide, you need access to a ResearchDrive share, either as PI or member of your PI's group, as well as a CHTC account. 
 
 ## B. Transferring Files
 
-To transfer data between ResearchDrive and `/staging`, do the following: 
+To transfer data between ResearchDrive and CHTC, do the following: 
 
-1. **Log in:** Log into your submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
-2. **Choose a folder:** Navigate to the folder in `/staging` where you would like to get or put files. 
+1. **Log in:** 
+	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
+	2. If you are transferring files and or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`), where you would like to transfer files. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
-    [alice@submit]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
     {: .term}
     Your prompt should change to look like this:
@@ -62,15 +59,17 @@ many files, at a time and is best for transferring a few files in a session. How
 using the `*` wildcard character.
 
 To transfer multiple files at once, first you must turn off the `smbclient` file transfer prompt, 
-then use either `mget` or `mput` for your file transfer. For example, if you have multiple `fastq.gz` 
-to transfer to `/staging`:
+then use either `mget` or `mput` for your file transfer. For example, if you have multiple `fastq.gz` files
+to transfer to CHTC:
 
-1. **Log in:** Log into your submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
-2. **Choose a folder:** Navigate to the folder in `/staging` where you would like transfer your files to. 
+1. **Log in:** 
+	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
+	2. If you are transferring files and or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`), where you would like to put the files. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
-    [alice@submit]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
     {: .term}
 4. **Navigate to appropriate ResearchDrive directory**
@@ -84,6 +83,7 @@ your PI:
     ```
     {: .term}
 6. **Use `mget` instead of `get`**
+	This command downloads a group of files that end with "fastq.gz" to CHTC. 
     ```
     smb: \> mget *.fastq.gz
     ```
@@ -92,12 +92,14 @@ your PI:
 As another example, use `smbclient` to transfer multiple `tar.gz` output files 
 after your jobs complete:
 
-1. **Log in:** Log into your submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
-2. **Choose a folder:** Navigate to the appropriate directory in `/staging` where your output is located.
+1. **Log in:** 
+	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
+	2. If you are transferring files and or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`) where your output files are located. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
     ```
-    [alice@submit]$ smbclient -k //research.drive.wisc.edu/PI-Name
+    [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
     {: .term}
 4. **Navigate to appropriate ResearchDrive directory**
