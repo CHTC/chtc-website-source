@@ -5,6 +5,7 @@
   "exclude_paths" : ["doc/**", "includes/**", "uw-research-computing/archived/**", "**/thanks.html", "**/404.html"],
   "key_tags" : [{"high" : ["h1", "h2", "h3", "h4", "h5"]}, {"medium" : ["b", "code", "pre"]}],
   "file_terms" : { "/uw-research-computing/connecting.html" : "login" , "/uw-research-computing/guides.html" : "how how to how to's how tos"},
+  "path_boosts" : [{ "10" : ["/uw-research-computing/guides.html", "/uw-research-computing/connecting.html"] }],
   "ref" : "root_relative_url",
   "fields" : [
     {"id": "root_relative_url"},
