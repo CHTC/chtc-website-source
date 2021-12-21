@@ -11,7 +11,10 @@ would like to know more.
 
 ## A. Pre-Requisites
 
-In order to follow the steps in this guide, you need access to a ResearchDrive share, either as PI or member of your PI's group, as well as a CHTC account. 
+In order to follow the steps in this guide, you need access to a ResearchDrive share, either as PI or member of your PI's group, as well as a CHTC account. In what follows, 
+we assume that you are transferring files to and from our HTC system, but you can 
+use the same process to transfer files to and from the HPC cluster if you first log 
+in to one of the HPC login nodes. 
 
 ## B. Transferring Files
 
