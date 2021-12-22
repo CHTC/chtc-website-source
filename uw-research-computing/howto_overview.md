@@ -40,7 +40,7 @@ title: CHTC Tools for Matlab, R, and Python Portability
 			<div class="uw-card-content">
 				<a href="{{ '/uw-research-computing/r-jobs.html' | relative_url }}"><img src="{{ '/images/R_Logo.png' | relative_url }}" alt="R logo"></a>
 				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar"><a href="{{ '/uw-research-computing/r-jobs.html' | relative_url }}">Running R Job in CHTC</a></h2>
+					<h2 class="uw-mini-bar"><a href="{{ '/uw-research-computing/r-jobs.html' | relative_url }}">Running R Jobs in CHTC</a></h2>
 				</div>
 			</div>
 		</div>
