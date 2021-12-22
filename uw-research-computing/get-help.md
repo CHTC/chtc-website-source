@@ -42,14 +42,13 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 
-<!--
-> ## Office Hours are cancelled on Tuesday, August 24
--->
+> ## Office Hours are cancelled the week of December 27 - 31
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
--   **Tuesday/Thursday afternoons, from 3:00 - 4:45 pm.** 
+-   **Tuesday morning: 10:30am - 12:00pm.** 
+-   **Thursday afternoon: 3:00 - 4:45 pm.** 
 
 To drop in, find the videoconference link in either your email (via 
 an announcement to chtc-users sent on Wed., March 11) or in the login message
