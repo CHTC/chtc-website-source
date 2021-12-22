@@ -34,7 +34,7 @@ address.
     same large file (or few files), including large software. It is not
     good for cases when each of many jobs needs a *different* large
     input file, in which case [our large data staging
-    location](file-avail-largedata) should be used. Remember that
+    location](file-avail-largedata.html) should be used. Remember that
     you\'re always better off by pre-splitting a large input file into
     smaller job-specific files if each job only needs some of the large
     files\'s data. If each job needs a large set of many files, you
@@ -84,7 +84,7 @@ address.
     (with the proper HTTP address); thus, large files that should be
     \"private\" should not be placed in your user directory in `/squid`,
     and should instead use CHTC\'s [large data staging
-    space](file-avail-largedata) for large-file staging.
+    space](file-avail-largedata.html) for large-file staging.
 
 
 <a name="use"></a>

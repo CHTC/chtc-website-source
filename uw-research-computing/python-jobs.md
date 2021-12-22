@@ -12,7 +12,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](helloworld)
+    Jobs](helloworld.html)
 
 Overview
 ========
@@ -27,12 +27,9 @@ This guide details the steps needed to:
 2.  [Write a script that uses Python and your packages](#script)
 3.  [Submit jobs](#submit)
 
-If you want to build your own copy of base Python, see this archived
-page: [Building a Python installation](archived/python-jobs)
-
 If you want to use conda to manage your Python package dependencies, 
 read this guide as background material,
-then read [our guide on using conda](conda-installation).
+then read [our guide on using conda](conda-installation.html).
 
 <a name="supported"></a>
 
@@ -279,14 +276,14 @@ would like, give it executable permissions by running:
 > In addition, your Python script will need to be able to accept
 > arguments from the command line. There is an explanation of how to do
 > this in [this Software Carpentry
-> lesson](http://swcarpentry.github.io/python-novice-inflammation/10-cmdline/index.html).
+> lesson](https://swcarpentry.github.io/python-novice-inflammation/12-cmdline/index.html).
 
 
 **3. Submitting Jobs**
 ==================
 <a name="submit"></a>
 A sample submit file can be found in our [hello
-world](helloworld) example page. You should make the following
+world](helloworld.html) example page. You should make the following
 changes in order to run Python jobs:
 
 -   Your `executable` should be the script that you wrote

@@ -204,7 +204,7 @@ the interactive build job). A copy of `packages.tar.gz` will be present. **Be
 sure to check the size of the project tarball before proceeding to subsequent job 
 submissions.** If the file is >100MB please contact us at <chtc@cs.wisc.edu> so 
 that we can get you setup with access to our SQUID web proxy. More details 
-are available on our SQUID guide: [File Availability with SQUID](file-avail-squid)
+are available on our SQUID guide: [File Availability with SQUID](file-avail-squid.html)
 
 ```
 [alice@submit]$ ls 
@@ -278,7 +278,7 @@ After creating a bash script to run Julia, then create a submit file
 to submit the job to run. 
 
 More details about setting up a submit file, including a submit file template, 
-can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld).
+can be found in our hello world example page at [Run Your First CHTC Jobs](helloworld.html).
 
 ``` {.sub}
 # julia-job.sub

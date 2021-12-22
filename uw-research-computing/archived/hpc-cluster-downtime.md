@@ -47,7 +47,7 @@ The Below Policy Changes Will Take Effect after Nov. 17
     quota arrangements. In the future, users needing more than their
     quota for [*current and active compute jobs*]{.underline} may ask
     for a quota increase by emailing
-    [chtc\@cs.wisc.edu](chtc@cs.wisc.edu) and explaining the situation.
+    [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) and explaining the situation.
     Based upon past filesystem performance issues, we must all be
     committed to reducing the amount of leftover data and the overall
     *number of files* on the HPC Cluster filesystem, both of which
@@ -60,7 +60,7 @@ The Below Policy Changes Will Take Effect after Nov. 17
 CHTC Staff Are:
 ---------------
 
-1.  updating the [HPC Cluster Use Guide](HPCuseguide) to reflect
+1.  updating the [HPC Cluster Use Guide]() to reflect
     the above policy changes. (already done)
 2.  emailing researchers who have significant *total data* and/or a
     *large numbers of files* on the filesystem, in preparation for the
@@ -69,12 +69,12 @@ CHTC Staff Are:
 Please understand that all of the above changes are aimed at improving
 filesystem performance for everyone, based upon common complaints in the
 last 6 months. We do our best to minimize cluster downtime (including
-quick response after recent power outages[\*](#power)) and have come to
+quick response after recent power outages*) and have come to
 the above decision after considerable conversation with specific users
 and based upon suggestions from other cluster-providing organizations.
 
 We appreciate your cooperation and feedback. As always, please send any
-questions or comments to [chtc\@cs.wisc.edu](chtc@cs.wisc.edu).
+questions or comments to [chtc\@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 
 \* While we would have preferred to perform this upgrade sooner, the
