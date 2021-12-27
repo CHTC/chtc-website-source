@@ -69,7 +69,7 @@ with if you know a single job will succeed on your laptop.
 	- For your initial tests it is okay to request more memory than 
 your job may need so that the test completes successfully. **The key 
 is to adjust memory requests for subsequent jobs based on the results 
-of these test jobs.**
+of these test jobs.** To fine tune your requests, make sure to run test jobs - see below for a recommended process.
 
 **Importance of Test Jobs**
 
