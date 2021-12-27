@@ -8,7 +8,7 @@ title: Running Matlab Jobs on CHTC
 **To best understand the below information, users should already have an understanding of:**
 
 -   Using the command line to: navigate within directories, create/copy/move/delete files and directories, and run their intended programs (aka \"executables\").
--   [The CHTC's Intro to Running HTCondor Jobs](helloworld)
+-   [The CHTC's Intro to Running HTCondor Jobs](helloworld.html)
 
 Overview
 ========
@@ -230,7 +230,7 @@ This section shows the important elements of creating a submit file for
 Matlab jobs. The submit file for your job will be different than the one
 used to compile your code. As a starting point for a submit file, see
 our \"hello world\" example:
-[http://chtc.cs.wisc.edu/helloworld](helloworld). In what
+[http://chtc.cs.wisc.edu/helloworld](helloworld.html). In what
 follows, replace our example `script` and `run_script.sh` with the name
 of your binary and scripts.
 
@@ -304,5 +304,3 @@ produces different random values when Matlab runs for the first time.
 Deliberately choosing your own different random seed values for each job
 can be another way to ensure different results.
 
-> For older version of this guide, see our [archived
-> page](archived/matlab-jobs).

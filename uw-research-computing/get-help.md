@@ -27,7 +27,7 @@ problem
 ## Get An Account
 
 If you don't have an account yet, please fill out our [Request
-Form](form), and we'll follow up quickly to set up a meeting time
+Form](form.html), and we'll follow up quickly to set up a meeting time
 and create accounts. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
@@ -42,14 +42,13 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 
-<!--
-> ## Office Hours are cancelled on Tuesday, August 24
--->
+> ## Office Hours are cancelled the week of December 27 - 31
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
--   **Tuesday/Thursday afternoons, from 3:00 - 4:45 pm.** 
+-   **Tuesday morning: 10:30am - 12:00pm.** 
+-   **Thursday afternoon: 3:00 - 4:30 pm.** 
 
 To drop in, find the videoconference link in either your email (via 
 an announcement to chtc-users sent on Wed., March 11) or in the login message
@@ -58,7 +57,7 @@ when you log into a CHTC server.
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
 
-[Click to sign-in for office hours](sign-in)
+[Click to sign-in for office hours](sign-in.html)
 
 
 <!-- For users who already have accounts, we have drop-in office hours on:
