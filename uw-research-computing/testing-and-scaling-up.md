@@ -8,7 +8,7 @@
 Much of HTCondor's HTC power comes from the ability to run a large number of jobs simulateously. 
 To optimize your work with a high-throughput computing (HTC)
 approach, you will need to test and optimizing the resource requests of those jobs, by 
-only requesting the amount of memory, disk, and cpus truely needed.
+only requesting the amount of memory, disk, and cpus truly needed.
 This is an important practice that will maximize your throughput by optimizing the 
 number of potential 'slots' that your jobs can match to, reducing the overall 
 turnaround time for completing a whole batch.
@@ -22,7 +22,7 @@ In the HTCondor submit file, you must explicitly request the number of
 CPUs (i.e. cores), and the amount of disk and memory that the job needs 
 to complete successfully.
 When you submit a job for the 
-first time you may not know just how much to request and that's OK. 
+first time you may not know just how much to request and that's okay. 
 Below are some suggestions for making resource requests for initial test 
 jobs. **As always, reviewing the HTCondor `log` file from past jobs is 
 a great way to learn about the resource needs of your jobs.**
@@ -39,12 +39,12 @@ and use multiple cpus.
     that your CPU request matches the number of cores (i.e. 'threads' or 'processes') 
     that you expect your software to use. (Most softwares only use 1 CPU core, by default.)
 
-    - There is limited support for multicore work in our high througput system. For large-scale multicore jobs, contact a Research Computing Facilitator at <chtc@cs.wisc.edu>. 
+    - There is limited support for multicore work in our high throughput system. For large-scale multicore jobs, contact a Research Computing Facilitator at <chtc@cs.wisc.edu>. 
     
 **Requesting Disk Space**
 
 - To inform initial disk requests always look at the size of your input 
-files. At a minimumm, you need to request enough disk to support all 
+files. At a minimum, you need to request enough disk to support all 
 of the input files, executable, and the output you expect, but don't forget that the standard 'error' and 'output'
 files you specify will capture 'terminal' output that may add up, too.
       
@@ -53,7 +53,7 @@ files you specify will capture 'terminal' output that may add up, too.
 estimates for disk usage as these files will take up additonal space once uncompressed 
 in the job.
       
-    - For your initial tests it is OK to request more disk than 
+    - For your initial tests it is okay to request more disk than 
 your job may need so that the test completes successfully. **The key 
 is to adjust disk requests for subsequent jobs based on the results 
 of these test jobs.**
@@ -66,7 +66,7 @@ memory (i.e. RAM) from that computer as a starting point. For instance,
 most laptop computers these days will have 8 or 16 GB of memory, which is okay to start 
 with if you know a single job will succeed on your laptop.
 
-	- For your initial tests it is OK to request more memory than 
+	- For your initial tests it is okay to request more memory than 
 your job may need so that the test completes successfully. **The key 
 is to adjust memory requests for subsequent jobs based on the results 
 of these test jobs.**

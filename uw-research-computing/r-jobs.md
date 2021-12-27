@@ -189,8 +189,7 @@ In the R terminal, install your packages using `install.packages`.
 Replace "package_name" with the name of the package you wish to install. 
 
 The first time you will be prompted to choose a \"CRAN mirror\" - this
-is where R is downloading the package. Choose any option that does **not** state `https`
-by the name as we only want locations with `http` configuration. 
+is where R is downloading the package. Choose any US-based location to download.  
 
 If you need a Bioconductor package you will first need to install the
 Bioconductor installation manager, then use Bioconductor to install your
