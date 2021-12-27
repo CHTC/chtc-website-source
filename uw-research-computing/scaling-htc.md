@@ -48,14 +48,14 @@ We call sending jobs to other pools on campus *flocking*.
 
 <a name="osg"></a>
 
-B. OSG Pool
+B. UW-Madison's OSG Pool
 ------------------------------
 
 CHTC maintains an OSG pool for the campus community, which includes 
 resources contributed by campuses, national labs, and other institutions 
 across and beyond the US.
 
-We call sending jobs to other institutions in our OSG pool *gliding*.
+When you send jobs to other institutions in our OSG pool, we call that *gliding*.
 
 
 <a name="job"></a>
@@ -74,7 +74,7 @@ to us, they have two major requirements:
 	output files are larger than 1GB, or you have any other questions about 
 	handling data on resources beyond CHTC, please [contact us](chtc@cs.wisc.edu)! 
 
--   **Short or interruptable jobs**: Your job can run in under 8 hours
+-   **Short or interruptable jobs**: Your job can complete in under 10 hours
     \-- either it finishes in that amount of time, or it
     self-checkpoints at least that frequently. If you would like to implement
     self-checkpointing for a longer code, we are happy to provide resources 
