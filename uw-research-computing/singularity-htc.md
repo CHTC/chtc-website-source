@@ -39,12 +39,12 @@ provide the name you want to use for the saved Singularity image file:
 	```
 	{:.term}
 	
-	For example, if user \"Alice\" wanted to use the [\"Fenics\" container
-	provided on DockerHub](https://hub.docker.com/r/fenicsproject/stable),
+	For example, if user \"Alice\" wanted to use the ["Rocker" geospatial container
+	provided on DockerHub](https://hub.docker.com/r/rocker/geospatial),
 	and save it to a file named `fenics.simg`, she would run:
 
 	``` 
-	[alice@build]$ singularity build /software/alice/fenics.simg docker://fenicsproject/stable:latest
+	[alice@build]$ singularity build /software/alice/rocker-geo.simg docker://rocker/geospatial:4.1.1
 	```
 	{:.term}
 
