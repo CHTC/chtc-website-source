@@ -35,16 +35,16 @@ variable that prevents download of the Docker container.
 the Docker image on DockerHub or (the link to it at another location) and you will 
 provide the name you want to use for the saved Singularity image file: 
 	``` 
-	[alice@build]$ singularity build /software/alice/name.simg docker://user/image:version
+	[alice@build]$ singularity build /software/alice/name.sif docker://user/image:version
 	```
 	{:.term}
 	
 	For example, if user \"Alice\" wanted to use the ["Rocker" geospatial container
 	provided on DockerHub](https://hub.docker.com/r/rocker/geospatial),
-	and save it to a file named `fenics.simg`, she would run:
+	and save it to a file named `rocker-geo.sif`, she would run:
 
 	``` 
-	[alice@build]$ singularity build /software/alice/rocker-geo.simg docker://rocker/geospatial:4.1.1
+	[alice@build]$ singularity build /software/alice/rocker-geo.sif docker://rocker/geospatial:4.1.1
 	```
 	{:.term}
 
@@ -68,8 +68,8 @@ to the job from the home directory using HTCondor file transfer.
 The submit file options should look like this: 
 
 ``` {.sub}
-transfer_input_files = image.simg
-+SingularityImage = "./image.simg"
+transfer_input_files = image.sif
++SingularityImage = "./image.sif"
 
 requirements = (HasSingularity == true)
 ```
@@ -83,8 +83,8 @@ on this page to gain access to SQUID and upload your data: [File Availability wi
 Once the image is staged in SQUID, use the following submit file options: 
 
 ``` {.sub}
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/user/image.simg
-+SingularityImage = "./image.simg"
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/user/image.sif
++SingularityImage = "./image.sif"
 
 requirements = (HasSingularity == true)
 ```
@@ -92,12 +92,12 @@ requirements = (HasSingularity == true)
 - **For Image Files > 1GB use Shared Software Directory**
 
 If the Singularity image file is larger than 1GB, request a shared `/software` directory 
-from the CHTC facilitators by emailing chtc@cs.wisc.edu. 
+from the CHTC facilitators by emailing chtc@cs.wisc.edu. Note that the image should NOT be transferred to the job via `transfer_input_files`.
 
 Once the image is placed in `/software`, use the following submit file options: 
 
 ``` {.sub}
-+SingularityImage = "/software/user/image.simg"
++SingularityImage = "/software/user/image.sif"
 
 requirements = (HasSingularity == true) && (HasCHTCSoftware == true)
 ```
