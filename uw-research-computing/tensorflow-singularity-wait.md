@@ -17,7 +17,7 @@ default file transfer or our SQUID web server. However, another option
 is to use a *container* system, where the software is installed in a
 *container image*. CHTC (and the OS Pool) have capabilities to access and
 start containers and run jobs inside them. One container option
-available in CHTC is [Docker](docker-jobs); another is
+available in CHTC is [Docker](docker-jobs.html); another is
 Singularity.
 
 In CHTC, our Singularity support consists of running jobs inside a
@@ -111,7 +111,7 @@ above:
     ```
 
 For more information about GPUs and how GPU jobs work in CHTC, see our
-[GPU Jobs guide](gpu-jobs).
+[GPU Jobs guide](gpu-jobs.html).
 
 > **Limited GPU availablity in CHTC**\
 > This Singularity/Tensorflow functionality is not yet available on
@@ -129,4 +129,4 @@ For more information about GPUs and how GPU jobs work in CHTC, see our
 This Tensorflow environment can also be run on the OS Pool either as the CPU or GPU version.
 
 For more details on accessing the OS Pool, see [our guide for running
-outside CHTC, sections 3 and 4](scaling-htc).
+outside CHTC, sections 3 and 4](scaling-htc.html).

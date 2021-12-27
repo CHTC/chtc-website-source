@@ -94,7 +94,7 @@ If you want to clear your command line environment and start over, run the follo
 Unless you are using a licensed software program provided via modules, you 
 are able to compile and install the software you need on the HPC Cluster.  
 Compilation can be done via an interactive job as described in 
-our [HPC Job Submission Guide](hpc-job-submission#1-submitting-jobs-using-slurm).
+our [HPC Job Submission Guide](hpc-job-submission.html#1-submitting-jobs-using-slurm).
 Software should be installed to your `/software/username` 
 directory. If using CHTC's provided compilation tools via modules, make 
 sure to load the needed modules before compiling and to load the same 
@@ -145,7 +145,7 @@ a more step-by-step description of the process.
 # 4. Using Software in Jobs
 
 The commands to run your software will go in the job's submit file, as described 
-in our [HPC job submission guide](hpc-job-submission). 
+in our [HPC job submission guide](hpc-job-submission.html). 
 
 If you used one of the software modules to compile your code, make sure you 
 load it in your job's submit file before running your main command. 

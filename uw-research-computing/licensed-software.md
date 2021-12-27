@@ -14,7 +14,7 @@ understanding of:**
 -   Using the command line to: navigate within directories,
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
--   [The CHTC\'s Intro to Running HTCondor Jobs](helloworld)
+-   [The CHTC\'s Intro to Running HTCondor Jobs](helloworld.html)
 
 Overview
 ========
@@ -38,9 +38,9 @@ A. CHTC\'s Licensed Software Policies on the HTC System
 Our typical practice for software support in CHTC is for users to
 install and manage their own software installations. We have multiple
 guides to help users with [common software
-programs](howto_overview) and additional support is always
+programs](howto_overview.html) and additional support is always
 available through [CHTC\'s research computing
-facilitators](get-help).
+facilitators](get-help.html).
 
 However, certain software programs require paid licenses which can make
 it challenging for individual users to install the software and use the
@@ -103,6 +103,9 @@ then runs the program, like so:
 export PATH
 . /etc/profile.d/modules.sh
 module load software
+
+# For Lumerical (the license requires a home directory)
+export HOME=$_CONDOR_SCRATCH_DIR
 
 # Command to run your software from the command line
 cmd -options input.file

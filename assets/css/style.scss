@@ -74,3 +74,23 @@ $grid-breakpoints: (
     color: grey;
   }
 }
+
+.news-post:hover {
+  > div {
+    transition: background-color 1s, transform 1s;
+    background-color: #dfdfdf;
+    box-shadow: 5px 0px 5px #ffffff;
+  }
+  text-decoration: none;
+}
+
+.news-post {
+  .img-container{
+    height: 180px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

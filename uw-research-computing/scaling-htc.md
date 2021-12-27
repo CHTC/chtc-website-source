@@ -113,7 +113,7 @@ whenever submitting a new type of job to the UW Grid or OSG:**
 
 2.  **Troubleshooting:** If your jobs don\'t run successfully on the UW
     Grid or OS Pool, please [get in touch with a research computing
-    facilitator](get-help).  
+    facilitator](get-help.html).  
     
 3.  **Scaling Up:** Once you have tested your jobs and they seem to be
     running successfully, you are ready to submit a full batch of jobs

@@ -96,7 +96,7 @@ server, including:
 
 CHTC has a set of GPUs that are available for use by any CHTC user with an 
 account on our high throughput computing (HTC) system
-via the [CHTC GPU Lab](gpu-lab), which includes templates and a campus GPU community.
+via the [CHTC GPU Lab](gpu-lab.html), which includes templates and a campus GPU community.
 
 Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
 the capacity of the GPU Lab to run their work. 
@@ -112,9 +112,10 @@ For those who would like to pursue alternative GPU resources, see our list of
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type</th>
-    <th>CUDACapability</th>
-    <th>HasCHTCStaging</th>
+    <th>GPU Type (<code>CUDADeviceName</code>)</th>
+    <th><code>CUDACapability</code></th>
+    <th><code>HasCHTCStaging</code></th>
+    <th>Max <code>CUDADriverVersion</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -128,6 +129,7 @@ For those who would like to pursue alternative GPU resources, see our list of
     <td>Tesla P100-PCIE-16GB</td>
     <td>6.0</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
   <tr>
     <td>4</td>
@@ -136,14 +138,16 @@ For those who would like to pursue alternative GPU resources, see our list of
     <td>GeForce RTX 2080 Ti</td>
     <td>7.5</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
   <tr>
     <td>1</td>
     <td>gpulab2004</td>
     <td>4</td>
-    <td>A100</td>
+    <td>A100-SXM4-40GB</td>
     <td>8.0</td>
     <td>yes</td>
+    <td>11.2</td>
   </tr>
 </table>
 
@@ -217,6 +221,13 @@ attributes shown above. If you want a certain class of GPU, use CUDACapability:
 	code so that it can run across GPU types and without needing the
 	latest version of CUDA.
 
+- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
+	```
+	requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
+	```
+	{:.sub}
+	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
+ 
 A complete sample submit file is shown below. There are also example submit files and 
 job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
 in CHTC's Github organization. 
@@ -260,9 +271,11 @@ queue 1
 It is important to still request at least one CPU per job to do the
 processing that is not well-suited to the GPU.
 
-Note that HTCondor will make sure your job has access to the GPU -- you
-shouldn't need to set any environmental variables or other options
-related to the GPU, except what is needed inside your code.
+Note that HTCondor will make sure your job has access to the GPU; it will
+set the environment variable `CUDA_VISIBLE_DEVICES` to indicate which GPU(s)
+your code should run on. The environment variable will be read by CUDA to select the appropriate 
+GPU(s). Your code should not modify this environment variable or manually 
+select which GPU to run on, as this could result in two jobs sharing a GPU. 
 
 It is possible to request multiple GPUs. Before doing so, make sure you're 
 using code that can utilize multiple GPUs and then submit a test job to confirm 
@@ -283,7 +296,7 @@ in CHTC:
 > **Machine Learning**\
 >  For those using machine learning code specifically, we have a guide
 > with more specific recommendations here: [Run Machine Learning Jobs on
-> HTC](machine-learning-htc)
+> HTC](machine-learning-htc.html)
 
 ## 1. Compiled Code
 
@@ -292,7 +305,7 @@ of a software package (as in our R/Python guides) to run on GPUs. Most
 of our build servers or GPU servers have copies of the CUDA Runtime that
 can be used to compile code. To access these servers, submit an
 interactive job, following the instructions in our [Build Job
-Guide](inter-submit) or by submitting a GPU job submit file with the
+Guide](inter-submit.html) or by submitting a GPU job submit file with the
 interactive flag for `condor_submit`. Once on a build or GPU server, see
 what CUDA versions are available by looking at the path
 `/user/local/cuda-*`.
@@ -310,7 +323,7 @@ CHTC's GPU servers have "nvidia-docker" installed, a specific version of
 Docker that integrates Docker containers with GPUs. If you can find or
 create a Docker image with your software that is based on the
 nvidia-docker container, you can use this to run your jobs in CHTC. See
-our [Docker guide](docker-jobs) for how to use Docker in CHTC.
+our [Docker guide](docker-jobs.html) for how to use Docker in CHTC.
 
 
 # D. GPU Capacity Beyond the CHTC GPU Lab
@@ -360,6 +373,6 @@ for running GPU jobs:
 ## 3. Using GPUs on the OS Pool
 
 CHTC, as a member of the [OSG Consortium](http://www.osg-htc.org/) can access GPUs that
-are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). See [this guide](scaling-htc) to know
+are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). See [this guide](scaling-htc.html) to know
 whether your jobs are good candidates for the OS Pool and then get in touch
 with CHTC's Research Computing Facilitators to discuss details. 

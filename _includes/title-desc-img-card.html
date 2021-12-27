@@ -1,8 +1,10 @@
 <div class="row {{ include.class }}">
     <div class="col-12 col-md-8">
-        <h1 class="uw-mini-bar">
-            {{ include.title }}
-        </h1>
+        {% if include.title %}
+            <h1 class="uw-mini-bar">
+                {{ include.title }}
+            </h1>
+        {% endif %}
         <div>{{ include.desc | markdownify }}</div>
     </div>
     <div class="col-1 d-md-block d-none"></div>

@@ -6,7 +6,7 @@ title: Icon Credits
 
 All icons are from the [Noun Project](https://thenounproject.com/).
 
-On our [user guide page](guides):
+On our [user guide page](/uw-research-computing/guides.html):
 
 -   Check Box by iconomania from the Noun Project
 -   Laptop by joe pictos from the Noun Project
@@ -17,7 +17,7 @@ On our [user guide page](guides):
 -   Warning by arjuazka from the Noun Project
 -   servers by b farias from the Noun Project
 
-On our [user guide page](gpu-lab):
+On our [user guide page](/uw-research-computing/gpu-lab.html):
 
 -   people by zidney from the Noun Project
 -   open book by sobinsergey from the Noun Project
