@@ -74,10 +74,15 @@ of these test jobs.** To fine tune your requests, make sure to run test jobs - s
 **Importance of Test Jobs**
 
 - Once you have run a test job using a small number of jobs, **Review the bottom of the HTCondor `log` files from your test jobs to see how many cpus and how much memory and disk space were used.** HTCondor will report 
-the memory, disk, and cpu usage of your jobs in a table at the *bottom* of this file. You can use these values to inform the parameters for future jobs. 
+the memory, disk, and cpu usage of your jobs in a table at the *bottom* of this file. You can use these values to inform the parameters for future jobs. For example, the bottom of a `.log` file may look like this: 
 
-[[[Insert photo of log output here]]]
+        Partitionable Resources :    Usage  Request Allocated 
+           Cpus                 :        1        1         1 
+           Disk (KB)            :   860878  1048576   1808522 
+           IoHeavy              :                           0 
+           Memory (MB)          :      960     1024      1024
 
+*Memory is listed in units of megabytes (MB) and disk usage is listed in units of kilobytes (KB). A quick Google search yields many calculators to help convert between differnt computing size measurements.*
 
 
 # Always Start With Test Jobs
@@ -94,8 +99,8 @@ using HTC or you are an experienced user starting a new workflow:
         step is to submit a small batch of test jobs (e.g. 3 - 10 jobs) 
         [**using a single submit file**](https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs). Use this small-scale 
         multi-job submission test to ensure that all jobs complete successfully, produce the 
-        desired output, and do not conflict with each other when submitted together. 
-        
+        desired output, and do not conflict with each other when submitted together. Additionally, by running test jobs, it provides an opportunity to review the `.log` files after each submission to optimize resource requests for future submissions as described above.
+       
 **Step 3: Scale up**
       - If your workflow requires submission of 500 jobs or less, proceed with submitting your entire batch of jobs. If you plan to submit
       more than 500 jobs, we recommend submitting an intermediate test of 100-1,000 jobs to catch any 
