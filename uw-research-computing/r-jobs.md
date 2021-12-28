@@ -56,7 +56,7 @@ we should add.
 If you need a specific version of R not shown in this list, especially 
 if it is am older R version, we recommend using a Docker container with R installed 
 to run your jobs 
-(see CHTC's [Docker Jobs guide](/uw-research-computing/docker-jobs.html)). The 
+(see CHTC's [Docker Jobs guide](docker-jobs.html)). The 
 [Rocker organization on Docker Hub](https://hub.docker.com/u/rocker) 
 has an excellent selection of containers with many different versions of R. Contact 
 us with any questions about this. 
