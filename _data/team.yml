@@ -165,21 +165,10 @@
   job_title: "HTCondor Core Developer"
   website:
   institution: "University of Wisconsin-Madison"
-- name: "Zach Miller"
-  status: Staff
-  image: "images/team/zach-miller.jpg"
-  job_title: "HTCondor Core Developer"
-  website:
-  institution: "University of Wisconsin-Madison"
 - name: "Jack Yuan"
   status: Student
   image: "images/team/jack-yuan.jpg"
   job_title: "Programming Intern"
-  institution: "University of Wisconsin-Madison"
-- name: "Josie Watkins"
-  status: Student
-  image: "images/team/josie-watkins.jpeg"
-  job_title: "Communications Specialist"
   institution: "University of Wisconsin-Madison"
 - name: "Mark Truttman"
   status: Student
@@ -190,9 +179,4 @@
   status: Student
   image: "images/team/ryan-toh.jpeg"
   job_title: "Programming Intern"
-  institution: "University of Wisconsin-Madison"
-- name: "Evan Wooldridge"
-  status: Student
-  image: "images/team/EvanWooldridge.png"
-  job_title: "Project Office Student Assistant"
   institution: "University of Wisconsin-Madison"
