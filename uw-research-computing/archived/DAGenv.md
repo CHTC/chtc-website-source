@@ -48,7 +48,7 @@ Grid and national <a href="https://osg-htc.org/about/open_science_pool/">OS Pool
     **For Matlab, Python, and R jobs, it is first essential to have
     completed the steps to compile your code dependencies, according to
     our [\"Compiling Matlab, Python and R Code\"
-    page.](MATLABandR)**
+    page.]()**
 
     Make a directory within `ChtcRun` to house the project\'s input
     files and executables. For purposes of this example, assume that the
@@ -115,7 +115,7 @@ Grid and national <a href="https://osg-htc.org/about/open_science_pool/">OS Pool
     amounts that should be requested for your jobs. For more information
     on testing, Flocking, and Glidein, please see the bottom of our
     [\"Run Your First HTC Jobs\"
-    guide](helloworld).
+    guide](helloworld.html).
 
 4.  With a current working directory of `ChtcRun`, run `mkdag` with a
     job-specific set of command line arguments. The output from from

@@ -38,7 +38,7 @@ work is better suited to running many jobs on CHTC's available CPUs.
 If you need GPUs for your jobs, you can see a summary of available GPUs in CHTC and 
 how to access them here: 
 
-* [GPUs in CHTC](gpu-jobs)
+* [GPUs in CHTC](gpu-jobs.html)
 
 Note that you may need to use different versions of your software, depending on whether or 
 not you are using GPUs, as shown in the [software section of this guide](#2-software-options). 
@@ -51,7 +51,7 @@ a few GB, you will likely need to use our large data
 file share. Contact the CHTC Research Computing Facilitators to get access and 
 read about the large data location here: 
 
-* [Managing Large Data in HTC Jobs](file-avail-largedata)
+* [Managing Large Data in HTC Jobs](file-avail-largedata.html)
 
 ## C. How long does your job run? 
 
@@ -65,7 +65,7 @@ Do you have the ability to break your work into many independent pieces? If so,
 you can take advantage of CHTC's capability to run many independent jobs at once, 
 especially when each job is using a CPU. See our guide for running multiple jobs here: 
 
-* [Submitting Multiple Jobs Using HTCondor](multiple-jobs)
+* [Submitting Multiple Jobs Using HTCondor](multiple-jobs.html)
 
 # 2. Software Options
 
@@ -85,11 +85,11 @@ format. When possible, we recommend using standard, publicly available
 Docker containers to run machine learning jobs in CHTC. 
 
 To see how you can use Docker containers to run jobs in CHTC, see: 
-* [Docker Jobs in CHTC](docker-jobs)
+* [Docker Jobs in CHTC](docker-jobs.html)
 * [GPU/Machine Learning Job Examples on Github](https://github.com/CHTC/templates-GPUs)
 
 You can also test and examine containers on your own computer:
-* [Exploring and Testing Docker Containers](docker-test)
+* [Exploring and Testing Docker Containers](docker-test.html)
 
 Some machine learning frameworks publish ready-to-go Docker images: 
 * [Tensorflow on Docker Hub](https://hub.docker.com/r/tensorflow/tensorflow) - the "Overview" on that page describes how to choose an image.
@@ -99,15 +99,16 @@ If you can not find a Docker container with exactly the tools you need, you can 
 own, starting with one of the containers above. For instructions on how to build and 
 test your own Docker container, see this guide: 
 
-* [Building Docker Containers](docker-build)
+* [Building Docker Containers](docker-build.html)
 
 B. Using Conda
 --------------
 
 The Python package manager conda is a popular tool for installing and 
 managing machine learning tools.
-See [this guide](conda-installation) for information on how 
-to use conda to provide dependencies for CHTC jobs. 
+See [this guide](conda-installation.html) for information on how 
+to use conda to provide dependencies for CHTC jobs.
+
 
 Note that when installing TensorFlow using `conda`, it is important to install 
 not the generic `tensorflow` package, but `tensorflow-gpu`. This ensures that 

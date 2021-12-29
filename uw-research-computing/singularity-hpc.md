@@ -16,7 +16,7 @@ The two steps to run a container on the HPC cluster:
 1.  [Convert the container to a Singularity image file](#image)
 2.  [Run a job that uses the container](#command)
 
-<a name="name"></a>
+<a name="notes"></a>
 Notes about MPI and Containers
 ==================
 
