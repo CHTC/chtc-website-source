@@ -1,0 +1,16 @@
+{
+  "site_root" : "_site",
+  "meta_data_output": "_site/assets/search/meta_data.json",
+  "index_output": "_site/assets/search/index.json",
+  "exclude_paths" : ["doc/**", "includes/**", "uw-research-computing/archived/**", "**/thanks.html", "**/404.html"],
+  "key_tags" : [{"high" : ["h1", "h2", "h3", "h4", "h5"]}, {"medium" : ["b", "code", "pre"]}],
+  "file_terms" : { "/uw-research-computing/connecting.html" : "login" },
+  "ref" : "root_relative_url",
+  "fields" : [
+    {"id": "root_relative_url"},
+    {"id": "high", "boost": 10},
+    {"id":  "medium", "boost":  5},
+    {"id": "content", "boost":  5},
+    {"id": "file_terms", "boost":  5}
+  ]
+}
