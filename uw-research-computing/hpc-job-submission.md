@@ -17,7 +17,7 @@ Contents
 
 The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node `hpclogin1.chtc.wisc.edu`. If this is not
-the case, please see the [CHTC account application page](form) or email
+the case, please see the [CHTC account application page](form.html) or email
 the facilitation team at chtc@cs.wisc.edu. 
 
 **1. Submitting Jobs Using SLURM**
@@ -31,7 +31,7 @@ called a "batch" file. The top half of the file consists of `#SBATCH`
 options which communicate needs or parameters of the job -- these lines 
 are **not** comments, but essential options for the job. The values for 
 `#SBATCH` options should reflect the size of nodes and run time limits 
-described [here](hpc-overview).
+described [here](hpc-overview.html).
 
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 

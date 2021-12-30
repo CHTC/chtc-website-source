@@ -31,7 +31,7 @@ Benefits
 
 The University of Wisconsin-Madison is a great place to work. You can
 [read about the benefits in detail
-elsewhere](http://www.bussvc.wisc.edu/ecbs/benefits/newemp-introduction-reg.html).
+elsewhere](https://hr.wisc.edu/benefits/).
 (Note that CHTC Staff are considered as *Unclassified* academic staff,
 and have different benefits from *Classified* staff.) In short, we have
 five weeks of vacation/personal time per year, very good health
@@ -74,6 +74,13 @@ Details about our open full-time positions are typically provided below.
 Positions pertaining to \"HTCondor\" and \"CHTC\" search terms can also
 be found on the [University\'s Position Vacancy List
 (PVL)](http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&search-keyword=chtc).
+
+### [Assistant Systems Administrator - Morgridge](https://morgridge.org/job-posting/assistant-systems-administrator/)
+
+The administrator will be responsible for ensuring the smooth operation of distributed scientific services, the management of hardware (such as worker nodes, networking, and filesystems), and help operate the onsite Kubernetes cluster. The is an excellent position for entry-level candidates with a passion for science and who would like to begin their career as a Linux systems administrator and learn a diverse set of technologies. Work is normally performed during typical office hours and in an office environment. There is no regular after-hours ‘pager duty’ but after-hours work may be necessary in exceptional circumstances.
+
+[View Job Posting](https://morgridge.org/job-posting/assistant-systems-administrator/)
+
 
 Student Hourly Positions (Undergrad and Grad)
 ---------------------------------------------

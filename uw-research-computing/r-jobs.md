@@ -11,7 +11,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](helloworld)
+    Jobs](helloworld.html)
 
 Overview
 ========
@@ -28,7 +28,7 @@ This guide details the steps needed to:
 
 If you want to build your own copy of base R, see this archived page:
 
--   [Building a R installation](r-build)
+-   [Building a R installation](r-build.html)
 
 <a name="supported"></a>
 
@@ -148,8 +148,8 @@ To make sure that your setup worked, try running:
 
 The output should match the version number that you want to be using!
 
-> If you brought along your own package directory, un-tar it here and
-> skip the directory creation step below.
+> If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
+> skip the directory creation step below (i.e. you do not need to run `mkdir packages` because this directory already exists and should have been brought along in your submit file).
 
 **2. Install packages**
 
@@ -179,17 +179,17 @@ Then start the R console:
 ```
 {:.term}
 
-In the R terminal, first, set the package installation location, and
-then install your packages using `install.packages`.
+In the R terminal, install your packages using `install.packages`.
 
 ``` 
 > install.packages("package_name")
 ```
 {:.term}
 
+Replace "package_name" with the name of the package you wish to install. 
+
 The first time you will be prompted to choose a \"CRAN mirror\" - this
-is where R is downloading the package. Choose any `http` (not `https`!)
-option.
+is where R is downloading the package. Choose any US-based location to download.  
 
 If you need a Bioconductor package you will first need to install the
 Bioconductor installation manager, then use Bioconductor to install your
@@ -324,7 +324,7 @@ would like, give it executable permissions by running:
 ==================
 
 A sample submit file can be found in our [hello
-world](helloworld) example page. You should make the following
+world](helloworld.html) example page. You should make the following
 changes in order to run R jobs:
 
 -   Your `executable` should be the script that you wrote
@@ -359,6 +359,6 @@ changes in order to run R jobs:
 > the tarball using `transfer_input_files`. Instead, you should use
 > CHTC\'s web proxy, `squid`. To learn more about `squid` please see our
 > user guide [File Availability with Squid Web
-> Proxy](file-avail-squid). To request
+> Proxy](file-avail-squid.html). To request
 > space on `squid`, email the research computing facilitators at
 > <chtc@cs.wisc.edu>.

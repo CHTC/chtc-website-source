@@ -69,11 +69,11 @@ Education and the Wisconsin Alumni Research Foundation.
 
 For more information about the CHTC GPU Lab project contact [Anthony Gitter][gitter].
 
-[account]: form
+[account]: form.html
 [gpu-examples]: https://github.com/CHTC/templates-GPUs
-[gpu-jobs]: gpu-jobs
+[gpu-jobs]: gpu-jobs.html
 [gitter]: https://www.biostat.wisc.edu/~gitter/index.html
-[ml-guide]: machine-learning-htc
+[ml-guide]: machine-learning-htc.html
 [uw2020]: https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/
 
 {% endcapture %}

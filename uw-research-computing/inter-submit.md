@@ -11,7 +11,7 @@ understanding of:**
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
 -   [The CHTC\'s Intro to Running HTCondor
-    Jobs](helloworld)
+    Jobs](helloworld.html)
 
 Overview
 ========
@@ -19,7 +19,7 @@ Overview
 This guide provides a generic overview of steps required to install
 scientific software for use in CHTC. If you are using Python, R, or
 Matlab, see our specific installation and use guides here: [Guides for
-Matlab, Python and R](howto_overview).
+Matlab, Python and R](howto_overview.html).
 
 
 <a name="build"></a>
@@ -260,7 +260,3 @@ installation folder.
 ```
 {:.term}
 
-
-
-> For older version of this guide, see out [archived
-> page](archived/inter-submit).
