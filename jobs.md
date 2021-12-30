@@ -75,12 +75,6 @@ Positions pertaining to \"HTCondor\" and \"CHTC\" search terms can also
 be found on the [University\'s Position Vacancy List
 (PVL)](http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&search-keyword=chtc).
 
-### [Software Engineer - HTCSS](https://jobs.hr.wisc.edu/en-us/job/511586/software-engineer)
-
-Join the Center for High Throughput Computing (CHTC) as a software engineer working implementing the next generation of large-scale distributed computing actively used by many of the largest science projects in the word! This is the perfect opportunity for a recent graduate to gain valuable experience developing system software in a large-scale Linux environment using Python and/or C++. You will work with an experienced team of colleagues to support and enhance the HTCondor Software Suite which enables scientists and engineers to solve computational problems using systems ranging from a laptop to hundreds of thousands of CPU cores at some of the largest scientific facilities on earth. Your workplace will be in upcoming start-of-the-art Computer, Data & Information Science building to be built in the center of campus. Our software has been used to manage the Hubble Space Telescope, render movies at DreamWorks, and deliver the necessary compute cycles for two Nobel prizes. The preferred applicant will be self-motivated and able to work as part of a dynamic team, as well as possessing good communication skills and a desire for continuous learning. Our Center is supportive of staff continuing their education; numerous team members have subsequently pursued graduate degrees.
-
-[View Job Posting](https://jobs.hr.wisc.edu/en-us/job/511586/software-engineer)
-
 ### [Assistant Systems Administrator - Morgridge](https://morgridge.org/job-posting/assistant-systems-administrator/)
 
 The administrator will be responsible for ensuring the smooth operation of distributed scientific services, the management of hardware (such as worker nodes, networking, and filesystems), and help operate the onsite Kubernetes cluster. The is an excellent position for entry-level candidates with a passion for science and who would like to begin their career as a Linux systems administrator and learn a diverse set of technologies. Work is normally performed during typical office hours and in an office environment. There is no regular after-hours ‘pager duty’ but after-hours work may be necessary in exceptional circumstances.
