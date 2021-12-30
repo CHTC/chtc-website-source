@@ -29,11 +29,13 @@ your PI:
     ```
     [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
+    {:.term}
 
     Your prompt should change to look like this:
     ```
     smb: \> 
     ```
+    {:.term}
 
     > ## Note about NetIDs
     > If your CHTC account is not tied to your campus NetID or you are accessing a data 
@@ -46,11 +48,13 @@ like to get or put files.
         ```
         smb: \> put filename
         ```
+        {:.term}
 
     - To move files from ResearchDrive to CHTC, run: 
         ```
         smb: \> get filename
         ```
+        {:.term}
 
 6. **Finish:** Once you are done moving files, you can type `exit` to leave the connection to ResearchDrive. 
 
@@ -74,22 +78,26 @@ your PI:
     ```
     [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
+    {:.term}
 
 4. **Navigate to appropriate ResearchDrive directory**
     ```
     smb: \> cd path/to/files
     ```
+    {:.term}
 
 5. **Turn of Prompting**
     ```
     smb: \> prompt
     ```
+    {:.term}
 
 6. **Use `mget` instead of `get`**
 	This command downloads a group of files that end with "fastq.gz" to CHTC. 
     ```
     smb: \> mget *.fastq.gz
     ```
+    {:.term}
  
     
 As another example, use `smbclient` to transfer multiple `tar.gz` output files to ResearchDrive from CHTC
@@ -104,19 +112,23 @@ your PI:
     ```
     [alice@server]$ smbclient -k //research.drive.wisc.edu/PI-Name
     ```
+    {:.term}
 
 4. **Navigate to appropriate ResearchDrive directory**
     ```
     smb: \> cd path/to/directory
     ```
+    {:.term}
 
 5. **Turn off Prompting**
     ```
     smb: \> prompt
     ```
+    {:.term}
 
 6. **Use `mput` instead of `put`**
     ```
     smb: \> mput *.tar.gz
     ```
+    {:.term}
 
