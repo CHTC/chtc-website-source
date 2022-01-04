@@ -17,7 +17,7 @@ directed acyclic graph.
 This talk (originally presented at HTCondor Week 2020) gives a good overview of 
 when to use DAGMan and its most useful features: 
 
-<a href="https://www.youtube.com/watch?v=m7dQChJH5LU">
+<a href="https://www.youtube.com/watch?v=1MvVHxRs7iU">
 <img alt="DAGMan Talk" src="https://github.com/OSGConnect/connectbook/blob/master/images/dagman-talk-screenshot.png" width="360" height="204">
 </a>
 
