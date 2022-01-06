@@ -81,7 +81,6 @@ The administrator will be responsible for ensuring the smooth operation of distr
 
 [View Job Posting](https://morgridge.org/job-posting/assistant-systems-administrator/)
 
-
 Student Hourly Positions (Undergrad and Grad)
 ---------------------------------------------
 
@@ -91,6 +90,12 @@ to work between 10 and 20 hours a week, with 10 of those being during
 business hours, with some flexibility on remaining hours. During the
 summer and breaks, it is possible to work up to 40 hours per week. We
 typically pay between \$10 and \$15 per hour, depending on experience.
+
+### [Student Assistant Systems Administrator - Morgridge](https://morgridge.org/job-posting/student-assistant-systems-administrator/)
+
+We are seeking students looking to work 10 – 12 hours per week (and more during breaks, if desired) to assist our systems administrators and to gain valuable training and education on state of the art hardware, complex systems and leading technologies. This position offers high value learning opportunities in a collaborative, flexible and supportive working environment. The is an excellent career building position for candidates interested in learning a diverse set of technologies. CHTC manages over 500 Linux servers and network devices, providing services such as Kubernetes, distributed file systems, batch systems, and databases.
+
+[View Job Posting](https://morgridge.org/job-posting/student-assistant-systems-administrator/)
 
 Graduate Student Research and Project Assistantship (RA, PA) Openings
 ---------------------------------------------------------------------
