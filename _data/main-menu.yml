@@ -1,7 +1,4 @@
 nav_items:
-  - id: home
-    name: Home
-    url: /
   - id: about
     name: About
     url: /about.html
