@@ -32,8 +32,10 @@ If you want to build your own copy of base R, see this archived page:
 
 <a name="supported"></a>
 
-Supported R Installations
+CHTC-Provided R Installations
 =========================
+
+CHTC provides a pre-built copy of the following versions of R: 
 
 {:.gtable}
   | R version | Name of R installation file |
@@ -46,6 +48,18 @@ Supported R Installations
   | R 3.6.3 | R363.tar.gz |
   | R 4.0.2 | R402.tar.gz |
 
+If you need a newer version of R than is shown here, 
+[please contact us!](mailto:chtc@cs.wisc.edu) We want to continuously 
+add new versions of R to this list and rely on your needs to know what 
+we should add. 
+
+If you need a specific version of R not shown in this list, especially 
+if it is am older R version, we recommend using a Docker container with R installed 
+to run your jobs 
+(see CHTC's [Docker Jobs guide](docker-jobs.html)). The 
+[Rocker organization on Docker Hub](https://hub.docker.com/u/rocker) 
+has an excellent selection of containers with many different versions of R. Contact 
+us with any questions about this. 
 
 <a name="build"></a>
 
