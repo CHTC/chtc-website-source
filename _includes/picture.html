@@ -1,0 +1,8 @@
+{% assign extension = include.extension | default: 'jpg' %}
+
+<div style="height:{{include.height}};">
+    <picture>
+        <source type="image/webp" srcset="{{ include.path | append: '.webp' | relative_url }}">
+        <img class="h-100" src="{{ include.path | append: '.' | append: extension | relative_url }}" alt="{{ include.alt }}">
+    </picture>
+</div>
