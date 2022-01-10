@@ -4,18 +4,31 @@ layout: markdown-page
 title: Available Positions
 ---
 
-If advancing the state of the art of distributed computing in an
-academic environment interests you, the Center for High Throughput
-Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a
-unique working environment. Our project's home is in the UW Department
-of Computer Sciences, an internationally recognized department
-consistently ranked in the top ten across the USA. A position with CHTC
-will provide you the opportunity to interact with both department
-faculty and students to translate novel ideas into real-world solutions.
-The software and infrastructure you will be working on is used by
-scientists and engineers at hundreds of institutions, from universities
-to national laboratories and from large high tech corporations to small
-animation teams.
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            If advancing the state of the art of distributed computing in an
+            academic environment interests you, the Center for High Throughput
+            Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a
+            unique working environment. Our project's home is in the UW Department
+            of Computer Sciences, an internationally recognized department
+            consistently ranked in the top ten across the USA. A position with CHTC
+            will provide you the opportunity to interact with both department
+            faculty and students to translate novel ideas into real-world solutions.
+            The software and infrastructure you will be working on is used by
+            scientists and engineers at hundreds of institutions, from universities
+            to national laboratories and from large high tech corporations to small
+            animation teams.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <figure class="pb-4">
+            {% include picture.html path="/images/HTCondorLayersFlat" alt="Work At CHTC" height="100%" %}
+            <figcaption>Image Provided by HTCSS User <a href="https://botany.wisc.edu/staff/spalding-edgar-p/">Edgar Spalding</a></figcaption>
+        </figure>
+    </div>
+</div>
+
 
 The CHTC is home to a large distributed campus infrastructure that helps
 scientists on and off campus advance their research. We also develop the
@@ -25,47 +38,6 @@ distributed computing. HTCondor powers the CHTC and is used by
 scientists and businesses around the world. We are involved in many
 collaborations, including (but not limited to) [The Open Science
 Grid](http://www.opensciencegrid.org/).
-
-Benefits
---------
-
-The University of Wisconsin-Madison is a great place to work. You can
-[read about the benefits in detail
-elsewhere](https://hr.wisc.edu/benefits/).
-(Note that CHTC Staff are considered as *Unclassified* academic staff,
-and have different benefits from *Classified* staff.) In short, we have
-five weeks of vacation/personal time per year, very good health
-insurance (and cost effective for entire families), and a good
-retirement plan. Please note that the minimum salary in our job listings
-are just that - the minimum. Compensation will increase with experience.
-
-In addition to the official benefits, there are many side benefits:
-
-1.  You will work with the CHTC team. We are world leaders in solving
-    interesting distributed computing problems!
-2.  You can attend interesting talks in the department
-3.  Relatively flexible working hours --- we value work-life balance.
-4.  A free bus pass!
-5.  You get staff access to [the Union](http://www.union.wisc.edu/),
-    [the UW athletic facilities](http://www.recsports.wisc.edu/), and
-    [the UW library system](http://www.library.wisc.edu/).
-6.  We\'re in a lively neighborhood with great restaurants in easy
-    walking distance.
-
-------------------------------------------------------------------------
-
-If you are interested in a position with CHTC, explore the job listings
-below! If you would like to apply, send your resume and cover letter to
-[htcondor-jobs@cs.wisc.edu](mailto:htcondor-jobs@cs.wisc.edu), and indicate
-which job you would like to apply for.
-
-**Please note:**
-
--   A criminal background check will be conducted prior to hiring.
--   A period of evaluation will be required.
--   UW-Madison is an equal opportunity/affirmative action employer. We
-    promote excellence through diversity and encourage all qualified
-    individuals to apply.
 
 Full Time Positions
 -------------------
@@ -109,3 +81,44 @@ for \"HTCondor\" in the link above, may turn up full-time CHTC-related
 jobs in other departments
 
 ------------------------------------------------------------------------
+
+Benefits
+--------
+
+The University of Wisconsin-Madison is a great place to work. You can
+[read about the benefits in detail
+elsewhere](https://hr.wisc.edu/benefits/).
+(Note that CHTC Staff are considered as *Unclassified* academic staff,
+and have different benefits from *Classified* staff.) In short, we have
+five weeks of vacation/personal time per year, very good health
+insurance (and cost effective for entire families), and a good
+retirement plan. Please note that the minimum salary in our job listings
+are just that - the minimum. Compensation will increase with experience.
+
+In addition to the official benefits, there are many side benefits:
+
+1.  You will work with the CHTC team. We are world leaders in solving
+    interesting distributed computing problems!
+2.  You can attend interesting talks in the department
+3.  Relatively flexible working hours --- we value work-life balance.
+4.  A free bus pass!
+5.  You get staff access to [the Union](http://www.union.wisc.edu/),
+    [the UW athletic facilities](http://www.recsports.wisc.edu/), and
+    [the UW library system](http://www.library.wisc.edu/).
+6.  We\'re in a lively neighborhood with great restaurants in easy
+    walking distance.
+
+------------------------------------------------------------------------
+
+If you are interested in a position with CHTC, explore the job listings
+below! If you would like to apply, send your resume and cover letter to
+[htcondor-jobs@cs.wisc.edu](mailto:htcondor-jobs@cs.wisc.edu), and indicate
+which job you would like to apply for.
+
+**Please note:**
+
+-   A criminal background check will be conducted prior to hiring.
+-   A period of evaluation will be required.
+-   UW-Madison is an equal opportunity/affirmative action employer. We
+    promote excellence through diversity and encourage all qualified
+    individuals to apply.
