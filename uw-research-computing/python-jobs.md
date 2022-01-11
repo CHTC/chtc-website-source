@@ -45,6 +45,7 @@ CHTC provides a pre-built copy of the following versions of Python:
   | Python 3.6 | python36.tar.gz |
   | Python 3.7 | python37.tar.gz |
   | Python 3.8 | python38.tar.gz |
+  | Python 3.9 | python39.tar.gz |
 
 If you need a specific version of Python not shown 
 above, [contact the Research Computing Facilitators](mailto:chtc@cs.wisc.edu) to 
