@@ -6,6 +6,14 @@
                 {% for nav_item in nav_items %}
                     {% include navbar/nav-item.html%}
                 {% endfor %}
+                <li class="uw-dropdown my-auto ml-auto mr-0 pr-0">
+                    <div id="main-search-bar" class="search-bar">
+                        <input type="text" class="form-control" placeholder="Loading..." aria-describedby="button-addon2">
+                        <div id="results-dropdown" class="results-dropdown w-100">
+                            <div class="search-results" hidden></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
     </div>

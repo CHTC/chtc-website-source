@@ -32,8 +32,10 @@ If you want to build your own copy of base R, see this archived page:
 
 <a name="supported"></a>
 
-Supported R Installations
+CHTC-Provided R Installations
 =========================
+
+CHTC provides a pre-built copy of the following versions of R: 
 
 {:.gtable}
   | R version | Name of R installation file |
@@ -46,6 +48,18 @@ Supported R Installations
   | R 3.6.3 | R363.tar.gz |
   | R 4.0.2 | R402.tar.gz |
 
+If you need a newer version of R than is shown here, 
+[please contact us!](mailto:chtc@cs.wisc.edu) We want to continuously 
+add new versions of R to this list and rely on your needs to know what 
+we should add. 
+
+If you need a specific version of R not shown in this list, especially 
+if it is am older R version, we recommend using a Docker container with R installed 
+to run your jobs 
+(see CHTC's [Docker Jobs guide](docker-jobs.html)). The 
+[Rocker organization on Docker Hub](https://hub.docker.com/u/rocker) 
+has an excellent selection of containers with many different versions of R. Contact 
+us with any questions about this. 
 
 <a name="build"></a>
 
@@ -148,8 +162,8 @@ To make sure that your setup worked, try running:
 
 The output should match the version number that you want to be using!
 
-> If you brought along your own package directory, un-tar it here and
-> skip the directory creation step below.
+> If you brought along your own package directory that you previously created by following this tutorial, un-tar it here and
+> skip the directory creation step below (i.e. you do not need to run `mkdir packages` because this directory already exists and should have been brought along in your submit file).
 
 **2. Install packages**
 
@@ -179,17 +193,17 @@ Then start the R console:
 ```
 {:.term}
 
-In the R terminal, first, set the package installation location, and
-then install your packages using `install.packages`.
+In the R terminal, install your packages using `install.packages`.
 
 ``` 
 > install.packages("package_name")
 ```
 {:.term}
 
+Replace "package_name" with the name of the package you wish to install. 
+
 The first time you will be prompted to choose a \"CRAN mirror\" - this
-is where R is downloading the package. Choose any `http` (not `https`!)
-option.
+is where R is downloading the package. Choose any US-based location to download.  
 
 If you need a Bioconductor package you will first need to install the
 Bioconductor installation manager, then use Bioconductor to install your

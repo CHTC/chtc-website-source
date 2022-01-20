@@ -33,9 +33,10 @@ then read [our guide on using conda](conda-installation.html).
 
 <a name="supported"></a>
 
-Supported Python Installations
+CHTC-Provided Python Installations
 ==============================
 
+CHTC provides a pre-built copy of the following versions of Python: 
 
 {:.gtable}
   | Python version  | Name of Python installation file |
@@ -44,7 +45,13 @@ Supported Python Installations
   | Python 3.6 | python36.tar.gz |
   | Python 3.7 | python37.tar.gz |
   | Python 3.8 | python38.tar.gz |
+  | Python 3.9 | python39.tar.gz |
 
+If you need a specific version of Python not shown 
+above, [contact the Research Computing Facilitators](mailto:chtc@cs.wisc.edu) to 
+see if we can build it for you; if 
+we can't, we can send you instructions for how to build your own copy of Python 
+or use a Docker container for running your jobs. 
 
 **1. Adding Python Packages**
 =========================
