@@ -47,6 +47,7 @@ CHTC provides a pre-built copy of the following versions of R:
   | R 3.6.1 | R361.tar.gz |
   | R 3.6.3 | R363.tar.gz |
   | R 4.0.2 | R402.tar.gz |
+  | R 4.1.2 | R412.tar.gz | 
 
 If you need a newer version of R than is shown here, 
 [please contact us!](mailto:chtc@cs.wisc.edu) We want to continuously 
