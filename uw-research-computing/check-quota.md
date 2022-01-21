@@ -4,11 +4,13 @@ layout: markdown-page
 title: Checking Disk Quota and Usage
 ---
 
-
-
 The following commands will allow you to monitor the amount of disk
-space you are using on our (or another) submit node and to determine the
+space you are using in your home directory on our (or another) submit node and to determine the
 amount of disk space you have been allotted (your quota).\
+
+If you also have a `/staging` directory on the HTC system, see our 
+[staging guide](file-avail-largedata#5-checking-your-quota-data-use-and-file-counts) for 
+details on how to check your quota and usage. 
 \
 The default quota allotment on CHTC submit nodes is 20 GB with a hard
 limit of 30 GB (at which point you cannot write more files).\
