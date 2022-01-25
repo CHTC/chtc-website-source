@@ -1,33 +1,30 @@
 nav_items:
-  - id: home
-    name: Home
-    url: /
   - id: about
     name: About
-    url: /about
+    url: /about.html
     sub_menu:
-      - url: /htc
+      - url: /htc.html
         name: What is HTC?
-      - url: /approach
+      - url: /approach.html
         name: Our Approach
-      - url: /projects
+      - url: /projects.html
         name: Our Customers
-      - url: /people
+      - url: /people.html
         name: Our Staff
-      - url: /jobs
+      - url: /jobs.html
         name: Our Open Positions
   - id: services
     name: Services
-    url: /services
+    url: /services.html
     sub_menu:
-      - url: /uw-research-computing
+      - url: /uw-research-computing/index.html
         name: UW Research Computing
   - id: technologies
     name: Technologies
-    url: /technologies
+    url: /technologies.html
   - id: research
     name: Research
-    url: /research
+    url: /research.html
   - id: news
     name: News
-    url: /news
+    url: /news.html

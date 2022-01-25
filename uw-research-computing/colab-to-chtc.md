@@ -126,8 +126,12 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 1. Create a submit file called something like ```my_job.sub``` that looks like this: 
 
     ```
+<<<<<<< HEAD
     universe = docker
     docker_image = your_image
+=======
+    universe = your_docker
+>>>>>>> b398b39217cf202fff338ef66aa854b1da92925f
     log = job_$(Cluster).log
     error = job_$(Cluster)_$(Process).err
     output = job_$(Cluster)_$(Process).out
@@ -145,7 +149,11 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     queue 1
     ```
 
+<<<<<<< HEAD
     Fill in Docker image name, script name. In the above example, a container called ```chtc_user/pytorch:v1``` was pushed to Dockerhub, so the string ```chtc_user/pytorch:v1``` would be included after the ```docker_image``` attribute.
+=======
+    Fill in Docker image name, script name. In the above example, a container called ```chtc_user/pytorch:v1``` was pushed to Dockerhub, so the string ```chtc_user/pytorch:v1``` would be included after the ```universe``` attribute.
+>>>>>>> b398b39217cf202fff338ef66aa854b1da92925f
 
 1. Upload Python script, making sure the script has a shebang at top:
 

@@ -2,7 +2,7 @@ _site
 .jekyll-cache/
 Gemfile.lock
 
-vendor/
+vendor/git fetch u
 
 .idea/
 .vscode/

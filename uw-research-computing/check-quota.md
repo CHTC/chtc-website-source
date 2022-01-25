@@ -31,7 +31,7 @@ From any directory location within your home directory, type
 ``` 
 [alice@submit]$ quota -vs
 Disk quotas for user alice (uid 20384): 
-     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
       /dev/sdb1  12690M  20480M  30720M            161k       0       0        
 ```
 {:.term}

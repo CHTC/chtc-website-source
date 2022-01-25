@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Managing Large Data in HTC Jobs
+published: false
 ---
 
 # Data Transfer Solutions By File Size
@@ -263,12 +264,12 @@ can be used to move files to/from your personal computer. Be
 sure to use `transfer.chtc.wisc.edu` when setting up the connection.
 
 - Globus file transfer can be used to transfer files to/from a Globus Endpoint. 
-See our guide [Using Globus To Transfer Files To and From CHTC](globus) 
+See our guide [Using Globus To Transfer Files To and From CHTC](globus.html) 
 for more details.
 
 - `smbclient` is available for managing file transfers to/from file 
 servers that have `smbclient` installed, like DoIT's ResearchDrive. See our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive) 
+[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.html) 
 for more details.
 
 [Return to top of page](#data-transfer-solutions-by-file-size)

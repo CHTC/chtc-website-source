@@ -5,7 +5,6 @@ excerpt: In the face of the pandemic, scientists needed to adapt. This article b
 publish: true
 image_src: images/resilience-hero-large.jpeg
 image_alt: Hero Image for Morgridge Article Courtesy of Morgridge
-author: Josephine Watkins
 --- 
 
 

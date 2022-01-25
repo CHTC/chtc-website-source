@@ -1,6 +1,6 @@
 ---
 layout: markdown-page
-title: CHTC Request Form
+title: Account Request Form
 ---
 
 <script type="text/javascript">
@@ -22,27 +22,24 @@ title: CHTC Request Form
 </script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
-<p><b>Please fill out the below form in order to provide us with 
+<p>Please fill out the below form in order to provide us with 
 information about the large-scale computing work you would like 
-to do</b> (to the best of your knowledge). Your request will be 
-received by a Research Computing Facilitator with the 
-Center for High Throughput Computing (CHTC), who will 
+to do (to the best of your knowledge). Your request will be 
+received by a CHTC Research Computing Facilitator, who will 
 contact you to set up a consultation, during which time 
-the relevant server accounts will be created. A faculty 
-sponsor (usually, a faculty advisor or project PI) will 
+the relevant server accounts will be created. 
+	
+<p>A faculty sponsor (usually, a faculty advisor or project PI) will 
 need to be present for only the first meeting that CHTC has 
-with a new research group.</p>
-
-<p>New accounts for researchers in the same group (after that group 
+with a new research group. New accounts for researchers in the same group (after that group 
 is initially set up) can be requested by filling out the below 
 form again. CHTC staff meet with all new users, and 
-meetings with multiple new users at the same time are even better, 
-in which case, a single form can be completed.</p>
+meetings with multiple new users at the same time are even better.</p>
 
 <p><b>Please note that if you are unsure of an answer to a 
 below question, you can answer 'I don't know'.</b> One of 
-CHTC's Research Computing Facilitators would be happy to help 
-you work out the details.</p>
+CHTC's Research Computing Facilitators will be happy to help 
+you work out the details during your consultation.</p>
 
 <FORM name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="return verifyCaptcha()">
 
@@ -130,26 +127,26 @@ your research:<br>
 </td></tr>
 <tr><td colspan="2">
 	Typical input and output size for each 'piece' (can be a range): <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	<TEXTAREA name="TypicalInputSize" rows="2" cols="120">
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
 	Typical RAM and number of CPU cores (or GPU model) you've used for each 'piece'? <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	<TEXTAREA name="TypicalHardwareRequirements" rows="2" cols="120">
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
 	How long does one piece run in your typical setup? <br>
-	<TEXTAREA name="WhyCHTC" rows="2" cols="120">
+	<TEXTAREA name="TypicalRuntime" rows="2" cols="120">
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
 	Is there anything else you'd like to share about your computing practices or methods? <br>
-	<TEXTAREA name="WhyCHTC" rows="3" cols="120">
+	<TEXTAREA name="OptionalText" rows="3" cols="120">
 	</TEXTAREA>
 </td></tr>
 <tr><td colspan="2">
-	Based upon information on our <a href="{{ '/approach' | relative_url }}">
+	Based upon information on our <a href="{{ '/approach.html' | relative_url }}">
 	Approach page</a>, is your computing work best described as 'high-throughput' computing, 'high-performance' computing, or both?<br>
 	<dl>
 	<dd><input type="radio" name="computingtype">High-throughput</dd>

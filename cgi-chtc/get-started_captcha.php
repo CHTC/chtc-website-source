@@ -55,7 +55,8 @@ if(isset($_POST["captcha"])) {
   if($recaptcha_success === True) { // User passed captcha
     //$fd = popen("mail -s 'CHTC Engagement Request' chtc@cs.wisc.edu -- -f$safe_email", "w");
     //$fd = popen("mail -s 'CHTC Engagement Request' chtc@cs.wisc.edu", "w");
-    $fd = popen("mailx -s 'CHTC Engagement Request' -r $safe_email chtc@cs.wisc.edu", "w");
+    //$fd = popen("mailx -s 'CHTC Engagement Request' -r $safe_email chtc@cs.wisc.edu", "w");
+    $fd = popen("mailx -s 'CHTC Engagement Request' -a 'Reply-To: $safe_email' chtc@cs.wisc.edu", "w");
     fputs($fd, $messg);
     $e = pclose($fd);
 
