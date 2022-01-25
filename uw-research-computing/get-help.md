@@ -8,6 +8,19 @@ title: Get Help!
 
 ## Research Computing Facilitators
 
+<div class="row justify-content-around d-none d-sm-flex">
+    {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
+    {% for facilitator in facilitators %}
+        <div class="col-auto">
+            <figure class="p-3">
+                <img style="object-fit: cover; border-radius: 50%; width: 10rem; height: 10rem" class="" src="{{ facilitator.image | relative.url}}" alt="{{ facilitator.name}}'s Headshot">
+                <figcaption>{{ facilitator.name }}</figcaption>
+            </figure>
+        </div>
+    {% endfor %}
+</div>
+
+
 To help researchers effectively utilize computing resources, our Research
 Computing Facilitators (RCFs) not only assist your in
 implementing your computational work on CHTC compute resources
