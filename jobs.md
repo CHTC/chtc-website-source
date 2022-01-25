@@ -53,6 +53,14 @@ The administrator will be responsible for ensuring the smooth operation of distr
 
 [View Job Posting](https://morgridge.org/job-posting/assistant-systems-administrator/)
 
+### [Research Systems Administrator (2 Positions Available) - CHTC](https://jobs.hr.wisc.edu/en-us/job/512136/research-systems-administrator)
+
+Join the Center for High Throughput Computing (CHTC) as a system administrator working on the next generation of large-scale distributed computing actively used by many of the largest science projects in the world! This is the perfect opportunity for a recent graduate to gain valuable experience managing large-scale Linux systems using Kubernetes and/or Puppet. You will work with a seasoned team of colleagues to deploy and support the HTCondor Software Suite, which enables researchers to solve computational problems using thousands of CPU cores. Learn more in the job postings below.
+
+[View Job Posting 1](https://jobs.hr.wisc.edu/en-us/job/512136/research-systems-administrator)
+
+[View Job Posting 2](https://jobs.hr.wisc.edu/en-us/job/512137/research-systems-administrator)
+
 Student Hourly Positions (Undergrad and Grad)
 ---------------------------------------------
 
