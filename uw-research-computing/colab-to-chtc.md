@@ -2,7 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Going from Google Colab to CHTC's GPU Lab
-published: true
+published: false
 ---
 
 # Overview
@@ -126,7 +126,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 1. Create a submit file called something like ```my_job.sub``` that looks like this: 
 
     ```
-    universe = your_docker
+    universe = docker
+    docker_image = your_image
     log = job_$(Cluster).log
     error = job_$(Cluster)_$(Process).err
     output = job_$(Cluster)_$(Process).out
@@ -144,7 +145,7 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     queue 1
     ```
 
-    Fill in Docker image name, script name. In the above example, a container called ```chtc_user/pytorch:v1``` was pushed to Dockerhub, so the string ```chtc_user/pytorch:v1``` would be included after the ```universe``` attribute.
+    Fill in Docker image name, script name. In the above example, a container called ```chtc_user/pytorch:v1``` was pushed to Dockerhub, so the string ```chtc_user/pytorch:v1``` would be included after the ```docker_image``` attribute.
 
 1. Upload Python script, making sure the script has a shebang at top:
 
