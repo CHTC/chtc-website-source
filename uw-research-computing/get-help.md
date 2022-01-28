@@ -14,7 +14,7 @@ title: Get Help!
         <div class="col-auto">
             <figure class="p-3">
                 <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="" src="{{ facilitator.image | relative.url}}" alt="{{ facilitator.name}}'s Headshot">
-                <figcaption>{{ facilitator.name }}</figcaption>
+                <figcaption class="mt-1"><b>{{ facilitator.name }}</b><br>{{facilitator.job_title}}</figcaption>
             </figure>
         </div>
     {% endfor %}
