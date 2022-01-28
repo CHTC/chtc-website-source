@@ -59,7 +59,7 @@ Join the Center for High Throughput Computing (CHTC) as a system administrator w
 
 [View Job Posting (early career)](https://jobs.hr.wisc.edu/en-us/job/512136/research-systems-administrator)
 
-[View Job Posting 2](https://jobs.hr.wisc.edu/en-us/job/512137/research-systems-administrator)
+[View Job Posting (intermediate)](https://jobs.hr.wisc.edu/en-us/job/512137/research-systems-administrator)
 
 Student Hourly Positions (Undergrad and Grad)
 ---------------------------------------------
