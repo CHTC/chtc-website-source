@@ -61,7 +61,7 @@ Join the Center for High Throughput Computing (CHTC) as a system administrator w
 
 [View Job Posting (intermediate)](https://jobs.hr.wisc.edu/en-us/job/512137/research-systems-administrator)
 
-### [Software Integration Developer](https://jobs.hr.wisc.edu/en-us/job/512194/software-integration-developer)
+### [Software Integration Developer - CHTC](https://jobs.hr.wisc.edu/en-us/job/512194/software-integration-developer)
 
 The successful candidate for this position will work closely with faculty, staff and students to solve a variety of systems integration and other small-to-medium computing problems, to provide dependable end-to-end capabilities.
 
