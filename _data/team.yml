@@ -7,17 +7,19 @@
   description: "Livny is a Professor of Computer Science and the lead of the PATh project."
 - name: "Lauren Michael"
   status: Leadership
-  image: "images/team/lauren-michael.png"
+  image: "/images/team/lauren-michael.png"
   job_title: "Lead Research Computing Facilitator"
   website: "https://wid.wisc.edu/people/lauren-michael/"
   institution: "University of Wisconsin–Madison"
   description: "Michael is a Research Computing Facilitator at UW-Madison and co-lead of the FoCaS area."
+  is_facilitator: 1
 - name: "Christina Koch"
   status: Staff
-  image: "images/team/christina-koch.jpg"
+  image: "/images/team/christina-koch.jpg"
   job_title: "Research Computing Facilitator"
   institution: "University of Wisconsin - Madison"
   website: "https://wid.wisc.edu/people/christina-koch/"
+  is_facilitator: 1
 - name: "Brian Bockelman"
   status: Leadership
   image: "images/team/brian-bockelman.jpeg"
@@ -143,9 +145,10 @@
   website:
 - name: "Rachel Lombardi"
   status: Staff
-  image: "images/team/rachel-lombardi.jpg"
+  image: "/images/team/rachel-lombardi.jpg"
   job_title: "Research Computing Facilitator"
   institution: "University of Wisconsin–Madison"
+  is_facilitator: 1
   website:
 - name: "Tim Slauson"
   status: Staff
