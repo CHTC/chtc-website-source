@@ -30,7 +30,7 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 
 1. **Export notebook as ```.py``` file:** <br />
     Export a clean copy of the notebook with ```.py``` extension before it is altered. This can be done using File--Download--Download ```.py```. Save this to the local machine.
-1. Mount Google Drive and navigate to working directory: <br />
+1. **Mount Google Drive and navigate to working directory:** <br />
     In a new cell, run
     ```
     from google.colab import drive
@@ -74,7 +74,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     RUN apt-get update && apt-get install python3.7
     RUN apt-get -y install python3-pip
     RUN pip install -r /requirements.txt
-    ``` {: .file}
+    ``` 
+    {: .file}
     
     Using the Nvidia base container ensures that CUDA/CuDNN, two libraries often used by popular ML frameworks, are imported properly. If you know you require specific versions of CUDA/CuDNN, the base container can be adjusted accordingly. Additional containers can be found <a href="https://hub.docker.com/r/nvidia/cuda">here</a>.
 
@@ -100,7 +101,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     request_disk = 16GB
 
     queue
-    ``` {: .sub}
+    ``` 
+    {: .sub}
 
     Some of the specified values, such as ```request_memory``` and ```request_disk``` might have to be updated to reflect the particular memory and disk requirements of your container. Building containers can use a surprising amount of disk, so if your build job continues to exit back to the submit node while the build is running, try increasing these values incrementally until the build succeeds. The amount of disk used to build the container may be significantly larger than the total size of the container when it is finished.
 
@@ -116,18 +118,21 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     Once the interactive job has begun, use ```podman``` to login to Dockerhub:
     ```
     podman login docker.io
-    ```{: .term}
+    ```
+    {: .term}
     When prompted, enter the username and password associated with your Dockerhub account.
 
     Once logged in, build the container:
     ```
     podman build -t <dockerhub_user/container_name:tag> .
-    ```{: .term}
+    ```
+    {: .term}
     For example, if you're building the first version of a PyTorch container and your dockerhub username is chtc_user, your build command might look like 
     
     ```
     podman build -t chtc_user/pytorch:v1 .
-    ```{: .term}
+    ```
+    {: .term}
     
 1. **Upload to Dockerhub:**
 
@@ -137,7 +142,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 
     ```
     podman push <Hash ID> <dockerhub_user/container_name:tag>
-    ```{: .term}
+    ```
+    {: .term}
     
     Again, for chtc_user, this might look like `podman push 123456 chtc_user/pytorch:v1`
 
@@ -171,7 +177,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     request_disk = 1GB
 
     queue 1
-    ```{: .sub}
+    ```
+    {: .sub}
 
     Fill in the Docker image name from the previous step, and the name of your python script. In the above example, a container called `chtc_user/pytorch:v1` was pushed to Dockerhub, so the string `chtc_user/pytorch:v1` would be included after the `docker_image` attribute.
 
@@ -183,12 +190,13 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 	```
 	#!/usr/bin/env python3
 	```
+	{: .file}
     
     This line indicates that you want the script to be run as a Python script. 
 
-1. Think about data! 
+1. **Think about data!**
 
-    As with other jobs on CHTC, think about what data requirements your job has. Jobs with larger requirements may require a larger value for the ```request_memory``` and ```request_disk``` attributes, and if you intend to transfer the data from the submit node, you may need to do so using one of CHTC's alternative data transfer methods, such as Squid. More information about large file transfers can be found <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata">here</a>.
+    As with other jobs on CHTC, think about the data requirements for your job.. Jobs with larger requirements may require a larger value for the ```request_memory``` and ```request_disk``` attributes, and if you intend to transfer the data from the submit node, you may need to do so using one of CHTC's alternative data transfer methods, such as Squid. More information about large file transfers can be found <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata">here</a>.
 1. Submit a test job, then submit real thing.
 
     Try submitting a scaled-down test job to ensure everything is set up correctly. When the test job runs successfully, submit the real job.
