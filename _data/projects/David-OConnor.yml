@@ -1,0 +1,7 @@
+title: David O’Connor
+image: /images/david-oconnor.jpg
+date: 02-07-2022
+description: >
+    David h. O’Connor, Ph.D., UW Medical Foundation (UWMF) Professor, Department of Pathology and Laboratory Medicine at the AIDS Vaccine Research Laboratory
+
+    Computational workflows that analyze and process genomics sequencing data have become the standard in Virology and genomics research. The resources provided by CHTC allow us to scale up the amount of sequence analysis performed while decreasing sequence processing time. An example of how we use CHTC is generating consensus sequences for COVID-19 samples. Part of this is a step that separates and sorts a multisample sequencing run into individual samples, maps the reads of these individual samples to a reference sequence, and then forms a consensus sequence for each sample. Simultaneously, different metadata and other accessory files are generated on a per-sample basis, and data is copied to and from local machines. This workflow is cumbersome when there are, for example, 4 sequencing runs with each run containing 96 samples. CHTC allows us to cut the processing time from 16 hours to 40 minutes due to the distribution of jobs to different CPUs. Overall, being able to use CHTC resources gives us a major advantage in producing results faster for large-scale and/or time-sensitive projects.
