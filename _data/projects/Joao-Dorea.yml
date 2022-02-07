@@ -1,0 +1,7 @@
+title: Joao Dorea
+image: /images/joao-dorea.jpg
+date: 02-07-2022
+description: >
+Joao Dorea, Assistant Professor in the Department of Animal and Dairy Sciences/Department of Biological Systems Engineering.
+
+The Digital Livestock Lab develops research focused on high-throughput phenotyping strategies to optimize farm management decisions. Our research group is interested in the large-scale development and implementation of computer vision systems, wearable sensors, and infrared spectroscopy (NIR and MIR) to monitor animals in livestock systems. We have a large computer vision system implemented in two UW research farms that generate large datasets. With the help of CHTC, we can train deep learning algorithms with millions of parameters using large image datasets and evaluate their performance in farm settings in a timely manner. We use these algorithms to monitor animal behavior, growth development, social interaction, and to build predictive models for early detection of health issues and productive performance. Without access to the GPU cluster and the facilitation made by CHTC, we would not be able to quickly implement AI technologies in livestock systems.
