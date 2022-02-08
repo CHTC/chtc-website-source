@@ -1,7 +1,9 @@
 ---
-layout: default
-title: Home
+layout: markdown-page
+title: CDIS Job Page
 ---
+
+
 
 ## Open Positions
 
