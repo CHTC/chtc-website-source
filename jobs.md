@@ -127,7 +127,7 @@ In addition to the official benefits, there are many side benefits:
     interesting distributed computing problems!
 2.  You can attend interesting talks in the department
 3.  Relatively flexible working hours --- we value work-life balance.
-4.  A free bus pass!
+4.  Discounted Bus Pass!
 5.  You get staff access to [the Union](http://www.union.wisc.edu/),
     [the UW athletic facilities](http://www.recsports.wisc.edu/), and
     [the UW library system](http://www.library.wisc.edu/).
