@@ -150,12 +150,6 @@
   institution: "University of Wisconsin–Madison"
   is_facilitator: 1
   website:
-- name: "Tim Slauson"
-  status: Staff
-  image: "images/team/tim-slauson.jpg"
-  job_title: "Lead HPC Systems Administrator"
-  institution: "University of Wisconsin–Madison"
-  website:
 - name: "Tim Theisen"
   status: Staff
   image: "images/team/tim-theisen.png"
