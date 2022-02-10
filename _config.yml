@@ -20,7 +20,7 @@ defaults:
       path: ""
       type: "news"
     values:
-      layout: text-content
+      layout: character_optimized
       permalink: :title.html
 
 collections:

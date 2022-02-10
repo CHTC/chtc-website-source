@@ -1,8 +1,7 @@
 ---
-layout: markdown-page
+layout: character_optimized
 title: Technologies
 ---
-
 
 The CHTC offers a suite of open-source software tools that manage HTC
 workloads and enable organizations to form distributed HTC pools. The
