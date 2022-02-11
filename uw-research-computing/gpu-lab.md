@@ -13,7 +13,7 @@ computing infrastructure at UW-Madison.  It includes:
 {% include /components/markdown-container.html %}
 
 <div class="uw-full-row uw-pad-tb uw-light-grer-bg">
-	<div class="uw-row">
+	<div class="uw-row mw-1000">
 		<div class="uw-card">
 			<div class="uw-card-content">
 				<img src="{{ '/uw-research-computing/guide-icons/noun_gpu_2528527.png' | relative_url }}" alt="Hardware Icon">

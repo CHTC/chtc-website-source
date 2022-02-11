@@ -1,10 +1,8 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: character_optimized
 title: What is High Throughput Computing?
 ---
-
-## High Throughput Computing (HTC)
 
 For many experimental scientists, scientific progress and quality  of
 research are strongly linked to computing throughput. In other words,
