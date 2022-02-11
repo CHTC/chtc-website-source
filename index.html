@@ -42,11 +42,11 @@ a national-scale environment for distributed HTC.
 </div>
 <div class="bg-light py-4">
     <div class="container-lg">
-        <div class="row">
+        <div class="row justify-content-center" >
             {% assign ordered_news = site.news | sort: "date" | reverse %}
             {% for news in ordered_news limit:3 %}
             {% include news-posting.html
-            class=" col-4 "
+            class=" col-12 "
             href=news.url
             title=news.title
             author=news.author
@@ -60,9 +60,8 @@ a national-scale environment for distributed HTC.
     </div>
 </div>
 <div class="container-lg">
-    <div class="row">
         {% include title-desc-img-card.html
-            class=" flex-row-reverse mb-4 mt-4 "
+            class="flex-row-reverse mb-4 mt-4 "
             title="HTCSS"
             desc="
 The [HTCondor Software Suite (HTCSS)](http://htcondor.org) provides sites and users with the ability to manage and execute
@@ -93,10 +92,10 @@ or across the world.
             img_src="images/microscope.svg"
             img_alt="Microscope"
         %}
-    </div>
+
 </div>
 
-<div class="bg-light">
+<div class="bg-light pb-5">
     <hr/>
     <div class="container-lg">
         <h3 class="text-center mb-5">
