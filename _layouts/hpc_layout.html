@@ -4,10 +4,11 @@ layout: default
 
 
 {% include hpc-header.html %}
-{% include page-title.html title=page.title %}
-<div class="uw-row-full">
-    <div class="uw-row">
-        <div class="uw-col uw-body">
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col mw-1000" markdown="block">
+            {% include page-title.html title=page.title %}
             {{ content }}
         </div>
     </div>

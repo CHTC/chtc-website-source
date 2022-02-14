@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: character_optimized
 title: About Our Approach
 ---
 

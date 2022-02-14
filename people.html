@@ -1,50 +1,39 @@
 ---
 highlighter: none
-layout: content
+layout: default
 title: Our Staff
 ---
 
 
-<div class="uw-full-row uw-pad-b-l">
-    <div class="uw-row">
-        <div class="uw-col">
-            <h2 class="uw-mini-bar">2021 Staff Picture</h2>
-            <img src="images/CHTC_Team_Photo_2021.jpg" alt="Team Zoom Photograph">
-        </div>
-    </div>
+
+<div class="container-xxl">
+    {% include page-title.html title=page.title %}
+
+    <h2 class="uw-mini-bar">2021 Staff Picture</h2>
+    <img src="images/CHTC_Team_Photo_2021.jpg" alt="Team Zoom Photograph">
 </div>
-<div class="uw-full-row uw-pad-b-l uw-light-grer-bg">
-    <div class="uw-row">
-        <div class="uw-col">
-            <h2 class="uw-mini-bar">Leadership</h2>
+<div class="bg-light pt-1 mt-3 pb-4">
+    <div class="container-xxl">
+        <h2 class="uw-mini-bar">Leadership</h2>
+        <div class="row">
+            {% assign sorted_team = site.data.team | where: "status", "Leadership" | sort: "name" %}
+            {% for member in sorted_team %}
+            {% include /components/team-card-promoted.html %}
+            {% endfor %}
         </div>
-    </div>
-    <div class="uw-row">
-        {% assign sorted_team = site.data.team | where: "status", "Leadership" | sort: "name" %}
-        {% for member in sorted_team %}
-        {% include /components/team-card-promoted.html %}
-        {% endfor %}
-    </div>
-    <div class="uw-row">
-        <div class="uw-col">
-            <h2 class="uw-mini-bar">Staff</h2>
-        </div>
-    </div>
-    <div class="uw-row">
-        {% assign sorted_team = site.data.team | where: "status", "Staff" | sort: "name" %}
-        {% for member in sorted_team %}
+        <h2 class="uw-mini-bar">Staff</h2>
+        <div class="row">
+            {% assign sorted_team = site.data.team | where: "status", "Staff" | sort: "name" %}
+            {% for member in sorted_team %}
             {% include /components/team-card.html %}
-        {% endfor %}
-    </div>
-    <div class="uw-row">
-        <div class="uw-col">
-            <h2 class="uw-mini-bar">Students</h2>
+            {% endfor %}
         </div>
-    </div>
-    <div class="uw-row">
-        {% assign sorted_team = site.data.team | where: "status", "Student" | sort: "name" %}
-        {% for member in sorted_team %}
-        {% include /components/team-card.html %}
-        {% endfor %}
+        <h2 class="uw-mini-bar">Students</h2>
+        <div class="row">
+            {% assign sorted_team = site.data.team | where: "status", "Student" | sort: "name" %}
+            {% for member in sorted_team %}
+            {% include /components/team-card.html %}
+            {% endfor %}
+        </div>
     </div>
 </div>

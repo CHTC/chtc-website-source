@@ -3,19 +3,39 @@
 ---
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 640px,
-  md: 1024px,
-  lg: 1200px,
-  xl: 1440px
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
 );
 $primary: #c5050c;
+
+$uw-max-content-width: 1320px;
 
 // Bootstrap
 @import 'bootstrap/bootstrap';
 
 // UW Theme
 @import 'UW-theming/uw_style';
+
+// Responsive Font Size
+html {
+  font-size: 14px;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  html {
+    font-size: 18px;
+  }
+}
 
 // Search Bar
 .search-bar {
@@ -114,4 +134,9 @@ $primary: #c5050c;
     width: 100%;
     object-fit: cover;
   }
+}
+
+// Homepage was designed with this applied and I don't want to redesign it at the moment
+.mw-1000 {
+  max-width: 1000px;
 }

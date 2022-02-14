@@ -1,28 +1,24 @@
 ---
 highlighter: none
-layout: main
+layout: default
 title: News
 ---
 
-<div class="uw-row-full bg-light py-4">
-    <div class="uw-row">
-        <div class="uw-col">
-            {% include page-title.html title=page.title %}
-            <div class="row">
-                {% assign ordered_news = site.news | sort: "date" | reverse %}
-                {% for news in ordered_news %}
-                    {% include news-posting.html
-                        class=" col-6 my-2 "
-                        href=news.url
-                        title=news.title
-                        author=news.author
-                        src=news.image_src
-                        alt=news.image_alt
-                        date=news.date
-                        excerpt=news.excerpt
-                    %}
-                {% endfor %}
-            </div>
-        </div>
+<div class="container-xxl mb-4">
+    {% include page-title.html title=page.title %}
+    <div class="row">
+        {% assign ordered_news = site.news | sort: "date" | reverse %}
+        {% for news in ordered_news %}
+            {% include news-posting.html
+                class=" col-6 my-2 "
+                href=news.url
+                title=news.title
+                author=news.author
+                src=news.image_src
+                alt=news.image_alt
+                date=news.date
+                excerpt=news.excerpt
+            %}
+        {% endfor %}
     </div>
 </div>

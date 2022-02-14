@@ -1,6 +1,7 @@
 ---
-layout: markdown-page
+layout: character_optimized
 title: Getting Started With CHTC
+
 ---
 
 <script type="text/javascript">
