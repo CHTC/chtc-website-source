@@ -1,0 +1,4 @@
+{  
+   "issuer":"https://chtc.cs.wisc.edu/icecube",
+   "jwks_uri":"https://chtc.cs.wisc.edu/icecube/.well-known/issuer.jwks"
+}
