@@ -18,21 +18,27 @@ title: Our Staff
         <div class="row">
             {% assign sorted_team = site.data.team | where: "status", "Leadership" | sort: "name" %}
             {% for member in sorted_team %}
-            {% include /components/team-card-promoted.html %}
+                <div class="col-12 col-md-8 col-lg-6">
+                    {% include /components/team-card-promoted.html %}
+                </div>
             {% endfor %}
         </div>
         <h2 class="uw-mini-bar">Staff</h2>
         <div class="row">
             {% assign sorted_team = site.data.team | where: "status", "Staff" | sort: "name" %}
             {% for member in sorted_team %}
-            {% include /components/team-card.html %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    {% include /components/team-card.html %}
+                </div>
             {% endfor %}
         </div>
         <h2 class="uw-mini-bar">Students</h2>
         <div class="row">
             {% assign sorted_team = site.data.team | where: "status", "Student" | sort: "name" %}
             {% for member in sorted_team %}
-            {% include /components/team-card.html %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    {% include /components/team-card.html %}
+                </div>
             {% endfor %}
         </div>
     </div>
