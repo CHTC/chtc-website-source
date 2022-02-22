@@ -47,7 +47,7 @@ Our high memory servers have the following specs:
   | 1 | 512 GB | 16 | 2.5 TB | `wid-003`|
   | 16 | 512 GB | 40 | 1.2 TB | `e2003`-`e2018` |
   | 2 | 2 TB | 80 | 3.5+ TB | `mem2001`, `mem2002` |
-  | 1 | 4 TB | 80 | 6 TB | `mem3` | 
+  | 1 | 4 TB | 80 | 6 TB | `mem2003` | 
 
 
 
