@@ -20,6 +20,11 @@
   institution: "University of Wisconsin - Madison"
   website: "https://wid.wisc.edu/people/christina-koch/"
   is_facilitator: 1
+- name: "Cole Bollig"
+  status: Staff
+  image: "/images/team/cole-bollig.jpg"
+  job_title: "HTCondor Core Developer"
+  institution: "University of Wisconsin - Madison"
 - name: "Brian Bockelman"
   status: Leadership
   image: "images/team/brian-bockelman.jpeg"
