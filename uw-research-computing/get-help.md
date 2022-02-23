@@ -55,6 +55,8 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 
+> **Office Hours are canceled on Thursday, February 24**
+
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
