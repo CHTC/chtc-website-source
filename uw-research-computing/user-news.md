@@ -13,8 +13,22 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## CHTC Office Hours canceled Thursday, February 24
+### February 23, 2022
+
+Greetings CHTC users, 
+
+Due to limited staffing this week, office hours on Thursday, February 24 are canceled. 
+Our normal office hours schedule will continue on Tuesday, March 1. 
+
+Best, 
+The CHTC facilitation team
+
+------------------------------------------------------------------------
+
+
 ## CHTC Facilitator Holiday Availability; New Office Hour Times in 2022
-### December 22, 2022
+### December 22, 2021
 
 Greetings CHTC users, 
 
