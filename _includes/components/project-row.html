@@ -1,12 +1,14 @@
-
-<div class="uw-row">
-<div class="uw-col uw-body uw-project-card">
-<h2>{{project.title}}</h2>
-<figure class="uw-float-right uw-float-25">
-<img src="{{project.image | relative_url}}">
-</figure>
-<p>
-{{project.description}}
-</p>
-</div>
+<div class="row">
+    <div class="col-12 col-md-8 order-2 order-md-1">
+        <h2>{{project.title}}</h2>
+        <p>
+            {{project.description}}
+        </p>
+    </div>
+    <div class="ms-md-5 col-12 col-md-3 order-1 order-md-2 d-flex flex-column">
+        <h2>&nbsp;</h2>
+        <div class="d-flex flex-grow-1">
+            <img style="max-height: 200px" class=" mx-auto my-auto img-fluid" src="{{project.image | relative_url}}">
+        </div>
+    </div>
 </div>
