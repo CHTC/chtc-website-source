@@ -346,8 +346,8 @@ request_gpus = 1
 Certain GPU servers in CHTC are prioritized for the
 research groups that own them, but are available to run other jobs when
 not being used by their owners. When running on these servers, jobs
-forfeit our otherwise guaranteed runtime of 72 hours. However, for
-shorter jobs, this is not a drawback and allowing jobs to run on these
+forfeit our otherwise guaranteed runtime of 72 hours, and have the potential to be interrupted. However, for
+shorter jobs or jobs that have implemented self-checkpointing, this is not a drawback and allowing jobs to run on these
 additional servers opens up more capacity. 
 
 Therefore, these servers are a good fit for GPU jobs that run in a few hours 
@@ -355,8 +355,15 @@ or less, or have implemented self-checkpointing (the capability to save progress
 to a file and restart from that progress). 
 
 To allow jobs to run on these
-research-group owned servers if there is space, add the "Flocking"
+research-group owned servers if there is space, add the "Is_Resumable"
 option to your submit file:
+
+```
++Is_Resumable = true
+```
+{: .sub}
+
+Another option that allows jobs to run on backfill servers is "wantFlocking" option. Like "Is_Resumable," this option is best used for short or checkpointed jobs, as "wantFlocking" is overloaded and implies "Is_Resumable." However, unlike "Is_Resumable," this option is not constrained to CHTC servers and allows jobs to land in other campus pools that are not CHTC. One caveat to note is that these other pools are not guaranteed to have some CHTC features, like Docker, or CHTC's file staging system. To access flocking, add the "wantFlocking" option to your submit file:
 
 ```
 +wantFlocking = true
