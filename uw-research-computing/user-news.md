@@ -13,6 +13,23 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Minimal CHTC email support tomorrow (March 4)
+### March 3, 3022
+
+Dear CHTC users, 
+
+CHTC's Research Facilitation staff are spending dedicated time this Friday 
+(March 4th) to improve our user guides on the CHTC website. 
+
+Due to this effort, we will not be answering support requests on Friday. We 
+will reply to emails received on Friday by Monday, March 7th. If you have 
+questions or concerns, our support email (chtc@cs.wisc.edu) is still the best way to contact us. 
+
+Best regards, 
+Research Facilitation Team
+
+------------------------------------------------------------------------
+
 ## CHTC Office Hours canceled Thursday, February 24
 ### February 23, 2022
 
