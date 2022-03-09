@@ -13,6 +13,30 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## CHTC outages starting 5pm today (3/9)
+### March 9, 2022
+
+Greetings CHTC Users,
+ 
+Due to short-notice maintenance for the cooling infrastructure in one of CHTC’s server rooms, we will have an outage starting tonight (3/9) that will impact our HPC cluster and certain HTC execute nodes. 
+ 
+HPC Cluster
+* The HPC cluster, including execute nodes, head nodes, and filesystem, will be down starting at 6:00pm on Wednesday (3/9) with services expected to be restored by the end of the day on Thursday (3/10). 
+* The HPC cluster is configured to not start new jobs that will not complete before the start of the scheduled downtime. Already-running jobs that do not complete by tonight will be interrupted and re-queued once systems are operational. Users may want to remove any jobs that will be negatively impacted by this process. 
+ 
+HTC System
+* Some HTC execute nodes, including some researcher-owned GPU nodes, will be down starting at 5:00pm on Wednesday (3/9) with services expected to be restored by the end of the day on Thursday (3/10). Jobs running on these nodes will be evicted and remain in the queue to be re-run. 
+* We do not expect the HTC system submit servers, transfer server, or Staging filesystem to be impacted at this time. 
+ 
+We appreciate your patience as the ongoing maintenance in this room has meant a lot of extra announcements to this list, and not always with our usual amount of notice.
+ 
+As always, email us at chtc@cs.wisc.edu with any questions. 
+ 
+Regards,
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Minimal CHTC email support tomorrow (March 4)
 ### March 3, 3022
 
