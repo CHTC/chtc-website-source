@@ -2,7 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Going from Google Colab to CHTC's GPU Lab
-published: false
+published: true
 ---
 
 This guide provides a step-by-step process for going from running a notebook 
