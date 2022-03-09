@@ -41,7 +41,7 @@ Supported Versions of Matlab
   | --- |
   | Matlab 2015b | 
   | Matlab 2018b |
-
+  | Matlab 2020a | 
 
 
 **A. Preparing Your Matlab Program** 
@@ -126,7 +126,7 @@ will look like this:
 ```
 {:.term}
 
-If you want to use Matlab 2018b, load module `MATLAB/R2018b`. Once the
+If you want to use a different version of Matlab, change the name after the `load` command. Once the
 module is loaded, run the compilation command:
 
 ``` 
@@ -244,7 +244,8 @@ executable = run_script.sh
     your code. Options available on our proxy include:
     
     -   `r2015b.tar.gz`
-    -   `r2018b.tar.gz`<br>
+    -   `r2018b.tar.gz`
+    -   `r2020a.tar.gz`<br>
     
     To send the runtime package to your jobs, list a link to the
     appropriate version in your `transfer_input_files` line, as well as
@@ -262,6 +263,7 @@ executable = run_script.sh
       | --- | --- |
       | `r2015b.tar.gz` | `v90` |
       | `r2018b.tar.gz` | `v95` |
+      | `r2020a.tar.gz` | `v98` | 
  
     So to run a Matlab job using `r2015b` and no additional arguments, the arguments line in the submit file should read:
     ```{:.sub}
