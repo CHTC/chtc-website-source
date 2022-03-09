@@ -14,7 +14,7 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 ------------------------------------------------------------------------
 
 ## CHTC outages starting 5pm today (3/9)
-### March 9, 3022
+### March 9, 2022
 
 Greetings CHTC Users,
  
