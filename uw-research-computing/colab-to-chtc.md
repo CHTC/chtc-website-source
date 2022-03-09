@@ -15,7 +15,7 @@ Go through the following steps to transition from Google Colab to CHTC's GPU Lab
 
 1. [Get a script and package requirements from the Colab interface.](#a-get-the-needed-packages-from-colab)
 1. [Build and publish a docker container recreating the Colab software environment.](#b-build-a-docker-container)
-1. [Submit your job on CHTC, paying attention to hardware requirements.(#c-submit-a-job)
+1. [Submit your job on CHTC, paying attention to hardware requirements.](#c-submit-a-job)
 
 ### Why use CHTC's GPU Lab? 
 
@@ -205,6 +205,6 @@ If you don't already have a Docker Hub account before starting this section, cre
 
     As with other jobs on CHTC, think about the data requirements for your job.. Jobs with larger requirements may require a larger value for the ```request_memory``` and ```request_disk``` attributes, and if you intend to transfer the data from the submit node, you may need to do so using one of CHTC's alternative data transfer methods, such as Squid. More information about large file transfers can be found <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata">here</a>.
 
-1. **Submit a test job, then submit real thing.**
+1. **Submit a test job, then submit the real thing.**
 
     Try submitting a scaled-down test job to ensure everything is set up correctly. When the test job runs successfully, submit the real job.
