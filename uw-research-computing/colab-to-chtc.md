@@ -2,7 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Going from Google Colab to CHTC's GPU Lab
-published: false
+published: true
 ---
 
 This guide provides a step-by-step process for going from running a notebook 
@@ -13,9 +13,9 @@ GPU Lab resources.
 
 Go through the following steps to transition from Google Colab to CHTC's GPU Lab: 
 
-1. Get a script and package requirements from the Colab interface
-1. Build and publish a docker container recreating the Colab software environment
-1. Submit your job on CHTC, paying attention to hardware requirements.
+1. [Get a script and package requirements from the Colab interface.](#a-get-the-needed-packages-from-colab)
+1. [Build and publish a docker container recreating the Colab software environment.](#b-build-a-docker-container)
+1. [Submit your job on CHTC, paying attention to hardware requirements.](#c-submit-a-job)
 
 ### Why use CHTC's GPU Lab? 
 
@@ -25,6 +25,8 @@ to run many GPU-based calculations or need more time, CHTC can provide a larger 
 of GPUs and a longer run time limit. 
 
 ## A. Get the Needed Packages From Colab
+
+<b>These steps are run from the Colab notebook.</b>
 
 Assume the notebook you'd like to run on CHTC's system is already open.
 
@@ -58,6 +60,8 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 ## B. Build a Docker Container
 
 <b>The rest of the instructions occur on the CHTC system.</b>
+
+If you don't already have a Docker Hub account before starting this section, create one: [Docker Hub](https://hub.docker.com/)
 
 1. **Upload files to CHTC:**<br />
 
@@ -145,7 +149,7 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     ```
     {: .term}
     
-    Again, for chtc_user, this might look like `podman push 123456 chtc_user/pytorch:v1`
+    Again, for `chtc_user`, this might look like `podman push 123456 chtc_user/pytorch:v1`
 
     Once podman has finished uploading the container, the container should be ready for use by HTCondor.
 
@@ -153,7 +157,7 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 
     In the terminal, type `exit`. This will terminate the interactive job and return you to the submit node.
 
-## C. Submit a job
+## C. Submit a Job
 
 1. **Create job submit file:**
 
@@ -172,6 +176,9 @@ Assume the notebook you'd like to run on CHTC's system is already open.
     when_to_transfer_output = ON_EXIT
     #transfer_input_files = 
 
+    request_gpus = 1
+    # list other GPU requirements, if needed
+    
     request_cpus = 1
     request_memory = 1GB
     request_disk = 1GB
@@ -197,6 +204,7 @@ Assume the notebook you'd like to run on CHTC's system is already open.
 1. **Think about data!**
 
     As with other jobs on CHTC, think about the data requirements for your job.. Jobs with larger requirements may require a larger value for the ```request_memory``` and ```request_disk``` attributes, and if you intend to transfer the data from the submit node, you may need to do so using one of CHTC's alternative data transfer methods, such as Squid. More information about large file transfers can be found <a href="https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata">here</a>.
-1. Submit a test job, then submit real thing.
+
+1. **Submit a test job, then submit the real thing.**
 
     Try submitting a scaled-down test job to ensure everything is set up correctly. When the test job runs successfully, submit the real job.
