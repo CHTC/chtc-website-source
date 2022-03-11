@@ -18,7 +18,7 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 Greetings CHTC Users,
  
-###Squid Proxy Issue Resolved 
+### Squid Proxy Issue Resolved 
 
 We have resolved the Squid proxy issue that was causing jobs to be held with the following error code: 
 ``` 
