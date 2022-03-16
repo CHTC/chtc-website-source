@@ -7,45 +7,43 @@ layout: markdown-page
 <br>
 <table class="gtable">
     <tr>
-        <th>File Sizes</th>
+        <th>Input Sizes</th>
+        <th>Output Sizes</th>
         <th>File Location</th>
         <th>File Transfer Mechanism</th>
-        <th>Available for Jobs Running ...</th>
-        <th>File Security</th>
+        <th>Availability, Security</th>
         <th>Special Considerations</th>
     </tr>
 
     <tr>
-        <td><b>Input</b>: 0 - 100 MB per file; &#60;500 MB total per job</td>
-        <td rowspan="2"><code>/home</code></td>
-        <td rowspan="2"><a href="file-availability.html">HTCondor File Transfer</a></td>
-        <td rowspan="2">in CHTC, UW Grid, and OSG</td>
-        <td rowspan="2">available to <i>your</i> jobs, on CHTC and beyond</td>
-        <td rowspan="2"><font color="red">DO NOT USE for files in <code>/staging</code> OR <code>/squid</code></font></td>
+        <td>0 - 100 MB per file; &#60;500 MB total per job</td>
+        <td>0 - 4 GB total per job</td>
+        <td><code>/home</code></td>
+        <td><a href="file-availability.html">HTCondor File Transfer</a></td>
+        <td>CHTC, UW Grid, and OSG, available to <i>your</i> jobs</td>
+        <td><font color="red">DO NOT USE for files in <code>/staging</code> OR <code>/squid</code></font></td>
     </tr>
     <tr>
-        <td><b>Output:</b> 0 - 4 GB total per job</td>
     </tr>
 
     <tr>
-        <td><b>Input ONLY</b>: 100 MB - 1 GB per shared file</td>
+        <td>100 MB - 1 GB per shared file</td>
+        <td>Not available for output</td>
         <td><code>/squid</code></td>
         <td><a href="file-avail-squid.html">SQUID Web Proxy</a></td>
-        <td>in CHTC, UW Grid, and OSG</td>
-        <td>files will be world-<i>readable</i></td>
+        <td>CHTC, UW Grid, and OSG, files will be world-<i>readable</i></td>
         <td>large files unique to individual jobs are better for large data staging</td>
     </tr>
 
     <tr>
         <td><b>Input</b>: 100 MB - TBs per unique file; 1GB - TBs per shared file</td>
-         <td rowspan="2"><code>/staging</code></td>
-        <td rowspan="2"><a href="file-avail-largedata.html">Large Data Staging</a></td>
-        <td rowspan="2">in only a portion of CHTC</td>
-        <td rowspan="2">accessible ONLY to your jobs on specific CHTC servers</td>
-        <td rowspan="2">special submit "Requirements"</td>
+        <td><b>Output</b>: 4 GB - TBs per job</td>
+         <td><code>/staging</code></td>
+        <td><a href="file-avail-largedata.html">Large Data Staging</a></td>
+        <td>a portion of CHTC, accessible ONLY to your jobs on these servers</td>
+        <td>special submit "Requirements"</td>
     </tr>
     <tr>
-        <td><b>Output</b>: 4 GB - TBs per job</td>
     </tr>
 </table>
 
