@@ -68,7 +68,7 @@ As previously described, it may be necessary to use a wrapper script to tell you
 ```
 #!/bin/bash
  
-timeout 4h do_RAxML_science arg1 arg2
+timeout 4h do_science arg1 arg2
  
 timeout_exit_status=$?
  
