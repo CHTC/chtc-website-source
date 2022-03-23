@@ -7,7 +7,7 @@ title: Checkpointing Jobs
 
 # What is Checkpointing?
 
-Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour max default runtime on the HTC cluster. 
+Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour maximum default runtime on the HTC cluster. 
 
 This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.
 
