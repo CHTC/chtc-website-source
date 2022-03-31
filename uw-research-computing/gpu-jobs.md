@@ -97,7 +97,7 @@ jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour 
 ## 2. Other Capacity
 
 There is additional dedicated and backfill GPU capacity available in CHTC and beyond; 
-see [] for details. 
+see [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details. 
 
 # B. Submit Jobs Using GPUs in CHTC
 
