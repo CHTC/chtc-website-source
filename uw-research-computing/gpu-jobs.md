@@ -42,7 +42,6 @@ the capacity of the GPU Lab to run their work.
     <th>GPUs / Server</th>
     <th>GPU Type (<code>CUDADeviceName</code>)</th>
     <th><code>CUDACapability</code></th>
-    <th><code>HasCHTCStaging</code></th>
     <th>Max <code>CUDADriverVersion</code></th>
   </tr>
 <!--  <tr>
@@ -56,8 +55,7 @@ the capacity of the GPU Lab to run their work.
     <td>2</td>
     <td>Tesla P100-PCIE-16GB</td>
     <td>6.0</td>
-    <td>yes</td>
-    <td>11.2</td>
+    <td>11.5</td>
   </tr>
   <tr>
     <td>4</td>
@@ -65,8 +63,7 @@ the capacity of the GPU Lab to run their work.
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>7.5</td>
-    <td>yes</td>
-    <td>11.2</td>
+    <td>11.5</td>
   </tr>
   <tr>
     <td>2</td>
@@ -74,8 +71,7 @@ the capacity of the GPU Lab to run their work.
     <td>4</td>
     <td>A100-SXM4-40GB</td>
     <td>8.0</td>
-    <td>yes</td>
-    <td>11.2</td>
+    <td>11.5</td>
   </tr>
 </table>
 
