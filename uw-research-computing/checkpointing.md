@@ -136,9 +136,13 @@ The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 ho
 
 # Checking the Progress of Checkpointing Jobs
 
-It is possible to investigate checkpoint files once they have been transferred to `/spool`.
+Always test a single checkpointing job before scaling up to identify odd or unintentional behaviors in your analysis. 
+
+To determine if your job is successfully creating and saving checkpoint files, you can investigate checkpoint files once they have been transferred to `/spool`.
 
 You can explore the checkpointed files in `/spool` by navigating to `/var/lib/condor/spool`. The directories in this folder are the last four digits of a job's cluster ID with leading zeros removed. Sub folders are labeled with the process ID for each job. For example, to investigate the checkpoint files for `17870068.220`, the files in `/spool` would be found in folder `68` in a subdirectory called `220`.
+
+It is also possible to intentionally evict a running job and have it rematch to an execute server to test if your code is successfully resuming from checkpoint files or not. To test this, use `condor_vacate_job <JobID>`. This command will evict your job intentionally and have it return to "Idle" state in the queue. This job will begin running once it rematches to an execute server, allowing you to test if your job is correctly resuming from checkpoint files or incorrectly starting over with the analysis.  
 
 
 # More Information
