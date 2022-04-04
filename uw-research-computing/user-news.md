@@ -10,11 +10,25 @@ changes may affect the jobs of users.
 
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
+------------------------------------------------------------------------
+
+## Office hours canceled Thursday (4/7) for Illuminating Connections event
+### April 5, 2022
+
+Greetings CHTC Users,
+
+Since the Research Computing Facilitators will be attending the Illuminating Connections event on Thursday (4/7), office hours will be canceled that day. 
+
+If you would like to learn more about CHTC resources and meet other members of our team, please come visit us at the event held at the Wisconsin Institute for Discovery from 3-6pm. More information about the event can be found here: https://wid.wisc.edu/illuminating-connections-2022/
+
+We hope to see you there!
+
+Your CHTC Team
 
 ------------------------------------------------------------------------
 
 ## HTC Squid proxy issue resolved; No office hours next Tuesday (3/15)
-## March 11, 2022
+### March 11, 2022
 
 Greetings CHTC Users,
  
