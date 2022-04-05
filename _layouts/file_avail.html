@@ -17,7 +17,7 @@ layout: markdown-page
     </tr>
 
     <tr>
-        <td>0 - 100 MB per file; &#60;500 MB total per job</td>
+        <td>0 - 100 MB per file, up to 500 MB per job</td>
         <td>0 - 4 GB total per job</td>
         <td><code>/home</code></td>
         <td><b>submit file</b>; filename in <code>transfer_input_files</code></td>
@@ -27,7 +27,7 @@ layout: markdown-page
     </tr>
 
     <tr>
-        <td>100 MB - 1 GB per shared file</td>
+        <td>100 MB - 1 GB per repeatedly-used file</td>
         <td>Not available for output</td>
         <td><code>/squid</code></td>
         <td><b>submit file</b>; http link in <code>transfer_input_files</code></td>
@@ -37,7 +37,7 @@ layout: markdown-page
     </tr>
 
     <tr>
-        <td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
+        <td>100 MB - TBs per file; for shared input files < 1GB use SQUID</td>
         <td>4 GB - TBs per job</td>
          <td><code>/staging</code></td>
         <td><b>executable</b>; copy or move using <code>cp</code>, <code>mv</code></td>
