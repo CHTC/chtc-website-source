@@ -10,7 +10,8 @@ layout: markdown-page
         <th>Input Sizes</th>
         <th>Output Sizes</th>
         <th>File Location</th>
-        <th>File Transfer Mechanism</th>
+        <th>How to Transfer</h>
+        <th>Guide</th>
         <th>Availability, Security</th>
         <th>Special Considerations</th>
     </tr>
@@ -19,6 +20,7 @@ layout: markdown-page
         <td>0 - 100 MB per file; &#60;500 MB total per job</td>
         <td>0 - 4 GB total per job</td>
         <td><code>/home</code></td>
+        <td>submit file</td>
         <td><a href="file-availability.html">HTCondor File Transfer</a></td>
         <td>CHTC, UW Grid, and OSG, available to <i>your</i> jobs</td>
         <td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>
@@ -28,6 +30,7 @@ layout: markdown-page
         <td>100 MB - 1 GB per shared file</td>
         <td>Not available for output</td>
         <td><code>/squid</code></td>
+        <td>submit file</td>
         <td><a href="file-avail-squid.html">SQUID Web Proxy</a></td>
         <td>CHTC, UW Grid, and OSG, files will be world-<i>readable</i></td>
         <td>large files unique to individual jobs are better for large data staging</td>
@@ -37,6 +40,7 @@ layout: markdown-page
         <td>100 MB - TBs per unique file; 1GB - TBs per shared file</td>
         <td>4 GB - TBs per job</td>
          <td><code>/staging</code></td>
+        <td>executable</td>
         <td><a href="file-avail-largedata.html">Large Data Staging</a></td>
         <td>a portion of CHTC, accessible ONLY to your jobs on these servers</td>
         <td>special submit "Requirements"</td>
