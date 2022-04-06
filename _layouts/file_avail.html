@@ -18,31 +18,31 @@ layout: markdown-page
 
     <tr>
         <td>0 - 100 MB per file, up to 500 MB per job</td>
-        <td>0 - 4 GB total per job</td>
+        <td>0 - 5 GB per job</td>
+        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
         <td><code>/home</code></td>
         <td><b>submit file</b>; filename in <code>transfer_input_files</code></td>
-        <td><a href="file-availability.html">Small Input and Output File Availability Via HTCondor</a></td>
-        <td>CHTC, UW Grid, and OSG, available to <i>your</i> jobs</td>
+        <td>CHTC, UW Grid, and OSG, works for <i>your</i> jobs</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
     </tr>
 
     <tr>
         <td>100 MB - 1 GB per repeatedly-used file</td>
         <td>Not available for output</td>
+        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
         <td><code>/squid</code></td>
         <td><b>submit file</b>; http link in <code>transfer_input_files</code></td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via Squid</a></td>
-        <td>CHTC, UW Grid, and OSG, files will be world-<i>readable</i></td>
+        <td>CHTC, UW Grid, and OSG, files are made *publicly-readable* via an HTTP address</i></td>
         <!--<td>large files unique to individual jobs are better for large data staging</td>-->
     </tr>
 
     <tr>
-        <td>100 MB - TBs per file; for shared input files < 1GB use SQUID</td>
+        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
         <td>4 GB - TBs per job</td>
+        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
          <td><code>/staging</code></td>
         <td><b>executable</b>; copy or move using <code>cp</code>, <code>mv</code></td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via Staging</a></td>
-        <td>a portion of CHTC, accessible ONLY to your jobs on these servers</td>
+        <td>a portion of CHTC, accessible only to <i>your</i> jobs</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
