@@ -41,7 +41,7 @@ the capacity of the GPU Lab to run their work.
     <th>Names</th>
     <th>GPUs / Server</th>
     <th>GPU Type (<code>CUDADeviceName</code>)</th>
-    <th><code>CUDACapability</code></th>
+    <th>Hardware Generation <code>CUDACapability</code></th>
     <th>Max <code>CUDADriverVersion</code></th>
   </tr>
 <!--  <tr>
@@ -75,7 +75,7 @@ the capacity of the GPU Lab to run their work.
   </tr>
 </table>
 
-### Special GPU Lab Time Policies
+### Special GPU Lab Policies
 
  **Jobs running on GPU Lab servers have time limits and job number limits 
 (differing from CHTC defaults across the rest of the HTC System).**
@@ -103,7 +103,7 @@ The following options are needed in your HTCondor submit file in order
 to access the GPUs in the CHTC GPU Lab and beyond: 
 
 - **Request GPUs (required)**: All jobs that use GPUs must request GPUs in their submit file (along
-with the usual requests for CPUs, memory and disk).
+with the usual requests for CPUs, memory, and disk).
 	```
 request_gpus = 1
 	```
