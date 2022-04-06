@@ -17,11 +17,11 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
-- [What GPUs are available in CHTC](#a-available-chtc-gpus)
-- [How to submit jobs using GPUs](#b-submit-jobs-using-gpus-in-chtc)
-- [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab)
-- [Exploring available GPUs using condor_status](#d-using-condor_status-to-explore-chtc-gpus)
-- [Working with GPU-enabled software](#e-preparing-software-using-gpus)
+- [Available CHTC GPUs](#a-available-chtc-gpus)
+- [Submit jobs using GPUs in CHTC](#b-submit-jobs-using-gpus-in-chtc)
+- [GPU capacity beyond the CHTC GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab)
+- [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
+- [Prepare software using GPUs](#e-prepare-software-using-gpus)
 
 
 # A. Available CHTC GPUs
@@ -154,7 +154,7 @@ requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
 	or you are using modules or other software in our shared `/software` system, include 
 	the needed requirements (combining with any other GPU requirements as shown above). 
 
-- **Indicate Short/Resumable Jobs**: if your jobs are shorter than 4-6 hours, or have 
+- **Indicate Shorter/Resumable Jobs**: if your jobs are shorter than 4-6 hours, or have 
     the ability to checkpoint at least that frequently, we highly recommend taking 
     advantage of the additional GPU servers in CHTC that can run these kind of jobs 
     as backfill! Simply add the following option to your submit file: 
@@ -162,6 +162,10 @@ requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
 +is_resumable = true
 	```
 	{: .sub}
+	
+	For more information about the servers that you can run on with this option, 
+	and what it means to run your jobs as "backfill" see 
+	the section below on [Accessing Research Group GPUs](#1-access-research-group-gpus).
 
 ## 2. Sample Submit File
 
@@ -241,16 +245,8 @@ additional servers opens up more capacity.
 
 Therefore, these servers are a good fit for GPU jobs that run in a few hours 
 or less, or have implemented self-checkpointing (the capability to save progress 
-to a file and restart from that progress). 
-
-To allow jobs to run on these
-research-group owned servers if there is space, add the "Is_Resumable"
-option to your submit file:
-
-```
-+Is_Resumable = true
-```
-{: .sub}
+to a file and restart from that progress). Use the `is_resumable` option shown 
+above in the [list of submit file options](1-choose-gpu-related-submit-file-options). 
 
 ## 2. Use the `gzk` Servers
 
@@ -261,11 +257,15 @@ for running GPU jobs:
 
 You do not need to do anything specific to allow jobs to run on these servers. 
 
-## 3. Using GPUs in CHTC's OSG Pool
+## 3. Using GPUs in CHTC's OSG Pool and the UW Grid
 
 CHTC, as a member of the [OSG Consortium](http://www.osg-htc.org/) can access GPUs that
-are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). See [this guide](scaling-htc.html) to know
-whether your jobs are good candidates for the OS Pool and then get in touch
+are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). CHTC is 
+also a member of a campus computing network called the UW Grid, where groups on campus 
+share computing capacity, including access to idle GPUs. 
+
+See [this guide](scaling-htc.html) to know
+whether your jobs are good candidates for the UW Grid or OS Pool and then get in touch
 with CHTC's Research Computing Facilitators to discuss details. 
 
 # D. Using condor_status to explore CHTC GPUs
@@ -332,7 +332,7 @@ server, including:
 	</tr>
 </table>
 
-# E. Preparing Software Using GPUs
+# E. Prepare Software Using GPUs
 
 Before using GPUs in CHTC you should ensure that the use of GPUs will
 actually help your program run faster. This means that the code or
