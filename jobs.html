@@ -6,7 +6,6 @@ title: Available Positions
 
 <div class="container-xxl">
     <div class="row justify-content-center">
-
         <div class="col-12 col-sm-10 col-lg-8">
             {% include page-title.html title=page.title %}
             <p>
@@ -49,6 +48,30 @@ title: Available Positions
                 be found on the <a href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&amp;search-keyword=chtc">University's Position Vacancy List
                 (PVL)</a>.
             </p>
+            {% assign now = "now" | date: "%s" %}
+            {% if now < "1651294500" %}
+            <h3 id="rca-intermediate" href="https://jobs.hr.wisc.edu/en-us/job/513190/research-systems-administrator">Research Systems Administrator ( Intermediate )</h3>
+            <p>
+                This is the perfect opportunity for a candidate with existing systems administration experience to
+                build on your skills in managing large-scale Linux systems using a variety of cutting edge tools.
+                You will collaborate with software development and research facilitation teams to deploy new
+                technologies that enable researchers to solve computational problems using thousands of CPU cores.
+                The preferred applicant will be self-motivated and able to work as part of a dynamic team, as well as
+                possessing good communication skills and a desire for continuous learning.
+            </p>
+            <p><a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/513190/research-systems-administrator">View Full Job Listing</a></p>
+
+            <h3 id="rca-beginner" href="https://jobs.hr.wisc.edu/en-us/job/513189/research-systems-administrator">Research Systems Administrator</h3>
+            <p>
+                This is the perfect opportunity for a recent graduate to gain valuable experience managing
+                large-scale Linux systems using Kubernetes and Puppet. You will work with a seasoned team
+                of colleagues to install and manage cutting edge hardware that enables researchers to solve
+                computational problems using thousands of CPU cores. The preferred applicant will be
+                self-motivated and able to work as part of a dynamic team, as well as possessing good
+                communication skills and a desire for continuous learning.
+            </p>
+            <p><a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/513189/research-systems-administrator">View Full Job Listing</a></p>
+            {% endif %}
 
             <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
 
@@ -141,6 +164,11 @@ title: Available Positions
                             <ul>
                                 <li><a href="#fellowship">Student Fellowship - IRIS-HEP</a></li>
                                 <li><a href="#graduate-student-research-and-project-assistantship-ra-pa-openings">Graduate Research Openings</a></li>
+                                {% assign now = "now" | date: "%s" %}
+                                {% if now < "1651294500" %}
+                                    <li><a href="#rca-intermediate">Research Systems Administrator ( Intermediate )</a></li>
+                                    <li><a href="#rca-beginner">Research Systems Administrator</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
