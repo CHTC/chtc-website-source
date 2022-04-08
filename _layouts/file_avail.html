@@ -9,9 +9,9 @@ layout: markdown-page
     <tr>
         <th>Input Sizes</th>
         <th>Output Sizes</th>
+        <th>Link to Guide</th>
         <th>File Location</th>
         <th>How to Transfer</th>
-        <th>Guide</th>
         <th>Availability, Security</th>
         <!--<th>Special Considerations</th>-->
     </tr>
@@ -21,8 +21,8 @@ layout: markdown-page
         <td>0 - 5 GB per job</td>
         <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
         <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <code>transfer_input_files</code></td>
-        <td>CHTC, UW Grid, and OSG, works for <i>your</i> jobs</td>
+        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
+        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
     </tr>
 
@@ -31,8 +31,8 @@ layout: markdown-page
         <td>Not available for output</td>
         <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
         <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <code>transfer_input_files</code></td>
-        <td>CHTC, UW Grid, and OSG, files are made *publicly-readable* via an HTTP address</i></td>
+        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
+        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
         <!--<td>large files unique to individual jobs are better for large data staging</td>-->
     </tr>
 
@@ -41,8 +41,8 @@ layout: markdown-page
         <td>4 GB - TBs per job</td>
         <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
          <td><code>/staging</code></td>
-        <td><b>executable</b>; copy or move using <code>cp</code>, <code>mv</code></td>
-        <td>a portion of CHTC, accessible only to <i>your</i> jobs</td>
+        <td><b>job executable</b>; copy or move within the job</td>
+        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
