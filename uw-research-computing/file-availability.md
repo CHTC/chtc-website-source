@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: file_avail
-title: Small Input and Output File Transfer
+title: Small Input and Output File Availability Via HTCondor
 ---
 
 {% capture content %}
