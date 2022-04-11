@@ -20,7 +20,7 @@ Note that not all software, programs, or code are capable of creating checkpoint
 
 Checkpointing allows a job to automatically resume from approximately where it left off instead of having to start over if interrupted. This behavior is advantageous for jobs limited by a maximum runtime policy (72 hours on the HTC system). It is also advantageous for jobs submitted to backfill resources with no runtime guarantee (e.g. for [+WantFlocking or +WantGliding jobs](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html)) where the compute resources may also be more prone to hardware or networking failures.
 
-For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks due that may be caused by loosing results mid-way through an analysis due to hitting a runtime limit. 
+For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by loosing results mid-way through an analysis due to hitting a runtime limit. 
 
 # Process of Exit Driven Checkpointing
 
