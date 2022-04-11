@@ -11,7 +11,7 @@ Checkpointing is a technique that provides fault tolerance for a user’s analys
 
 This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.
 
-There are two types of checkpointing: exit driven and eviction driven. In a vast majority of cases, exit driven checkpointing is preferred over eviction driven checkpointing. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis. 
+There are two types of checkpointing: exit driven and eviction driven. In a vast majority of cases, **exit driven checkpointing** is preferred over eviction driven checkpointing. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis. 
 
 Note that not all software, programs, or code are capable of creating checkpoint files and knowing how to resume from them. Consult the manual for your software or program to determine if it supports checkpointing features. Some manuals will refer this ability as "checkpoint" features, as the ability to "resume" mid-analysis if a job is interrupted, or as "checkpoint/restart" capabilities. Contact a Research Computing Facilitator if you would like help determining if your software, program, or code is able to checkpoint. 
 
