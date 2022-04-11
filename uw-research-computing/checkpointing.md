@@ -131,7 +131,7 @@ exit $timeout_exit_status
 
 ```
 
-The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout cannot take advantage of [submitting jobs outside of CHTC](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html) to run on other campus resources or on the OSPool. 
+The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout are less able to take advantage of [submitting jobs outside of CHTC](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html) to run on other campus resources or on the OSPool. 
 
 
 # Checking the Progress of Checkpointing Jobs
