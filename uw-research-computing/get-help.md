@@ -55,13 +55,6 @@ expect a first response within a few business hours.
 
 **Cancellations will be announced via email and on this webpage.**
 
-> ## Office hours are canceled on Thursday, April 7
-> CHTC's Research Computing Facilitators will be attending the Illuminating Connections event. If you would like 
-> to learn more about CHTC resources and meet other members of our team, please come visit us at the event held 
-> at the Wisconsin Institute for Discovery from 3-6pm. More information about the event can be 
-> found here: https://wid.wisc.edu/illuminating-connections-2022/
-
-
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
 
