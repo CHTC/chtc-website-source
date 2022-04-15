@@ -182,3 +182,13 @@
   image: "images/team/ryan-toh.jpeg"
   job_title: "Programming Intern"
   institution: "University of Wisconsin-Madison"
+- name: Patrick Lubben
+  status: Student
+  image: "images/team/patrick_lubben.jpeg"
+  job_title: Assistant System Administrator
+  institution: "University of Wisconsin-Madison"
+- name: Taylor Halvensleben
+  status: Student
+  image: "images/team/taylor_halvensleben.png"
+  job_title: Office and Communications Assistant
+  institution: "Morgridge Institute for Research"
