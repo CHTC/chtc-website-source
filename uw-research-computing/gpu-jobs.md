@@ -118,7 +118,7 @@ following line to your submit file:
 	{: .sub}
  
 - **Indicate Job Type**: We have categorized three "types"
-of GPU jobs, characterized in the table [above](#special-gpu-lab-time-policies).  Indicate which job type you would 
+of GPU jobs, characterized in the table [above](#special-gpu-lab-policies).  Indicate which job type you would 
 like to submit by using the submit file option below. 
 	```
 +GPUJobLength = "short" 
