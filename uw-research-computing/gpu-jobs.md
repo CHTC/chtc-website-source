@@ -246,7 +246,7 @@ additional servers opens up more capacity.
 Therefore, these servers are a good fit for GPU jobs that run in a few hours 
 or less, or have implemented self-checkpointing (the capability to save progress 
 to a file and restart from that progress). Use the `is_resumable` option shown 
-above in the [list of submit file options](1-choose-gpu-related-submit-file-options). 
+above in the [list of submit file options](#1-choose-gpu-related-submit-file-options). 
 
 ## 2. Use the `gzk` Servers
 
