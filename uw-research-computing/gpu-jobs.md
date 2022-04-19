@@ -17,17 +17,258 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
-1.  [Examining CHTC's GPU Capacity](#a-examining-chtcs-gpu-capacity)
-2.  [Using the CHTC GPU Lab](#b-using-the-chtc-gpu-lab)
-3.  [Preparing Software Using GPUs](#c-preparing-software-using-gpus)
-4.  [GPU Capacity Beyond the CHTC GPU Lab](#d-gpu-capacity-beyond-the-chtc-gpu-lab)
+- [Available CHTC GPUs](#a-available-chtc-gpus)
+- [Submit jobs using GPUs in CHTC](#b-submit-jobs-using-gpus-in-chtc)
+- [GPU capacity beyond the CHTC GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab)
+- [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
+- [Prepare software using GPUs](#e-prepare-software-using-gpus)
 
-> This is the initial version of a guide about running GPU jobs in CHTC.
-> If you have any suggestions for improvement, or any questions about
-> using GPUs in CHTC, please email the research computing facilitators
-> at chtc@cs.wisc.edu.
 
-# A. Examining CHTC's GPU Capacity
+# A. Available CHTC GPUs
+
+## 1. GPU Lab
+
+CHTC has a set of GPUs that are available for use by any CHTC user with an 
+account on our high throughput computing (HTC) system
+via the [CHTC GPU Lab](gpu-lab.html), which includes templates and a campus GPU community.
+
+Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
+the capacity of the GPU Lab to run their work. 
+
+<table class="gtable">
+  <tr>
+    <th>Number of Servers</th>
+    <th>Names</th>
+    <th>GPUs / Server</th>
+    <th>GPU Type (<code>CUDADeviceName</code>)</th>
+    <th>Hardware Generation <code>CUDACapability</code></th>
+    <th>Max <code>CUDADriverVersion</code></th>
+  </tr>
+<!--  <tr>
+    <td>gpu-3.chtc.wisc.edu</td> 
+    <td>1 </td>
+    <td>Tesla K40c</td>
+  </tr>   -->  
+  <tr>
+    <td>2</td>
+    <td>gpu2000, gpu2001</td>
+    <td>2</td>
+    <td>Tesla P100-PCIE-16GB</td>
+    <td>6.0</td>
+    <td>11.5</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>gpulab2000 - gpulab2003</td>
+    <td>8</td>
+    <td>GeForce RTX 2080 Ti</td>
+    <td>7.5</td>
+    <td>11.5</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>gpulab2004, gpulab2005</td>
+    <td>4</td>
+    <td>A100-SXM4-40GB</td>
+    <td>8.0</td>
+    <td>11.5</td>
+  </tr>
+</table>
+
+### Special GPU Lab Policies
+
+ **Jobs running on GPU Lab servers have time limits and job number limits 
+(differing from CHTC defaults across the rest of the HTC System).**
+
+{:.gtable}
+  | Job type | Maximum runtime | Per-user limitation | 
+  | --- |
+  | Short | 12 hrs | 2/3 of CHTC GPU Lab GPUs | 
+  | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
+  | Long  | 7 days | 1 job with 1-2 GPUs | 
+
+There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
+jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
+
+## 2. Other Capacity
+
+There is additional dedicated and backfill GPU capacity available in CHTC and beyond; 
+see [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details. 
+
+# B. Submit Jobs Using GPUs in CHTC
+
+## 1. Choose GPU-Related Submit File Options
+
+The following options are needed in your HTCondor submit file in order 
+to access the GPUs in the CHTC GPU Lab and beyond: 
+
+- **Request GPUs (required)**: All jobs that use GPUs must request GPUs in their submit file (along
+with the usual requests for CPUs, memory, and disk).
+	```
+request_gpus = 1
+	```
+	{: .sub}
+
+- **Request the CHTC GPU Lab**: To use CHTC's shared use GPUs, you need to opt-in to the GPU Lab. To 
+do so, add the
+following line to your submit file:
+	```
++WantGPULab = true
+	```
+	{: .sub}
+ 
+- **Indicate Job Type**: We have categorized three "types"
+of GPU jobs, characterized in the table [above](#special-gpu-lab-policies).  Indicate which job type you would 
+like to submit by using the submit file option below. 
+	```
++GPUJobLength = "short" 
+# Can also request "medium" or "long"
+	```
+	{: .sub}
+	If you do not specify a job type, the `medium` job type will be used as the default. If 
+	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
+	"short" jobs because you will be able to have more jobs running at once. 
+
+- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a specific version of CUDA, a certain
+type of GPU, or has some other special requirement, you will need to add
+a "requirements" statement to your submit file that uses one of the
+attributes shown above. If you want a certain class of GPU, use `CUDACapability`:
+	```
+requirements = (CUDACapability == 7.5)
+	```
+	{: .sub}
+	It may be tempting to add requirements for specific GPU servers or
+	types of GPU cards. However, when possible, it is best to write your
+	code so that it can run across GPU types and without needing the
+	latest version of CUDA.
+
+- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
+	```
+requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
+	```
+	{:.sub}
+	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
+
+- **Indicate Software or Data Requirements**: If your data is large enough to 
+	use our `/staging` data system (see more information [here](file-avail-largedata.html)), 
+	or you are using modules or other software in our shared `/software` system, include 
+	the needed requirements (combining with any other GPU requirements as shown above). 
+
+- **Indicate Shorter/Resumable Jobs**: if your jobs are shorter than 4-6 hours, or have 
+    the ability to checkpoint at least that frequently, we highly recommend taking 
+    advantage of the additional GPU servers in CHTC that can run these kind of jobs 
+    as backfill! Simply add the following option to your submit file: 
+    ```
++is_resumable = true
+	```
+	{: .sub}
+	
+	For more information about the servers that you can run on with this option, 
+	and what it means to run your jobs as "backfill" see 
+	the section below on [Accessing Research Group GPUs](#1-access-research-group-gpus).
+
+## 2. Sample Submit File
+
+A  sample submit file is shown below. There are also example submit files and 
+job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
+in CHTC's Github organization. 
+
+```
+# gpu-lab.sub
+# sample submit file for GPU Lab jobs
+
+universe = vanilla
+log = job_$(Cluster)_$(Process).log
+error = job_$(Cluster)_$(Process).err
+output = job_$(Cluster)_$(Process).out
+
+# Fill in with whatever executable you're using
+executable = run_gpu_job.sh
+#arguments = 
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+# Uncomment and add input files that are in /home
+# transfer_input_files = 
+
+# Uncomment and add custom requirements
+# requirements = 
+
++WantGPULab = true
++GPUJobLength = "short"
+
+request_gpus = 1
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+queue 1
+
+```
+{: .sub}
+
+## 3. Notes
+
+It is important to still request at least one CPU per job to do the
+processing that is not well-suited to the GPU.
+
+Note that HTCondor will make sure your job has access to the GPU; it will
+set the environment variable `CUDA_VISIBLE_DEVICES` to indicate which GPU(s)
+your code should run on. The environment variable will be read by CUDA to select the appropriate 
+GPU(s). Your code should not modify this environment variable or manually 
+select which GPU to run on, as this could result in two jobs sharing a GPU. 
+
+It is possible to request multiple GPUs. Before doing so, make sure you're 
+using code that can utilize multiple GPUs and then submit a test job to confirm 
+success before submitting a bigger job. Also keep track of how long jobs 
+are running versus waiting; the time you save by using multiple GPUs may be 
+not worth the extra time that the job will likely wait in the queue. 
+
+# C. GPU Capacity Beyond the CHTC GPU Lab
+
+The following resources are additional CHTC-accessible servers with GPUs. They do not have the 
+special time limit policies or job limits of the GPU Lab. However, some of them are 
+owned or prioritized by specific groups. The implications of this 
+on job runtimes is noted in each section. 
+
+Note that all GPU jobs need to include the `request_gpus` option in their submit file, 
+even if they are not using the GPU Lab. 
+
+## 1. Access Research Group GPUs
+
+Certain GPU servers in CHTC are prioritized for the
+research groups that own them, but are available to run other jobs when
+not being used by their owners. When running on these servers, jobs
+forfeit our otherwise guaranteed runtime of 72 hours, and have the potential to be interrupted. However, for
+shorter jobs or jobs that have implemented self-checkpointing, this is not a drawback and allowing jobs to run on these
+additional servers opens up more capacity. 
+
+Therefore, these servers are a good fit for GPU jobs that run in a few hours 
+or less, or have implemented self-checkpointing (the capability to save progress 
+to a file and restart from that progress). Use the `is_resumable` option shown 
+above in the [list of submit file options](#1-choose-gpu-related-submit-file-options). 
+
+## 2. Use the `gzk` Servers
+
+These are servers that are similar to the GPU Lab severs with two important differences 
+for running GPU jobs: 
+- they do not have access to CHTC's large data `/staging` file system
+- they do not have Docker capability
+
+You do not need to do anything specific to allow jobs to run on these servers. 
+
+## 3. Using GPUs in CHTC's OSG Pool and the UW Grid
+
+CHTC, as a member of the [OSG Consortium](http://www.osg-htc.org/) can access GPUs that
+are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). CHTC is 
+also a member of a campus computing network called the UW Grid, where groups on campus 
+share computing capacity, including access to idle GPUs. 
+
+See [this guide](scaling-htc.html) to know
+whether your jobs are good candidates for the UW Grid or OS Pool and then get in touch
+with CHTC's Research Computing Facilitators to discuss details. 
+
+# D. Using condor_status to explore CHTC GPUs
 
 You can find out information about GPUs in CHTC through the
 `condor_status` command. All of our servers with GPUs have a `TotalGPUs`
@@ -47,7 +288,7 @@ recreated using the attributes `Machine`, `TotalGpus`,
 
 ```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' \
-			-af Machine TotalGpus CUDADeviceName CUDACapability
+				-af Machine TotalGpus CUDADeviceName CUDACapability
 ```
 {: .term}
 
@@ -91,199 +332,7 @@ server, including:
 	</tr>
 </table>
 
-
-# B. Using the CHTC GPU Lab
-
-CHTC has a set of GPUs that are available for use by any CHTC user with an 
-account on our high throughput computing (HTC) system
-via the [CHTC GPU Lab](gpu-lab.html), which includes templates and a campus GPU community.
-
-Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
-the capacity of the GPU Lab to run their work. 
-
-For those who would like to pursue alternative GPU resources, see our list of 
-[additional GPU resources below](#d-gpu-capacity-beyond-the-chtc-gpu-lab)
-
-## 1. Resources in the CHTC GPU Lab
-
-
-<table class="gtable">
-  <tr>
-    <th>Number of Servers</th>
-    <th>Names</th>
-    <th>GPUs / Server</th>
-    <th>GPU Type (<code>CUDADeviceName</code>)</th>
-    <th><code>CUDACapability</code></th>
-    <th><code>HasCHTCStaging</code></th>
-    <th>Max <code>CUDADriverVersion</code></th>
-  </tr>
-<!--  <tr>
-    <td>gpu-3.chtc.wisc.edu</td> 
-    <td>1 </td>
-    <td>Tesla K40c</td>
-  </tr>   -->  
-  <tr>
-    <td>2</td>
-    <td>gpu2000, gpu2001</td>
-    <td>2</td>
-    <td>Tesla P100-PCIE-16GB</td>
-    <td>6.0</td>
-    <td>yes</td>
-    <td>11.2</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>gpulab2000 - gpulab2003</td>
-    <td>8</td>
-    <td>GeForce RTX 2080 Ti</td>
-    <td>7.5</td>
-    <td>yes</td>
-    <td>11.2</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>gpulab2004</td>
-    <td>4</td>
-    <td>A100-SXM4-40GB</td>
-    <td>8.0</td>
-    <td>yes</td>
-    <td>11.2</td>
-  </tr>
-</table>
-
-## 2. Special Policies in the GPU Lab
-
-Because the CHTC GPU Lab was
-funded by a special investment from the [UW2020 program](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/), we
-have implemented special policies to maximize how many researchers can 
-benefit from this investment. **Specifically, jobs running on GPU Lab servers have time limits and job number limits 
-(differing from CHTC defaults across the rest of the HTC System).**
-
-{:.gtable}
-  | Job type | Maximum runtime | Per-user limitation | 
-  | --- |
-  | Short | 12 hrs | 2/3 of CHTC GPU Lab GPUs | 
-  | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
-  | Long  | 7 days | 1 job with 1-2 GPUs | 
-
-There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
-jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
-
-These job types, runtimes, and per-user limitations are subject to change with
-short notice as the CHTC GPU Lab studies usage patterns.
-
-By opting-in to use the CHTC GPU Lab servers, you agree to be contacted by the
-project leaders occasionally to discuss your GPU computing and help improve the
-GPU Lab.
-
-## 3. Submit Jobs Using the CHTC GPU Lab
-
-The following options are needed in your HTCondor submit file in order 
-to access the GPUs in the CHTC GPU Lab: 
-
-- **Request GPUs**: All jobs that use GPUs must request GPUs in their submit file (along
-with the usual requests for CPUs, memory and disk).
-	```
-	request_gpus = 1
-	```
-	{: .sub}
-
-- **Request the CHTC GPU Lab**: To use CHTC's shared use GPUs, you need to opt-in to the GPU Lab. To 
-do so, add the
-following line to your submit file:
-	```
-	+WantGPULab = true
-	```
-	{: .sub}
- 
-- **Indicate Job Type**: We have categorized three "types"
-of GPU jobs, characterized in the table [above](#2-special-policies-in-the-gpu-lab).  Indicate which job type you would 
-like to submit by using the submit file option below. 
-	```
-	+GPUJobLength = "short" 
-	# Can also request "medium" or "long"
-	```
-	{: .sub}
-	If you do not specify a job type, the `medium` job type will be used as the default. If 
-	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
-	"short" jobs because you will be able to have more jobs running at once. 
-
-- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a specific version of CUDA, a certain
-type of GPU, or has some other special requirement, you will need to add
-a "requirements" statement to your submit file that uses one of the
-attributes shown above. If you want a certain class of GPU, use CUDACapability:
-	```
-	requirements = (CUDACapability == 7.5)
-	```
-	{: .sub}
-	It may be tempting to add requirements for specific GPU servers or
-	types of GPU cards. However, when possible, it is best to write your
-	code so that it can run across GPU types and without needing the
-	latest version of CUDA.
-
-- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
-	```
-	requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
-	```
-	{:.sub}
-	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
- 
-A complete sample submit file is shown below. There are also example submit files and 
-job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
-in CHTC's Github organization. 
-
-```
-# gpu-lab.sub
-# sample submit file for GPU Lab jobs
-
-universe = vanilla
-log = job_$(Cluster)_$(Process).log
-error = job_$(Cluster)_$(Process).err
-output = job_$(Cluster)_$(Process).out
-
-# Fill in with whatever executable you're using
-executable = run_gpu_job.sh
-#arguments = 
-
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-# Uncomment and add input files that are in /home
-# transfer_input_files = 
-
-# Uncomment and add custom requirements
-# requirements = 
-
-+WantGPULab = true
-+GPUJobLength = "short"
-
-request_gpus = 1
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue 1
-
-```
-{: .sub}
-
-## 4. General Notes
-
-It is important to still request at least one CPU per job to do the
-processing that is not well-suited to the GPU.
-
-Note that HTCondor will make sure your job has access to the GPU; it will
-set the environment variable `CUDA_VISIBLE_DEVICES` to indicate which GPU(s)
-your code should run on. The environment variable will be read by CUDA to select the appropriate 
-GPU(s). Your code should not modify this environment variable or manually 
-select which GPU to run on, as this could result in two jobs sharing a GPU. 
-
-It is possible to request multiple GPUs. Before doing so, make sure you're 
-using code that can utilize multiple GPUs and then submit a test job to confirm 
-success before submitting a bigger job. Also keep track of how long jobs 
-are running versus waiting; the time you save by using multiple GPUs may be 
-not worth the extra time that the job will likely wait in the queue. 
-
-# C. Preparing Software Using GPUs
+# E. Prepare Software Using GPUs
 
 Before using GPUs in CHTC you should ensure that the use of GPUs will
 actually help your program run faster. This means that the code or
@@ -324,62 +373,3 @@ Docker that integrates Docker containers with GPUs. If you can find or
 create a Docker image with your software that is based on the
 nvidia-docker container, you can use this to run your jobs in CHTC. See
 our [Docker guide](docker-jobs.html) for how to use Docker in CHTC.
-
-
-# D. GPU Capacity Beyond the CHTC GPU Lab
-
-The following resources are additional CHTC-accessible servers with GPUs. They do not have the 
-special time limit policies or job limits of the GPU Lab. However, some of them are 
-owned or prioritized by specific groups. The implications of this 
-on job runtimes is noted in each section. 
-
-Note that all GPU jobs need to include the `request_gpus` option in their submit file, 
-even if they are not using the GPU Lab. 
-
-```
-request_gpus = 1
-```
-{: .sub}
-
-## 1. Access Research Group GPUs
-
-Certain GPU servers in CHTC are prioritized for the
-research groups that own them, but are available to run other jobs when
-not being used by their owners. When running on these servers, jobs
-forfeit our otherwise guaranteed runtime of 72 hours, and have the potential to be interrupted. However, for
-shorter jobs or jobs that have implemented self-checkpointing, this is not a drawback and allowing jobs to run on these
-additional servers opens up more capacity. 
-
-Therefore, these servers are a good fit for GPU jobs that run in a few hours 
-or less, or have implemented self-checkpointing (the capability to save progress 
-to a file and restart from that progress). 
-
-To allow jobs to run on these
-research-group owned servers if there is space, add the "Is_Resumable"
-option to your submit file:
-
-```
-+Is_Resumable = true
-```
-{: .sub}
-
-Another option that allows jobs to run on backfill servers is "wantFlocking" option. Like "Is_Resumable," this option is best used for short or checkpointed jobs, as "wantFlocking" is overloaded and implies "Is_Resumable." However, unlike "Is_Resumable," this option is not constrained to CHTC servers and allows jobs to land in other campus pools that are not CHTC. One caveat to note is that these other pools are not guaranteed to have some CHTC features, like Docker, or CHTC's file staging system. To access flocking, add the "wantFlocking" option to your submit file:
-
-```
-+wantFlocking = true
-```
-{: .sub}
-
-## 2. Use the `gzk` Servers
-
-These are servers that are similar to the GPU Lab severs with two important differences 
-for running GPU jobs: 
-- they do not have access to CHTC's large data `/staging` file system
-- they do not have Docker capability
-
-## 3. Using GPUs on the OS Pool
-
-CHTC, as a member of the [OSG Consortium](http://www.osg-htc.org/) can access GPUs that
-are available on the [OS Pool](https://osg-htc.org/about/open_science_pool/). See [this guide](scaling-htc.html) to know
-whether your jobs are good candidates for the OS Pool and then get in touch
-with CHTC's Research Computing Facilitators to discuss details. 
