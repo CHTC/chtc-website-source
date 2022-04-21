@@ -137,10 +137,16 @@ attributes shown above. If you want a certain class of GPU, use `CUDACapability`
 requirements = (CUDACapability == 7.5)
 	```
 	{: .sub}
+	
+	You can see a table of the different attributes that HTCondor tracks 
+	about the GPU nodes, and how to explore their values, in the section
+	on [Using condor_status to explore CHTC GPUs](#d-using-condor_status-to-explore-CHTC-GPUs). 
+	
 	It may be tempting to add requirements for specific GPU servers or
 	types of GPU cards. However, when possible, it is best to write your
 	code so that it can run across GPU types and without needing the
 	latest version of CUDA.
+	
 
 - **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
 	```
