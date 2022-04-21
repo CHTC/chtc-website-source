@@ -140,8 +140,8 @@ requirements = (CUDACapability == 7.5)
 	
 	You can see a table of the different attributes that HTCondor tracks 
 	about the GPU nodes, and how to explore their values, in the section
-	on [Using condor_status to explore CHTC GPUs](#d-using-condor_status-to-explore-CHTC-GPUs). 
-	
+	on [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus).
+		
 	It may be tempting to add requirements for specific GPU servers or
 	types of GPU cards. However, when possible, it is best to write your
 	code so that it can run across GPU types and without needing the
