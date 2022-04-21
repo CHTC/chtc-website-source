@@ -129,12 +129,15 @@ like to submit by using the submit file option below.
 	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
 	"short" jobs because you will be able to have more jobs running at once. 
 
-- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a certain
-type of GPU, or has some other special requirement, you will need to add
-a "requirements" statement to your submit file that uses one of the
-attributes shown above. If you want a certain class of GPU, use `GPUs_Capability`:
+- **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
+type of GPU, or has some other special requirement, there is a special submit file line 
+to request these capabilities, `require_gpus`. Each GPU attribute that can be requested 
+in this way is structured as `GPUs_feature`. You can request specific features by using 
+the feature name in the `require_gpus` statment.  For example, if you want a certain 
+class of GPU, represented by 
+the attribute `GPUs_Capability`, your `require_gpus` statement would look like this: 
 	```
-requirements = (GPUs_Capability == 7.5)
+require_gpus = (Capability > 7.5)
 	```
 	{: .sub}
 	
@@ -148,17 +151,17 @@ requirements = (GPUs_Capability == 7.5)
 	latest version of CUDA.
 	
 
-- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
+- **Specify Multiple GPU Requirements (optional)**: Multiple requirements can be specified by using && statements:
 	```
-requirements = (GPUS_Capability >= 7.5) && (GPUs_GlobalMemoryMb >= 11000)
+require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
 	```
 	{:.sub}
 	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
 
-- **Indicate Software or Data Requirements**: If your data is large enough to 
+- **Indicate Software or Data Requirements Using `requirements`**: If your data is large enough to 
 	use our `/staging` data system (see more information [here](file-avail-largedata.html)), 
 	or you are using modules or other software in our shared `/software` system, include 
-	the needed requirements (combining with any other GPU requirements as shown above). 
+	the needed requirements. 
 
 - **Indicate Shorter/Resumable Jobs**: if your jobs are shorter than 4-6 hours, or have 
     the ability to checkpoint at least that frequently, we highly recommend taking 
