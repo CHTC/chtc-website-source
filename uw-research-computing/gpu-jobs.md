@@ -40,9 +40,9 @@ the capacity of the GPU Lab to run their work.
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type (<code>CUDADeviceName</code>)</th>
-    <th>Hardware Generation <code>CUDACapability</code></th>
-    <th>Max <code>CUDADriverVersion</code></th>
+    <th>GPU Type (<code>GPUs_DeviceName</code>)</th>
+    <th>Hardware Generation <code>GPUs_Capability</code></th>
+    <th>Max <code>GPUs_DriverVersion</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -129,12 +129,12 @@ like to submit by using the submit file option below.
 	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
 	"short" jobs because you will be able to have more jobs running at once. 
 
-- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a specific version of CUDA, a certain
+- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a certain
 type of GPU, or has some other special requirement, you will need to add
 a "requirements" statement to your submit file that uses one of the
-attributes shown above. If you want a certain class of GPU, use `CUDACapability`:
+attributes shown above. If you want a certain class of GPU, use `GPUs_Capability`:
 	```
-requirements = (CUDACapability == 7.5)
+requirements = (GPUs_Capability == 7.5)
 	```
 	{: .sub}
 	
@@ -150,7 +150,7 @@ requirements = (CUDACapability == 7.5)
 
 - **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
 	```
-requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
+requirements = (GPUS_Capability >= 7.5) && (GPUs_GlobalMemoryMb >= 11000)
 	```
 	{:.sub}
 	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
@@ -294,7 +294,7 @@ recreated using the attributes `Machine`, `TotalGpus`,
 
 ```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' \
-				-af Machine TotalGpus CUDADeviceName CUDACapability
+				-af Machine TotalGpus GPUs_DeviceName GPUs_Capability
 ```
 {: .term}
 
@@ -316,24 +316,24 @@ server, including:
 		<td>The total number of GPUs on a server.</td>
 	</tr>
 	<tr>
-		<td><code>CUDADeviceName</code></td>
+		<td><code>GPUs_DeviceName</code></td>
 		<td>The type of GPU card.</td>
 	</tr>
 	<tr>
-		<td><code>CUDACapability</code></td>
+		<td><code>GPUs_Capability</code></td>
 		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
 		requiring a specific type of GPU. <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">Wikipedia</a>
-		has a table showing the CUDA compute capability for specific GPU architectures and cards.
+		has a table showing the compute capability for specific GPU architectures and cards.
 		More details on what the capability numbers mean can be found on the 
 		<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">
 		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>CUDADriverVersion</code></td>
-		<td>Maximum CUDA runtime version supported by the GPU drivers on the server. </td>
+		<td><code>GPUs_DriverVersion</code></td>
+		<td><b>Not</b> the version of CUDA on the server, but the maximum CUDA runtime version supported by the GPU drivers on the server. </td>
 	</tr>
 	<tr>
-		<td><code>CUDAGlobalMemoryMb</code></td>
+		<td><code>GPUs_GlobalMemoryMb</code></td>
 		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
