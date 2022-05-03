@@ -1,0 +1,1 @@
+{% assign news = site.news | where_exp: "news", "news.publish_on contains site.key" | sort: "date" |  reverse %}

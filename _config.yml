@@ -1,5 +1,6 @@
 baseurl: ''
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
+key: chtc
 
 # Google analytics
 google_analytics:
