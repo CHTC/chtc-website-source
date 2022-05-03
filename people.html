@@ -12,11 +12,12 @@ title: Our Staff
     <h2 class="uw-mini-bar">2021 Staff Picture</h2>
     <img src="images/CHTC_Team_Photo_2021.jpg" alt="Team Zoom Photograph">
 </div>
+{% get/team.liquid %}
 <div class="bg-light pt-1 mt-3 pb-4">
     <div class="container-xxl">
         <h2 class="uw-mini-bar">Leadership</h2>
         <div class="row">
-            {% assign sorted_team = site.data.team | where: "status", "Leadership" | sort: "name" %}
+            {% assign sorted_team = team | where: "status", "Leadership" | sort: "name" %}
             {% for member in sorted_team %}
                 <div class="col-12 col-md-8 col-lg-6">
                     {% include /components/team-card-promoted.html %}
@@ -25,7 +26,7 @@ title: Our Staff
         </div>
         <h2 class="uw-mini-bar">Staff</h2>
         <div class="row">
-            {% assign sorted_team = site.data.team | where: "status", "Staff" | sort: "name" %}
+            {% assign sorted_team = team | where: "status", "Staff" | sort: "name" %}
             {% for member in sorted_team %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     {% include /components/team-card.html %}
@@ -34,7 +35,7 @@ title: Our Staff
         </div>
         <h2 class="uw-mini-bar">Students</h2>
         <div class="row">
-            {% assign sorted_team = site.data.team | where: "status", "Student" | sort: "name" %}
+            {% assign sorted_team = team | where: "status", "Student" | sort: "name" %}
             {% for member in sorted_team %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     {% include /components/team-card.html %}
