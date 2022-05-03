@@ -1,0 +1,23 @@
+name: Update Submodules
+on: workflow_dispatch
+
+jobs:
+
+  Update-Submodules:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Pull down submodules
+        run: |
+          git checkout -b preview-update-submodules
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git submodule update --remote --merge
+          git add .
+          git commit -m "Update Submodules"
+          git push --set-upstream origin preview-update-submodules
