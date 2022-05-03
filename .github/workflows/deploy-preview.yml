@@ -1,5 +1,6 @@
 name: Deploy Web Previews
 on:
+  workflow_dispatch:
   push:
     branches:
       - preview-**
