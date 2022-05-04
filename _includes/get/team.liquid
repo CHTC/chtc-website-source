@@ -1,0 +1,5 @@
+{% assign team = "" | split : "" %}
+
+{% for member in site.data.team %}
+{% assign team = team | push: member[1] %}
+{% endfor %}
