@@ -125,7 +125,7 @@ address.
     transfer\_input\_files line of your submit file:
 
     ``` {.sub}
-    transfer_input_files = other_file1,other_file2,http://proxy.chtc.wisc.edu/SQUID/username/lg_file.txt
+    transfer_input_files = other_file1,other_file2,http://proxy.chtc.wisc.edu/SQUID/username/large_file.txt
     ```
 
     **Important:**Make sure to replace \"username\" with your username
