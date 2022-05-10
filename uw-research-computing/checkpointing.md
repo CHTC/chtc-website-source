@@ -7,7 +7,7 @@ title: Checkpointing Jobs
 
 # What is Checkpointing?
 
-Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour maximum default runtime on the HTC cluster. 
+Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour maximum default runtime on the HTC system. 
 
 This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.
 
@@ -20,7 +20,7 @@ Note that not all software, programs, or code are capable of creating checkpoint
 
 Checkpointing allows a job to automatically resume from approximately where it left off instead of having to start over if interrupted. This behavior is advantageous for jobs limited by a maximum runtime policy (72 hours on the HTC system). It is also advantageous for jobs submitted to backfill resources with no runtime guarantee (e.g. for [+WantFlocking or +WantGliding jobs](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html)) where the compute resources may also be more prone to hardware or networking failures.
 
-For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by loosing results mid-way through an analysis due to hitting a runtime limit. 
+For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by losing results mid-way through an analysis due to hitting a runtime limit. 
 
 # Process of Exit Driven Checkpointing
 
@@ -33,7 +33,7 @@ The process of exit driven checkpointing relies heavily on the use of exit codes
 
 Requirements for your code or software: 
 
-- *Checkpoint*: The software, program, or code you are using must be able to capture checkpoint files (i.e. snapshots of the progress made thus far) and know how to resume from them. 
+- *Checkpoint*: The software, program, or code you are using must be able to generate checkpoint files (i.e. snapshots of the progress made thus far) and know how to resume from them. 
 - *Resume*: This means your code must be able to recognize checkpoint files and know to resume from them instead of the original input data when the code is restarted. 
 - *Exit*: Jobs should exit with an exit code value of `85` after successfully creating checkpoint files. Additionally, jobs need to be able to exit with a non-`85` value if they encounter an error or write the writing the final outputs.
 
@@ -63,6 +63,7 @@ arguments                   = argument1 argument2
 
 checkpoint_exit_code        = 85
 transfer_checkpoint_files   = my_output.txt, temp_dir, temp_file.txt
++is_resumable = true
 
 should_transfer_files       = yes
 when_to_transfer_output     = ON_EXIT
@@ -131,7 +132,7 @@ exit $timeout_exit_status
 
 ```
 
-The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout are less able to take advantage of [submitting jobs outside of CHTC](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html) to run on other campus resources or on the OSPool. 
+The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout are less able to take advantage of [submitting jobs outside of CHTC](scaling-htc.html) to run on other campus resources or on the OSPool. 
 
 
 # Checking the Progress of Checkpointing Jobs
