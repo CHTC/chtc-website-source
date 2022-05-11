@@ -12,6 +12,24 @@ For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 ------------------------------------------------------------------------
 
+## Planned maintenance for HPC Cluster on Tuesday, May 17
+### May 11, 2022
+
+Greetings CHTC users, 
+
+This message is for users of CHTC’s HPC Cluster (log in to hpclogin1.chtc.wisc.edu or hpclogin2.chtc.wisc.edu).
+
+There will be a maintenance outage for the HPC Cluster next Tuesday, May 17. Most cluster components will remain on, but users will not be able to submit new jobs during the maintenance and any currently running jobs will be interrupted. 
+
+In order to minimize disruption, starting today, idle jobs in the queue will ONLY start if their indicated run time (#SBATCH --time=) will complete before the maintenance next Tuesday. 
+
+Email us at chtc@cs.wisc.edu with any questions. 
+
+Cheers,
+Your CHTC Team 
+
+------------------------------------------------------------------------
+
 ## Office hours canceled Thursday (4/7) for Illuminating Connections event
 ### April 5, 2022
 
