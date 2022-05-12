@@ -10,6 +10,26 @@ changes may affect the jobs of users.
 
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
+
+------------------------------------------------------------------------
+
+## HTC Capacity Restored; GPU Configuration Error
+### May 12, 2022
+
+Greetings CHTC users, 
+
+This message is for users of CHTC’s HTC System, especially those using GPUs. 
+
+1. Earlier today, a change in the configuration of CHTC’s GPU nodes resulted in a mismatch between the underlying GPU (CUDA) drivers and libraries. This likely caused jobs to fail.  If you had GPU jobs in the queue today, please check your jobs for failures or holds. The GPU nodes will not execute any GPU-dependent jobs until we have resolved this configuration issue. 
+
+1. The HTC system upgrades that began last Wednesday (5/4) and may have caused jobs to experience lower throughput are complete. Excluding GPU nodes, the HTC cluster has returned to full capacity. 
+
+Contact us with questions at chtc@cs.wisc.edu, especially if you are seeing unexplained errors from recent jobs that could be related to the above. 
+
+Best, 
+
+Your CHTC Team
+
 ------------------------------------------------------------------------
 
 ## Office hours canceled Thursday (4/7) for Illuminating Connections event
