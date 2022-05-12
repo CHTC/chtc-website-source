@@ -38,17 +38,17 @@ a national-scale environment for distributed HTC.
 <div class="bg-light py-4">
     <div class="container-lg">
         <div class="row justify-content-center" >
-            {% assign ordered_news = site.news | sort: "date" | reverse %}
-            {% for news in ordered_news limit:3 %}
+            {% include get/news.liquid %}
+            {% for article in news limit:3 %}
             {% include news-posting.html
             class=" col-12 "
-            href=news.url
-            title=news.title
-            author=news.author
-            src=news.image_src
-            alt=news.image_alt
-            date=news.date
-            excerpt=news.excerpt
+            href=article.url
+            title=article.title
+            author=article.author
+            src=article.card_src
+            alt=article.card_alt
+            date=article.date
+            excerpt=article.excerpt
             %}
             {% endfor %}
         </div>

@@ -7,17 +7,17 @@ title: News
 <div class="container-xxl mb-4">
     {% include page-title.html title=page.title %}
     <div class="row">
-        {% assign ordered_news = site.news | sort: "date" | reverse %}
-        {% for news in ordered_news %}
+        {% include get/news.liquid %}
+        {% for article in news %}
             {% include news-posting.html
                 class=" col-6 my-2 "
-                href=news.url
-                title=news.title
-                author=news.author
-                src=news.image_src
-                alt=news.image_alt
-                date=news.date
-                excerpt=news.excerpt
+                href=article.url
+                title=article.title
+                author=article.author
+                src=article.card_src
+                alt=article.card_alt
+                date=article.date
+                excerpt=article.excerpt
             %}
         {% endfor %}
     </div>
