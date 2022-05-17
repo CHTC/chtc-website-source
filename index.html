@@ -3,6 +3,15 @@ layout: default
 title: Home
 ---
 
+{% assign now = "now" | date: "%s" %}
+{% if now < "1653540900" %}
+<hr class="m-0">
+<div class="py-2 container-xxl">
+    <b>New Job Posted!</b><span> Check out our new full-time Software Engineer position on our <a href="jobs.html#software-engineer">jobs</a> page.</span>
+</div>
+<hr class="m-0">
+{% endif %}
+
 <div class="bg-light py-3">
     <div class="container-lg mw-1000">
         <img src="{{ 'images/HTC_Graphic_Outline.svg' | relative_url }}"  alt="CHTC Logo" />

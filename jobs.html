@@ -46,13 +46,32 @@ title: Available Positions
                 <a href="http://www.opensciencegrid.org/">The Open Science Grid</a>.
             </p>
 
-<!--            <h2 id="full-time-positions">Full Time Positions</h2>-->
-<!--            <p>-->
-<!--                Details about our open full-time positions are typically provided below.-->
-<!--                Positions pertaining to "HTCondor" and "CHTC" search terms can also-->
-<!--                be found on the <a href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&amp;search-keyword=chtc">University's Position Vacancy List-->
-<!--                (PVL)</a>.-->
-<!--            </p>-->
+            <h2 id="full-time-positions">Full Time Positions</h2>
+            <p>
+                Details about our open full-time positions are typically provided below.
+                Positions pertaining to "HTCondor" and "CHTC" search terms can also
+                be found on the <a href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&amp;search-keyword=chtc">University's Position Vacancy List
+                (PVL)</a>.
+            </p>
+
+            {% assign now = "now" | date: "%s" %}
+            {% if now < "1653540900" %}
+                <h3 id="software-engineer" href="https://jobs.hr.wisc.edu/en-us/job/513718/software-engineer">Software Engineer</h3>
+                <p>
+                    Join the Center for High Throughput Computing (CHTC) as a software engineer implementing the next
+                    generation of large-scale distributed computing actively used by many of the largest science projects
+                    in the world!
+                </p>
+                <p>
+                    This is the perfect opportunity for a recent graduate with a B.S. or M.S. degree that
+                    is comfortable writing software with C++ and working in a Linux environment. You will work with an
+                    experienced team of colleagues to support and enhance the HTCondor Software Suite which enables scientists
+                    and engineers to solve computational problems using systems ranging from a laptop to hundreds of thousands
+                    of CPU cores at some of the largest scientific facilities on earth.
+                </p>
+                <p><a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/513718/software-engineer">View Full Job Listing</a></p>
+            {% endif %}
+
 
 <!--            <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>-->
 <!--            <p>-->
@@ -129,6 +148,10 @@ title: Available Positions
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
+                                {% assign now = "now" | date: "%s" %}
+                                {% if now < "1653540900" %}
+                                    <li><a href="#software-engineer">Software Engineer</a></li>
+                                {% endif %}
                                 <li><a href="#graduate-student-research-and-project-assistantship-ra-pa-openings">Graduate Research Openings</a></li>
                             </ul>
                         </div>
