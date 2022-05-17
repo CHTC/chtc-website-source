@@ -13,6 +13,39 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Register for HTCondor Week May 23 - 27th; CHTC Office Hours Canceled and Limited Email Access; Outage Updates
+### Tuesday, May 17, 2022
+
+Greetings CHTC users, 
+
+### All CHTC users are welcome and encouraged to attend HTCondor Week! 
+
+HTCondor Week is an annual conference hosted by CHTC’s HTCondor Software Suite development team. It includes tutorials, technical talks, and research talks; highlights for CHTC users include the learning talks and tutorials on Monday morning and researcher talks on Thursday. 
+
+CHTC users can register to view all talks online through Monday, May 23, with a cost of $25 for the whole conference. CHTC users are also welcome to join in-person for free (food/drinks not included) on Monday and Thursday morning. To join in-person, please register on Monday and Thursday morning at the CHTC booth at the Fluno Center. 
+
+See details here: htcondor.org/HTCondorWeek2022
+
+### Limited Staff Availability, May 23-27th
+
+The Research Computing Facilitators will be out of the office the week of May 23-27th due to HTCondor Week. During this time, we will have limited access to email and our Tuesday/Thursday office hours will be canceled. 
+
+### GPU Maintenance Nearly Complete
+
+Almost all GPU machines are functioning as usual and are now accepting jobs. If you had GPU jobs in the queue earlier this week, please check your jobs for failure or holds. 
+
+### HPC Maintenance Complete
+
+The maintenance on the HPC cluster is now complete. Jobs in the queue should begin matching as usual. Please contact us with any concerns. 
+
+The best way to reach us is still chtc@cs.wisc.edu should you have any questions. 
+
+Best, 
+
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## HTC Capacity Restored; GPU Configuration Error
 ### May 12, 2022
 
