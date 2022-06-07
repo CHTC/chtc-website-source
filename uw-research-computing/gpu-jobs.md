@@ -290,7 +290,7 @@ To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
 specific server attributes. For example, the tables below can be mostly
 recreated using the attributes `Machine`, `TotalGpus`,
-`CUDADeviceName` and `CUDACapability`:
+`GPUs_DeviceName` and `GPUs_Capability`:
 
 ```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' \
