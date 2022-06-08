@@ -2,6 +2,15 @@ baseurl: ''
 exclude: [vendor, deploy_key.enc, TEMPLATE.shtml, archive_html, dev_website]
 key: chtc
 
+#SEO
+title: CHTC
+tagline: Center for High Throughput Computing
+description: UW-Madison team established to bring the power of High Throughput Computing to all fields of research.
+url: https://chtc.cs.wisc.edu
+twitter:
+  username: chtc_uw
+  card: summary
+
 # Google analytics
 google_analytics:
 
@@ -34,4 +43,5 @@ sass:
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-seo-tag
 

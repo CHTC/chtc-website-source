@@ -22,11 +22,11 @@ function create_html(data){
         "<div class='result card'>" +
         "<a " + href + ">" +
         "<div class='card-body p-0 p-sm-3'>" +
-        "<div class='card-title text-left mb-2'>" +
+        "<div class='card-title text-start mb-2'>" +
         data.title +
         "</div>" +
         "<div>" +
-        "<h6 class='card-subtitle text-primary text-left'>" + data.subtitle + "</h6>" +
+        "<h6 class='card-subtitle text-primary text-start'>" + data.subtitle + "</h6>" +
         "</div>" +
         "</div>" +
         "</a>" +
