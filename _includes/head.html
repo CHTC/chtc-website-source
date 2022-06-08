@@ -15,9 +15,9 @@
         iframe.width = (newwidth) + "px";
     }
 </script>
-{% seo %}
-{% if jekyll.environment == 'production' %}
 
+{% if jekyll.environment == 'production' %}
+    {% seo %}
 {% else %}
     <meta name="robots" content="noindex">
 {% endif %}
@@ -26,7 +26,7 @@
 {% include analytics.html %}
 {% endif %}
 
-<script type="text/javascript" src="{{ '/assets/js/uw-style.js' | relative_url }}"></script>
+<script type="text/javascript" src="{{ '/assets/js/uw-style.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/lunr.js' | relative_url }}" type="text/javascript" async></script>
 <script type="text/javascript" src="{{ '/assets/js/search_bar.js' | relative_url }}" defer></script>
 
