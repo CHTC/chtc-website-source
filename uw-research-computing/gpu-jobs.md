@@ -42,7 +42,7 @@ the capacity of the GPU Lab to run their work.
     <th>GPUs / Server</th>
     <th>GPU Type (<code>GPUs_DeviceName</code>)</th>
     <th>Hardware Generation <code>GPUs_Capability</code></th>
-    <th>Max <code>GPUs_DriverVersion</code></th>
+    <th>GPU Memory <code>GPUs_GlobalMemoryMB</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -55,7 +55,7 @@ the capacity of the GPU Lab to run their work.
     <td>2</td>
     <td>Tesla P100-PCIE-16GB</td>
     <td>6.0</td>
-    <td>11.5</td>
+    <td>16GB</td>
   </tr>
   <tr>
     <td>4</td>
@@ -63,7 +63,7 @@ the capacity of the GPU Lab to run their work.
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>7.5</td>
-    <td>11.5</td>
+    <td>10GB</td>
   </tr>
   <tr>
     <td>2</td>
@@ -71,7 +71,7 @@ the capacity of the GPU Lab to run their work.
     <td>4</td>
     <td>A100-SXM4-40GB</td>
     <td>8.0</td>
-    <td>11.5</td>
+    <td>40GB</td>
   </tr>
 </table>
 
@@ -131,9 +131,9 @@ like to submit by using the submit file option below.
 
 - **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
 type of GPU, or has some other special requirement, there is a special submit file line 
-to request these capabilities, `require_gpus`. Each GPU attribute that can be requested 
+to request these capabilities, `require_gpus`. Each GPU quality that can be requested 
 in this way is structured as `GPUs_<Feature>`. You can request specific features by using 
-the feature name in the `require_gpus` statment.  For example, if you want a certain 
+the feature name (dropping the `GPUs_` prefix) in the `require_gpus` statement.  For example, if you want a certain 
 class of GPU, represented by 
 the attribute `GPUs_Capability`, your `require_gpus` statement would look like this: 
 	```
