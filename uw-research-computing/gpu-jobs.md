@@ -132,7 +132,7 @@ like to submit by using the submit file option below.
 - **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
 type of GPU, or has some other special requirement, there is a special submit file line 
 to request these capabilities, `require_gpus`. Each GPU attribute that can be requested 
-in this way is structured as `GPUs_feature`. You can request specific features by using 
+in this way is structured as `GPUs_<Feature>`. You can request specific features by using 
 the feature name in the `require_gpus` statment.  For example, if you want a certain 
 class of GPU, represented by 
 the attribute `GPUs_Capability`, your `require_gpus` statement would look like this: 
