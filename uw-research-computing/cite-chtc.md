@@ -19,7 +19,7 @@ Department of Energy\'s Office of Science.\
 \
 (Last updated Jan 6, 2021)\
 \
-[Appropriate acknowledgement of OSG resources is described here](https://support.opensciencegrid.org/support/solutions/articles/5000640421-acknowledging-the-open-science-grid)
+[Appropriate acknowledgement of OSG resources is described here](https://osg-htc.org/acknowledging)
   
 <br>
 
@@ -57,11 +57,11 @@ Together, CHTC-supported resources provided over 365 million CPU hours
 in 2020, and individual users regularly obtain in excess of 10,000 CPU 
 hours per day. Temporary storage space for large files can support up 
 to hundreds of terabytes of total working data. Should these resources 
-not be sufficient for your project, the CHTC can also engage computing 
+not be sufficient for the project, the CHTC can also engage computing 
 resources from across the campus grid and the [OS Pool](https://opensciencegrid.org/about/open_science_pool/), 
 an NSF-supported and expanding alliance of more than 60 universities, 
 national laboratories, scientific collaborations, and software developers. 
-We frequently obtain in excess of 150,000 free CPU hours per day from OS Pool, 
+CHTC users frequently obtain in excess of 150,000 free CPU hours per day from OS Pool, 
 with individual users achieving up to 100,000 CPU hours per day, across 
 all of these.\
 \
@@ -72,9 +72,7 @@ intimately involved in its design and implementation.  Dedicated Research
 Computing Facilitators are available to provide training to all CHTC 
 users and are available to consult on computational practices for 
 achieving the best scientific throughput. As always, CHTC will be happy 
-to provide consulting to ensure optimal use of our facilities, and 
+to provide consulting to ensure optimal use of its facilities, and 
 development of robust, reproducible methods for scalable computing.\
 \
 (Last updated July 1, 2021)\
-
-
