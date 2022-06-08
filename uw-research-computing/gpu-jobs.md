@@ -23,6 +23,11 @@ determine:
 - [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
 - [Prepare software using GPUs](#e-prepare-software-using-gpus)
 
+> ### Recent Changes (as of June 2022)
+> 
+> Due to recent updates in HTCondor, specific GPU qualities like GPU memory and compute “capability” are being tracked by HTCondor in a different way. If your jobs require specific GPU qualities like these, the mechanism for requesting them in jobs has changed. 
+Details are included in the section on [Choosing GPU-Related Submit File Options](#1-choose-gpu-related-submit-file-options). The previous recommendation of 
+using job `requirements` will be phased out at a later date. 
 
 # A. Available CHTC GPUs
 
@@ -40,9 +45,9 @@ the capacity of the GPU Lab to run their work.
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type (<code>CUDADeviceName</code>)</th>
-    <th>Hardware Generation <code>CUDACapability</code></th>
-    <th>Max <code>CUDADriverVersion</code></th>
+    <th>GPU Type (<code>GPUs_DeviceName</code>)</th>
+    <th>Hardware Generation <code>GPUs_Capability</code></th>
+    <th>GPU Memory <code>GPUs_GlobalMemoryMB</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -55,7 +60,7 @@ the capacity of the GPU Lab to run their work.
     <td>2</td>
     <td>Tesla P100-PCIE-16GB</td>
     <td>6.0</td>
-    <td>11.5</td>
+    <td>16GB</td>
   </tr>
   <tr>
     <td>4</td>
@@ -63,7 +68,7 @@ the capacity of the GPU Lab to run their work.
     <td>8</td>
     <td>GeForce RTX 2080 Ti</td>
     <td>7.5</td>
-    <td>11.5</td>
+    <td>10GB</td>
   </tr>
   <tr>
     <td>2</td>
@@ -71,7 +76,7 @@ the capacity of the GPU Lab to run their work.
     <td>4</td>
     <td>A100-SXM4-40GB</td>
     <td>8.0</td>
-    <td>11.5</td>
+    <td>40GB</td>
   </tr>
 </table>
 
@@ -129,12 +134,15 @@ like to submit by using the submit file option below.
 	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
 	"short" jobs because you will be able to have more jobs running at once. 
 
-- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a specific version of CUDA, a certain
-type of GPU, or has some other special requirement, you will need to add
-a "requirements" statement to your submit file that uses one of the
-attributes shown above. If you want a certain class of GPU, use `CUDACapability`:
+- **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
+type of GPU, or has some other special requirement, there is a special submit file line 
+to request these capabilities, `require_gpus`. Each GPU quality that can be requested 
+in this way is structured as `GPUs_<Feature>`. You can request specific features by using 
+the feature name (dropping the `GPUs_` prefix) in the `require_gpus` statement.  For example, if you want a certain 
+class of GPU, represented by 
+the attribute `GPUs_Capability`, your `require_gpus` statement would look like this: 
 	```
-requirements = (CUDACapability == 7.5)
+require_gpus = (Capability > 7.5)
 	```
 	{: .sub}
 	
@@ -148,17 +156,17 @@ requirements = (CUDACapability == 7.5)
 	latest version of CUDA.
 	
 
-- **Specify Multiple Requirements (optional)**: Multiple requirements can be specified by using && statements:
+- **Specify Multiple GPU Requirements (optional)**: Multiple requirements can be specified by using && statements:
 	```
-requirements = (CUDACapability >= 7.5) && (CUDAGlobalMemoryMb >= 5000)
+require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
 	```
 	{:.sub}
 	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
 
-- **Indicate Software or Data Requirements**: If your data is large enough to 
+- **Indicate Software or Data Requirements Using `requirements`**: If your data is large enough to 
 	use our `/staging` data system (see more information [here](file-avail-largedata.html)), 
 	or you are using modules or other software in our shared `/software` system, include 
-	the needed requirements (combining with any other GPU requirements as shown above). 
+	the needed requirements. 
 
 - **Indicate Shorter/Resumable Jobs**: if your jobs are shorter than 4-6 hours, or have 
     the ability to checkpoint at least that frequently, we highly recommend taking 
@@ -290,11 +298,11 @@ To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
 specific server attributes. For example, the tables below can be mostly
 recreated using the attributes `Machine`, `TotalGpus`,
-`CUDADeviceName` and `CUDACapability`:
+`GPUs_DeviceName` and `GPUs_Capability`:
 
 ```
 [alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' \
-				-af Machine TotalGpus CUDADeviceName CUDACapability
+				-af Machine TotalGpus GPUs_DeviceName GPUs_Capability
 ```
 {: .term}
 
@@ -316,24 +324,24 @@ server, including:
 		<td>The total number of GPUs on a server.</td>
 	</tr>
 	<tr>
-		<td><code>CUDADeviceName</code></td>
+		<td><code>GPUs_DeviceName</code></td>
 		<td>The type of GPU card.</td>
 	</tr>
 	<tr>
-		<td><code>CUDACapability</code></td>
+		<td><code>GPUs_Capability</code></td>
 		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
 		requiring a specific type of GPU. <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">Wikipedia</a>
-		has a table showing the CUDA compute capability for specific GPU architectures and cards.
+		has a table showing the compute capability for specific GPU architectures and cards.
 		More details on what the capability numbers mean can be found on the 
 		<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">
 		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>CUDADriverVersion</code></td>
-		<td>Maximum CUDA runtime version supported by the GPU drivers on the server. </td>
+		<td><code>GPUs_DriverVersion</code></td>
+		<td><b>Not</b> the version of CUDA on the server, but the maximum CUDA runtime version supported by the GPU drivers on the server. </td>
 	</tr>
 	<tr>
-		<td><code>CUDAGlobalMemoryMb</code></td>
+		<td><code>GPUs_GlobalMemoryMb</code></td>
 		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
