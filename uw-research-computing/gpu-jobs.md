@@ -23,6 +23,11 @@ determine:
 - [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
 - [Prepare software using GPUs](#e-prepare-software-using-gpus)
 
+> ### Recent Changes (as of June 2022)
+> 
+> Due to recent updates in HTCondor, specific GPU qualities like GPU memory and compute “capability” are being tracked by HTCondor in a different way. If your jobs require specific GPU qualities like these, the mechanism for requesting them in jobs has changed. 
+Details are included in the section on [Choosing GPU-Related Submit File Options](#1-choose-gpu-related-submit-file-options). The previous recommendation of 
+using job `requirements` will be phased out at a later date. 
 
 # A. Available CHTC GPUs
 
