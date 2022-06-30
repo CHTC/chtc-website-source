@@ -168,10 +168,11 @@ want to be using!
 > If you brought along your own package directory, un-tar it here and
 > skip the directory creation step below.
 
-First, create, a directory to put your packages into:
+First, create, a directory to put your packages into, and set the `PYTHONPATH` variable: 
 
 ``` 
 [alice@build]$ mkdir packages
+[alice@build]$ export PYTHONPATH=$PWD/packages
 ```
 {:.term}
 
