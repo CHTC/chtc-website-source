@@ -180,7 +180,8 @@ $ docker run --user $(id -u):$(id -g) --rm=true -it \
 {:.term}
 -   Windows:
 ```
-$ docker run --rm=true -it -v %CD%:/scratch -w /scratch username/imagename:tag /bin/bash
+$ docker run --rm=true -it -v ${pwd}:/scratch -w /scratch username/imagename:tag 
+/bin/bash
 ```
 {:.term}
 
