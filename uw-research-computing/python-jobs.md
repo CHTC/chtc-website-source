@@ -168,10 +168,11 @@ want to be using!
 > If you brought along your own package directory, un-tar it here and
 > skip the directory creation step below.
 
-First, create, a directory to put your packages into:
+First, create a directory to put your packages into and then add that directory to our list of enviornmental variables that can be used by HTCondor to find the package directory: 
 
 ``` 
 [alice@build]$ mkdir packages
+[alice@build]$ export PYTHONPATH=$PWD/packages
 ```
 {:.term}
 
@@ -189,6 +190,15 @@ To install the Python packages run the following command:
 Replace *package1* *package2* with the names of packages you want to
 install. `pip` should download all dependent packages and install them.
 Certain packages may take longer than others.
+
+If you have difficulties installing a package, we recommend you upgrade `pip` and then try reinstalling your packages:
+
+``` 
+[alice@build]$ python3 -m pip install --upgrade pip
+[alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
+```
+{:.term}
+
 
 C. Finish Up
 ------------
