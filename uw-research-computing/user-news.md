@@ -13,6 +13,29 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## New requirement syntax for GPU jobs on HTC system
+### Tuesday, June 28, 2022
+
+Dear CHTC GPU users, 
+ 
+This message is for users of our high throughput computing (HTC) system who are using GPUs in their jobs. 
+ 
+Due to recent updates in HTCondor, specific GPU qualities like GPU Memory and GPU compute “capability” are being utilized by HTCondor in a different manner. **If your jobs require specific GPU qualities like these, the mechanism and syntax for requesting them in jobs has changed.**
+ 
+See our updated GPU Jobs guide for more details: [GPU Jobs Guide](https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs)
+ 
+The old syntax for requesting certain GPU qualities using a “requirements” statement in the submit file will continue to work, with plans to phase it out by fall 2022. **The old syntax may limit the number of servers your jobs match to, so we recommend transitioning to the new syntax to maximize the GPU capacity available to your jobs.**
+ 
+If your jobs simply request any GPUs (no additional requirements), then nothing needs to be changed in your job submission. 
+ 
+We are happy to answer any questions about this transition. As always, we can be reached at chtc@cs.wisc.edu.
+ 
+Best, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
+
 ## Register for HTCondor Week May 23 - 27th; CHTC Office Hours Canceled and Limited Email Access; Outage Updates
 ### Tuesday, May 17, 2022
 
