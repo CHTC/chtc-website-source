@@ -46,6 +46,9 @@ questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
 ## Help Via Email
 
+> ### Facilitation staff will be out of the office on Friday, July 15 and supporting the OSG School Monday, July 25 - Friday, July 29. 
+> Expect delayed replies to email during this time. 
+
 We provide support via email at the address
 [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
 to start by sending questions or issues via email. You can typically
@@ -53,7 +56,9 @@ expect a first response within a few business hours.
 
 ## Office Hours
 
-**Cancellations will be announced via email and on this webpage.**
+<!--**Cancellations will be announced via email and on this webpage.**-->
+
+> ### Office hours will be canceled on Tuesday, July 26 and Thursday, July 28.
 
 In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
 we have replaced in-person office hours with virtual office hours, office hours are:
