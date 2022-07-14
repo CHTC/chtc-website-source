@@ -13,6 +13,23 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Upcoming Office Hours Cancellations and Limited Staff Availability
+### Wednesday, July 13, 2022
+
+Dear CHTC users,
+ 
+The Research Computing Facilitators will be **out of the office this Friday, July 15th and the week of July 25th-29th** for the 2022 OSG User School. Email responses will be delayed during this period.
+ 
+Since CHTC staff will be busy hosting the 2022 OSG User School, **office hours will be canceled July 26th and 28th**. 
+ 
+The best way to reach us during these upcoming outages is to email chtc@cs.wisc.edu with any questions. 
+ 
+Best, 
+
+Your CHTC team
+
+------------------------------------------------------------------------
+
 ## New requirement syntax for GPU jobs on HTC system
 ### Tuesday, June 28, 2022
 
