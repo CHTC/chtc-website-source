@@ -3,8 +3,35 @@ layout: markdown-page
 title: Schedule Calendar Guide
 ---
 
+- [Moving from your AFS File](#moving-from-previous-afs-file)
 - [Creating The Schedule File](#creating-the-schedule-file)
 - [Populating Your Days Off](#populating-your-days-off)
+
+### Moving From Previous AFS File
+
+This section shows how one might transfer from entering their times in afs to entering their times into a Google calendar. 
+
+**Save a copy of your schedule file, the google calendar will overwrite it**
+
+If you did not do this and now need it back, Cannon has them all saved as of 2022-07-15. 
+
+#### Create an ics file from your current file in afs
+
+Login to moria
+
+```shell
+cd /p/condor/public/html/htcondor/developers/schedules
+
+source generate_personal_ics.sh <your_file_name>
+```
+
+If an error is reported in your schedule file you can fix it or ignore it and that event just won't be added. 
+
+Grab the ics file from this build and import it into your calendar you create [below](#creating-the-schedule-file). 
+
+This can be done on the [import page](https://calendar.google.com/calendar/u/0/r/settings/export).
+
+Don't forget to also create your new [schedule file](#creating-the-schedule-file) which holds your schedule meta-data.
 
 ### Creating The Schedule File
 
@@ -41,6 +68,8 @@ default:
 
 *Phone*: Your phone number(s). Example => “+1 608 265 5736 (office) <br> +1 608 576 0351 (cell)”
 
+*DailyEmail*: Do you want a daily email with information about who is gone?
+
 *calendarurl*: The url to your outage calendar. Details on obtaining this found [below](#creating-your-ical-url).
 
 *starttime*: Your typical start time, use military format. Example => "09:00"
@@ -48,6 +77,8 @@ default:
 *endtime*: Your typical end time, use military format. Example => "17:00"
 
 *status*: Your status during these hours. If you are unsure use "Office".
+
+*default\[Monday, Tuesday, Wednesday, Thursday, Friday]*: This overwrites the default for that day. Use the same format as default.
 
 _Important_
 
