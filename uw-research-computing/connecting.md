@@ -34,16 +34,17 @@ servers or head nodes:
 
 **Username and Password**
 
--   UW Madison users: Wisconsin NetId and password
--   Off-campus users: varies, by request
+- UW - Madison NetId and password
 
 **Hostname**
 
   {:.gtable}
   | HTC System |
   | --- |
-  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or after March 2021 |
-  | `submit2.chtc.wisc.edu` - typically for accounts created prior to Aug 2018 or between June 2019 - February 2021 |
+  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 
+2019, or between March 2021 - June 2022 |
+  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - 
+February 2021 or after July 1, 2022 |
 
   {:.gtable}
   | HPC Cluster - starting October 15, 2020 |
