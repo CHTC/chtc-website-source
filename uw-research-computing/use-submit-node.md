@@ -8,9 +8,9 @@ title: Policies for Using HTC Submit Servers
 Computing Facilitator, please fill out [this form](form.html).**
 
 Recently created CHTC accounts will use our submit server 
-*submit2.chtc.wisc.edu*. Accounts created previous to July 1, 2022 may be on 
+*submit2.chtc.wisc.edu*. Accounts created before July 1, 2022 may be on 
 either *submit1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*. See our 
-[connecting guide](connecting.html) for more specifics. 
+[connecting guide](connecting.html) for additional information. 
 
 Access to other submit servers is granted for
 specific purposes and will have been indicated to you by CHTC staff.
