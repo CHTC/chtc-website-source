@@ -45,9 +45,9 @@ the capacity of the GPU Lab to run their work.
     <th>Number of Servers</th>
     <th>Names</th>
     <th>GPUs / Server</th>
-    <th>GPU Type (<code>GPUs_DeviceName</code>)</th>
-    <th>Hardware Generation <code>GPUs_Capability</code></th>
-    <th>GPU Memory <code>GPUs_GlobalMemoryMB</code></th>
+    <th>GPU Type (<code>DeviceName</code>)</th>
+    <th>Hardware Generation <code>Capability</code></th>
+    <th>GPU Memory <code>GlobalMemoryMB</code></th>
   </tr>
 <!--  <tr>
     <td>gpu-3.chtc.wisc.edu</td> 
@@ -136,11 +136,9 @@ like to submit by using the submit file option below.
 
 - **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
 type of GPU, or has some other special requirement, there is a special submit file line 
-to request these capabilities, `require_gpus`. Each GPU quality that can be requested 
-in this way is structured as `GPUs_<Feature>`. You can request specific features by using 
-the feature name (dropping the `GPUs_` prefix) in the `require_gpus` statement.  For example, if you want a certain 
+to request these capabilities, `require_gpus`. For example, if you want a certain 
 class of GPU, represented by 
-the attribute `GPUs_Capability`, your `require_gpus` statement would look like this: 
+the attribute `Capability`, your `require_gpus` statement would look like this: 
 	```
 require_gpus = (Capability > 7.5)
 	```
@@ -296,7 +294,9 @@ GPU-enabled servers by running:
 
 To print out specific information about a GPU server and its GPUs, you
 can use the "auto-format" option for `condor_status` and the names of
-specific server attributes. For example, the tables below can be mostly
+specific server attributes. In general, when querying attributes using 
+`condor_status`, a "GPUs_" prefix needs to be added to the attribute name. 
+For example, the tables at the top of the guide can be mostly
 recreated using the attributes `Machine`, `TotalGpus`,
 `GPUs_DeviceName` and `GPUs_Capability`:
 
@@ -324,11 +324,11 @@ server, including:
 		<td>The total number of GPUs on a server.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_DeviceName</code></td>
+		<td>(<code>GPUs_</code>)<code>DeviceName</code></td>
 		<td>The type of GPU card.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_Capability</code></td>
+		<td>(<code>GPUs_</code>)<code>Capability</code></td>
 		<td>Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when 
 		requiring a specific type of GPU. <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">Wikipedia</a>
 		has a table showing the compute capability for specific GPU architectures and cards.
@@ -337,11 +337,11 @@ server, including:
 		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_DriverVersion</code></td>
+		<td><code>GPUs_</code>)<code>DriverVersion</code></td>
 		<td><b>Not</b> the version of CUDA on the server, but the maximum CUDA runtime version supported by the GPU drivers on the server. </td>
 	</tr>
 	<tr>
-		<td><code>GPUs_GlobalMemoryMb</code></td>
+		<td><code>GPUs_</code>)<code>GlobalMemoryMb</code></td>
 		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
