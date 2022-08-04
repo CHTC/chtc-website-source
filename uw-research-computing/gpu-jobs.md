@@ -338,7 +338,7 @@ server, including:
 	</tr>
 	<tr>
 		<td><code>GPUs_</code>)<code>DriverVersion</code></td>
-		<td><b>Not</b> the version of CUDA on the server, but the maximum CUDA runtime version supported by the GPU drivers on the server. </td>
+		<td><b>Not</b> the version of CUDA on the server or the NVIDIA driver version, but the maximum CUDA runtime version supported by the NVIDIA driver on the server. </td>
 	</tr>
 	<tr>
 		<td><code>GPUs_</code>)<code>GlobalMemoryMb</code></td>
