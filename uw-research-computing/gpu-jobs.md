@@ -301,7 +301,7 @@ recreated using the attributes `Machine`, `TotalGpus`,
 `GPUs_DeviceName` and `GPUs_Capability`:
 
 ```
-[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0' \
+[alice@submit]$ condor_status -constraint 'Gpus > 0' \
 				-af Machine TotalGpus GPUs_DeviceName GPUs_Capability
 ```
 {: .term}
