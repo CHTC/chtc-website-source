@@ -5,10 +5,10 @@ title: The HTC System is Transitioning to a New Linux Version (CentOS Stream 8)
 published: true
 ---
 
-Starting on August 10, CHTC's high throughput computing (HTC) system will begin upgrading
+Starting on August 1, CHTC's high throughput computing (HTC) system will begin upgrading
 the Linux distribution and version we use on our servers. The current version of Linux running on 
 most of our servers is CentOS 7 and we will be upgrading to CentOS Stream 8. This 
-transition will happen over the next few months [See "Important Dates"](#important-dates) 
+transition will happen over the next several weeks [See "Important Dates"](#important-dates) 
 and requires [proactive action from CHTC users](#what-you-need-to-do) to prevent 
 interruptions to research work. 
 
@@ -23,8 +23,8 @@ also include a notification to the `chtc-users` mailing list.
 
 * **August 2022**: significant HTC capacity running CentOS Stream 8, available for testing 
 and general use.
-* **TBD**: Default operating system requirements for jobs change from CentOS 7 to CentOS Stream 8
-* **TBD**: More than 75% of CHTC capacity is run on CentOS Stream 8
+* **September 15, 2022**: Default operating system requirements for jobs change from CentOS 7 to CentOS Stream 8
+* **September 2022**: More than 75% of CHTC capacity is running on CentOS Stream 8
 
 ## What You Need to Do
 
