@@ -59,7 +59,8 @@ resources, we recommend **opting into use of computers with both operating syste
 
 Only do this after you have first run a set of test jobs on CentOS Stream 8 specifically. 
 Once that has been done, see below for how to run on servers running both 
-versions of Linux: [Use Both CentOS 7 (current default) and CentOS Stream 8 (upcoming default)](use-both-centos-7-current-default-and-centos-stream-8-upcoming-default))
+versions of Linux: [Use Both CentOS 7 (current default) and CentOS Stream 8 (upcoming 
+default)](#use-both-centos-7-current-default-and-centos-stream-8-upcoming-default))
 
 If you use Docker or Singularity containers in your jobs, you do **not** need to 
 specify use of both operating systems. These jobs will run on servers using either 
@@ -77,12 +78,12 @@ operating system without any changes to your submit file.
   </tr>
   <tr>
     <td>CentOS 7</td> 
-    <td>85%</td>
+    <td>75%</td>
     <td>Build nodes, range of GPU servers, high memory nodes</td>
   </tr>
   <tr>
     <td>CentOS Stream 8</td> 
-    <td>15%</td>
+    <td>25%</td>
     <td>Build node, Servers with A100 GPUs</td>
   </tr>
 </table>
