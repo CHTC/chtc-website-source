@@ -13,6 +13,35 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## Disruptions to CHTC systems on Tues, Aug 23
+### Thursday, August 11
+
+Greetings CHTC users, 
+ 
+On Tuesday, August 23, many different components of CHTC systems will be updated with a needed 
+operating system patch. We anticipate disruptions across all CHTC services, including (but not 
+limited to) the submit servers and /staging file space on the HTC system as well as the login nodes 
+and home directories on the HPC cluster. 
+ 
+Potential issues that may occur include: 
+
+* Not being able to log in
+* Job failures due to not being able to read or write files
+* Job interruptions due to login node maintenance
+ 
+This is also an opportune time to remind all CHTC users that our file systems are not backed up and 
+it is your responsibility to make backups of important files and to move files that you are no longer 
+using off CHTC systems. 
+ 
+Please contact us at chtc@cs.wisc.edu with any questions or concerns in advance of this planned 
+maintenance.
+ 
+Best,
+ 
+Your CHTC team
+
+------------------------------------------------------------------------
+
 ## Upcoming Office Hours Cancellations and Limited Staff Availability
 ### Wednesday, July 13, 2022
 
