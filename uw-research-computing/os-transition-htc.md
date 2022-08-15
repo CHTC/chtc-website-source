@@ -14,15 +14,18 @@ interruptions to research work.**
 
 Note that this page only applies to a transition on the HTC system (submitting jobs 
 with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
-the near future as well and have a separate transition page. _Users of the HPC cluster will be notified_ when the transition to CentOS Stream 8 begins on the HPC system. 
+the near future as well and have a separate transition 
+page. _Users of the HPC cluster will be notified_ when the transition to CentOS Stream 8 begins on the HPC system. 
 
 All updates to the HTC system will be reflected on this page; significant changes may 
 also include a notification to the `chtc-users` mailing list. 
 
 ## Important Dates
 
-* **August 2022**: HTC system will support both CentOS 7 and CentOS Stream 8. By default, all jobs will continue to match to CentOS 7 machines, however, **users should begin testing jobs on CentOS Stream 8**. These machines are also available for general use. 
-and general use.
+* **August 2022**: HTC system will support both CentOS 7 and CentOS Stream 8. By default, 
+all jobs will continue to match to servers running CentOS 7, however,
+**users should begin testing jobs on servers running CentOS Stream 8**. These servers are also 
+available for general use. 
 * **September 15, 2022**: Default operating system requirements for jobs will change from CentOS 7 to CentOS Stream 8.
 * **September 2022**: More than 75% of CHTC capacity will run on CentOS Stream 8.
 
@@ -30,11 +33,11 @@ and general use.
 
 ### Actions For All Users
 
-All users of CHTC's HTC system should **test their existing workflows** on machines running CentOS Stream 8. 
+All users of CHTC's HTC system should **test their existing workflows** on servers running CentOS Stream 8. 
 The only exception are those users who use Docker or Singularity containers 
 to run their jobs. 
 
-To test jobs on CentOS Stream 8 machines:
+To test jobs on CentOS Stream 8 servers:
 
 1. Set up a set of typical jobs to use as a test set. It is ideal 
 to use a set of jobs for which you already have results so that you confirm 
@@ -51,7 +54,8 @@ If you have any concerns or questions from your job tests, please contact
 the facilitation team at chtc@cs.wisc.edu. 
 
 If your tests go well, you should be well poised for the transition and can either 
-wait for the default setting for jobs to change, or opt into allowing your jobs to run on both CentOS 7 and CentOS Stream 8 machines in 
+wait for the default setting for jobs to change, or opt into allowing your jobs to 
+run on both CentOS 7 and CentOS Stream 8 servers in 
 the meantime. See immediately below for how to do this. 
 
 ### Get More Computing (Optional)
@@ -119,6 +123,9 @@ CentOS Linux, add the following requirements line to your submit file:
 ``` {.sub}
 requirements = (OpSysMajorVer == 7) || (OpSysMajorVer == 8)
 ```
+
+> Note: this requirement is not necessary for jobs that use Docker containers; 
+> these jobs will run on servers with any operating system automatically. 
 
 The advantage of this option is that you may be able to access a
 larger number of computers in CHTC. Note that code compiled on a
