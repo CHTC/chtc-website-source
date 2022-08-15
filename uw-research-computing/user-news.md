@@ -13,6 +13,29 @@ archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
 ------------------------------------------------------------------------
 
+## HTC users: start planning and testing for operating system transition
+### August 13, 2022
+
+Greetings CHTC users, 
+
+For users of our high throughput computing (HTC) system: over the next several weeks, we will be transitioning all of our HTC system servers to run a new version of Linux. We currently use CentOS 7 Linux and will be switching to CentOS Stream 8 Linux. 
+
+**This transition may impact the ability of some software, library, and executable code to run.** We highly recommend all HTC system users begin testing jobs on the updated CentOS Stream 8 servers in case they need to recompile their software or modify their jobs to run successfully on the new operating system. 
+
+Complete information about the transition, including important dates, current available capacity, and how to request servers with different operating systems is on this page: [HTC System Transitioning to a New Linux Version (CentOS Stream 8)](https://chtc.cs.wisc.edu/uw-research-computing/os-transition-htc)
+
+This page will be updated as the transition progresses. 
+
+For users of our HPC Cluster: the default Linux version running on the HPC Cluster servers will also be upgraded from CentOS 7 Linux to CentOS Stream 8 Linux in the future. We are still planning a timeline for this transition and will provide 
+
+If you have any questions about this transition, contact chtc@cs.wisc.edu.
+
+Best, 
+
+Your CHTC Team
+
+------------------------------------------------------------------------
+
 ## Disruptions to CHTC systems on Tues, Aug 23
 ### Thursday, August 11
 
