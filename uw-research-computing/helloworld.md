@@ -75,6 +75,11 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 # transfer_input_files = file1,/absolute/pathto/file2,etc
 #
+# Add a requirements line to require jobs to run on a machine running 
+# CentOS Stream 8, which will become the default operating system in 
+# September 2022. 
+requirements = (OpSysMajorVer == 8)
+#
 # Tell HTCondor what amount of compute resources
 #  each job will need on the computer where it runs.
 request_cpus = 1
