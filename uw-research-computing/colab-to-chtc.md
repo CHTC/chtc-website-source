@@ -99,7 +99,7 @@ If you don't already have a Docker Hub account before starting this section, cre
     transfer_input_files = requirements.txt, Dockerfile
 
     +IsBuildJob = true
-    requirements = (OpSysMajorVer =?= 7)
+    requirements = (OpSysMajorVer =?= 8)
     request_cpus = 1
     request_memory = 4GB
     request_disk = 16GB
