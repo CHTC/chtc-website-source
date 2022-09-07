@@ -42,6 +42,7 @@ Supported Versions of Matlab
   | Matlab 2015b | 
   | Matlab 2018b |
   | Matlab 2020a | 
+  | Matlab 2021b | 
 
 
 **A. Preparing Your Matlab Program** 
@@ -245,7 +246,8 @@ executable = run_script.sh
     
     -   `r2015b.tar.gz`
     -   `r2018b.tar.gz`
-    -   `r2020a.tar.gz`<br>
+    -   `r2020a.tar.gz`
+    -   `r2021b.tar.gz`<br>
     
     To send the runtime package to your jobs, list a link to the
     appropriate version in your `transfer_input_files` line, as well as
@@ -264,6 +266,7 @@ executable = run_script.sh
       | `r2015b.tar.gz` | `v90` |
       | `r2018b.tar.gz` | `v95` |
       | `r2020a.tar.gz` | `v98` | 
+      | `r2021b.tar.gz` | `v911` | 
  
     So to run a Matlab job using `r2015b` and no additional arguments, the arguments line in the submit file should read:
     ```{:.sub}
