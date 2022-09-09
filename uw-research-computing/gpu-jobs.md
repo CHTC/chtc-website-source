@@ -78,6 +78,14 @@ the capacity of the GPU Lab to run their work.
     <td>8.0</td>
     <td>40GB</td>
   </tr>
+  <tr>
+    <td>10</td>
+    <td>gpu2002 - gpu2011</td>
+    <td>4</td>
+    <td>A100-SXM4-80GB</td>
+    <td>8.0</td>
+    <td>80GB</td>
+  </tr>
 </table>
 
 ### Special GPU Lab Policies
