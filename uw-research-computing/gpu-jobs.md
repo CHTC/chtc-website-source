@@ -29,6 +29,14 @@ determine:
 Details are included in the section on [Choosing GPU-Related Submit File Options](#1-choose-gpu-related-submit-file-options). The previous recommendation of 
 using job `requirements` will be phased out at a later date. 
 
+> ### New Operating System (as of August 2022)
+> 
+> The default operating system used on HTC servers is changing: [Transition 
+Page](/uw-research-computing-os-transition-htc)
+> To access as many GPUs as possible, we recommend testing your code on both 
+> operating systems currently in use at CHTC and then using the requirements
+> shown in the linked guide to run on servers running either Linux version. 
+
 # A. Available CHTC GPUs
 
 ## 1. GPU Lab
@@ -77,6 +85,14 @@ the capacity of the GPU Lab to run their work.
     <td>A100-SXM4-40GB</td>
     <td>8.0</td>
     <td>40GB</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>gpu2002 - gpu2011</td>
+    <td>4</td>
+    <td>A100-SXM4-80GB</td>
+    <td>8.0</td>
+    <td>80GB</td>
   </tr>
 </table>
 
