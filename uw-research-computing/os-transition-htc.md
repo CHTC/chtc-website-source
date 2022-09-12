@@ -26,8 +26,9 @@ also include a notification to the `chtc-users` mailing list.
 all jobs will continue to match to servers running CentOS 7, however,
 **users should begin testing jobs on servers running CentOS Stream 8**. These servers are also 
 available for general use. 
-* **September 15, 2022**: Default operating system requirements for jobs will change from CentOS 7 to CentOS Stream 8.
 * **September 2022**: More than 75% of CHTC capacity will run on CentOS Stream 8.
+* **September 29, 2022**: Default operating system requirements for jobs will change from CentOS 7 to 
+CentOS Stream 8.
 
 ## What You Need to Do
 
@@ -84,13 +85,13 @@ operating system without any changes to your submit file.
   </tr>
   <tr>
     <td>CentOS 7</td> 
-    <td>75%</td>
+    <td>33%</td>
     <td>Build nodes, range of GPU servers, high memory nodes</td>
   </tr>
   <tr>
     <td>CentOS Stream 8</td> 
-    <td>25%</td>
-    <td>Build node, Servers with A100 GPUs</td>
+    <td>67%</td>
+    <td>Build node, servers with A100 GPUs</td>
   </tr>
 </table>
 
