@@ -11,6 +11,28 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+
+------------------------------------------------------------------------
+
+## Updated Transition Timeline for HTC System Linux Changes; Take Advantage of New HTC Hardware
+### September 13, 2022
+
+Greetings CHTC users, 
+
+This email is for users of our high throughput computing (HTC) system. 
+
+In a previous email (copied below), we announced that our HTC system is undergoing an operating system upgrade, with most of our capacity using CentOS Stream 8 Linux. We planned to change the default Linux version required by jobs to CentOS Stream 8 this Thursday, September 15. However, because users have noticed some impacts to compiling new software, programs, and libraries on this new operating system, **we have decided to push back this milestone to Thursday, September 29**. This will allow us additional time to ensure minimal impact to user’s jobs upon transitioning to CentOS Stream 8 as the default Linux version on the HTC system. This change has been reflected in our [operating system transition page](/uw-research-computing/os-transition-htc). 
+
+**HTC Users should test your jobs on servers running CentOS Stream 8 as soon as possible**, if you have not already done so. For more information on testing your jobs, see our [operating system transition page](/uw-research-computing/os-transition-htc). 
+
+If you have tested your jobs on CentOS 8, we recommend using the job options that allow your jobs to run on servers with either operating system version, as this will maximize the capacity of the HTC system that you can access. As [previously announced](https://chtc.cs.wisc.edu/Technology-Refresh.html), the CHTC Infrastructure team has been busy incorporating new hardware into our HTC system and we want all of our HTC users to take advantage of these new resources!
+
+If you have any questions about our operating system transition or hardware refresh, don’t hesitate to reach out to us at chtc@cs.wisc.edu.
+
+Best, 
+
+Your CHTC Team
+
 ------------------------------------------------------------------------
 
 ## HTC users: start planning and testing for operating system transition
@@ -65,23 +87,6 @@ Your CHTC team
 
 ------------------------------------------------------------------------
 
-## Upcoming Office Hours Cancellations and Limited Staff Availability
-### Wednesday, July 13, 2022
-
-Dear CHTC users,
- 
-The Research Computing Facilitators will be **out of the office this Friday, July 15th and the week of July 25th-29th** for the 2022 OSG User School. Email responses will be delayed during this period.
- 
-Since CHTC staff will be busy hosting the 2022 OSG User School, **office hours will be canceled July 26th and 28th**. 
- 
-The best way to reach us during these upcoming outages is to email chtc@cs.wisc.edu with any questions. 
- 
-Best, 
-
-Your CHTC team
-
-------------------------------------------------------------------------
-
 ## New requirement syntax for GPU jobs on HTC system
 ### Tuesday, June 28, 2022
 
@@ -102,39 +107,6 @@ We are happy to answer any questions about this transition. As always, we can be
 Best, 
 
 Your CHTC team
-
-------------------------------------------------------------------------
-
-## Register for HTCondor Week May 23 - 27th; CHTC Office Hours Canceled and Limited Email Access; Outage Updates
-### Tuesday, May 17, 2022
-
-Greetings CHTC users, 
-
-### All CHTC users are welcome and encouraged to attend HTCondor Week! 
-
-HTCondor Week is an annual conference hosted by CHTC’s HTCondor Software Suite development team. It includes tutorials, technical talks, and research talks; highlights for CHTC users include the learning talks and tutorials on Monday morning and researcher talks on Thursday. 
-
-CHTC users can register to view all talks online through Monday, May 23, with a cost of $25 for the whole conference. CHTC users are also welcome to join in-person for free (food/drinks not included) on Monday and Thursday morning. To join in-person, please register on Monday and Thursday morning at the CHTC booth at the Fluno Center. 
-
-See details here: htcondor.org/HTCondorWeek2022
-
-### Limited Staff Availability, May 23-27th
-
-The Research Computing Facilitators will be out of the office the week of May 23-27th due to HTCondor Week. During this time, we will have limited access to email and our Tuesday/Thursday office hours will be canceled. 
-
-### GPU Maintenance Nearly Complete
-
-Almost all GPU machines are functioning as usual and are now accepting jobs. If you had GPU jobs in the queue earlier this week, please check your jobs for failure or holds. 
-
-### HPC Maintenance Complete
-
-The maintenance on the HPC cluster is now complete. Jobs in the queue should begin matching as usual. Please contact us with any concerns. 
-
-The best way to reach us is still chtc@cs.wisc.edu should you have any questions. 
-
-Best, 
-
-Your CHTC Team
 
 ------------------------------------------------------------------------
 
