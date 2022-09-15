@@ -18,29 +18,51 @@ title: Home
     </div>
 </div>
 <div class="container-xxl">
-    <div class="row justify-content-center">
-        <div class="col">
-            {% include title-desc-img-card.html
-            class=" mb-4 mt-4 "
-            title="Center for High Throughput Computing"
-            desc="
-__The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
-of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
-by insight from all fields.__
-
-[High Throughput Computing](htc.html) is a collection of principles and techniques which maximize the effective throughput
-of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-improved use of a computing resource, improved automation, and help drive the scientific problem forward.
-
-The team at CHTC develops technologies and services for HTC.  CHTC is the home of the [HTCondor Software
-Suite](http://htcondor.org) which has over 30 years of experience in tackling HTC problems;
-it manages shared computing resources
-for researchers on the UW-Madison campus; and it leads the [OSG Consortium](https://osg-htc.org),
-a national-scale environment for distributed HTC.
-            "
-            img_src="images/logos/CHTC_Small_Logo.svg"
-            img_alt="CHTC Small Logo"
-            %}
+    <div class="row {{ include.class }}">
+        <div class="col-12 col-md-8">
+            <h1 class="uw-mini-bar mb-4">
+                CENTER FOR HIGH THROUGHPUT COMPUTING
+            </h1>
+            <div>
+                <p>
+                    <strong>
+                        The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
+                        of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
+                        by insight from all fields.
+                    </strong>
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="bg-light rounded px-1 pb-3 mb-3">
+                            <p class="p-2 pb-0 text-center">
+                                Are you a UW-Madison researcher looking to expand your computing beyond your local resources? Request
+                                an account now to take advantage of the free large-scale computing services offered by the CHTC!
+                            </p>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <a class="button rounded btn-primary p-2" href="/uw-research-computing/form.html">Request Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
+                    of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
+                    improved use of a computing resource, improved automation, and help drive the scientific problem forward.
+                </p>
+                <p>
+                    The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
+                    Suite</a> which has over 30 years of experience in tackling HTC problems;
+                    it manages shared computing resources
+                    for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
+                    a national-scale environment for distributed HTC.
+                </p>
+            </div>
+        </div>
+        <div class="col-1 d-md-block d-none"></div>
+        <div class="col-3 d-md-flex d-none">
+            <img class="w-100 mt-auto mb-auto" src="{{ 'images/logos/CHTC_Small_Logo.svg' | relative_url  }}" alt="CHTC Small Logo" />
         </div>
     </div>
 </div>
