@@ -13,12 +13,9 @@ nav_items:
         name: Our Staff
       - url: /jobs.html
         name: Our Open Positions
-  - id: services
-    name: Services
-    url: /services.html
-    sub_menu:
-      - url: /uw-research-computing/index.html
-        name: UW Research Computing
+  - id: uw-research-computing
+    name: UW Research Computing
+    url: /uw-research-computing/index.html
   - id: technologies
     name: Technologies
     url: /technologies.html
