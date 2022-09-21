@@ -356,13 +356,13 @@ changes in order to run Python jobs:
     order to make sure your requests for a large batch are accurate!  
     Disk space and memory usage can be found in the log file after the job completes. 
 -   Change transfer_input_files to include the python tar file, packages, script, and any other 
-	needed files. If you used our CentOS 7 version of Python, this may look like: 
+	needed files. **If you used our CentOS 7 version of Python**, this may look like: 
     ```
     transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
     ```
     {:.sub}
 	
-	If you used our CentOS Stream 8 version of Python, this may look like: 
+	**If you used our CentOS Stream 8 version of Python**, this may look like: 
     ```
     transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz, packages.tar.gz, my_script.py
     ```
