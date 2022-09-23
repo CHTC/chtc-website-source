@@ -4,6 +4,8 @@ layout: markdown-page
 title: Running Python Jobs on CHTC
 ---
 
+_ACTION REQUIRED: As of September 26th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._
+
 
 **To best understand the below information, you should already have an
 understanding of:**
@@ -38,7 +40,7 @@ CHTC-Provided Python Installations
 
 CHTC provides a pre-built copy of the following versions of Python: 
 
-### Building on CentOS 7 Linux
+### Building on CentOS 7 Linux _(Soon to be Phased Out)_
 
 {:.gtable}
   | Python version  | Name of Python installation file |
@@ -49,7 +51,7 @@ CHTC provides a pre-built copy of the following versions of Python:
   | Python 3.8 | python38.tar.gz |
   | Python 3.9 | python39.tar.gz |
 
-### Building on CentOS Stream 8 Linux
+### Building on CentOS Stream 8 Linux _(RECOMMENDED)_
 
 {:.gtable}
   | Python version  | Name of Python installation file |
@@ -86,28 +88,22 @@ Preliminary Step: Choose a Linux Version to Build On
 ----------------------------------
 
 As of August 2022, the newest hardware in the HTC system is running a newer version of Linux, 
-CentOS Stream 8. Our older hardware is still running on CentOS 7 and will gradually be 
-transitioning over to the new operating system. You can see the number of available cores under each operating 
-system here: [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html)
+CentOS Stream 8. A limited amount of our older hardware is still running CentOS 7 but these machines will be upgraded to the new operating system in the near future. More information about this transition can be found in the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide. 
 
 There are two approaches to running on our pool: 
 
-- **compile on CentOS 7, run on both versions of CentOS**: This is the option you should 
-choose if you want to have as much capacity as possible available to you and you 
-are willing to do a little more testing of your jobs. 
+- **compile on CentOS 8, run on CentOS8**: This is the recommended option for (1) all new users and for (2) existing users who have tested their CentOS 7 builds and determined they are not compatabile with CentOS 8 machines. By choosing this option, you will have access to the vast majority of the HTC system's capacity.
 
-- **compile on CentOS 8, run on CentOS8**: This is the option you should choose if 
-you want to access most of the HTC system's capacity and just use the default options 
-available. 
+- **compile on CentOS 7, run on both versions of CentOS**: This is a **temporary** option available to users who previously compiled their software on CHTC's CentOS 7 machines. In _some_ cases, it is possible to use the same software, library, and packages on both CentOS 7 and CentOS Stream 8 machines. Existing users who compiled their software on CentOS 7 machines will need to (1) test their jobs to ensure they run successfully on CentOS Stream 8 machines and (2) plan for the phasing out of CentOS 7 machines (expected Fall 2022). 
 
 
 A. Submit an Interactive Job
 ----------------------------
 <a name="version"></a>
 Create the following special submit file on the submit server, calling
-it something like `build.sub`. Make sure that you choose the appropriate 
+it something like `build.sub`. **Make sure that you choose the appropriate 
 Python tar.gz file and requirements if you want to build on CentOS 7 versus 
-CentOS Stream 8. 
+CentOS Stream 8. **
 
 ```
 # Python build file
@@ -116,10 +112,10 @@ universe = vanilla
 log = interactive.log
 
 # Choose a version of Python from the tables above
-# If building on CentOS 7
+# If building on CentOS 7 (To be Phased Out)
 # transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz
 
-# If building on CentOS 8
+# If building on CentOS 8 (Recommended)
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz
 
 +IsBuildJob = true
