@@ -4,6 +4,8 @@ layout: markdown-page
 title: Running Python Jobs on CHTC
 ---
 
+_ACTION REQUIRED: As of September 26th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._
+
 
 **To best understand the below information, you should already have an
 understanding of:**
@@ -38,6 +40,8 @@ CHTC-Provided Python Installations
 
 CHTC provides a pre-built copy of the following versions of Python: 
 
+### Building on CentOS 7 Linux _(Soon to be Phased Out)_
+
 {:.gtable}
   | Python version  | Name of Python installation file |
   | --- | --- |
@@ -46,6 +50,16 @@ CHTC provides a pre-built copy of the following versions of Python:
   | Python 3.7 | python37.tar.gz |
   | Python 3.8 | python38.tar.gz |
   | Python 3.9 | python39.tar.gz |
+
+### Building on CentOS Stream 8 Linux _(RECOMMENDED)_
+
+{:.gtable}
+  | Python version  | Name of Python installation file |
+  | --- | --- |
+  | Python 3.7 | python37.tar.gz |
+  | Python 3.8 | python38.tar.gz |
+  | Python 3.9 | python39.tar.gz |
+  | Python 3.10 | python310.tar.gz |
 
 If you need a specific version of Python not shown 
 above, [contact the Research Computing Facilitators](mailto:chtc@cs.wisc.edu) to 
@@ -70,12 +84,26 @@ packages to a folder and zip those files to return to the submit server.
 > install of Python; if you want to add packages to a pre-existing
 > package folder, there will be notes below in boxes like this one.
 
+Preliminary Step: Choose a Linux Version to Build On
+----------------------------------
+
+As of August 2022, the newest hardware in the HTC system is running a newer version of Linux, 
+CentOS Stream 8. A limited amount of our older hardware is still running CentOS 7 but these machines will be upgraded to the new operating system in the near future. More information about this transition can be found in the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide. 
+
+There are two approaches to running on our pool: 
+
+- **compile on CentOS 8, run on CentOS8**: This is the recommended option for (1) all new users and for (2) existing users who have tested their CentOS 7 builds and determined they are not compatabile with CentOS 8 machines. By choosing this option, you will have access to the vast majority of the HTC system's capacity.
+
+- **compile on CentOS 7, run on both versions of CentOS**: This is a **temporary** option available to users who previously compiled their software on CHTC's CentOS 7 machines. In _some_ cases, it is possible to use the same software, library, and packages on both CentOS 7 and CentOS Stream 8 machines. Existing users who compiled their software on CentOS 7 machines will need to (1) test their jobs to ensure they run successfully on CentOS Stream 8 machines and (2) plan for the phasing out of CentOS 7 machines (expected Fall 2022). 
+
 
 A. Submit an Interactive Job
 ----------------------------
 <a name="version"></a>
 Create the following special submit file on the submit server, calling
-it something like `build.sub`.
+it something like `build.sub`. **Make sure that you choose the appropriate 
+Python tar.gz file and requirements if you want to build on CentOS 7 versus 
+CentOS Stream 8. **
 
 ```
 # Python build file
@@ -83,11 +111,16 @@ it something like `build.sub`.
 universe = vanilla
 log = interactive.log
 
-# Choose a version of Python from the table above
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz
+# Choose a version of Python from the tables above
+# If building on CentOS 7 (To be Phased Out)
+# transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz
+
+# If building on CentOS 8 (Recommended)
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7)
+# Indicate which version of Linux (CentOS) you want to build your packages on
+requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
 request_disk = 2GB
@@ -96,17 +129,12 @@ queue
 ```
  {:.sub}
 
-The only thing you should need to change in the above file is the name
-of the `python##.tar.gz` file - in the \"transfer\_input\_files\" line.
-We have two versions of Python available to build from \-- see the table
-above.
-
 > If you want to add packages to a pre-existing package directory, add
 > the `tar.gz` file with the packages to the `transfer_input_files`
 > line:
 >
 > ``` {.sub}
-> transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz
+> transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz, packages.tar.gz
 > ```
 
 Once this submit file is created, you will start the interactive job by
@@ -303,6 +331,16 @@ A sample submit file can be found in our [hello
 world](helloworld.html) example page. You should make the following
 changes in order to run Python jobs:
 
+-   **What version of Linux can you run on?** 
+	- If you compiled your packages on CentOS7, 
+		you can try running your jobs on servers that have either version of Linux. This requires 
+		an additional requirement, shown 
+		in [this guide](/uw-research-computing/os-transition-htc.html). 
+	- If you compiled your packages on CentOS Stream 8, your jobs should ONLY run on 
+	servers using CentOS Stream 8. This will be the default as of September 29. Before 
+	then, make sure to opt into using that operating system, as described in the same 
+	guide linked above. 
+
 -   Your `executable` should be the script that you wrote
     [above](#script).
 
@@ -313,9 +351,16 @@ changes in order to run Python jobs:
 -   Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
     order to make sure your requests for a large batch are accurate!  
     Disk space and memory usage can be found in the log file after the job completes. 
--   Change transfer_input_files to include: 
+-   Change transfer_input_files to include the python tar file, packages, script, and any other 
+	needed files. **If you used our CentOS 7 version of Python**, this may look like: 
     ```
     transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz, packages.tar.gz, my_script.py
+    ```
+    {:.sub}
+	
+	**If you used our CentOS Stream 8 version of Python**, this may look like: 
+    ```
+    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/python##.tar.gz, packages.tar.gz, my_script.py
     ```
     {:.sub}
 
