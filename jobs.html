@@ -54,6 +54,43 @@ title: Available Positions
                 (PVL)</a>.
             </p>
 
+            {% assign now = 'now' | date: '%s' | plus: 0 %}
+            {% if now < 1665205199 %}
+            <div class="rounded bg-light p-2 pt-1 mb-2">
+                <h3 id="data-engineer" class="mt-2" href="https://jobs.hr.wisc.edu/en-us/job/515514/chtc-data-engineer">CHTC - Data Engineer</h3>
+                <p>
+                    Join the Center for High Throughput Computing (CHTC) as a programmer analyst to help build, maintain,
+                    and enhance one of the largest text data-mining platforms in the world. xDD is built to eXtract
+                    Dark Data from scientific literature, enabling researchers to find and analyze knowledge from an
+                    ever-growing library of over 15 million published articles. Develop data storage processing
+                    pipelines to enrich the data within the system, while enabling researchers to find relevant
+                    literature and extractions via cutting-edge search retrieval technology. Aid researchers in
+                    utilizing the stored data and the computing infrastructure available to create data-mining
+                    tools and run analyses. Collaborate with leading machine learning researchers to build and
+                    explore enormous domain-specific knowledge graphs. The preferred applicant will be self-motivated
+                    and able to work as part of a dynamic team, as well as possessing good communication skills
+                    and a desire for continuous learning. Our Center is supportive of staff continuing their
+                    education; numerous team members have subsequently pursued graduate degrees.
+                </p>
+                <a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/515514/chtc-data-engineer">View Full Job Listing</a>
+            </div>
+            {% endif %}
+
+            <div class="rounded bg-light p-2 pt-1 mb-2">
+                <h3 id="research-software-engineer" class="mt-2" href="https://morgridge.org/job-posting/student-science-writer/">Morgridge Research Computing - Research Software Engineer</h3>
+                <p>
+                    The Research Software Engineer (RSE) at the Morgridge Institute for Research will work to
+                    bring modern software engineering techniques and approaches to research projects at the
+                    institute as part of long-running engagements and collaborations between scientists.  At
+                    Morgridge, the RSE will sit at the nexus of exciting research, large-scale computing, and
+                    national cyberinfrastructure projects.  Whether it's bringing a codebase up to production
+                    quality, designing programmatic interfaces, or making workloads run more effectively across
+                    thousands of cores, the RSE will have a diversity of challenges and help advance Morgridge’s
+                    goals of Fearless Science.
+                </p>
+                <a class="btn btn-primary" href="https://morgridge.org/careers/">Posting Coming Soon</a>
+            </div>
+
 
             <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
             <p>
@@ -77,7 +114,7 @@ title: Available Positions
                 <p>
                     The position will work 10-20 hours per week. Work hours will be flexible, but mostly between 8am – 5pm, Monday – Friday.
                 </p>
-                <p><a class="btn btn-primary mb-2" href="https://morgridge.org/job-posting/student-science-writer/">View Full Job Listing</a></p>
+                <a class="btn btn-primary" href="https://morgridge.org/job-posting/student-science-writer/">View Full Job Listing</a>
             </div>
 
             <h2 id="graduate-student-research-and-project-assistantship-ra-pa-openings">Graduate Student Research and Project Assistantship (RA, PA) Openings</h2>
@@ -146,6 +183,10 @@ title: Available Positions
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
+                                {% if now < 1665205199 %}
+                                <li><a href="#data-engineer">Data Engineer</a></li>
+                                {% endif %}
+                                <li><a href="#research-software-engineer">Research Software Engineer</a></li>
                                 <li><a href="#student-writer">Student Writer</a></li>
                                 <li><a href="#graduate-student-research-and-project-assistantship-ra-pa-openings">Graduate Research Openings</a></li>
                             </ul>
