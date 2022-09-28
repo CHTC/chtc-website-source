@@ -31,11 +31,13 @@ CentOS Stream 8.
 ## What You Need to Do
 
 * **If your jobs were running successfully before, but now failing**, scale down your submissions 
-and run a few test jobs on the new operating system (now the default). 
+and run a few test jobs on the new operating system (now the default). If you absolutely 
+HAVE to keep running, you can continue to (temporarily) run on CentOS 7 by following 
+the instructions [below](#requesting-a-specific-operating-system)
 * **If you are having trouble getting your jobs to run successfully on the new operating system**, 
 please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
 * **If you would like to access as much computing capacity as possible**, consider using 
-running your jobs on servers with either CentOS 7 or CentOS Stream 8. See the [options below]() 
+running your jobs on servers with either CentOS 7 or CentOS Stream 8. See the [options below](#requesting-a-specific-operating-system) 
 for opting into both; note that your code will likely need to have been compiled on the older 
 operating system version. 
 
