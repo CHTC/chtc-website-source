@@ -4,6 +4,8 @@ layout: markdown-page
 title: Running R Jobs on CHTC
 ---
 
+_ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ 
+
 **To best understand the below information, users should already have an
 understanding of:**
 
@@ -37,17 +39,15 @@ CHTC-Provided R Installations
 
 CHTC provides a pre-built copy of the following versions of R: 
 
+### Building on CentOS Stream 8 Linux
+
 {:.gtable}
   | R version | Name of R installation file |
   | --- | --- |
-  | R 3.2.5 | R325.tar.gz |
-  | R 3.3.3 | R333.tar.gz |
-  | R 3.4.4 | R344.tar.gz |
   | R 3.5.1 | R351.tar.gz |
-  | R 3.6.1 | R361.tar.gz |
   | R 3.6.3 | R363.tar.gz |
-  | R 4.0.2 | R402.tar.gz |
-  | R 4.1.2 | R412.tar.gz | 
+  | R 4.0.5 | R405.tar.gz |
+  | R 4.1.3 | R413.tar.gz | 
 
 If you need a newer version of R than is shown here, 
 [please contact us!](mailto:chtc@cs.wisc.edu) We want to continuously 
@@ -95,10 +95,10 @@ universe = vanilla
 log = interactive.log
 
 # Choose a version of R from the table above
-transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7)
+requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
 request_disk = 2GB
@@ -115,7 +115,7 @@ have four versions of R available to build from \-- see the table above.
 > line:
 >
 > ``` {.sub}
-> transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz, packages.tar.gz
+> transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz
 > ```
 
 Once this submit file is created, you will start the interactive job by
@@ -356,7 +356,7 @@ changes in order to run R jobs:
 -   Change `transfer_input_files` to include:
 
     ``` {.sub}
-    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R###.tar.gz, packages.tar.gz, my_script.R
+    transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz, packages.tar.gz, my_script.R
     ```
 
 -   If your script takes arguments (see the box from the previous
