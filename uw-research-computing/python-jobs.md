@@ -4,7 +4,7 @@ layout: markdown-page
 title: Running Python Jobs on CHTC
 ---
 
-_ACTION REQUIRED: As of September 26th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._
+_ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._
 
 
 **To best understand the below information, you should already have an
