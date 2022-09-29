@@ -52,7 +52,7 @@ log = interactive.log
 transfer_input_files = source_code.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7)
+# requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
 request_disk = 2GB

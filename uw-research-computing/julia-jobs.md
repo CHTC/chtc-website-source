@@ -78,7 +78,7 @@ log = julia-build.log
 transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 7)
+
 request_cpus = 1
 request_memory = 4GB
 request_disk = 2GB
