@@ -6,9 +6,9 @@ published: true
 ---
 
 Starting on August 1, 2022, CHTC's high throughput computing (HTC) system began upgrading
-the Linux distribution and version we use on our servers. CentOS Stream 8 is now 
+the Linux distribution and version we use on our servers. **CentOS Stream 8 is now 
 the operating system used on the majority of our servers, and the default requested 
-operating system by jobs, unless specified otherwise. 
+operating system by jobs, unless specified otherwise.** 
 
 Note that this page only applies to a transition on the HTC system (submitting jobs 
 with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
