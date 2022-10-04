@@ -45,23 +45,23 @@ the environment to
 find the java software, and then runs your program. This script will be
 your job\'s executable. See this example for what the script should look
 like:
-``` {.sub}
-#!/bin/bash
+    ``` {.sub}
+    #!/bin/bash
+    
+    # unzip the JDK
+    tar -xzf openjdk-17.0.1_linux-x64_bin.tar.gz
+    # Add the unzipped JDK folder to the environment
+    export PATH=$PWD/jdk-17.0.1/bin:$PATH
+    export JAVA_HOME=$PWD/jdk-17.0.1
+    
+    # run your .jar file
+    java -jar program.jar
+    ```
 
-# unzip the JDK
-tar -xzf openjdk-17.0.1_linux-x64_bin.tar.gz
-# Add the unzipped JDK folder to the environment
-export PATH=$PWD/jdk-17.0.1/bin:$PATH
-export JAVA_HOME=$PWD/jdk-17.0.1
-
-# run your .jar file
-java -jar program.jar
-```
-
-Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
-vary depending on the version you downloaded. You should unzip the JDK tar.gz 
-file in your home directory to find out the correct directory name to add to 
-	the script. 
+    Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
+    vary depending on the version you downloaded. You should unzip the JDK tar.gz 
+    file in your home directory to find out the correct directory name to add to 
+        the script. 
 	
 <a name="default"></a>
 
