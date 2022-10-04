@@ -45,8 +45,7 @@ the environment to
 find the java software, and then runs your program. This script will be
 your job\'s executable. See this example for what the script should look
 like:
-
-    ``` {.sub}
+``` {.sub}
 #!/bin/bash
 
 # unzip the JDK
@@ -57,7 +56,7 @@ export JAVA_HOME=$PWD/jdk-17.0.1
 
 # run your .jar file
 java -jar program.jar
-    ```
+```
 
 Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
 vary depending on the version you downloaded. You should unzip the JDK tar.gz 
