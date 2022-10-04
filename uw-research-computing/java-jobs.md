@@ -57,11 +57,11 @@ export JAVA_HOME=$PWD/jdk-17.0.1
 
 # run your .jar file
 java -jar program.jar
-	```
+    ```
 
-	Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
-	vary depending on the version you downloaded. You should unzip the JDK tar.gz 
-	file in your home directory to find out the correct directory name to add to 
+Note that the exact name of the unzipped JDK folder and the JDK tar.gz file will 
+vary depending on the version you downloaded. You should unzip the JDK tar.gz 
+file in your home directory to find out the correct directory name to add to 
 	the script. 
 	
 <a name="default"></a>
