@@ -106,7 +106,7 @@ the capacity of the GPU Lab to run their work.
   | --- |
   | Short | 12 hrs | 2/3 of CHTC GPU Lab GPUs | 
   | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
-  | Long  | 7 days | 1 job with 1-2 GPUs | 
+  | Long  | 7 days | up to 4 GPUs in use | 
 
 There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
 jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
