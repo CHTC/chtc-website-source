@@ -76,6 +76,33 @@ title: Available Positions
             </div>
             {% endif %}
 
+            {% if now <	1667019599 %}
+            <div class="rounded bg-light p-2 pt-1 mb-2">
+                <h3 id="rcf" class="mt-2" href="https://jobs.hr.wisc.edu/en-us/job/515763/research-computing-facilitator">UW-Madison - CHTC - Research Computing Facilitator</h3>
+                <p>
+                    Engages researchers in the use of various state-of-the-art cyber infrastructure (CI) systems,
+                    tools, and software to enable research productivity. Partners with researchers to co-create
+                    and co-learn relevant computing and data capabilities. Informs and contributes to projects
+                    with technical teams to ensure delivery and improvement of research CI services, contributes
+                    to strategy for engaging with faculty research groups and building facilitation capacities,
+                    and participates in cross-functional management teams and projects. Informs partnerships with
+                    other technology groups, internal and external, and contributes to communication with stakeholders.
+                </p>
+                <a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/515763/research-computing-facilitator">View Full Job Listing</a>
+            </div>
+            <div class="rounded bg-light p-2 pt-1 mb-2">
+                <h3 id="rcs" class="mt-2" href="https://jobs.hr.wisc.edu/en-us/job/515764/research-computing-specialist">UW-Madison - CHTC - Research Computing Specialist</h3>
+                <p>
+                    Applies computational, computer science, data science, and cyber infrastructure (CI) research and
+                    development principles to provide advanced and varied consultation on research and technology
+                    integration and development. Provides non-routine maintenance, planning, and advanced
+                    troubleshooting to ensure CI resources meet research needs. Provides guidance and training to other
+                    staff and serves as subject matter expert for internal stakeholders.
+                </p>
+                <a class="btn btn-primary" href="https://jobs.hr.wisc.edu/en-us/job/515764/research-computing-specialist">View Full Job Listing</a>
+            </div>
+            {% endif %}
+
             <div class="rounded bg-light p-2 pt-1 mb-2">
                 <h3 id="research-software-engineer" class="mt-2" href="https://morgridge.org/job-posting/student-science-writer/">Morgridge Research Computing - Research Software Engineer</h3>
                 <p>
@@ -185,6 +212,10 @@ title: Available Positions
                             <ul>
                                 {% if now < 1666414799 %}
                                 <li><a href="#data-engineer">Data Engineer</a></li>
+                                {% endif %}
+                                {% if now < 1667019599 %}
+                                <li><a href="#rcf">Research Computing Facilitator</a></li>
+                                <li><a href="#rcs">Research Computing Specialist</a></li>
                                 {% endif %}
                                 <li><a href="#research-software-engineer">Research Software Engineer</a></li>
                                 <li><a href="#student-writer">Student Writer</a></li>
