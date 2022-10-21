@@ -35,7 +35,7 @@ CHTC Users
 
 ### When
 
-Tuesday, November 1st from 9:00am - 12:00pm CST
+Tuesday, November 1st anytime from 9:00am - 12:00pm CST
 
 ### Where
 
