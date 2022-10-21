@@ -1,0 +1,15 @@
+{% assign current_time = 'now' | date: '%Y-%m-%d' | date: '%s' | plus: 0 %}
+
+
+{% assign future_events = "" | split : "" %}
+
+{% for event in site.events %}
+
+    {% assign event_end =  event.end_date | append: "" | date: '%Y-%m-%d' | date: '%s' | plus: 0 %}
+
+    {% if event_end >= current_time %}
+        {% assign future_events = future_events | push: event %}
+    {% endif %}
+{% endfor %}
+
+{% assign future_events = future_events | sort: "end_date" %}

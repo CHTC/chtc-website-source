@@ -1,0 +1,62 @@
+---
+layout: content
+title: Events
+---
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col mw-1000 pb-5">
+            <div class="row mb-3">
+                {% include get/future_events.html %}
+                {% for event in future_events %}
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="news news-summary">
+                        <div class="article-content">
+                            <h2 class="article-title">
+                                <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a>
+                            </h2>
+                            <h3 class="article-title">
+                                {% if event.start_date != event.end_date %}
+                                {% assign date = event.start_date | date: "%B %e" %}
+                                {% assign date = event.end_date | date: "-%e, %Y" | prepend: date %}
+                                {% else %}
+                                {% assign date = event.start_date | date: "%B %e, %Y" %}
+                                {% endif %}
+                                <small class="text-muted">{{ date }}</small>
+                            </h3>
+                            <p>{{ event.excerpt | markdownify }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% include get/past_events.html %}
+            {{ past_events }}
+            {% if past_events.length > 1 %}
+            <div class="row">
+                <div class="col-12"><h1 class="text-muted">Past Events</h1></div>
+                {% for event in past_events %}
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="news news-summary">
+                        <div class="article-content">
+                            <h2 class="article-title">
+                                <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a>
+                            </h2>
+                            <h2 class="article-title">
+                                {% if event.start_date != event.end_date %}
+                                {% assign date = event.start_date | date: "%B %e" %}
+                                {% assign date = event.end_date | date: "-%e, %Y" | prepend: date %}
+                                {% else %}
+                                {% assign date = event.start_date | date: "%B %e, %Y" %}
+                                {% endif %}
+                                <small class="text-muted">{{ date }}</small>
+                            </h2>
+                            <p>{{ event.excerpt | markdownify }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
