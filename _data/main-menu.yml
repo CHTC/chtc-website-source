@@ -24,4 +24,10 @@ nav_items:
     url: /research.html
   - id: news
     name: News
-    url: /news.html
+    sub_menu:
+      - url: /news.html
+        name: CHTC News
+      - url: /events.html
+        name: Events
+      - url: /uw-research-computing/user-news.html
+        name: User News

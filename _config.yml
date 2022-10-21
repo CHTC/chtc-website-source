@@ -32,11 +32,19 @@ defaults:
     values:
       layout: character_optimized
       permalink: :title.html
+  - scope:
+      type: events
+    values:
+      layout: events
+
 
 collections:
   news:
     permalink: /news/:path/
     output: true
+  events:
+    output: true
+    permalink: /events/:path/
 
 sass:
   style: compressed
