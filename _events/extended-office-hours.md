@@ -1,6 +1,6 @@
 ---
 short_title: Extended (In-Person) Office Hours
-title: "Extended (In-Person) Office Hours"
+title: "CHTC Extended (In-Person) Office Hours"
 published: true
 
 excerpt: |
