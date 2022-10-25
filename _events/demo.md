@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2022-11-16
 end_date: 2022-11-16
-location: "Room 1240 of the Computer Science Building"
+location: "Room 1240 of the Computer Sciences Building"
 link: ""
 image: "/images/demo_robot.jpeg"
 header_image: "/images/demo_robot.jpeg"
@@ -20,7 +20,7 @@ header_image: "/images/demo_robot.jpeg"
 
 Come to our GPU/Machine Learning demo and Q+A on Wednesday, November 16th!!
 
-Are you curious about how to run machine learning jobs on CHTC’s GPU resources? Come to a demo and Q+A on Wednesday, November 16, at 1:30pm in Room 1240 of the Computer Science building. No preparation is needed, and questions are welcome!
+Are you curious about how to run machine learning jobs on CHTC’s GPU resources? Come to a demo and Q+A on Wednesday, November 16, at 1:30pm - 2:30pm in Room 1240 of the Computer Science building. No preparation is needed, and questions are welcome!
 
 No registration is required.
 
@@ -31,15 +31,15 @@ No registration is required.
 {: .mt-0 }
 ### Who
 
-CHTC Users
+CHTC Interested Users
 
 ### When
 
-Wednesday, November 16th at 1:30 pm CST
+Wednesday, November 16th at 1:30 pm - 2:30pm CST
 
 ### Where
 
-Room 1240, Computer Science building
+Room 1240, Computer Sciences building
 
 ### Questions?
 
