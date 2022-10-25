@@ -10,8 +10,8 @@ start_date: 2022-11-16
 end_date: 2022-11-16
 location: "Room 1240 of the Computer Science Building"
 link: ""
-image: "/images/christina-koch-chtc-featured.webp"
-header_image: "/images/christina-koch-chtc-featured.webp"
+image: "/images/demo_robot.jpeg"
+header_image: "/images/demo_robot.jpeg"
 ---
 
 {% capture main %}
