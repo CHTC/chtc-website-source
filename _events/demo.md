@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2022-11-16
 end_date: 2022-11-16
-location: "In-person"
+location: "Room 1240 of the Computer Science Building"
 link: ""
 image: "/images/christina-koch-chtc-featured.webp"
 header_image: "/images/christina-koch-chtc-featured.webp"
@@ -39,7 +39,7 @@ Wednesday, November 16th at 1:30 pm CST
 
 ### Where
 
-In-person
+Room 1240, Computer Science building
 
 ### Questions?
 
