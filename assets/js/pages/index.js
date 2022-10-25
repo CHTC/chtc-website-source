@@ -137,7 +137,7 @@ class CollegeTable {
     }
 
     async getData(){
-        const response = await fetch("/assets/data/college-table.json")
+        const response = await fetch("./assets/data/college-table.json")
         const json = await response.json()
 
         return json
