@@ -1,6 +1,11 @@
 ---
 layout: default
 title: Home
+js_extension:
+-   src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    loading: defer
+-   src: "/assets/js/pages/index.js"
+    loading: defer
 ---
 
 {% assign now = 'now' | date: '%s' | plus: 0 %}
@@ -65,6 +70,27 @@ title: Home
             <img class="w-100 mt-auto mb-auto" src="{{ 'images/logos/CHTC_Small_Logo.svg' | relative_url  }}" alt="CHTC Small Logo" />
         </div>
     </div>
+</div>
+<div id="stats" class="container-lg">
+    <h2 class="uw-mini-bar mb-4">
+        Campus Impact at a Glance
+    </h2>
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="cpu-stats"></canvas></div></div>
+        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="project-stats"></canvas></div></div>
+        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="engagement-stats"></canvas></div></div>
+    </div>
+    <table class="table table-responsive e my-4">
+        <thead>
+            <tr>
+                <th>College</th>
+                <th>HTC Core Hours</th>
+                <th>HPC Core Hours</th>
+                <th>Number of Projects</th>
+            </tr>
+        </thead>
+        <tbody id="college-data"></tbody>
+    </table>
 </div>
 <div class="bg-light py-4">
     <div class="container-lg">
