@@ -111,18 +111,17 @@ Note that once you have submitted jobs to the queue, you can leave your
 logged in session (by typing `exit`). Your jobs will run and return
 output without you needing to be connected.
 
-<a name="ssh-keys"></a>
+# <a name="ssh-keys"></a>
 
-C. Logging in automatically
----------------------------
-
-Tired of typing your password everytime you log in? It\'s possible to
-set up a file on your local computer called an ssh key, that allows you
-to log into CHTC and transfer files without entering your password. [See
-this
-guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
-for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**.
+# C. Logging in automatically
+# ---------------------------
+#
+# Tired of typing your password everytime you log in? It\'s possible to
+# set up a file on your local computer called an ssh key, that allows you
+# to log into CHTC and transfer files without entering your password. [See
+# this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
+# for instructions on how to do this, starting at the section titled
+# **\"SSH and SCP Without Passwords\"**.
 
 
 <a name="transfer"></a>
