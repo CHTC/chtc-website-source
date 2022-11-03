@@ -9,7 +9,6 @@ excerpt: |
 start_date: 2022-11-16
 end_date: 2022-11-16
 location: "Room 1240 of the Computer Sciences Building"
-link: ""
 image: "/images/demo_robot.jpeg"
 header_image: "/images/demo_robot.jpeg"
 ---
