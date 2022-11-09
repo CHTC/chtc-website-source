@@ -38,7 +38,7 @@ Wednesday, November 16th from 1:30 pm - 2:30 pm CST
 
 ### Where
 
-Room 1240, Computer Sciences Building
+Room 1240, Computer Sciences Building, Madison, WI.
 
 ### Questions?
 
