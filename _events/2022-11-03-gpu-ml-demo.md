@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2022-11-16
 end_date: 2022-11-16
-location: "Room 1240 of the Computer Sciences Building"
+location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
 image: "/images/demo_robot.jpeg"
 header_image: "/images/demo_robot.jpeg"
 ---
