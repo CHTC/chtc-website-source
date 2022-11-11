@@ -19,7 +19,7 @@ header_image: "/images/demo_robot.jpeg"
 
 Come to our GPU/Machine Learning demo and Q+A on Wednesday, November 16th.
 
-Are you curious about how to run machine learning jobs on CHTC’s GPU resources? Come to a demo and Q+A on Wednesday, November 16, from 1:30 pm - 2:30 pm in Room 1240 of the Computer Sciences Building. No preparation is needed, and questions are welcome!
+Are you curious about how to run machine learning jobs on CHTC’s GPU resources? Come to a demo and Q+A on Wednesday, November 16, from 1:30 pm - 2:30 pm in Room 1240 of the Computer Sciences Building. No preparation is needed, and questions are welcome. (Cookies are also included!)
 
 No registration is required.
 
@@ -38,7 +38,7 @@ Wednesday, November 16th from 1:30 pm - 2:30 pm CST
 
 ### Where
 
-Room 1240, Computer Sciences Building
+UW-Madison Campus, Room 1240, Computer Sciences Building
 
 ### Questions?
 
