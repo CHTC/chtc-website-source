@@ -23,6 +23,12 @@ Are you curious about how to run machine learning jobs on CHTC’s GPU resources
 
 No registration is required.
 
+<p style="font-size: larger; font-weight: bold;">Links and Materials</p>
+
+<a href="">Slides</a>
+
+<a href="">GPU Examples</a>
+
 {% endcapture %}
 
 
