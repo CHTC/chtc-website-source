@@ -353,11 +353,11 @@ server, including:
 		NVIDIA website</a>.</td>
 	</tr>
 	<tr>
-		<td><code>GPUs_</code>)<code>DriverVersion</code></td>
+		<td>(<code>GPUs_</code>)<code>DriverVersion</code></td>
 		<td><b>Not</b> the version of CUDA on the server or the NVIDIA driver version, but the maximum CUDA runtime version supported by the NVIDIA driver on the server. </td>
 	</tr>
 	<tr>
-		<td><code>GPUs_</code>)<code>GlobalMemoryMb</code></td>
+		<td>(<code>GPUs_</code>)<code>GlobalMemoryMb</code></td>
 		<td>Amount of memory available on the GPU card.</td>
 	</tr>
 </table>
