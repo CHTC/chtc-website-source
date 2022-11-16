@@ -25,9 +25,9 @@ No registration is required.
 
 <p style="font-size: larger; font-weight: bold;">Links and Materials</p>
 
-<a href="https://docs.google.com/presentation/d/1pdE3oT539iOjxuIRvGeUjQ_GcaiD00r4iCOdp65PPME/edit?usp=sharing">Slides</a>
+<a href="https://docs.google.com/presentation/d/1pdE3oT539iOjxuIRvGeUjQ_GcaiD00r4iCOdp65PPME/edit?usp=sharing">Slides (including demo commands)</a>
 
-<a href="https://github.com/CHTC/templates-GPUs">GPU Examples</a>
+<a href="https://github.com/CHTC/templates-GPUs">GPU Job Templates</a>
 
 <a href="https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs">GPUs in CHTC Guide</a>
 
