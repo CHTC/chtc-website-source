@@ -6,7 +6,7 @@ title: Welcome to the CHTC GPU Lab
 
 {% capture content %}
 
-The CHTC GPU Lab was originally created by a <a href="https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/">UW2020-funded project</a> to expand shared GPU 
+The CHTC GPU Lab was created by a <a href="https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/">UW2020-funded project</a> to expand shared GPU 
 computing infrastructure at UW-Madison.  It includes:
 
 {% endcapture %}
