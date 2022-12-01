@@ -6,7 +6,7 @@ title: Welcome to the CHTC GPU Lab
 
 {% capture content %}
 
-The CHTC GPU Lab is a <a href="https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/">UW2020-funded project</a> to expand shared GPU 
+The CHTC GPU Lab was originally created by a <a href="https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/">UW2020-funded project</a> to expand shared GPU 
 computing infrastructure at UW-Madison.  It includes:
 
 {% endcapture %}
@@ -62,9 +62,10 @@ emailing [chtc-gpu-lab+managers@g-groups.wisc.edu](mailto:chtc-gpu-lab+managers@
 and asking to join.
 Their subscription request will be reviewed by the list administrators.
 
-> The CHTC GPU Lab is led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny.
+> The CHTC GPU Lab is led by Anthony Gitter, Christina Koch, Brian Bockelman, and Miron Livny.
 
-> UW2020 is funded by the Office of the Vice Chancellor for Research and Graduate
+> The original UW2020 project was led by Anthony Gitter, Lauren Michael, Brian Bockelman, and Miron Livny and
+funded by the Office of the Vice Chancellor for Research and Graduate
 Education and the Wisconsin Alumni Research Foundation.
 
 For more information about the CHTC GPU Lab project contact [Anthony Gitter][gitter].
