@@ -1,0 +1,102 @@
+---
+highlighter: none
+layout: markdown-page
+title: Transitioning to a New HPC Cluster
+published: true
+---
+
+The Center for High Throughput Computing’s High Performance Cluster is being 
+replaced by a new High Performance System! All components of the system (execute 
+nodes, network, shared file system) are new and we expect excellent performance 
+on the cluster. 
+
+ALL USERS OF THE EXISTING HPC SYSTEM WILL NEED TO MIGRATE TO THIS NEW CLUSTER. 
+Importantly, access to the existing cluster will be phased out in early 2022. 
+CHTC staff are here to assist with your transition.
+
+## Highlights
+* The existing HPC cluster is being replaced by a new cluster. After February 2023 
+ALL users will lose access to the existing cluster, and all user files will be 
+deleted. 
+* Custom software will need to be reinstalled and jobs will need to be tested on 
+the new cluster. 
+* The `univ2` partition is being renamed, and partition policies have changed. 
+* Users should avoid using `mpirun` and instead should use `srun` to execute their 
+MPI code.  
+* File system conventions have changed - jobs will now use `/scratch/$USER` to run, 
+and `/home/$USER` will be mainly used for software installations and reference 
+files. 
+
+## Important Dates
+
+Early January, 2023: New cluster available for general use
+February 14, 2023: Jobs will no longer run on the old cluster
+March 1, 2023: Access to hpclogin1.chtc.wisc.edu login node and old file 
+system removed, Data for all users will be deleted. 
+
+## What You Need to Do
+
+### Move Data
+Back up files from the old cluster to another system (e.g. your laptop), copy 
+files you are actively working with to the new cluster, and delete all data off 
+the old HPC system. All files in /home and /software will be deleted off the 
+existing system starting March 1, 2023. 
+
+### Log In and Quota Check
+
+Confirm you can access the new cluster by logging into the new login node. 
+
+### Prepare and Submit Test Jobs
+
+After logging in, prepare and submit a few test jobs to confirm that your work 
+will run, paying attention to these important changes: 
+
+Use `/home` and `/scratch` correctly: jobs should be run out of `/scratch/$USER` 
+and the home directory should only be used for software installations and copies 
+of important files and templates. Scratch space has a 100GB quota and home 
+directories have a 20GB quota. The `/software` directory is being phased out. 
+Build software with new modules: users will need to reinstall and/or rebuild 
+their software on the new HPC cluster. Users may encounter different versions of 
+common tools on the new cluster, so it is important to try installing your 
+software early to ensure compatibility. If a software or library is not available 
+that is necessary for your installation is not installed, contact CHTC staff.  
+Change MPI execution: Our systems administrators now recommend using “srun” 
+instead of “mpirun” or “mpiexec” to execute MPI type code. 
+Change #SBATCH options: The new cluster has different partition names *and* 
+different sized nodes. The main general use partition is now called `shared` 
+instead of `univ2` or `univ3`. We also recommend the following changes because 
+most of our nodes now have 128 cores, so requesting multiple nodes is not 
+advantageous. 
+
+	<table>
+		<tr>
+
+
+	</table>
+
+
+### Optimizing Jobs (Optional)
+
+The new cluster nodes have very fast local disk space on each node. If your code 
+is able to use local space for certain parts of its calculations or is able to 
+sync data between local spaces, it may be advantageous to use this disk to speed 
+up your jobs. It is located at the following path on each node: 
+
+	/local/scratch/$USER
+
+## New Cluster Specifications
+
+Execute Nodes
+We have 40 general use execute nodes, representing 5,120 cores of capacity. 
+Server specs: 
+128 cores using the AMD Epyc 7763 processor
+512GB of memory
+XXX GB of local (not shared) fast NVME disk
+Dell Poweredge R6525
+
+Operating System: CentOS Stream 8
+Scheduler: SLURM 22.05.6
+
+
+
+
