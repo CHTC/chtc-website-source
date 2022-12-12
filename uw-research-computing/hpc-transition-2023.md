@@ -93,7 +93,7 @@ for different sized jobs:
 #SBATCH --ntasks-per-node=80 # designate cores per node
 		</pre> OR:  <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks=80 # designate overall cores
+#SBATCH --ntasks=160 # designate overall cores
 		</pre></td>
 	</tr>
 	<tr>
