@@ -81,27 +81,27 @@ for different sized jobs:
 	</tr>
 	<tr>
 		<td>32-128 cores</td>
-		<td>Example for 32 cores: <code>
+		<td>Example for 32 cores: <pre>
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=32 # recommend multiples of 16
-		</code></td>
+		</pre></td>
 	</tr>
 	<tr>
 		<td>96 - 256 cores</td>
-		<td>Example for 160 cores: <code>
+		<td>Example for 160 cores: <pre>
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=80 # designate cores per node
-		</code> OR:  <code>
+		</pre> OR:  <pre>
 #SBATCH --nodes=2
 #SBATCH --ntasks=80 # designate overall cores
-		</code></td>
+		</pre></td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes</td>
-		<td>Example for 256 cores: <code>
+		<td>Example for 256 cores: <pre>
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=128
-		</code></td>
+		</pre></td>
 	</tr>
 </table>
 
