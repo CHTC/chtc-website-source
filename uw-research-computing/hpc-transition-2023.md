@@ -7,8 +7,7 @@ published: true
 
 The Center for High Throughput Computing’s High Performance Cluster is being 
 replaced by a new High Performance System! All components of the system (execute 
-nodes, network, shared file system) are new and we expect excellent performance 
-on the cluster. 
+nodes, network, shared file system) are new and we expect an improved experience for our HPC users.
 
 ALL USERS OF THE EXISTING HPC SYSTEM WILL NEED TO MIGRATE TO THIS NEW CLUSTER. 
 Importantly, access to the existing cluster will be phased out in early 2022. 
@@ -30,10 +29,10 @@ files.
 
 ## Important Dates
 
-* Early January, 2023: New cluster available for general use
+* Early January 2023: New cluster available for general use
 * February 14, 2023: Jobs will no longer run on the old cluster
 * March 1, 2023: Access to `hpclogin1.chtc.wisc.edu` login node and old file 
-system removed, **Data for all users will be deleted.**
+system removed, **Data for all users will be deleted on the old HPC system.**
 
 ## What You Need to Do
 
@@ -54,9 +53,9 @@ After logging in, prepare and submit a few test jobs to confirm that your work
 will run, paying attention to these important changes: 
 
 1. **Use `/home` and `/scratch` correctly:** jobs should be run out of `/scratch/$USER` 
-and the home directory should only be used for software installations and copies 
-of important files and templates. Scratch space has a 100GB quota and home 
-directories have a 20GB quota. The `/software` directory is being phased out. 
+and the `/home` directory should only be used for software installations and copies 
+of important files and templates. `\scratch` space has a quota of 100GB disk space and 250,000 items and `\home`
+directories have a quota of 20GB disk space and 250,000 items. The `/software` directory is being phased out. 
 
 1. **Build software with new modules:** users will need to reinstall and/or rebuild 
 their software on the new HPC cluster. Users may encounter different versions of 
@@ -99,7 +98,7 @@ for different sized jobs:
 		</pre></td>
 	</tr>
 	<tr>
-		<td>128 or 256 cores (whole nodes</td>
+		<td>128 or 256 cores (whole nodes)</td>
 		<td>Example for 256 cores: <pre>
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=128
