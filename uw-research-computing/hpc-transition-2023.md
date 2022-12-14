@@ -126,7 +126,7 @@ We have 40 general use execute nodes, representing 5,120 cores of capacity.
 Server specs (Dell Poweredge R6525): 
 * 128 cores using the AMD Epyc 7763 processor
 * 512GB of memory
-* XXX GB of local (not shared) fast NVME disk
+* 1.5TB of local (not shared) fast NVME disk
 
 Operating System: CentOS Stream 8
 Scheduler: SLURM 22.05.6
