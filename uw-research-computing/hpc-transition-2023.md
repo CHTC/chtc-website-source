@@ -65,7 +65,9 @@ software early to ensure compatibility. If a software or library is not availabl
 that is necessary for your installation is not installed, contact CHTC staff.  
 
 1. **Change MPI execution:** Our systems administrators now recommend using `srun` 
-instead of `mpirun` or `mpiexec` to execute MPI type code. 
+with the `--mpi=pmix` flag instead of `mpirun` or `mpiexec` to execute MPI type code. It
+should look like this:
+		srun --mpi=pmix mpi_program
 
 1. **Change #SBATCH options:** The new cluster has different partition names *and* 
 different sized nodes. The main general use partition is now called `shared` 
