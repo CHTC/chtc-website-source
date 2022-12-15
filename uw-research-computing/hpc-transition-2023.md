@@ -53,8 +53,8 @@ After logging in, prepare and submit a few test jobs to confirm that your work
 will run, paying attention to these important changes: 
 
 1. **Appropriate usage of `/home` and `/scratch`:** 
-    - Jobs should be run out of `/scratch/$USER` and has a quota of  100GB disk space and 250,000 items
-    - Only use your `/home` directory should for software installations and copies of important files and templates.
+    - Jobs should be run out of `/scratch/$USER`. Your scratch directory has a quota of  100GB disk space and 250,000 items
+    - Only use your `/home` directory for software installations and general job files and templates.
       Your `/home` directory has a quota of 20GB disk space and 250,000 items.
     - The `/software` directory is being phased out. 
 
@@ -62,7 +62,8 @@ will run, paying attention to these important changes:
 their software on the new HPC cluster. Users may encounter different versions of 
 common tools on the new cluster, so it is important to try installing your 
 software early to ensure compatibility. If a software or library is not available 
-that is necessary for your installation is not installed, contact CHTC staff.  
+that is necessary for your installation is not installed, contact CHTC staff (see 
+our [get help page](/uw-research-computing/get-help.html)).
 
 1. **Change MPI execution:** Our systems administrators now recommend using `srun` 
 with the `--mpi=pmix` flag instead of `mpirun` or `mpiexec` to execute MPI type code. It
