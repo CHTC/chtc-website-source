@@ -15,7 +15,7 @@ CHTC staff are here to assist with your transition.
 
 ## Highlights
 
-* The existing HPC cluster is being replaced by a new cluster. After February 2023 
+* The existing HPC cluster is being replaced by a new cluster. After **February 2023** 
 ALL users will lose access to the existing cluster, and all user files will be 
 deleted. 
 * Custom software will need to be reinstalled and jobs will need to be tested on 
@@ -29,9 +29,9 @@ files.
 
 ## Important Dates
 
-* Early January 2023: New cluster available for general use
-* February 14, 2023: Jobs will no longer run on the old cluster
-* March 1, 2023: Access to `hpclogin1.chtc.wisc.edu` login node and old file 
+* **Early January 2023:** New cluster available for general use
+* **February 14, 2023:** Jobs will no longer run on the old cluster
+* **March 1, 2023:** Access to `hpclogin1.chtc.wisc.edu` login node and old file 
 system removed, **Data for all users will be deleted on the old HPC system.**
 
 ## What You Need to Do
@@ -52,10 +52,11 @@ Confirm you can access the new cluster by logging into the new login node.
 After logging in, prepare and submit a few test jobs to confirm that your work 
 will run, paying attention to these important changes: 
 
-1. **Use `/home` and `/scratch` correctly:** jobs should be run out of `/scratch/$USER` 
-and the `/home` directory should only be used for software installations and copies 
-of important files and templates. `\scratch` space has a quota of 100GB disk space and 250,000 items and `\home`
-directories have a quota of 20GB disk space and 250,000 items. The `/software` directory is being phased out. 
+1. **Appropriate usage of `/home` and `/scratch`:** 
+    - Jobs should be run out of `/scratch/$USER` and has a quota of  100GB disk space and 250,000 items
+    - Only use your `/home` directory should for software installations and copies of important files and templates.
+      Your `/home` directory has a quota of 20GB disk space and 250,000 items.
+    - The `/software` directory is being phased out. 
 
 1. **Build software with new modules:** users will need to reinstall and/or rebuild 
 their software on the new HPC cluster. Users may encounter different versions of 
