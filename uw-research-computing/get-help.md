@@ -46,7 +46,7 @@ questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
 ## Help Via Email
 
-### Facilitation staff will be out of the office Monday, December 26 through Monday, January 2. Expect delayed replies to email during this time. 
+### Facilitation staff will be out of the office Monday, December 26 through Monday, January 2. Office hours will be cancelled during this period, and users should expect delayed replies to emails.
 
 We provide support via email at the address
 [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
