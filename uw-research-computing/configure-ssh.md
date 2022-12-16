@@ -58,12 +58,12 @@ Host *.chtc.wisc.edu
   # Where to store files that represent
   # the ControlMaster persistent connections
   ControlPath ~/.ssh/connections/%r@%h:%p" >> ~/.ssh/config
-```
+```{: .term}
 1. You also create a directory that will be used to track connections. In 
 the same .ssh directory, make a folder called `connections` by typing: 
 ```
 $ mkdir -p ~/.ssh/connections
-```
+```{: .term}
 Once you login to a CHTC server, this is where the system will store information 
 about your previous connection information so that you do not have to reenter your 
 password or Duo Authenticate. 
@@ -88,7 +88,7 @@ look something like:
 $ ls ~/.ssh/connections/
 alice@submit.chtc.wisc.edu:22
 $ rm ~/.ssh/connections/alice@submit.chtc.wisc.edu:22
-```
+```{: .term}
 
 ### Connection settings
 
