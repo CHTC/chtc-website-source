@@ -5,18 +5,18 @@ title: Automating CHTC Log In
 ---
 
 This guide describes 
-* how to authenticate with Duo when logging into CHTC
-* how to set your login (ssh) configuration to “reuse” a two factor authenticated 
+* how to authenticate with Duo when logging into CHTC's HTC and HPC systems
+* how to set your login (SSH) configuration to “reuse” a two-factor authenticated 
 connection over a certain period of time. 
 
 ## Authentication with Duo
 
 As of December 2022, accessing CHTC resources 
-now requires two factor authentication. The first “factor” uses your NetID password 
-(or ssh keys) and the second “factor” is authentication using Duo, via either a 
+now requires two-factor authentication. The first “factor” uses your NetID password 
+(or SSH keys) and the second “factor” is authentication using Duo, via either a 
 Duo fob or the Duo app. 
 
-See the following video for an demonstration of two factor authentication with Duo 
+See the following video for an demonstration of two-factor authentication with Duo 
 when logging into CHTC: 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -24,8 +24,8 @@ when logging into CHTC:
 ## Re-Using SSH Connections
 
 To reduce the number of times it is necessary to enter your credentials, it’s possible 
-to customize your ssh configuration in a way that allows you to “reuse” a connection 
-for logging in again or moving files.  This configuration is totally optional, and 
+to customize your SSH configuration in a way that allows you to “reuse” a connection 
+for logging in again or moving files.  This configuration is optional, and 
 most useful if you will connect to 
 the same server multiple times in a short window, for example, when uploading or 
 downloading files. 
@@ -36,12 +36,12 @@ This should **ONLY** be used on secure devices that you manage - **it should
 not be used on any shared laptop, desktop, or research group resource. Users 
 found violating this policy risk having their CHTC account permanently deactivated.** 
 
-The instructions below are meant for users who can use a terminal (Mac, Linux): 
+The instructions below are meant for users who can use a terminal (Mac, Linux, newer Windows operating systems): 
 
 1. Open a terminal window.
 
-1. Create (or edit) your personal ssh configuration file at `~/.ssh/config` to use 
-what’s called "[ControlMaster](https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)" (third party blog link). 
+1. Create (or edit) your personal SSH configuration file at `~/.ssh/config` to use 
+what’s called "[ControlMaster](https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)" (link: third party blog resource). 
 Executing the code below will add the right information to the `config` file; you 
 can also copy and paste the content in quotes into your config file directly. 
 	```	
@@ -68,16 +68,16 @@ $ mkdir -p ~/.ssh/connections
 ```{: .term}
 Once you login to a CHTC server, this is where the system will store information 
 about your previous connection information so that you do not have to reenter your 
-password or Duo Authenticate. 
-1. Now, log into a CHTC node as normal. The first time you log in, you will need to use 
-two factor authentication, but subsequent logins **to that node** will not require 
+password or Duo authenticate. 
+4. Now, log into your CHTC submit server or login node as normal. The first time you log in, you will need to use 
+two-factor authentication, but subsequent logins **to that machine** will not require 
 authentication as long as they occur within the time value used in 
 the `ControlPersist` configuration option (so in this example, 2 hours). 
 
-For Windows users who use Putty to log in, you need to go to 
+For Windows users who use PuTTY to log in, you need to go to 
 the `Connection -> SSH` section in the “Category” menu on the left side, 
 and then check the “Share SSH Connection if possible” box. If you don’t 
-see this option, try downloading a newer version of Putty.  
+see this option, try downloading a newer version of PuTTY.  
 
 ### Ending “Stuck” Connections
 
