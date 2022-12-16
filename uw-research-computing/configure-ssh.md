@@ -63,12 +63,13 @@ can also copy and paste the content in quotes into your config file directly.
 
 1. You also create a directory that will be used to track connections. In 
 the same .ssh directory, make a folder called `connections` by typing: 
-```
-$ mkdir -p ~/.ssh/connections
-```{: .term}
-Once you login to a CHTC server, this is where the system will store information 
-about your previous connection information so that you do not have to reenter your 
-password or Duo authenticate. 
+	```
+	$ mkdir -p ~/.ssh/connections
+	```
+	{: .term}
+	Once you login to a CHTC server, this is where the system will store information 
+	about your previous connection information so that you do not have to reenter your 
+	password or Duo authenticate. 
 4. Now, log into your CHTC submit server or login node as normal. The first time you log in, you will need to use 
 two-factor authentication, but subsequent logins **to that machine** will not require 
 authentication as long as they occur within the time value used in 
