@@ -44,7 +44,6 @@ The instructions below are meant for users who can use a terminal (Mac, Linux):
 what’s called "[ControlMaster](https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)" (third party blog link). 
 Executing the code below will add the right information to the `config` file; you 
 can also copy and paste the content in quotes into your config file directly. 
-
 	```	
 	# Let's create (or add to) our SSH client
 	# configuration file. 
