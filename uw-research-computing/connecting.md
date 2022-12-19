@@ -129,7 +129,7 @@ C. Re-Using SSH Connections
 ---------------------------
 
 To reduce the number of times it is necessary to enter your credentials, it’s 
-possible to customize your ssh configuration in a way that allows you to "reuse" 
+possible to customize your SSH configuration in a way that allows you to "reuse" 
 a connection for logging in again or moving files. More details are shown 
 in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.md)
 
