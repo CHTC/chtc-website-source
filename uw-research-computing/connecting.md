@@ -41,15 +41,16 @@ servers or head nodes:
   {:.gtable}
   | HTC System |
   | --- |
-  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 
-2019, or between March 2021 - June 2022 |
-  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - 
-February 2021 or after July 1, 2022 |
+  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or between March 2021 - June 2022 |
+  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - February 2021 or after July 1, 2022 |
 
   {:.gtable}
   | HPC Cluster - starting October 15, 2020 |
   | --- |
   | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` |
+
+As of December 2022, we also require two-factor authentication with Duo to 
+access CHTC resources. 
 
 > **Are you off-campus?**\
 > All of our CHTC submit servers and head nodes are firewalled to block
@@ -87,7 +88,8 @@ $ ssh username@hostname
 ```
 {:.term}
 
-You will be prompted for your password.
+You will be prompted for your password, and then for Duo 
+authentication. 
 
 <a name="login-putty"></a>
 
@@ -105,7 +107,7 @@ screen like this:
 Fill in the hostname as described in part 1. You should use Port 22 and
 connect using \"ssh\" \-- these are usually the defaults. After you
 click \"connect\" you will be prompted to fill in your username and
-password.
+password, and then to authenticate with Duo. 
 
 Note that once you have submitted jobs to the queue, you can leave your
 logged in session (by typing `exit`). Your jobs will run and return
@@ -123,9 +125,15 @@ this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-w
 for instructions on how to do this, starting at the section titled
 **\"SSH and SCP Without Passwords\"**. -->
 
+C. Re-Using SSH Connections
+---------------------------
+
+To reduce the number of times it is necessary to enter your credentials, it’s 
+possible to customize your SSH configuration in a way that allows you to "reuse" 
+a connection for logging in again or moving files. More details are shown 
+in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.md)
 
 <a name="transfer"></a>
-
 **3. Transferring Files**
 =====================
 
