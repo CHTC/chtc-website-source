@@ -1,4 +1,4 @@
-name: Update Submodules
+name: Update Submodules Preview
 on: workflow_dispatch
 
 jobs:
@@ -21,3 +21,10 @@ jobs:
           git add .
           git commit -m "Update Submodules"
           git push -f --set-upstream origin preview-update-submodules
+
+  call-create-preview:
+    needs: Update-Submodules
+    uses: CHTC/chtc-website-source/.github/workflows/deploy-preview.yml@master
+    secrets: inherit
+    with:
+      branch: "preview-update-submodules"
