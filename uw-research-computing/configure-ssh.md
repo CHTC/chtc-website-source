@@ -42,11 +42,23 @@ The instructions below are meant for users who can use a terminal (Mac, Linux, n
 
 1. Create (or edit) your personal SSH configuration file at `~/.ssh/config` to use 
 what’s called "[ControlMaster](https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)" (link: third party blog resource). 
-Executing the code below will add the right information to the `config` file; you 
-can also copy and paste the content in quotes into your config file directly. 
+This is the text that should be added to a file called `config` in the `.ssh` directory in your computer's home directory: 
 	```	
-	# Let's create (or add to) our SSH client
-	# configuration file. 
+	Host *.chtc.wisc.edu
+	  # Turn ControlMaster on
+	  ControlMaster auto
+	  # ControlMaster connection will persist
+	  # for 2 hours of idleness, after which
+	  # it will disconnect
+	  ControlPersist 2h
+	  # Where to store files that represent
+	  # the ControlMaster persistent connections
+	  ControlPath ~/.ssh/connections/%r@%h:%p
+	```
+If you're not able to find or create the config file, executing the code below from a terminal on your comptuer
+will add the right information to the `config` file
+	```	
+	# Let's create (or add to) our SSH client configuration file. 
 	echo "
 	Host *.chtc.wisc.edu
 	  # Turn ControlMaster on
