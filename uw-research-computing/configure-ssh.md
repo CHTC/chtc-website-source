@@ -55,8 +55,8 @@ This is the text that should be added to a file called `config` in the `.ssh` di
 	  # the ControlMaster persistent connections
 	  ControlPath ~/.ssh/connections/%r@%h:%p
 	```
-If you're not able to find or create the config file, executing the code below from a terminal on your comptuer
-will add the right information to the `config` file
+	If you're not able to find or create the config file, executing the code below from a terminal on your comptuer
+	will add the right information to the `config` file
 	```	
 	# Let's create (or add to) our SSH client configuration file. 
 	echo "
