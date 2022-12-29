@@ -135,7 +135,9 @@ possible to customize your SSH configuration in a way that allows you to "reuse"
 a connection for logging in again or moving files. More details are shown 
 in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
+
 <a name="transfer"></a>
+
 **3. Transferring Files**
 =====================
 
