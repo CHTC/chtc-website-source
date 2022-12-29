@@ -14,7 +14,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 2.  [Logging In](#login)
     -   [On the command line (Mac/Linux)](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
-    -   [Logging in Automatically](#ssh-keys)
+    -   [Re-using SSH connections](#reuse-ssh)
 3.  [Transferring Files](#transfer)
     -   [On the command line (Mac/Linux)](#transfer-scp)
     -   [Using a file transfer program (Windows/Mac)](#transfer-winscp)
@@ -125,13 +125,15 @@ this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-w
 for instructions on how to do this, starting at the section titled
 **\"SSH and SCP Without Passwords\"**. -->
 
+<a name="reuse-ssh"></a>
+
 C. Re-Using SSH Connections
 ---------------------------
 
 To reduce the number of times it is necessary to enter your credentials, it’s 
 possible to customize your SSH configuration in a way that allows you to "reuse" 
 a connection for logging in again or moving files. More details are shown 
-in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.md)
+in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
 <a name="transfer"></a>
 **3. Transferring Files**
