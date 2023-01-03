@@ -14,7 +14,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 2.  [Logging In](#login)
     -   [On the command line (Mac/Linux)](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
-    -   [Re-using SSH connections](#reuse-ssh)
+    -   [Re-using SSH connections](#c-re-using-ssh-connections)
 3.  [Transferring Files](#transfer)
     -   [On the command line (Mac/Linux)](#transfer-scp)
     -   [Using a file transfer program (Windows/Mac)](#transfer-winscp)
@@ -125,7 +125,6 @@ this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-w
 for instructions on how to do this, starting at the section titled
 **\"SSH and SCP Without Passwords\"**. -->
 
-<a name="reuse-ssh"></a>
 
 C. Re-Using SSH Connections
 ---------------------------
