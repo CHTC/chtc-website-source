@@ -29,9 +29,9 @@ files.
 
 ## Important Dates
 
-* **Early January 2023:** New cluster available for general use
-* **February 14, 2023:** Jobs will no longer run on the old cluster
-* **March 1, 2023:** Access to `hpclogin1.chtc.wisc.edu` login node and old file 
+* **Mid January 2023:** New cluster available for general use
+* **February 28, 2023:** Jobs will no longer run on the old cluster
+* **March 15, 2023:** Access to `hpclogin1.chtc.wisc.edu` login node and old file 
 system removed, **Data for all users will be deleted on the old HPC system.**
 
 ## What You Need to Do
@@ -41,7 +41,7 @@ system removed, **Data for all users will be deleted on the old HPC system.**
 Back up files from the old cluster to another system (e.g. your laptop), copy 
 files you are actively working with to the new cluster, and delete all data off 
 the old HPC system. **All files in `/home` and `/software` will be deleted off the 
-existing system starting March 1, 2023.**
+existing system starting March 15, 2023.**
 
 ### Log In and Quota Check
 
@@ -86,25 +86,22 @@ for different sized jobs:
 		<td>32-128 cores</td>
 		<td>Example for 32 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
-		</pre></td>
+#SBATCH --ntasks-per-node=32 # recommend multiples of 16</pre></td>
 	</tr>
 	<tr>
 		<td>96 - 256 cores</td>
-		<td>Example for 160 cores: <pre>
+		<td>Split over a few nodes, for example for 160 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
-		</pre> OR:  <pre>
+#SBATCH --ntasks-per-node=80 # designate cores per node</pre> 
+	OR:  <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-		</pre></td>
+#SBATCH --ntasks=160 # designate overall cores</pre></td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
 		<td>Example for 256 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128
-		</pre></td>
+#SBATCH --ntasks-per-node=128</pre></td>
 	</tr>
 </table>
 
@@ -131,6 +128,7 @@ Server specs (Dell Poweredge R6525):
 * 1.5TB of local (not shared) fast NVME disk
 
 Operating System: CentOS Stream 8
+
 Scheduler: SLURM 22.05.6
 
 
