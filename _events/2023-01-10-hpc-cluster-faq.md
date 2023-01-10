@@ -1,14 +1,14 @@
 ---
 short_title: HPC Cluster FAQ
-title: "HPC Cluster FAQ"
+title: "HPC cluster FAQ January 19th  and January 24th"
 published: true
 
 excerpt: |
-    We will be hosting an in-person HPC cluster FAQ on January 19th in the Researchers Link at Morgridge!
+    We will be hosting an in-person HPC cluster FAQ on January 19th in the Researchers' Link at Morgridge!
 
 start_date: 2023-01-19
 end_date: 2023-01-24
-location: "Researchers Link in Morgridge"
+location: "Researchers' Link in Morgridge"
 image: "/images/HPC-cluster.jpg"
 header_image: "/images/HPC-cluster.jpg"
 ---
@@ -27,8 +27,8 @@ cluster is live.
 
 We are planning two FAQ sessions to go through needed transition steps and answer questions. These sessions will be offered:
 
-- Thursday, January 19, 9:30 - 10:30am: This session will be in-person at the Researcher’s Link in the Discovery Building. Meet CHTC staff at the Discovery Building frontdesk to be let upstairs.
-- Tuesday, January 24, 12 - 1pm: This session will be online, at [this zoom link](https://uwmadison.zoom.us/j/92019432614?pwd=YkxPZEZ4ZG9TaTFkV0M3V0hPcU1zUT09).
+- Thursday, January 19, 9:30 - 10:30am: This session will be in-person at the Researchers' Link in the Discovery Building. Meet CHTC staff at the Discovery Building frontdesk to be let upstairs.
+- Tuesday, January 24, 12 - 1pm: This session will be online, please email chtc@cs.wisc.edu for the Zoom link.
 
 No registration is required.
 
@@ -39,7 +39,7 @@ No registration is required.
 {: .mt-0 }
 ### Who
 
-CHTC Interested Users
+CHTC Users of the HPC Cluster
 
 ### When
 
@@ -48,7 +48,7 @@ Tuesday, January 24 from 12:00pm - 1:00pm
 
 ### Where
 
-Researcher’s Link in the Discovery Building and Online on Zoom
+Researchers' Link in the Discovery Building and Online on Zoom
 
 ### Questions?
 
