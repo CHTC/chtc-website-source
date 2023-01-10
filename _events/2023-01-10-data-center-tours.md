@@ -1,6 +1,6 @@
 ---
-short_title: Data Center Tours
-title: "Data Center Tours"
+short_title: Server Room Tours
+title: "Server Room Tours"
 published: true
 
 excerpt: |
@@ -15,7 +15,7 @@ header_image: "/images/Data-Server.jpg"
 
 {% capture main %}
 
-<p style="font-size: larger; font-weight: bold;">Data Center Tours, on February 9th and February 14th!</p>
+<p style="font-size: larger; font-weight: bold;">Server Room Tours on February 9th and February 14th!</p>
 
 Go behind the scenes in a CHTC server room and learn more about the computational infrastructure that power CHTC’s large-scale computing systems.
 
