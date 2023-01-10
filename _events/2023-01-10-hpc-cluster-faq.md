@@ -1,6 +1,6 @@
 ---
 short_title: HPC Cluster FAQ
-title: "HPC cluster FAQ January 19th  and January 24th"
+title: "HPC cluster FAQ January 19th and 24th"
 published: true
 
 excerpt: |
@@ -15,15 +15,10 @@ header_image: "/images/HPC-cluster.jpg"
 
 {% capture main %}
 
-<p style="font-size: larger; font-weight: bold;">HPC cluster FAQ, on January 19th!</p>
-
 This January, we will be going live with a completely new HPC cluster – new execute nodes, new file system, new network, and new operating
 system/software modules! This is a continuation of the campus investment in a technology refresh at CHTC, started this summer with our HTC system.
 
-
-
-We will send an email to the chtc-users mailing list when the new
-cluster is live. 
+We will send an email to the chtc-users mailing list when the new cluster is live. 
 
 We are planning two FAQ sessions to go through needed transition steps and answer questions. These sessions will be offered:
 
