@@ -21,7 +21,7 @@ on our systems. On the HPC Cluster, CHTC staff manage installations of
 the following types of programs: 
 
 * Compilation tools and common dependencies (e.g. MPI, different GCC versions)
-* Software that requires a shared license (e.g. COMSOL, ABAQUS)
+* Software that requires a shared license (e.g. COMSOL)
 
 Information on how to access CHTC-managed installations is in the next 
 section of this guide. If you need to use a program not in that group, the instructions 
@@ -93,9 +93,10 @@ If you want to clear your command line environment and start over, run the follo
 
 Unless you are using a licensed software program provided via modules, you 
 are able to compile and install the software you need on the HPC Cluster.  
+
 Compilation can be done via an interactive job as described in 
 our [HPC Job Submission Guide](hpc-job-submission.html#1-submitting-jobs-using-slurm).
-Software should be installed to your `/software/username` 
+Software should be installed to your `/home/username` 
 directory. If using CHTC's provided compilation tools via modules, make 
 sure to load the needed modules before compiling and to load the same 
 modules in your job submission. 
@@ -109,10 +110,9 @@ a more step-by-step description of the process.
 ## B. Step by Step Process
 
 1. **Download Source Code** - download the source code for your desired program. We 
-	recommend downloading it to the local scratch space on the login node 
-	(`/scratch/local/username`) as you should only need the source code until 
-	the software is properly installed. If you'd like to keep a zipped copy of 
-	the source code, you can place it in `/home`.
+	recommend downloading it to your `/home/username` directory on the login node. 
+	You should only need the source code until the software is properly installed, but if desired, you may keep a zipped copy of 
+	the source code in `/home`.
 1. **Read the Docs** - try to find the installation instructions, either online or 
 	in the downloaded source code. In particular, you'll want to note if there are 
 	any special requirements for dependencies like MPI or the compiler needed. 
@@ -125,19 +125,16 @@ a more step-by-step description of the process.
 	1. `configure`- this step checks for tools and requirements needed to compile 
 		the code. This is the step where you set the final installation location of 
 		a program. The option for setting this location is typically called the 
-		"prefix"; a common syntax is: 
-			~~~
-			$ ./configure --prefix=/software/user
-			~~~
+		"prefix"; a common syntax is: `$ ./configure --prefix=/home/user`.
 		This is where you will want to set the installation location to be your 
-		`/software` directory. 
+		`/home` directory. 
 	1. `make` - this step compiles and links the code, turning it from human-readable 
 		source code to compiled binary code. This is usually the most time consuming 
 		step of the installation process. 
 	1. `make install` - this step copies compiled files to the final installation location 
 		(usually specified in the `configure` step). 
 1. **Clean Up** - the final installation should place all needed files into a 
-	subdirectory of your `/software` directory. The source code and location where 
+	subdirectory of your `/home` directory. The source code and location where 
 	you ran the compilation commands can be removed at this point. 
 
 <!-- ## Optional: Create Your Own Modules -->
@@ -151,6 +148,6 @@ If you used one of the software modules to compile your code, make sure you
 load it in your job's submit file before running your main command. 
 
 You can access your software by including the path to its location in your 
-`/software` directory, or by setting the `PATH` environment variable to include 
+`/home` directory, or by setting the `PATH` environment variable to include 
 the software location and then running the command. 
 
