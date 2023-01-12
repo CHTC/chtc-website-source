@@ -74,7 +74,8 @@ should look like this:
 different sized nodes. The main general use partition is now called `shared` 
 instead of `univ2` or `univ3`. We also recommend the following changes because 
 most of our nodes now have 128 cores, so requesting multiple nodes is not 
-advantageous if your jobs are smaller than 128 cores. Here are our recommendations 
+advantageous if your jobs are smaller than 128 cores. We also now recommend requesting 
+memory per core instead of memory per node, for similar reasons. Here are our recommendations 
 for different sized jobs: 
 
 <table>
@@ -86,22 +87,26 @@ for different sized jobs:
 		<td>32-128 cores</td>
 		<td>Example for 32 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16</pre></td>
+#SBATCH --ntasks-per-node=32 # recommend multiples of 16
+#SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 	<tr>
 		<td>96 - 256 cores</td>
 		<td>Split over a few nodes, for example for 160 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node</pre> 
+#SBATCH --ntasks-per-node=80 # designate cores per node
+#SBATCH --mem-per-cpu=4000</pre> 
 	OR:  <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores</pre></td>
+#SBATCH --ntasks=160 # designate overall cores
+#SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
 		<td>Example for 256 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=128</pre></td>
+#SBATCH --ntasks-per-node=128
+#SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 </table>
 
