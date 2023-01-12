@@ -47,7 +47,7 @@ servers or head nodes:
   {:.gtable}
   | HPC Cluster |
   | --- |
-  | `hpclogin3.chtc.wisc.edu` - for accounts created on/after January 19, 2023
+  | `hpclogin3.chtc.wisc.edu`
   | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` - for accounts created before January 19, 2023 |
 
 As of December 2022, we also require two-factor authentication with Duo to 
