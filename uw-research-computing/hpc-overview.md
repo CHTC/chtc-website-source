@@ -56,10 +56,10 @@ head nodes and/or disable user accounts that violate this policy**
 Violation of these policies may result in suspension of your account.
 
 **2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
-HPC users should not numerous jobs on the HPC Cluster that can individually finish 
-within 7 days less than 64 cores, given its 
+HPC users should not run numerous jobs on the HPC Cluster that can individually finish 
+within 7 days or use less than 40 cores, given its 
 optimization for multi-cpu and multi-node/MPI work. Users may 
-be asked to transition individual jobs needing less than 64 cores 
+be asked to transition individual jobs needing less than 40 cores 
  to our high-throughput computing (HTC) system, where they 
 will also experience better turnaround.
 
@@ -172,7 +172,7 @@ Each user will receive two primary data storage locations:
 
 1. `/home/username` with an initial disk quota of 30GB 
 and 250,000 items. Your home directory is meant to be used for files 
-you use over and over, like submit file templates, source code, software 
+you use repeatedly, like submit file templates, source code, software 
 installations, and reference data files. 
 
 2. `/scratch/username` with an initial disk quota of 100GB and 
