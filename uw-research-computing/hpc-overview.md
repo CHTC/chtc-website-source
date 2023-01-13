@@ -107,7 +107,7 @@ a larger job may run first, if the number of nodes necessary for the larger job 
 
 The HPC Cluster consists of two login nodes and many compute (aka execute) 
 nodes. All users log in at a login node, and all user files on the shared file sytem are accessible on all nodes.
-Additionally, all nodes are tightly networked (56 Gbit/s Infiniband) so
+Additionally, all nodes are tightly networked (200 Gbit/s Infiniband) so
 they can work together as a single \"supercomputer\", depending on the
 number of CPUs you specify. 
 
