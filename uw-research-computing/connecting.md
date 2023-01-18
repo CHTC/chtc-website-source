@@ -45,9 +45,10 @@ servers or head nodes:
   | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - February 2021 or after July 1, 2022 |
 
   {:.gtable}
-  | HPC Cluster - starting October 15, 2020 |
+  | HPC Cluster |
   | --- |
-  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` |
+  | `hpclogin3.chtc.wisc.edu`
+  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` - access the old HPC cluster until February 28, 2023 |
 
 As of December 2022, we also require two-factor authentication with Duo to 
 access CHTC resources. 
