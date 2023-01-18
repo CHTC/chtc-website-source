@@ -16,7 +16,7 @@ Contents
 1. [Removing or Holding Jobs](#4-removing-or-holding-jobs)
 
 The following assumes that you have been granted access to the HPC cluster 
-and can log into the head node `hpclogin1.chtc.wisc.edu`. If this is not
+and can log into the head node `hpclogin3.chtc.wisc.edu`. If this is not
 the case, please see the [CHTC account application page](form.html) or email
 the facilitation team at chtc@cs.wisc.edu. 
 
@@ -36,18 +36,18 @@ described [here](hpc-overview.html).
 After the `#SBATCH` options, the submit file should contain the commands
 needed to run your job, including loading any needed software modules. 
 
-An example submit file is given below. It requests 2 nodes of 20 cores 
-and 128GB of memory each (so 40 cores and 256 GB of memory total), on the 
-`univ2` partition. It also specifies a run time limit of 4.5 hours. 
+An example submit file is given below. It requests 1 nodes of 64 cores 
+and 4GB of memory each (so 64 cores and 256 GB of memory total), on the 
+`shared` partition. It also specifies a run time limit of 4.5 hours. 
 
 ``` {.sub}
 #!/bin/sh
 #This file is called submit-script.sh
-#SBATCH --partition=univ2       # default "univ2", if not specified
+#SBATCH --partition=shared       # default "shared", if not specified
 #SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
-#SBATCH --nodes=2               # require 2 nodes
-#SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=128000             # RAM per node
+#SBATCH --nodes=1               # require 1 nodes
+#SBATCH --ntasks-per-node=64    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem=4000             # RAM per node in megabytes
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 # Make sure to change the above two lines to reflect your appropriate
@@ -56,7 +56,7 @@ and 128GB of memory each (so 40 cores and 256 GB of memory total), on the
 # Now list your executable command (or a string of them).
 # Example for code compiled with a software module:
 module load mpimodule
-mpirun -n 40 /software/username/mpiprogram
+srun --mpi=pmix -n 64 /home/username/mpiprogram
 ```
 
 Once the submit file is created, it can be submitted using the `sbatch` command: 
@@ -69,32 +69,40 @@ Once the submit file is created, it can be submitted using the `sbatch` command:
 **B. Optimizing Your Submit File**
 -------------------
 
-There are other `SBATCH` options that can be used in the SLURM submit file. 
-Other lines that you may wish to add to your script for specifying a
-number of total tasks (equivalent to \"cores\" by default), desired CPU
-cores per task (for multiple CPU cores per MPI task), or RAM per
-cpu are:
+The new cluster has different partition names and different sized nodes. We  recommend the following changes because most of our nodes now have 128 cores, so requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons. Here are our recommendations for different sized jobs:
 
-``` {.sub}
-#SBATCH --mem-per-cpu=4000         # RAM per cpu, in MB
-#SBATCH --ntasks=40        # total number of "tasks" (cores) requested
-#SBATCH --cpus-per-task=1  # default "1" if not specified
-```
+<table>
+	<tr>
+		<th>Job size</th>
+		<th>Recommended <code>#SBATCH</code> flags</th>
+	</tr>
+	<tr>
+		<td>32-128 cores</td>
+		<td>Example for 32 cores: <pre>
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=32 # recommend multiples of 16
+#SBATCH --mem-per-cpu=4000</pre></td>
+	</tr>
+	<tr>
+		<td>96 - 256 cores</td>
+		<td>Split over a few nodes, for example for 160 cores: <pre>
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=80 # designate cores per node
+#SBATCH --mem-per-cpu=4000</pre> 
+	OR:  <pre>
+#SBATCH --nodes=2
+#SBATCH --ntasks=160 # designate overall cores
+#SBATCH --mem-per-cpu=4000</pre></td>
+	</tr>
+	<tr>
+		<td>128 or 256 cores (whole nodes)</td>
+		<td>Example for 256 cores: <pre>
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --mem-per-cpu=4000</pre></td>
+	</tr>
+</table>
 
-No matter which options you choose, it is important to make sure that your request fits within
-the hardware configuration of your chosen partition.
-
-If using the `pre` partition, we recommend making your resource requests in a way that 
-will allow jobs to run on both the `univ` and `univ2` servers, specifically: 
-
-``` {.sub}
-#!/bin/sh
-#SBATCH --partition=pre        # default "univ", if not specified
-#SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
-#SBATCH --nodes=2               # require 2 nodes
-#SBATCH --ntasks-per-node=20    # cpus per node (by default, "ntasks"="cpus")
-#SBATCH --mem=64000             # RAM per node
-```
 
 **C. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**
 -----------------
@@ -102,16 +110,16 @@ will allow jobs to run on both the `univ` and `univ2` servers, specifically:
 If you want to run your job commands yourself, as a test before submitting 
 a job as described above, you can request an interactive job on the cluster. 
 There is a dedicated partition 
-for interactive work called `int`; you may request up to a full node (16 CPUs, 
-64 GB RAM) when requesting an interactive session in the \"int\" partition and 
+for interactive work called `int`; you may request up to a full node (128 CPUs, 
+512 GB RAM) when requesting an interactive session in the \"int\" partition and 
 the session is limited to 60 minutes. Using another partition (like `pre`) will 
 mean your interactive job is subject to the limits of that partition. 
 
-The command to request an interactive job is `srun`, and includes the partition
+The command to request an interactive job is `srun --mpi=pmix`, and includes the partition
 in which you'd like to run the interactive job. 
 
 ``` 
-[alice@login]$ srun -n4 -N1 -p int --pty bash
+[alice@login]$ srun --mpi=pmix -n4 -N1 -p int --pty bash
 ```
 {:.term}
 
@@ -136,12 +144,12 @@ To view your jobs in the SLURM queue, use the following command:
 {:.term}
 
 Issuing `squeue` alone will show all user jobs in the queue. You can
-view all jobs for a particular partition with `squeue -p univ`.
+view all jobs for a particular partition with `squeue -p shared`.
 
 **3. Viewing Additional Job Information**
 ==================
 
-Accounting information for jobs that are invoked with SLURM are logged. The `sacct`	 command displays job accouting data in a variety of forms for your analysis. 
+Accounting information for jobs that are invoked with SLURM are logged. The `sacct` command displays job accouting data in a variety of forms for your analysis. 
 
 **If you are having trouble viewing output from `sacct` try running this command first**
 
