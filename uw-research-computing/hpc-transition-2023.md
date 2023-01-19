@@ -119,7 +119,7 @@ sync data between local spaces, it may be advantageous to use this disk to speed
 up your jobs. It is located at the following path on each node: 
 
 ```
-/local/scratch/$USER
+/local/$USER
 ```
 
 ## New Cluster Specifications
