@@ -146,3 +146,13 @@ html {
   background-color:  #f7f7f7;
   margin-bottom: 1.5rem;
 }
+
+.circuit-background {
+  background: url({{ 'images/circuit_board_light.svg' | relative_url }}) no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  box-shadow: inset 0px 0px 10px white;
+}

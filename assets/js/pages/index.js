@@ -1,5 +1,5 @@
 import { h, Component, render } from 'https://cdn.skypack.dev/preact@10.4.7';
-import { useEffect, useState } from 'https://cdn.skypack.dev/preact@10.4.7/hooks'
+import { useEffect, useState, useRef, useMemo } from 'https://cdn.skypack.dev/preact@10.4.7/hooks'
 
 const labels = [
     'January',
@@ -126,6 +126,105 @@ const engagement_config = {
 //     engagement_config
 // );
 
+/**
+ * A function to convert large numbers into a < 4 char format, i.e. 100,000 to 100k or 10^^9 to 1b
+ *
+ * It would be interesting to find a solution to this that is better than O(N)
+ * @param int An integer
+ * @param decimals The amount of decimal places to include
+ */
+function int_to_small_format(int, decimals=0) {
+    if(int < 10**3) {
+        return int.toFixed(decimals)
+    } else if ( int < 10**6 ) {
+        return (int / 10**3).toFixed(decimals) + "K"
+    } else if ( int < 10**9 ) {
+        return (int / 10**6).toFixed(decimals) + "M"
+    } else if ( int < 10**12 ) {
+        return (int / 10**9).toFixed(decimals) + "B"
+    } else {
+        return int.toFixed(decimals)
+    }
+}
+
+function useOnScreen(ref, rootMargin = "0px") {
+    // State and setter for storing whether element is visible
+    const [isIntersecting, setIntersecting] = useState(false);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Update our state when observer callback fires
+                setIntersecting(entry.isIntersecting);
+            },
+            {
+                rootMargin,
+            }
+        );
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+        return () => {
+            observer.unobserve(ref.current);
+        };
+    }, []); // Empty array ensures that effect is only run on mount and unmount
+    return isIntersecting;
+}
+
+
+const Counter = ({endValue, numIncrements, sleep, decimals, ...props}) => {
+
+    const ref = useRef();
+    const isOnScreen = useOnScreen(ref, "-200px");
+
+    const [index, setIndex] = useState(0);
+
+    let valueArray = [...Array(numIncrements + 1).keys()].map((value, index) => {
+        return Math.floor(endValue * (Math.sqrt((index)/numIncrements)))
+    })
+
+    useMemo(() => {
+        if(isOnScreen){
+            new Promise(r => setTimeout(r, sleep)).then(r => {
+                if(index < valueArray.length - 1){
+                    setIndex(index + 1)
+                }
+            })
+        }
+    }, [isOnScreen, index])
+
+    return h("h1", {ref:ref, ...props}, int_to_small_format(valueArray[index], decimals).toString())
+}
+
+const StatisticRow = () => {
+
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("/assets/data/college-table.json")
+            .then(r => r.json())
+            .then(d => setData(d))
+    }, [])
+
+    if(data){
+        return(
+            h("div", {className: "row"}, ...[
+                h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "HTC Core Hours", value: data.reduce((p, c) => {return p + c['HTCHours']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "HPC Core Hours", value: data.reduce((p, c) => {return p + c['HPCHours']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "Facilitator Interactions", value: data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0), className: "col-6 col-md-3"}, ),
+            ])
+        )
+    }
+}
+
+const StatisticCard = ({label, value, ...props}) => {
+    return (
+        h("div", {className: "d-flex flex-direction-column", ...props}, ...[
+            h(Counter, {endValue: value, numIncrements: 10, sleep:50, decimals:0, className: "text-center", style:{fontSize: "5rem"}}),
+            h("h1", {className: "text-center"}, label)
+        ])
+    )
+}
+
 const CollegeTable = (props) => {
 
     const [data, setData] = useState([]);
@@ -142,7 +241,7 @@ const CollegeTable = (props) => {
                 h("th", {className: "text-end"}, "Projects Supported"),
                 h("th", {className: "text-end"}, "HTC Core Hours"),
                 h("th", {className: "text-end"}, "HPC Core Hours"),
-                h("th", {className: "text-end"}, "CHTC Interactions")
+                h("th", {className: "text-end"}, "Facilitator Interactions")
             ),
             h("tbody", {},
                 ...data.map(v => {
@@ -168,4 +267,5 @@ const CollegeTable = (props) => {
     )
 }
 
+render(h(StatisticRow), document.getElementById("statistic-row"))
 render(h(CollegeTable), document.getElementById("college-table"))
