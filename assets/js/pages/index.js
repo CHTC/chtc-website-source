@@ -1,3 +1,6 @@
+import { h, Component, render } from 'https://cdn.skypack.dev/preact@10.4.7';
+import { useEffect, useState } from 'https://cdn.skypack.dev/preact@10.4.7/hooks'
+
 const labels = [
     'January',
     'February',
@@ -11,7 +14,7 @@ let getDemoData = (length, multiple) => {
     return [...Array(length).keys()].map(x => Math.floor(Math.random()*multiple))
 }
 
-dataBase = {
+const dataBase = {
     backgroundColor: 'rgb(197, 5, 12, .5)',
     borderColor: 'rgb(197, 5, 12)',
     borderWidth: 2,
@@ -42,7 +45,7 @@ const engagements_data = {
     }]
 };
 
-baseConfig = {
+const baseConfig = {
     type: 'bar',
     options: {
         plugins: {
@@ -108,52 +111,61 @@ const engagement_config = {
     data: engagements_data,
 };
 
-const cpuChart = new Chart(
-    document.getElementById('cpu-stats'),
-    cpu_config
-);
+// const cpuChart = new Chart(
+//     document.getElementById('cpu-stats'),
+//     cpu_config
+// );
+//
+// const projectChart = new Chart(
+//     document.getElementById('project-stats'),
+//     project_config
+// );
+//
+// const engagementsChart = new Chart(
+//     document.getElementById('engagement-stats'),
+//     engagement_config
+// );
 
-const projectChart = new Chart(
-    document.getElementById('project-stats'),
-    project_config
-);
+const CollegeTable = (props) => {
 
-const engagementsChart = new Chart(
-    document.getElementById('engagement-stats'),
-    engagement_config
-);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("/assets/data/college-table.json")
+            .then(r => r.json())
+            .then(d => setData(d))
+    }, [])
 
-
-
-class CollegeTable {
-    constructor(id) {
-        this.tableBody = document.getElementById(id)
-        this.initialize()
-    }
-
-    async initialize(){
-        const data = await this.getData()
-        this.populateTable(data)
-    }
-
-    async getData(){
-        const response = await fetch("./assets/data/college-table.json")
-        const json = await response.json()
-
-        return json
-    }
-
-    populateTable(data){
-        for(const row of data) {
-            let tr = document.createElement("tr")
-            for(const field of row){
-                let td = document.createElement("td")
-                td.textContent = field
-                tr.appendChild(td)
-            }
-            this.tableBody.appendChild(tr)
-        }
-    }
+    return (
+        h("table", {className: "table-responsive my-4"},
+            h("thead", {},
+                h("th", {}, "College"),
+                h("th", {className: "text-end"}, "Projects Supported"),
+                h("th", {className: "text-end"}, "HTC Core Hours"),
+                h("th", {className: "text-end"}, "HPC Core Hours"),
+                h("th", {className: "text-end"}, "CHTC Interactions")
+            ),
+            h("tbody", {},
+                ...data.map(v => {
+                    return (
+                        h("tr", {},
+                            h("td", {}, v["College"]),
+                            h("td", {className: "text-end"}, v["NumProj"].toLocaleString()),
+                            h("td", {className: "text-end"}, v["HTCHours"].toLocaleString()),
+                            h("td", {className: "text-end"}, v["HPCHours"].toLocaleString()),
+                            h("td", {className: "text-end"}, v["CHTC Interactions"].toLocaleString()),
+                        )
+                    )
+                }),
+                h('tr', {className: "bg-dark text-light"},
+                    h("td", {}, "Total"),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['NumProj']}, 0).toLocaleString()),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HTCHours']}, 0).toLocaleString()),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HPCHours']}, 0).toLocaleString()),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0).toLocaleString()),
+                )
+            )
+        )
+    )
 }
 
-const collegeTable = new CollegeTable("college-data")
+render(h(CollegeTable), document.getElementById("college-table"))

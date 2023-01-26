@@ -6,6 +6,7 @@ js_extension:
     loading: defer
 -   src: "/assets/js/pages/index.js"
     loading: defer
+    type: module
 ---
 
 {% assign now = 'now' | date: '%s' | plus: 0 %}
@@ -73,24 +74,9 @@ js_extension:
 </div>
 <div id="stats" class="container-lg">
     <h2 class="uw-mini-bar mb-4">
-        Campus Impact at a Glance
+        How UW-Madison is using CHTC
     </h2>
-    <div class="row">
-        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="cpu-stats"></canvas></div></div>
-        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="project-stats"></canvas></div></div>
-        <div class="col-md-6 col-lg-4 col-12"><div class="stat-card"><canvas id="engagement-stats"></canvas></div></div>
-    </div>
-    <table class="table table-responsive e my-4">
-        <thead>
-            <tr>
-                <th>College</th>
-                <th>HTC Core Hours</th>
-                <th>HPC Core Hours</th>
-                <th>Number of Projects</th>
-            </tr>
-        </thead>
-        <tbody id="college-data"></tbody>
-    </table>
+    <div id="college-table"></div>
 </div>
 <div class="bg-light py-4">
     <div class="container-lg">
