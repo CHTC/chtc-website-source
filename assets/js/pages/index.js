@@ -1,3 +1,7 @@
+---
+    layout: blank
+---
+
 import { h, Component, render } from 'https://cdn.skypack.dev/preact@10.4.7';
 import { useEffect, useState, useRef, useMemo } from 'https://cdn.skypack.dev/preact@10.4.7/hooks'
 
@@ -174,7 +178,7 @@ function useOnScreen(ref, rootMargin = "0px") {
 const Counter = ({endValue, numIncrements, sleep, decimals, ...props}) => {
 
     const ref = useRef();
-    const isOnScreen = useOnScreen(ref, "-200px");
+    const isOnScreen = useOnScreen(ref, "-100px");
 
     const [index, setIndex] = useState(0);
 
@@ -199,7 +203,7 @@ const StatisticRow = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch("/assets/data/college-table.json")
+        fetch("{{ '/assets/data/college-table.json' | relative_url }}")
             .then(r => r.json())
             .then(d => setData(d))
     }, [])
