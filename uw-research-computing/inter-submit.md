@@ -21,6 +21,16 @@ scientific software for use in CHTC. If you are using Python, R, or
 Matlab, see our specific installation and use guides here: [Guides for
 Matlab, Python and R](howto_overview.html).
 
+It is helpful to understand a little bit about normal "batch" HTCondor jobs 
+before submitting interactive jobs. Just like batch jobs, interactive jobs 
+can transfer input files (usually copies of source code or the software you 
+want to install) and will transfer new/updated files in the main working directory 
+back to the submit node when the job completes. 
+
+> One exception to the file transfers working as usual is when running an interactive 
+> job that uses a Docker container. If any output files are generated inside an 
+> interactive Docker job, they will not be copied back to the submit node when you 
+> exist the interactive job. Contact the facilitation team for workarounds to this behavior. 
 
 <a name="build"></a>
 
