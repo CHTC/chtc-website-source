@@ -21,6 +21,8 @@ markdown_ext : "md,shtml"
 
 highlighter: none
 
+future: true
+
 defaults:
   - scope:
       path: ""
