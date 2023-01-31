@@ -15,7 +15,7 @@ To run an Apptainer job, it is necessary to first choose a preexisting Apptainer
 ### A. Preexisting Images
 Like Docker, it is easiest to use Apptainer in your jobs by finding a preexisting image that contains your desired software and environment setup. 
 
-Preexisting "base" images can be found in the Apptainer library or from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). sAdditionally, it to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
+Preexisting "base" images can be found in the Apptainer library or from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). Additionally, it to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
 
 ### B. Create your Own Image
 To create your own image, it is still necessary to select a "base" image to add to. See below how to customaize your base image by adding and preparing additional software packages/libraries. **If your apptainer image does not require any additional packages or libraries, skip to section 7.**   
