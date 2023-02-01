@@ -45,6 +45,8 @@ Now we will be adding the SSH public key to your GitHub account, following the i
 
 1. Copy the contents of the public SSH key file (`id_ed25519.pub`) created in Part A.  There are several ways of doing this.
 
+   > If you provided an alternate file name in Step 3. of Part A., then the public SSH key will be the name of that file plus the `.pub` extension.
+
    * Print the contents of the file to the screen by entering the following command, replacing `your_NetID` with your actual NetID. 
       ```
       cat /home/your_NetID/.ssh/id_ed25519.pub
@@ -52,8 +54,6 @@ Now we will be adding the SSH public key to your GitHub account, following the i
       {:.term}
    * Use a terminal editor (`nano`, `vi`, etc.) to open and view the file
    * Use a file transfer method to transfer the file to your local computer ([Transferring Files](connecting.html#transfer)).
-
-   > If you provided an alternate file name in Step 3. of Part A., then the public SSH key will be the name of that file plus the `.pub` extension.
 
 2. Next, log in to [github.com](https://github.com/) using the same email that you used in Step 2. of Part A.
 3. Go to your account settings by clicking on your profile icon in the top right corner of the webpage, then click on **Settings** within the drop-down menu.  *If your browser window is small, the **Settings** button can be found by clicking the menu button at the top left of the webpage.*
