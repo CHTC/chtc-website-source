@@ -52,6 +52,7 @@ Now we will be adding the SSH public key to your GitHub account, following the i
       {:.term}
    * Use a terminal editor (`nano`, `vi`, etc.) to open and view the file
    * Use a file transfer method to transfer the file to your local computer ([Transferring Files](connecting.html#transfer)).
+
    > If you provided an alternate file name in Step 3. of Part A., then the public SSH key will be the name of that file plus the `.pub` extension.
 
 2. Next, log in to [github.com](https://github.com/) using the same email that you used in Step 2. of Part A.
