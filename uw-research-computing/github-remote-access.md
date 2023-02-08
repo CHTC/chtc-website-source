@@ -40,6 +40,8 @@ We will be following the instructions provided by GitHub to generate the SSH key
 4. You will be prompted to create a passphrase.  Type your desired passphrase and then hit enter.  Repeat a second time when asked to confirm your passphrase.
    > **Warning**: If you leave the passphrase empty (hit enter without typing anything), a passphrase will not be created nor required for using the SSH connection.  In principle, this means anyone with access to the private key can access and modify your GitHub account remotely.
 
+5. A message will appear confirming the creation of the SSH key pair, as well as the paths and names of the private and public keys that were generated.  Make note of these paths for use in the following steps.
+
 
 ## B. Add the SSH Key to Your GitHub Account
 
