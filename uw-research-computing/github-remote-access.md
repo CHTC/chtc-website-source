@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: markdown-page
-title: Remote Access to Private GitHub Repository
+title: Remotely Access a Private GitHub Repository
 ---
 
 This guide describes how to remotely access a private GitHub repository from the HTC and HPC clusters, specifically
