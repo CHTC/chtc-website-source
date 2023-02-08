@@ -114,6 +114,29 @@ Note that all port forwarding, including X display forwarding, must be setup by
 the initial connection and cannot be changed. If you forget to use `-Y` on the initial 
 connection, you will not be able to open X programs on subsequent connections.
 
+## File Transfer Tools
+
+There are a variety of tools that people use for transferring and editing files 
+like WinSCP and MobaXTerm. Some of these tools are able to use ssh configuration 
+or have options that do not require Duo 2FA every time a file is uploaded or 
+downloaded or edited, but some do not. 
+
+### Known to support persistent connections
+
+* Cyberduck (taken from [these docs](https://s2.smu.edu/hpc/documentation/access.html)
+
+    Cyberduck does not use SSH configurations, therefore the following setting 
+    can be used to enable connection persistence. Within Cyberduck:
+
+    1. Select Preferences, then the Transfers button, and then the General section.
+    1. Under “Transfers”, use the “Transfer Files” drop-down to select “Use browser 
+connection”.
+
+### Known to NOT support `ControlMaster` or similar persistent connections
+
+* File transfer tools from [Panic](https://panic.com/), like Transmit and Nova
+do not support the `ControlMaster` config described above. 
+
 ## Other Tools
 
 For those on spotty wireless or those who move a lot with their connection 
