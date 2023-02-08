@@ -5,8 +5,10 @@ title: Remote Access to Private GitHub Repository
 ---
 
 This guide describes how to remotely access a private GitHub repository from the HTC and HPC clusters, specifically
-* how to generate SSH key pair
-* how to add SSH key to your GitHub account
+* how to generate an SSH key pair
+
+* how to add a public SSH key to your GitHub account
+
 * how to remotely access your private GitHub repository
 
 You will need to have access to a CHTC cluster.  You will also need to have a GitHub account  with access to the private repository of interest.
