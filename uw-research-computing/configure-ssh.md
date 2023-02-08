@@ -123,6 +123,8 @@ downloaded or edited, but some do not.
 
 ### Known to support persistent connections
 
+* WinSCP (by default)
+
 * Cyberduck (taken from [these docs](https://s2.smu.edu/hpc/documentation/access.html)
 
     Cyberduck does not use SSH configurations, therefore the following setting 
