@@ -6,7 +6,7 @@ title: Checking Disk Quota and Usage
 
 The following commands will allow you to monitor the amount of disk
 space you are using in your home directory on our (or another) submit node and to determine the
-amount of disk space you have been allotted (your quota).\
+amount of disk space you have been allotted (your quota).
 
 If you also have a `/staging` directory on the HTC system, see our 
 [staging guide](file-avail-largedata.html#5-checking-your-quota-data-use-and-file-counts) for 
@@ -19,8 +19,7 @@ limit of 30 GB (at which point you cannot write more files).\
 copy completed jobs to a secure location as soon as a batch completes,
 and then delete them on the submit node in order to make room for future
 jobs.** If you need more disk space to run a single batch or concurrent
-batches of jobs, please send an email to the address at the bottom of
-the page. We have multiple ways of dealing with large disk space
+batches of jobs, please contact us ([Get Help!](get-help.html)). We have multiple ways of dealing with large disk space
 requirements to make things easier for you.
 
 
