@@ -8,17 +8,13 @@ title: Citing CHTC Resources
 In a Publication
 ----------------
 
-This research was performed using the compute resources and assistance
-of the UW-Madison Center For High Throughput Computing (CHTC) in the
-Department of Computer Sciences. The CHTC is supported by UW-Madison,
-the Advanced Computing Initiative, the Wisconsin Alumni Research
-Foundation, the Wisconsin Institutes for Discovery, and the National
-Science Foundation, and is an active member of the OSG Consortium,
-which is supported by the National Science Foundation and the U.S.
-Department of Energy\'s Office of Science.\
-\
-(Last updated Jan 6, 2021)\
-\
+In order to track our scientific impact we ask that users cite the following DOI in all publications
+that have benefited from our services.
+
+> [https://doi.org/10.21231/GNT1-HW21](https://doi.org/10.21231/GNT1-HW21)
+
+(Last updated Feb, 2023)
+
 [Appropriate acknowledgement of OSG resources is described here](https://osg-htc.org/acknowledging)
   
 <br>
@@ -75,4 +71,4 @@ achieving the best scientific throughput. As always, CHTC will be happy
 to provide consulting to ensure optimal use of its facilities, and 
 development of robust, reproducible methods for scalable computing.\
 \
-(Last updated July 1, 2021)\
+(Last updated July 1, 2021)
