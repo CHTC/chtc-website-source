@@ -23,6 +23,8 @@ the new cluster.
 * The `univ2` partition is being renamed, and partition policies have changed. 
 * Users should avoid using `mpirun` and instead should use `srun` to execute their 
 MPI code.  
+    > Note: At this time, interactive jobs on the "Spark" HPC Cluster can not be 
+    > used to run MPI code.
 * File system conventions have changed - jobs will now use `/scratch/$USER` to run, 
 and `/home/$USER` will be mainly used for software installations and reference 
 files. 
