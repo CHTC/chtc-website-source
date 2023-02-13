@@ -1,7 +1,8 @@
 @charset 'utf-8';
+
 /**
  * UW Style
- * Version 2.4.0
+ * Version 3.0.4
  * Maintained by University Marketing, UW–Madison, web@umark.wisc.edu
  */
 @import "vendor/foundation/unit";
@@ -11,6 +12,7 @@
 @import 'uw_mixins';
 
 @import 'uw_vars';
+@import 'uw_fonts';
 @import 'uw_typography';
 
 @import "uw_utils";

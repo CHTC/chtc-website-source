@@ -1,15 +1,25 @@
 .uw-card {
-  @include uw-flex-column(33.333333%, map-get($breakpoints, medium));
+  @include uw-flex-column(33.333333%, 500px);
   padding: $uw-padding*1;
   display: flex;
   .uw-card-content {
     background-color: $uw-white;
     img {
-      max-height: 250px;
       width: 100%;
+    }
+    h2 {
+      font-size: 1.375rem;
+      font-weight: 650;
+      margin-bottom: .225rem;
     }
   }
   .uw-card-copy {
     padding: 0 1rem 1rem;
+    p, li {
+      line-height: 1.6;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

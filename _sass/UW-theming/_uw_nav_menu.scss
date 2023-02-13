@@ -9,8 +9,7 @@
   border: 0;
   padding: 1.1rem 1rem 1.1rem 1rem;
   color: $uw-white;
-  text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 1rem;
   &:focus {
@@ -65,7 +64,7 @@
 }
 
 // styles for all states of #uw-top-menus
-#uw-top-menus, #uw-sub-menus {
+#uw-top-menus {
   
   &.uw-display-none {
     display: none;
@@ -82,12 +81,11 @@
   .uw-nav-menu {
     a {
       display: inline-block;
-      font-size: 15px;
-      font-size: .925rem;
-      font-weight: 800;
+      font-family: var(--uwDisplayFont);
+      font-size: 1rem;
+      font-weight: 600;
       line-height: 1.25;
       color: white;
-      text-transform: uppercase;
       border-bottom: .2rem solid rgba(0, 0, 0, 0);
       &:hover {
         text-decoration: none;
@@ -114,7 +112,8 @@
       ul {
         margin: 0;
         a {
-          font-weight: 700;
+          font-size: .9rem;
+          font-weight: 600;
           text-transform: none;
         }
       }
@@ -148,7 +147,7 @@
     width: 1rem;
     height: 1rem;
     fill: white;
-    vertical-align: text-top;
+    vertical-align: -3px;
     display: inline;
     margin-right: -1rem; // for preventing line wrapping
     &:last-child {
@@ -183,21 +182,18 @@
 // }
 
 // styles for when the menu button is hidden; i.e. larger viewports
-#uw-top-menus.uw-horizontal, #uw-sub-menus.uw-horizontal {
+#uw-top-menus.uw-horizontal {
   .uw-nav-menu {
-    -webkit-font-smoothing: antialiased;
     // display: block;
     clear: both;
     margin: 0 auto;
     width: 100%;
     background-color: $uw-red;
     &.uw-nav-menu-reverse {
-      -webkit-font-smoothing: auto;
       background-color: white;
     }
   }
   .uw-nav-menu.uw-nav-menu-secondary {
-    -webkit-font-smoothing: antialiased;
     position: absolute;
     top: 0;
     right: 0;
@@ -209,9 +205,12 @@
     > ul > li {
       float: right;
       > a {
-        font-weight: 700;
+        font-weight: 620;
         font-size: .825rem;
+        font-family: var(--uwDisplayFont);
+        -webkit-font-smoothing: antialiased;
         line-height: 2.2rem;
+        text-transform: uppercase;
         border-bottom: none;
         padding-top: 0;
         padding-bottom: 0;
@@ -224,7 +223,7 @@
     }
     &.uw-nav-menu-secondary-reverse {
       a {
-        color: $uw-gray-darker;
+        color: $uw-gray-darkest;
         background-color: $uw-white;
       }
       ul ul a:hover {
@@ -287,6 +286,10 @@
     }
   }
   .uw-nav-menu.uw-nav-menu-reverse ul ul {
+    a {
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
     .uw-dropdown > a {
       // background-color: white;
       color: $uw-red;
@@ -301,7 +304,7 @@
   }
   .uw-nav-menu.uw-nav-menu-reverse a {
     color: $uw-gray-darkest;
-    font-weight: 700;
+    font-weight: 650;
   }
   .uw-nav-menu ul ul {
     position: absolute;
@@ -320,7 +323,6 @@
     }
 
     &.uw-nav-menu-reverse {
-      -webkit-font-smoothing: auto;
       border-top: 1px solid $uw-gray-light;
       border-bottom: 1px solid $uw-gray-light;
       > ul > li:first-child {
@@ -354,7 +356,7 @@
 }
 
 // styles for when the menu button is visible; i.e. smaller viewports
-#uw-top-menus.uw-stacked, #uw-sub-menus.uw-stacked {
+#uw-top-menus.uw-stacked {
   .uw-nav-menu {
     background-color: darken($uw-page-bg, 2%);
     a {

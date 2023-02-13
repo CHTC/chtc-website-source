@@ -118,7 +118,7 @@ html {
 
 .news-post:hover {
   > div {
-    transition: background-color 1s, transform 1s;
+    transition: background-color .5s, transform 1s;
     background-color: #dfdfdf;
     box-shadow: 5px 0px 5px #ffffff;
   }
@@ -139,4 +139,13 @@ html {
 // Homepage was designed with this applied and I don't want to redesign it at the moment
 .mw-1000 {
   max-width: 1000px;
+}
+
+#hero-image-ultrawide {
+  height:50vw;
+  max-height:500px;
+  width: auto;
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }

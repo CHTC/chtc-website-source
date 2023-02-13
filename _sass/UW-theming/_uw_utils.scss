@@ -1,3 +1,5 @@
+// @use 'sass:math';
+
 // text alignment
 .uw-text-center {
   text-align: center;
@@ -23,7 +25,8 @@ $large-sizes: (l, xl, xxl);
   // rescale larger sizes at small viewports
   
   @if index($large-sizes, $name) {
-    $size: $size/2;
+    // $size: math.div($size, 2);
+    $size: $size / 2;
     .uw-pad-#{$name} {
       padding: $size;
     }
@@ -162,7 +165,6 @@ $large-sizes: (l, xl, xxl);
   background-size: cover;
 }
 .uw-row-page-title {
-  padding-top: $uw-padding*2;
   padding-bottom: $uw-padding*2;
 }
 .uw-col {
