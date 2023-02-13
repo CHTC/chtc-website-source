@@ -110,9 +110,6 @@ The new cluster has different partition names and different sized nodes. We  rec
 If you want to run your job commands yourself, as a test before submitting 
 a job as described above, you can request an interactive job on the cluster. 
 
-> Note: At this time, interactive jobs on the "Spark" HPC Cluster can not be used
-> to run MPI code.  
-
 There is a dedicated partition 
 for interactive work called `int`; you may request up to a full node (128 CPUs, 
 512 GB RAM) when requesting an interactive session in the \"int\" partition and 
@@ -121,6 +118,9 @@ mean your interactive job is subject to the limits of that partition.
 
 The command to request an interactive job is `srun --mpi=pmix`, and includes the partition
 in which you'd like to run the interactive job. 
+
+> Note: At this time, interactive jobs on the "Spark" HPC Cluster can not be used
+> to run MPI code.  
 
 ``` 
 [alice@login]$ srun --mpi=pmix -n4 -N1 -p int --pty bash
