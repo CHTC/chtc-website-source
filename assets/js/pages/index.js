@@ -199,21 +199,26 @@ const Counter = ({endValue, numIncrements, sleep, decimals, ...props}) => {
     return h("h1", {ref:ref, ...props}, int_to_small_format(valueArray[index], decimals).toString())
 }
 
+let getCollegeData = async () => {
+    let response = await fetch("{{ '/assets/data/chtc-data-summary.json' | relative_url }}")
+    return await response.json()
+}
+
 const StatisticRow = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch("{{ '/assets/data/college-table.json' | relative_url }}")
-            .then(r => r.json())
-            .then(d => setData(d))
+        getCollegeData().then(d => {
+            setData(d)
+        })
     }, [])
 
     if(data){
         return(
             h("div", {className: "row"}, ...[
                 h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-3"}, ),
-                h(StatisticCard, {label: "HTC Core Hours", value: data.reduce((p, c) => {return p + c['HTCHours']}, 0), className: "col-6 col-md-3"}, ),
-                h(StatisticCard, {label: "HPC Core Hours", value: data.reduce((p, c) => {return p + c['HPCHours']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "HTC Core Years", value: data.reduce((p, c) => {return p + c['HTCYears']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "HPC Core Years", value: data.reduce((p, c) => {return p + c['HPCYears']}, 0), className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "Facilitator Interactions", value: data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0), className: "col-6 col-md-3"}, ),
             ])
         )
@@ -229,13 +234,21 @@ const StatisticCard = ({label, value, ...props}) => {
     )
 }
 
+const CollegeTD = ({children, ...props}) => {
+    if(children === 0){
+        return h("td", {className: "text-end"}, "-")
+    } else if(Number.isInteger(children)){
+        return h("td", {className: "text-end"}, children.toLocaleString())
+    }
+    return h("td", {className: "text-end"}, children)
+}
+
 const CollegeTable = (props) => {
 
     const [data, setData] = useState([]);
+
     useEffect(() => {
-        fetch("{{ '/assets/data/college-table.json' | relative_url }}")
-            .then(r => r.json())
-            .then(d => setData(d))
+        getCollegeData().then(d => setData(d))
     }, [])
 
     return (
@@ -243,27 +256,27 @@ const CollegeTable = (props) => {
             h("thead", {},
                 h("th", {}, "College"),
                 h("th", {className: "text-end"}, "Projects Supported"),
-                h("th", {className: "text-end"}, "HTC Core Hours"),
-                h("th", {className: "text-end"}, "HPC Core Hours"),
+                h("th", {className: "text-end"}, "HTC Core Years"),
+                h("th", {className: "text-end"}, "HPC Core Years"),
                 h("th", {className: "text-end"}, "Facilitator Interactions")
             ),
             h("tbody", {},
                 ...data.map(v => {
                     return (
                         h("tr", {},
-                            h("td", {}, v["College"]),
-                            h("td", {className: "text-end"}, v["NumProj"].toLocaleString()),
-                            h("td", {className: "text-end"}, v["HTCHours"].toLocaleString()),
-                            h("td", {className: "text-end"}, v["HPCHours"].toLocaleString()),
-                            h("td", {className: "text-end"}, v["CHTC Interactions"].toLocaleString()),
+                            h("td", {}, h("a", v["collegeURL"] ? {href: v["collegeURL"]} : {}, v["College"]) ),
+                            h(CollegeTD, {className: "text-end"}, v["NumProj"]),
+                            h(CollegeTD, {className: "text-end"}, v["HTCYears"]),
+                            h(CollegeTD, {className: "text-end"}, v["HPCYears"]),
+                            h(CollegeTD, {className: "text-end"}, v["CHTC Interactions"]),
                         )
                     )
                 }),
                 h('tr', {className: "bg-dark text-light"},
                     h("td", {}, "Total"),
                     h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['NumProj']}, 0).toLocaleString()),
-                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HTCHours']}, 0).toLocaleString()),
-                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HPCHours']}, 0).toLocaleString()),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HTCYears']}, 0).toLocaleString()),
+                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HPCYears']}, 0).toLocaleString()),
                     h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0).toLocaleString()),
                 )
             )
