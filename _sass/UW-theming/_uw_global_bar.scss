@@ -1,5 +1,4 @@
 .uw-global-bar {
-  -webkit-font-smoothing: antialiased;
   background-color: $uw-red;
   color: white;
   padding: 0 1rem;
@@ -7,14 +6,15 @@
   justify-content: space-between;
   text-transform: uppercase;
   font-size: .825rem;
-  font-weight: 700;
+  font-weight: 620;
+  font-family: var(--uwDisplayFont);
   &.uw-global-bar-inverse {
     background-color: white;
     border-bottom: 1px solid $uw-gray-light;
     position: relative;
     z-index: 10;
     a, a:visited, a:active, a:hover {
-      color: $uw-gray-darker;
+      color: $uw-gray-darkest;
     }
   }
 }

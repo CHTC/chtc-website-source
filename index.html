@@ -5,25 +5,22 @@ title: Home
 
 {% assign now = 'now' | date: '%s' | plus: 0 %}
 {% if now <	1677304799 %}
-<hr class="m-0">
 <div class="py-2 container-xxl">
     <b>New Jobs Posted!</b><span> Check out our new Research Cyberinfrastructure Specialist postion on our <a href="jobs.html#data-engineer">jobs page</a>.</span>
 </div>
 <hr class="m-0">
 {% endif %}
 
-<div class="bg-light py-3">
-    <div class="container-lg mw-1000">
-        <img src="{{ 'images/HTC_Graphic_Outline.svg' | relative_url }}"  alt="CHTC Logo" />
-    </div>
+<div class="bg-light overflow-hidden">
+    <picture>
+        <source srcset="{{ 'images/HTC_Graphic_Outline.webp' | relative_url }}">
+        <img id="hero-image-ultrawide" src="{{ 'images/HTC_Graphic_Outline.png' | relative_url }}"  alt="CHTC Logo" />
+    </picture>
 </div>
 <div class="container-xxl">
-    <div class="row {{ include.class }}">
+    <div class="row pt-5 justify-content-center {{ include.class }}">
         <div class="col-12 col-md-8">
-            <h1 class="uw-mini-bar mb-4">
-                CENTER FOR HIGH THROUGHPUT COMPUTING
-            </h1>
-            <div>
+            <div class="">
                 <p>
                     <strong>
                         The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
@@ -60,26 +57,31 @@ title: Home
                 </p>
             </div>
         </div>
-        <div class="col-1 d-md-block d-none"></div>
-        <div class="col-3 d-md-flex d-none">
-            <img class="w-100 mt-auto mb-auto" src="{{ 'images/logos/CHTC_Small_Logo.svg' | relative_url  }}" alt="CHTC Small Logo" />
-        </div>
-    </div>
-</div>
-<div class="bg-light py-4">
-    <div class="container-lg">
-        <div class="row justify-content-center" >
+        <div class="col-12 col-md-4 d-flex flex-column">
+            <h2 class="uw-mini-bar mt-1">
+                <a href="news.html">News</a>
+            </h2>
             {% include get/news.liquid %}
-            {% for article in news limit:3 %}
+            {% for article in news limit:1 %}
+                {% include news-posting.html
+                    class=" col-12"
+                    href=article.url
+                    title=article.title
+                    author=article.author
+                    src=article.card_src
+                    alt=article.card_alt
+                    date=article.date
+                    excerpt=article.excerpt
+                %}
+            {% endfor %}
+            {% for article in news limit:1 offset:1 %}
             {% include news-posting.html
-            class=" col-12 "
-            href=article.url
-            title=article.title
-            author=article.author
-            src=article.card_src
-            alt=article.card_alt
-            date=article.date
-            excerpt=article.excerpt
+                class=" col-12 "
+                href=article.url
+                title=article.title
+                author=article.author
+                date=article.date
+                excerpt=article.excerpt
             %}
             {% endfor %}
         </div>
@@ -130,7 +132,7 @@ or across the world.
             Projects and Partners.
         </h3>
         {% include sub-title-desc-img-card.html
-        class=" mb-4 mt-4 "
+        class=" mb-5 mt-4 "
         title="OSG"
         href="https://osg-htc.org"
         desc="
@@ -146,7 +148,7 @@ or across the world.
         {% include sub-title-desc-img-card.html
         title="PATh"
         href="https://path-cc.io/"
-        class=" flex-row-reverse mb-4 mt-4"
+        class=" flex-row-reverse mb-5 mt-4"
         desc="
         The Partnership to Advance Throughput Computing (PATh) is a partnership between
         CHTC and OSG to advance throughput computing.  Funded through a major investment
@@ -159,7 +161,7 @@ or across the world.
         img_style="max-width: 12rem;"
         %}
         {% include sub-title-desc-img-card.html
-        class=" mb-4 mt-4 "
+        class=" mb-5"
         title="Morgridge Institute for Research"
         href="https://morgridge.org/"
         desc="

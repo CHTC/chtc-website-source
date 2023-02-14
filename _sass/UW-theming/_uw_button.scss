@@ -1,36 +1,144 @@
-.uw-button {
-  background-color: $uw-anchor-color;
-  color: white;
+@mixin uw-button() {
   display: inline-block;
+  text-align: center;
+  font-family: var(--uwButtonFont);
+  font-weight: 620;
+  font-size: 1rem;
   line-height: 1;
-  cursor: pointer;
-  transition: all .2s ease-out;
-  border: 1px solid rgba(0, 0, 0, 0);
-  border-radius: 0;
+  padding: 0.75rem 1.25rem;
+  margin: 0;
+  background: $uw-anchor-color;
+  color: #fff;
+  box-shadow: bottom-shadow(1), top-shadow(1);
   position: relative;
-  // box-shadow: 0 1.5px 4px rgba(0,0,0,.24),0 1.5px 6px rgba(0,0,0,.12);
-  padding: .6rem;
-  font-family: $uw-verlag-font;
-  font-size: .775rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  &:hover {
-    background-color: scale-color($uw-anchor-color, $lightness: -15%);
-    // box-shadow: 0 1.5px 4px rgba(0,0,0,.34),0 1.5px 6px rgba(0,0,0,.22);
-  }
-  &.uw-button-inverse {
-    background-color: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all 0.25s ease-out;
+  vertical-align: middle;
+  border: 2px solid $uw-anchor-color;
+  border-radius: 2px;
+  text-decoration: none !important;
+  &:hover, &:focus {
     color: $uw-anchor-color;
-    border-color: $uw-anchor-color;
-  }
-  + .uw-button {
-    margin-left: 0.5rem;
+    background-color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    outline: none;
+    &:after {
+      opacity: 1;
+    }
   }
 }
-a.uw-button:hover {
-  text-decoration: none;
+
+// preserves legacy Foundation .button class and theme .button-cta class
+.uw-button, .button, .button-cta {
+  @include uw-button();
 }
-.uw-button-unstyle {
-  background-color: transparent;
-  color: $uw-anchor-color;
+
+.uw-button {
+  &.uw-button-large {
+    padding: 0.625em 1.625rem;
+    font-size: 1.125rem;
+  }
+
+  &.uw-button-expanded {
+    display: block;
+    width: 100%;
+  }
+
+  &.uw-button-reverse {
+    background-color: white;
+    border: 2px solid $uw-anchor-color;
+    color: $uw-anchor-color;
+    &:hover, &:focus {
+      background-color: $uw-anchor-color;
+      border: 2px solid $uw-anchor-color;
+      color: $uw-white;
+    }
+  }
+  &.uw-button-transparent {
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #ffffff;
+    &:hover, &:focus {
+      background-color: #ffffff;
+      color: $uw-text;
+    }
+  }
+
+  &.uw-button-red {
+    background-color: $uw-red;
+    color: $uw-white;
+    border: 2px solid $uw-red;
+    &:hover, &:focus {
+      background-color: $uw-white;
+      color: $uw-red;
+    }
+  }
+
+  &.uw-button-red-reverse {
+    background-color: $uw-white;
+    color: $uw-red;
+    border: 2px solid $uw-red;
+    &:hover, &:focus {
+      background-color: $uw-red;
+      border: 2px solid $uw-red;
+      color: $uw-white;
+    }
+  }
+}
+
+// Form and call to action buttons
+.uw-button-cta, .button-cta {
+  text-transform: uppercase;
+}
+
+// legacy theme class; same as .uw-button .uw-button-red-reverse
+.button-cta {
+  &.button-cta-reverse {
+    background-color: $uw-white;
+    color: $uw-red;
+    border: 2px solid $uw-red;
+    &:hover, &:focus {
+      background-color: $uw-red;
+      border: 2px solid $uw-anchor-color;
+      color: $uw-white;
+    }
+  }
+}
+
+// dark background overrides
+.row-dark-background, .has_background-image, .carousel-content {
+  .button, .uw-button, .uw-button.uw-button-reverse, .uw-button.uw-button-red-reverse, .button-cta {
+    border: 2px solid #fff;
+  }
+}
+.row-dark-background, .has_background-image {
+  .uw-drop-shadow, .uw-content-box, .tabs-content, .uw-accordion-panel-inner, .faculty-member-content, .alternating-content-box {
+    .button, .uw-button, .button-cta {
+      border-color: $uw-anchor-color;
+    }
+    .uw-button.uw-button-red {
+      border-color: $uw-red;
+    }
+    .uw-button.uw-button-reverse {
+      border-color: $uw-anchor-color;
+    }
+    .uw-button.uw-button-red-reverse {
+      border-color: $uw-red;
+    }
+  }
+}
+
+// undo font-smoothing for buttons in text blocks
+.uw-pe-text_block {
+  li, p {
+    .uw-button, .button, .button-cta {
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
+
+// Gravity Forms input submit button
+.gform_wrapper .gform_footer input[type=submit].uw-button {
+  font-size: 0.925rem;
 }

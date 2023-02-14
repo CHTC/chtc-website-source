@@ -1,9 +1,8 @@
 <div class="row justify-content-center {{ include.class }}">
-    <div class="col col-md-8">
+    <div class="col col-md-6">
         <h1><a href="{{ include.href }}">{{ include.title }}</a></h1>
         <p>{{ include.desc }}</p>
     </div>
-    <div class="col-1 d-md-block d-none"></div>
     <a href="{{ include.href }}" class="col-3 d-md-flex d-none">
         <img style="{{ include.img_style }}" class="w-100 mt-auto mb-auto" src="{{ include.img_src | relative_url }}" alt="{{ include.img_alt }}" />
     </a>

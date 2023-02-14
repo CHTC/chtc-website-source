@@ -3,9 +3,9 @@
 
 .uw-body {
   @include uw-flex-column(66.6667%);
+  margin-bottom: 3rem;
   p,li,dd,dt {
-    font-family: $uw-serif-font;
-    -webkit-font-smoothing: auto;
+    font-family: var(--uwCopyFont);
   }
   &:first-child:last-child {
     @include uw-flex-column;
@@ -29,6 +29,7 @@
     // margin-top: 0;
   }
   > p, li {
+    font-size: 1rem;
     margin-bottom: 1.35rem;
     line-height: 1.35;
   }

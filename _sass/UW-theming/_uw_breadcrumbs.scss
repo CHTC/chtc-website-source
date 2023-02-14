@@ -1,19 +1,28 @@
 .uw-breadcrumbs {
-  margin: $uw-padding 0;
-  padding: 0 $uw-padding;
-  ul {
+  ul,ol {
+    padding-top: 2rem;
+    padding-left: $uw-padding;
     margin-left: 0;
+    margin-bottom: 1rem;
+    list-style: none;
   }
   @include uw-container($uw-max-content-width);
   display: flex;
   flex-flow: row wrap;
   li {
-    list-style: none;
-    text-transform: uppercase;
     float: left;
     color: black;
-    font-size: .7875rem;
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+    font-family: var(--uwDisplayFont);
+    font-weight: 500;
+    line-height: 2.1;
     margin-bottom: 0;
+    -webkit-font-smoothing: antialiased;
+    a[aria-current=page] {
+      color: $uw-gray-darkest;
+    }
   }
   li:not(:last-child)::after {
       color: $uw-gray-darker;

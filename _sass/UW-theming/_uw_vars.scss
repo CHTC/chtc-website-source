@@ -2,32 +2,30 @@
 $uw-red: #c5050c !default;
 $uw-red-dark: #9B0000 !default;
 $uw-page-bg: #f7f7f7 !default;
-$uw-body-font: #494949 !default;
+$uw-body-font-color: #333333 !default;
 $uw-gray-lightest: #e4e4e4 !default;
 $uw-gray-light: #cfcfcf !default;
 $uw-gray-footer-text: #adadad !default;
 $uw-gray-footer-text-hover: $uw-page-bg !default;
 $uw-gray-darker: #646569 !default;
+$uw-gray-dark: #494949 !default;
 $uw-gray-darkest: #282728 !default;
 $uw-gray-medium: #8e8e92 !default;
 $uw-gray-blue: #dadfe1 !default;
 $uw-white: #fff !default;
 
+//text
+$uw-text: #333333 !default;
+
 // link/anchor color
 $uw-anchor-color: #0479a8 !default;
-
-// foundation vars needed for using Foundation Table styling
-$white: $uw-white !default;
-$body-font-color: $uw-body-font !default;
-$global-margin: 1rem !default;
-$global-radius: 0 !default;
-$global-weight-bold: 700 !default;
-$global-left: ltr !default;
+$uw-body-font-color: $uw-anchor-color !default;
 
 // fonts
-$uw-verlag-font: "Verlag", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$uw-serif-font: Georgia,Times New Roman,Times,serif !default;
-$uw-vitesse-font: "Vitesse", "Helvetica Neue", "Helvetica", "Arial" !default;
+$uw-display-font: "Red Hat Display", sans-serif !default;
+$uw-sans-serif-font: $uw-display-font !default; // legacy variable
+$uw-text-font: "Red Hat Text", sans-serif !default;
+$uw-serif-font: $uw-text-font !default; // legacy variable
 
 // layout
 $uw-max-content-width: 62.5em  !default;
@@ -39,3 +37,17 @@ $uw-img-path-relative-to-css: "images/" !default; // not currently in use
 // breakpoints 
 $uw-header-search-breakpoint: 500px !default;
 $uw-main-nav-breakpoint: 640px !default;
+
+
+// defines root font CSS properties
+// can be overridden in child themes or plugins or inline in markup
+:root {
+  --uwSiteTitleFont: #{$uw-display-font};
+  --uwSiteTaglineFont: #{$uw-display-font};
+  --uwTextFont: #{$uw-text-font};
+  --uwCopyFont: #{$uw-text-font};
+  --uwDisplayFont: #{$uw-display-font};
+  --uwButtonFont: #{$uw-text-font};
+  --uwCaptionFont: #{$uw-text-font};
+  --uwBlockquoteFont: #{$uw-display-font};
+}
