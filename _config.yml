@@ -21,6 +21,8 @@ markdown_ext : "md,shtml"
 
 highlighter: none
 
+future: true
+
 defaults:
   - scope:
       path: ""
@@ -36,6 +38,10 @@ defaults:
       type: events
     values:
       layout: events
+  - scope:
+      type: redirects
+    values:
+      layout: redirect
 
 
 collections:
@@ -44,7 +50,9 @@ collections:
     output: true
   events:
     output: true
-    permalink: /events/:path/
+    permalink: /:collection/:year/:month/:title
+  redirects:
+    output: true
 
 sass:
   style: compressed

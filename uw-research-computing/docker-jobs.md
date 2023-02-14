@@ -115,5 +115,5 @@ interactive flag with `condor_submit`:
     [alice@submit]$ condor_submit -i docker.sub
     ```
     {: .cmd}
-    This should start a session inside the indicated Docker container and connect you to it using ssh. Type `exit` to end the interactive job. 
+    This should start a session inside the indicated Docker container and connect you to it using ssh. Type `exit` to end the interactive job. *Note*: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on `staging`, you can transfer the files there instead; if you have questions about this, please contact a facilitator. 
 

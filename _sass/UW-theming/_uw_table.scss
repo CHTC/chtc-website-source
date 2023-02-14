@@ -7,11 +7,11 @@ table {
 }
 tfoot, thead {
   background: $uw-gray-footer-text-hover;
-  color: $uw-body-font;
+  color: $uw-text;
   border: 1px solid $uw-gray-lightest;
 }
 caption {
-  font-weight: 700;
+  font-weight: 650;
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -29,13 +29,16 @@ table tbody tr:nth-child(even) {
 th, td {
   padding: .4rem;
   line-height: 1.35;
+  p, li, dd, dt {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 th {
-  text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 625;
   font-size: 1rem;
 }
 td {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 

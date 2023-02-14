@@ -14,10 +14,15 @@ jobs:
 
       - name: Pull down submodules
         run: |
-          git checkout -b preview-update-submodules
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git submodule update --remote --merge
-          git add .
-          git commit -m "Update Submodules"
-          git push --set-upstream origin preview-update-submodules
+          
+          git submodule update --init --recursive --remote
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Update Article Submodule"
+            git push
+          else
+            echo "no changes";
+          fi

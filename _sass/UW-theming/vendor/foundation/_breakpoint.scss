@@ -1,7 +1,7 @@
 // Foundation for Sites by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
-
+// @use 'sass:math';
 ////
 /// @group breakpoints
 ////
@@ -71,6 +71,7 @@ $breakpoint-classes: (small medium large) !default;
   // Convert any pixel, rem, or unitless value to em
   $bp: -zf-bp-to-em($bp);
   @if $bp-max {
+    // $bp-max: -zf-bp-to-em($bp-max) - math.div(1, 16);
     $bp-max: -zf-bp-to-em($bp-max) - (1/16);
   }
 

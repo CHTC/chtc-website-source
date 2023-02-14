@@ -11,6 +11,17 @@ changes may affect the jobs of users.
 For older updates not shown on this page, see our [user mailing list
 archives](https://www-auth.cs.wisc.edu/lists/chtc-users/).
 
+------------------------------------------------------------------------
+
+## Delayed email responses, no Thursday office hours
+### November 22, 2022
+
+Dear CHTC users,
+
+Due to the upcoming Thanksgiving holiday, users should expect delayed responses to emails the week of November 21st-25th. Additionally, office hours will be canceled on Thursday, November 24th.
+
+Best,
+Your CHTC Team
 
 ------------------------------------------------------------------------
 

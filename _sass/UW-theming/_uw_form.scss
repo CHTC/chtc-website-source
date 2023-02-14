@@ -1,3 +1,5 @@
+// @use 'sass:math';
+
 // Originally sourced from FormHack v1.1.0 (formhack.io)
 // https://github.com/ireade/formhack
 
@@ -5,7 +7,7 @@
 
 // Font
 $fh-font-size: 1rem !default;
-$fh-font-color: $uw-body-font !default;
+$fh-font-color: $uw-body-font-color !default;
 
 // Borders
 $fh-border-radius: 0px !default;
@@ -78,7 +80,11 @@ datalist {
 
 label {
 	display: $fh-display;
+	font-weight: 625;
 	@include center-layout;
+}
+fieldset label {
+	font-weight: 400;
 }
 
 .uw-input-row	{
@@ -105,8 +111,9 @@ input[list],
 input[type="file"],
 select,
 textarea {
-	width: $fh-input-width;
+	width: auto;
 	max-width: $fh-input-max-width;
+	// padding: math.div($fh-input-height, 5);
 	padding: $fh-input-height / 5;
 	background-color: $fh-input-bg-color;
 	border-radius: $fh-border-radius;
@@ -155,8 +162,16 @@ input[type="search"] {
 input[type="checkbox"],
 input[type="radio"] {
 	display: inline-block;
-	vertical-align: .1rem;
+	vertical-align: -0.05rem;
 	margin: 0 .1rem;
+}
+
+input::file-selector-button {
+  @include uw-button();
+  margin-right: 1rem;
+  color: $uw-anchor-color;
+  background-color: white;
+  padding: 0.5rem;
 }
 
 /* Select ------------------ */
@@ -172,6 +187,7 @@ select[multiple] {
 
 	option {
 		margin: 0;
+		// padding: math.div($fh-input-height, 5);
 		padding: $fh-input-height / 5;
 	}
 }
@@ -198,7 +214,7 @@ legend {
 	}
 	@else {
 		padding: 0 5px;
-		font-weight: 700;
+		font-weight: 625;
 	}
 }
 
@@ -208,15 +224,17 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="image"] {
-	height: $fh-button-height;
-	width: $fh-button-width;
+	@include uw-button();
+	// height: $fh-button-height;
+	width: auto;
 	max-width: $fh-button-max-width;
 	background-color: $fh-button-bg-color;
-	padding: $fh-input-height / 5;
+	// padding: math.div($fh-input-height, 5);
+	// padding: $fh-input-height / 5;
 	cursor: pointer;
 	color: $fh-button-font-color;
-	font-weight: 700;
-	font-family: $uw-verlag-font;
+	font-weight: 620;
+  font-family: var(--uwTextFont);
 	border-radius: $fh-border-radius;
 	border: $fh-border-width $fh-border-style $fh-border-color;
 	text-transform: uppercase;
@@ -226,6 +244,7 @@ input[type="image"] {
 
 input[type="image"] {
 	text-align: center;
+	// padding: math.div($fh-input-height, 5);
 	padding: $fh-input-height / 5;
 }
 

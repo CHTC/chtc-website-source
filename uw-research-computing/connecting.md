@@ -14,7 +14,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 2.  [Logging In](#login)
     -   [On the command line (Mac/Linux)](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
-    -   [Logging in Automatically](#ssh-keys)
+    -   [Re-using SSH connections](#c-re-using-ssh-connections)
 3.  [Transferring Files](#transfer)
     -   [On the command line (Mac/Linux)](#transfer-scp)
     -   [Using a file transfer program (Windows/Mac)](#transfer-winscp)
@@ -41,15 +41,17 @@ servers or head nodes:
   {:.gtable}
   | HTC System |
   | --- |
-  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 
-2019, or between March 2021 - June 2022 |
-  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - 
-February 2021 or after July 1, 2022 |
+  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or between March 2021 - June 2022 |
+  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - February 2021 or after July 1, 2022 |
 
   {:.gtable}
-  | HPC Cluster - starting October 15, 2020 |
+  | HPC Cluster |
   | --- |
-  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` |
+  | `hpclogin3.chtc.wisc.edu`
+  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` - access the old HPC cluster until February 28, 2023 |
+
+As of December 2022, we also require two-factor authentication with Duo to 
+access CHTC resources. 
 
 > **Are you off-campus?**\
 > All of our CHTC submit servers and head nodes are firewalled to block
@@ -87,7 +89,8 @@ $ ssh username@hostname
 ```
 {:.term}
 
-You will be prompted for your password.
+You will be prompted for your password, and then for Duo 
+authentication. 
 
 <a name="login-putty"></a>
 
@@ -105,13 +108,13 @@ screen like this:
 Fill in the hostname as described in part 1. You should use Port 22 and
 connect using \"ssh\" \-- these are usually the defaults. After you
 click \"connect\" you will be prompted to fill in your username and
-password.
+password, and then to authenticate with Duo. 
 
 Note that once you have submitted jobs to the queue, you can leave your
 logged in session (by typing `exit`). Your jobs will run and return
 output without you needing to be connected.
 
-<a name="ssh-keys"></a>
+<!-- <a name="ssh-keys"></a>
 
 C. Logging in automatically
 ---------------------------
@@ -119,10 +122,18 @@ C. Logging in automatically
 Tired of typing your password everytime you log in? It\'s possible to
 set up a file on your local computer called an ssh key, that allows you
 to log into CHTC and transfer files without entering your password. [See
-this
-guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
+this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
 for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**.
+**\"SSH and SCP Without Passwords\"**. -->
+
+
+C. Re-Using SSH Connections
+---------------------------
+
+To reduce the number of times it is necessary to enter your credentials, it’s 
+possible to customize your SSH configuration in a way that allows you to "reuse" 
+a connection for logging in again or moving files. More details are shown 
+in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
 
 <a name="transfer"></a>

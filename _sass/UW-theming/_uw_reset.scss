@@ -23,6 +23,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
   // background-color: #fff;
   line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 ol, ul {
   list-style: none;

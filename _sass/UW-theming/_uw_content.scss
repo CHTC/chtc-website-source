@@ -68,13 +68,13 @@ figure img {
 }
 figure figcaption {
   font-size: 1rem;
-  font-family: $uw-verlag-font;
+  font-family: var(--uwCaptionFont);
   line-height: 1.4;
 }
 .uw-credit {
   text-transform: uppercase;
-  color: $uw-gray-darker;
-  font-size: 0.8rem;
+  font-family: var(--uwCaptionFont);
+  font-size: 0.725rem;
 }
 
 
