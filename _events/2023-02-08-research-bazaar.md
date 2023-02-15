@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2023-02-022
 end_date: 2023-02-23
 location: "Discovery Building on the UW-Madison campus."
-image: "/images/"
-header_image: "/images/"
+image: "/images/bazaar.jpg"
+header_image: "/images/bazaar.jpg"
 ---
 
 {% capture main %}
