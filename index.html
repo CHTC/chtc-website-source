@@ -1,6 +1,12 @@
 ---
 layout: default
 title: Home
+js_extension:
+-   src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    loading: defer
+-   src: "/assets/js/pages/index.js"
+    loading: defer
+    type: module
 ---
 
 {% assign now = 'now' | date: '%s' | plus: 0 %}
@@ -84,6 +90,23 @@ title: Home
                 excerpt=article.excerpt
             %}
             {% endfor %}
+        </div>
+    </div>
+</div>
+<div id="stats" class="container-lg">
+    <h2 class="uw-mini-bar mb-4">
+        Last Year Serving UW-Madison
+    </h2>
+</div>
+<div class="circuit-background">
+    <div class="container-lg pb-4">
+        <div id="statistic-row"></div>
+    </div>
+</div>
+<div class="container-lg table-responsive">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div id="college-table"></div>
         </div>
     </div>
 </div>

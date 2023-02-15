@@ -30,7 +30,6 @@
 <script src="{{ '/assets/js/lunr.js' | relative_url }}" type="text/javascript" async></script>
 <script type="text/javascript" src="{{ '/assets/js/search_bar.js' | relative_url }}" defer></script>
 
-
 <link type="text/css" href="{{ '/assets/fonts/fonts.0.0.1.css' | relative_url }}" rel="stylesheet">
 <link type="text/css" href="{{ '/assets/css/style-v3.css' | relative_url }}" rel="stylesheet">
 {% include logic/is_in_uw_dir.html %}
@@ -38,3 +37,15 @@
 
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'')})(document.documentElement)</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+{% for head in include.head %}
+{{ head }}
+{% endfor %}
+
+{% for js in include.js %}
+<script src="{{ js.src | relative_url }}" type="{{ js.type | default: 'text/javascript' }}" {{ js.loading}}></script>
+{% endfor %}
+
+{% for css in include.css %}
+<link href="{{ css.href | relative_url }}" media="screen, tv, projection" title="Default" rel="stylesheet">
+{% endfor %}

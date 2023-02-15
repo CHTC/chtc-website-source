@@ -15,13 +15,29 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - name: Attach hidden files
+        run: |
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/college-table.json \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/college-table.json
+
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/hero-stats.csv \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/hero-stats.csv
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
           bundler-cache: true
+
       - run: |
           ./script/cibuild production
         name: Build web pages
+
       - uses: CannonLock/search_index_build@master
         with:
           parameter_file_path: .search-bar.json
@@ -30,6 +46,7 @@ jobs:
         run: |
           cd _site/staff
           ln -s /p/condor/public/html/developers/schedules schedules
+
       - run: |
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts

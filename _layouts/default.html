@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include head.html %}
+    {% assign head = layout.head_extension | default: page.head_extension %}
+    {% include head.html js=page.js_extension css=page.css_extension head=head %}
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 

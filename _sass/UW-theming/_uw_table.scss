@@ -27,8 +27,8 @@ table tbody tr:nth-child(even) {
   background-color: $uw-gray-footer-text-hover;
 }
 th, td {
-  padding: $uw-padding;
-  line-height: 1.6;
+  padding: .4rem;
+  line-height: 1.35;
   p, li, dd, dt {
     font-size: 1rem;
     line-height: 1.6;
