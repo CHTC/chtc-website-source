@@ -15,7 +15,7 @@ header_image: "/images/bazaar.jpg"
 
 {% capture main %}
 
-<p style="font-size: larger; font-weight: bold;">Server Room Tours on February 9th and February 14th!</p>
+<p style="font-size: larger; font-weight: bold;">Scaling up your computing!</p>
 
 UW-Madison’s Data Science Hub is hosting the fourth annual [Research Bazaar](https://datascience.wisc.edu/data-science-research-bazaar/), focused on the theme ofInformation Insights: Shaping Futures with Data and Computing
 
