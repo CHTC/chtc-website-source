@@ -17,7 +17,9 @@ header_image: "/images/bazaar.jpg"
 
 <p style="font-size: larger; font-weight: bold;">Scaling up your computing!</p>
 
-UW-Madison’s Data Science Hub is hosting the fourth annual [Research Bazaar](https://datascience.wisc.edu/data-science-research-bazaar/),focused on the theme of Information Insights: Shaping Futures with Data and Computing. Don't miss the CHTC session 'Scaling Up your Research Computing'. 
+UW-Madison’s Data Science Hub is hosting the fourth annual [Research Bazaar](https://datascience.wisc.edu/data-science-research-bazaar/), focused on the theme of Information Insights: Shaping Futures with Data and Computing. 
+
+Don't miss the CHTC session 'Scaling Up your Research Computing'. 
 
 {% endcapture %}
 
