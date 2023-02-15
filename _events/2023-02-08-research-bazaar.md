@@ -6,7 +6,7 @@ published: true
 excerpt: |
     UW-Madison’s Data Science Hub is hosting the fourth annual [Research Bazaar](https://datascience.wisc.edu/data-science-research-bazaar/), focused on the theme of Information Insights: Shaping Futures with Data and Computing. Don't miss the CHTC session 'Scaling Up Your Research Computing'. 
 
-start_date: 2023-02-022
+start_date: 2023-02-22
 end_date: 2023-02-23
 location: "Discovery Building on the UW-Madison campus."
 image: "/images/bazaar.jpg"
