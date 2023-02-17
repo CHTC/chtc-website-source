@@ -54,7 +54,7 @@ in 2020, and individual users regularly obtain in excess of 10,000 CPU
 hours per day. Temporary storage space for large files can support up 
 to hundreds of terabytes of total working data. Should these resources 
 not be sufficient for the project, the CHTC can also engage computing 
-resources from across the campus grid and the [OS Pool](https://opensciencegrid.org/about/open_science_pool/), 
+resources from across the campus grid and the [OS Pool](https://osg-htc.org/about/open_science_pool/), 
 an NSF-supported and expanding alliance of more than 60 universities, 
 national laboratories, scientific collaborations, and software developers. 
 CHTC users frequently obtain in excess of 150,000 free CPU hours per day from OS Pool, 
