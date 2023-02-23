@@ -1,10 +1,15 @@
 {% assign data = site.data.guide-menu %}
+{% assign added = "" | split: "" %}
 
 <div id="guide-sidebar">
     <h6 class="mt-5">Guides</h6>
     <div class="accordion accordion-flush">
         {% for category in data %}
             {% assign active = category.children | where_exp: "x", "x.href == page.url" %}
+            {% assign used = added | where_exp: "x", "x.href == active[0].href" %}
+            {% if used.size == 1 %}
+                {% assign active = "" | split: "" %}
+            {% endif %}
             <div class="accordion-item">
                 <h2 class="accordion-header mt-0" id="{{ category.name | slugify }}">
                     <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.name | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category.name | slugify }}">
@@ -13,6 +18,8 @@
                 </h2>
                 <div id="{{ category.name | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category.name | slugify }}" data-bs-parent="#guide-sidebar">
                     {% for document in category.children %}
+                        {% assign added = added |  push: document %}
+
                         <div class="document-link-wrapper">
                             <a class="{% if active[0].href == document.href %}fw-bolder{% endif %}" href="{{ document.href }}">{{ document.name }}</a>
                         </div>
@@ -22,3 +29,4 @@
         {% endfor %}
     </div>
 </div>
+<script>console.log({{ added |  jsonify }})</script>
