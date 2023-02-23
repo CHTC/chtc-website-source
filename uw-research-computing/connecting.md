@@ -41,8 +41,8 @@ servers or head nodes:
   {:.gtable}
   | HTC System |
   | --- |
-  | `submit1.chtc.wisc.edu` - typically for accounts created between Aug 2018 - June 2019, or between March 2021 - June 2022 |
-  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - February 2021 or after July 1, 2022 |
+  | `submit1.chtc.wisc.edu` - typically for accounts created before June 2019, between March 2021 - June 2022, or after Feb 1, 2023 |
+  | `submit2.chtc.wisc.edu` - typically for accounts created between June 2019 - February 2021 or between July 1, 2022 - Jan 31, 2023 |
 
   {:.gtable}
   | HPC Cluster |
