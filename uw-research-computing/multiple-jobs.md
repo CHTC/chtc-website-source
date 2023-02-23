@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Submitting Multiple Jobs Using HTCondor
 ---
 

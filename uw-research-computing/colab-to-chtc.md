@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Going from Google Colab to CHTC's GPU Lab
 published: true
 ---

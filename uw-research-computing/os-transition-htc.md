@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: HTC System Transition to a New Linux Version (CentOS Stream 8)
 published: true
 ---

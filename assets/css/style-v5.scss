@@ -14,6 +14,10 @@ $primary: #c5050c;
 
 $uw-max-content-width: 1320px;
 
+$accordion-padding-x: 0;
+$accordion-padding-y: .5em;
+$accordion-icon-width: .9rem;
+
 // Bootstrap
 @import 'bootstrap/bootstrap';
 
@@ -164,4 +168,39 @@ html {
   background-size: cover;
 
   box-shadow: inset 0px 0px 10px white;
+}
+
+#guide-sidebar {
+
+  top: 1rem;
+  position: sticky;
+  line-height: 1rem;
+
+  .accordion-button {
+    transition: padding .2s;
+    transition-timing-function: ease-out;
+  }
+  .accordion-button:focus {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .accordion-button:not(.collapsed) {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .document-link-wrapper {
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+    padding: .4rem;
+    background-color: #fffcfc;
+  }
+  button {
+    font-size: 1rem;
+  }
+  a {
+    font-size: .9rem;
+    color: black;
+  }
+  a:hover {
+    color: $primary;
+  }
 }

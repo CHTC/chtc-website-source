@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Exploring a Docker Container on Your Computer
 ---
 

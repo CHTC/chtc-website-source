@@ -5,18 +5,20 @@ layout: default
 
 {% include hpc-header.html %}
 
-<div class="container-xxl">
+<div class="container-xxl mb-5">
     <div class="row justify-content-center">
-        <div class="col mw-1000" markdown="block">        	
+        <div class="col-12 col-lg-9 mw-1000">
             {% include page-title.html title=page.title %}
-            
-            <blockquote>These guides have been recently updated with information 
-        	about the new "Spark" HPC cluster. For a full summary of changes and 
-        	recommended actions to transition jobs from the old cluster to Spark, 
-        	see this <a href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-transition-2023">transition guide</a></blockquote>
-            
+            <blockquote>
+                These guides have been recently updated with information
+                about the new "Spark" HPC cluster. For a full summary of changes and
+                recommended actions to transition jobs from the old cluster to Spark,
+                see this <a href="https://chtc.cs.wisc.edu/uw-research-computing/hpc-transition-2023">transition guide</a>
+            </blockquote>
             {{ content }}
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            {% include guide-sidebar.liquid %}
         </div>
     </div>
 </div>
-

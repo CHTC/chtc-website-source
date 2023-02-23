@@ -1,0 +1,23 @@
+{% assign data = site.data.guide-menu %}
+
+<div id="guide-sidebar">
+    <h6 class="mt-5">Guides</h6>
+    <div class="accordion accordion-flush">
+        {% for category in data %}
+            <div class="accordion-item">
+                <h2 class="accordion-header mt-0" id="{{ category.name | slugify }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.name | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category.name | slugify }}">
+                        {{ category.name }}
+                    </button>
+                </h2>
+                <div id="{{ category.name | slugify }}-collapse" class="accordion-collapse collapse" aria-labelledby="{{ category.name | slugify }}" data-bs-parent="#guide-sidebar">
+                    {% for document in category.children %}
+                        <div class="document-link-wrapper">
+                            <a class="" href="{{ document.href }}">{{ document.name }}</a><br>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

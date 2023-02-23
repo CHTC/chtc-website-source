@@ -1,13 +1,10 @@
 nav_items:
   - id: home
     name: Home
-    url: /index.html
-  - id: uw-research-computing
-    name: UW Research Computing
     url: /uw-research-computing/index.html
   - id: get-started
     name: Get Started
-    url: /uw-research-computing/get-started.html
+    url: /uw-research-computing/form.html
   - id: menu-how-tos
     name: How To's
     url: /uw-research-computing/how-tos.html
