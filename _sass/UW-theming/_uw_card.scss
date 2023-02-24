@@ -1,9 +1,9 @@
 .uw-card {
-  @include uw-flex-column(33.333333%, 500px);
-  padding: $uw-padding*1;
+  padding: $uw-padding*.5;
   display: flex;
   .uw-card-content {
     background-color: $uw-white;
+    border-radius: 5px;
     img {
       width: 100%;
     }
