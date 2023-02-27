@@ -1,24 +1,65 @@
 ---
 highlighter: none
 layout: default
-title: News
+title: "News: How CHTC is Making An Impact"
 ---
 
 <div class="container-xxl mb-4">
-    {% include page-title.html title=page.title %}
-    <div class="row">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
+            {% include page-title.html title=page.title %}
+            <p>
+                CHTC’s computing pioneering continues to advance science and society in new ways. Located at the heart of
+                UW-Madison’s School for Computer, Data & Information Sciences (CDIS), CHTC offers
+                exceptional computing capabilities and experienced facilitation support to campus researchers and
+                international scientists alike. Working in collaboration with projects across all areas of study,
+                CHTC helps innovate solutions that otherwise might not have been possible, while at
+                the same time evolving the field of distributed computing.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="uw-light-grer-bg py-2">
+    <div class="container-xxl">
+        <div class="row gx-1 justify-content-center">
+            {% include get/news.liquid %}
+            {% for article in news %}
+            {% if article.tag contains "chtc_featured_article" %}
+            <div class="col-12 col-md-6 col-lg-4 ">
+                {% include news-posting.html
+                    href=article.url
+                    title=article.title
+                    author=article.author
+                    src=article.card_src
+                    alt=article.card_alt
+                    date=article.date
+                    excerpt=article.excerpt
+                %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl mb-4">
+    <h2>Read about some of CHTC’s latest news and projects:</h2>
+    <div class="row gx-1">
         {% include get/news.liquid %}
         {% for article in news %}
-            {% include news-posting.html
-                class=" col-6 my-2 "
-                href=article.url
-                title=article.title
-                author=article.author
-                src=article.card_src
-                alt=article.card_alt
-                date=article.date
-                excerpt=article.excerpt
-            %}
+            {% unless article.tag contains "chtc_featured_article" %}
+                <div class="col-12 col-md-6 col-lg-4 ">
+                    {% include news-posting.html
+                        href=article.url
+                        title=article.title
+                        author=article.author
+                        src=article.card_src
+                        alt=article.card_alt
+                        date=article.date
+                        excerpt=article.excerpt
+                    %}
+                </div>
+            {% endunless %}
         {% endfor %}
     </div>
 </div>
