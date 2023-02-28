@@ -1,0 +1,124 @@
+---
+highlighter: none
+layout: markdown-page
+title: Computing Guides
+---
+
+
+<p>
+Below is a list of guides for some of the most common tasks our users need to
+carry out as they begin and continue to use the resources at the CHTC. 
+Some of these are general computing solutions; others are specific to <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a>
+or to the configuration of CHTC computing resources.
+</p>
+<p>
+Guides will be added to the list as we can provide them. Please contact us
+(email at bottom of page) if you find any of the information to be incorrect.
+</p>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="px-2">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<a class="nav-link btn btn-outline-primary " aria-current="page" href="/approach.html">HTC vs HPC</a>
+			<a class="nav-link btn btn-outline-primary ms-0 ms-lg-2" aria-current="page" href="#htc-documentation">HTC System</a>
+			<a class="nav-link btn btn-outline-primary ms-0 ms-lg-2" aria-current="page" href="#hpc-documentation">HPC System</a>
+			<a class="nav-link btn btn-outline-primary ms-0 ms-lg-2" aria-current="page" href="/approach.html">External Resources</a>
+		</div>
+	</div>
+</nav>
+
+{% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
+
+<h2 id="htc-documentation">HTC Documentation</h2>
+{% assign documentation = site.uw-research-computing | where_exp: "x", "x.tags contains 'htc'" | sort: "category" %}
+<div class="row gx-2">
+{% for category in category_order %}
+	{% assign category_documents = documentation | where_exp: "x", "x.category == category" | sort: "title" %}
+	{% if category_documents.size != 0 %}
+		<div class="col-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					{% if category == "Basics and Policies" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/checkmark.png" %}
+					{% endif %}
+					{% if category == "Job Submission" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/laptop_arrow.png" %}
+					{% endif %}
+					{% if category == "Handling Data in Jobs" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/data.png" %}
+					{% endif %}
+					{% if category == "Software Solutions" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/gear.png" %}
+					{% endif %}
+					{% if category == "Special Use Cases" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/processor.png" %}
+					{% endif %}
+					{% if category == "Troubleshooting" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
+					{% endif %}
+					<img class="mx-auto" style="height: 60px;" src="{{ img_src }}" />
+					<h4 class="mt-0 mx-auto">{{ category }}</h4>
+				</div>
+				{% for document in category_documents %}
+				<a href="{{ document.url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endfor %}
+</div>
+
+<h2 id="hpc-documentation">HPC Documentation</h2>
+{% assign documentation = site.uw-research-computing | where_exp: "x", "x.tags contains 'hpc'" | sort: "category" %}
+<div class="row gx-2">
+	{% for category in category_order %}
+		{% assign category_documents = documentation | where_exp: "x", "x.category == category" | sort: "title" %}
+		{% if category_documents.size != 0 %}
+			<div class="col-4">
+				<div class="list-group mb-3">
+					<div class="list-group-item d-flex flex-column">
+						{% if category == "Basics and Policies" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/checkmark.png" %}
+						{% endif %}
+						{% if category == "Job Submission" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/laptop_arrow.png" %}
+						{% endif %}
+						{% if category == "Handling Data in Jobs" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/data.png" %}
+						{% endif %}
+						{% if category == "Software Solutions" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/gear.png" %}
+						{% endif %}
+						{% if category == "Special Use Cases" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/processor.png" %}
+						{% endif %}
+						{% if category == "Troubleshooting" %}
+						{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
+						{% endif %}
+						<img class="mx-auto" style="height: 60px;" src="{{ img_src }}" />
+						<h4 class="mt-0 mx-auto">{{ category }}</h4>
+					</div>
+					{% for document in category_documents %}
+					<a href="{{ document.url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+<h2>External Documentation</h2>
+<div class="list-group">
+	<a href="http://software-carpentry.org/lessons/" class="list-group-item list-group-item-action">Software Carpentry ( Online courses and videos; readings )</a>
+	<a href="http://research.cs.wisc.edu/htcondor/manual/" class="list-group-item list-group-item-action">HTCondor Manual</a>
+	<a href="http://slurm.schedmd.com/" class="list-group-item list-group-item-action">Slurm Manual</a>
+	<a href="http://www.doit.wisc.edu/training/student/" class="list-group-item list-group-item-action">DoIT Software Training for Students ( free on-campus courses )</a>
+</div>
+
+
+
+<a href="{{ '/icon_credits.html' | relative_url}}">Icon Credits</a>
