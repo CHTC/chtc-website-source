@@ -21,6 +21,9 @@ title: "News: How CHTC is Making An Impact"
 </div>
 <div class="uw-light-grer-bg py-2">
     <div class="container-xxl">
+        <h2 class="uw-text-center uw-mini-bar uw-mini-bar-center">
+            CHTC Featured News Stories
+        </h2>
         <div class="row gx-1 justify-content-center">
             {% include get/news.liquid %}
             {% for article in news %}
@@ -61,5 +64,100 @@ title: "News: How CHTC is Making An Impact"
                 </div>
             {% endunless %}
         {% endfor %}
+    </div>
+</div>
+<div class="container-xxl my-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-xxl-6">
+            <form method="post" name="UntitledForm-1677523570581" action="https://s1427524768.t.eloqua.com/e/f2" onsubmit="return handleFormSubmit(this)" id="form1178" class="elq-form">
+                <input value="UntitledForm-1677523570581" type="hidden" name="elqFormName">
+                <input value="1427524768" type="hidden" name="elqSiteId">
+                <input name="elqCampaignId" type="hidden">
+                <div class="">
+                    <h4 class="uw-mini-bar mb-3 mt-2">
+                        Sign up for the CHTC Mailing List
+                    </h4>
+                    <div class="row gx-1">
+                        <div class="col-9">
+                            <div class="form-floating">
+                                <input type="text" class="w-100 form-control" name="emailAddress" id="fe11637" placeholder="user@wisc.edu" >
+                                <label for="fe11637">Email address</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="d-flex h-100">
+                                <input type="Submit" class="btn btn-primary my-auto" value="Submit" id="fe11638">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <script type="text/javascript" src="https://img04.en25.com/i/livevalidation_standalone.compressed.js"></script>
+            <script>
+                function handleFormSubmit(ele) {
+                    var submitButton = ele.querySelector('input[type=submit]');
+                    var spinner = document.createElement('span');
+                    spinner.setAttribute('class', 'loader');
+                    submitButton.setAttribute('disabled', true);
+                    submitButton.style.cursor = 'wait';
+                    submitButton.parentNode.appendChild(spinner);
+                    return true;
+                }
+                function resetSubmitButton(e){
+                    var submitButtons = e.target.form.getElementsByClassName('submit-button');
+                    for(var i=0;i<submitButtons.length;i++){
+                        submitButtons[i].disabled = false;
+                    }
+                }
+                function addChangeHandler(elements){
+                    for(var i=0; i<elements.length; i++){
+                        elements[i].addEventListener('change', resetSubmitButton);
+                    }
+                }
+                var form = document.getElementById('form1178');
+                addChangeHandler(form.getElementsByTagName('input'));
+                addChangeHandler(form.getElementsByTagName('select'));
+                addChangeHandler(form.getElementsByTagName('textarea'));
+                var nodes = document.querySelectorAll('#form1178 input[data-subscription]');
+                if (nodes) {
+                    for (var i = 0, len = nodes.length; i < len; i++) {
+                        var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription');
+                        if(status ==='true') {
+                            nodes[i].checked = true;
+                        }
+                    }
+                };
+                var nodes = document.querySelectorAll('#form1178 select[data-value]');
+                if (nodes) {
+                    for (var i = 0; i < nodes.length; i++) {
+                        var node = nodes[i];
+                        var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value');
+                        if (selectedValue) {
+                            for (var j = 0; j < node.options.length; j++) {
+                                if(node.options[j].value === selectedValue) {
+                                    node.options[j].selected = 'selected';
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                this.getParentElement = function(list) {
+                    return list[list.length-1].parentElement};
+                var dom0 = document.querySelector('#form1178 #fe11637');
+                var fe11637 = new LiveValidation(dom0, {
+                    validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false}
+                );
+                fe11637.add(Validate.Presence, {
+                    failureMessage:"This field is required"}
+                );
+                fe11637.add(Validate.Format, {
+                    pattern: /(^[A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~][A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~\.]{0,62}@(([A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)(\.[A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)+)$)/i, failureMessage: "A valid email address is required"}
+                );
+                fe11637.add(Validate.Format, {
+                    pattern: /\.\.|\.@/i, failureMessage: "A valid email address is required", negate: "true"}
+                );
+            </script>
+        </div>
     </div>
 </div>
