@@ -162,6 +162,7 @@ give up the allocated resources.  In brief,
    **Do not attempt to run any programs or code at this point!**
    
 2) Use resources
+   
    At this point, your terminal is still running on the login node.  To run
    commands using the resources in the allocation, you will need to use `srun`.
    ```
@@ -186,6 +187,7 @@ give up the allocated resources.  In brief,
    and return to the allocation by entering `exit`.  
    
 3) Give up resources
+   
    To end your allocation, simply enter `exit`.  You will see a message like
    this:
    ```
