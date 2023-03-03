@@ -207,7 +207,7 @@ give up the allocated resources.  In brief,
 > prompt changes when you are in an allocation.  This can be done using the
 > following commands:
 > ```
-> echo 'PS1="$SLURM_JOB_ID[\u@\h \W]\$ " >> ~/.bashrc
+> echo 'PS1="$SLURM_JOB_ID[\u@\h \W]\$ " ' >> ~/.bashrc
 > echo 'export PS1' >> ~/.bashrc
 > ```
 > {:.term}
