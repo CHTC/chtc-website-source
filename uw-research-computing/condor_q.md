@@ -22,7 +22,7 @@ jobs.
 10. [View only specific types of jobs using a constraint](#constraining-the-output-of-condorq)
 11. [Remove a held job from the queue](#remove-a-held-job-from-the-queue)
 {% endcapture %}
-{% include /components/directory.html %}  
+{% include /components/directory.html title="Table of Contents" %}  
 
 Summary
 =======
