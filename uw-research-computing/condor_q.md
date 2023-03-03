@@ -1,16 +1,13 @@
 ---
 highlighter: none
-layout: content
+layout: markdown-page
 title: Learning About Your Jobs Using condor_q
 ---
 
-{% capture content %}
 The `condor_q` command can be used for much more than just
 checking on whether your jobs are running or not! Read on to learn how
 you can use `condor_q` to answer many common questions about running
 jobs.
-{% endcapture %}
-{% include /components/markdown-container.html %}
 
 {% capture content %}
 1.  [Default `condor_q` output, in \"batches\"](#default-condorq-output)
@@ -25,9 +22,8 @@ jobs.
 10. [View only specific types of jobs using a constraint](#constraining-the-output-of-condorq)
 11. [Remove a held job from the queue](#remove-a-held-job-from-the-queue)
 {% endcapture %}
-{% include /components/directory.html %}  
+{% include /components/directory.html title="Table of Contents" %}  
 
-{% capture content %}
 Summary
 =======
 
@@ -361,5 +357,4 @@ This will remove the job in the queue. Once you have made changes to allow the j
 This page takes some of its content and formatting from [this HTCondor
 reference
 page](http://vivaldi.ll.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorUsefulCommands).
-{% endcapture %}
-{% include /components/markdown-container.html %}
+
