@@ -142,7 +142,8 @@ To run an MPI program in an interactive session, you will need to (1) allocate t
 resources using `salloc`, then (2) use `srun` to run the MPI code, and finally (3)
 give up the allocated resources.  In brief, 
 
-1) *Request resources*
+1. **Request resources**
+
    ```
    [alice@login]$ salloc -n4 -N1 -p int
    ```
@@ -160,8 +161,8 @@ give up the allocated resources.  In brief,
    
    ***Do not attempt to run any programs or code at this point!***
    
-2) *Use resources*
-   
+2. **Use resources**
+
    At this point, your terminal is still running on the login node.  To run
    commands using the resources in the allocation, you will need to use `srun`.
    ```
@@ -185,7 +186,7 @@ give up the allocated resources.  In brief,
    MPI inside the interactive session.  You can exit the interactive session
    and return to the allocation by entering `exit`.  
    
-3) *Give up resources*
+3. **Give up resources**
    
    To end your allocation, simply enter `exit`.  You will see a message like
    this:
