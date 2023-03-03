@@ -159,7 +159,7 @@ give up the allocated resources.  In brief,
    ```
    {:.term}
    
-   ***Do not attempt to run any programs or code at this point!***
+   ***To run code in this allocation, be sure to use `srun` as described in the next step!***
    
 2. **Use resources**
 
