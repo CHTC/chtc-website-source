@@ -21,7 +21,7 @@
                         {% assign added = added |  push: document %}
 
                         <div class="document-link-wrapper">
-                            <a class="{% if active[0].href == document.href %}fw-bolder{% endif %}" href="{{ document.href }}">{{ document.name }}</a>
+                            <a class="{% if active[0].href == document.href %}fw-bolder{% endif %}" href="{{ document.href | relative_url }}">{{ document.name }}</a>
                         </div>
                     {% endfor %}
                 </div>
