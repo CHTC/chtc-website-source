@@ -60,11 +60,11 @@ Guides will be added to the list as we can provide them. Please contact us
 					{% if category == "Troubleshooting" %}
 					{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
 					{% endif %}
-					<img class="mx-auto" style="height: 60px;" src="{{ img_src }}" />
+					<img class="mx-auto" style="height: 60px;" src="{{ img_src | relative_url }}" />
 					<h4 class="mt-0 mx-auto">{{ category }}</h4>
 				</div>
 				{% for document in category_documents %}
-				<a href="{{ document.url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
+				<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
 				{% endfor %}
 			</div>
 		</div>
@@ -99,11 +99,11 @@ Guides will be added to the list as we can provide them. Please contact us
 						{% if category == "Troubleshooting" %}
 						{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
 						{% endif %}
-						<img class="mx-auto" style="height: 60px;" src="{{ img_src }}" />
+						<img class="mx-auto" style="height: 60px;" src="{{ img_src | relative_url }}" />
 						<h4 class="mt-0 mx-auto">{{ category }}</h4>
 					</div>
 					{% for document in category_documents %}
-					<a href="{{ document.url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
+					<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action">{{ document.alt_title | default: document.title }}</a>
 					{% endfor %}
 				</div>
 			</div>
