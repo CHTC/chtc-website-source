@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Policies for Using HTC Submit Servers
 alt_title: Using CHTC's HTC Submit Nodes
 category: Basics and Policies

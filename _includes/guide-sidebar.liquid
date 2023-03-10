@@ -1,0 +1,128 @@
+{% assign page_tag = page.tags[0] %}
+{% assign data = site.uw-research-computing | where_exp: "x", "x.tags contains page.tag" | sort: "category" %}
+
+
+    <div id="guide-sidebar">
+        {% if page.tags contains 'htc' and page.tags contains 'hpc' %}
+            {% assign general_pages = site.uw-research-computing | where_exp: "x", "x.tags contains 'htc'" | where_exp: "x", "x.tags contains 'hpc'" | sort: "category" %}
+
+            {% assign categories = "" | split: "" %}
+            {% for page in general_pages %}
+                {% unless categories contains page.category %}
+                    {%  assign categories = categories | push: page.category %}
+                {% endunless %}
+            {%  endfor %}
+
+            <h6 class="mt-5">General Guides</h6>
+            <div class="accordion accordion-flush">
+                {% for category in categories %}
+
+                    {% assign pages_in_category = general_pages | where_exp: "x", "x.category == category" |  sort: "title" %}
+
+                    {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
+                            <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                                {{ category }}
+                            </button>
+                        </h2>
+                        <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
+                            {% for page in pages_in_category %}
+
+                                <div class="document-link-wrapper">
+                                    <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="accordion-header mt-0 d-flex py-2">
+                            <a href="/uw-research-computing/guides.html#htc-documentation" class="bg-white fs-6 fw-normal my-auto">
+                                HTC Guides
+                            </a>
+                        </h2>
+                    </div>
+                    <div>
+                        <h2 class="accordion-header mt-0 border-top d-flex py-2">
+                            <a href="/uw-research-computing/guides.html#hpc-documentation" class="bg-white fs-6 fw-normal" >
+                                HPC Guides
+                            </a>
+                        </h2>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elsif page.tags contains 'htc' %}
+            {% assign htc_pages = site.uw-research-computing | where_exp: "x", "x.tags contains 'htc'" | sort: "category" %}
+
+            {% assign categories = "" | split: "" %}
+            {% for page in htc_pages %}
+                {% unless categories contains page.category %}
+                    {%  assign categories = categories | push: page.category %}
+                {% endunless %}
+            {%  endfor %}
+
+            <h6 class="mt-5">HTC Guides</h6>
+            <div class="accordion accordion-flush">
+                {% for category in categories %}
+
+                    {% assign pages_in_category = htc_pages | where_exp: "x", "x.category == category" |  sort: "title" %}
+
+                    {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
+                            <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                                {{ category }}
+                            </button>
+                        </h2>
+                        <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
+                            {% for page in pages_in_category %}
+
+                                <div class="document-link-wrapper">
+                                    <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elsif page.tags contains 'hpc' %}
+            {% assign hpc_pages = site.uw-research-computing | where_exp: "x", "x.tags contains 'hpc'" | sort: "category" %}
+
+            {% assign categories = "" | split: "" %}
+            {% for page in hpc_pages %}
+                {% unless categories contains page.category %}
+                    {%  assign categories = categories | push: page.category %}
+                {% endunless %}
+            {%  endfor %}
+
+            <h6 class="mt-5">HPC Guides</h6>
+            <div class="accordion accordion-flush">
+                {% for category in categories %}
+
+                    {% assign pages_in_category = hpc_pages | where_exp: "x", "x.category == category" |  sort: "title" %}
+
+                    {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
+                            <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                                {{ category }}
+                            </button>
+                        </h2>
+                        <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
+                            {% for page in pages_in_category %}
+
+                                <div class="document-link-wrapper">
+                                    <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+

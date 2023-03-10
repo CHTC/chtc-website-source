@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Running HTC Jobs Using Docker Containers
 category: Software Solutions
 tag:

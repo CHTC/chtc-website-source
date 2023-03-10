@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Checking Disk Quota and Usage
 category: Basics and Policies
 tags: 

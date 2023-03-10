@@ -2,7 +2,7 @@
 highlighter: none
 layout: hpc_layout
 title: HPC Cluster Overview
-category: Basic and Policies
+category: Basics and Policies
 tag:
     - hpc
 ---

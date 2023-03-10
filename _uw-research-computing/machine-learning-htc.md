@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Run Machine Learning Jobs on the HTC system
 category: Special Use Cases
 tag:

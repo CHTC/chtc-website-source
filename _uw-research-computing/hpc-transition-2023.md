@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Transitioning to a New HPC Cluster
 published: true
 category: Basics and Policies

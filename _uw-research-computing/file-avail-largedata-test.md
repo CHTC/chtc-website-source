@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Managing Large Data in HTC Jobs
 published: false
 ---

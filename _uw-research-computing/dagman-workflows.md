@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Workflows with HTCondor's DAGMan
 category: Job Submission
 tag:

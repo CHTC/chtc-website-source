@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Jobs That Use GPUs
 category: Special Use Cases
 tag:

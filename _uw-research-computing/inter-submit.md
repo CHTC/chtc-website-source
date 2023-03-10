@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Compiling or Testing Code with an Interactive Job
 category: Software Solutions
 tag:

@@ -1,7 +1,7 @@
 ---
 highlighter: none
-layout: markdown-page
-title: Running MPI Jobs in CHTC
+layout: guide
+title: Running MPI Jobs
 category: Software Solutions
 tag:
     - htc

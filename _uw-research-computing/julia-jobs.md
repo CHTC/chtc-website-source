@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Running Julia Jobs
 category: Software Solutions
 tag:

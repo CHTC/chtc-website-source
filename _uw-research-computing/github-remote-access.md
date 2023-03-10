@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Remotely Access a Private GitHub Repository
 category: Basics and Policies
 tag:

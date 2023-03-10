@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Windows / Linux Incompatibility
 category: Troubleshooting
 tag:

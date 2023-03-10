@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Explore and Test Docker Containers
 category: Troubleshooting
 tag:

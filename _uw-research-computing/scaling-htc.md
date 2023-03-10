@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Scaling Beyond Local HTC Capacity
 category: Special Use Cases
 tag:

@@ -1,5 +1,5 @@
 ---
-layout: markdown-page
+layout: guide
 title: Building a Docker Container Image
 category: Software Solutions
 tag:

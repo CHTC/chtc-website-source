@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: guide
 title: Checkpointing Jobs
 category: Special Use Cases
 tag:
