@@ -1,7 +1,6 @@
 {% include logic/is_in_uw_dir.html %}
 {% unless is_in_uw_dir %}
-
     {% assign nav_items = site.data.main-menu.nav_items %}
     {% include navbar/navbar.html ul_id="uw-main-nav" nav_id="uw-top-menus" %}
-
 {% endunless %}
+
