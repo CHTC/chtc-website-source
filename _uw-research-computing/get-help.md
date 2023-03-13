@@ -2,10 +2,6 @@
 highlighter: none
 layout: markdown-page
 title: Get Help
-category: Basics and Policies
-tag:
-    - htc
-    - hpc
 ---
 
 ### There are multiple ways to get help from CHTC staff. See below:
@@ -16,9 +12,9 @@ tag:
     {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
     {% for facilitator in facilitators %}
         <div class="col-auto">
-            <figure class="p-3">
-                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="" src="{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
-                <figcaption class="mt-1"><b>{{ facilitator.name }}</b><br>{{facilitator.job_title}}</figcaption>
+            <figure class="p-3 d-flex flex-column">
+                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
+                <figcaption class="mt-1 text-center"><b>{{ facilitator.name }}</b><br>{{facilitator.title}}</figcaption>
             </figure>
         </div>
     {% endfor %}

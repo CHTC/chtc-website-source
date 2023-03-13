@@ -2,9 +2,12 @@
 highlighter: none
 layout: file_avail
 title: Small Input and Output File Availability Via HTCondor
-category: Handling Data in Jobs
-tag:
-    - htc
+alt_title: Transfer Small Input and Output
+guide:
+    order: 0
+    category: Handling Data in Jobs
+    tag:
+        - htc
 ---
 
 {% capture content %}

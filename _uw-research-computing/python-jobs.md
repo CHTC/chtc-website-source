@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Running Python Jobs
-category: Software Solutions
-tag:
-    - htc
+guide:
+    order: 2
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 _ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._

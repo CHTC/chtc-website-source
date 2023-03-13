@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Running Matlab Jobs
-category: Software Solutions
-tag:
-    - htc
+guide:
+    order: 1
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 

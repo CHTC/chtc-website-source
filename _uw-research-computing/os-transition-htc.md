@@ -2,9 +2,12 @@
 highlighter: none
 layout: guide
 title: HTC System Transition to a New Linux Version (CentOS Stream 8)
-category: Basics and Policies
-tag:
-    -htc
+guide: 
+    button_class: bg-warning
+    order: 0
+    category: Basics and Policies
+    tag:
+        - htc
 ---
 
 Starting on August 1, 2022, CHTC's high throughput computing (HTC) system began upgrading

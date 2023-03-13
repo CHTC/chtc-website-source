@@ -1,11 +1,12 @@
 ---
-highlighter: none
 layout: guide
 title: Policies for Using HTC Submit Servers
 alt_title: Using CHTC's HTC Submit Nodes
-category: Basics and Policies
-tag:
-    -htc
+guide:
+    order: 1
+    category: Basics and Policies
+    tag:
+        - htc
 ---
 
 **If you have not yet requested a CHTC account and met with a Research

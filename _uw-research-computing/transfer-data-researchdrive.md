@@ -1,11 +1,12 @@
 ---
-highlighter: none
 layout: guide
 title: Transferring Files Between CHTC and ResearchDrive
-category: Basics and Policies
-tag:
-    - htc
-    - hpc
+guide:
+    order: 4
+    category: Basics and Policies
+    tag:
+        - htc
+        - hpc
 ---
 
 UW Madison provides a shared data storage for research called [ResearchDrive](https://it.wisc.edu/services/researchdrive/). It 

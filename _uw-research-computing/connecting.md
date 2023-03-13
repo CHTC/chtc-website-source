@@ -3,10 +3,12 @@ highlighter: none
 layout: guide
 title: Connecting to CHTC Using CHTC's HTC Submit Nodes
 alt_title: Connecting to CHTC
-category: Basics and Policies
-tag:
-    - htc
-    - hpc
+guide:
+    order: 2
+    category: Basics and Policies
+    tag:
+        - htc
+        - hpc
 ---
 
 This guide assumes

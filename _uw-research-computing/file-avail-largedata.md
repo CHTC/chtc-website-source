@@ -2,9 +2,12 @@
 highlighter: none
 layout: file_avail
 title: Managing Large Data in HTC Jobs
-category: Handling Data in Jobs
-tag:
-    - htc
+alt_title: Use Large Input and Output Files Via Staging
+guide:
+    order: 2
+    category: Handling Data in Jobs
+    tag:
+        - htc
 ---
 
 When submitting jobs to CHTC's High Throughput Computing (HTC) system, 

@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Scaling Beyond Local HTC Capacity
-category: Special Use Cases
-tag:
-    - htc
+guide:
+    order: 2
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 

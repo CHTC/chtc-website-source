@@ -2,9 +2,11 @@
 highlighter: none
 layout: hpc_layout
 title: HPC Cluster Overview
-category: Basics and Policies
-tag:
-    - hpc
+guide: 
+    order: 1
+    category: Basics and Policies
+    tag:
+        - hpc
 ---
 
 {% capture content %}

@@ -2,9 +2,11 @@
 highlighter: none
 layout: file_avail
 title: Transfer Large Input Files Via Squid
-category: Handling Data in Jobs
-tag:
-    - htc
+guide:
+    order: 1
+    category: Handling Data in Jobs
+    tag:
+        - htc
 ---
 
 <style type="text/css">

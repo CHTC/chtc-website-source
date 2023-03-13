@@ -1,7 +1,12 @@
 ---
 highlighter: none
 layout: guide
-title: Using Licensed Software in CHTC
+title: Using Licensed Software
+guide:
+    order: 9
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 

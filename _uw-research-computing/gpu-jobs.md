@@ -1,10 +1,12 @@
 ---
 highlighter: none
 layout: guide
-title: Jobs That Use GPUs
-category: Special Use Cases
-tag:
-    - htc
+title: Submitting Jobs That Use GPUs
+guide:
+    order: 0
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 # Overview

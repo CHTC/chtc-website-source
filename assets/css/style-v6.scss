@@ -18,6 +18,8 @@ $accordion-padding-x: 0;
 $accordion-padding-y: .5em;
 $accordion-icon-width: .9rem;
 
+$list-group-border-color: black;
+
 // Bootstrap
 @import 'bootstrap/bootstrap';
 
@@ -198,7 +200,7 @@ html {
     font-size: 1rem;
   }
   a {
-    font-size: .9rem;
+    font-size: .8rem;
     color: black;
   }
   a:hover {

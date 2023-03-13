@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Windows / Linux Incompatibility
-category: Troubleshooting
-tag:
-    - htc
+guide:
+    order: 0
+    category: Troubleshooting
+    tag:
+        - htc
 ---
 
 

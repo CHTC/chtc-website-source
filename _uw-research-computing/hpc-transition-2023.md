@@ -1,11 +1,12 @@
 ---
-highlighter: none
 layout: guide
 title: Transitioning to a New HPC Cluster
-published: true
-category: Basics and Policies
-tag:
-    - htc
+guide: 
+    button_class: bg-warning
+    order: 0
+    category: Basics and Policies
+    tag:
+        - hpc
 ---
 
 The Center for High Throughput Computing’s High Performance Cluster is being 

@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Learning About Your Jobs Using condor_q
-category: Job Submission
-tag:
-    - htc
+guide:
+    order: 1
+    category: Job Submission
+    tag:
+        - htc
 ---
 
 

@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Submitting High Memory Jobs
-category: Special Use Cases
-tag:
-    - htc
+guide:
+    order: 4
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 **The examples and information in the below guide areuseful ONLY if:**

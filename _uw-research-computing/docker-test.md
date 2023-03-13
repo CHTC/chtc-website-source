@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Explore and Test Docker Containers
-category: Troubleshooting
-tag:
-    - htc
+guide:
+    order: 1
+    category: Troubleshooting
+    tag:
+        - htc
 ---
 
 Linux containers are a way to build a self-contained environment that

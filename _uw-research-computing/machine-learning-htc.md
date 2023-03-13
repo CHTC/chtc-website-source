@@ -1,10 +1,12 @@
 ---
 highlighter: none
 layout: guide
-title: Run Machine Learning Jobs on the HTC system
-category: Special Use Cases
-tag:
-    - htc
+title: Run Machine Learning Jobs
+guide:
+    order: 1
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 This guide provides some of our recommendations for success 

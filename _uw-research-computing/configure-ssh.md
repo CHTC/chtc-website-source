@@ -1,11 +1,12 @@
 ---
-highlighter: none
 layout: guide
 title: Automating CHTC Log In
-category: Basics and Policies
-tag:
-    - htc
-    - hpc
+guide:
+    order: 4
+    category: Basics and Policies
+    tag:
+        - htc
+        - hpc
 ---
 
 This guide describes 

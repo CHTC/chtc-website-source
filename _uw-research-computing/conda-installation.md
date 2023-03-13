@@ -2,9 +2,12 @@
 highlighter: none
 layout: guide
 title: Create a Portable Python Installation with Miniconda
-category: Software Solutions
-tag:
-    - htc
+alt_title: Using Conda Environments to Run Python Jobs
+guide:
+    order: 4
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 The Anaconda/Miniconda distribution of Python is a common tool for 

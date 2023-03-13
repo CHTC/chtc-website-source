@@ -2,9 +2,12 @@
 highlighter: none
 layout: guide
 title: Compiling or Testing Code with an Interactive Job
-category: Software Solutions
-tag:
-    - htc
+alt_title: Compiling Software in an Interactive Job
+guide:
+    order: 0
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 **To best understand the below information, users should already have an

@@ -1,10 +1,12 @@
 ---
 highlighter: none
 layout: guide
-title: Using Java Code
-category: Software Solutions
-tag:
-    - htc
+title: Running Java Jobs
+guide:
+    order: 6
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 Overview

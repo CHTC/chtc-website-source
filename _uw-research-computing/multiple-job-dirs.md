@@ -2,9 +2,12 @@
 highlighter: none
 layout: guide
 title: Submitting Multiple Jobs in Individual Directories
-category: Job Submission
-tag:
-    - htc
+alt_title: Submitting Multiple Jobs in Different Directories
+guide:
+    order: 4
+    category: Job Submission
+    tag:
+        - htc
 ---
 
 This guide demonstrates how to submit multiple jobs, using a specific

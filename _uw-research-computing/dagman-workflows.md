@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Workflows with HTCondor's DAGMan
-category: Job Submission
-tag:
-    - htc
+guide:
+    order: 3
+    category: Job Submission
+    tag:
+        - htc
 ---
 
 ## Overview

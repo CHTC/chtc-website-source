@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Running MPI Jobs
-category: Software Solutions
-tag:
-    - htc
+guide:
+    order: 5
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 

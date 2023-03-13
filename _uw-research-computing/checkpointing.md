@@ -3,8 +3,11 @@ highlighter: none
 layout: guide
 title: Checkpointing Jobs
 category: Special Use Cases
-tag:
-    - htc
+guide:
+    order: 3
+    category: Special Use Cases
+    tag:
+        - htc
 ---
 
 

@@ -2,9 +2,11 @@
 highlighter: none
 layout: hpc_layout
 title: Using Software on the HPC Cluster
-category: Software Solutions
-tag:
-    - hpc
+guide: 
+    order: 0
+    category: Software Solutions
+    tag:
+        - hpc
 ---
 
 This page describes how to install and run software on CHTC's HPC Cluster. 

@@ -1,9 +1,11 @@
 ---
 layout: guide
 title: Building a Docker Container Image
-category: Software Solutions
-tag:
-    - htc
+guide:
+    order: 8
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 Linux containers are a way to build a self-contained environment that

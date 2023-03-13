@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Checking Disk Quota and Usage
-category: Basics and Policies
-tags: 
-    - htc
+guide:
+    order: 7
+    category: Basics and Policies
+    tag:
+        - htc
 ---
 
 The following commands will allow you to monitor the amount of disk

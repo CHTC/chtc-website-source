@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Using Globus to Transfer Files to and from CHTC
-category: Basics and Policies
-tag:
-    - htc
+guide:
+    order: 5
+    category: Basics and Policies
+    tag:
+        - htc
 ---
 
 [Globus](https://www.globus.org/) is a data management service that lets you

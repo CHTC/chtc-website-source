@@ -2,9 +2,12 @@
 highlighter: none
 layout: guide
 title: Running HTC Jobs Using Docker Containers
-category: Software Solutions
-tag:
-    - htc
+alt_title: Using Software Installed in a Docker Container
+guide:
+    order: 7
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 Linux containers are a way to build a self-contained environment that

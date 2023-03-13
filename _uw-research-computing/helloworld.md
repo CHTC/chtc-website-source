@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Running Your First CHTC Jobs
-category: Job Submission
-tag:
-    - htc
+guide:
+    order: 0
+    category: Job Submission
+    tag:
+        - htc
 ---
 
    

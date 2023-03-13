@@ -2,9 +2,11 @@
 highlighter: none
 layout: guide
 title: Running Julia Jobs
-category: Software Solutions
-tag:
-    - htc
+guide:
+    order: 6
+    category: Software Solutions
+    tag:
+        - htc
 ---
 
 # Overview
