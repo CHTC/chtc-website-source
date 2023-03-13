@@ -1,0 +1,15 @@
+---
+layout: main
+---
+
+<div class="container-xxl mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-9 mw-1000">
+            {% include page-title.html title=page.title %}
+            {{ content }}
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            {% include guide-sidebar.liquid %}
+        </div>
+    </div>
+</div>

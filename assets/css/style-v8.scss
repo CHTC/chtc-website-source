@@ -1,0 +1,209 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+---
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+$primary: #c5050c;
+
+$uw-max-content-width: 1320px;
+
+$accordion-padding-x: 0;
+$accordion-padding-y: .5em;
+$accordion-icon-width: .9rem;
+
+$list-group-border-color: black;
+
+// Bootstrap
+@import 'bootstrap/bootstrap';
+
+// UW Theme
+@import 'UW-theming/uw_style';
+
+// Responsive Font Size
+html {
+  font-size: 14px;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  html {
+    font-size: 18px;
+  }
+}
+
+// Search Bar
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  color: $secondary;
+  padding: map-get($spacers, 2);
+  @include media-breakpoint-up(md){
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .result {
+    box-shadow: 0px 5px 5px #0000001c;
+  }
+  .results-dropdown {
+    height: 0px;
+    z-index: 100;
+  }
+}
+
+// Navbar
+#uw-sub-menus {
+  nav.uw-nav-menu {
+    background-color: #f7f7f7 !important;
+  }
+}
+
+#branding-sub {
+  background-color: #f7f7f7 !important;
+}
+
+.table-container {
+  table {
+    margin-bottom: 0px;
+  }
+  overflow-x: scroll;
+  margin-bottom: 2rem;
+}
+
+.uw-card.promoted {
+  @include uw-flex-column(50%, map-get($breakpoints, medium));
+  padding: $uw-padding*1;
+  display: flex;
+  flex-direction: row;
+  .uw-card-content {
+    background-color: $uw-white;
+    flex-direction: row;
+    img {
+      width: 100%;
+    }
+  }
+  .uw-card-copy {
+    padding: 0 1rem 1rem;
+  }
+}
+
+.team-card {
+  .uw-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .uw-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  img{
+    height: 20vw;
+    max-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+  }
+  .institution {
+    color: grey;
+  }
+}
+
+.news-post:hover {
+  > div {
+    transition: background-color .5s, transform 1s;
+    background-color: #dfdfdf;
+    box-shadow: 5px 0px 5px #ffffff;
+  }
+  text-decoration: none;
+}
+
+.news-post {
+  .img-container{
+    height: 180px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// Homepage was designed with this applied and I don't want to redesign it at the moment
+.mw-1000 {
+  max-width: 1000px;
+}
+
+#hero-image-ultrawide {
+  height:50vw;
+  max-height:500px;
+  width: auto;
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.stat-card {
+  padding: 20px;
+  background-color:  #f7f7f7;
+  margin-bottom: 1.5rem;
+}
+
+.circuit-background {
+  background: url({{ 'images/circuit_board_light.svg' | relative_url }}) no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  box-shadow: inset 0px 0px 10px white;
+}
+
+
+#guide-sidebar {
+
+  top: 1rem;
+  position: sticky;
+  line-height: 1rem;
+
+  .accordion-button {
+    transition: padding .2s;
+    transition-timing-function: ease-out;
+  }
+  .accordion-button:focus {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .accordion-button:not(.collapsed) {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .document-link-wrapper {
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+    padding: .4rem;
+    background-color: #fffcfc;
+  }
+  button {
+    font-size: 1rem;
+  }
+  a {
+    font-size: .8rem;
+    color: black;
+  }
+  a:hover {
+    color: $primary;
+  }
+}

@@ -53,6 +53,9 @@ collections:
     permalink: /:collection/:year/:month/:title
   redirects:
     output: true
+  uw-research-computing:
+    permalink: /uw-research-computing/:path
+    output: true
 
 sass:
   style: compressed
