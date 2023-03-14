@@ -290,7 +290,7 @@ prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
 this script as as the `executable` of our HTCondor submit file.
 
-A sample script appears below. After the first line, the lines starting
+A sample script (`run_python.sh`) appears below. After the first line, the lines starting
 with hash marks are comments . You should replace \"my\_script.py\" with
 the name of the script you would like to run, and modify the Python
 version numbers to be the same as what you used above to install your
@@ -368,7 +368,7 @@ changes in order to run Python jobs:
     [above](#script).
 
     ``` 
-    executable = run_py.sh
+    executable = run_python.sh
     ```
     {:.sub}
 -   Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
