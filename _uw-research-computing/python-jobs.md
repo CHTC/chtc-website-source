@@ -186,7 +186,7 @@ You can also try running this command to make sure the copy of python
 that is now active is the one you just installed:
 
 ``` 
-[alice@build]$ which python3
+[alice@build]$ echo `which python3`
 ```
 {:.term}
 
