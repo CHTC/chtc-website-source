@@ -235,6 +235,18 @@ If you have difficulties installing a package, we recommend you upgrade `pip` an
 ```
 {:.term}
 
+> The python packages (and versions) can instead be installed using the file `requirements.txt`, which contains one package name (and versions, if needed) per line.  
+> This file can be created manually or, if you have a working python installation that you want to duplicate, by running 
+   ```
+   python3 -m pip freeze > requirements.txt
+   ```
+   {:.term}
+> To install the packages contained within `requirements.txt`, run
+   ```
+   python3 -m pip install -r requirements.txt
+   ```
+   {:.term}
+
 
 C. Finish Up
 ------------
