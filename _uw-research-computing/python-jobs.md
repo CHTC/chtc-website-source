@@ -224,6 +224,9 @@ Replace *package1* *package2* with the names of packages you want to
 install. `pip` should download all dependent packages and install them.
 Certain packages may take longer than others.
 
+> If a specific version of a package is required, you can provide the version number using the syntax `packagename==X.Y.Z`.
+> For example, `numpy==1.23.5` would install version `1.23.5` of `numpy`.  
+
 If you have difficulties installing a package, we recommend you upgrade `pip` and then try reinstalling your packages:
 
 ``` 
