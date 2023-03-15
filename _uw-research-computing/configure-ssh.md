@@ -13,6 +13,7 @@ This guide describes
 * how to authenticate with Duo when logging into CHTC's HTC and HPC systems
 * how to set your login (SSH) configuration to “reuse” a two-factor authenticated 
 connection over a certain period of time. 
+* terminals and applications that are known to support persistent connections
 
 ## Authentication with Duo
 
@@ -128,7 +129,16 @@ downloaded or edited, but some do not.
 
 ### Known to support persistent connections
 
-* WinSCP (by default)
+* Linux, Mac, and Windows Subsystem for Linux (WSL) terminals
+
+* WinSCP
+    
+    May need to adjust preferences.  Within WinSCP:
+    
+    1. Go to Options, then Preferences, and click on Background under the Transfer section.  
+    2. Set 'Maximal number of transfers at the same time:' to 1.
+    3. Make sure 'Use multiple connections for single transfer' checkbox is checked.
+    4. Click 'OK' to save.
 
 * Cyberduck (taken from [these docs](https://s2.smu.edu/hpc/documentation/access.html)
 
@@ -141,8 +151,9 @@ connection”.
 
 ### Known to NOT support `ControlMaster` or similar persistent connections
 
+* Windows PowerShell
+
 * File transfer tools from [Panic](https://panic.com/), like Transmit and Nova
-do not support the `ControlMaster` config described above. 
 
 ## Other Tools
 
