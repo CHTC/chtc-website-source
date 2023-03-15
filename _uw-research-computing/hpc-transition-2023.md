@@ -81,8 +81,8 @@ different sized nodes. The main general use partition is now called `shared`
 instead of `univ2` or `univ3`. We also recommend the following changes because 
 most of our nodes now have 128 cores, so requesting multiple nodes is not 
 advantageous if your jobs are smaller than 128 cores. We also now recommend requesting 
-memory per core instead of memory per node, for similar reasons. Here are our recommendations 
-for different sized jobs: 
+memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu`
+flag with units of MB. Here are our recommendations for different sized jobs: 
 
 <table>
 	<tr>
