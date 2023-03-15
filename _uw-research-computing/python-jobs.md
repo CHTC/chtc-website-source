@@ -186,7 +186,7 @@ You can also try running this command to make sure the copy of python
 that is now active is the one you just installed:
 
 ``` 
-[alice@build]$ which python3
+[alice@build]$ echo `which python3`
 ```
 {:.term}
 
@@ -224,6 +224,9 @@ Replace *package1* *package2* with the names of packages you want to
 install. `pip` should download all dependent packages and install them.
 Certain packages may take longer than others.
 
+> If a specific version of a package is required, you can provide the version number using the syntax `packagename==X.Y.Z`.
+> For example, `numpy==1.23.5` would install version `1.23.5` of `numpy`.  
+
 If you have difficulties installing a package, we recommend you upgrade `pip` and then try reinstalling your packages:
 
 ``` 
@@ -231,6 +234,21 @@ If you have difficulties installing a package, we recommend you upgrade `pip` an
 [alice@build]$ python3 -m pip install --target=$PWD/packages package1 package2 etc.
 ```
 {:.term}
+
+> The python packages (and versions) can instead be installed using the file `requirements.txt`, which contains one package name (and versions, if needed) per line.  
+> This file can be created manually or, if you have a working python installation that you want to duplicate, by running 
+>
+>  ```
+> python3 -m pip freeze > requirements.txt
+> ```
+> {:.term}
+> 
+> To install the packages contained within `requirements.txt`, run
+> 
+> ```
+> python3 -m pip install -r requirements.txt
+> ```
+> {:.term}
 
 
 C. Finish Up
@@ -272,7 +290,7 @@ prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
 this script as as the `executable` of our HTCondor submit file.
 
-A sample script appears below. After the first line, the lines starting
+A sample script (`run_python.sh`) appears below. After the first line, the lines starting
 with hash marks are comments . You should replace \"my\_script.py\" with
 the name of the script you would like to run, and modify the Python
 version numbers to be the same as what you used above to install your
@@ -350,7 +368,7 @@ changes in order to run Python jobs:
     [above](#script).
 
     ``` 
-    executable = run_py.sh
+    executable = run_python.sh
     ```
     {:.sub}
 -   Modify the CPU/memory request lines.  Test a few jobs for disk space/memory usage in 
