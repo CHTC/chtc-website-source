@@ -71,9 +71,8 @@ we have replaced in-person office hours with virtual office hours, office hours 
 -   **Tuesday morning: 10:30am - 12:00pm.** 
 -   **Thursday afternoon: 3:00 - 4:30 pm.** 
 
-To drop in, find the videoconference link in either your email (via 
-an announcement to chtc-users sent on Wed., March 11) or in the login message
-when you log into a CHTC server. 
+To drop in, find the videoconference link in either your email or in the 
+login message when you log into a CHTC server. 
 
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
