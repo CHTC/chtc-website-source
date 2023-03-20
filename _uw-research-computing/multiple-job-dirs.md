@@ -63,6 +63,10 @@ You\'ll want to put all your code and files required for every job in
 in an `input` folder. In the submit file below, it matters that the
 individual job directories start with the word \"job\".
 
+> **Note: the job directories need to be hosted in your `/home` directory 
+> on the submit node. The following instructions will not work for files 
+> hosted on `/staging`!**
+
 **3. Submit File**
 --------------
 
