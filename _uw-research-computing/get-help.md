@@ -51,6 +51,16 @@ We provide support via email at the address
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
 
+When emailing us for assistance in troubleshooting an issue, please provide
+an explanation of what you expected to happen versus what actually happened, and  
+include relevant files (or provide the locations of them on the system), such as:
+
+* The job submit file (.sub)
+* The job executable (.sh) or list of commands used in an interactive job
+* The HTCondor log file (.log)
+
+We will use this information to give you more effective responses and solutions.
+
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
