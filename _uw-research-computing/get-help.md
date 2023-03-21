@@ -57,7 +57,8 @@ include relevant files (or provide the locations of them on the system), such as
 
 * The job submit file (.sub)
 * The job executable (.sh) or list of commands used in an interactive job
-* The HTCondor log file (.log)
+* Standard error and standard output files (usually .out or .err)
+* If on the HTC system, the HTCondor log file (.log)
 
 We will use this information to give you more effective responses and solutions.
 
