@@ -41,13 +41,13 @@ below question, you can answer 'I don't know'.</b> One of
 CHTC's Research Computing Facilitators will be happy to help 
 you work out the details during your consultation.</p>
 
-<FORM name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="return verifyCaptcha()">
+<FORM name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="(x) => console.log(x)">
 
 <h2>About you and your research:</h2>
 
 <table>
 <tr>
-	<td width="25%">Full Name:</td>
+	<td>Full Name:</td>
 	<td><INPUT type="text" name="FullName" size=24></td>
 </tr>
 <tr>
@@ -63,10 +63,14 @@ you work out the details during your consultation.</p>
 	<td><INPUT type="text" name="Department" size=24></td>
 </tr>
 <tr>
-	<td>UW-Madison Faculty Sponsor (Principal Investigator) for
+	<td>UW-Madison Faculty Sponsor (Principal Investigators Name) for
 your research:<br>
 <small>(Please enter "Self" if you are a faculty member and PI)</small></td>
 	<td><INPUT type="text" name="PIName" size=24></td>
+</tr>
+<tr>
+	<td>UW-Madison Faculty Sponsor's Email:</td>
+	<td><INPUT type="text" name="PIEmail" size=24></td>
 </tr>
 <tr><td colspan="2">
 	How did you hear about us? <br>
