@@ -41,7 +41,7 @@ below question, you can answer 'I don't know'.</b> One of
 CHTC's Research Computing Facilitators will be happy to help 
 you work out the details during your consultation.</p>
 
-<FORM name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="(x) => console.log(x)">
+<FORM name="chtcform" action="https://chtc.cs.wisc.edu/cgi-chtc/get-started_captcha.php" method="post" onSubmit="return verifyCaptcha()">
 
 <h2>About you and your research:</h2>
 
@@ -63,7 +63,7 @@ you work out the details during your consultation.</p>
 	<td><INPUT type="text" name="Department" size=24></td>
 </tr>
 <tr>
-	<td>UW-Madison Faculty Sponsor (Principal Investigators Name) for
+	<td>UW-Madison Faculty Sponsor (Principal Investigator's Name) for
 your research:<br>
 <small>(Please enter "Self" if you are a faculty member and PI)</small></td>
 	<td><INPUT type="text" name="PIName" size=24></td>
