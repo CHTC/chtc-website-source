@@ -51,7 +51,7 @@ We provide support via email at the address
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
 
-When emailing us for assistance in troubleshooting an issue, please provide
+When emailing us for assistance in troubleshooting an issue, please provide which system you are using, 
 an explanation of what you expected to happen versus what actually happened, and  
 include relevant files (or provide the locations of them on the system), such as:
 
