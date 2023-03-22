@@ -51,6 +51,17 @@ We provide support via email at the address
 to start by sending questions or issues via email. You can typically
 expect a first response within a few business hours.
 
+When emailing us for assistance in troubleshooting an issue, please provide which system you are using, 
+an explanation of what you expected to happen versus what actually happened, and  
+include relevant files (or provide the locations of them on the system), such as:
+
+* The job submit file (.sub)
+* The job executable (.sh) or list of commands used in an interactive job
+* Standard error and standard output files (usually .out or .err)
+* If on the HTC system, the HTCondor log file (.log)
+
+We will use this information to give you more effective responses and solutions.
+
 ## Office Hours
 
 **Cancellations will be announced via email and on this webpage.**
@@ -61,9 +72,8 @@ we have replaced in-person office hours with virtual office hours, office hours 
 -   **Tuesday morning: 10:30am - 12:00pm.** 
 -   **Thursday afternoon: 3:00 - 4:30 pm.** 
 
-To drop in, find the videoconference link in either your email (via 
-an announcement to chtc-users sent on Wed., March 11) or in the login message
-when you log into a CHTC server. 
+To drop in, find the videoconference link in either your email or in the 
+login message when you log into a CHTC server. 
 
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
