@@ -296,6 +296,11 @@ Requirements = (Target.HasCHTCStaging == true)
 queue
 ```
 
+> **Note: in no way should files on `/staging` be specified in the submit file, 
+> directly or indirectly!** For example, do not use the `initialdir` option (
+> [Submitting Multiple Jobs in Individual Directories](multiple-job-dirs.html))
+> to specify a directory on `/staging`.
+
 # 5. Checking your Quota, Data Use, and File Counts
 
 You can use the command `get_quotas` to see what disk 
