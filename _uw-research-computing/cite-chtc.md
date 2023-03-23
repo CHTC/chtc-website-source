@@ -22,6 +22,13 @@ that have benefited from our services.
 For a Grant Proposal
 --------------------
 
+(Feel free to modify the below text, use only certain paragraphs, or contact us for more input or customizable letters of support.)
+
+The University of Wisconsin-Madison (UW-Madison) campus is an excellent match for meeting the computational needs of this project. Existing UW-Madison technology infrastructure supported by the CHTC can be readily leveraged, including CPU capacity, network connectivity, storage availability, and middleware connectivity. The UW-Madison has invested in the CHTC as the primary provider of shared, computing resources to campus researchers. All standard CHTC services are provided free-of-charge to UW-Madison researchers, their projects, and collaborators. But perhaps most important, the UW-Madison has significant staff experience and core competency in deploying, managing, and using computational technology.
+
+The CHTC is home to over 20 full-time staff with a proven track record of making compute middleware work for scientists. Far beyond just being familiar with the deployment and use of such software, UW staff has been intimately involved in its design and implementation. Dedicated Research Computing Facilitators are available to provide training to all CHTC users and are available to consult on computational practices for achieving the best scientific throughput. As always, CHTC will be happy to provide consulting to ensure optimal use of its facilities, and development of robust, reproducible methods for scalable computing.
+
+
 The UW-Madison maintains multiple compute clusters (including the largest of these operated by CHTC) across campus that are managed using either HTCondor or SLURM with support from CHTC. These clusters are connected by HTCondor technology to share resources with each other and with other institutions around the world via [OSG services](https://osg-htc.org/). Local computing capacity directly enabled by CHTC includes:
 
 - High-Throughput Computing (HTC) resources totaling about 30,000 CPU cores in support of research. Temporary file space for large individual files can support up to hundreds of terabytes of total working data. For single computing runs needing significant memory on a single server, the CHTC maintains several multi-core servers with terabytes of memory.
