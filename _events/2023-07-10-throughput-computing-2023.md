@@ -51,7 +51,7 @@ The **U.S. ATLAS and U.S. CMS high-energy physics projects** are also planning p
 
 ### Workshop Hotel Accommodations
 
-We have arranged room blocks at a reduced rate at the Fluno Center and at two nearby hotels. We recommend you make your room reservation **ASAP**, as the number of rooms available at the reduced rate is limited (Madison is also a popular place to visit in the summer!). Please visit the [Local Arrangements](https://agenda.hep.wisc.edu/event/2014/page/55-local-arrangements) page to find information about how to book your hotel room at the reduced rate for each hotel.
+We have arranged room blocks at a reduced rate at the Fluno Center and at two nearby hotels. We recommend you make your room reservation **ASAP**, as the number of rooms available at the reduced rate is limited. (Madison is also a popular place to visit in the summer!) Please visit the [Local Arrangements](https://agenda.hep.wisc.edu/event/2014/page/55-local-arrangements) page to find information about how to book your hotel room at the reduced rate for each hotel.
 
 **Please note:** DoubleTree Madison is the only hotel with a *free shuttle service* to and from the airport.
 
