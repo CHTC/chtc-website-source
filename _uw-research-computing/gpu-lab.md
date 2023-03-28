@@ -12,36 +12,42 @@ computing infrastructure at UW-Madison.  It includes:
 {% endcapture %}
 {% include /components/markdown-container.html %}
 
-<div class="uw-full-row uw-pad-tb uw-light-grer-bg">
-	<div class="uw-row mw-1000">
-		<div class="uw-card">
-			<div class="uw-card-content">
-				<img src="{{ '/uw-research-computing/guide-icons/noun_gpu_2528527.png' | relative_url }}" alt="Hardware Icon">
-				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar">Hardware</h2>
-                    <p>A pool of shared GPU servers managed by CHTC.</p>
-				</div>
-			</div>
-		</div>
-		<div class="uw-card">
-			<div class="uw-card-content">
-				<img src="{{ '/uw-research-computing/guide-icons/noun_people_1188645.png' | relative_url }}" alt="People Icon">
-				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar">Expertise</h2>
-                    <p>A community of technical experts.</p>
-				</div>
-			</div>
-		</div>
-		<div class="uw-card">
-			<div class="uw-card-content">
-				<img src="{{ '/uw-research-computing/guide-icons/noun_open book_1179297.png' | relative_url }}" alt="Book Icon">
-				<div class="uw-card-copy">
-					<h2 class="uw-mini-bar">Documentation</h2>
-                    <p>A library of sharable software and documentation.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container-xxl">
+    <div class="row gx-0 uw-light-grer-bg">
+        <div class="col-6 col-sm-4">
+            <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
+                <div class="uw-card-content">
+                    <img src="{{ '/uw-research-computing/guide-icons/noun_gpu_2528527.png' | relative_url }}" alt="Hardware Icon">
+                    <div class="uw-card-copy">
+                        <h2 class="uw-mini-bar">Hardware</h2>
+                        <p>A pool of shared GPU servers managed by CHTC.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4">
+            <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
+                <div class="uw-card-content">
+                    <img src="{{ '/uw-research-computing/guide-icons/noun_people_1188645.png' | relative_url }}" alt="People Icon">
+                    <div class="uw-card-copy">
+                        <h2 class="uw-mini-bar">Expertise</h2>
+                        <p>A community of technical experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4">
+            <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
+                <div class="uw-card-content">
+                    <img src="{{ '/uw-research-computing/guide-icons/noun_open book_1179297.png' | relative_url }}" alt="Book Icon">
+                    <div class="uw-card-copy">
+                        <h2 class="uw-mini-bar">Documentation</h2>
+                        <p>A library of sharable software and documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% capture content %}
