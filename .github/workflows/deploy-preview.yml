@@ -13,7 +13,7 @@ on:
 jobs:
   Deploy-Web-Preview:
     if: ${{ github.repository_owner == 'CHTC' }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       preview_url: https://github.com/CHTC/web-preview.git
     steps:
