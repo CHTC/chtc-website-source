@@ -94,7 +94,7 @@ Registration for Throughput Computing 2023 is now open! Please visit the links b
 
 **Registration for virtual attendance:** [Register here.](https://agenda.hep.wisc.edu/event/2014/registrations/251/)
 
-Registration for in-person attendance will cost $100 per day; there if no fee for registration for virtual attendance.
+Registration for in-person attendance will cost $100 per day; there is no fee for registration for virtual attendance.
 
 **Registration is still required for both in-person and virtual to attend this event.**
 
