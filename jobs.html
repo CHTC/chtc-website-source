@@ -4,6 +4,8 @@ layout: default
 title: Available Positions
 ---
 
+{% include /get/jobs.liquid %}
+
 <figure>
     <img class="w-100" style="object-fit: cover; max-height: 400px;" src="/images/Emile_Working.jpg"
          alt="IT Professional, Emile, working in the Discovery Server Rooms"/>
@@ -48,54 +50,66 @@ title: Available Positions
                 <a href="http://www.osg-htc.org/">The OSG</a>.
             </p>
 
-<!--            <h2 id="full-time-positions">Full Time Positions</h2>-->
-<!--            <p>-->
-<!--                Details about our open full-time positions are typically provided below.-->
-<!--                Positions pertaining to "HTCondor" and "CHTC" search terms can also-->
-<!--                be found on the <a-->
-<!--                    href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&amp;search-keyword=chtc">University's-->
-<!--                Position Vacancy List-->
-<!--                (PVL)</a>.-->
-<!--            </p>-->
+            {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'fulltime'" %}
+            {% if fulltime_jobs.size > 0 %}
+                <h2 id="full-time-positions">Full Time Positions</h2>
+                <p>
+                    Details about our open full-time positions are typically provided below.
+                    Positions pertaining to "HTCondor" and "CHTC" search terms can also
+                    be found on the <a
+                        href="http://jobs.hr.wisc.edu/cw/en-us/search/?job-mail-subscribe-privacy=agree&amp;search-keyword=chtc">University's
+                    Position Vacancy List
+                    (PVL)</a>.
+                </p>
 
-            <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
-            <p>
-                We're always looking for smart motivated students to partner with
-                software developer and system administrator mentors. We expect students
-                to work between 10 and 20 hours a week, with 10 of those being during
-                business hours, with some flexibility on remaining hours. During the
-                summer and breaks, it is possible to work up to 40 hours per week.
-            </p>
+                {% for job in fulltime_jobs %}
+                    <div class="rounded bg-light p-2 pt-1 mb-2">
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.institution }} - {{ job.title }}</h3>
+                            </div>
+                            <div class="col-auto d-flex">
+                                {% if job.close_date != null %}
+                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
 
-            <div class="rounded bg-light p-2 pt-1 mb-2">
-                <h3 id="student-office-internship" class="mt-2" href="/jobs.html">Morgridge - Student Office Assistant</h3>
-                <p>
-                    Interested in communicating science through social media? Want to see how a big research project
-                    comes together “under the hood”? This position’s tasks include social media, event planning,
-                    reporting metrics, writing, and general office support. Ideal candidates will be working towards an
-                    associate or bachelor’s degree and have a minimum of a year remaining prior to graduating.
-                </p>
-                <a class="btn btn-primary" href="https://morgridge.org/job-posting/student-office-assistant/">View Full
-                    Job Listing</a>
-            </div>
+                        {{ job.text | markdownify }}
+                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-            <div class="rounded bg-light p-2 pt-1 mb-2">
-                <h3 id="kubernetes-internship" class="mt-2" href="/jobs.html">OSG - IRIS-HEP Student Fellow</h3>
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'student'" %}
+            {% if student_jobs.size > 0 %}
+                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
                 <p>
-                    Horizontal scaling of HTTP caches: learn how to automate load-balancing with Kubernetes.
+                    We're always looking for smart motivated students to partner with
+                    software developer and system administrator mentors. We expect students
+                    to work between 10 and 20 hours a week, with 10 of those being during
+                    business hours, with some flexibility on remaining hours. During the
+                    summer and breaks, it is possible to work up to 40 hours per week.
                 </p>
-                <p>
-                    The OSG offers an integrated software stack and infrastructure used by the High-Energy Physics
-                    community to meet their computational needs. Frontier Squid is part of this software stack and
-                    acts as an HTTP proxy, caching requests to improve network usage. We seek a fellow to turn our
-                    existing single cache Kubernetes deployment into one that can scale horizontally using the same
-                    underlying storage for its cache.
-                </p>
-                <p><a href="https://iris-hep.org/fellows.html">Details and Previous Fellows.</a></p>
-                <p>
-                    <a class="btn btn-primary" href="mailto:bbockelman@morgridge.org,blin@cs.wisc.edu,mat@cs.wisc.edu">Apply by emailing the mentors</a>
-                </p>
-            </div>
+
+                {% for job in student_jobs %}
+                    <div class="rounded bg-light p-2 pt-1 mb-2">
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.institution }} - {{ job.title }}</h3>
+                            </div>
+                            <div class="col-auto d-flex">
+                                {% if job.close_date != null %}
+                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        {{ job.text | markdownify }}
+                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
 
             <hr>
             <h2 id="benefits">Benefits</h2>
@@ -155,8 +169,9 @@ title: Available Positions
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
-                                <li><a href="#student-office-internship">Student Office Assistant</a></li>
-                                <li><a href="#kubernetes-internship">IRIS-HEP Student Fellow</a></li>
+                                {% for job in jobs %}
+                                    <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

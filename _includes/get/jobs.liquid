@@ -1,0 +1,13 @@
+
+{% assign now = 'now' | date: '%s' | plus: 0 %}
+
+{% assign jobs = "" | split: "" %}
+{% for j in site.data.jobs %}
+    {% assign job = j[1] %}
+    {% assign close_date = job.close_date | default: 99999999999 %}
+    {% if close_date > now %}
+        {% assign jobs = jobs | push: job %}
+    {% else %}
+        close_date < now
+    {% endif %}
+{% endfor %}
