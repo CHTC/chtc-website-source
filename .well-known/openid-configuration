@@ -1,4 +1,16 @@
 {  
    "issuer":"https://chtc.cs.wisc.edu",
-   "jwks_uri":"https://chtc.cs.wisc.edu/.well-known/issuer.jwks"
+   "jwks_uri":"https://chtc.cs.wisc.edu/.well-known/issuer.jwks",
+   "token_endpoint": "https://osdf-chtc-issuer.chtc.chtc.io/scitokens-server/token",
+   "userinfo_endpoint": "https://osdf-chtc-issuer.chtc.chtc.io/scitokens-server/userinfo",
+   "registration_endpoint": "https://osdf-chtc-issuer.chtc.chtc.io/scitokens-server/oidc-cm",
+   "device_authorization_endpoint": "https://osdf-chtc-issuer.chtc.chtc.io/scitokens-server/device_authorization",
+   "token_endpoint_auth_methods_supported": [
+      "client_secret_post",
+      "client_secret_basic"
+   ],
+   "grant_types_supported": [
+      "refresh_token",
+      "urn:ietf:params:oauth:grant-type:device_code"
+   ]
 }
