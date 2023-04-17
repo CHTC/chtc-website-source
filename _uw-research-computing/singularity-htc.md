@@ -12,18 +12,24 @@ guide:
 ## Overview
 HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system. 
 
-Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. This means your jobs will run in a more consistent environment that is easily reproducible by others. Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of more of CHTC's High Throughput resources because Apptainer jobs can run on both our new CentOS8 machines, as well as our older CentOS7 machines, in addition to more easily back filling on external compute resources (e.g.[`+WantFlocking` and `+WantGlideIn` resources](scaling-htc.html)).
+Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
+This means your jobs will run in a more consistent environment that is easily reproducible by others. 
+Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of more of CHTC's High Throughput resources because Apptainer jobs can run on both our new CentOS8 machines and our older CentOS7 machines. 
+Similarly, Apptainer jobs can more easily back fill on external compute resources (e.g.[`+WantFlocking` and `+WantGlideIn` resources](scaling-htc.html)).
 
 ## 1. Choose or create an Apptainer Image
 To run an Apptainer job, it is necessary to first choose a preexisting Apptainer image or create your own. 
 
 ### A. Preexisting Images
-Like Docker, it is easiest to use Apptainer in your jobs by finding a preexisting image that contains your desired software and environment setup. 
+Like with Docker, the easiest way to use Apptainer in your jobs is to find a preexisting image that contains your desired software and environment setup. 
 
-Preexisting "base" images can be found in the Apptainer library or from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). Additionally, it is possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
+Preexisting images can be found in reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). 
+It is also possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
 
 ### B. Create your Own Image
-To create your own image, it is still necessary to select a "base" image to add to. See below for how to customize your base image by adding and preparing additional software packages/libraries.
+To create your own image, it is still necessary to select a "base" image to add to. 
+Check the documentation of the software you are interested in to see if they maintain images for the software program or its dependencies.
+See below for how to customize your base image by adding and preparing additional software packages/libraries.
 **If your apptainer image does not require any additional packages or libraries, skip to section 7.**   
 
 ## 2. Submit an interactive job
