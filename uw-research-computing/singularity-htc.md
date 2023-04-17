@@ -7,7 +7,7 @@ title: Use Apptainer (Singularity) Environments
 ## Overview
 HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system. 
 
-Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. This means your jobs will run in a more consistent environment that is easily reproducible by others. Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of running on more of CHTC's High Throughput pool because Apptainer jobs can run on both our new CentOS8 machines, as well as our older CentOS7 machines, in addition to more easily taking advantage of back filling on external compute resources (e.g.[`+WantFlocking` and `+WantGliding` resources](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html).
+Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. This means your jobs will run in a more consistent environment that is easily reproducible by others. Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of running on more of CHTC's High Throughput pool because Apptainer jobs can run on both our new CentOS8 machines, as well as our older CentOS7 machines, in addition to more easily taking advantage of back filling on external compute resources (e.g.[`+WantFlocking` and `+WantGlideIn` resources](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html)).
 
 ## 1. Choose or create an Apptainer Image
 To run an Apptainer job, it is necessary to first choose a preexisting Apptainer image or create your own. 
