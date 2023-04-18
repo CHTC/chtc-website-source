@@ -57,6 +57,7 @@ Once your submit file is ready, queue an interactive job by running the followin
 ```
 [alice@submit]$ condor_submit -i build.sub
 ```
+{:.term}
 
 It may take a few minutes for the build job to start.
 
@@ -73,12 +74,15 @@ Bootstrap: docker
 From: rocker/geospatial:4.2.2
 ```
 
-Then there is a section called `%post` where you put the additional commands to make the image just like you need it. For example, if we wanted to install the R package `cowsay`, we would use: 
+Then there is a section called `%post` where you put the additional commands to make the image just like you need it. 
+For example, if we wanted to install the R package `cowsay`, we would use: 
 
 ```
 %post
-    apt-get update -y     # command to update existing packages
-    apt-get install -y \  # command to install building tools we may need
+    DEBIAN_FRONTEND=noninteractive  # disables interactive prompts and uses defaults instead
+    chmod 777 /tmp                  # ensures tmp directory can be used for installing packages
+    apt-get update -y               # command to update existing packages
+    apt-get install -y \            # command to install building tools we may need
             build-essential \
             cmake \
             g++ \
@@ -86,9 +90,12 @@ Then there is a section called `%post` where you put the additional commands to 
 
     R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 ```
-The `R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" ` line tells our image to start `R` and to use the common `R` fucnction `install.packages` to install `cowsay`. 
 
-See the Apptainer documentation for a full reference on how to specify build specs. Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
+The `R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" ` line tells our image to execute a command in the `R` terminal,
+in this case the common `R` fucnction `install.packages` to install `cowsay`. 
+
+See the Apptainer documentation for a full reference on how to specify build specs. 
+> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
 
 The final `image.def` looks like:
 
@@ -97,6 +104,8 @@ Bootstrap: docker
 From: rocker/geospatial:4.2.2
 
 %post
+    DEBIAN_FRONTEND=noninteractive
+    chmod 777 /tmp
     apt-get update -y
     apt-get install -y \
             build-essential \
@@ -109,13 +118,19 @@ From: rocker/geospatial:4.2.2
 
 ## 4. Build your Apptainer Container
 
-Once your build spec is ready, you can "build" the container. The process of building an apptainer image will convert our `.def` file to a `.sif` Apptainer/Singularity image that we will use for future job submissions. To build our container, run this command:
+Once your image definition file is ready, you can "build" the container. 
+The process of building an apptainer image will convert our `.def` file to a `.sif` Apptainer/Singularity image that we will use for future job submissions. 
+To build our container, run this command:
 
 ```
-$ apptainer build my-container.sif image.def
+apptainer build my-container.sif image.def
 ```
+{:.term}
 
-If you list the contents of your scratch directory by running `ls`, you should now see your executable Apptainer/Singularity file `my-container.sif`. 
+As the command runs, a variety of information will be printed to the terminal regarding the container build process.
+Unless something goes wrong, this information can be safely ignored.
+Once the command has finished running, you should see `INFO:    Build complete: my-container.sif`).
+Using the `ls` command, you should now see your executable Apptainer/Singularity file `my-container.sif`. 
 
 Once the image is built, it is important to test it to make sure you have all software, packages, and libraries installed correctly. 
 
@@ -124,23 +139,24 @@ Once the image is built, it is important to test it to make sure you have all so
 Just like it is important to test your codes and jobs at a small scale, you should make sure that your container is working correctly. To do this, we will start an "interactive Apptainer session" with the Apptainer/Singularity "shell" mode. The recommended command line, similar to how containers are started for jobs, is:
 
 ```
-THIS CODE NEEDS TESTING (LIKELY REMOVE /SRV, ETC)
-apptainer shell my-container.sif \
+apptainer shell \
             --home $PWD:/srv \
             --pwd /srv \
-           #--bind /cvmfs \
             --scratch /var/tmp \
             --scratch /tmp \
             --contain --ipc --pid \
+            my-container.sif
 ``` 
+{:.term}
 
 This will give you an interactive shell using your container, with your current working directory mounted under /srv. Your prompt should change to: 
 
 ```
-Apptainer my-container.sif:~>
+Apptainer>
 ```
+{:.term}
 
-You can explore the container and test your code in this mode. Once you are down exploring, exit the container by running `exit` or with `CTRL+D`.
+You can explore the container and test your code in this mode. Once you are done exploring, exit the container by running `exit` or with `CTRL+D`.
  
 
 # 6. Exit your HTCondor Interactive Job
@@ -150,17 +166,18 @@ Now that we have prepared our Apptainer image and tested it, we are ready to exi
 ```
 [alice@build]$ exit
 ```
+{:.term}
 
 ## 7. Use an Apptainer Container in HTC Jobs
 
-HTCondor will automatically fetch and  prepare your Apptainer environment for your high-throughput jobs as long as we provide HTCondor with the `.sif` file information in your job's submit file. Specifically, we need to provide HTCondor with the name of the `container_image` and to tell HTCondor where to find the `.sif` file to transfer to the job using `transfer_input_files` like so: 
+HTCondor will automatically fetch and prepare your Apptainer environment for your high-throughput jobs as long as we provide HTCondor with the `.sif` file information in your job's submit file. Specifically, we need to provide HTCondor with the name of the `container_image` and to tell HTCondor where to find the `.sif` file to transfer to the job using `transfer_input_files` like so: 
 
 ```
 # HTC Submit File
 
 # Provide HTCondor with the name of your .sif file and universe information
 container_image = my-container.sif
-universe = container
+universe = container    # Optional, since `container_image` was specified
 
 executable = myExecutable.sh
 
@@ -173,7 +190,7 @@ out = job.out
 
 request_cpus = 1
 request_memory = 4GB
-request_disk = 2GB
+request_disk = 2GB      # Make sure you request enough disk for the container image in addition to your other input files
 
 queue
 ```
