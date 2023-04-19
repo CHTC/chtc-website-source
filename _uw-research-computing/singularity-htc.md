@@ -205,8 +205,6 @@ See our `/staging` guide at [Managing Large Data in HTC Jobs](file-avail-largeda
 
 To exit, simply enter `exit` to end the interactive session and return to the submit node.
 
-{:.term}
-
 ## 7. Use an Apptainer Container in HTC Jobs
 
 Now that you have the container image saved in the form of the `.sif` file, you can use it as the environment for running your HTCondor jobs.
