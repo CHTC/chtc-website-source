@@ -25,12 +25,12 @@ Like with Docker, the easiest way to use Apptainer in your jobs is to find a pre
 
 Preexisting images can be found in reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). 
 It is also possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
+**If your apptainer image does not require any additional packages or libraries, skip to [section 7](#7-use-an-apptainer-container-in-htc-jobs).**   
 
 ### B. Create your Own Image
 To create your own image, it is still necessary to select a "base" image to add to. 
 Check the documentation of the software you are interested in to see if they maintain images for the software program or its dependencies.
-See below for how to customize your base image by adding and preparing additional software packages/libraries.
-**If your apptainer image does not require any additional packages or libraries, skip to [section 7](#7-use-an-apptainer-container-in-htc-jobs).**   
+The majority of the guide that follows explains how to customize your base image by adding and preparing additional software packages/libraries.
 
 ## 2. Submit an interactive job
 In your `/home` directory, create a submit file for your Apptainer build job called something like `build.sub`: 
@@ -48,7 +48,7 @@ log = interactive.log
 requirements = (OpSysMajorVer =?= 8)
 request_cpus = 1
 request_memory = 4GB
-request_disk = 2GB
+request_disk = 4GB
 
 queue
 ```
@@ -65,64 +65,159 @@ It may take a few minutes for the build job to start.
 ## 3. Create your Apptainer Build File
 
 Inside your interactive job, create a blank text file called `image.def`. In this `.def` file, you will *def*ine what you want the Apptainer image to look like. 
+The simple example below describes how to augment a pre-existing container that already contains most of what you need.
+The advanced example below describes how to build a container from a base operating system.
 
-In the following example, we discuss how to build on top of a pre-existing Docker container called `rocker/geospatial:4.2.2`. 
-This container contains several common R geospatial packages, but you will also learn how to add additional R packages to it. 
+### A. Simple example
+In this example, you will augment a pre-existing container called `rocker/geospatial:4.2.2`.
+This container contains several common R geospatial packages, which makes it convenient to use for geospatial code in R.
+This container does not have *all* R packages, however, and you will likely want to add additional packages particular to your work.
 
-The first lines of this file should include where to get the base image from. 
+To begin, the first lines of the `image.def` file should include where to get the base image from. 
 If using the `rocker/geospatial:4.2.2` Docker image as your starting point, your `image.def` file would look like this:
 
 ```
 Bootstrap: docker
-From: rocker/geospatial:4.2.2       # Based on Ubuntu Linux OS
+From: rocker/geospatial:4.2.2
 ```
 
-Then there is a section called `%post` where you put the additional commands to make the image just like you need it. 
-You can consider this section as the "installation" part of the build file.
-For example, if you wanted to install the R package `cowsay`, you would use: 
+These lines tell Apptainer to pull the pre-existing image from Docker Hub, and to use it as the base for the container that will be built using this `image.def` file.
+
+Next, you will want to include instructions in the `image.def` file for installing the additional packages that you want R to have.
+In the `image.def` file, the installation instructions are placed in the `%post` section.
+Note that because the `rocker` container already contains R, there is no need to install R in the `%post` section.
+
+Let's say that you want to install the R package `cowsay`, which does not come preinstalled in the `rocker` container.
+To do so, you will need to add install command to the `%post` section:
 
 ```
 %post
-    apt-get update -y               # Ubuntu command to update existing packages
-    apt-get install -y \            # Ubuntu command to install building tools you may need
-            build-essential \
-            cmake \
-            g++ \
-            r-base-dev
-
-    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" 
+    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 ```
 
-The `R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" ` command will execute the `install.packages` command in the `R` terminal. 
+The `R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" ` command will execute the `install.packages` command inside the `R` terminal.
+Since the command was placed in the `%post` section, Apptainer will execute this command when you build the container.
 
-See the Apptainer documentation for a full reference on how to specify build specs. 
-> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
-
-There can be issues with getting the installation commands to work properly, due to the nature of containers.
-Adding the following lines to the start of the `%post` section may resolve these issues:
-```
-    DEBIAN_FRONTEND=noninteractive  # disables interactive prompts and uses defaults instead
-    chmod 777 /tmp                  # ensures tmp directory can be used for the installation process
-```
-
-The final `image.def` looks like:
+The full `image.def` file for this simple example is now:
 
 ```
 Bootstrap: docker
 From: rocker/geospatial:4.2.2
 
 %post
-    DEBIAN_FRONTEND=noninteractive
-    chmod 777 /tmp
-    apt-get update -y
-    apt-get install -y \
-            build-essential \
-            cmake \
-            g++ \
-            r-base-dev
-
     R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 ```
+
+The `image.def` file is can now be used to build the container, as described below in [4. Build Your Apptainer Container](#4-build-your-apptainer-container).
+
+### B. Advanced example
+
+Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
+Then you will need to install the program and its dependencies inside of the container.
+In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
+
+First, you will again need to choose a base image for the container.
+In this case, use the most recent LTS version of Ubuntu from Docker.
+The top of the `image.def` file should look like:
+
+```
+Bootstrap: docker
+From: ubuntu:22.04
+```
+
+Again, you will need to specify the installation commands within the `%post` section of the definition file.
+Per the [program's instructions](https://sumo.dlr.de/docs/Installing/Linux_Build.html), you will first need to install various dependencies.
+This can be done using the built-in package manager (`apt`) of Ubuntu, as shown below.
+
+```
+%post
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+```
+
+The first command is `apt-get update` and will update the list of available packages, which is necessary to get the latest versions of the packages in the following `apt-get install` command.
+The following `apt-get install` command will install the dependencies required by the SUMO program.
+Note that these installation commands do not use `sudo`, as Apptainer already has permissions to install programs in the container.
+
+These commands will install the required dependencies, but you still need to include the commands for installing the SUMO program itself. 
+Simply add the installation commands after the commands for installing the dependencies, but still within the `%post` section:
+
+```
+%post
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME="$PWD/sumo"
+    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
+    cmake ../..
+    make
+
+```
+
+The `%post` section is now complete and will install SUMO and its dependencies in the container at build time.
+
+The full `image.def` file for this advanced example is now:
+
+```
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME="$PWD/sumo"
+    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
+    cmake ../..
+    make
+```
+
+See the [Apptainer documentation](https://apptainer.org/docs/user/latest/definition_files.html) for a full reference on how to specify build specs. 
+> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
 
 ## 4. Build your Apptainer Container
 
@@ -144,6 +239,7 @@ If the build command fails, examine the output for error messages that may expla
 Typically there is an issue with a package installation, such as a typo or a missing but required dependency. 
 To make it easier to troubleshoot, you can rerun the build command but redirect the output to a file.
 For example, the following command will save the build output to `build.log` instead of printing it to the screen.
+
 ```
 apptainer build my-container.sif image.def &> build.log
 ```
