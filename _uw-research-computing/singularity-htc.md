@@ -117,14 +117,15 @@ Then you will need to install the program and its dependencies inside of the con
 In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
 
 First, you will again need to choose a base image for the container.
-In this case, use the most recent LTS version of Ubuntu from Docker.
+Consult the documentation for the program you want to install to make sure you select a compatible operating system.
+In this case, you can use the most recent LTS version of Ubuntu from Docker.
 The top of the `image.def` file should look like:
 
 ```
 Bootstrap: docker
 From: ubuntu:22.04
 ```
-
+#### Installing dependencies
 Again, you will need to specify the installation commands within the `%post` section of the definition file.
 Per the [program's instructions](https://sumo.dlr.de/docs/Installing/Linux_Build.html), you will first need to install various dependencies.
 This can be done using the built-in package manager (`apt`) of Ubuntu, as shown below.
@@ -153,7 +154,8 @@ The first command is `apt-get update` and will update the list of available pack
 The following `apt-get install` command will install the dependencies required by the SUMO program.
 Note that these installation commands do not use `sudo`, as Apptainer already has permissions to install programs in the container.
 
-These commands will install the required dependencies, but you still need to include the commands for installing the SUMO program itself. 
+#### Compile the program
+The above commands will install the required dependencies, but you still need to include the commands for installing the SUMO program itself. 
 Simply add the installation commands after the commands for installing the dependencies, but still within the `%post` section:
 
 ```
@@ -185,6 +187,25 @@ Simply add the installation commands after the commands for installing the depen
 
 The `%post` section is now complete and will install SUMO and its dependencies in the container at build time.
 
+#### Setting environment variables
+Before building the image, you will want to update the environment for actually using the program.
+For example, in the `%post` section there is the command `export SUMO_HOME="$PWD/sumo"`, which sets the environment variable `SUMO_HOME` to the location of the `sumo` directory.
+This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually ran.
+
+To set environment variables for use in run time, you need to add them in the `%environment` section.
+For the present example, you will want to set `SUMO_HOME` and update `PATH` with the location of the SUMO `bin` folder.
+To do so, add the following lines to the `image.def` file:
+
+```
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
+```
+
+These environment variables will be set when the container starts, allowing you to immediately use the `sumo` command in the container once it starts.
+
+#### Summary
+
 The full `image.def` file for this advanced example is now:
 
 ```
@@ -210,10 +231,14 @@ From: ubuntu:22.04
             libeigen3-dev
 
     git clone --recursive https://github.com/eclipse/sumo
-    export SUMO_HOME="$PWD/sumo"
+    export SUMO_HOME="/sumo"
     mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
     cmake ../..
     make
+
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
 ```
 
 See the [Apptainer documentation](https://apptainer.org/docs/user/latest/definition_files.html) for a full reference on how to specify build specs. 
@@ -223,6 +248,7 @@ See the [Apptainer documentation](https://apptainer.org/docs/user/latest/definit
 
 Once your image definition file is ready, you can "build" the container. 
 The process of building an apptainer image will convert your `.def` file to a `.sif` Apptainer/Singularity image, which you will use for future job submissions. 
+
 To build your container, run this command:
 
 ```
