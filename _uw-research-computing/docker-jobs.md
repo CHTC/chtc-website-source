@@ -71,12 +71,7 @@ like a non-Docker job submission.
 
 The only additional change may be that your
 executable no longer needs to install or unpack your software, since it
-will already be present in the Docker container. If this is the case, 
-you will want to add this option to your submit file as well: 
-
-```
-transfer_executable = false
-```
+will already be present in the Docker container. 
 
 # 2. Choose or Create a Docker Container Image
 
