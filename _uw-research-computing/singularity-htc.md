@@ -64,12 +64,12 @@ It may take a few minutes for the build job to start.
 
 ## 3. Create your Apptainer Build File
 
-Inside your interactive job, create a blank text file called `image.def`. In this `.def` file, you will *def*ine what you want the Apptainer image to look like. 
+Inside your interactive job, create a blank text file called `image.def`. In this `.def` file, you will *def*ine what you want the Apptainer image to look like. You can name this file using an alternative name, but you should always use the `.def` file extension.
 The simple example below describes how to augment a pre-existing container that already contains most of what you need.
 The advanced example below describes how to build a container from a base operating system.
 
 ### A. Simple example
-In this example, you will augment a pre-existing container called `rocker/geospatial:4.2.2`.
+In this example, you will augment a pre-existing Docker container called `rocker/geospatial:4.2.2`, which can be found on Docker Hub.
 This container contains several common R geospatial packages, which makes it convenient to use for geospatial code in R.
 This container does not have *all* R packages, however, and you will likely want to add additional packages particular to your work.
 
@@ -208,9 +208,9 @@ The `%post` section is now complete and will install SUMO and its dependencies i
 #### Setting environment variables
 Before building the image, you will want to update the environment for actually using the program.
 For example, in the `%post` section there is the command `export SUMO_HOME=/sumo`, which sets the environment variable `SUMO_HOME` to the location of the `sumo` directory.
-This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually ran.
+This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually run.
 
-To set environment variables for use in run time, you need to add them in the `%environment` section.
+To set environment variables automatically when your job runs, you need to add them in the `%environment` section.
 For the present example, you will need to set `SUMO_HOME` and update `PATH` with the location of the SUMO `bin` folder.
 To do so, add the following lines to the `image.def` file:
 
@@ -341,7 +341,7 @@ Once you are done exploring, exit the container by entering `exit` or by using t
 
 Now that you have prepared your Apptainer image and tested it, you are ready to exit your interactive session. 
 By default, when you exit the interactive job the definition file and image file will return to same directory as your submit file on the submit file.
-If your `.sif` file is large (> 5 GB), however, you should consider first moving it to your staging directory (`mv my-container.sif /staging/yourNetID/`).
+If your `.sif` file is large (> 100 MB), however, you should consider first moving it to your staging directory (`mv my-container.sif /staging/yourNetID/`).
 See our `/staging` guide at [Managing Large Data in HTC Jobs](file-avail-largedata.html) for more information.
 
 To exit, simply enter `exit` to end the interactive session and return to the submit node.
