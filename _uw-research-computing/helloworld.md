@@ -144,13 +144,10 @@ Submitting job(s).....
 
 **4.** To check on the status of your jobs, run the following command:
 
-{:.term}
 ``` 
 [alice@submit]$ condor_q
 ```
-
-
-(If you want to see everyone\'s jobs, use `condor_q -all`.)
+{:.term}
 
 The output of `condor_q` should look like this:
 
