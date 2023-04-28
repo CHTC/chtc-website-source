@@ -8,53 +8,21 @@ title: Events
             <div class="row mb-3">
                 {% include get/future_events.html %}
                 {% for event in future_events %}
-                <div class="col-12 col-md-6 mb-3">
-                    <div class="news news-summary">
-                        <div class="article-content">
-                            <h2 class="article-title">
-                                <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a>
-                            </h2>
-                            <h3 class="article-title">
-                                {% if event.start_date != event.end_date %}
-                                {% assign date = event.start_date | date: "%B %e" %}
-                                {% assign date = event.end_date | date: "-%e, %Y" | prepend: date %}
-                                {% else %}
-                                {% assign date = event.start_date | date: "%B %e, %Y" %}
-                                {% endif %}
-                                <small class="text-muted">{{ date }}</small>
-                            </h3>
-                            <p>{{ event.excerpt | markdownify }}</p>
-                        </div>
+                    <div class="col-12 col-lg-6">
+                        {% include event/event-card.html %}
                     </div>
-                </div>
                 {% endfor %}
             </div>
             {% include get/past_events.html %}
             {% if past_events.size > 0 %}
-            <div class="row">
-                <div class="col-12"><h1 class="text-muted">Past Events</h1></div>
-                {% for event in past_events %}
-                <div class="col-12 col-md-6 mb-3">
-                    <div class="news news-summary">
-                        <div class="article-content">
-                            <h2 class="article-title">
-                                <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a>
-                            </h2>
-                            <h2 class="article-title">
-                                {% if event.start_date != event.end_date %}
-                                {% assign date = event.start_date | date: "%B %e" %}
-                                {% assign date = event.end_date | date: "-%e, %Y" | prepend: date %}
-                                {% else %}
-                                {% assign date = event.start_date | date: "%B %e, %Y" %}
-                                {% endif %}
-                                <small class="text-muted">{{ date }}</small>
-                            </h2>
-                            <p>{{ event.excerpt | markdownify }}</p>
+                <h1 class="text-muted">Past Events</h1>
+                <div class="row">
+                    {% for event in past_events %}
+                        <div class="col-12 col-lg-6">
+                            {% include event/event-card.html %}
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
             {% endif %}
         </div>
     </div>
