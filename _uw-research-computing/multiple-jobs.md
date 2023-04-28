@@ -28,7 +28,7 @@ HTCondor. If you are interested in a particular approach that isn't described he
 please contact [CHTC's research computing facilitators](mailto:chtc@cs.wisc.edu) and we will 
 work with you to identify options to meet the needs of your work.
 
-# Submit Multiple Jobs Using `queue`
+<h1>Submit Multiple Jobs Using <code class="h1">queue</code></h1>
 
 All HTCondor submit files require a `queue` attribute (which must also be 
 the last line of the submit file). By default, `queue` will submit one job, but 
@@ -63,7 +63,7 @@ like input file names, file locations (aka paths), etc. **When selecting a
 variable name, users must avoid bespoke HTCondor submit file variables 
 such as `Cluster`, `Process`, `output`, and `input`, `arguments`, etc.**
 
-## 1. Use `queue N` in you HTCondor submit files<a name="process"></a>
+<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2><a name="process"></a>
 
 When using `queue N`, HTCondor will submit a total of *N* 
 jobs, counting from 0 to *N* - 1 and each job will be assigned 

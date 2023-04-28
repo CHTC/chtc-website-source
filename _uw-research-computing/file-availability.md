@@ -195,7 +195,7 @@ directory.
 
 <a name="select"></a>
 
-## Select Specific Output Files To Transfer to `/home`
+<h2>Select Specific Output Files to Transfer to <code class="h2">/home</code></h2>
 
 As described above, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will transfer ALL new or modified files in the top level 
 directory of the job (where it ran on the execute server), back to the job's initial directory 

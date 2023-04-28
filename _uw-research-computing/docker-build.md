@@ -70,7 +70,7 @@ multiple images for different parts of your workflow,
 you should create a separate folder for each 
 new image with the a ``Dockerfile`` inside each of them.
 
-### Choose a base image with `FROM`
+<h3>Choose a base image with <code class="h3">FROM</code></h3>
 
 Usually you don't want to start building your image from scratch. 
 Instead you'll want to choose a "base" image to add things to.
@@ -126,7 +126,7 @@ Here are some base images you might find useful to build off of:
 - [Tensorflow](https://hub.docker.com/r/tensorflow/tensorflow)
 - [PyTorch](https://hub.docker.com/r/pytorch/pytorch)
 
-### Install packaged software with `RUN`
+<h3>Install packaged software with <code class="h3">RUN</code></h3>
 
 The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
@@ -197,7 +197,7 @@ RUN install2.r --error rjags
 ```
 {:.file}
 
-### Set up the environment with `ENV`
+<h3>Set up the environment with <code class="h3">ENV</code></h3>
 
 Your software might rely on certain environment variables being set correctly.
 

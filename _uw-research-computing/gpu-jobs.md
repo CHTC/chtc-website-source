@@ -281,7 +281,7 @@ or less, or have implemented self-checkpointing (the capability to save progress
 to a file and restart from that progress). Use the `is_resumable` option shown 
 above in the [list of submit file options](#1-choose-gpu-related-submit-file-options). 
 
-## 2. Use the `gzk` Servers
+<h2>2. Use the <code class="h2">gzk</code> Servers</h2>
 
 These are servers that are similar to the GPU Lab severs with two important differences 
 for running GPU jobs: 
