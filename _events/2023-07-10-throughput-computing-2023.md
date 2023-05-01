@@ -59,7 +59,7 @@ We have arranged room blocks at a reduced rate at the Fluno Center and at two ne
 
 The call for abstracts for the **HTCondor sessions** of Throughput Computing 23 is now open. Please visit the [Call for Abstracts](https://agenda.hep.wisc.edu/event/2014/abstracts/) page to learn how to sign up to give a talk, talk content and length, and how to submit your presentation.
 
-*The submission deadline is May 1, 2023*
+*The submission deadline has been extended to May 15, 2023*
 
 ### Questions and Resources
 
