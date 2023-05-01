@@ -149,7 +149,7 @@ downloaded or edited, but some do not.
     1. Under “Transfers”, use the “Transfer Files” drop-down to select “Use browser 
 connection”.
 
-<h3>Known to NOT support <code class="h2">ControlMaster</code> or similar persistent connections</h3>
+<h3>Known to NOT support <code class="h3">ControlMaster</code> or similar persistent connections</h3>
 
 * Windows PowerShell
 
