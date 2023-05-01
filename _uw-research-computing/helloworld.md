@@ -46,6 +46,7 @@ describes the set of jobs.
 
 ***Note: You must be logged into an HTCondor submit machine for the
 following example to work.***
+See the [Connecting to CHTC](connecting.html) guide for more information on how to log in.
 
 **1.** Copy the highlighted text below, and paste it into file called
 `hello-chtc.sub` (we recommend using a command line text editor) in your home directory on the submit
@@ -143,13 +144,10 @@ Submitting job(s).....
 
 **4.** To check on the status of your jobs, run the following command:
 
-{:.term}
 ``` 
 [alice@submit]$ condor_q
 ```
-
-
-(If you want to see everyone\'s jobs, use `condor_q -all`.)
+{:.term}
 
 The output of `condor_q` should look like this:
 
@@ -168,6 +166,12 @@ batch name (if provided), or executable name. To show all of your jobs
 on individual lines, add the `-nobatch` option. For more details on this
 option, and other options to `condor_q`, see our [condor\_q
 guide](condor_q.html).
+
+Alternately, you can run the `condor_watch_q` command to display the
+status of your jobs in the queue along with color-coded progress bars.
+The display is updated automatically every couple seconds, allowing you
+to monitor the status of your jobs in real time.  To exit the view,
+use the keyboard shortcut `Ctrl` + `c`.
 
 > **Potential Failures**
 >
