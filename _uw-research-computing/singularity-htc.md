@@ -339,12 +339,29 @@ Once you are done exploring, exit the container by entering `exit` or by using t
 
 ## 6. Exit your HTCondor Interactive Job
 
-Now that you have prepared your Apptainer image and tested it, you are ready to exit your interactive session. 
+Once you have tested your container image and are ready to use it in regular jobs, there are a couple of things to do before you exit the interactive job.
+
+### A. Decide where to host the `.sif` file
+
 By default, when you exit the interactive job the definition file and image file will return to same directory as your submit file on the submit file.
-If your `.sif` file is large (> 100 MB), however, you should consider first moving it to your staging directory (`mv my-container.sif /staging/yourNetID/`).
+If your `.sif` file is large (> 100 MB), however, you should consider moving it to your staging directory instead (`mv my-container.sif /staging/yourNetID/`).
 See our `/staging` guide at [Managing Large Data in HTC Jobs](file-avail-largedata.html) for more information.
 
+### B. Clear out the Apptainer cache
+
+When building the `.sif` file, Apptainer saves key parts of container image to a cache directory.
+This allows repeated build attempts to run more quickly by skipping the download step for these key parts.
+The cache, however, should be emptied out once you are done with the build and those files are no longer needed.
+To clear our the cache directory, run the command
+
+```
+apptainer cache clean -f
+```
+
+### C. Exit the interactive session
+
 To exit, simply enter `exit` to end the interactive session and return to the submit node.
+
 
 ## 7. Use an Apptainer Container in HTC Jobs
 
