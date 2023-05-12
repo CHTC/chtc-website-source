@@ -327,7 +327,7 @@ would like, give it executable permissions by running:
 > Arguments in Python
 > -------------------
 >
-> To pass arguments to an R script within a job, you\'ll need to use the
+> To pass arguments to a Python script within a job, you\'ll need to use the
 > following syntax in your main executable script, in place of the
 > generic command above:
 >
