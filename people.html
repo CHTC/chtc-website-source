@@ -15,28 +15,28 @@ title: Our Staff
 <div class="bg-light pt-1 mt-1 pb-4">
     <div class="container-xxl">
         <h2 class="uw-mini-bar">Leadership</h2>
-        <div class="row">
+        <div class="row gx-1">
             {% assign sorted_team = team | where: "status", "Leadership" | sort: "name" %}
             {% for member in sorted_team %}
-                <div class="col-12 col-md-8 col-lg-6">
+                <div class="col-12 col-lg-6">
                     {% include /components/team-card-promoted.html %}
                 </div>
             {% endfor %}
         </div>
         <h2 class="uw-mini-bar">Staff</h2>
-        <div class="row">
+        <div class="row gx-1">
             {% assign sorted_team = team | where: "status", "Staff" | sort: "name" %}
             {% for member in sorted_team %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="col-xl-2 col-md-3 col-sm-4 col-6">
                     {% include /components/team-card.html %}
                 </div>
             {% endfor %}
         </div>
         <h2 class="uw-mini-bar">Students</h2>
-        <div class="row">
+        <div class="row gx-1">
             {% assign sorted_team = team | where: "status", "Student" | sort: "name" %}
             {% for member in sorted_team %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="col-xl-2 col-md-3 col-sm-4 col-6">
                     {% include /components/team-card.html %}
                 </div>
             {% endfor %}

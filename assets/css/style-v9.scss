@@ -112,9 +112,8 @@ html {
     flex: 1;
   }
   img{
-    height: 20vw;
-    max-width: 250px;
-    min-height: 250px;
+    aspect-ratio: 1/1.2;
+    width:100%;
     object-fit: cover;
   }
   .institution {

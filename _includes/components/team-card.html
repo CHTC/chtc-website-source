@@ -1,6 +1,6 @@
-<div class="bg-white team-card justify-content-center my-3 flex-grow-1">
+<div class="bg-white team-card justify-content-center mb-3 flex-grow-1">
     <div class="uw-card-content">
-        <div class="d-flex justify-content-center mx-3">
+        <div class="img-container" class="overflow-hidden d-flex justify-content-center">
             {% if member.website %}
             <a href="{{ member.website }}">
                 <img src="{{ member.image | relative_url }}" alt="Headshot for {{member.name}}">
