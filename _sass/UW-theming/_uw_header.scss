@@ -55,7 +55,7 @@
   margin-right: .5rem;
 }
 .uw-crest-svg {
-  width: 2.5rem;
+  width: 10rem;
 }
 .uw-title-tagline {
   flex-basis: 100%;
@@ -131,7 +131,7 @@ li.uw-search-list-item .uw-search-input[type="text"] {
   .uw-header-crest {
     margin-right: .8rem;
     img {
-      width: 4rem;
+      width: 10rem;
     }
   }
   .uw-site-title {
@@ -144,7 +144,7 @@ li.uw-search-list-item .uw-search-input[type="text"] {
 @include breakpoint(64em) {
   .uw-header-crest {
     img {
-      width: 4rem;
+      width: 10rem;
     }
   }
   .uw-site-title {
@@ -157,7 +157,7 @@ li.uw-search-list-item .uw-search-input[type="text"] {
 @include breakpoint(75em) {
   .uw-header-crest {
     img {
-      width: 4rem;
+      width: 10rem;
     }
   }
   .uw-site-title {
