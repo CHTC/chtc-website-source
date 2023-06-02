@@ -206,9 +206,10 @@ the current items quota, simply indicate that in your request.
 on the HPC Cluster** in our efforts to maintain filesystem performance
 for all users.
 
-**Local scratch space** is available on each execute node in
-`/local/$USER` and is automatically cleaned out upon completion
-of scheduled job sessions (interactive or non-interactive). 
+**Local scratch space** is available on each execute node in `/local/$USER`.
+This space is **NOT** automatically cleaned out, so if you use this space,
+be sure to remove the files before the end of your job script or 
+interactive session.
 
 ## Tools for managing home and software space
 
