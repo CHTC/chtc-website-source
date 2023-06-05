@@ -20,9 +20,11 @@
                     {{ include.date | date: "%b %d, %Y" }}
                 </div>
             </div>
-            <p class="text-dark mb-0 pt-2">
-                {{ include.excerpt }}
-            </p>
+            {% if include.excerpt %}
+                <p class="text-dark mb-0 pt-2">
+                    {{ include.excerpt }}
+                </p>
+            {% endif %}
         </div>
     </div>
 </div>
