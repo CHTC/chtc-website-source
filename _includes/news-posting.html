@@ -11,9 +11,11 @@
                 <h4 class="uw-mini-bar">{{ include.title }}</h4>
             </a>
             <div class="text-dark d-flex flex-row justify-content-between">
-                <div class="w-auto">
-                    By: {{ include.author }}
-                </div>
+                {% if include.author %}
+                    <div class="w-auto">
+                            By: {{ include.author }}
+                    </div>
+                {% endif %}
                 <div class="w-auto">
                     {{ include.date | date: "%b %d, %Y" }}
                 </div>
