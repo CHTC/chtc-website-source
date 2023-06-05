@@ -11,13 +11,14 @@ guide:
 
 CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command (see [Using Software on the HPC Cluster](hpc-software.md)). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies. This guide describes how to install a local copy of Spack, integrate it with the system installation, and install and manage software using their local installation. 
 
-> If your group already has set up a shared group installation of Spack, you can skip to the note included at the end of this guide: [4. Using Software Installed using Spack](#4-using-software-installed-using-spack).
+> If your group has already set up a shared group installation of Spack, you can skip to the end of this guide: [Using a shared group installation](#using-a-shared-group-installation).
 
 # Contents
 
 1. [Installing Spack](#1-installing-spack) 
 2. [Configuring Spack](#2-configuring-spack) 
 3. [Installing Software using Spack](#3-installing-software-using-spack)
+4. [Using Software Installed using Spack](#4-using-software-installed-using-spack)
 
 # 1. Installing Spack
 
@@ -27,10 +28,9 @@ Spack is a package manager for installing and - more importantly - compiling sof
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 . spack/share/spack/setup-env.sh
 ```
-
 {:.term}
 
-That's it! You can test that Spack has been installed by entering `spack` and you will see the help text print out.
+That's it! You can test that Spack has been installed by entering `spack` and you should see the help text print out.
 
 > For installing Spack to be shared across a group, you should run these commands in the group's home directory, i.e. `/home/groups/yourGroupDirectory/`. Note this path for use throughout this guide, and communicate it to your group members for configuring their access to the installation.
 
@@ -43,7 +43,6 @@ While Spack has been installed, for each session that you want to use it you wil
 ```
 . spack/share/spack/setup-env.sh
 ```
-
 {:.term}
 
 A more convenient option is simply to update your account to run this command whenever you log in. Add the command to the end of the `.bash_profile` file in your home directory, e.g. `nano ~/.bash_profile`, with the full path to the file.  If you ran the `git clone` command in your home directory, then the line you add should be
@@ -67,7 +66,6 @@ By default, Spack will look for the user's configuration files within the hidden
 ```
 mkdir ~/.spack
 ```
-
 {:.term}
 
 > For a group installation of Spack, you should create this directory in the same location that you ran the `git clone` command, i.e.
@@ -75,7 +73,6 @@ mkdir ~/.spack
 > ```
 > mkdir /home/groups/yourGroupDirectory/.spack
 > ```
->
 > {:.term}
 >
 > Wherever you create it, you will need to instruct Spack on where to find the configuration files. Do this by running the command 
@@ -83,7 +80,6 @@ mkdir ~/.spack
 > ```
 > export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupDirectory/.spack
 > ```
->
 > {:.term}
 >
 > and modify the path as necessary. Then you and your group members should add this command to the end of the `.bash_profile` file in your respective home directories, similar to that done in the [previous section](#a-using-spack-in-future-sessions). 
@@ -95,7 +91,6 @@ At this point, your copy of Spack doesn't know that there is a system installati
 ```
 spack find
 ```
-
 {:.term}
 
 and you will see that there are no packages installed at this time.
@@ -122,7 +117,6 @@ In the `.spack` directory that you created in the [previous section](#b-create-a
 mkdir linux
 cd linux
 ```
-
 {:.term}
 
 Then run the following command to generate the configuration file needed to access the system compilers:
@@ -130,7 +124,6 @@ Then run the following command to generate the configuration file needed to acce
 ```
 /software/chtc/spack/software/spack/v0.19/bin/spack config get compilers > compilers.yaml
 ```
-
 {:.term}
 
 Confirm that Spack has access to the system compilers by running `spack compiler list`, which should show `aocc@=3.2.0` and `gcc@=11.3.0` in the printout.
@@ -147,9 +140,9 @@ In the `.spack` directory that you created [above](#b-create-a-directory-for-the
 config:
 	install_tree:
 		root: /home/yourNetID/spack_programs
-    build_stage:
-    	- /local/$user/spack_build
-    	- /scratch/$user/spack_build
+	build_stage:
+		- /local/$user/spack_build
+		- /scratch/$user/spack_build
 ```
 
 The path listed after `root:` under the `install_tree` section is the directory where you want to have your programs installed; modify as you desire. The paths listed under the `build_stage` section should not be modified.
@@ -169,7 +162,6 @@ To create a Spack environment, run the command
 ```
 spack env create yourEnvironmentName
 ```
-
 {:.term}
 
 where you should replace `yourEnvironmentName` with your desired name for the environment. You can then activate the environment with 
@@ -177,7 +169,6 @@ where you should replace `yourEnvironmentName` with your desired name for the en
 ```
 spack env activate yourEnvironmentName
 ```
-
 {:.term}
 
 You can see a list of your available environments using 
@@ -185,7 +176,6 @@ You can see a list of your available environments using
 ```
 spack env list
 ```
-
 {:.term}
 
 and you can see which environment you are currently using with
@@ -193,7 +183,6 @@ and you can see which environment you are currently using with
 ```
 spack env status
 ```
-
 {:.term}
 
 To deactivate the environment, run
@@ -201,7 +190,6 @@ To deactivate the environment, run
 ```
 spack env deactivate
 ```
-
 {:.term}
 
 or close the terminal session. 
@@ -215,7 +203,6 @@ To see what packages are installed in the current Spack environment, run the com
 ```
 spack find
 ```
-
 {:.term}
 
 For a new environment, this will show that there are no programs installed.  The output of this command will update after you install program packages in the environment.
@@ -225,7 +212,6 @@ To search for packages to install using Spack, use the command
 ```
 spack list nameOfProgram
 ```
-
 {:.term}
 
 where you should replace `nameOfProgram` with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.) Alternatively, you can browse their website for currently available packages: [https://spack.readthedocs.io/en/latest/package_list.html](https://spack.readthedocs.io/en/latest/package_list.html). 
@@ -235,7 +221,6 @@ To learn more about an available package, use the exact name of the program and 
 ```
 spack info exactNameOfProgram
 ```
-
 {:.term}
 
 This will print out information about the program, including a short description of the program, a link to the developer's website, the available versions of the program and its dependencies.
@@ -247,7 +232,6 @@ Once you find the packages that you want to install, add their specifications to
 ```
 spack add exactNameOfProgram
 ```
-
 {:.term}
 
 Spack will automatically decide which version of the program to use at installation time based on the other packages that you've added. 
@@ -257,7 +241,6 @@ If you want a specific version of a package, you can specify it by appending `@=
 ```
 spack add python@=3.10
 ```
-
 {:.term}
 
 will tell the environment that you want to install version 3.10 of Python. There are additional ways of defining specifications for package versions, the compiler to be used, and dependencies. The [documentation for Spack](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies) provides the details on how this is done. 
@@ -267,7 +250,6 @@ will tell the environment that you want to install version 3.10 of Python. There
 > ```
 > spack add gcc@=9.5.0
 > ```
->
 > {:.term}
 >
 > Then follow the instructions in the [next section](#d-installing-a-package) to install the compiler. Once the compiler has been installed, you then need to add the compiler to Spack's list of available compilers using
@@ -275,7 +257,6 @@ will tell the environment that you want to install version 3.10 of Python. There
 > ```
 > spack compiler add "$(spack location -i gcc@=9.5.0)"
 > ```
->
 > {:.term}
 >
 > Once the compiler has been installed and recognized, you can now add the packages that need to be compiled with it. Use the compiler specification `%` to specify this compiler for use during installation. For example,
@@ -283,7 +264,6 @@ will tell the environment that you want to install version 3.10 of Python. There
 > ```
 > spack add python@=3.10 %gcc@=9.5.0
 > ```
->
 > {:.term}
 >
 > will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program's installation instructions say otherwise.
@@ -299,7 +279,6 @@ Use the following command to start the interactive session:
 ```
 srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
 ```
-
 {:.term}
 
 Note the number associated with `-n`, as that is the number of processors you are requesting to use. This number will be used later in the install command itself to specify the number of threads to use for the installation and compiling.  For large and complex installations, you may want to increase the number of processors (and correspondingly the number of threads) to speed up the process.
@@ -309,10 +288,9 @@ Next, remember to reload the Spack environment
 ```
 spack env activate yourEnvironmentName
 ```
-
 {:.term}
 
-since interactive session will start with the environment deactivated.
+since the interactive session will start with the environment deactivated.
 
 ### ii. Create the local scratch directory
 
@@ -321,7 +299,6 @@ Using the configurations we defined above, Spack will try to use the machine's l
 ```
 mkdir /local/yourNetID/spack_build
 ```
-
 {:.term}
 
 At the end of the session, remember to delete this directory so that other people can use the disk space in their jobs. 
@@ -332,7 +309,6 @@ At the end of the session, remember to delete this directory so that other peopl
 > rm -rf /local/yourNetID/spack_build
 > mkdir /local/yourNetID/spack_build
 > ```
->
 > {:.term}
 
 ### iii. Check the programs/packages to be installed
@@ -342,10 +318,9 @@ If you've added the installation specifications to the environment, then you can
 ```
 spack spec -lI
 ```
-
 {:.term}
 
-(first letter after the hyphen is lowercase "L" and the second letter is the uppercase "i").
+(the first letter after the hyphen is lowercase "L" and the second letter is the uppercase "i").
 
 This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green `[+]` have already been installed somewhere in your local copy, while those that begin with a green `[^]` are referencing the system installation, and those beginning with a gray `-` will need to be downloaded and installed.  
 
@@ -358,7 +333,6 @@ Assuming that you are in an interactive Slurm session & have activated the desir
 ```
 spack install -j 4
 ```
-
 {:.term}
 
 to install the packages inside of the Spack environment, where the number that comes after `-j` needs to match the number that you noted from when you started the interactive session (the one after `-n` when you ran the `srun` command for the interactive session). You can also add the `-v` option to have the installation be verbose, which will cause Spack to print the compile & make outputs in addition to the standard Spack output.
@@ -367,6 +341,34 @@ Depending on the number & complexity of the programs you are installing, and how
 
 > If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start from scratch. Make sure that you are in an interactive Slurm session & that you have activated the Spack environment, then simply rerun the `spack install` command again.
 
+#### v. Finishing the installation
+
+After the installation has successfully finished, you should be able to see that the programs have been installed by running 
+
+```
+spack find
+```
+{:.term}
+
+which should list the programs under the compiler heading used for installing the programs.
+
+You may need to deactivate and reactivate the environment in order to properly use the programs that have been installed.
+
+```
+spack env deactivate
+spack env activate yourEnvironmentName
+```
+{:.term}
+
+Once you are satisfied that the programs have been installed properly, you can remove the local build directory that Spack used during the installation with
+
+```
+rm -rf /local/yourNetID/spack_build
+```
+{:.term}
+
+and then enter `exit` to end the interactive session.
+
 ## 4. Using Software Installed using Spack
 
 If your account is configured correctly for using Spack, and the software has been installed inside of a Spack environment, then to use the software all you need to do is activate the corresponding environment. Simply use the command
@@ -374,7 +376,6 @@ If your account is configured correctly for using Spack, and the software has be
 ```
 spack env activate yourEnvironmentName 
 ```
-
 {:.term}
 
 and Spack will update your shell accordingly. If you want to see the available Spack environments, enter `spack env list`. 
@@ -407,7 +408,6 @@ Users who want to use a shared group installation of Spack, but who did not set 
    ```
    ssh yourNetID@hpclogin3.chtc.wisc.edu
    ```
-
    {:.term}
 
 2. Edit the `.bash_profile` file in your home directory (`/home/yourNetID`).
@@ -424,14 +424,12 @@ Users who want to use a shared group installation of Spack, but who did not set 
    > ```
    > find /home/groups/yourGroupDirectory -type d -name spack | grep "share/spack"
    > ```
-   >
    > {:.term}
    >
    > should give the path you need; simply add "setup-env.sh" to the end of the path. For the second line, the command 
    > ```
    > find /home/groups/yourGroupDirectory -type d -name .spack | sort -n | head -n 1
    > ```
-   >
    > {:.term}
    >
    > should give the path you need. If it doesn't, try again without `| sort -n | head -n 1` to see the full list of matches, and choose the appropriate one.
@@ -440,7 +438,6 @@ Users who want to use a shared group installation of Spack, but who did not set 
    ```
    . ~/.bash_profile
    ```
-
    {:.term}
 
    or else close the terminal and log in again.
