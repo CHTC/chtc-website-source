@@ -11,6 +11,8 @@ guide:
 
 CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command (see [Using Software on the HPC Cluster](hpc-software.md)). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies. This guide describes how to install a local copy of Spack, integrate it with the system installation, and install and manage software using their local installation. 
 
+> If your group already has set up a shared group installation of Spack, you can skip to the note included at the end of this guide: [4. Using Software Installed using Spack](#4-using-software-installed-using-spack).
+
 # Contents
 
 1. [Installing Spack](#1-installing-spack) 
@@ -284,7 +286,7 @@ will tell the environment that you want to install version 3.10 of Python. There
 >
 > {:.term}
 >
-> will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment.
+> will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program's installation instructions say otherwise.
 
 ## D. Installing a Package
 
@@ -295,10 +297,22 @@ Once you have identified the package(s) you would like to install and have added
 Use the following command to start the interactive session:
 
 ```
-srun --mpi=pmix -n4 -N1 -p int --pty bash
+srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
 ```
 
+{:.term}
+
 Note the number associated with `-n`, as that is the number of processors you are requesting to use. This number will be used later in the install command itself to specify the number of threads to use for the installation and compiling.  For large and complex installations, you may want to increase the number of processors (and correspondingly the number of threads) to speed up the process.
+
+Next, remember to reload the Spack environment
+
+```
+spack env activate yourEnvironmentName
+```
+
+{:.term}
+
+since interactive session will start with the environment deactivated.
 
 ### ii. Create the local scratch directory
 
@@ -308,6 +322,8 @@ Using the configurations we defined above, Spack will try to use the machine's l
 mkdir /local/yourNetID/spack_build
 ```
 
+{:.term}
+
 At the end of the session, remember to delete this directory so that other people can use the disk space in their jobs. 
 
 > If the directory already exists, that means you forgot to remove it after one of your previous Spack installation sessions.  Simply remove the directory and make it again.
@@ -316,6 +332,117 @@ At the end of the session, remember to delete this directory so that other peopl
 > rm -rf /local/yourNetID/spack_build
 > mkdir /local/yourNetID/spack_build
 > ```
+>
+> {:.term}
 
+### iii. Check the programs/packages to be installed
 
+If you've added the installation specifications to the environment, then you can check the installation plan using the command
 
+```
+spack spec -lI
+```
+
+{:.term}
+
+(first letter after the hyphen is lowercase "L" and the second letter is the uppercase "i").
+
+This command identifies what dependencies Spack needs in order to install your desired packages along with how it will obtain them.  Assuming their are no problems, then it will print a list of the packages and their dependencies, where entries that begin with a green `[+]` have already been installed somewhere in your local copy, while those that begin with a green `[^]` are referencing the system installation, and those beginning with a gray `-` will need to be downloaded and installed.  
+
+If you are satisfied with the results, then you can proceed to install the programs.
+
+### iv. Install the environment packages
+
+Assuming that you are in an interactive Slurm session & have activated the desired environment containing the package specifications, you can run
+
+```
+spack install -j 4
+```
+
+{:.term}
+
+to install the packages inside of the Spack environment, where the number that comes after `-j` needs to match the number that you noted from when you started the interactive session (the one after `-n` when you ran the `srun` command for the interactive session). You can also add the `-v` option to have the installation be verbose, which will cause Spack to print the compile & make outputs in addition to the standard Spack output.
+
+Depending on the number & complexity of the programs you are installing, and how much can be bootstrapped from the system installation, the installation step can take anywhere from several minutes to several hours. 
+
+> If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start from scratch. Make sure that you are in an interactive Slurm session & that you have activated the Spack environment, then simply rerun the `spack install` command again.
+
+## 4. Using Software Installed using Spack
+
+If your account is configured correctly for using Spack, and the software has been installed inside of a Spack environment, then to use the software all you need to do is activate the corresponding environment. Simply use the command
+
+```
+spack env activate yourEnvironmentName 
+```
+
+{:.term}
+
+and Spack will update your shell accordingly. If you want to see the available Spack environments, enter `spack env list`. 
+
+For submitting jobs through Slurm, you will need to add this command to the beginning of your `sbatch` file before the `srun` command. For example,
+
+```
+#!/bin/sh
+#This file is called submit-script.sh
+#SBATCH --partition=shared       # default "shared", if not specified
+#SBATCH --time=0-04:30:00       # run time in days-hh:mm:ss
+#SBATCH --nodes=1               # require 1 nodes
+#SBATCH --ntasks-per-node=64    # cpus per node (by default, "ntasks"="cpus")
+#SBATCH --mem-per-cpu=4000             # RAM per node in megabytes
+#SBATCH --error=job.%J.err
+#SBATCH --output=job.%J.out
+
+spack env activate yourEnvironmentName
+
+srun --mpi=pmix -n 64 /home/username/mpiprogram
+```
+
+When Slurm executes this `sbatch` file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.
+
+### Using a shared group installation
+
+Users who want to use a shared group installation of Spack, but who did not set up the installation, only need to modify their `~/.bash_profile` file with instructions regarding the path to the shared group installation and its configuration files.
+
+1. Log in to the HPC cluster ([Connecting to CHTC](connecting.md)).
+   ```
+   ssh yourNetID@hpclogin3.chtc.wisc.edu
+   ```
+
+   {:.term}
+
+2. Edit the `.bash_profile` file in your home directory (`/home/yourNetID`).
+   You should be able to simply add the following two lines to the end of the file
+
+   ```
+   . /home/groups/yourGroupDirectory/spack/share/spack/setup-env.sh
+   export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupDirectory/.spack
+   ```
+
+   where `yourGroupDirectory` should be replaced with the name of your group directory. Confirm the exact commands with the user who installed Spack for your group. 
+
+   > You should be able to find the requisite paths if necessary. For the first line, the command
+   > ```
+   > find /home/groups/yourGroupDirectory -type d -name spack | grep "share/spack"
+   > ```
+   >
+   > {:.term}
+   >
+   > should give the path you need; simply add "setup-env.sh" to the end of the path. For the second line, the command 
+   > ```
+   > find /home/groups/yourGroupDirectory -type d -name .spack | sort -n | head -n 1
+   > ```
+   >
+   > {:.term}
+   >
+   > should give the path you need. If it doesn't, try again without `| sort -n | head -n 1` to see the full list of matches, and choose the appropriate one.
+
+3. Source the `.bash_profile` with
+   ```
+   . ~/.bash_profile
+   ```
+
+   {:.term}
+
+   or else close the terminal and log in again.
+
+Once configured, you can follow the instructions in this section to use the shared installation.
