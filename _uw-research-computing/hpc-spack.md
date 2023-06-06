@@ -22,10 +22,18 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 # 1. Installing Spack
 
-Spack is a package manager for installing and - more importantly - compiling software. To get started, first log in to the HPC cluster. You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html):
+Spack is a package manager for installing and - more importantly - compiling software. To get started, first log in to the HPC cluster. You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html).
+
+First, download the Spack code from their GitHub repository:
 
 ```
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
+```
+{:.term}
+
+Next, 
+
+```
 . spack/share/spack/setup-env.sh
 ```
 {:.term}
@@ -51,12 +59,15 @@ A more convenient option is simply to update your account to run this command wh
 . /home/yourNetID/spack/share/spack/setup-env.sh
 ```
 
+where you need to replace `yourNetID` with your NetID.
+
 > For a group installation of Spack, the line that you add to your `.bash_profile` should look like
 >
 > ```
 > . /home/yourGroupDirectory/spack/share/spack/setup-env.sh
 > ```
 >
+> where you need to replace `yourGroupDirectory` with the name of your group directory.
 > Have the other members of your group also add this line to their `.bash_profile` to get access to the group installation.
 
 ## B. Create a Directory for the Configuration Files
@@ -101,8 +112,8 @@ In the `.spack` directory that you created in the [previous section](#b-create-a
 
 ```
 upstreams:
-	spack-instance-1:
-		install_tree: /software/chtc/spack/software
+  spack-instance-1:
+    install_tree: /software/chtc/spack/software
 ```
 
 Now if you run `spack find` again, you should see a list of system-wide installed packages.  Spack can use these packages to satisfy the dependencies for installing your own software.
@@ -126,14 +137,27 @@ Then run the following command to generate the configuration file needed to acce
 ```
 {:.term}
 
-Confirm that Spack has access to the system compilers by running `spack compiler list`, which should show `aocc@=3.2.0` and `gcc@=11.3.0` in the printout.
+Confirm that Spack has access to the system compilers by running 
+
+```
+spack compiler list
+``` 
+{:.term} 
+
+which should show `aocc@=3.2.0` and `gcc@=11.3.0` in the printout.
 
 > For a group installation of Spack, this configuration will be automatically found if the `SPACK_USER_CONFIG_PATH` is properly set, as described [above](#b-create-a-directory-for-the-configuration-files).
 
 ## D. Configure Installation Paths
 
-Next, decide where in your home directory you want to have your programs installed (remember that the `/home` directory is for storing software programs). We recommend that you create a directory `spack_programs` in your home directory to hold the software you install using Spack. You will need to communicate this location to Spack with another configuration file. 
+Next, decide where in your home directory you want to have your programs installed (remember that the `/home` directory is for storing software programs). We recommend that you create a directory `spack_programs` in your home directory to hold the software you install using Spack. 
 
+```
+mkdir ~/spack_programs
+```
+{:.term}
+
+You will need to communicate this location to Spack with another configuration file. 
 In the `.spack` directory that you created [above](#b-create-a-directory-for-the-configuration-files), create the file `config.yaml` and add the following lines:
 
 ```
@@ -171,30 +195,30 @@ spack env activate yourEnvironmentName
 ```
 {:.term}
 
-You can see a list of your available environments using 
-
-```
-spack env list
-```
-{:.term}
-
-and you can see which environment you are currently using with
-
-```
-spack env status
-```
-{:.term}
-
-To deactivate the environment, run
-
-```
-spack env deactivate
-```
-{:.term}
-
-or close the terminal session. 
-
 You will need to activate the environment when you wish to use the software that was installed in that environment.
+
+> You can see a list of your available environments using 
+> 
+> ```
+> spack env list
+> ```
+> {:.term}
+> 
+> and you can see which environment you are currently using with
+> 
+> ```
+> spack env status
+> ```
+> {:.term}
+> 
+> To deactivate the environment, run
+> 
+> ```
+> spack env deactivate
+> ```
+> {:.term}
+> 
+> or close the terminal session. 
 
 ## B. Finding Program Packages in Spack
 
