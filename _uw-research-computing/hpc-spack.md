@@ -15,41 +15,49 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 # Contents
 
-1. [Installing Spack](#1-installing-spack) 
-2. [Configuring Spack](#2-configuring-spack) 
+1. [Installing Spack for Individual Use](#1-installing-spack-for-individual-use) 
+2. [Installing Spack for Group Use](#2-installing-spack-for-group-use)
 3. [Installing Software using Spack](#3-installing-software-using-spack)
 4. [Using Software Installed using Spack](#4-using-software-installed-using-spack)
 
-# 1. Installing Spack
+# 1. Installing Spack for Individual Use
 
-Spack is a package manager for installing and - more importantly - compiling software. To get started, first log in to the HPC cluster. You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html).
+## A. Downloading Spack (Individual)
 
-First, download the Spack code from their GitHub repository:
+First, log in to the HPC cluster. 
+
+You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html). Download the Spack code from their GitHub repository:
 
 ```
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 ```
 {:.term}
 
-Next, 
+and then activate Spack by sourcing (the `.` command) the setup script.
 
 ```
 . spack/share/spack/setup-env.sh
 ```
 {:.term}
 
-That's it! You can test that Spack has been installed by entering `spack` and you should see the help text print out.
+That's it! You can test that Spack has been installed by entering `spack` and you should see the help text print out. But before trying to install packages using your Spack installation, you should configure it to recognize the system installation of Spack.
 
-> For installing Spack to be shared across a group, you should run these commands in the group's home directory, i.e. `/home/groups/yourGroupDirectory/`. Note this path for use throughout this guide, and communicate it to your group members for configuring their access to the installation.
+> This guide assumes that you ran the `git clone` command in your home directory, i.e. `/home/yourNetID`. If you did not, then run the following command to print the full path to your Spack installation.  
+>
+> ```
+> echo $SPACK_ROOT
+> ```
+>
+> {:.term}
+>
+> We will refer to this path as the `SpackRootPath` and you will need to use this path where noted in the instructions below.
 
-# 2. Configuring Spack
-
-## A. Using Spack in Future Sessions
+## B. Using Spack in Future Sessions (Individual)
 
 While Spack has been installed, for each session that you want to use it you will need to rerun the command
 
 ```
-. spack/share/spack/setup-env.sh
+. /home/yourNetID/spack/share/spack/setup-env.sh
 ```
 {:.term}
 
@@ -61,117 +69,135 @@ A more convenient option is simply to update your account to run this command wh
 
 where you need to replace `yourNetID` with your NetID.
 
-> For a group installation of Spack, the line that you add to your `.bash_profile` should look like
+> If Spack was not installed to your home directory, use the following command instead, where you need to replace `SpackRootPath` with the path that you noted above.
 >
 > ```
-> . /home/yourGroupDirectory/spack/share/spack/setup-env.sh
+> . SpackRootPath/share/spack/setup-env.sh
 > ```
->
-> where you need to replace `yourGroupDirectory` with the name of your group directory.
-> Have the other members of your group also add this line to their `.bash_profile` to get access to the group installation.
 
-## B. Create a Directory for the Configuration Files
+## C. Obtain the Provided Configuration Files (Individual)
 
-By default, Spack will look for the user's configuration files within the hidden folder `.spack` located in your home directory, i.e. `/home/yourNetID/.spack`. Before proceeding, you need to create this directory:
+To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
 
 ```
-mkdir ~/.spack
+cp -R /software/chtc/spack/chtc-user-config/ ~/.spack
 ```
+
 {:.term}
 
-> For a group installation of Spack, you should create this directory in the same location that you ran the `git clone` command, i.e.
->
-> ```
-> mkdir /home/groups/yourGroupDirectory/.spack
-> ```
-> {:.term}
->
-> Wherever you create it, you will need to instruct Spack on where to find the configuration files. Do this by running the command 
->
-> ```
-> export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupDirectory/.spack
-> ```
-> {:.term}
->
-> and modify the path as necessary. Then you and your group members should add this command to the end of the `.bash_profile` file in your respective home directories, similar to that done in the [previous section](#a-using-spack-in-future-sessions). 
-
-## C. Link to the System Installation
-
-At this point, your copy of Spack doesn't know that there is a system installation of Spack that it can use for installing your software packages. You can confirm this by running
+Your local Spack installation will automatically find the configuration files and will now recognize the packages that are installed system-wide. You can confirm this with the command
 
 ```
 spack find
 ```
+
 {:.term}
 
-and you will see that there are no packages installed at this time.
+This should show a list of packages similar to what you see when you run the `module avail` command. 
 
-### i. Link system packages
+You are now ready to use Spack for installing the packages that you need! See the instructions in [3. Installing Software using Spack](#3-installing-software-using-spack).
 
-In the `.spack` directory that you created in the [previous section](#b-create-a-directory-for-the-configuration-files), create a file called `upstreams.yaml`. Add the following lines to the file:
+# 2. Installing Spack for Group Use
 
-```
-upstreams:
-  spack-instance-1:
-    install_tree: /software/chtc/spack/software
-```
+The following instructions for a group installation of Spack assumes that shared directories have already been set up for your group, and that you have access to the group. We also recommend getting permission from your colleagues before proceeding.
 
-Now if you run `spack find` again, you should see a list of system-wide installed packages.  Spack can use these packages to satisfy the dependencies for installing your own software.
+## A. Downloading Spack (Group)
 
->  For a group installation of Spack, this configuration will be automatically found if the `SPACK_USER_CONFIG_PATH` is properly set, as described [above](#b-create-a-directory-for-the-configuration-files).
-
-### ii. Link system compilers
-
-In the `.spack` directory that you created in the [previous section](#b-create-a-directory-for-the-configuration-files), create the directory `linux` and move into it:
+First, log in to the HPC cluster, and navigate to your group's shared directory in `/home`. Note this path for use throughout this guide, and communicate it to your group members for configuring their access to the installation.
 
 ```
-mkdir linux
-cd linux
+cd /home/groups/yourGroupName
 ```
+
 {:.term}
 
-Then run the following command to generate the configuration file needed to access the system compilers:
+You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html). Download the Spack code from their GitHub repository:
 
 ```
-/software/chtc/spack/software/spack/v0.19/bin/spack config get compilers > compilers.yaml
+git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 ```
+
 {:.term}
 
-Confirm that Spack has access to the system compilers by running 
+and then activate Spack by sourcing (the `.` command) the setup script.
 
 ```
-spack compiler list
-``` 
-{:.term} 
-
-which should show `aocc@=3.2.0` and `gcc@=11.3.0` in the printout.
-
-> For a group installation of Spack, this configuration will be automatically found if the `SPACK_USER_CONFIG_PATH` is properly set, as described [above](#b-create-a-directory-for-the-configuration-files).
-
-## D. Configure Installation Paths
-
-Next, decide where in your home directory you want to have your programs installed (remember that the `/home` directory is for storing software programs). We recommend that you create a directory `spack_programs` in your home directory to hold the software you install using Spack. 
-
+. spack/share/spack/setup-env.sh
 ```
-mkdir ~/spack_programs
-```
+
 {:.term}
 
-You will need to communicate this location to Spack with another configuration file. 
-In the `.spack` directory that you created [above](#b-create-a-directory-for-the-configuration-files), create the file `config.yaml` and add the following lines:
+That's it! You can test that Spack has been installed by entering `spack` and you should see the help text print out. But before trying to install packages using your Spack installation, you should configure it to recognize the system installation of Spack.
+
+> This guide assumes that you ran the `git clone` command in your group's home directory, i.e. `/home/groups/yourGroupName`. If you did not, then run the following command to obtain the full path to your Spack installation.  We will refer to this path as the `SpackRootPath` and you will need to use this path where noted in the instructions below.
+>
+> ```
+> echo $SPACK_ROOT
+> ```
+>
+> {:.term}
+
+## B. Using Spack in Future Sessions (Group)
+
+While Spack has been installed, for each session that you want to use it you will need to rerun the command
 
 ```
-config:
-	install_tree:
-		root: /home/yourNetID/spack_programs
-	build_stage:
-		- /local/$user/spack_build
-		- /scratch/$user/spack_build
+. /home/groups/yourGroupName/spack/share/spack/setup-env.sh
 ```
 
-The path listed after `root:` under the `install_tree` section is the directory where you want to have your programs installed; modify as you desire. The paths listed under the `build_stage` section should not be modified.
+{:.term}
 
-> For a group installation of spack, the installation directory should be within `/home/groups/yourGroupDirectory`. Modify the path after `root:` to match this location. This configuration will be automatically found if the `SPACK_USER_CONFIG_PATH` is properly set, as described [above](#b-create-a-directory-for-the-configuration-files).
+A more convenient option is simply to update your account to run this command whenever you log in. You and your group members should add the command to the end of the `.bash_profile` file in your home directory, e.g. `nano ~/.bash_profile`, with the full path to the file.  For a group installation, the line should look like
+
+```
+. /home/groups/yourGroupName/spack/share/spack/setup-env.sh
+```
+
+where you need to replace `yourGroupName` with the name of your group.
+
+> If Spack was not installed in your group's home directory, use the following command instead, where you will need to replace `SpackRootPath` with the path that you noted above.
+>
+> ```
+> . SpackRootPath/share/spack/setup-env.sh
+> ```
+
+## C. Obtain the Provided Configuration Files (Group)
+
+### i. Copy the configuration files
+
+To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
+
+```
+cp -R /software/chtc/spack/chtc-user-config/ /home/groups/yourGroupName/.spack
+```
+
+{:.term}
+
+where you need to replace `yourGroupName` with your group's name. 
+
+### ii. Updating location of configuration files
+
+The group installation of Spack need to be instructed on where to find these configuration files. You can do this by running the command 
+
+```
+export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupDirectory/.spack
+```
+
+{:.term}
+
+and Spack should now recognize the packages that are installed system-wide. You can confirm this with the command
+
+```
+spack find
+```
+
+{:.term}
+
+This should show a list of packages similar to what you see when you run the `module avail` command.
+
+To ensure that the configuration files are found in future terminal sessions, you and your group members need to edit your `~/.bash_profile` file to include the above `export` command.
+
+You are now ready to use Spack for installing the packages that you need! See the instructions in [3. Installing Software using Spack](#3-installing-software-using-spack).
 
 # 3. Installing Software using Spack
 
@@ -247,7 +273,7 @@ spack info exactNameOfProgram
 ```
 {:.term}
 
-This will print out information about the program, including a short description of the program, a link to the developer's website, the available versions of the program and its dependencies.
+This will print out information about the program, including a short description of the program, a link to the developer's website, and the available versions of the program and its dependencies.
 
 ## C. Adding Package Specifications to the Environment
 
@@ -269,28 +295,7 @@ spack add python@=3.10
 
 will tell the environment that you want to install version 3.10 of Python. There are additional ways of defining specifications for package versions, the compiler to be used, and dependencies. The [documentation for Spack](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies) provides the details on how this is done. 
 
-> **Note regarding compilers**: Using the configuration files above, Spack will attempt to install these packages using the system compilers, most likely `gcc@=11.3.0`. If your program requires that a specific compiler be used, you will need to first add *and* install the compiler before adding the other packages. To use version 9 of `gcc`, you would find which exact versions are available and decide which to use. For example,
->
-> ```
-> spack add gcc@=9.5.0
-> ```
-> {:.term}
->
-> Then follow the instructions in the [next section](#d-installing-a-package) to install the compiler. Once the compiler has been installed, you then need to add the compiler to Spack's list of available compilers using
->
-> ```
-> spack compiler add "$(spack location -i gcc@=9.5.0)"
-> ```
-> {:.term}
->
-> Once the compiler has been installed and recognized, you can now add the packages that need to be compiled with it. Use the compiler specification `%` to specify this compiler for use during installation. For example,
->
-> ```
-> spack add python@=3.10 %gcc@=9.5.0
-> ```
-> {:.term}
->
-> will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program's installation instructions say otherwise.
+*If you need to install a compiler, or need to use a specific compiler to install the desired packages, see the section [E. Installing and Using a Specific Compiler](#e-installing-and-using-a-specific-compiler).*
 
 ## D. Installing a Package
 
@@ -365,7 +370,7 @@ Depending on the number & complexity of the programs you are installing, and how
 
 > If something goes wrong or your connection is interrupted, the installation process can be resumed at a later time without having to start from scratch. Make sure that you are in an interactive Slurm session & that you have activated the Spack environment, then simply rerun the `spack install` command again.
 
-#### v. Finishing the installation
+### v. Finishing the installation
 
 After the installation has successfully finished, you should be able to see that the programs have been installed by running 
 
@@ -393,7 +398,39 @@ rm -rf /local/yourNetID/spack_build
 
 and then enter `exit` to end the interactive session.
 
-## 4. Using Software Installed using Spack
+To use the packages that you installed, follow the instructions in [4. Using Software Installed using Spack](4-using-software-installed-using-spack).
+
+## E. Installing and Using a Specific Compiler
+
+***!!!Needs to be updated!!!***
+
+Using the configuration files above, Spack will attempt to install these packages using the system compilers, most likely `gcc@=11.3.0`. If your program requires that a specific compiler be used, you will need to first add *and* install the compiler before adding the other packages. To use version 9 of `gcc`, you would find which exact versions are available and decide which to use. For example,
+
+```
+spack add gcc@=9.5.0
+```
+
+{:.term}
+
+Then follow the instructions in the [next section](#d-installing-a-package) to install the compiler. Once the compiler has been installed, you then need to add the compiler to Spack's list of available compilers using
+
+```
+spack compiler add "$(spack location -i gcc@=9.5.0)"
+```
+
+{:.term}
+
+Once the compiler has been installed and recognized, you can now add the packages that need to be compiled with it. Use the compiler specification `%` to specify this compiler for use during installation. For example,
+
+```
+spack add python@=3.10 %gcc@=9.5.0
+```
+
+{:.term}
+
+will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program's installation instructions say otherwise.
+
+# 4. Using Software Installed using Spack
 
 If your account is configured correctly for using Spack, and the software has been installed inside of a Spack environment, then to use the software all you need to do is activate the corresponding environment. Simply use the command
 
@@ -424,7 +461,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 
 When Slurm executes this `sbatch` file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.
 
-### Using a shared group installation
+## Using a shared group installation
 
 Users who want to use a shared group installation of Spack, but who did not set up the installation, only need to modify their `~/.bash_profile` file with instructions regarding the path to the shared group installation and its configuration files.
 
