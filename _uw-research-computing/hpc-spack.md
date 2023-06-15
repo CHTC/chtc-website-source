@@ -47,7 +47,6 @@ That's it! You can test that Spack has been installed by entering `spack` and yo
 > ```
 > echo $SPACK_ROOT
 > ```
->
 > {:.term}
 >
 > We will refer to this path as the `SpackRootPath` and you will need to use this path where noted in the instructions below.
@@ -82,7 +81,6 @@ To simplify the process of configuring your local installation of Spack, we have
 ```
 cp -R /software/chtc/spack/chtc-user-config/ ~/.spack
 ```
-
 {:.term}
 
 Your local Spack installation will automatically find the configuration files and will now recognize the packages that are installed system-wide. You can confirm this with the command
@@ -90,7 +88,6 @@ Your local Spack installation will automatically find the configuration files an
 ```
 spack find
 ```
-
 {:.term}
 
 This should show a list of packages similar to what you see when you run the `module avail` command. 
@@ -108,7 +105,6 @@ First, log in to the HPC cluster, and navigate to your group's shared directory 
 ```
 cd /home/groups/yourGroupName
 ```
-
 {:.term}
 
 You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html). Download the Spack code from their GitHub repository:
@@ -116,7 +112,6 @@ You can then install Spack following its [documentation](https://spack.readthedo
 ```
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 ```
-
 {:.term}
 
 and then activate Spack by sourcing (the `.` command) the setup script.
@@ -124,7 +119,6 @@ and then activate Spack by sourcing (the `.` command) the setup script.
 ```
 . spack/share/spack/setup-env.sh
 ```
-
 {:.term}
 
 That's it! You can test that Spack has been installed by entering `spack` and you should see the help text print out. But before trying to install packages using your Spack installation, you should configure it to recognize the system installation of Spack.
@@ -134,7 +128,6 @@ That's it! You can test that Spack has been installed by entering `spack` and yo
 > ```
 > echo $SPACK_ROOT
 > ```
->
 > {:.term}
 
 ## B. Using Spack in Future Sessions (Group)
@@ -144,7 +137,6 @@ While Spack has been installed, for each session that you want to use it you wil
 ```
 . /home/groups/yourGroupName/spack/share/spack/setup-env.sh
 ```
-
 {:.term}
 
 A more convenient option is simply to update your account to run this command whenever you log in. You and your group members should add the command to the end of the `.bash_profile` file in your home directory, e.g. `nano ~/.bash_profile`, with the full path to the file.  For a group installation, the line should look like
@@ -170,7 +162,6 @@ To simplify the process of configuring your local installation of Spack, we have
 ```
 cp -R /software/chtc/spack/chtc-user-config/ /home/groups/yourGroupName/.spack
 ```
-
 {:.term}
 
 where you need to replace `yourGroupName` with your group's name. 
@@ -182,7 +173,6 @@ The group installation of Spack need to be instructed on where to find these con
 ```
 export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupDirectory/.spack
 ```
-
 {:.term}
 
 and Spack should now recognize the packages that are installed system-wide. You can confirm this with the command
@@ -190,7 +180,6 @@ and Spack should now recognize the packages that are installed system-wide. You 
 ```
 spack find
 ```
-
 {:.term}
 
 This should show a list of packages similar to what you see when you run the `module avail` command.
@@ -409,7 +398,6 @@ Using the configuration files above, Spack will attempt to install these package
 ```
 spack add gcc@=9.5.0
 ```
-
 {:.term}
 
 Then follow the instructions in the [next section](#d-installing-a-package) to install the compiler. Once the compiler has been installed, you then need to add the compiler to Spack's list of available compilers using
@@ -417,7 +405,6 @@ Then follow the instructions in the [next section](#d-installing-a-package) to i
 ```
 spack compiler add "$(spack location -i gcc@=9.5.0)"
 ```
-
 {:.term}
 
 Once the compiler has been installed and recognized, you can now add the packages that need to be compiled with it. Use the compiler specification `%` to specify this compiler for use during installation. For example,
@@ -425,7 +412,6 @@ Once the compiler has been installed and recognized, you can now add the package
 ```
 spack add python@=3.10 %gcc@=9.5.0
 ```
-
 {:.term}
 
 will use `gcc` version 9.5.0 to compile Python 3.10 when installing the package. As a general rule, you should use the same compiler for installing all of your packages within an environment, unless your program's installation instructions say otherwise.
