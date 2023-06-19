@@ -74,7 +74,7 @@ Once the submit file is created, it can be submitted using the `sbatch` command:
 **B. Optimizing Your Submit File**
 -------------------
 
-The new cluster has different partition names and different sized nodes. We  recommend the following changes because most of our nodes now have 128 cores, so requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu` flag with units of MB. Here are our recommendations for different sized jobs: 
+The new cluster has different partition names and different sized nodes. **We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.** Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu` flag with units of MB. Here are our recommendations for different sized jobs: 
 
 <table>
 	<tr>
