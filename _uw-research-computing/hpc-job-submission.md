@@ -94,10 +94,7 @@ The new cluster has different partition names and different sized nodes. We  rec
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=80 # designate cores per node
 #SBATCH --mem-per-cpu=4000</pre> 
-	OR:  <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-#SBATCH --mem-per-cpu=4000</pre></td>
+</td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
