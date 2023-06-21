@@ -46,8 +46,8 @@ executable = myExecutable.sh
 transfer_input_files = other_job_files
 
 log = job.log
-err = job.err
-out = job.out
+error = job.err
+output = job.out
 
 request_cpus = 1
 request_memory = 4GB
