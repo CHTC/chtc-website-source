@@ -11,7 +11,10 @@ In a Publication
 In order to track our scientific impact we ask that users cite the following DOI in all publications
 that have benefited from our services.
 
-> [https://doi.org/10.21231/GNT1-HW21](https://doi.org/10.21231/GNT1-HW21)
+> Center for High Throughput Computing. (2006). Center for High Throughput Computing. doi:10.21231/GNT1-HW21
+
+
+For your convenience, a [BibTex file](/assets/bibtex/chtc.bib) containing the above reference is been provided.
 
 (Last updated Feb, 2023)
 
