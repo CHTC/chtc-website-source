@@ -34,7 +34,7 @@ git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 ```
 {:.term}
 
-and then activate Spack by sourcing (the `.` command) the setup script.
+and then activate Spack by sourcing the setup script with the `.` command
 
 ```
 . spack/share/spack/setup-env.sh
@@ -101,12 +101,14 @@ The following instructions for a group installation of Spack assumes that shared
 
 ## A. Downloading Spack (Group)
 
-First, log in to the HPC cluster, and navigate to your group's shared directory in `/home`. Note this path for use throughout this guide, and communicate it to your group members for configuring their access to the installation.
+First, log in to the HPC cluster, and navigate to your group's shared directory in `/home` with
 
 ```
 cd /home/groups/yourGroupName
 ```
 {:.term}
+
+where you should replace `yourGroupName` with your group's name. Note this path for use throughout this guide, and communicate it to your group members for configuring their access to the installation.
 
 You can then install Spack following its [documentation](https://spack.readthedocs.io/en/latest/getting_started.html). Download the Spack code from their GitHub repository:
 
@@ -115,7 +117,7 @@ git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 ```
 {:.term}
 
-and then activate Spack by sourcing (the `.` command) the setup script.
+and then activate Spack by sourcing the setup script with the `.` command.
 
 ```
 . spack/share/spack/setup-env.sh
@@ -140,7 +142,7 @@ While Spack has been installed, for each session that you want to use it you wil
 ```
 {:.term}
 
-A more convenient option is simply to update your account to run this command whenever you log in. You and your group members should add the command to the end of the `.bash_profile` file in your home directory, e.g. `nano ~/.bash_profile`, with the full path to the file.  For a group installation, the line should look like
+A more convenient option is simply to update your account to run this command whenever you log in. You and your group members should add the command to the end of the `.bash_profile` file in your respective home directories, e.g. `nano ~/.bash_profile`, with the full path to the file.  For a group installation, the line should look like
 
 ```
 . /home/groups/yourGroupName/spack/share/spack/setup-env.sh
@@ -169,7 +171,7 @@ where you need to replace `yourGroupName` with your group's name.
 
 ### ii. Updating location of configuration files
 
-The group installation of Spack need to be instructed on where to find these configuration files. You can do this by running the command 
+The group installation of Spack needs to be instructed on where to find these configuration files. You can do this by running the command 
 
 ```
 export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
@@ -185,7 +187,7 @@ spack find
 
 This should show a list of packages similar to what you see when you run the `module avail` command.
 
-To ensure that the configuration files are found in future terminal sessions, you and your group members need to edit your `~/.bash_profile` file to include the above `export` command. That is, use a command-line text editor to open the file at `~/.bash_profile` and add the following line to the end of the file:
+To ensure that the configuration files are found in future terminal sessions, you and your group members need to edit your respective `~/.bash_profile` files to include the above `export` command. That is, use a command-line text editor to open the file at `~/.bash_profile` and add the following line to the end of the file:
 
 ```
 export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
@@ -255,4 +257,4 @@ Users who want to use a shared group installation of Spack, but who did not set 
 
    or else close the terminal and log in again.
 
-Once configured, you can follow the instructions in this section to use the shared installation.
+Once configured, you can follow the instructions in our guide [Installing Software Using Spack](hpc-spack-install.md) to install or use already-installed packages in Spack.
