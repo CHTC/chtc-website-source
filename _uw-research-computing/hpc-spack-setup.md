@@ -197,7 +197,7 @@ You are now ready to use Spack for installing the packages that you need! See th
 
 ### iii. Updating location of module files
 
-If you or someone in your group is interested in using the custom modules created by Spack (as described in our guide [Using Custom Modules with Spack](hpc-spack-modules.md)), then you should update the location where the module files will be saved. The location for the module files is specified within the `modules.yaml` file in the `.spack` folder that you created above. If you followed the instructions above, then the path to the file is given by `${SPACK_USER_CONFIG_PATH}/modules.yaml`. Open this file with a command-line text editor and change the following lines from
+If you or someone in your group is interested in creating custom modules following the instructions in the guide [Creating Custom Modules Using Spack](hpc-spack-modules.md), then you should update the location where the module files will be saved. The location for the module files is specified within the `modules.yaml` file in the `.spack` folder that you created above. If you followed the instructions above, then the path to the file is given by `${SPACK_USER_CONFIG_PATH}/modules.yaml`. Open this file with a command-line text editor and change the following lines from
 
 ```
     roots:
