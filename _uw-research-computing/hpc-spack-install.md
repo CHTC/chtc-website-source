@@ -227,7 +227,7 @@ rm -rf /local/yourNetID/spack_build
 
 and then enter `exit` to end the interactive session.
 
-To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). Furthermore, Spack will create custom modules that you can use. More information on how to use these modules can be found in our guide [Using Custom Modules with Spack](hpc-spack-modules.md).
+To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.md).
 
 ## E. Removing an Environment and Uninstalling Unneeded Packages
 
@@ -300,7 +300,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 
 When you submit this job to Slurm and it executes the commands in the `sbatch` file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.
 
-> Some programs include explicit `module load` commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program's documentation for how to do so. You may want to use the custom modules that Spack automatically creates and modify your program to explicitly load your custom modules. See [Using Custom Modules with Spack](hpc-spack-modules.md) for more information on how to use custom modules with Spack.
+> Some programs include explicit `module load` commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program's documentation for how to do so. You may want to create your own custom modules and modify your program to explicitly load your custom modules. See [Creating Custom Modules Using Spack](hpc-spack-modules.md) for more information on how to create your own modules using Spack.
 
 # 3. Installing and Using a Specific Compiler
 
