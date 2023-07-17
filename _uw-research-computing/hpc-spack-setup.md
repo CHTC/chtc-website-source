@@ -91,7 +91,7 @@ spack find
 ```
 {:.term}
 
-This should show a list of packages similar to what you see when you run the `module avail` command. 
+This should show a list of packages, including those you see when you run the `module avail` command. A total of ~120 packages should be listed.
 
 You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.md).
 
