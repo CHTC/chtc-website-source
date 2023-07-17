@@ -211,7 +211,14 @@ spack env activate yourEnvironmentName
 ```
 {:.term}
 
-Once you are satisfied that the programs have been installed properly, you can remove the local build directory that Spack used during the installation with
+Once you are satisfied that the programs have been installed properly, you can remove packages that are build-only (not used for running the packages you installed) using the command
+
+```
+spack gc
+```
+{:.term}
+
+Finally, remove the local build directory that Spack used during the installation with
 
 ```
 rm -rf /local/yourNetID/spack_build
@@ -220,7 +227,39 @@ rm -rf /local/yourNetID/spack_build
 
 and then enter `exit` to end the interactive session.
 
-To use the packages that you installed, follow the instructions in [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.md).
+To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.md).
+
+## E. Removing an Environment and Uninstalling Unneeded Packages
+
+You may find it necessary to remove a Spack environment, or packages installed using Spack. To uninstall a package, simply run
+
+```
+spack uninstall yourPackageName
+```
+{:.term}
+
+where you should replace `yourPackageName` with the name of the package that you want to remove. This command will only work for packages that you 'added' to the Spack environment, as described above. 
+
+To remove an environment, first make sure that you have deactivated the environment with
+
+```
+spack env deactivate
+```
+{:.term}
+
+and then run
+
+```
+spack env rm yourEnvironmentName
+```
+{:.term}
+
+where you should replace `yourEnvironmentName` with the name of the environment that you want to remove. Note that this will not necessarily remove the packages that were installed in the environment! After the environment has been removed, you can uninstall the packages that are no longer needed using the command
+
+```
+spack gc
+```
+{:.term}
 
 # 2. Using Software Installed in Spack
 
