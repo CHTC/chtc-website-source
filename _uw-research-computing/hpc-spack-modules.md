@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: Creating Custom Modules Using Spack
+title: Using Custom Modules with Spack
 guide:
   order: 3
   category: Software Solutions
@@ -32,14 +32,23 @@ If you followed the instructions in [Setting Up Spack on HPC](hpc-spack-setup.md
 
 # 2. Creating Custom Modules Using Spack
 
-First, activate the Spack environment in which you installed the packages as instructed in [Installing Software Using Spack](hpc-spack-install.md). Then, to create the module files, simply enter the following command:
+***Spack will automatically create the module files for you when you install your software packages, and save the files to the location described above.*** 
+
+If you'd like to manually update the module files, you should first activate the Spack environment in which you installed the packages as instructed in [Installing Software Using Spack](hpc-spack-install.md). Then, to create or update the module files, simply enter the following command:
 
 ```
 spack module tcl refresh
 ```
 {:.term}
 
-Spack will print out a list of all the packages installed in the current environment, and you'll be asked to confirm if you wish to create module files for all of these packages. 
+Spack will print out a list of all the packages installed in the current environment, and you'll be asked to confirm if you wish to create module files for all of these packages. If you have made changes to the Spack configuration for module files, then you may need to include the `--delete-tree` option, i.e.
+
+```
+spack module tcl refresh --delete-tree
+```
+{:.term}
+
+which will make sure to remove the older module files. This is especially necessary if you have changed the configuration for where the module files 
 
 # 3. Using Custom Modules
 
