@@ -193,27 +193,19 @@ To ensure that the configuration files are found in future terminal sessions, yo
 export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
 ```
 
-You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.md).
-
 ### iii. Updating location of module files
 
-If you or someone in your group is interested in creating custom modules following the instructions in the guide [Creating Custom Modules Using Spack](hpc-spack-modules.md), then you should update the location where the module files will be saved. The location for the module files is specified within the `modules.yaml` file in the `.spack` folder that you created above. If you followed the instructions above, then the path to the file is given by `${SPACK_USER_CONFIG_PATH}/modules.yaml`. Open this file with a command-line text editor and change the following lines from
+If you or someone in your group is interested in creating custom modules following the instructions in the guide [Creating Custom Modules Using Spack](hpc-spack-modules.md), then you should update the location where the module files will be saved. You can update the location with the following commands
 
 ```
-    roots:
-      lmod: /home/$user/spack_modules
-      tcl: /home/$user/spack_modules
+spack config add 'modules:default:roots:lmod:/home/groups/yourGroupName/spack_modules'
+spack config add 'modules:default:roots:tcl:/home/groups/yourGroupName/spack_modules'
 ```
+{:.term}
 
-to
+where you replace `yourGroupName` with your group's name. 
 
-```
-    roots:
-      lmod: /home/groups/yourGroupName/spack_modules
-      tcl: /home/groups/yourGroupName/spack_modules
-```
-
-where you replace `yourGroupName` with your group's name. Be careful to not to change the indentation of the lines; the number of spaces at the start of the line should be the same before and after you change the path.
+You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.md).
 
 # 3. Using a Shared Group Installation
 
@@ -258,3 +250,42 @@ Users who want to use a shared group installation of Spack, but who did not set 
    or else close the terminal and log in again.
 
 Once configured, you can follow the instructions in our guide [Installing Software Using Spack](hpc-spack-install.md) to install or use already-installed packages in Spack.
+
+## A. Switching Between Spack Installations
+
+You can easily switch between different Spack installations by creating scripts containing the commands listed in Step 2. above, and then sourcing the one that you want to use.
+
+For example, let's say you want to use a personal installation of Spack for an independent research project, but want to use a group installation of Spack as part of a collaboration. In that case, you would create two scripts, `load-my-spack.sh` and `load-group-spack.sh`, and save them to some central location like `~/bin`. In each script, you provide the path to the `setup-env.sh` file and the `.spack` configuration directory for the respective Spack installations. The example contents of these scripts are provided below, where you should replace `yourNetID` with your NetID and `yourGroupName` with the group name of your collaboration.
+
+**load-my-spack.sh**
+
+```
+. /home/yourNetID/spack/share/spack/setup-env.sh
+export SPACK_USER_CONFIG_PATH=/home/yourNetID/.spack
+```
+
+**load-group-spack.sh**
+
+```
+. /home/groups/yourGroupName/spack/share/spack/setup-env.sh
+export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
+```
+
+To activate the your personal Spack installation, simply run
+
+```
+. path/to/load-my-spack.sh
+```
+{:.term}
+
+To activate the group Spack installation, run
+
+```
+. path/to/load-group-spack.sh
+```
+{:.term}
+
+For submitting jobs, remember to load the correct Spack installation at the start of the submission script.
+
+
+

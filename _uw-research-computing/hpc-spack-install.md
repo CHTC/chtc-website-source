@@ -25,6 +25,8 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 Once your local installation of Spack has been properly configured, you are now ready to install software using Spack. The following describes the general process for installing program packages with Spack. Check the documentation for the program you want to install to see if they have instructions for installation using Spack. Even if your program can't be installed using Spack, you can still use it to install the dependencies that your program needs. 
 
+> **Note**: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.
+
 ## A. Creating and Using a Spack Environment
 
 Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation. 
@@ -125,9 +127,10 @@ Once you have identified the package(s) you would like to install and have added
 
 ### i. Start an interactive session
 
-Use the following command to start the interactive session:
+Deactivate the current Spack environment and then start the interactive session:
 
 ```
+spack env deactivate
 srun --mpi=pmix -n4 -N1 -t 240 -p int --pty bash
 ```
 {:.term}
@@ -141,7 +144,7 @@ spack env activate yourEnvironmentName
 ```
 {:.term}
 
-since the interactive session will start with the environment deactivated.
+since the interactive session will start with the environment deactivated. 
 
 ### ii. Create the local scratch directory
 
