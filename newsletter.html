@@ -1,0 +1,138 @@
+---
+layout: character_optimized
+title: CHTC Newsletter
+type: module
+---
+
+<p>
+    The CHTC Newsletter is a quarterly email that includes information about upcoming events,
+    training opportunities, and other news from the CHTC. If you would like to receive
+    the CHTC Newsletter, please fill out the form below.
+</p>
+
+<form method="post" name="CHTCNewsletterSubscribe" action="https://s1427524768.t.eloqua.com/e/f2" onsubmit="return handleFormSubmit(this)" id="form1178" class="mb-5">
+    <input value="CHTCNewsletterSubscribe" type="hidden" name="elqFormName">
+    <input value="1427524768" type="hidden" name="elqSiteId">
+    <input name="elqCampaignId" type="hidden">
+
+    <div class="mt-3">
+        <label class="form-label" for="fe12570">First Name</label>
+        <input type="text" class="form-control" name="firstName" id="fe12570" placeholder="First Name" style="width:100%;">
+    </div>
+    <div class="mt-3">
+        <label class="form-label" for="fe12571">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="fe12571" placeholder="Last Name" style="width:100%;">
+    </div>
+    <div class="mt-3">
+        <label class="form-label" for="fe11637">Email Address*</label>
+        <input type="text" class="form-control" name="emailAddress" id="fe11637" placeholder="Email Address" style="width:100%;">
+    </div>
+    <div class="mt-3">
+        <input type="Submit" class="button rounded btn-primary py-2 px-3"  value="Submit" id="fe11638">
+    </div>
+    <input type="hidden" name="hiddenField" id="fe12572" value="CHTC" hidden>
+</form>
+<script type="text/javascript" src="https://img04.en25.com/i/livevalidation_standalone.compressed.js">
+</script>
+<script>function handleFormSubmit(ele) {
+		var submitButton = ele.querySelector('input[type=submit]');
+		var spinner = document.createElement('span');
+		spinner.setAttribute('class', 'loader');
+		submitButton.setAttribute('disabled', true);
+		submitButton.style.cursor = 'wait';
+		submitButton.parentNode.appendChild(spinner);
+		return true;
+	}
+	function resetSubmitButton(e){
+		var submitButtons = e.target.form.getElementsByClassName('submit-button');
+		for(var i=0;i<submitButtons.length;i++){
+			submitButtons[i].disabled = false;
+		}
+	}
+	function addChangeHandler(elements){
+		for(var i=0; i<elements.length; i++){
+			elements[i].addEventListener('change', resetSubmitButton);
+		}
+	}
+	var form = document.getElementById('form1178');
+	addChangeHandler(form.getElementsByTagName('input'));
+	addChangeHandler(form.getElementsByTagName('select'));
+	addChangeHandler(form.getElementsByTagName('textarea'));
+	var nodes = document.querySelectorAll('#form1178 input[data-subscription]');
+	if (nodes) {
+		for (var i = 0, len = nodes.length; i < len; i++) {
+			var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription');
+			if(status ==='true') {
+				nodes[i].checked = true;
+			}
+		}
+	};
+	var nodes = document.querySelectorAll('#form1178 select[data-value]');
+	if (nodes) {
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value');
+			if (selectedValue) {
+				for (var j = 0; j < node.options.length; j++) {
+					if(node.options[j].value === selectedValue) {
+						node.options[j].selected = 'selected';
+						break;
+					}
+				}
+			}
+		}
+	}
+	this.getParentElement = function(list) {
+		return list[list.length-1].parentElement};
+	var dom0 = document.querySelector('#form1178 #fe12570');
+	var fe12570 = new LiveValidation(dom0, {
+		validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false}
+	);
+	fe12570.add(Validate.Custom, {
+		against: function(value) {
+			return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);
+		}
+		, failureMessage: "Value must not contain any URL's"}
+	);
+	fe12570.add(Validate.Custom, {
+		against: function(value) {
+			return !value.match(/(<([^>]+)>)/ig);
+		}
+		, failureMessage: "Value must not contain any HTML"}
+	);
+	fe12570.add(Validate.Length, {
+		tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 35}
+	);
+	var dom1 = document.querySelector('#form1178 #fe12571');
+	var fe12571 = new LiveValidation(dom1, {
+		validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false}
+	);
+	fe12571.add(Validate.Custom, {
+		against: function(value) {
+			return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);
+		}
+		, failureMessage: "Value must not contain any URL's"}
+	);
+	fe12571.add(Validate.Custom, {
+		against: function(value) {
+			return !value.match(/(<([^>]+)>)/ig);
+		}
+		, failureMessage: "Value must not contain any HTML"}
+	);
+	fe12571.add(Validate.Length, {
+		tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 35}
+	);
+	var dom2 = document.querySelector('#form1178 #fe11637');
+	var fe11637 = new LiveValidation(dom2, {
+		validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false}
+	);
+	fe11637.add(Validate.Presence, {
+		failureMessage:"This field is required"}
+	);
+	fe11637.add(Validate.Format, {
+		pattern: /(^[A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~][A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~\.]{0,62}@(([A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)(\.[A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)+)$)/i, failureMessage: "A valid email address is required"}
+	);
+	fe11637.add(Validate.Format, {
+		pattern: /\.\.|\.@/i, failureMessage: "A valid email address is required", negate: "true"}
+	);
+</script>
