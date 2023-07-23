@@ -83,16 +83,16 @@ The new cluster has different partition names and different sized nodes. **We al
 	</tr>
 	<tr>
 		<td>32-128 cores</td>
-		<td>Example for 32 cores: <pre>
+		<td>Example for 64 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
+#SBATCH --ntasks-per-node=64 # recommend multiples of 32
 #SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 	<tr>
-		<td>96 - 256 cores</td>
-		<td>Split over a few nodes, for example for 160 cores: <pre>
+		<td>128 - 256 cores</td>
+		<td>Split over a few nodes, for example for 128 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
+#SBATCH --ntasks-per-node=64 # designate cores per node
 #SBATCH --mem-per-cpu=4000</pre> 
 </td>
 	</tr>
