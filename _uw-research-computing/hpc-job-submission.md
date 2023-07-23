@@ -74,7 +74,7 @@ Once the submit file is created, it can be submitted using the `sbatch` command:
 **B. Optimizing Your Submit File**
 -------------------
 
-The new cluster has different partition names and different sized nodes. We  recommend the following changes because most of our nodes now have 128 cores, so requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu` flag with units of MB. Here are our recommendations for different sized jobs: 
+The new cluster has different partition names and different sized nodes. **We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.** Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu` flag with units of MB. Here are our recommendations for different sized jobs: 
 
 <table>
 	<tr>
@@ -83,21 +83,18 @@ The new cluster has different partition names and different sized nodes. We  rec
 	</tr>
 	<tr>
 		<td>32-128 cores</td>
-		<td>Example for 32 cores: <pre>
+		<td>Example for 64 cores: <pre>
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32 # recommend multiples of 16
+#SBATCH --ntasks-per-node=64 # recommend multiples of 32
 #SBATCH --mem-per-cpu=4000</pre></td>
 	</tr>
 	<tr>
-		<td>96 - 256 cores</td>
-		<td>Split over a few nodes, for example for 160 cores: <pre>
+		<td>128 - 256 cores</td>
+		<td>Split over a few nodes, for example for 128 cores: <pre>
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=80 # designate cores per node
+#SBATCH --ntasks-per-node=64 # designate cores per node
 #SBATCH --mem-per-cpu=4000</pre> 
-	OR:  <pre>
-#SBATCH --nodes=2
-#SBATCH --ntasks=160 # designate overall cores
-#SBATCH --mem-per-cpu=4000</pre></td>
+</td>
 	</tr>
 	<tr>
 		<td>128 or 256 cores (whole nodes)</td>
