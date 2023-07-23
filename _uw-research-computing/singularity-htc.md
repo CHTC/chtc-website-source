@@ -27,7 +27,7 @@ Pre-existing images can be found in reputable sources such as the [OSG](https://
 It is also possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
 **If your apptainer image does not require any additional packages or libraries, skip to [7. Use an Apptainer Container in HTC Jobs](#7-use-an-apptainer-container-in-htc-jobs).**   
 
-### B. Create your Own Image
+### B. Create Your Own Image
 To create your own image, it is still necessary to select a "base" image to add to. 
 Check the documentation of the software you are interested in to see if they maintain images for the software program or its dependencies.
 The majority of the guide that follows explains how to customize your base image by adding and preparing additional software packages/libraries.
@@ -66,10 +66,9 @@ It may take a few minutes for the build job to start.
 
 Inside your interactive job, create a blank text file called `image.def`. In this `.def` file, you will *def*ine what you want the Apptainer image to look like. You can name this file using an alternative name, but you should always use the `.def` file extension.
 The simple example below describes how to augment a pre-existing container that already contains most of what you need.
-The advanced example below describes how to build a container from a base operating system.
+An advanced example at the end of this guide describes how to build a container from a base operating system.
 
-### A. Simple example
-In this example, you will augment a pre-existing Docker container called `rocker/geospatial:4.2.2`, which can be found on Docker Hub.
+For this simple example, you will augment a pre-existing Docker container called `rocker/geospatial:4.2.2`, which can be found on Docker Hub.
 This container contains several common R geospatial packages, which makes it convenient to use for geospatial code in R.
 This container does not have *all* R packages, however, and you will likely want to add additional packages particular to your work.
 
@@ -108,160 +107,7 @@ From: rocker/geospatial:4.2.2
     R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 ```
 
-The `image.def` file is can now be used to build the container, as described below in [4. Build Your Apptainer Container](#4-build-your-apptainer-container).
-
-### B. Advanced example
-
-Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
-Then you will need to install the program and its dependencies inside of the container.
-In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
-
-First, you will again need to choose a base image for the container.
-Consult the documentation for the program you want to install to make sure you select a compatible operating system.
-In this case, you can use the most recent LTS version of Ubuntu from Docker.
-The top of the `image.def` file should look like:
-
-```
-Bootstrap: docker
-From: ubuntu:22.04
-```
-#### Installing dependencies
-Again, you will need to specify the installation commands within the `%post` section of the definition file.
-Per the [program's instructions](https://sumo.dlr.de/docs/Installing/Linux_Build.html), you will first need to install various dependencies.
-This can be done using the built-in package manager (`apt`) of Ubuntu, as shown below.
-
-```
-%post
-    apt-get update -y
-    apt-get install -y \
-            git \
-            cmake \
-            python3 \
-            g++ \
-            libxerces-c-dev \
-            libfox-1.6-dev \
-            libgdal-dev \
-            libproj-dev \
-            libgl2ps-dev \
-            python3-dev \
-            swig \
-            default-jdk \
-            maven \
-            libeigen3-dev
-```
-
-The first command is `apt-get update` and will update the list of available packages, which is necessary to get the latest versions of the packages in the following `apt-get install` command.
-The `apt-get install` command will install the dependencies required by the SUMO program.
-Note that these installation commands do not use `sudo`, as Apptainer already has permissions to install programs in the container.
-
-There can be issues with installing packages in a container that would not normally occur when installing manually in the terminal. 
-In the present case, the `apt` command needs access to the `tmp` folder in order to install the packages within the container.
-This can be done by adding the following line at the start of the `%post` section:
-
-```
-   chmod 777 /tmp
-```
-
-Similarly, some packages require that the user answer interactive prompts for selecting various options.
-Since the Apptainer build is non-interactive, this can cause the package installation to hang.
-While this isn't an issue in the present example, the issue can be avoided by adding the following line near the start of the `%post` section:
-
-```
-   DEBIAN_FRONTEND=noninteractive
-```
-Note that this only applies to Debian-based container images, such as Ubuntu.
-
-#### Compile the program
-The above commands will install the required dependencies, but you still need to include the commands for compiling the SUMO program itself. 
-Simply add the compiling commands after the installation commands for the dependencies, but still within the `%post` section:
-
-```
-%post
-    chmod 777 /tmp
-    apt-get update -y
-    apt-get install -y \
-            git \
-            cmake \
-            python3 \
-            g++ \
-            libxerces-c-dev \
-            libfox-1.6-dev \
-            libgdal-dev \
-            libproj-dev \
-            libgl2ps-dev \
-            python3-dev \
-            swig \
-            default-jdk \
-            maven \
-            libeigen3-dev
-
-    git clone --recursive https://github.com/eclipse/sumo
-    export SUMO_HOME=/sumo
-    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
-    cmake ../..
-    make
-
-```
-
-The `%post` section is now complete and will install SUMO and its dependencies in the container at build time.
-
-#### Setting environment variables
-Before building the image, you will want to update the environment for actually using the program.
-For example, in the `%post` section there is the command `export SUMO_HOME=/sumo`, which sets the environment variable `SUMO_HOME` to the location of the `sumo` directory.
-This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually run.
-
-To set environment variables automatically when your job runs, you need to add them in the `%environment` section.
-For the present example, you will need to set `SUMO_HOME` and update `PATH` with the location of the SUMO `bin` folder.
-To do so, add the following lines to the `image.def` file:
-
-```
-%environment
-    export SUMO_HOME=/sumo
-    export PATH=/sumo/bin:$PATH
-```
-
-These environment variables will be set when the container starts, allowing you to immediately use the `sumo` command in the container once it starts.
-
-#### Summary
-
-The full `image.def` file for this advanced example is now:
-
-```
-Bootstrap: docker
-From: ubuntu:22.04
-
-%post
-    chmod 777 /tmp
-    apt-get update -y
-    apt-get install -y \
-            git \
-            cmake \
-            python3 \
-            g++ \
-            libxerces-c-dev \
-            libfox-1.6-dev \
-            libgdal-dev \
-            libproj-dev \
-            libgl2ps-dev \
-            python3-dev \
-            swig \
-            default-jdk \
-            maven \
-            libeigen3-dev
-
-    git clone --recursive https://github.com/eclipse/sumo
-    export SUMO_HOME=/sumo
-    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
-    cmake ../..
-    make
-
-%environment
-    export SUMO_HOME=/sumo
-    export PATH=/sumo/bin:$PATH
-```
-
-See the [Apptainer documentation](https://apptainer.org/docs/user/latest/definition_files.html) for a full reference on how to specify build specs. 
-> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
+The `image.def` file is can now be used to build the container.
 
 ## 4. Build your Apptainer Container
 
@@ -437,4 +283,156 @@ apptainer exec \
 ```
 {:.term}
 
+## Create Your Apptainer Build File - Advanced Example
 
+Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
+Then you will need to install the program and its dependencies inside of the container.
+In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
+
+First, you will again need to choose a base image for the container.
+Consult the documentation for the program you want to install to make sure you select a compatible operating system.
+In this case, you can use the most recent LTS version of Ubuntu from Docker.
+The top of the `image.def` file should look like:
+
+```
+Bootstrap: docker
+From: ubuntu:22.04
+```
+
+#### Installing dependencies
+Again, you will need to specify the installation commands within the `%post` section of the definition file.
+Per the [program's instructions](https://sumo.dlr.de/docs/Installing/Linux_Build.html), you will first need to install various dependencies.
+This can be done using the built-in package manager (`apt`) of Ubuntu, as shown below.
+
+```
+%post
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+```
+
+The first command is `apt-get update` and will update the list of available packages, which is necessary to get the latest versions of the packages in the following `apt-get install` command.
+The `apt-get install` command will install the dependencies required by the SUMO program.
+Note that these installation commands do not use `sudo`, as Apptainer already has permissions to install programs in the container.
+
+There can be issues with installing packages in a container that would not normally occur when installing manually in the terminal. 
+In the present case, the `apt` command needs access to the `tmp` folder in order to install the packages within the container.
+This can be done by adding the following line at the start of the `%post` section:
+
+```
+   chmod 777 /tmp
+```
+
+Similarly, some packages require that the user answer interactive prompts for selecting various options.
+Since the Apptainer build is non-interactive, this can cause the package installation to hang.
+While this isn't an issue in the present example, the issue can be avoided by adding the following line near the start of the `%post` section:
+
+```
+   DEBIAN_FRONTEND=noninteractive
+```
+Note that this only applies to Debian-based container images, such as Ubuntu.
+
+#### Compile the program
+The above commands will install the required dependencies, but you still need to include the commands for compiling the SUMO program itself. 
+Simply add the compiling commands after the installation commands for the dependencies, but still within the `%post` section:
+
+```
+%post
+    chmod 777 /tmp
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
+    cmake ../..
+    make
+
+```
+
+The `%post` section is now complete and will install SUMO and its dependencies in the container at build time.
+
+#### Setting environment variables
+Before building the image, you will want to update the environment for actually using the program.
+For example, in the `%post` section there is the command `export SUMO_HOME=/sumo`, which sets the environment variable `SUMO_HOME` to the location of the `sumo` directory.
+This environment variable, however, is only active during the installation phase of the container build, and will not be set when the container is actually run.
+
+To set environment variables automatically when your job runs, you need to add them in the `%environment` section.
+For the present example, you will need to set `SUMO_HOME` and update `PATH` with the location of the SUMO `bin` folder.
+To do so, add the following lines to the `image.def` file:
+
+```
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
+```
+
+These environment variables will be set when the container starts, allowing you to immediately use the `sumo` command in the container once it starts.
+
+#### Summary
+
+The full `image.def` file for this advanced example is now:
+
+```
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    chmod 777 /tmp
+    apt-get update -y
+    apt-get install -y \
+            git \
+            cmake \
+            python3 \
+            g++ \
+            libxerces-c-dev \
+            libfox-1.6-dev \
+            libgdal-dev \
+            libproj-dev \
+            libgl2ps-dev \
+            python3-dev \
+            swig \
+            default-jdk \
+            maven \
+            libeigen3-dev
+
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
+    cmake ../..
+    make
+
+%environment
+    export SUMO_HOME=/sumo
+    export PATH=/sumo/bin:$PATH
+```
+
+See the [Apptainer documentation](https://apptainer.org/docs/user/latest/definition_files.html) for a full reference on how to specify build specs. 
+> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
