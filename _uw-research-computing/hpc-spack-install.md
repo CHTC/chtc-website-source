@@ -9,11 +9,12 @@ guide:
     -hpc
 ---
 
-CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command (see [Using Software on the HPC Cluster](hpc-software.md)). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies. 
+CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies (similar to Conda and Miniconda). 
 
-**This guide describes how to install and manage software using Spack, including how to install and use a specific compiler.** If you or your group still need to set up your local installation of spack, see our other guide, [Setting Up Spack on HPC](hpc-spack-setup.md).
+**This guide describes how to install and manage software using Spack, including how to install and use a specific compiler.** 
 
-> If your group has already set up a shared group installation of Spack, make sure that you have followed the instructions in [3. Using a Shared Group Installation](hpc-spack-setup.md#3-using-a-shared-group-installation) in [Setting Up Spack on HPC](hpc-spack-setup.md) before using this guide.
+**This guide assumes you or your group has already set up your local installation of Spack.** If you have not installed Spack, follow the instructions in [Setting Up Spack on HPC](hpc-spack-setup.md).
+
 
 # Contents
 
@@ -23,7 +24,9 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 # 1. Installing Software Using Spack
 
-Once your local installation of Spack has been properly configured, you are now ready to install software using Spack. The following describes the general process for installing program packages with Spack. Check the documentation for the program you want to install to see if they have instructions for installation using Spack. Even if your program can't be installed using Spack, you can still use it to install the dependencies that your program needs. 
+Once your local installation of Spack has been properly configured, you are now ready to install software using Spack. 
+
+Check the documentation for the program you want to install to see if they have instructions for installation using Spack. Even if your program can't be installed using Spack, you can still use it to install the dependencies that your program needs. 
 
 > **Note**: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.
 
@@ -72,7 +75,7 @@ You will need to activate the environment when you wish to use the software that
 
 ## B. Finding Program Packages in Spack
 
-To see what packages are installed in the current Spack environment, run the command
+Once inside an active Spack environment, you can run the following command to see what packages are installed in the current environment
 
 ```
 spack find
@@ -273,7 +276,7 @@ spack env activate yourEnvironmentName
 ```
 {:.term}
 
-and Spack will update your shell accordingly. (Remember that you can see the available Spack environments by running the command `spack env list`).  Once the environment has been activated, you should be able to use the packages just as normal. You can confirm you are using a command installed using Spack by running
+and Spack will update your shell accordingly. (Remember that you can see the available Spack environments by running the command `spack env list`). Once the environment has been activated, you should be able to use the packages just as normal. You can confirm you are using a command installed using Spack by running
 
 ```
 which nameOfYourCommand

@@ -9,11 +9,10 @@ guide:
     -hpc
 ---
 
-CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command (see [Using Software on the HPC Cluster](hpc-software.md)). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies. 
+CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies (similar to Conda and Miniconda). 
 
-**This guide describes how to create and use custom modules for software packages installed using Spack.** For instructions on how to install software using Spack, see our guide [Installing Software Using Spack](hpc-spack-install.md). 
+**This guide describes how to create and use custom personal and shared modules for software packages installed using Spack.** For instructions on how to install software using Spack for you and/or your research group, see our guide [Installing Software Using Spack](hpc-spack-install.md). 
 
-> If your group has already set up a shared group installation of Spack, make sure that you have followed the instructions in [3. Using a Shared Group Installation](hpc-spack-setup.md#3-using-a-shared-group-installation) in [Setting Up Spack on HPC](hpc-spack-setup.md) before using this guide.
 
 # Contents
 
@@ -57,14 +56,14 @@ To have your custom modules found automatically by the `module` command, add the
 
 # 3. Creating Custom Modules Using Spack
 
-You may need to manually create the custom module files, especially after editing any of the modules configuration for Spack. To create the module files,  first activate the desired environment with 
+You may need to manually create the custom module files, especially after editing any of the modules configuration for Spack. To create the module files, first activate the desired environment with 
 
 ```
 spack env activate yourEnvironmentName
 ```
 {:.term}
 
-(where you should replace `yourEnvironmentName` with the your environment name) and then simply enter the following command:
+(where you should replace `yourEnvironmentName` with the your environment name) and then enter the following command:
 
 ```
 spack module tcl refresh
