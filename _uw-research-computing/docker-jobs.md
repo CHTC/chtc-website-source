@@ -25,7 +25,7 @@ advantageous if the software installation 1) has many dependencies, 2)
 requires installation to a specific location, or 3) "hard-codes" paths
 into the installation.
 
-CHTC (and the OS Pool) have capabilities to access and start containers and
+CHTC has capabilities to access and start containers and
 run jobs inside them. This guide shows how to do this for
 [Docker](https://www.docker.com/what-docker) containers.
 
