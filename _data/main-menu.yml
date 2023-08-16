@@ -16,6 +16,9 @@ nav_items:
   - id: uw-research-computing
     name: UW Research Computing
     url: /uw-research-computing/index.html
+  - id: guides
+    name: Guides
+    url: /uw-research-computing/guides.html
   - id: technologies
     name: Technologies
     url: /technologies.html
