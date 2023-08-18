@@ -85,7 +85,7 @@ when_to_transfer_output = ON_EXIT
 #  each job will need on the computer where it runs.
 request_cpus = 1
 request_memory = 1GB
-request_disk = 1MB
+request_disk = 1GB
 #
 # Tell HTCondor to run 3 instances of our job:
 queue 3
@@ -207,39 +207,46 @@ may arise. An excerpt from `hello-chtc_845638.log` produced due the
 submission of the 3 jobs will look something like this:
 
 ``` 
+000 (16990548.000.000) 2023-08-18 13:45:35 Job submitted from host: <128.105.244.191:9618?addrs=128.105.244.191-9618&alias=submit-1.chtc.wisc.edu&noUDP&sock=schedd_8205_86a8>
+...
+040 (16990548.000.000) 2023-08-18 13:46:30 Started transferring input files
+        Transferring to host: <128.105.69.181:9618?addrs=128.105.69.181-9618+[2607-f388-2200-100-1270-fdff-fe56-bd24]-9618&alias=e2564.chtc.wisc.edu&noUDP&sock=slot1_27_3212919_d6f5_134877>
+...
+040 (16990548.000.000) 2023-08-18 13:46:32 Finished transferring input files
+...
+001 (16990548.000.000) 2023-08-18 13:46:33 Job executing on host: <128.105.69.181:9618?addrs=128.105.69.181-9618+[2607-f388-2200-100-1270-fdff-fe56-bd24]-9618&alias=e2564.chtc.wisc.edu&noUDP&sock=startd_12944_15f9>
+        SlotName: slot1_27@e2564.chtc.wisc.edu
+        CondorScratchDir = "/var/lib/condor/execute/slot1/dir_103358"
+        Cpus = 1
+        Disk = 3624592
+        IoHeavy = 0
+        Memory = 4096
+...
+006 (16990548.000.000) 2023-08-18 13:46:33 Image size of job updated: 884
+        1  -  MemoryUsage of job (MB)
+        96  -  ResidentSetSize of job (KB)
+...
+040 (16990548.000.000) 2023-08-18 13:46:33 Started transferring output files
+...
+040 (16990548.000.000) 2023-08-18 13:46:33 Finished transferring output files
+...
+005 (16990548.000.000) 2023-08-18 13:46:33 Job terminated.
+        (1) Normal termination (return value 0)
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+        133  -  Run Bytes Sent By Job
+        133  -  Run Bytes Received By Job
+        133  -  Total Bytes Sent By Job
+        133  -  Total Bytes Received By Job
+        Partitionable Resources :    Usage  Request Allocated
+           Cpus                 :                 1         1
+           Disk (KB)            :       18  2097152   3624592
+           IoHeavy              :                           0
+           Memory (MB)          :        1     4096      4096
 
-000 (436950.000.000) 04/05 15:34:33 Job submitted from host: <128.104.101.92:9618?addrs=128.104...>
-...
-040 (436950.000.000) 04/05 15:34:50 Started transferring input files
-    Transferring to host: <128.104.55.170:9618?addrs=128.104....>
-...
-040 (436950.000.000) 04/05 15:34:50 Finished transferring input files
-...
-001 (436950.000.000) 04/05 15:34:51 Job executing on host: <128.104.55.170:9618?addrs=128.104...>
-...
-006 (436950.000.000) 04/05 15:35:00 Image size of job updated: 368
-    1  -  MemoryUsage of job (MB)
-    292  -  ResidentSetSize of job (KB)
-...
-040 (436950.000.000) 04/05 15:37:51 Started transferring output files
-...
-040 (436950.000.000) 04/05 15:37:51 Finished transferring output files
-...
-005 (436950.000.000) 04/05 15:37:51 Job terminated.
-    (1) Normal termination (return value 0)
-        Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
-        Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
-        Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
-        Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
-    60  -  Run Bytes Sent By Job
-    241  -  Run Bytes Received By Job
-    60  -  Total Bytes Sent By Job
-    241  -  Total Bytes Received By Job
-    Partitionable Resources :    Usage  Request Allocated 
-       Cpus                 :        0        1         1 
-       Disk (KB)            :       24     1024    908236 
-       Ioheavy              :                           0 
-       Memory (MB)          :        1     1024      1024 
+        Job terminated of its own accord at 2023-08-18T18:46:33Z with exit-code 0.
 ...
 ```
 {:.file}
