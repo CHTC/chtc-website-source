@@ -11,7 +11,7 @@ guide:
 
 CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies (similar to Conda and Miniconda).
 
-**This guide describes how to set up a local copy of Spack and integrate it with the system installation, either for an individual user or for a group of users.** For instructions on how to install packages with Spack, see our other guide, [Installing Software Using Spack](hpc-spack-install.md).
+**This guide describes how to set up a local copy of Spack and integrate it with the system installation, either for an individual user or for a group of users.** For instructions on how to install packages with Spack, see our other guide, [Installing Software Using Spack](hpc-spack-install.html).
 
 > If your group has already set up a shared group installation of Spack, you can skip to the end of this guide: [3. Using a Shared Group Installation](#3-using-a-shared-group-installation).
 
@@ -93,7 +93,7 @@ spack find
 
 This should show a list of packages, including those you see when you run the `module avail` command. A total of ~120 packages should be listed.
 
-You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.md).
+You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.html).
 
 # 2. Setting Up Spack for Group Use
 
@@ -195,7 +195,7 @@ export SPACK_USER_CONFIG_PATH=/home/groups/yourGroupName/.spack
 
 ### iii. Updating location of module files
 
-If you or someone in your group is interested in creating custom modules following the instructions in the guide [Creating Custom Modules Using Spack](hpc-spack-modules.md), then you should update the location where the module files will be saved. You can update the location with the following commands
+If you or someone in your group is interested in creating custom modules following the instructions in the guide [Creating Custom Modules Using Spack](hpc-spack-modules.html), then you should update the location where the module files will be saved. You can update the location with the following commands
 
 ```
 spack config add 'modules:default:roots:lmod:/home/groups/yourGroupName/spack_modules'
@@ -205,13 +205,13 @@ spack config add 'modules:default:roots:tcl:/home/groups/yourGroupName/spack_mod
 
 where you replace `yourGroupName` with your group's name. 
 
-You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.md).
+You are now ready to use Spack for installing the packages that you need! See the instructions in [Installing Software Using Spack](hpc-spack-install.html).
 
 # 3. Using a Shared Group Installation
 
 **Users who want to use a shared group installation of Spack, but who did not set up the installation**, only need to modify their `~/.bash_profile` file with instructions regarding the path to the shared group installation and its configuration files.
 
-1. Log in to the HPC cluster ([Connecting to CHTC](connecting.md)).
+1. Log in to the HPC cluster ([Connecting to CHTC](connecting.html)).
    ```
    ssh yourNetID@hpclogin3.chtc.wisc.edu
    ```
@@ -249,7 +249,7 @@ You are now ready to use Spack for installing the packages that you need! See th
 
    or else close the terminal and log in again.
 
-Once configured, you can follow the instructions in our guide [Installing Software Using Spack](hpc-spack-install.md) to install or use already-installed packages in Spack.
+Once configured, you can follow the instructions in our guide [Installing Software Using Spack](hpc-spack-install.html) to install or use already-installed packages in Spack.
 
 ## A. Switching Between Spack Installations
 
