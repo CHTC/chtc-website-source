@@ -13,7 +13,7 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 **This guide describes how to install and manage software using Spack, including how to install and use a specific compiler.** 
 
-**This guide assumes you or your group has already set up your local installation of Spack.** If you have not installed Spack, follow the instructions in [Setting Up Spack on HPC](hpc-spack-setup.md).
+**This guide assumes you or your group has already set up your local installation of Spack.** If you have not installed Spack, follow the instructions in [Setting Up Spack on HPC](hpc-spack-setup.html).
 
 
 # Contents
@@ -151,7 +151,7 @@ since the interactive session will start with the environment deactivated.
 
 ### ii. Create the local scratch directory
 
-Using the default configuration from [Setting Up Spack on HPC](hpc-spack-setup.md), Spack will try to use the machine's local disk space for staging and compiling files before transferring the finished results to the final installation directory.  Using this space will greatly improve the speed of the installation process. Create the local directory with the command
+Using the default configuration from [Setting Up Spack on HPC](hpc-spack-setup.html), Spack will try to use the machine's local disk space for staging and compiling files before transferring the finished results to the final installation directory.  Using this space will greatly improve the speed of the installation process. Create the local directory with the command
 
 ```
 mkdir /local/yourNetID/spack_build
@@ -233,7 +233,7 @@ rm -rf /local/yourNetID/spack_build
 
 and then enter `exit` to end the interactive session.
 
-To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.md).
+To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.html).
 
 ## E. Removing an Environment and Uninstalling Unneeded Packages
 
@@ -306,7 +306,7 @@ srun --mpi=pmix -n 64 /home/username/mpiprogram
 
 When you submit this job to Slurm and it executes the commands in the `sbatch` file, it will first activate the Spack environment, and then your program will be run using the programs that are installed inside that environment.
 
-> Some programs include explicit `module load` commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program's documentation for how to do so. You may want to create your own custom modules and modify your program to explicitly load your custom modules. See [Creating Custom Modules Using Spack](hpc-spack-modules.md) for more information on how to create your own modules using Spack.
+> Some programs include explicit `module load` commands in their execution, which may override the paths provided by the Spack environment. If your program appears to use the system versions of the packages instead of the versions installed in your Spack environment, you may need to remove or modify these explicit commands. Consult your program's documentation for how to do so. You may want to create your own custom modules and modify your program to explicitly load your custom modules. See [Creating Custom Modules Using Spack](hpc-spack-modules.html) for more information on how to create your own modules using Spack.
 
 # 3. Installing and Using a Specific Compiler
 
