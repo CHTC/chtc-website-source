@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: guide
 title: CHTC Services for Research Computing
 alt_title: CHTC Services for Research Computing
 ---

@@ -18,8 +18,8 @@ deactivate their account or remove files without notice.
 
 ## Access and Use
 
-Use of CHTC services should be in support of UW - Madison's research and teaching 
-mission. 
+Use of CHTC services are free to use in support of UW - Madison’s research and 
+teaching mission.
 
 Accounts are linked to individuals and should NOT be shared. We are happy to make new
 accounts for individuals or group-owned spaces for sharing files. Accounts that we 
@@ -62,8 +62,14 @@ head nodes and/or disable user accounts that violate this policy
 `cron` or using a workflow manager on the login node is not allowed without prior 
 discussion with the facilitation or infrastructure team. 
 
+**(HTC system specific): Do not run `watch` with `condor_q`**. The `condor_q` command 
+is sufficiently complex that running it with the `watch` command can impair queue 
+performance for everyone. Use `condor_watch_q` as an alternative that is more 
+efficient. 
+
 **Test your jobs**. We recommend testing a small version of your overall workflow 
 before submitting the "real thing" for many reasons: 
 
 - confirming how long the job(s) will run
 - confirming the size and number of input and output files and whether your quota is accurate
+
