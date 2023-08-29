@@ -4,7 +4,6 @@ layout: markdown-page
 title: Computing Guides
 ---
 
-
 <p>
 Below is a list of guides for some of the most common tasks our users need to
 carry out as they begin and continue to use the resources at the CHTC. 
@@ -16,23 +15,26 @@ Guides will be added to the list as we can provide them. Please contact us
 (email at bottom of page) if you find any of the information to be incorrect.
 </p>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="px-2 w-100">
-		<button class="navbar-toggler w-100 mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100" aria-current="page" href="#htc-documentation">HTC System</a>
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100 ms-auto ms-lg-2" aria-current="page" href="#hpc-documentation">HPC System</a>
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100 ms-0 ms-lg-2" aria-current="page" href="/approach.html">HTC vs HPC</a>
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100 ms-0 ms-lg-2" aria-current="page" href="#external-documentation">External Resources</a>
-		</div>
-	</div>
-</nav>
+<ul>
 
-{% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
+<li><a href="#getting-started">Before Getting Started</a></li>
+<li><a href="#login-and-data">Getting Connected and Moving Data</a></li>
+<li><a href="#htc-user-guides">HTC User Guides</a></li>
+<li><a href="#hpc-user-guides">HPC User Guides</a></li>
+<li><a href="#external-documentation">Additional Resources</a></li>
+</ul>
 
-<h2 id="htc-documentation" class="">HTC Documentation</h2>
+<h2 id="getting-started" class="">Before Getting Started</h2>
+
+All users should read our <a href="/uw-research-computing/user-expectations.html">User Expectations</a> before using any CHTC services. 
+
+If you are new to computing, we strongly recommend learning about using a 
+shell (or terminal) to interact with a computer and basic data organization 
+strategies. See <a href="#external-documentation">additional resources</a> below. 
+
+<h2 id="login-and-data" class="">Getting Connected and Moving Data</h2>
+
+{% assign category_order = "Basics and Policies" | split: "," %}
 {% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" %}
 <div class="row gx-2">
 {% for category in category_order %}
@@ -71,7 +73,48 @@ Guides will be added to the list as we can provide them. Please contact us
 {% endfor %}
 </div>
 
-<h2 id="hpc-documentation">HPC Documentation</h2>
+<h2 id="htc-user-guides" class="">HTC User Guides</h2>
+
+{% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
+{% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" %}
+<div class="row gx-2">
+{% for category in category_order %}
+	{% assign category_documents = documentation | where_exp: "x", "x.guide.category == category" | sort: "guide.order" %}
+	{% if category_documents.size != 0 %}
+		<div class="col-12 col-sm-6 col-lg-4">
+			<div class="list-group mb-3">
+				<div class="list-group-item d-flex flex-column">
+					{% if category == "Basics and Policies" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/checkmark.png" %}
+					{% endif %}
+					{% if category == "Job Submission" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/laptop_arrow.png" %}
+					{% endif %}
+					{% if category == "Handling Data in Jobs" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/data.png" %}
+					{% endif %}
+					{% if category == "Software Solutions" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/gear.png" %}
+					{% endif %}
+					{% if category == "Special Use Cases" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/processor.png" %}
+					{% endif %}
+					{% if category == "Troubleshooting" %}
+					{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
+					{% endif %}
+					<img class="mx-auto" style="height: 60px;" src="{{ img_src | relative_url }}" />
+					<h4 class="mt-0 mx-auto">{{ category }}</h4>
+				</div>
+				{% for document in category_documents %}
+				<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}">{{ document.alt_title | default: document.title }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endfor %}
+</div>
+
+<h2 id="hpc-user-guides">HPC Documentation</h2>
 {% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'hpc'" %}
 <div class="row gx-2">
 	{% for category in category_order %}
