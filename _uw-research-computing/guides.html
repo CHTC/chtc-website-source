@@ -26,7 +26,7 @@ Guides will be added to the list as we can provide them. Please contact us
 
 <h2 id="getting-started" class="">Before Getting Started</h2>
 
-All users should read our <a href="/uw-research-computing/user-expectations.html">User Expectations</a> before using any CHTC services. 
+All users should read our <a href="user-expectations.html">User Expectations</a> before using any CHTC services. 
 
 If you are new to computing, we strongly recommend learning about using a 
 shell (or terminal) to interact with a computer and basic data organization 
@@ -35,7 +35,7 @@ strategies. See <a href="#external-documentation">additional resources</a> below
 <h2 id="login-and-data" class="">Getting Connected and Moving Data</h2>
 
 {% assign category_order = "Basics and Policies" | split: "," %}
-{% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" %}
+{% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc' and x.guide.tag contains 'hpc'" %}
 <div class="row gx-2">
 {% for category in category_order %}
 	{% assign category_documents = documentation | where_exp: "x", "x.guide.category == category" | sort: "guide.order" %}
