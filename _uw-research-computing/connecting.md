@@ -84,10 +84,10 @@ different ways \-- from the command line or using an SSH program:
 
 <a name="login-ssh"></a>
 
-A. On the command line (Mac/Linux)
+A. On the command line
 ----------------------------------
 
-On a Mac or Linux system, you can use the \"Terminal\" application to
+On Mac, Linux, and modern Windows (10+) systems, you can use the \"Terminal\" application to
 log in. Open a terminal window and use the following command to connect
 to the appropriate server:
 
@@ -155,10 +155,10 @@ where your files are and where you would like them to go.
 
 <a name="transfer-scp"></a>
 
-A. On the command line (Mac/Linux)
+A. On the command line
 ----------------------------------
 
-On a Mac or Linux system, you can use the \"Terminal\" application and
+On Mac, Linux, or modern Windows (10+) systems, you can use the \"Terminal\" application and
 the `scp` command to copy files between your computer and CHTC servers.
 
 **Your computer to CHTC**
