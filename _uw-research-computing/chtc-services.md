@@ -4,7 +4,7 @@ title: CHTC Services for Research Computing
 alt_title: CHTC Services for Research Computing
 ---
 
-This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our [User Expectations](user-expecations.html) pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: [Getting Started](form.html)
+This page outlines CHTC services offered to UW - Madison affiliates and general guidelines for their use. Users with existing accounts should also refer to our [User Expectations](user-expectations.html) pages for more specific limits and guidelines for using CHTC services. To apply for a CHTC account, fill out this form: [Getting Started](form.html)
 
 ## Overview
 

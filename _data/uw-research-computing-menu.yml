@@ -9,17 +9,17 @@ nav_items:
     name: How To's
     url: /uw-research-computing/how-tos.html
     sub_menu:
-      - url: /uw-research-computing/get-help.html
-        name: Get Help
+      - url: /uw-research-computing/user-expectations.html
+        name: User Expectations
       - url: /uw-research-computing/guides.html#htc-documentation
         name: HTC Guides
       - url: /uw-research-computing/guides.html#hpc-documentation
         name: HPC Guides
       - url: /uw-research-computing/cite-chtc.html
         name: Cite CHTC Resources
-  - id: user-news
-    name: User News
-    url: /uw-research-computing/user-news.html
+  - id: get-help
+    name: Get Help
+    url: /uw-research-computing/get-help.html
   - id: menu-other-resources
     name: Other Resources
     url: /uw-research-computing/other-resources.html
