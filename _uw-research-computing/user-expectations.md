@@ -45,7 +45,7 @@ Because our systems are shared by many CHTC users, everyone contributes to
 helping the systems run smoothly. The following are some initial best practices 
 to get the most out of CHTC without harming other users. Our goal 
 is always to help you get your work done - if you think the following recommendations 
-limits your capacity to run work, please contact us to discuss alternatives. 
+limit your capacity to run work, please contact us to discuss alternatives. 
 
 **Never run computationally intensive tasks on the login nodes** for either 
 system. As a rule of thumb, anything that runs for more than a few seconds, or 
@@ -60,9 +60,16 @@ head nodes and/or disable user accounts that violate this policy
 `cron`, `watch`, or using a workflow manager (not including HTCondor's DAGMan) on the login node is not allowed without prior 
 discussion with the facilitation or infrastructure team. 
 
-> **(HTC system specific): Since use of `watch` with `condor_q` is prohibited, we recommend using `condor_watch_q` as an alternative for live updates on your jobs in the queue. `condor_watch_q` is more efficient and will not impair system performance. 
+> **(HTC system specific):** Since use of `watch` with `condor_q` is prohibited, 
+we recommend using `condor_watch_q` as an alternative for live updates on your jobs 
+in the queue. `condor_watch_q` is more efficient and will not impair system performance. 
 
 **Test your jobs**. We recommend testing a small version of your overall workflow 
-before submitting your full workflow. By testing a smaller version of your jobs, you can determine resource requests, runtimes, and whether you may need an increase in your user quota. Both our HTC and HPC systems use a fair shair policy and each researcher has a user priority. **Submitting many jobs that fail or do not produce the unexpected output will decrease your user priority without helping you complete your research.** User priorities are reset periodically.  
+before submitting your full workflow. By testing a smaller version of your jobs, 
+you can determine resource requests, runtimes, and whether you may need an increase 
+in your user quota. Both our HTC and HPC systems use a fair shair policy and each 
+researcher has a user priority. **Submitting many jobs that fail or do not produce 
+the unexpected output will decrease your user priority without helping you complete 
+your research.**  User priorities naturally reset over time. 
 
 
