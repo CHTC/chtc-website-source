@@ -35,7 +35,7 @@ CHTC operates two large-scale computing systems.
 * About 8k CPU cores
 * Infiniband networking for multi-node capability
 * Single user: up to 10 jobs running or 720 cores in use
-* Scheduled using SLURM
+* Jobs are scheduled using SLURM job scheduling software
 
 CHTC computing capacity is allocated via a fair-share scheduling algorithm. For groups that require additional or dedicated computing capacity, there is the option to purchase hardware. See our description of buy-in options here: [CHTC Buy-In Overview](https://docs.google.com/document/d/1uz0YRUNOoJdB1mCYwg7Z4YtJm9nRhBoj/edit#heading=h.gjdgxs)
 

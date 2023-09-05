@@ -7,8 +7,6 @@ guide:
     category: Basics and Policies
 ---
 
-**If you have not yet requested a CHTC account and met with a Research
-Computing Facilitator, please fill out [this form](form.html).**
 
 This page lists important policies and expectations for using CHTC computing and 
 data services. Our goal is to provide services that work well for **all users**, 
@@ -21,10 +19,10 @@ deactivate their account or remove files without notice.
 Use of CHTC services are free to use in support of UW - Madison’s research and 
 teaching mission.
 
-Accounts are linked to individuals and should NOT be shared. We are happy to make new
+**Accounts are linked to individuals and should NOT be shared.** We are happy to make new
 accounts for individuals or group-owned spaces for sharing files. Accounts that we 
 notice being shared will be immediately disabled and a meeting with the PI 
-(faculty advisor)may be necessary to reinstate the account.
+(faculty advisor) may be necessary to reinstate the account.
 
 ## Data Policies
 
@@ -39,7 +37,7 @@ corruption, which are possible in the absence of back-ups.
 
 **Note: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
 CHTC services. If you have data security concerns or any questions about 
-data security in CHTC, please get in touch! We'll be happy to discuss.
+data security in CHTC, please get in touch! 
 
 ## User Expectations
 
@@ -59,17 +57,12 @@ please contact the facilitation team. CHTC staff reserve the right to kill any l
 head nodes and/or disable user accounts that violate this policy
 
 **Avoid unsupervised scripts on the login nodes.** Automating tasks via tools like 
-`cron` or using a workflow manager on the login node is not allowed without prior 
+`cron`, `watch`, or using a workflow manager (not including HTCondor's DAGMan) on the login node is not allowed without prior 
 discussion with the facilitation or infrastructure team. 
 
-**(HTC system specific): Do not run `watch` with `condor_q`**. The `condor_q` command 
-is sufficiently complex that running it with the `watch` command can impair queue 
-performance for everyone. Use `condor_watch_q` as an alternative that is more 
-efficient. 
+> **(HTC system specific): Since use of `watch` with `condor_q` is prohibited, we recommend using `condor_watch_q` as an alternative for live updates on your jobs in the queue. `condor_watch_q` is more efficient and will not impair system performance. 
 
 **Test your jobs**. We recommend testing a small version of your overall workflow 
-before submitting the "real thing" for many reasons: 
+before submitting your full workflow. By testing a smaller version of your jobs, you can determine resource requests, runtimes, and whether you may need an increase in your user quota. Both our HTC and HPC systems use a fair shair policy and each researcher has a user priority. **Submitting many jobs that fail or do not produce the unexpected output will decrease your user priority without helping you complete your research.** User priorities are reset periodically.  
 
-- confirming how long the job(s) will run
-- confirming the size and number of input and output files and whether your quota is accurate
 

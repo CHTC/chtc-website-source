@@ -73,7 +73,7 @@ strategies. See <a href="#external-documentation">additional resources</a> below
 {% endfor %}
 </div>
 
-<h2 id="htc-user-guides" class="">HTC User Guides</h2>
+<h2 id="htc-user-guides" class="">High Throughput Computing (HTC) User Guides</h2>
 
 {% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
 {% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" %}
@@ -114,7 +114,7 @@ strategies. See <a href="#external-documentation">additional resources</a> below
 {% endfor %}
 </div>
 
-<h2 id="hpc-user-guides">HPC Documentation</h2>
+<h2 id="hpc-user-guides">High Performance Computing (HPC) User Guides</h2>
 {% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'hpc'" %}
 <div class="row gx-2">
 	{% for category in category_order %}
