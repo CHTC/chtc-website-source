@@ -38,41 +38,18 @@ For more detailed information on connecting to CHTC services, both
 logging in and transferring files, see our [Connecting to CHTC
 guide](connecting.html).
 
-Data Practices
---------------
+## General User Policies
 
-**CHTC data locations are not backed up**, and users should
-treat CHTC compute systems as temporary storage locations for *active*,
-currently-queued computational work. Users should remove data from CHTC
-systems upon completion of a batch of computational work and keep copies of
-all essential files in a non-CHTC location. CHTC staff reserve the right
-to delete data from any CHTC data location at at any time, to preserve
-performance, and are not responsible for data loss or file system
-corruption, which are possible in the absence of back-ups.
+See our [User Policies and Expectations](user-expectations.html) for details on general CHTC policies. 
 
-**Note: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
-CHTC services. If you have data security concerns or any questions about 
-data security in CHTC, please get in touch! We'll be happy to discuss.
+## HTC System Specific Limits
 
-Submit Server User Policies
----------------------------
+Below are some of the default limits on CHTC's HTC system. Note that as a large-scale 
+computing center, we want you to be able to run at a large scale - often much larger 
+than these defaults. Please contact the facilitation team whenever you encounter one 
+of these limits so we can adjust your account settings or discuss alternative ways to 
+achieve your computing goals. 
 
-Because our submit servers are shared by many CHTC users, anyone with an
-account on CHTC\'s submit servers should follow the below policies, in
-order to keep the submit servers functional and usable by everyone:
-
--   **Do not share accounts**. We are happy to make a new account
-    for any user. Sharing accounts is against campus policy and,
-    therefore, CHTC policy. Accounts that we notice being shared will be
-    immediately disabled and a meeting with the PI (faculty advisor)
-    will be necessary to reinstate the account.
--   **Do not run programs on the submit servers.** The submit server is
-    kept plenty busy just managing HTCondor jobs. Computational work,
-    like compiling or testing code, should be submitted as HTCondor jobs. See our
-    [online guides](guides.html) for the best compiling practices.
-    Small scripts and commands (to compress data, create directories,
-    etc.) that run within a few minutes on the submit server are okay,
-    but their use should be minimized when possible.
 -   **Jobs with long runtimes.** There is a default run limit of 72
     hours for each job queued in the HTC System, once it starts running.
     Jobs longer than this will be placed in HTCondor\'s \"hold\" state.
@@ -95,7 +72,3 @@ order to keep the submit servers functional and usable by everyone:
     files up to 100MB in size (or 500MB total, per job). For jobs with larger
     files, please see our guide on [File Availability](file-availability.html) 
     Options, and contact us to make arrangements.
--   **No scheduled jobs.** Local execution and job submission should be
-    manual (using `condor_submit`), or use a DAG or other approved workflow tool. Do not use cron 
-    or other scripts that run on the submit server to automate job submission. 
-    Contact us if you need help with job scheduling or workflows.

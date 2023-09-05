@@ -41,72 +41,7 @@ resources (including non-CHTC services) that best fit your needs.
 
 # HPC Cluster User Policies
 
-Below is a list of policies that apply to all HPC users. 
-
-**1. Minimize Work on the Login Nodes**   
-The HPC Cluster login nodes have 
-limited computing resources that are occupied with running Slurm and managing job submission, 
-and are not suitable for testing your research software. 
-
-Users may run basic data management commands (like `tar`, `cp`, `mkdir`) on the login nodes. The 
-execution of scripts, including cron, software, and software compilation on the login nodes
-is prohibited (and could VERY likely crash the head node). However, users may run small scripts 
-and commands (to compress data, create directories, etc.) that run within a few minutes, minimizing
-their use as much as possible. If you are unsure if your scripts are suitable 
-for running on the login nodes, consider using an interactive job or contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
-
-**CHTC staff reserve the right to kill any long-running or problematic processes on the 
-head nodes and/or disable user accounts that violate this policy**
-
-Violation of these policies may result in suspension of your account.
-
-**2. The HPC Cluster is Reserved for MPI-enabled, Multi-node Jobs**   
-HPC users should not run numerous jobs on the HPC Cluster that can individually finish 
-within 7 days or use less than 40 cores, given its 
-optimization for multi-cpu and multi-node/MPI work. Users may 
-be asked to transition individual jobs needing less than 40 cores 
- to our high-throughput computing (HTC) system, where they 
-will also experience better turnaround.
-
-**3. Maintain Copies of Essential Data in non-CHTC Locations**    
-The HPC Cluster filesystem should be treated as temporary/scratch space, and only files necessary for 
-actively-running jobs should be kept on the filesystem. Once your jobs complete, 
-your files should be removed from the cluster filesystem. Campus researchers have several options 
-for persistent data storage solutions, including [ResearchDrive](https://it.wisc.edu/services/researchdrive/) 
-which provides up to 5TB of storage for free per research PI. Our guide 
-[Transferring Files Between CHTC and ResearchDrive](transfer-data-researchdrive.html) provides 
-step-by-step instructions for transferring your data between HPC Cluster and ResearchDrive.
-
-CHTC Staff reserve the right to remove any significant amounts of data on the HPC Cluster 
-in our efforts to maintain filesystem performance for all users, though we will always 
-first ask users to remove excess data and minimize file counts before taking additional action.
-
-**NOTE: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
-CHTC systems. If you have data security concerns or any questions about 
-data security in CHTC, please get in touch! We'll be happy to discuss.
-
-**4. Fair-share Policy**  
-To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
-running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
-across all running jobs (core limits do not apply on research group partitions of
-more than 720 cores).
-
-When determining which order to run jobs, the following policies are applies, in order or significance
-to job priority determinations:
-
-A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
-all queues. This "fair-share" policy means that users who have run many/larger jobs in the near-past 
-will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
-(The cluster does not have a strict "first-in-first-out" queue policy.)
-
-B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
-the next most important factor for each job's priority is the amount of time that each job has already 
-waited in the queue. For all the jobs of a single user, these jobs will most closely follow a "first-in-first-out" policy.
-
-C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
-the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
-wasted time to deliberately drain nodes for larger jobs). So, among a user's jobs submitted at roughly the same time, 
-a larger job may run first, if the number of nodes necessary for the larger job is already available.
+See our [User Policies and Expectations](user-expectations.html) for details on general CHTC and HPC cluster policies. 
 
 # HPC Hardware and Configuration
 
@@ -163,6 +98,31 @@ Jobs submitted to `pre` are run as back-fill on any idle nodes, including resear
 compute nodes, meaning these jobs may be pre-empted by higher priority 
 jobs. By default, pre-empted jobs will be re-queued (to run again) if they were submitted with 
 an sbatch script.
+
+### Fair Share Allocation
+
+To promote fair access to HPC computing resources, all users are limited to 10 concurrently 
+running jobs (if you need to queue more, please get in touch). Additionally, users are restricted to a total of 720 cores 
+across all running jobs (core limits do not apply on research group partitions of
+more than 720 cores).
+
+When determining which order to run jobs, the following policies are applies, in order or significance
+to job priority determinations:
+
+A. User priority decreases as the user accumulates hours of CPU time over the last 21 days, across 
+all queues. This "fair-share" policy means that users who have run many/larger jobs in the near-past 
+will have a lower priority, and users with little recent activity will see their waiting jobs start sooner. 
+(The cluster does not have a strict "first-in-first-out" queue policy.)
+
+B. Job priority increases with job wait time. After the history-based user priority calculation in (A), 
+the next most important factor for each job's priority is the amount of time that each job has already 
+waited in the queue. For all the jobs of a single user, these jobs will most closely follow a "first-in-first-out" policy.
+
+C. Job priority increases with job size, in cores. This least important factor slightly favors larger jobs, so that 
+the scheduler can take advantage when large numbers of newly-available nodes happen to become available (requiring less 
+wasted time to deliberately drain nodes for larger jobs). So, among a user's jobs submitted at roughly the same time, 
+a larger job may run first, if the number of nodes necessary for the larger job is already available.
+
 
 # Data Storage and Management
 
