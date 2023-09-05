@@ -1,25 +1,19 @@
 nav_items:
   - id: home
-    name: Home
+    name: Research Computing Home
     url: /uw-research-computing/index.html
   - id: get-started
     name: Get Started
     url: /uw-research-computing/form.html
   - id: menu-how-tos
     name: How To's
-    url: /uw-research-computing/how-tos.html
-    sub_menu:
-      - url: /uw-research-computing/get-help.html
-        name: Get Help
-      - url: /uw-research-computing/guides.html#htc-documentation
-        name: HTC Guides
-      - url: /uw-research-computing/guides.html#hpc-documentation
-        name: HPC Guides
-      - url: /uw-research-computing/cite-chtc.html
-        name: Cite CHTC Resources
-  - id: user-news
-    name: User News
-    url: /uw-research-computing/user-news.html
+    url: /uw-research-computing/guides.html
+  - id: get-help
+    name: Get Help
+    url: /uw-research-computing/get-help.html
+  - id: cite-chtc
+    name: Cite CHTC
+    url: /uw-research-computing/cite-chtc.html
   - id: menu-other-resources
     name: Other Resources
     url: /uw-research-computing/other-resources.html
