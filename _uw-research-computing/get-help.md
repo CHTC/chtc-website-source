@@ -66,8 +66,7 @@ We will use this information to give you more effective responses and solutions.
 
 **Cancellations will be announced via email and on this webpage.**
 
-In light of [measures being taken by campus regarding COVID-19](https://covid19.wisc.edu/), 
-we have replaced in-person office hours with virtual office hours, office hours are:
+For users who already have accounts, we have drop-in office hours, online, during the following times:
 
 -   **Tuesday morning: 10:30am - 12:00pm.** 
 -   **Thursday afternoon: 3:00 - 4:30 pm.** 
