@@ -19,11 +19,11 @@ throughput or high performance compute systems. If you haven\'t, see our
 {% capture content %}
 1.  [Accessing the Submit Servers]()
 2.  [Logging In](#login)
-    -   [On the command line (Mac/Linux)](#login-ssh)
+    -   [On the command line](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
     -   [Re-using SSH connections](#c-re-using-ssh-connections)
 3.  [Transferring Files](#transfer)
-    -   [On the command line (Mac/Linux)](#transfer-scp)
+    -   [On the command line](#transfer-scp)
     -   [Using a file transfer program (Windows/Mac)](#transfer-winscp)
     -   [Transferring Multiple Files](#transfer-winscp)
 4.  [Creating and Editing Files](#files)
