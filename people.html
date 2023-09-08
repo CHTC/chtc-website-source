@@ -41,5 +41,14 @@ title: Our Staff
                 </div>
             {% endfor %}
         </div>
+        <h2 class="uw-mini-bar">Previous Staff</h2>
+        <div class="row gx-1">
+            {% assign sorted_team = team | where: "status", "Past" | sort: "name" %}
+            {% for member in sorted_team %}
+                <div class="col-xl-2 col-md-3 col-sm-4 col-6">
+                    {% include /components/team-card.html %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
