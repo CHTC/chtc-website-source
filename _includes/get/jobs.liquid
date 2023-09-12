@@ -7,7 +7,5 @@
     {% assign close_date = job.close_date | default: 99999999999 %}
     {% if close_date > now %}
         {% assign jobs = jobs | push: job %}
-    {% else %}
-        close_date < now
     {% endif %}
 {% endfor %}
