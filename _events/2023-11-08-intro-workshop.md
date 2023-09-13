@@ -30,9 +30,10 @@ Register here: [Workshop Registration](https://uwmadison.co1.qualtrics.com/jfe/f
 
 {% capture subsection %}
 {: .mt-0 }
+
 ### Who
 
-CHTC Interested Users
+UW-Madison faculty, students, and staff interested in using CHTC resources. 
 
 ### When
 

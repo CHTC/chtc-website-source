@@ -27,9 +27,10 @@ with time to reflect and discuss how your research might fit onto CHTC resources
 
 {% capture subsection %}
 {: .mt-0 }
+
 ### Who
 
-CHTC Interested Users
+UW-Madison faculty, students, and staff interested in large-scale computing. 
 
 ### When
 
