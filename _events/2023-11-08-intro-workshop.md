@@ -1,6 +1,6 @@
 ---
 short_title: CHTC Introduction Workshop
-title: "CHTC Introduction Workshop"
+title: "Hands-on Introduction to CHTC Resources Workshop"
 published: true
 
 excerpt: |

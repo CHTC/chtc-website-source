@@ -20,7 +20,7 @@ and data services for UW-Madison affiliates at this information session!</p>
 
 Come eat pizza and meet CHTC's Research Computing Facilitation team on 
 Wednesday, September 27. We'll present a general introduction to CHTC services, 
-with time to reflect and discuss how your research might fit onto CHTC resources. 
+with time to reflect and discuss how your research might fit the resources offered by the Center for High Throughput Computing.
 
 {% endcapture %}
 
@@ -38,7 +38,7 @@ Wednesday, September 27, 12:00 - 1:00 pm CST
 
 ### Where
 
-UW-Madison Campus, Room 1240, Computer Sciences Building
+Computer Sciences Building, Room 1240, UW-Madison Campus
 
 ## Registration
 
