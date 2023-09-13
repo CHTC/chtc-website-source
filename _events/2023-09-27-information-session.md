@@ -18,9 +18,11 @@ header_image: "/images/HTC23-osg-services.jpg"
 <p style="font-size: larger; font-weight: bold;">Learn about CHTC's computing 
 and data services for UW-Madison affiliates at this information session!</p>
 
-Come eat pizza and meet CHTC's Research Computing Facilitation team on 
-Wednesday, September 27. We'll present a general introduction to CHTC services, 
-with time to reflect and discuss how your research might fit the resources offered by the Center for High Throughput Computing.
+The Center for High Throughput Computing (CHTC) is hosting an Information Session to welcome the new academic year! Pizza will be provided and CHTC staff will present an introduction to getting started using CHTC resources to help you accomplish your computational research goals. 
+
+Please register to help us estimate the number of 
+attendees: [Register Here](https://uwmadison.co1.qualtrics.com/jfe/form/SV_2uynNfv0tMatfFQ)
+
 
 {% endcapture %}
 

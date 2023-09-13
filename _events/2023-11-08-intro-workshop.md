@@ -1,6 +1,6 @@
 ---
 short_title: CHTC Introduction Workshop
-title: "Hands-on Introduction to CHTC Resources Workshop"
+title: "Workshop: Hands-on Introduction to CHTC"
 published: true
 
 excerpt: |
@@ -23,7 +23,11 @@ started? This is the workshop for you! We'll cover the basics of logging in
 and submitting jobs on CHTC systems, and include time for discussions and 
 questions about your own work. 
 
-Register here: [Workshop Registration](https://uwmadison.co1.qualtrics.com/jfe/form/SV_cHAmcNjIgYeoKJ8)
+Registration is required and you can register here: [Workshop Registration](https://uwmadison.co1.qualtrics.com/jfe/form/SV_cHAmcNjIgYeoKJ8)
+
+This workshop is also included in the series of fall workshops offered by 
+the Data Science Hub. See other workshops in the series
+here: [Data Science Hub Fall 2023 Mini Workshops](https://uw-madison-datascience.github.io/2023-09-13-uwmadison-mini/)
 
 {% endcapture %}
 
@@ -41,9 +45,11 @@ Wednesday, November 8, 2023, 9:00 am - 12:30 pm CST
 
 ### Where
 
-UW-Madison Campus, Room 1240, Computer Sciences Building
+Computer Sciences Building, Room 1240, UW-Madison Campus
 
 ### Registration
+
+Registration is required. 
 
 [Register Here](https://uwmadison.co1.qualtrics.com/jfe/form/SV_cHAmcNjIgYeoKJ8)
 
