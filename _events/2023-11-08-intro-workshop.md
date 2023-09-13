@@ -1,5 +1,5 @@
 ---
-short_title: CHTC Introduction Workshop
+short_title: "Workshop: Hands-on Introduction to Using CHTC Systems"
 title: "Workshop: Hands-on Introduction to Using CHTC Systems"
 published: true
 
