@@ -4,7 +4,7 @@ title: "CHTC Introduction Workshop"
 published: true
 
 excerpt: |
-	Get hands-on experience with large-scale computing by attending this half-day workshop introducing CHTC services. 
+    Get hands-on experience with large-scale computing by attending this half-day workshop introducing CHTC services. 
 
 start_date: 2023-11-08
 end_date: 2023-11-08
