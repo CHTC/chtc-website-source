@@ -11,4 +11,4 @@
     {% endif %}
 {% endfor %}
 
-{% assign past_events = past_events | sort: "end_date" %}
+{% assign past_events = past_events | sort: "end_date" | reverse %}
