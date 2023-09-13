@@ -1,6 +1,6 @@
 ---
 short_title: CHTC Introduction Workshop
-title: "Workshop: Hands-on Introduction to CHTC"
+title: "Workshop: Hands-on Introduction to Using CHTC Systems"
 published: true
 
 excerpt: |
@@ -9,14 +9,14 @@ excerpt: |
 start_date: 2023-11-08
 end_date: 2023-11-08
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
-image: "/images/OSGUS23-andrew-help.jpg"
-header_image: "/images/OSGUS23-andrew-help.jpg"
+image: "/images/HTC23-osg-services.jpg"
+header_image: "/images/HTC23-osg-services.jpg"
 ---
 
 {% capture main %}
 
-<p style="font-size: larger; font-weight: bold;">Introduction to CHTC Workshop 
-with hands-on exercises and discussion.</p>
+<p style="font-size: larger; font-weight: bold;">Join us for a half-day workshop 
+on getting started in CHTC, featuring hands-on exercises and discussion.</p>
 
 Have you gotten a CHTC account (or wanted to) and not quite been able to get 
 started? This is the workshop for you! We'll cover the basics of logging in 

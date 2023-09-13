@@ -9,14 +9,14 @@ excerpt: |
 start_date: 2023-09-27
 end_date: 2023-09-27
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
-image: "/images/HTC23-osg-services.jpg"
-header_image: "/images/HTC23-osg-services.jpg"
+image: "/images/OSGUS23-andrew-help.jpg"
+header_image: "/images/OSGUS23-andrew-help.jpg"
 ---
 
 {% capture main %}
 
 <p style="font-size: larger; font-weight: bold;">Learn about CHTC's computing 
-and data services for UW-Madison affiliates at this information session!</p>
+and data services for UW-Madison affiliates at this lunchtime information session!</p>
 
 The Center for High Throughput Computing (CHTC) is hosting an Information Session to welcome the new academic year! Pizza will be provided and CHTC staff will present an introduction to getting started using CHTC resources to help you accomplish your computational research goals. 
 
