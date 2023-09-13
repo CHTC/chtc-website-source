@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2023-11-08
 end_date: 2023-11-08
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
-image: "/images/FirstDayClass_AD21_0269.jpg"
-header_image: "/images/FirstDayClass_AD21_0269.jpg"
+image: "/images/OSGUS23-andrew-help.jpg"
+header_image: "/images/OSGUS23-andrew-help.jpg"
 ---
 
 {% capture main %}

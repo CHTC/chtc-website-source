@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2023-09-27
 end_date: 2023-09-27
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
-image: "/images/CDIS_Career_Fair22_3942.jpg"
-header_image: "/images/CDIS_Career_Fair22_3942.jpg"
+image: "/images/HTC23-osg-services.jpg"
+header_image: "/images/HTC23-osg-services.jpg"
 ---
 
 {% capture main %}
