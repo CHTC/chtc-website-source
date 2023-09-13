@@ -4,9 +4,6 @@ title: Transitioning to a New HPC Cluster
 guide: 
     button_class: bg-warning
     order: 0
-    category: Basics and Policies
-    tag:
-        - hpc
 ---
 
 The Center for High Throughput Computing’s High Performance Cluster is being 
