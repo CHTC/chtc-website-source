@@ -21,14 +21,13 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.WEB_PREVIEW_DEPLOY_KEY }}
 
-      - name: Configure for Dev Preview
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-
       - name: Delete and Push
         run: |
           git clone ${{ env.preview_url }}
+          
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
           cd web-preview
           git checkout -b preview origin/main
           git rm -rf ${{ env.BRANCH_NAME }}
