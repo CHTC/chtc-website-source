@@ -1,11 +1,12 @@
 name: Deploy Web Previews
 on:
+  workflow_dispatch:
   delete:
     branches:
       - preview-**
 
 jobs:
-  Delete Preview Page:
+  delete-preview-page:
     if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
     env:
