@@ -24,11 +24,11 @@ jobs:
       - name: Delete and Push
         run: |
           git clone ${{ env.preview_url }}
+          cd web-preview
           
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
-          cd web-preview
           git checkout -b preview origin/main
           git rm -rf ${{ env.BRANCH_NAME }}
           git add .
