@@ -16,9 +16,9 @@
             <h4 class="mt-0 text-muted">
                 {% if event.start_date != event.end_date %}
                     {% assign end = event.end_date | date: "-%e" %}
-                    {{ event.start_date | date: "%b %e" | upcase | append : end }}
+                    {{ event.start_date | date: "%b %e, %Y" | upcase | append : end }}
                 {% else %}
-                    {{ event.start_date | date: "%b %e" | upcase }}
+                    {{ event.start_date | date: "%b %e, %Y" | upcase }}
                 {% endif %}
             </h4>
         {% endif %}
