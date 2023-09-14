@@ -36,7 +36,7 @@ UW-Madison faculty, students, and staff interested in large-scale computing.
 
 ### When
 
-Wednesday, September 27, 12:00 - 1:00 pm CST
+Wednesday, September 27, 2023, 12:00 - 1:00 pm CST
 
 ### Where
 
