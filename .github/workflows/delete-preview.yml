@@ -1,6 +1,5 @@
 name: Delete Web Previews
 on:
-  workflow_dispatch:
   delete:
     branches:
       - preview-**
@@ -13,9 +12,6 @@ jobs:
       preview_url: https://github.com/CHTC/web-preview.git
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
 
       - name: Get branch name
         run: echo "BRANCH_NAME=${{ github.event.ref }}" >> $GITHUB_ENV
@@ -27,10 +23,10 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          git remote add web-preview ${{ env.preview_url }}
-          git fetch --all
-          git checkout -b preview web-preview/main
+          git clone ${{ env.preview_url }}
+          cd web-preview
+          git checkout -b preview origin/main
           git rm -rf ${{ env.BRANCH_NAME }}
           git add .
           git commit -m "Remove the Deleted Branch"
-          git push web-preview HEAD:main
+          git push HEAD:main
