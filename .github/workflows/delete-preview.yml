@@ -18,10 +18,13 @@ jobs:
         with:
           repository: CHTC/web-preview
           token: ${{ secrets.WEB_PREVIEW_DEPLOY_TOKEN}}
+          path: web-preview
 
 
       - name: Delete and Push
         run: |
+          cd web-preview
+          
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
