@@ -4,10 +4,10 @@ title: "CHTC Information Session"
 published: true
 
 excerpt: |
-    Want to learn more about how the CHTC could support your research? Come to an information session (with pizza!) on September 27. 
+    Want to learn more about how the CHTC could support your research? Come to an information session (with pizza!) on October 4!
 
-start_date: 2023-09-27
-end_date: 2023-09-27
+start_date: 2023-10-04
+end_date: 2023-10-04
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
 image: "/images/OSGUS23-andrew-help.jpg"
 header_image: "/images/OSGUS23-andrew-help.jpg"
@@ -36,7 +36,7 @@ UW-Madison faculty, students, and staff interested in large-scale computing.
 
 ### When
 
-Wednesday, September 27, 2023, 12:00 - 1:00 pm CST
+Wednesday, October 4, 2023, 12:00 - 1:00 pm CST
 
 ### Where
 
