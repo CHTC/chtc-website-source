@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Using Custom Linx Versions in CHTC
+title: Using Custom Linux Versions in CHTC
 guide: 
     order: 7
     category: Special Use Cases
