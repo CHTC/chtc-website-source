@@ -28,4 +28,4 @@ when to use DAGMan and its most useful features:
 
 For full details on various DAGMan features, see the HTCondor manual page: 
 
-* [DAGMan Manual Page](https://htcondor.readthedocs.io/en/latest/users-manual/dagman-workflows.html)
+* [DAGMan Manual Page](https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html)
