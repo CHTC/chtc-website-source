@@ -50,7 +50,7 @@ title: Available Positions
                 <a href="http://www.osg-htc.org/">The OSG</a>.
             </p>
 
-            {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'fulltime'" %}
+            {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'Full Time'" %}
             {% if fulltime_jobs.size > 0 %}
                 <h2 id="full-time-positions">Full Time Positions</h2>
                 <p>
@@ -63,51 +63,7 @@ title: Available Positions
                 </p>
 
                 {% for job in fulltime_jobs %}
-                    <div class="rounded bg-light p-2 pt-1 mb-2">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.title }} - {{ job.institution }}</h3>
-                            </div>
-                            <div class="col-auto d-flex">
-                                {% if job.close_date != null %}
-                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        {{ job.text | markdownify }}
-                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'student'" %}
-            {% if student_jobs.size > 0 %}
-                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
-                <p>
-                    We're always looking for smart motivated students to partner with
-                    software developer and system administrator mentors. We expect students
-                    to work between 10 and 20 hours a week, with 10 of those being during
-                    business hours, with some flexibility on remaining hours. During the
-                    summer and breaks, it is possible to work up to 40 hours per week.
-                </p>
-
-                {% for job in student_jobs %}
-                    <div class="rounded bg-light p-2 pt-1 mb-2">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.title }} - {{ job.institution }}</h3>
-                            </div>
-                            <div class="col-auto d-flex">
-                                {% if job.close_date != null %}
-                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        {{ job.text | markdownify }}
-                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
-                    </div>
+                    {% include /components/job-card.html %}
                 {% endfor %}
             {% endif %}
 
@@ -169,7 +125,7 @@ title: Available Positions
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
-                                {% for job in jobs %}
+                                {% for job in fulltime_jobs %}
                                     <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
                                 {% endfor %}
                             </ul>

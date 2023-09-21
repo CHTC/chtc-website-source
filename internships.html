@@ -1,0 +1,74 @@
+---
+highlighter: none
+layout: default
+title: Internship Opportunities
+---
+
+{% include /get/jobs.liquid %}
+
+TEst
+
+<figure>
+    <img class="w-100" style="object-fit: cover; max-height: 400px;" src="/images/Emile_Working.jpg"
+         alt="IT Professional, Emile, working in the Discovery Server Rooms"/>
+    <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
+</figure>
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-lg-8">
+            {% include page-title.html title=page.title %}
+            <p>
+                If you're a student passionate about shaping the future of distributed 
+                computing in an academic setting, the Center for High Throughput 
+                Computing (CHTC) at the University of Wisconsin-Madison (UW) invites 
+                you to be a part of our vibrant internship program. Situated within 
+                the esteemed UW Department of Computer Sciences, frequently ranked 
+                among the top ten in the nation, our internships offer a glimpse into 
+                the world of high-throughput distributed computing, under the guidance 
+                of accomplished faculty and professionals.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <figure class="pb-4">
+                        {% include picture.html path="/images/HTCondorLayersFlat" alt="Work At CHTC"%}
+                        <figcaption>Image Provided by HTCSS User <a
+                                href="https://botany.wisc.edu/staff/spalding-edgar-p/">Edgar Spalding</a></figcaption>
+                    </figure>
+                </div>
+            </div>
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
+            {% if student_jobs.size > 0 %}
+                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
+                <p>
+                    We're always looking for smart motivated students to partner with
+                    software developer and system administrator mentors. We expect students
+                    to work between 10 and 20 hours a week, with 10 of those being during
+                    business hours, with some flexibility on remaining hours. During the
+                    summer and breaks, it is possible to work up to 40 hours per week.
+                </p>
+
+                {% for job in student_jobs %}
+                    
+                    {% include /components/job-card.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="d-none d-lg-block col-12 col-lg-4">
+            <div class="sticky-top mt-5">
+                <div class="pt-5">
+                    <div class="uw-sidebar-box me-auto">
+                        <div class="uw-directory">
+                            <h3>Open Positions</h3>
+                            <ul>
+                                {% for job in student_jobs %}
+                                    <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
