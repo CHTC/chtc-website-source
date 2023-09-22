@@ -6,11 +6,10 @@ title: Internship Opportunities
 
 {% include /get/jobs.liquid %}
 
-TEst
 
 <figure>
-    <img class="w-100" style="object-fit: cover; max-height: 400px;" src="/images/Emile_Working.jpg"
-         alt="IT Professional, Emile, working in the Discovery Server Rooms"/>
+    <img class="w-100" style="object-fit: cover; max-height: 600px;" src="/images/chtc-internship-banner.jpg"
+         alt="Collage photos of current and previous CHTC interns."/>
     <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
 </figure>
 
@@ -28,15 +27,6 @@ TEst
                 the world of high-throughput distributed computing, under the guidance 
                 of accomplished faculty and professionals.
             </p>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <figure class="pb-4">
-                        {% include picture.html path="/images/HTCondorLayersFlat" alt="Work At CHTC"%}
-                        <figcaption>Image Provided by HTCSS User <a
-                                href="https://botany.wisc.edu/staff/spalding-edgar-p/">Edgar Spalding</a></figcaption>
-                    </figure>
-                </div>
-            </div>
             {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
             {% if student_jobs.size > 0 %}
                 <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
