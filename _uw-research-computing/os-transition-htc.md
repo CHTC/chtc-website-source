@@ -1,84 +1,46 @@
 ---
 highlighter: none
 layout: guide
-title: HTC System Transition to a New Linux Version (CentOS Stream 8)
+title: Using Custom Linux Versions in CHTC
 guide: 
-    button_class: bg-warning
-    order: 0
-    category: Basics and Policies
+    order: 7
+    category: Special Use Cases
     tag:
         - htc
 ---
 
-Starting on August 1, 2022, CHTC's high throughput computing (HTC) system began upgrading
-the Linux distribution and version we use on our servers. **CentOS Stream 8 is now 
-the operating system used on the majority of our servers, and the default requested 
-operating system by jobs, unless specified otherwise.** 
-
-Note that this page only applies to a transition on the HTC system (submitting jobs 
-with HTCondor). The high performance computing (HPC) cluster will be upgraded in 
-the near future as well and have a separate transition 
-page. _Users of the HPC cluster will be notified_ when the transition to CentOS Stream 8 begins on the HPC system. 
-
-All updates to the HTC system will be reflected on this page; significant changes may 
-also include a notification to the `chtc-users` mailing list. 
-
-## Important Dates
-
-* **August 2022**: HTC system will support both CentOS 7 and CentOS Stream 8. By default, 
-all jobs will continue to match to servers running CentOS 7, however,
-**users should begin testing jobs on servers running CentOS Stream 8**. These servers are also 
-available for general use. 
-* **September 2022**: More than 75% of CHTC capacity will run on CentOS Stream 8.
-* **September 29, 2022**: Default operating system requirements for jobs will change from CentOS 7 to 
-CentOS Stream 8.
-
-## What You Need to Do
-
-* **If your jobs were running successfully before, but now failing**, scale down your submissions 
-and run a few test jobs on the new operating system (now the default). If you absolutely 
-HAVE to keep running, you can continue to (temporarily) run on CentOS 7 by following 
-the instructions [below](#requesting-a-specific-operating-system)
-* **If you are having trouble getting your jobs to run successfully on the new operating system**, 
-please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
-* **If you would like to access as much computing capacity as possible**, consider using 
-running your jobs on servers with either CentOS 7 or CentOS Stream 8. See the [options below](#requesting-a-specific-operating-system) 
-for opting into both; note that your code will likely need to have been compiled on the older 
-operating system version. 
-
-## Current Status of the HTC System
-
-### Capacity Available in the HTC System
-
-<table class="gtable">
-  <tr>
-    <th>Linux Version</th>
-    <th>Percent of Pool Capacity</th>
-    <th>Notable Servers</th>
-  </tr>
-  <tr>
-    <td>CentOS 7</td> 
-    <td>33%</td>
-    <td>Build nodes, range of GPU servers, high memory nodes</td>
-  </tr>
-  <tr>
-    <td>CentOS Stream 8</td> 
-    <td>67%</td>
-    <td>Build node, servers with A100 GPUs</td>
-  </tr>
-</table>
+This 
 
 ### Default Operating System
 
 By default, CHTC-managed submit servers automatically add a job 
 requirement that requires jobs to run on servers running our primary operating system,
-CentOS 7, unless otherwise specified by the user. To override this default, see below: [Requesting a Specific
-Operating System](#requesting-a-specific-operating-system).
+CentOS 8, unless otherwise specified by the user. There are two options to override this
+default: 
 
-## Requesting a Specific Operating System
+1. [Using a Container (recommended)](#option-1-using-a-container-recommended)
+1. [Requesting a Specific
+Operating System](#option-2-requesting-a-specific-operating-system).
+
+## Option 1: Using a Container (Recommended)
+
+Using a container to provide a base version of Linux will allow you to 
+run on any nodes in the HTC system, and not limit you to a subset of nodes. 
+
+After finding a container with the desired version of Linux, just follow our instructions 
+for [Docker](docker-jobs.html) or [Singularity/Apptainer](htc-singularity.html) jobs. 
+
+Note that the default Linux containers on Docker Hub are often missing commonly installed 
+packages. Our collaborators in OSG Services maintain a few curated containers with a 
+greater selection of installed tools that 
+can be seen here: [Base Linux Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
+
+## Option 2: Requesting a Specific Operating System
 
 At any time, you can require a specific operating system 
-version (or versions) for your jobs. 
+version (or versions) for your jobs. This option is more limiting because 
+you are restricted to operating systems used by CHTC, and the number of nodes 
+running that operating system. 
 
 ### Use Both CentOS 7 (previous default) and CentOS Stream 8 (current default)
 
