@@ -78,6 +78,7 @@ title: The Path to Internship Opportunities
             </p>
 
             {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
+            {% assign available_jobs = jobs | where_exp: "x", "x.available == true" %}
             {% if student_jobs.size > 0 %}
                 <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
                 <p>
@@ -101,7 +102,7 @@ title: The Path to Internship Opportunities
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
-                                {% for job in student_jobs %}
+                                {% for job in available_jobs %}
                                     <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
                                 {% endfor %}
                             </ul>
