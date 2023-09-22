@@ -17,16 +17,6 @@ title: Internship Opportunities
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-lg-8">
             {% include page-title.html title=page.title %}
-            <p>
-                If you're a student passionate about shaping the future of distributed 
-                computing in an academic setting, the Center for High Throughput 
-                Computing (CHTC) at the University of Wisconsin-Madison (UW) invites 
-                you to be a part of our vibrant internship program. Situated within 
-                the esteemed UW Department of Computer Sciences, frequently ranked 
-                among the top ten in the nation, our internships offer a glimpse into 
-                the world of high-throughput distributed computing, under the guidance 
-                of accomplished faculty and professionals.
-            </p>
             {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
             {% if student_jobs.size > 0 %}
                 <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
