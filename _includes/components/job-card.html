@@ -3,6 +3,7 @@
         <div class="col-auto">
             <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.title }}</h3>
             <p class="fw-light">{{ job.type}} - {{ job.institution}}</p>
+            <p class="fs-4">{{ job.header }}</p>
         </div>
         <div class="col-auto d-flex">
             {% if job.close_date != null %}
@@ -10,7 +11,7 @@
             {% endif %}
         </div>
     </div>
-
+    
     {{ job.text | markdownify }}
     <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
 </div>

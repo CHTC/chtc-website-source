@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: default
-title: Internship Opportunities
+title: The Path to Internship Opportunities
 ---
 
 {% include /get/jobs.liquid %}
@@ -18,7 +18,65 @@ title: Internship Opportunities
 <div class="container-xxl">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-lg-8">
-            {% include page-title.html title=page.title %}
+            {% include page-title.html title="page.title" %}
+            <p class="fs-4">
+                Want to make a difference and see your work directly 
+                impact science across the globe?
+            </p>
+            <p class="fs-4">
+                The Center for High Throughput Computing and the Morgridge 
+                Institute for Research offer several internship opportunities 
+                for undergraduate and graduate students. 
+            </p>
+
+            <h2>The Mission</h2>
+            <p>CHTC is a research computing organization located within the University 
+                of Wisconsin-Madison  CS Department and at the Morgridge Institute for 
+                Research. CHTC is an internationally recognized leader in high 
+                throughput computing and provides access to free large-scale computing 
+                capacity for research. CHTC advances the field of research computing 
+                through innovative software and services, leading distributed computing 
+                projects across the campus and the nation. 
+            </p>
+
+            <h2>The Program</h2>
+            <p>Our  internship program provides undergraduate and graduate students with 
+                learning opportunities in research computing, system administration, 
+                web development, and communication. Working with engineers and 
+                dedicated mentors, interns will have the opportunity to learn 
+                from leaders in their field and access state of the art computing 
+                facilities.  Interns can also attend workshops, lectures and social 
+                and recreational events with CHTC team members. The summer 
+                internship is a full time paid position and runs from 10 to 12 weeks.  
+            </p>
+
+            <h2>Eligibility</h2>
+            <ul>
+                <li>
+                    Must be currently enrolled as an undergraduate or graduate 
+                    student at an accredited U.S. college or university (including 
+                    accredited community colleges) at the time of application. 
+                </li>
+                <li>Must be 18+ years old at the start of internship.</li>
+                <li>Must have a minimum undergraduate cumulative GPA of 3.0 on a 4.0 scale. </li>
+            </ul>
+
+            <h2>Applications</h2>
+            <p>
+                Applications are currently being accepted and are reviewed on a 
+                rolling basis. Apply at <a href="mailto:htcondor-jobs@cs.wisc.edu">
+                htcondor-jobs@cs.wisc.edu</a> with your cover letter and resume. 
+                Please note the <strong>STUDENT INTERNSHIP</strong> program and 
+                position of interest. 
+            </p>
+
+            <h2>We Value Diversity</h2>
+            <p>CHTC and Morgridge are committed to increasing diversity among 
+                interns and staff. We believe that advancing throughput computing 
+                and scientific research is enhanced by a wide range of backgrounds 
+                and perspectives. 
+            </p>
+
             {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
             {% if student_jobs.size > 0 %}
                 <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
@@ -52,5 +110,6 @@ title: Internship Opportunities
                 </div>
             </div>
         </div>
+        <p class="text-center">Questions: <a href="mailto:htcondor-jobs@cs.wisc.edu">htcondor-jobs@cs.wisc.edu</a></p>
     </div>
 </div>

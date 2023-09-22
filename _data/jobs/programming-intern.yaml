@@ -1,0 +1,10 @@
+title: Programming Intern
+header: Help Develop the HTCondor Software Suite
+text: |
+  [The HTCondor Software Suite](https://htcondor.org) team develops a large, mature, distributed software stack in C++ and Python, used in some of the largest global scientific collaborations to power research in High Energy Physics, Genetics/Genomics, Astronomy and other fields.  We seek motivated student interns interested in Software Engineering in Python, C++, on Linux and Windows. Skills students will hone are in high demand by the FAANG and other high profile companies.
+button:
+  text: Send Your Resume
+  href: mailto:htcondor-jobs@cs.wisc.edu
+type: Internship
+institution: Morgridge Institute for Research
+close_date:
