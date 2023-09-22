@@ -77,7 +77,7 @@ title: The Path to Internship Opportunities
                 and perspectives. 
             </p>
 
-            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" | sort: "availability" %}
             {% assign available_jobs = jobs | where_exp: "x", "x.available == true" %}
             {% if student_jobs.size > 0 %}
                 <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
