@@ -13,6 +13,8 @@ nav_items:
         name: Our Staff
       - url: /jobs.html
         name: Our Open Positions
+      - url: /internships.html
+        name: Internships
   - id: uw-research-computing
     name: UW Research Computing
     url: /uw-research-computing/index.html

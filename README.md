@@ -74,6 +74,13 @@ To test changes on a publicly viewable development location do the following ste
 the pages to an `.shtml` file ending, so links won't work but just typing in the name of a page into the address bar (with no 
 extension) will. 
 
+### Run via Ruby
+
+```shell
+bundle install
+bundle exec jekyll serve --watch -p 
+```
+
 ### Run Docker Manually
 
 At the website root:

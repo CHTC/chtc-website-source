@@ -1,0 +1,113 @@
+---
+highlighter: none
+layout: default
+title: The Path to Internship Opportunities
+---
+
+{% include /get/jobs.liquid %}
+
+
+<figure>
+    <img class="w-100 d-block d-lg-none" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner.jpg' | relative_url }}"
+         alt="Collage photos of current and previous CHTC interns."/>
+    <img class="w-100 d-none d-lg-block" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner-lg.jpg' | relative_url }}"
+         alt="Collage photos of current and previous CHTC interns."/>
+    <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
+</figure>
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-lg-8">
+            {% include page-title.html title="page.title" %}
+            <p class="fs-5">
+                Want to make a difference and see your work directly 
+                impact science across the globe?
+            </p>
+            <p class="fs-5">
+                The Center for High Throughput Computing and the Morgridge 
+                Institute for Research offer several internship opportunities 
+                for undergraduate and graduate students. 
+            </p>
+
+            <h2>The Mission</h2>
+            <p>CHTC is a research computing organization located within the University 
+                of Wisconsin-Madison  CS Department and at the Morgridge Institute for 
+                Research. CHTC is an internationally recognized leader in high 
+                throughput computing and provides access to free large-scale computing 
+                capacity for research. CHTC advances the field of research computing 
+                through innovative software and services, leading distributed computing 
+                projects across the campus and the nation. 
+            </p>
+
+            <h2>The Program</h2>
+            <p>Our  internship program provides undergraduate and graduate students with 
+                learning opportunities in research computing, system administration, 
+                web development, and communication. Working with engineers and 
+                dedicated mentors, interns will have the opportunity to learn 
+                from leaders in their field and access state of the art computing 
+                facilities.  Interns can also attend workshops, lectures and social 
+                and recreational events with CHTC team members. The summer 
+                internship is a full time paid position and runs from 10 to 12 weeks.  
+            </p>
+
+            <h2>Eligibility</h2>
+            <ul>
+                <li>
+                    Must be currently enrolled as an undergraduate or graduate 
+                    student at an accredited U.S. college or university (including 
+                    accredited community colleges) at the time of application. 
+                </li>
+                <li>Must be 18+ years old at the start of internship.</li>
+                <li>Must have a minimum undergraduate cumulative GPA of 3.0 on a 4.0 scale. </li>
+            </ul>
+
+            <h2>Applications</h2>
+            <p>
+                Applications are currently being accepted and are reviewed on a 
+                rolling basis. Each internship position will have information on where to apply. Where to apply varies by position.  
+            </p>
+
+            <h2>We Value Diversity</h2>
+            <p>CHTC and Morgridge are committed to increasing diversity among 
+                interns and staff. We believe that advancing throughput computing 
+                and scientific research is enhanced by a wide range of backgrounds 
+                and perspectives. 
+            </p>
+
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" | sort: "availability" %}
+            {% assign available_jobs = jobs | where_exp: "x", "x.available == true" %}
+            {% if student_jobs.size > 0 %}
+                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
+                <p>
+                    We're always looking for smart motivated students to partner with
+                    software developer and system administrator mentors. We expect students
+                    to work between 10 and 20 hours a week, with 10 of those being during
+                    business hours, with some flexibility on remaining hours. During the
+                    summer and breaks, it is possible to work up to 40 hours per week.
+                </p>
+
+                {% for job in student_jobs %}
+                
+                    {% include /components/job-card.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="d-none d-lg-block col-12 col-lg-4">
+            <div class="sticky-top mt-5">
+                <div class="pt-5">
+                    <div class="uw-sidebar-box me-auto">
+                        <div class="uw-directory">
+                            <h3>Open Positions</h3>
+                            <ul>
+                                {% for job in student_jobs %}
+                                    <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center">Questions: <a href="mailto:htcondor-jobs@cs.wisc.edu">htcondor-jobs@cs.wisc.edu</a></p>
+    </div>
+</div>

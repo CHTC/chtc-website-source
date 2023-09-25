@@ -7,7 +7,7 @@ title: Available Positions
 {% include /get/jobs.liquid %}
 
 <figure>
-    <img class="w-100" style="object-fit: cover; max-height: 400px;" src="/images/Emile_Working.jpg"
+    <img class="w-100" style="object-fit: cover; max-height: 400px;" src="{{ '/images/Emile_Working.jpg' | relative_url}}"
          alt="IT Professional, Emile, working in the Discovery Server Rooms"/>
     <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
 </figure>
@@ -22,7 +22,10 @@ title: Available Positions
                 Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a
                 unique working environment. Our project’s home is in the UW Department
                 of Computer Sciences, an internationally recognized department
-                consistently ranked in the top ten across the USA. A position with CHTC
+                consistently ranked in the top ten across the USA.
+            </p>
+            <p>
+                A position with CHTC
                 will provide you the opportunity to interact with both department
                 faculty and students to translate novel ideas into real-world solutions.
                 The software and infrastructure you will be working on is used by
@@ -30,27 +33,20 @@ title: Available Positions
                 to national laboratories and from large high tech corporations to small
                 animation teams.
             </p>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <figure class="pb-4">
-                        {% include picture.html path="/images/HTCondorLayersFlat" alt="Work At CHTC"%}
-                        <figcaption>Image Provided by HTCSS User <a
-                                href="https://botany.wisc.edu/staff/spalding-edgar-p/">Edgar Spalding</a></figcaption>
-                    </figure>
-                </div>
-            </div>
-            <p>
-                The CHTC is home to a large distributed campus infrastructure that helps
-                scientists on and off campus advance their research. We also develop the
-                <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Software</a> for managing
-                large-scale distributed computing, which we refer to as high-throughput
-                distributed computing. HTCondor powers the CHTC and is used by
-                scientists and businesses around the world. We are involved in many
-                collaborations, including (but not limited to)
-                <a href="http://www.osg-htc.org/">The OSG</a>.
-            </p>
 
-            {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'fulltime'" %}
+            <h2 id="internships">Internships</h2>
+            <p>
+                Our internship program provides undergraduate and graduate students with learning opportunities in
+                research computing, system administration, web development, and communication. Working with engineers
+                and dedicated mentors, interns will have the opportunity to learn from leaders in their field and
+                access state of the art computing facilities. Interns can also attend workshops, lectures and
+                social and recreational events with CHTC team members. The summer internship is a full time paid
+                position and runs from 10 to 12 weeks.
+            </p>
+            <a class="btn btn-primary" href="/internships.html">Learn More</a>
+
+
+            {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'Full Time'" %}
             {% if fulltime_jobs.size > 0 %}
                 <h2 id="full-time-positions">Full Time Positions</h2>
                 <p>
@@ -63,51 +59,7 @@ title: Available Positions
                 </p>
 
                 {% for job in fulltime_jobs %}
-                    <div class="rounded bg-light p-2 pt-1 mb-2">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.title }} - {{ job.institution }}</h3>
-                            </div>
-                            <div class="col-auto d-flex">
-                                {% if job.close_date != null %}
-                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        {{ job.text | markdownify }}
-                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'student'" %}
-            {% if student_jobs.size > 0 %}
-                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
-                <p>
-                    We're always looking for smart motivated students to partner with
-                    software developer and system administrator mentors. We expect students
-                    to work between 10 and 20 hours a week, with 10 of those being during
-                    business hours, with some flexibility on remaining hours. During the
-                    summer and breaks, it is possible to work up to 40 hours per week.
-                </p>
-
-                {% for job in student_jobs %}
-                    <div class="rounded bg-light p-2 pt-1 mb-2">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 id="{{ job.title | slugify }}" class="my-2" href="/jobs.html">{{ job.title }} - {{ job.institution }}</h3>
-                            </div>
-                            <div class="col-auto d-flex">
-                                {% if job.close_date != null %}
-                                    <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        {{ job.text | markdownify }}
-                        <a class="btn btn-primary" href="{{ job.button.href }}">{{ job.button.text }}</a>
-                    </div>
+                    {% include /components/job-card.html %}
                 {% endfor %}
             {% endif %}
 
@@ -169,9 +121,10 @@ title: Available Positions
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
-                                {% for job in jobs %}
+                                {% for job in fulltime_jobs %}
                                     <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
                                 {% endfor %}
+                                <li><a href="/internships.html">Internships</a></li>
                             </ul>
                         </div>
                     </div>

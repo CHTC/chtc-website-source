@@ -1,9 +1,11 @@
 title: Student Web Developer
+header: Create Compelling Web Pages for Scientific Projects
 text: |
-  As a part of the Morgridge [Research Computing Group](https://web.archive.org/web/20210127130609/https:/morgridge.org/research/research-computing/), the Student Web Developer will help manage the user-facing presence (design, layout, UI, and functionality) of web pages for a range of projects, including the [Partnership to Advance Throughput Computing](https://path-cc.io/), the [OSG Consortium](https://osg-htc.org/), and [HTCondor](https://htcondor.org). They will use web frameworks, design tools, and best practices to help design, develop and maintain websites; these websites promote various scientific projects and hosted events. While the primary focus will be “frontend” work (including basic graphical design), the Student Web Developer will have some responsibility for “backend” work where opportunity and interest allow.
+  As a part of the Morgridge [Research Computing Group](https://web.archive.org/web/20210127130609/https:/morgridge.org/research/research-computing/), the Student Web Developer will help manage the user-facing presence (design, layout, UI, and functionality) of web pages for a range of projects, including the [Partnership to Advance Throughput Computing](https://path-cc.io/), the [OSG Consortium](https://osg-htc.org/), and [HTCondor](https://htcondor.org). They will use web frameworks, design tools, and best practices to help design, develop and maintain websites; these websites promote various scientific projects and hosted events. While the primary focus will be “frontend” work (including basic graphical design), the Student Web Developer will have some responsibility for “backend” work where opportunity and interest allow. This internship position will start in January 2024. Summer internship position(s) will also be available.
 button:
   text: View Full Job Listing
   href: https://morgridge.org/job-posting/student-web-developer/
-type: student
+type: Internship
 institution: Morgridge Institute for Research
 close_date:
+available: true
