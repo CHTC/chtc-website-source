@@ -22,7 +22,10 @@ title: Available Positions
                 Computing (CHTC) at the University of Wisconsin-Madison (UW) offers a
                 unique working environment. Our project’s home is in the UW Department
                 of Computer Sciences, an internationally recognized department
-                consistently ranked in the top ten across the USA. A position with CHTC
+                consistently ranked in the top ten across the USA.
+            </p>
+            <p>
+                A position with CHTC
                 will provide you the opportunity to interact with both department
                 faculty and students to translate novel ideas into real-world solutions.
                 The software and infrastructure you will be working on is used by
@@ -30,25 +33,18 @@ title: Available Positions
                 to national laboratories and from large high tech corporations to small
                 animation teams.
             </p>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <figure class="pb-4">
-                        {% include picture.html path="/images/HTCondorLayersFlat" alt="Work At CHTC"%}
-                        <figcaption>Image Provided by HTCSS User <a
-                                href="https://botany.wisc.edu/staff/spalding-edgar-p/">Edgar Spalding</a></figcaption>
-                    </figure>
-                </div>
-            </div>
+
+            <h2 id="internships">Internships</h2>
             <p>
-                The CHTC is home to a large distributed campus infrastructure that helps
-                scientists on and off campus advance their research. We also develop the
-                <a href="http://research.cs.wisc.edu/htcondor/">HTCondor Software</a> for managing
-                large-scale distributed computing, which we refer to as high-throughput
-                distributed computing. HTCondor powers the CHTC and is used by
-                scientists and businesses around the world. We are involved in many
-                collaborations, including (but not limited to)
-                <a href="http://www.osg-htc.org/">The OSG</a>.
+                Our internship program provides undergraduate and graduate students with learning opportunities in
+                research computing, system administration, web development, and communication. Working with engineers
+                and dedicated mentors, interns will have the opportunity to learn from leaders in their field and
+                access state of the art computing facilities. Interns can also attend workshops, lectures and
+                social and recreational events with CHTC team members. The summer internship is a full time paid
+                position and runs from 10 to 12 weeks.
             </p>
+            <a class="btn btn-primary" href="/internships.html">Learn More</a>
+
 
             {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'Full Time'" %}
             {% if fulltime_jobs.size > 0 %}
@@ -128,6 +124,7 @@ title: Available Positions
                                 {% for job in fulltime_jobs %}
                                     <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
                                 {% endfor %}
+                                <li><a href="/internships.html">Internships</a></li>
                             </ul>
                         </div>
                     </div>
