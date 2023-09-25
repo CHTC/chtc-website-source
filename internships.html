@@ -19,11 +19,11 @@ title: The Path to Internship Opportunities
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-lg-8">
             {% include page-title.html title="page.title" %}
-            <p class="fs-4">
+            <p class="fs-5">
                 Want to make a difference and see your work directly 
                 impact science across the globe?
             </p>
-            <p class="fs-4">
+            <p class="fs-5">
                 The Center for High Throughput Computing and the Morgridge 
                 Institute for Research offer several internship opportunities 
                 for undergraduate and graduate students. 
@@ -102,7 +102,7 @@ title: The Path to Internship Opportunities
                         <div class="uw-directory">
                             <h3>Open Positions</h3>
                             <ul>
-                                {% for job in available_jobs %}
+                                {% for job in student_jobs %}
                                     <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
                                 {% endfor %}
                             </ul>
