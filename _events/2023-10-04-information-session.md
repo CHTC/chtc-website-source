@@ -23,7 +23,11 @@ The Center for High Throughput Computing (CHTC) is hosting an Information Sessio
 Please register to help us estimate the number of 
 attendees: [Register Here](https://uwmadison.co1.qualtrics.com/jfe/form/SV_2uynNfv0tMatfFQ)
 
+<h2>Materials</h2>
 
+<a href="https://docs.google.com/presentation/d/1TV9gcXhuGRF3F_Pdg10yV_-q23XLsUAUyqvF7ejLW14/edit?usp=sharing">Slides</a>
+
+<a href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_cvdgBwFUw7Gv8qy">Feedback</a>
 {% endcapture %}
 
 
