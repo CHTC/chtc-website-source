@@ -68,7 +68,7 @@ achieve your computing goals.
     can overwhelm the submit server, resulting in other jobs taking much
     longer to start than usual. <u> If you plan on submitting over
     1000 jobs per submit file, we ask that you ensure each job has a
-    minimum run time of 10 minutes. <u>
+    minimum run time of 10 minutes (on average). <u>
 -   **The default disk quota is 20 GB** in your `/home` directory, as a 
     starting point. You can track your use of disk space and your quota value,
     using our [Quota Guide](check-quota.html). If you need more space
