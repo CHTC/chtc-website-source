@@ -28,6 +28,13 @@ HTCondor. If you are interested in a particular approach that isn't described he
 please contact [CHTC's research computing facilitators](mailto:chtc@cs.wisc.edu) and we will 
 work with you to identify options to meet the needs of your work.
 
+> **Before you continue reading:** While HTCondor is designed to submit many jobs at a
+> time using a single submit file, the hardware of the submit server can be overwhelmed
+> if there are too many jobs. If you plan to submit 10,000+ jobs at a time, please let us
+> know. Furthermore, if you plan to submit 1000+ jobs, please make sure that each job
+> has a minimum run time of 10 minutes (on average). If your calculations are shorter than
+> 10 minutes, then modify your workflow to run multiple calculations per job.
+
 <h1>Submit Multiple Jobs Using <code class="h1">queue</code></h1>
 
 All HTCondor submit files require a `queue` attribute (which must also be 
