@@ -1,5 +1,5 @@
 name: Check Links
-on: [pull_request, workflow_dispatch]
+on: push
 
 jobs:
   Check-Website-Links:
@@ -9,4 +9,3 @@ jobs:
       - uses: CannonLock/test_links@master
         with:
           file_ignore: "/./staff/.*/,/./includes/.*/,/./doc/.*/"
-          url_ignore: "/https://www.olcf.ornl.gov/summit//,/https://www.hpcwire.com/2019/11/22/51000-cloud-gpus-converge-to-power-neutrino-discovery-at-the-south-pole//,/https://www.amnh.org/research/staff-directory/ariadna-morales/,/https://tbg.senckenberg.de//,/http://aci.wisc.edu//,/https://doi.org/10.1007/s10822-013-9672-4/,/https://web.archive.org/web/20000229050436/http://cesdis.gsfc.nasa.gov/admin/cesdis.seminars/71196.html/,/https://thenounproject.com//,/https://iris-hep.org//,/http://icecube.wisc.edu//,/https://htcondor.readthedocs.io/en/latest/codes-other-values/job-event-log-codes.html?highlight=status%20codes/,/https://winscp.net/eng/download.php/,/https://xarray.pydata.org/en/stable//,/https://helpdesk.wisc.edu/page.php?id=4966/,/https://htcondor.readthedocs.io/en/latest/man-pages/condor_q.html/,/https://lammps.sandia.gov/doc/Build_cmake.html/,/https://lammps.sandia.gov/download.html/"
