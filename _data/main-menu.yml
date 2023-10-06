@@ -29,6 +29,7 @@ nav_items:
     url: /research.html
   - id: news
     name: News
+    url: /news-navigation.html
     sub_menu:
       - url: /news.html
         name: CHTC News
