@@ -15,19 +15,6 @@ checking on whether your jobs are running or not! Read on to learn how
 you can use `condor_q` to answer many common questions about running
 jobs.
 
-{% capture content %}
-1.  [Default `condor_q` output, in \"batches\"](#default-condorq-output)
-2.  [View all of your jobs (old condor\_q output).](#view-all-jobs)
-3.  [View jobs from all users.](#view-jobs-from-all-users)
-4.  [Determine why jobs are on hold.](#determine-why-jobs-are-on-hold)
-5.  [Determine why a job is not running](#find-out-why-jobs-are-idle)
-6.  [Find out where jobs are running.](#find-out-where-jobs-are-running)
-7.  [View jobs by DAG.](#view-jobs-by-dag)
-8.  [View all details about a job.](#view-all-details-about-a-job)
-9.  [View specific details about a job using auto-format.](#view-specific-details-about-a-job-using-auto-format)
-10. [View only specific types of jobs using a constraint](#constraining-the-output-of-condorq)
-11. [Remove a held job from the queue](#remove-a-held-job-from-the-queue)
-{% endcapture %}
 {% include /components/directory.html %}  
 
 

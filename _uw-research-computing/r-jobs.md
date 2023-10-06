@@ -335,7 +335,7 @@ would like, give it executable permissions by running:
 > r-bloggers.com
 > page](https://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/)
 > and about a quarter of the way into this [Software Carpentry
-> lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/)
+> lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline.html)
 > (look for `print-args-trailing.R`).
 
 <span name="submit"></span>

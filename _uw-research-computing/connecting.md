@@ -256,7 +256,7 @@ programs are:
 
 `nano` is the most beginner-friendly, and `emacs` is the most advanced.
 [This Software Carpentry
-lesson](http://swcarpentry.github.io/shell-novice/03-create/) describes
+lesson](https://swcarpentry.github.io/shell-novice/03-create.html) describes
 how to use `nano`, and there are many other resources online with
 instructions for these text editors.
 
@@ -289,13 +289,13 @@ particular, we recommend the sections on:
 
 -   understanding the filesystem and how to navigate it ([Navigating
     Files and
-    Directories](http://swcarpentry.github.io/shell-novice/02-filedir/))
+    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
 -   tab-completion (section entitled \"Nelle\'s Pipeline, Organizing
     Files\", in [Navigating Files and
-    Directories](http://swcarpentry.github.io/shell-novice/02-filedir/))
+    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
 -   creating files ([Working With Files and
-    Directories](http://swcarpentry.github.io/shell-novice/03-create/))
+    Directories](https://swcarpentry.github.io/shell-novice/03-create.html))
 -   using the star wildcard (first part of [Pipes and
-    Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/))
+    Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 -   writing shell scripts ([Shell
-    Scripts](http://swcarpentry.github.io/shell-novice/06-script/))
+    Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))

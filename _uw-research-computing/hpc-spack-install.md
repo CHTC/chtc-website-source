@@ -91,7 +91,7 @@ spack list nameOfProgram
 ```
 {:.term}
 
-where you should replace `nameOfProgram` with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.) Alternatively, you can browse their website for currently available packages: [https://spack.readthedocs.io/en/latest/package_list.html](https://spack.readthedocs.io/en/latest/package_list.html). 
+where you should replace `nameOfProgram` with the program that you are interested in finding. Spack will search for the package and print out a list of all the packages that match that name. (The first time you run this command may take several minutes while Spack downloads a current list of packages that can be installed.) 
 
 To learn more about an available package, use the exact name of the program and run
 
@@ -233,7 +233,7 @@ rm -rf /local/yourNetID/spack_build
 
 and then enter `exit` to end the interactive session.
 
-To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.html).
+To use the packages that you installed, follow the instructions in the next section, [2. Using Software Installed in Spack](#2-using-software-installed-in-spack). If you want to create custom modules using the installed packages, see our guide [Creating Custom Modules Using Spack](hpc-spack-modules.html).
 
 ## E. Removing an Environment and Uninstalling Unneeded Packages
 

@@ -344,7 +344,7 @@ would like, give it executable permissions by running:
 > In addition, your Python script will need to be able to accept
 > arguments from the command line. There is an explanation of how to do
 > this in [this Software Carpentry
-> lesson](https://swcarpentry.github.io/python-novice-inflammation/12-cmdline/index.html).
+> lesson](https://swcarpentry.github.io/python-novice-inflammation/12-cmdline.html).
 
 
 **3. Submitting Jobs**
