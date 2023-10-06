@@ -320,7 +320,7 @@ found in [Appendix
 A](https://htcondor.readthedocs.io/en/latest/classad-attributes/job-classad-attributes.html?highlight=JobStatus)
 of the HTCondor Manual.
 
-Remember [`condor_q -hold`](#determine-why-jobs-are-on-hold) from before? In the background, the
+Remember `condor_q -hold` from before? In the background, the
 `-hold` option is constraining the list of jobs to jobs that are on hold
 (using the `JobStatus` attribute) and then printing out the `HoldReason`
 attribute. Try running:
