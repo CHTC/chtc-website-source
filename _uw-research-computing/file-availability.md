@@ -22,7 +22,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a span="transfer"></span>
+<span name="transfer"></span>
 
 # HTCondor File Transfer
 

@@ -57,7 +57,7 @@ Summary
 Examples and Further Explanation
 ================================
 
-<a name="default"/>
+<span name="default"/>
 
 **1. Default condor\_q output**
 ---------------------------

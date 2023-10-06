@@ -17,7 +17,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 [getting started](get-started.html) page.
 
 {% capture content %}
-1.  [Accessing the Submit Servers]()
+1.  [Accessing the Submit Servers](#access)
 2.  [Logging In](#login)
     -   [On the command line](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)

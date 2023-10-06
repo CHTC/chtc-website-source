@@ -51,7 +51,7 @@ Supported Versions of Matlab
 
 **A. Preparing Your Matlab Program** 
 ============================
-<a name="prepare"></a>
+<span name="prepare"></span>
 You can compile `.m` files into a Matlab binary yourself by requesting
 an interactive session on one of our build machines. The session is
 essentially a job without an executable; **you** are the one running the
