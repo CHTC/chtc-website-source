@@ -24,7 +24,7 @@ Contents
 3.  [Submitting Jobs to Run Beyond CHTC](#submit)
 
 
-<a name="why"></a>
+<span name="why"></span>
 
 **1. Why run on additional resources outside CHTC?**
 ================================================
@@ -37,7 +37,7 @@ on CHTC, the UW Grid, and the OSG can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. Read on to
 learn more about these resources.
 
-<a name="uw"></a>
+<span name="uw"></span>
 
 A. UW Grid
 --------------
@@ -51,7 +51,7 @@ other campus pools if there is space.
 
 We call sending jobs to other pools on campus *flocking*.
 
-<a name="osg"></a>
+<span name="osg"></span>
 
 B. UW-Madison's OSG Pool
 ------------------------------
@@ -63,7 +63,7 @@ across and beyond the US.
 When you send jobs to other institutions in our OSG pool, we call that *gliding*.
 
 
-<a name="job"></a>
+<span name="job"></span>
 
 **2. Job Qualifications**
 =====================
@@ -86,7 +86,7 @@ to us, they have two major requirements:
     and guidance. 
 
 
-<a name="submit"></a>
+<span name="submit"></span>
 
 **3. Submitting Jobs to Run Beyond CHTC**
 =====================================

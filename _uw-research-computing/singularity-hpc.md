@@ -16,7 +16,7 @@ The two steps to run a container on the HPC cluster:
 1.  [Convert the container to a Singularity image file](#image)
 2.  [Run a job that uses the container](#command)
 
-<a name="notes"></a>
+<span name="notes"></span>
 Notes about MPI and Containers
 ==================
 
@@ -33,7 +33,7 @@ on the cluster.**
 
 This will be relevant in how the job is executed later on: [Using Singularity Container Images](#command)
 
-<a name="image"></a>
+<span name="image"></span>
 
 **1. Convert Container to Singularity Format**
 ===================
@@ -76,7 +76,7 @@ variable that prevents download of the Docker container.
 
 1. Once the Singularity command completes, type `exit` to leave the interactive job. 
 
-<a name="command"></a>
+<span name="command"></span>
 
 **2. Using Singularity Container Images**
 ===================

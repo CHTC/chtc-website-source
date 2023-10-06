@@ -35,7 +35,7 @@ HTC system, you will need to do the following:
         requirements](#submit)
 
 
-<a name="policies"/>
+<span name="policies"/>
 
 A. CHTC\'s Licensed Software Policies on the HTC System
 =======================================================
@@ -57,7 +57,7 @@ We always recommend using a free or open-source software alternative
 whenever possible, as certain software licenses restrict the amount of
 computing that can contribute to your research.
 
-<a name="access"/>
+<span name="access"/>
 
 B. Viewing Licensed Software on the HTC System
 ==============================================
@@ -83,7 +83,7 @@ available to all CHTC users. Other software, like `lumerical` and
 `abaqus`, is licensed to a specific group and is only available to
 members of that group. 
 
-<a name="submission"/>
+<span name="submission"/>
 
 C. Submitting Jobs Using Licensed Software Modules
 ==================================================
@@ -92,7 +92,7 @@ The following sections describe how to create a bash script executable
 and HTCondor submit file to run jobs that use software accessible via
 the modules.
 
-<a name="script"/>
+<span name="script"/>
 
 **1. Script For Running Jobs with Modules**
 ---------------------------------------
@@ -135,7 +135,7 @@ comsol batch -inputfile test.mph -outputfile test-results.mph
 ```
 {:.file}
 
-<a name="submit"/>
+<span name="submit"/>
 
 **2. Submit File Requirements**
 ---------------------------

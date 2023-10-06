@@ -22,7 +22,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="transfer"></a>
+<a span="transfer"></span>
 
 # HTCondor File Transfer
 
@@ -47,7 +47,7 @@ job scheduling. More information about file transfer on a system
 without a shared filesystem is available in the 
 [HTCondor manual](https://htcondor.readthedocs.io/en/latest/users-manual/file-transfer.html).
 
-<a name="Appli"></a>
+<span name="Appli"></span>
 
 # Applicability
 
@@ -73,7 +73,7 @@ concerns regarding HTCondor file transfer, as encryption options are
 available.
 
 
-<a name="input"></a>
+<span name="input"></span>
 
 # Transferring Input Files
 
@@ -138,7 +138,7 @@ By default, the submit file `executable`, `output`, and
     
 -   [Learn more about HTCondor input files transfer](https://htcondor.readthedocs.io/en/latest/users-manual/file-transfer.html#specifying-what-files-to-transfer).
 
-<a name="output"></a>
+<span name="output"></span>
 
 # Transferring Output Files
 
@@ -167,7 +167,7 @@ sizes, and help speed up file transfer times, we recommend creating a `tar.gz` f
 desired output before job completion (and to also delete the "un-tar\'d"
 files so they are not also transferred back); see our [example](#group) below.
 
-<a name="group"></a>
+<span name="group"></span>
 
 ## Group Multiple Output Files For Convenience
 
@@ -193,7 +193,7 @@ was moved to `my_output`. Be sure to create `my_job.output.tar.gz` in the top-le
 your job executes and HTCondor will automatically transfer this tar archive back to your `/home` 
 directory.
 
-<a name="select"></a>
+<span name="select"></span>
 
 <h2>Select Specific Output Files to Transfer to <code class="h2">/home</code></h2>
 
@@ -215,7 +215,7 @@ see [Managing Large Data in HTC Jobs](file-avail-largedata.html).
 In cases where a bash script is not used as the excutable of your job and you wish to have only specific 
 output files transferred back, please [contact us](mailto:chtc@cs.wisc.edu).
 
-<a name="help"></a>
+<span name="help"></span>
 
 ## Get Additional Options For Managing Job Output
 

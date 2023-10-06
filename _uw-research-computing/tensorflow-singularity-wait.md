@@ -32,7 +32,7 @@ and also how to run on the [OS Pool](https://osg-htc.org/about/open_science_pool
 2.  [Using Tensorflow on GPUs](#gpus)
 3.  [Using Tensorflow on the OS Pool](#osg)
 
-<a name="template"></a>
+<span name="template"></span>
 
 **1. Basic Tensorflow Job Template**
 --------------------------------
@@ -83,7 +83,7 @@ python test.py
 {:.file}
 
 
-<a name="gpus"></a>
+<span name="gpus"></span>
 
 **2. CPUs vs GPUs**
 ---------------
@@ -121,7 +121,7 @@ For more information about GPUs and how GPU jobs work in CHTC, see our
 > below). We are working on having Singularity support on all CHTC GPUs
 > soon.
 
-<a name="osg"></a>
+<span name="osg"></span>
 
 **3. Running on OS Pool**
 -----------------
