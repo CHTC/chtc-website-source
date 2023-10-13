@@ -288,8 +288,7 @@ Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. In
 particular, we recommend the sections on:
 
 -   understanding the filesystem and how to navigate it ([Navigating
-    Files and
-    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
+    Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
 -   tab-completion (section entitled \"Nelle\'s Pipeline, Organizing
     Files\", in [Navigating Files and
     Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
@@ -299,3 +298,4 @@ particular, we recommend the sections on:
     Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 -   writing shell scripts ([Shell
     Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))
+
