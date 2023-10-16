@@ -80,7 +80,7 @@ where you need to replace `yourNetID` with your NetID.
 To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
 
 ```
-cp -R /software/chtc/spack/chtc-user-config/ ~/.spack
+cp -R /software/chtc/newspack/chtc-user-config/ ~/.spack
 ```
 {:.term}
 
@@ -163,7 +163,7 @@ where you need to replace `yourGroupName` with the name of your group.
 To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
 
 ```
-cp -R /software/chtc/spack/chtc-user-config/ /home/groups/yourGroupName/.spack
+cp -R /software/chtc/newspack/chtc-user-config/ /home/groups/yourGroupName/.spack
 ```
 {:.term}
 
