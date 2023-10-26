@@ -38,7 +38,7 @@ back to the submit node when the job completes.
 > interactive Docker job, they will not be copied back to the submit node when you 
 > exist the interactive job. Contact the facilitation team for workarounds to this behavior. 
 
-<a name="build"></a>
+<span name="build"></span>
 
 **1. Building a Software Installation**
 ===================================
@@ -47,7 +47,7 @@ You are going to start an interactive job that runs on the HTC build
 servers. You will then install your packages to a folder and zip those
 files to return to the submit server.
 
-<a name="version"></a>
+<span name="version"></span>
 
 A. Submit an Interactive Job
 ----------------------------
@@ -199,7 +199,7 @@ extra seconds after exiting).
 ```
 {:.term}
 
-<a name="case-study"></a>
+<span name="case-study"></span>
 
 **2. Case Study, Installing LAMMPS**
 ================================

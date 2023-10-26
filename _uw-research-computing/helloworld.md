@@ -119,7 +119,7 @@ Therefore, when HTCondor runs this executable, it will pass the \$(Process) valu
 for each job and `hello-chtc.sh` will insert that value for \"\$1\",
 above.
 
-More information on special variables like \"\$1\", \"\$2\", and \"\$@\" can be found [here](https://swcarpentry.github.io/shell-novice/06-script/index.html). 
+More information on special variables like \"\$1\", \"\$2\", and \"\$@\" can be found [here](https://swcarpentry.github.io/shell-novice/06-script.html). 
 
 
 **3.** Now, submit your job to the queue using `condor_submit`:

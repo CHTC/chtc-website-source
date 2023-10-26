@@ -47,7 +47,7 @@ The instructions below are meant for users who can use a terminal (Mac, Linux, n
 1. Open a terminal window.
 
 1. Create (or edit) your personal SSH configuration file at `~/.ssh/config` to use 
-what’s called "[ControlMaster](https://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)" (link: third party blog resource). 
+what’s called "ControlMaster"
 This is the text that should be added to a file called `config` in the `.ssh` directory in your computer's home directory: 
 	```	
 	Host *.chtc.wisc.edu

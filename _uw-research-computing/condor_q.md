@@ -15,19 +15,6 @@ checking on whether your jobs are running or not! Read on to learn how
 you can use `condor_q` to answer many common questions about running
 jobs.
 
-{% capture content %}
-1.  [Default `condor_q` output, in \"batches\"](#default-condorq-output)
-2.  [View all of your jobs (old condor\_q output).](#view-all-jobs)
-3.  [View jobs from all users.](#view-jobs-from-all-users)
-4.  [Determine why jobs are on hold.](#determine-why-jobs-are-on-hold)
-5.  [Determine why a job is not running](#find-out-why-jobs-are-idle)
-6.  [Find out where jobs are running.](#find-out-where-jobs-are-running)
-7.  [View jobs by DAG.](#view-jobs-by-dag)
-8.  [View all details about a job.](#view-all-details-about-a-job)
-9.  [View specific details about a job using auto-format.](#view-specific-details-about-a-job-using-auto-format)
-10. [View only specific types of jobs using a constraint](#constraining-the-output-of-condorq)
-11. [Remove a held job from the queue](#remove-a-held-job-from-the-queue)
-{% endcapture %}
 {% include /components/directory.html %}  
 
 
@@ -57,7 +44,7 @@ Summary
 Examples and Further Explanation
 ================================
 
-<a name="default"/>
+<span name="default"/>
 
 **1. Default condor\_q output**
 ---------------------------
@@ -94,7 +81,7 @@ as a \"batch\" yourself. You can either:
 
 Either option will create a batch of jobs with the label \"CoolJobs\".
 
-<a name="nobatch"/>
+<span name="nobatch"/>
 
 **2. View all jobs.**
 -----------------
@@ -128,7 +115,7 @@ this:
 This was the default view for `condor_q` from January 2016 until July
 2016.
 
-<a name="all"/>
+<span name="all"/>
 
 **3. View jobs from all users.**
 ----------------------------
@@ -146,7 +133,7 @@ all jobs (individually, not in batches) for all users, combine the
 `-all` and `-nobatch` options with `condor_q`. This was the default view
 for `condor_q` before January 2016.
 
-<a name="hold"/>
+<span name="hold"/>
 
 **4. Determine why jobs are on hold.**
 ----------------------------------
@@ -178,7 +165,7 @@ entire hold reason:
 If you aren\'t sure what your hold reason means email
 chtc@cs.wisc.edu.
 
-<a name="bet"/>
+<span name="bet"/>
 
 **5. Find out why jobs are idle**
 -----------------------------
@@ -197,7 +184,7 @@ about why your job isn\'t matching and starting. This information is not
 always easy to understand, so please email us with the output of this
 command if you have questions about what it means.
 
-<a name="run"/>
+<span name="run"/>
 
 **6. Find out where jobs are running.**
 -----------------------------------
@@ -216,7 +203,7 @@ To see which computers your jobs are running on, use:
 ```
 {:.term}
 
-<a name="dag"/>
+<span name="dag"/>
 
 **7. View jobs by DAG.**
 --------------------
@@ -241,7 +228,7 @@ sort your queue output by DAG:
 ```
 {:.term}
 
-<a name="long"/>
+<span name="long"/>
 
 **8. View all details about a job.**
 --------------------------------
@@ -279,7 +266,7 @@ Attributes that are often useful for checking on jobs are:
 -   `DAGManJobId`: for jobs managed by a DAG, this is the JobId of the
     parent DAG
 
-<a name="af"/>
+<span name="af"/>
 
 **9. View specific details about a job using auto-format**
 ------------------------------------------------------
@@ -303,7 +290,7 @@ used, I can run:
 ```
 {:.term}
 
-<a name="constraint"/>
+<span name="constraint"/>
 
 **10. Constraining the output of condor\_q.**
 -----------------------------------------
@@ -333,7 +320,7 @@ found in [Appendix
 A](https://htcondor.readthedocs.io/en/latest/classad-attributes/job-classad-attributes.html?highlight=JobStatus)
 of the HTCondor Manual.
 
-Remember [`condor_q -hold`](#determine-why-jobs-are-on-hold) from before? In the background, the
+Remember `condor_q -hold` from before? In the background, the
 `-hold` option is constraining the list of jobs to jobs that are on hold
 (using the `JobStatus` attribute) and then printing out the `HoldReason`
 attribute. Try running:
@@ -345,7 +332,7 @@ attribute. Try running:
 
 You should see something very similar to running `condor_q -hold`!
 
-<a name="remove"/>
+<span name="remove"/>
 
 **11. Remove a held job from the queue**
 ------------------------------------------------------

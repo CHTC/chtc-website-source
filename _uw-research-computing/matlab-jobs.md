@@ -36,7 +36,7 @@ function like `rand` or `randperm`, please see the section on [ensuring
 randomness](#random) below.
 
 
-<a name="supported"></a>
+<span name="supported"></span>
 
 Supported Versions of Matlab
 ============================
@@ -51,14 +51,14 @@ Supported Versions of Matlab
 
 **A. Preparing Your Matlab Program** 
 ============================
-<a name="prepare"></a>
+<span name="prepare"></span>
 You can compile `.m` files into a Matlab binary yourself by requesting
 an interactive session on one of our build machines. The session is
 essentially a job without an executable; **you** are the one running the
 commands instead (in this case, to compile the code).
 
 
-<a name="compile"></a>
+<span name="compile"></span>
 
 **1. Start an Interactive Build Job**
 ---------------------------------
@@ -106,7 +106,7 @@ running the following command:
 
 It may take a few minutes for the build job to start.
 
-<a name="compile"></a>
+<span name="compile"></span>
 
 
 **2. Compile Matlab Code and Exit Interactive Job**
@@ -190,7 +190,7 @@ The file `script` is the compiled Matlab binary. You will not need the
 `mccExcludedFiles.log`, `requiredMCRProducts.txt` or `readme.txt` to run
 your jobs.
 
-<a name="script"></a>
+<span name="script"></span>
 
 **3. Modifying the Executable**
 ---------------------------
@@ -230,7 +230,7 @@ export MCR_CACHE_ROOT=$PWD/cache
 
 **B. Running Matlab Jobs**
 ======================
-<a name="submit"></a>
+<span name="submit"></span>
 This section shows the important elements of creating a submit file for
 Matlab jobs. The submit file for your job will be different than the one
 used to compile your code. As a starting point for a submit file, see
@@ -289,7 +289,7 @@ executable = run_script.sh
     completes. **If you are using Matlab 2018b or 2022b, request at least 8-10GB
     of DISK** as the runtime is very large for this version of Matlab.
 
-<a name="random"></a>
+<span name="random"></span>
 
 Ensuring Randomness
 ===================

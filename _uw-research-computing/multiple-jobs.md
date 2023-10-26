@@ -63,7 +63,7 @@ like input file names, file locations (aka paths), etc. **When selecting a
 variable name, users must avoid bespoke HTCondor submit file variables 
 such as `Cluster`, `Process`, `output`, and `input`, `arguments`, etc.**
 
-<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2><a name="process"></a>
+<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2><span name="process"></span>
 
 When using `queue N`, HTCondor will submit a total of *N* 
 jobs, counting from 0 to *N* - 1 and each job will be assigned 
@@ -175,7 +175,7 @@ Then use `$(NewProcess)` anywhere in the submit file that you would
 have otherwise used `$(Process)`. Note that there is nothing special about the 
 names `plusone` and `NewProcess`, you can use any names you want as variables.
 
-## 2. Submit multiple jobs with one or more distinct variables per job<a name="foreach"></a>
+## 2. Submit multiple jobs with one or more distinct variables per job<span name="foreach"></span>
 
 Think about what's different between each job that needs to be submitted. 
 Will each job use a different input file or combination of software parameters? Do 
@@ -267,7 +267,7 @@ queue state,year from states.txt
 ```
 {: .sub}
 
-<a name="initialdir"></a>
+<span name="initialdir"></span>
 ## 3. Organizing Jobs Into Individual Directories
 
 One way to organize jobs is to assign each job to its own directory,

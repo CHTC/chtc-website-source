@@ -29,7 +29,7 @@ address.
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="Appli"></a>
+<span name="Appli"></span>
 
 **1. Applicability**
 ----------------
@@ -92,12 +92,12 @@ address.
     space](file-avail-largedata.html) for large-file staging.
 
 
-<a name="use"></a>
+<span name="use"></span>
 
 **2. Using SQUID to Deliver Input Files**
 -------------------------------------
-<a name="request"></a>
-1. **Request a directory in SQUID**. Write to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) describing the data you\'d like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<a name="place"></a>  
+<span name="request"></span>
+1. **Request a directory in SQUID**. Write to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) describing the data you\'d like to place in SQUID, and indicating your username and submit server hostname (i.e. submit-5.chtc.wisc.edu).<span name="place"></span>  
 
 2.  **Place files within your `/squid/username` directory** via a CHTC
     transfer server (if from your laptop/desktop) or on the submit
@@ -126,7 +126,7 @@ address.
     {:.term}
 
 3.  **Have HTCondor download the file to the working job** using the
-    `http://proxy.chtc.wisc.edu/SQUID` address in the <a name="have"></a>
+    `http://proxy.chtc.wisc.edu/SQUID` address in the <span name="have"></span>
     transfer\_input\_files line of your submit file:
 
     ``` {.sub}

@@ -37,7 +37,7 @@ If you want to build your own copy of base R, see this archived page:
 
 -   [Building a R installation](r-build.html)
 
-<a name="supported"></a>
+<span name="supported"></span>
 
 CHTC-Provided R Installations
 =========================
@@ -67,7 +67,7 @@ to run your jobs
 has an excellent selection of containers with many different versions of R. Contact 
 us with any questions about this. 
 
-<a name="build"></a>
+<span name="build"></span>
 
 **1. Adding R Packages**
 ====================
@@ -85,7 +85,7 @@ packages to a folder and zip those files to return to the submit server.
 > install of R; if you want to add packages to a pre-existing package
 > folder, there will be notes below in boxes like this one.
 
-<a name="version"></a>
+<span name="version"></span>
 
 A. Submit an Interactive Job
 ----------------------------
@@ -273,7 +273,7 @@ to the submit server with you.
 ```
 {:.term}
 
-<a name="script"></a>
+<span name="script"></span>
 
 **2. Creating a Script**
 ====================
@@ -335,10 +335,10 @@ would like, give it executable permissions by running:
 > r-bloggers.com
 > page](https://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/)
 > and about a quarter of the way into this [Software Carpentry
-> lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/)
+> lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline.html)
 > (look for `print-args-trailing.R`).
 
-<a name="submit"></a>
+<span name="submit"></span>
 
 **3. Submitting Jobs**
 ==================
@@ -371,7 +371,7 @@ changes in order to run R jobs:
     arguments = value1 value2
     ```
 
-<a name="squid"></a>
+<span name="squid"></span>
 
 > ### How big is your package tarball?
 >

@@ -39,7 +39,7 @@ considerations for getting your work done most efficiently.
 3.  [Running High Memory Jobs](#3-running-high-memory-job)
 
 
-<a name="resoures"></a>
+<span name="resoures"></span>
 
 **1. High Memory Resources in CHTC**
 ================================
@@ -57,12 +57,12 @@ Our high memory servers have the following specs:
 
 
 
-<a name="get-started"></a>
+<span name="get-started"></span>
 
 **2. Getting Started**
 ==================
 
-<a name="id"></a>
+<span name="id"></span>
 
 A. Identifying High Memory Jobs
 -------------------------------
@@ -74,7 +74,7 @@ doing so will allow your job(s) to run on more servers, since CHTC has
 hundreds of servers with up to 100 GB of memory and dozens of servers
 with up to 250 GB of memory.
 
-<a name="testing"></a>
+<span name="testing"></span>
 
 B. Testing
 ----------
@@ -105,7 +105,7 @@ changes to your executable, adjust your resource requests, and submit
 the job normally.
 
 
-<a name="consult"></a>
+<span name="consult"></span>
 
 C. Consult with Facilitators
 ----------------------------
@@ -115,13 +115,13 @@ sure if everything in this guide applies to you, get in touch with a
 research computing facilitator by emailing [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
 
-<a name="running"></a>
+<span name="running"></span>
 
 **3. Running High Memory Job**
 ===========================
 
 
-<a name="submit"></a>
+<span name="submit"></span>
 
 A. Submit File
 --------------
@@ -202,7 +202,7 @@ queue 1
 ```
 
 
-<a name="software"></a>
+<span name="software"></span>
 
 B. Software
 -----------
@@ -215,7 +215,7 @@ support for program installation [during office hours or over
 email](get-help.html).
 
 
-<a name="executable"></a>
+<span name="executable"></span>
 
 C. \"Executable\" script
 ------------------------

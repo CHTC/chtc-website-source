@@ -28,7 +28,7 @@ Using a container to provide a base version of Linux will allow you to
 run on any nodes in the HTC system, and not limit you to a subset of nodes. 
 
 After finding a container with the desired version of Linux, just follow our instructions 
-for [Docker](docker-jobs.html) or [Singularity/Apptainer](htc-singularity.html) jobs. 
+for [Docker](docker-jobs.html) or [Singularity/Apptainer](singularity-htc.html) jobs. 
 
 Note that the default Linux containers on Docker Hub are often missing commonly installed 
 packages. Our collaborators in OSG Services maintain a few curated containers with a 

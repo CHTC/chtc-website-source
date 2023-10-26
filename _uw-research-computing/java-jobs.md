@@ -23,7 +23,7 @@ beyond. There are two ways to run Java code from a CHTC submit server:
 You should only use \*one\* of these options to run Java code, not both.
 
 
-<a name="portable"></a>
+<span name="portable"></span>
 
 Portable Java (recommended)
 =============
@@ -68,7 +68,7 @@ like:
     file in your home directory to find out the correct directory name to add to 
         the script. 
 	
-<a name="default"></a>
+<span name="default"></span>
 
 Pre-installed Java
 ==================

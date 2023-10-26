@@ -17,7 +17,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 [getting started](get-started.html) page.
 
 {% capture content %}
-1.  [Accessing the Submit Servers]()
+1.  [Accessing the Submit Servers](#access)
 2.  [Logging In](#login)
     -   [On the command line](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
@@ -31,7 +31,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="access"></a>
+<span name="access"></span>
 
 **1. Accessing the Submit Servers**
 ===============================
@@ -73,7 +73,7 @@ access CHTC resources.
 > then be able to log into CHTC as usual.
 
 
-<a name="login"></a>
+<span name="login"></span>
 
 **2. Logging In**
 =============
@@ -82,7 +82,7 @@ Using the information described above, you can log in to servers two
 different ways \-- from the command line or using an SSH program:
 
 
-<a name="login-ssh"></a>
+<span name="login-ssh"></span>
 
 A. On the command line
 ----------------------------------
@@ -99,7 +99,7 @@ $ ssh username@hostname
 You will be prompted for your password, and then for Duo 
 authentication. 
 
-<a name="login-putty"></a>
+<span name="login-putty"></span>
 
 B. Using an SSH program (Windows)
 ---------------------------------
@@ -121,7 +121,7 @@ Note that once you have submitted jobs to the queue, you can leave your
 logged in session (by typing `exit`). Your jobs will run and return
 output without you needing to be connected.
 
-<!-- <a name="ssh-keys"></a>
+<!-- <span name="ssh-keys"></span>
 
 C. Logging in automatically
 ---------------------------
@@ -143,7 +143,7 @@ a connection for logging in again or moving files. More details are shown
 in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
 
-<a name="transfer"></a>
+<span name="transfer"></span>
 
 **3. Transferring Files**
 =====================
@@ -153,7 +153,7 @@ hostname information for [logging in](#login), as well as understanding
 where your files are and where you would like them to go.
 
 
-<a name="transfer-scp"></a>
+<span name="transfer-scp"></span>
 
 A. On the command line
 ----------------------------------
@@ -191,7 +191,7 @@ Again, for many files, it will be easiest to create a compressed tarball
 individually. 
 
 
-<a name="transfer-winscp"></a>
+<span name="transfer-winscp"></span>
 
 B. Using a file transfer program (Windows/Mac)
 ----------------------------------------------
@@ -211,7 +211,7 @@ and drop.
 There are other programs besides WinSCP that do this. Another that works
 on Mac and Windows is called [Cyberduck](https://cyberduck.io).
 
-<a name="transfer-many"></a>
+<span name="transfer-many"></span>
 
 C. Transferring Multiple Files
 ------------------------------
@@ -241,7 +241,7 @@ or
 ```
 {:.term}
 
-<a name="files"></a>
+<span name="files"></span>
 
 **4. Creating and Editing Files in CHTC**
 =====================================
@@ -256,7 +256,7 @@ programs are:
 
 `nano` is the most beginner-friendly, and `emacs` is the most advanced.
 [This Software Carpentry
-lesson](http://swcarpentry.github.io/shell-novice/03-create/) describes
+lesson](https://swcarpentry.github.io/shell-novice/03-create.html) describes
 how to use `nano`, and there are many other resources online with
 instructions for these text editors.
 
@@ -264,7 +264,7 @@ Some of the file transfer programs mentioned [above](#transfer-winscp)
 allow you to edit files on CHTC servers through the interface.
 
 
-<a name="learn"></a>
+<span name="learn"></span>
 
 **5. Learning About the Command Line**
 ==================================
@@ -288,14 +288,14 @@ Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. In
 particular, we recommend the sections on:
 
 -   understanding the filesystem and how to navigate it ([Navigating
-    Files and
-    Directories](http://swcarpentry.github.io/shell-novice/02-filedir.html))
+    Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
 -   tab-completion (section entitled \"Nelle\'s Pipeline, Organizing
     Files\", in [Navigating Files and
-    Directories](http://swcarpentry.github.io/shell-novice/02-filedir.html))
+    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
 -   creating files ([Working With Files and
-    Directories](http://swcarpentry.github.io/shell-novice/03-create.html))
+    Directories](https://swcarpentry.github.io/shell-novice/03-create.html))
 -   using the star wildcard (first part of [Pipes and
-    Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter.html))
+    Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 -   writing shell scripts ([Shell
-    Scripts](http://swcarpentry.github.io/shell-novice/06-script.html))
+    Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))
+

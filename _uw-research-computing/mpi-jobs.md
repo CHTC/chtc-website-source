@@ -40,7 +40,7 @@ HTC system, you will need to do the following:
 3.  [Make sure your submit file has certain key requirements](#submit)
 
 
-<a name="require"/>
+<span name="require"/>
 
 A. Requirements and Use Cases
 =============================
@@ -60,7 +60,7 @@ standard MPI. For MPI jobs to compile and run, CHTC has a set of MPI
 tools installed to a shared location that can be accessed via software
 modules.
 
-<a name="view"/>
+<span name="view"/>
 
 B. View MPI Modules on the HTC System
 =====================================
@@ -83,7 +83,7 @@ that library into the module system.
 C. Submitting MPI jobs
 ======================
 
-<a name="compile"/>
+<span name="compile"/>
 
 **1. Compile MPI Code**
 -------------------
@@ -138,7 +138,7 @@ or our public web proxy called Squid. Email CHTC\'s Research Computing
 Facilitators at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if this is the case.
 
 
-<a name="script"/>
+<span name="script"/>
 
 **2. Script For Running MPI Jobs**
 ------------------------------
@@ -170,7 +170,7 @@ number of CPUs you want the program to use. There may be additional
 options or flags necessary to run your particular program; make sure to
 check the program\'s documentation about running multi-core processes.
 
-<a name="submit"/>
+<span name="submit"/>
 
 **3. Submit File Requirements**
 ---------------------------

@@ -38,7 +38,7 @@ If you want to use conda to manage your Python package dependencies,
 read this guide as background material,
 then read [our guide on using conda](conda-installation.html).
 
-<a name="supported"></a>
+<span name="supported"></span>
 
 CHTC-Provided Python Installations
 ==============================
@@ -74,7 +74,7 @@ or use a Docker container for running your jobs.
 
 **1. Adding Python Packages**
 =========================
-<a name="build"></a>
+<span name="build"></span>
 
 If your code uses specific Python packages (like `numpy`, `matplotlib`,
 `sci-kit learn`, etc) follow the directions below to download and
@@ -104,7 +104,7 @@ There are two approaches to running on our pool:
 
 A. Submit an Interactive Job
 ----------------------------
-<a name="version"></a>
+<span name="version"></span>
 Create the following special submit file on the submit server, calling
 it something like `build.sub`. **Make sure that you choose the appropriate 
 Python tar.gz file and requirements if you want to build on CentOS 7 versus 
@@ -284,7 +284,7 @@ seconds after exiting).
 
 **2. Creating a Script**
 ====================
-<a name="script"></a>
+<span name="script"></span>
 In order to use CHTC\'s copy of Python and the packages you have
 prepared in an HTCondor job, we will need to write a script that unpacks
 both Python and the packages and then runs our Python code. We will use
@@ -344,12 +344,12 @@ would like, give it executable permissions by running:
 > In addition, your Python script will need to be able to accept
 > arguments from the command line. There is an explanation of how to do
 > this in [this Software Carpentry
-> lesson](https://swcarpentry.github.io/python-novice-inflammation/12-cmdline/index.html).
+> lesson](https://swcarpentry.github.io/python-novice-inflammation/12-cmdline.html).
 
 
 **3. Submitting Jobs**
 ==================
-<a name="submit"></a>
+<span name="submit"></span>
 A sample submit file can be found in our [hello
 world](helloworld.html) example page. You should make the following
 changes in order to run Python jobs:
