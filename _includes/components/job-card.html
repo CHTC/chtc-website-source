@@ -7,7 +7,7 @@
         </div>
         <div class="col-auto d-flex">
             {% if job.close_date != null %}
-                <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %H:%M" }}</span>
+                <span class="my-auto">Applications Close: {{ job.close_date | date: "%Y-%m-%d %I:%M %p" }}</span>
             {% endif %}
         </div>
         {{ job.text | markdownify }}
