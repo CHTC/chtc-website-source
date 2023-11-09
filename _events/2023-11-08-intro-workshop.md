@@ -29,6 +29,8 @@ This workshop is also included in the series of fall workshops offered by
 the Data Science Hub. See other workshops in the series
 here: [Data Science Hub Fall 2023 Mini Workshops](https://uw-madison-datascience.github.io/2023-09-13-uwmadison-mini/)
 
+[Workshop Materials](https://docs.google.com/document/d/1V2fQU0d90reT7ZPHaMhdOcbDzC-EbA4p4yzwV1P-m1Y/edit?usp=sharing)
+
 {% endcapture %}
 
 
