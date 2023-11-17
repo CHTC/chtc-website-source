@@ -9,6 +9,14 @@
       "client_secret_post",
       "client_secret_basic"
    ],
+   "scopes_supported":  [
+     "wlcg",
+     "storage.read:/",
+     "storage.write:/",
+     "org.cilogon.userinfo",
+     "openid",
+     "offline_access"
+   ],
    "grant_types_supported": [
       "refresh_token",
       "urn:ietf:params:oauth:grant-type:device_code"
