@@ -208,7 +208,7 @@ set -e
 # replace env-name on the right hand side of this line with the name of your conda environment
 ENVNAME=env-name
 # if you need the environment directory to be named something other than the environment name, change this line
-ENVDIR=$ENVNAME
+export ENVDIR=$ENVNAME
 
 # these lines handle setting up the environment; you shouldn't have to modify them
 export PATH
