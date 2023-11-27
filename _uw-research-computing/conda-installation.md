@@ -171,7 +171,7 @@ set the proper permissions for this file using `chmod`, and check the size of
 the final tarball: 
 
 ```
-(base)[alice@submit]$ conda pack -n env-name
+(base)[alice@submit]$ conda pack -n env-name --dest-prefix='$ENVDIR'
 (base)[alice@submit]$ chmod 644 env-name.tar.gz
 (base)[alice@submit]$ ls -sh env-name.tar.gz
 ```
