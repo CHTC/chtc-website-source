@@ -23,7 +23,7 @@ title: The Center for High Throughput Computing Fellows Program
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a 12-week summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
-The program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
+The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
 ### What is CHTC?
 CHTC is a research center within UW-Madison and the Morgridge Institute for Research with an aim of advancing the concepts of High Throughput Computing (HTC). Its activities include developing the [HTCondor Software Suite](http://htcondor.org/) (HTCSS) which has over 30 years of experience in tackling HTC problems; leading the [PATh project](https://path-cc.io/), which, with the [OSG Consortium](https://osg-htc.org/), provides a national-scale environment for distributed HTC; developing [the Pelican Platform](https://pelicanplatform.org/) for large-scale dataset distribution; and advancing the concept of Research Computing Facilitation which empowers scientists to use computing as a tool to advance their research.
@@ -46,7 +46,7 @@ For summer 2024, projects are available in the following areas:
 
 ## How it Works
 
-Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area.
+Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area.
 
 **Eligibility:**
 
@@ -57,10 +57,10 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 **Duration of fellowship and total stipend:**
 
--   The fellowship program lasts for 12 weeks during Summer 2024.
+-   The Fellowship Program lasts for 12 weeks during Summer 2024.
 -   The Program provides $650/week stipend for large projects and $325/week stipend for medium projects. The stipends will be dispersed monthly.
--   It is expected that a Fellow working on a large project is available full time during the Fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
--   Applications are now open - deadline 1 March, 2024 (any time zone)
+-   It is expected that a Fellow working on a large project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
+-   Applications are now open - deadline 1 March, 2024 (any time zone).
 
 
 **Developing a project**
@@ -83,9 +83,9 @@ To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.
 
 -   **Friday 1 March, 2024** - final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
 -   **Friday 15 March, 2024** - end of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
--   **Monday 1 April, 2024** - deadline for submission of proposals. (Proposals will be reviewed on a rolling basis).
+-   **Monday 1 April, 2024** - deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
 -   **By 15 April, 2023** - final selection of Fellows for summer 2024
--   **May-Sep** - Fellows work on projects (exact dates may depend on specific academic year constraints)
+-   **May-Sep** - Fellows work on projects. (Exact dates may depend on specific academic year constraints.)
 
 
 ## Funding
