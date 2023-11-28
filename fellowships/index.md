@@ -67,7 +67,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 -   After you apply, we will make a first selection of candidates and reach out to you for a “matchmaking discussion” with a mentor to discuss possible projects.
 -   It is not necessary to prepare a project proposal before application, however including information on your potential interests as part of the application will help us match you with a mentor.
--   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline. Based on that, we will make a final fellows selection
+-   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline. Based on that, we will make a final fellows selection.
 -   During the Fellowship, you will work with your mentor and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
 
 
@@ -76,7 +76,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.wisc.edu ) with the following information:
 
 -   A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
--   A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application
+-   A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.
 
 
 ### Timeline:
