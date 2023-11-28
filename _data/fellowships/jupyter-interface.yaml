@@ -1,0 +1,13 @@
+title: User interface and Jupyter widgets
+type: Software Development
+summary: |
+  Historically, the User Interface to HTCondor has been purely through the command-line. 
+  This often presents a large hurdle for onboarding new users, both in terms of even 
+  getting to the command-line via ssh and some terminal emulator, and then using the 
+  command line.  Modern notebook interfaces, such as Jupyter have allowed us to minimize
+  the first problem, by providing a web interface to the terminal.  However, users still
+  need to type in commands to access the batch system.  This project extends HTCondor by
+  implementing various Jupyter UI widgets to visualize users’ jobs within the system, and
+  further interface with the system.  After completing this project, the student will have
+  Jupyter widgets to show in their portfolio, professional JavaScript experience, and 
+  understanding of how a distributed High Throughput System works.

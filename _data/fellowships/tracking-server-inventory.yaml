@@ -1,0 +1,11 @@
+title: Tracking server inventory and elevation
+scale: Medium
+type: Infrastructure Services
+summary: |
+  The CHTC maintains over 1,000 servers on the UW–Madison campus and across the
+  country. Keeping track of server elevation (datacenter and rack location), 
+  serial numbers, asset tags is a challenge that is always in need of improvement.
+  This project will focus on taking existing data from the CHTC hardware monitoring
+  system and automatically exporting it to other systems such as Google spreadsheets
+  or ITAdvisor. After a successful summer, the student fellow will gain skills
+  in Python and monitoring and Google Docs APIs.
