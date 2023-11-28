@@ -73,7 +73,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 ## Applying
 
-To apply, send an email to [chtc-fellows@wisc.edu](mailto:chtc-fellows@wisc.edu) with the following information:
+To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.wisc.edu ) with the following information:
 
 -   A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 -   A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application
