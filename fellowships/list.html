@@ -17,25 +17,27 @@ title: Open projects for CHTC Fellows
             {% include page-title.html title="page.title" %}
             <p>
                 This page lists software development, infrastructure services, and research facilitation
-                projects for CHTC Fellow applicants to consider. (This page will be updated from time to
-                 time, so check back and reload to see if new projects have been added.)
+                projects for CHTC Fellow applicants to consider.
+            </p>
+            <p>
+                Updated November 28, 2023
             </p>
             {% include /get/fellowships.liquid %}
             {% assign software = fellowships | where: "type", "Software Development" %}
             {% assign infrastructure = fellowships | where: "type", "Infrastructure Services" %}
             {% assign research = fellowships | where: "type", "Research Facilitation" %}
 
-            <h2>Software Development</h2>
+            <h2 id="software-development">Software Development</h2>
             {% for fellowship in software %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
 
-            <h2>Infrastructure Services</h2>
+            <h2 id="infrastructure-services">Infrastructure Services</h2>
             {% for fellowship in infrastructure %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
 
-            <h2>Research Facilitation</h2>
+            <h2 id="research-facilitation">Research Facilitation</h2>
             {% for fellowship in research %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
