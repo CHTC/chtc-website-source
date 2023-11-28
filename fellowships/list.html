@@ -1,0 +1,62 @@
+---
+layout: default
+title: Open projects for CHTC Fellows
+---
+
+<figure>
+    <img class="w-100 d-block d-lg-none" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner.jpg' | relative_url }}"
+         alt="Collage photos of current and previous CHTC interns."/>
+    <img class="w-100 d-none d-lg-block" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner-lg.jpg' | relative_url }}"
+         alt="Collage photos of current and previous CHTC interns."/>
+    <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
+</figure>
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-lg-8">
+            {% include page-title.html title="page.title" %}
+            <p>
+                This page lists software development, infrastructure services, and research facilitation
+                projects for CHTC Fellow applicants to consider. (This page will be updated from time to
+                 time, so check back and reload to see if new projects have been added.)
+            </p>
+            {% include /get/fellowships.liquid %}
+            {% assign software = fellowships | where: "type", "Software Development" %}
+            {% assign infrastructure = fellowships | where: "type", "Infrastructure Services" %}
+            {% assign research = fellowships | where: "type", "Research Facilitation" %}
+
+            <h2>Software Development</h2>
+            {% for fellowship in software %}
+                {% include /components/fellowship-card.html %}
+            {% endfor %}
+
+            <h2>Infrastructure Services</h2>
+            {% for fellowship in infrastructure %}
+                {% include /components/fellowship-card.html %}
+            {% endfor %}
+
+            <h2>Research Facilitation</h2>
+            {% for fellowship in research %}
+                {% include /components/fellowship-card.html %}
+            {% endfor %}
+
+        </div>
+        <div class="d-none d-lg-block col-12 col-lg-4">
+            <div class="sticky-top mt-5">
+                <div class="pt-5">
+                    <div class="uw-sidebar-box me-auto">
+                        <div class="uw-directory">
+                            <h3>Fellowships</h3>
+                            <ul>
+                                {% for fellowship in fellowships %}
+                                    <li><a href="#{{ fellowship.title |  slugify }}">{{ fellowship.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center">Questions: <a href="mailto:chtc-fellows@wisc.edu">chtc-fellows@wisc.edu</a></p>
+    </div>
+</div>
