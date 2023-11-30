@@ -26,9 +26,11 @@ title: "News: How CHTC is Making An Impact"
                 <h2 class="text-center mt-0">Featured News</h2>
             </div>
             {% include get/news.liquid %}
+            {% assign counter = 0 %}
             {% for article in news %}
             {% if article.tag contains "chtc_featured_article" %}
-            <div class="col-12 col-md-6 col-lg-4 ">
+            {% assign counter = counter | plus: 1 %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 {% if counter == 3 %}d-none d-lg-block{% endif %}">
                 {% include news-posting.html
                     href=article.url
                     title=article.title
@@ -48,9 +50,24 @@ title: "News: How CHTC is Making An Impact"
     <h2>Read about some of CHTC’s latest news and projects:</h2>
     <div class="row gx-1">
         {% include get/news.liquid %}
+        {% assign counter = 0 %}
         {% for article in news %}
-            {% unless article.tag contains "chtc_featured_article" %}
-                <div class="col-12 col-md-6 col-lg-4 ">
+            {% if article.tag contains "chtc_featured_article" %}
+                {% assign counter = counter | plus: 1 %}
+                {% if counter == 3 %}
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 d-lg-none">
+                        {% include news-posting.html
+                            href=article.url
+                            title=article.title
+                            author=article.author
+                            src=article.image.path
+                            alt=article.image.alt
+                            date=article.date
+                        %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                     {% include news-posting.html
                         href=article.url
                         title=article.title
@@ -58,10 +75,9 @@ title: "News: How CHTC is Making An Impact"
                         src=article.image.path
                         alt=article.image.alt
                         date=article.date
-                        excerpt=article.excerpt
                     %}
                 </div>
-            {% endunless %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>
