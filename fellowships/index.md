@@ -107,6 +107,11 @@ To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.
 
 External funding support for the CHTC Fellows Program is provided by the National Science Foundation through Cooperative Agreement [OAC-2030508](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2030508) and Grant [OAC-2331480](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2331480). Support for this program is also provided by UW-Madison and the Morgridge Institute for Research.
 
+## Other Scientific Fellowships
+
+-   [**SciAuth Student Fellows**](https://sciauth.org/fellows/){:target="_blank"}
+-   [**IRIS-HEP Fellows Program**](https://iris-hep.org/fellows.html){:target="_blank"}
+
 </div>
 </div>
 </div>
