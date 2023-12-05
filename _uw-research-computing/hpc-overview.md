@@ -78,7 +78,7 @@ backfill capacity via the `pre` partition (more details below).
   | Partition | p-name | \# nodes (N) | t-default | t-max | max cores/job | cores/node (n) | RAM/node (GB) |
   | --- |
   | Shared | shared | 45 | 1 day | 7 day | 320 | 64 or 128 | 512
-  | Interactive | int | 2 | 1 hr | 4 hrs | 320 | 16 | 64
+  | Interactive | int | 2 | 1 hr | 4 hrs | 16 | 64 or 128 | 512 (max 64 per job)
   | Pre-emptable (backfill) | pre | 45 | 4 hrs | 24 hrs | 320 | 64 or 128 | 512
   | Owners | *unique* | 19 | 24 hrs | 7 days | *unique* | 64 or 128 | 512
 
