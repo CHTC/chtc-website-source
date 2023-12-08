@@ -33,7 +33,7 @@ Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
 
 CHTC is required to verify that all individuals residing outside the United States be approved for access by the University’s Export Control office. This process takes approximately one week. 
 
-## **Step 3**
+## Step 3
 
 Assuming there are no concerns about your access, CHTC staff will follow up when your CHTC account and NetID have been reactivated.  
 
