@@ -19,7 +19,7 @@ The process for requesting an extension on your CHTC account and NetID is listed
 
 ## **Step 1**
 
-Your Faculty Sponsor should email CHTC (support@chtc.wisc.edu) and provide:
+Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
 
   (1) Your name, 
   <br>  (2) The reason you need continued access to CHTC resources,
