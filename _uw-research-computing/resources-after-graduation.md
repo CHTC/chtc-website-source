@@ -13,7 +13,7 @@ guide:
 
 We understand that some users may need to continue carrying out their computational analyses after graduation and the subsequent expiration of their NetID. 
 
-To maintain access to CHTC resources after you leave your position at the University, your Faculty Sponsor can sponsor continued access to CHTC resources and your NetID. 
+To maintain access to CHTC resources after you leave your position at the University, your faculty advisor can sponsor continued access to CHTC resources and your NetID. 
 
 The process for requesting an extension on your CHTC account and NetID is listed below: 
 
