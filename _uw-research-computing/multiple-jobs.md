@@ -33,7 +33,7 @@ work with you to identify options to meet the needs of your work.
 if there are a significant number of jobs submitted at once or rapidly starting and finishing. Therefore, plan ahead for the following to scenarios: 
 1) If you plan to submit 10,000+ jobs at a time, please let us
 > know, so we can provide options that will protect the queue's performance. 
-2)  if you plan to submit 1000+ jobs, please make sure that each job
+2) If you plan to submit 1000+ jobs, please make sure that each job
 > has a minimum run time of 10 minutes (on average). If your calculations are shorter than
 > 10 minutes, then modify your workflow to run multiple calculations per job.
 
