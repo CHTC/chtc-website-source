@@ -112,10 +112,11 @@ If you want to run your job commands yourself, as a test before submitting
 a job as described above, you can request an interactive job on the cluster. 
 
 There is a dedicated partition 
-for interactive work called `int`; you may request up to a full node (128 CPUs, 
-512 GB RAM) when requesting an interactive session in the \"int\" partition and 
-the session is limited to 60 minutes. Using another partition (like `pre`) will 
-mean your interactive job is subject to the limits of that partition. 
+for interactive work called `int`; you may request up to 16 CPUS and 64GB of memory
+when requesting an interactive session in the \"int\" partition. By default,  
+the session is limited to 60 minutes though you can request up to 4 hours. 
+Using another partition (like `pre`) will 
+mean your interactive job is subject to the limits of that partition instead. 
 
 ### For simple testing or compiling
 
