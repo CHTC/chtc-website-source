@@ -39,4 +39,4 @@ Assuming there are no concerns about your access, CHTC staff will follow up when
 
 ## **Recommendations** 
 * We highly recommend reaching out to CHTC staff before your NetID expires, if possible. 
-* As a reminder, CHTC accounts are deactivated and user data is erased after a user is no longer actively using their account (~1 year of inactivity). It’s important to always maintain a copy of your data somewhere else, especially if you may need to revisit it after graduation (e.g. manuscript revisions). 
+* As a reminder, CHTC accounts are deactivated and user data is erased after a user is no longer actively using their account (~1 year of inactivity). **We also do not maintain backups of any files.** It’s important to always maintain a copy of ALL your data somewhere else, especially if you may need to revisit it after graduation (e.g. manuscript revisions). 
