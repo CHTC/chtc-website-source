@@ -51,7 +51,7 @@ persons and in foreign jurisdictions so it’s important to ensure that all lega
 followed.
 If you have export controlled information that you would like to use on the CHTC, or you are unsure 
 if the information you have is export controlled, please contact the Export Control Office at 
-exportcontrol@grad.wisc.edu for guidance.
+[exportcontrol@grad.wisc.edu](mailto:exportcontrol@grad.wisc.edu) for guidance.
 
 **Note: The CHTC is not compliant with Controlled Unclassified Information (CUI) requirements.**
 
