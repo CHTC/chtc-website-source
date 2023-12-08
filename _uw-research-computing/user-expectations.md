@@ -35,9 +35,26 @@ to delete data from any CHTC data location at at any time, to preserve
 systems performance, and are not responsible for data loss or file system
 corruption, which are possible in the absence of back-ups.
 
-**Note: CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
+**CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
 CHTC services. If you have data security concerns or any questions about 
 data security in CHTC, please get in touch! 
+
+### Export Control
+
+Users agree not to access, utilize, store, or in any way run export controlled data, information, 
+programs etc. on CHTC software, equipment, or computing resources without prior review by  the 
+UW-Madison Export Control Office.
+
+Export controlled information is subject to federal government rules on handling and viewing and has 
+restrictions on who and where it may be accessed. A license can be required for access by foreign 
+persons and in foreign jurisdictions so it’s important to ensure that all legal requirements are 
+followed.
+If you have export controlled information that you would like to use on the CHTC, or you are unsure 
+
+if the information you have is export controlled, please contact the Export Control Office at 
+exportcontrol@grad.wisc.edu for guidance.
+
+Note: The CHTC is not compliant with Controlled Unclassified Information (CUI) requirements.
 
 ## User Expectations
 
