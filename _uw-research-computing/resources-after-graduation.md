@@ -27,7 +27,7 @@ Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
   <br> (4) Your new city/country of residence, and 
   <br> (5) Your new institution. 
 
-* Your faculty sponsor can sponsor your account for up to one year at a time. If you need continued access past one year, your faculty sponsor must re-confirm that you can have continued access. 
+* Your faculty sponsor can sponsor your account for up to one year at a time. If you need continued access past one year, your faculty sponsor must contact us and re-confirm that you should have continued access. 
 
 ## **Step 2** 
 
