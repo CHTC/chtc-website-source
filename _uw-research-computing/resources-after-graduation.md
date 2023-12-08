@@ -17,7 +17,7 @@ To maintain access to CHTC resources after you leave your position at the Univer
 
 The process for requesting an extension on your CHTC account and NetID is listed below: 
 
-## **Step 1**
+## Step 1
 
 Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
 
