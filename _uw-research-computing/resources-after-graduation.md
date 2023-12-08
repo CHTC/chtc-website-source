@@ -38,5 +38,5 @@ CHTC is required to verify that all individuals residing outside the United Stat
 Assuming there are no concerns about your access, CHTC staff will follow up when your CHTC account and NetID have been reactivated.  
 
 ## **Recommendations** 
-* We highly recommend reaching out to CHTC staff before your NetID expires. The longer your NetID has been expired, the more difficult it is for CHTC staff to reactivate it. In some cases, it may be required to create a new NetID.
+* We highly recommend reaching out to CHTC staff before your NetID expires, if possible. 
 * As a reminder, CHTC accounts are deactivated and user data is erased after a user is no longer actively using their account (~1 year of inactivity). It’s important to always maintain a copy of your data somewhere else, especially if you may need to revisit it after graduation (e.g. manuscript revisions). 
