@@ -15,8 +15,6 @@ checking on whether your jobs are running or not! Read on to learn how
 you can use `condor_q` to answer many common questions about running
 jobs.
 
-{% include /components/directory.html %}  
-
 
 Summary
 =======
