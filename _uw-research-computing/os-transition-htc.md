@@ -7,9 +7,7 @@ guide:
     category: Special Use Cases
     tag:
         - htc
----
-
-This 
+--- 
 
 ### Default Operating System
 
