@@ -46,7 +46,7 @@ between them.
 The first step is to find the CHTC Globus endpoints. They can be found in the Globus web interface 
 by searching endpoints for "CHTC Staging" or "CHTC Projects".
 
-![CHTC Globus endpoints](../../images/guides-globus-endpoints.png)
+![CHTC Globus endpoints](/images/guides-globus-endpoints.png)
 
 Or can be found at these links: 
 
