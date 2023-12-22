@@ -25,8 +25,10 @@ own computer first.
 ## Prerequisites
 
 All file transfer via Globus at CHTC requires: 
-- a group or user [`/staging`](file-avail-largedata.html) or `/projects` folder
+
+- access to a directory in the [`/staging`](file-avail-largedata.html) or `/projects` folders
 - login access to the `transfer.chtc.wisc.edu` server. 
+
 Contact us at chtc@cs.wisc.edu if you need either of the above. 
 
 You will also need to be able to
@@ -47,6 +49,7 @@ by searching endpoints for "CHTC Staging" or "CHTC Projects".
 ![CHTC Globus endpoints](../../images/guides-globus-endpoints.png)
 
 Or can be found at these links: 
+
 * [CHTC Staging](https://app.globus.org/file-manager/collections/6561bd4c-8dc3-42f2-8442-4907d41265a6/overview)
 * [CHTC Projects](https://app.globus.org/file-manager/collections/66429a34-0a52-47b7-8699-d10804a1b75b/overview)
 
