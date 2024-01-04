@@ -1,1 +1,110 @@
-[{"College":"Agricultural and Life Sciences","NumDep":15,"NumProj":60,"NumUsers":145,"HTCHours":15969186,"HPCHours":1052676,"CHTC Interactions":145,"HTCYears":1822,"HPCYears":120,"collegeURL":"https:\/\/cals.wisc.edu\/"},{"College":"Business","NumDep":4,"NumProj":8,"NumUsers":10,"HTCHours":508856,"HPCHours":0,"CHTC Interactions":5,"HTCYears":58,"HPCYears":0,"collegeURL":"https:\/\/business.wisc.edu\/"},{"College":"Education","NumDep":1,"NumProj":7,"NumUsers":8,"HTCHours":701393,"HPCHours":0,"CHTC Interactions":17,"HTCYears":80,"HPCYears":0,"collegeURL":"https:\/\/education.wisc.edu\/"},{"College":"Engineering","NumDep":9,"NumProj":75,"NumUsers":241,"HTCHours":18792161,"HPCHours":22940045,"CHTC Interactions":237,"HTCYears":2145,"HPCYears":2618,"collegeURL":"https:\/\/engineering.wisc.edu\/"},{"College":"Letters and Sciences","NumDep":20,"NumProj":105,"NumUsers":660,"HTCHours":75606771,"HPCHours":9527550,"CHTC Interactions":415,"HTCYears":8630,"HPCYears":1087,"collegeURL":"https:\/\/ls.wisc.edu\/"},{"College":"Medicine and Public Health","NumDep":16,"NumProj":37,"NumUsers":121,"HTCHours":22735732,"HPCHours":98416,"CHTC Interactions":73,"HTCYears":2595,"HPCYears":11,"collegeURL":"https:\/\/www.med.wisc.edu\/"},{"College":"Off-Campus Collaborations","NumDep":2,"NumProj":14,"NumUsers":24,"HTCHours":8912465,"HPCHours":333966,"CHTC Interactions":62,"HTCYears":1017,"HPCYears":38,"collegeURL":""},{"College":"Pharmacy","NumDep":2,"NumProj":6,"NumUsers":18,"HTCHours":1352021,"HPCHours":1215734,"CHTC Interactions":0,"HTCYears":154,"HPCYears":138,"collegeURL":"https:\/\/pharmacy.wisc.edu\/"},{"College":"Veterinary Medicine","NumDep":4,"NumProj":7,"NumUsers":11,"HTCHours":272084,"HPCHours":0,"CHTC Interactions":13,"HTCYears":31,"HPCYears":0,"collegeURL":"https:\/\/uwveterinarycare.wisc.edu\/"}]
+[
+  {
+    "College": "Agricultural and Life Sciences",
+    "NumDep": 16,
+    "NumProj": 62,
+    "NumUsers": 139,
+    "HTCHours": 70413256,
+    "HPCHours": 478976,
+    "CHTC Interactions": 159,
+    "HTCYears": 8038,
+    "HPCYears": 54,
+    "collegeURL": "https:\/\/cals.wisc.edu\/"
+  },
+  {
+    "College": "Education",
+    "NumDep": 1,
+    "NumProj": 5,
+    "NumUsers": 10,
+    "HTCHours": 1894488,
+    "HPCHours": 0,
+    "CHTC Interactions": 10,
+    "HTCYears": 216,
+    "HPCYears": 0,
+    "collegeURL": "https:\/\/education.wisc.edu\/"
+  },
+  {
+    "College": "Engineering",
+    "NumDep": 9,
+    "NumProj": 66,
+    "NumUsers": 216,
+    "HTCHours": 29283503,
+    "HPCHours": 36982971,
+    "CHTC Interactions": 316,
+    "HTCYears": 3342,
+    "HPCYears": 4221,
+    "collegeURL": "https:\/\/engineering.wisc.edu\/"
+  },
+  {
+    "College": "Law",
+    "NumDep": 1,
+    "NumProj": 1,
+    "NumUsers": 2,
+    "HTCHours": 1589410,
+    "HPCHours": 0,
+    "CHTC Interactions": 1,
+    "HTCYears": 181,
+    "HPCYears": 0,
+    "collegeURL": "https:\/\/law.wisc.edu\/"
+  },
+  {
+    "College": "Letters and Sciences",
+    "NumDep": 16,
+    "NumProj": 112,
+    "NumUsers": 522,
+    "HTCHours": 102010222,
+    "HPCHours": 10904069,
+    "CHTC Interactions": 440,
+    "HTCYears": 11645,
+    "HPCYears": 1244,
+    "collegeURL": "https:\/\/ls.wisc.edu\/"
+  },
+  {
+    "College": "Medicine and Public Health",
+    "NumDep": 18,
+    "NumProj": 42,
+    "NumUsers": 130,
+    "HTCHours": 62833900,
+    "HPCHours": 474829,
+    "CHTC Interactions": 154,
+    "HTCYears": 7172,
+    "HPCYears": 54,
+    "collegeURL": "https:\/\/www.med.wisc.edu\/"
+  },
+  {
+    "College": "Off-Campus Collaborations",
+    "NumDep": 2,
+    "NumProj": 14,
+    "NumUsers": 73,
+    "HTCHours": 24990414,
+    "HPCHours": 1211344,
+    "CHTC Interactions": 0,
+    "HTCYears": 2852,
+    "HPCYears": 138,
+    "collegeURL": ""
+  },
+  {
+    "College": "Pharmacy",
+    "NumDep": 2,
+    "NumProj": 5,
+    "NumUsers": 10,
+    "HTCHours": 662612,
+    "HPCHours": 2266218,
+    "CHTC Interactions": 7,
+    "HTCYears": 75,
+    "HPCYears": 258,
+    "collegeURL": "https:\/\/pharmacy.wisc.edu\/"
+  },
+  {
+    "College": "Veterinary Medicine",
+    "NumDep": 2,
+    "NumProj": 5,
+    "NumUsers": 7,
+    "HTCHours": 189529,
+    "HPCHours": 0,
+    "CHTC Interactions": 0,
+    "HTCYears": 21,
+    "HPCYears": 0,
+    "collegeURL": "https:\/\/uwveterinarycare.wisc.edu\/"
+  }
+]
