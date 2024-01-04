@@ -138,7 +138,7 @@ a connection for logging in again or moving files. More details are shown
 in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
 
-<span name="transfer"></span>
+<span name="learn"></span>
 
 **3. Learning About the Command Line**
 ==================================
