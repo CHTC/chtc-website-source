@@ -24,7 +24,7 @@ accounts for individuals or group-owned spaces for sharing files. Accounts that 
 notice being shared will be immediately disabled and a meeting with the PI 
 (faculty advisor) may be necessary to reinstate the account.
 
-For more information on access to CHTC after graduation, see [below](#access-chtc-resources-after-graduation)
+For more information on access to CHTC after graduation, see [below](#access-chtc-resources-after-graduation).
 
 ## Data Policies
 
@@ -99,7 +99,7 @@ To maintain access to CHTC resources after you leave your position at the Univer
 your faculty advisor can sponsor continued access to CHTC resources and your NetID. 
 Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
 
-1. Your name
+1. Your name,
 1. The reason you need continued access to CHTC resources,
 1. The amount of time they would like to sponsor your account,
 1. Your new city/country of residence, and 
