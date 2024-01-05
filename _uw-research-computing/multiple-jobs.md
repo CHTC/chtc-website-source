@@ -20,7 +20,7 @@ guide:
 	- [*3A.* Use multiple variables for each job](#multiple_variables)
 4.  [Organizing Jobs Into Individual Directories](#initialdir)
 	- [*4A.* Submitting Multiple Jobs in Different Directories with `queue <variable> from list`](#initialdir_states)
-	- [4B. Submitting Multiple Jobs in Different Directories with `queue <directory> matching *`](#initialdir_jobs)
+	- [*4B.* Submitting Multiple Jobs in Different Directories with `queue <directory> matching *`](#initialdir_jobs)
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
