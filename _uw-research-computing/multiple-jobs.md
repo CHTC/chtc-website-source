@@ -10,22 +10,22 @@ guide:
         - htc
 ---
 
-
 {% capture content %}
-1.  [Overview](#overview)
-2.  [Submit Multiple Jobs Using queue](#queue)
-    -   [Use queue N in your HTCondor submit files](#queueN)
-    	- [Use integer numbered input files](#integer)
-     	- [Specify a row or column number for each job](#rowcol)
-      	- [Need *N* to start at 1](#n1)
+1.  [Submit Multiple Jobs Using queue](#queue)
+2.  [Use queue N in your HTCondor submit files](#queueN)
+	- [*2A.* Use integer numbered input files](#integer)
+	- [*2B.* Specify a row or column number for each job](#rowcol)
+	- [*3C.* Need *N* to start at 1](#n1)
 3.  [Submit multiple jobs with one or more distinct variables per job](#variables)
+	- [*3A.* Use multiple variables for each job](#multiple_variables)
+4.  [Organizing Jobs Into Individual Directories](#initialdir)
+	- [*4A.* Submitting Multiple Jobs in Different Directories with `queue <variable> from list`](#initialdir_states)
+	- [4B. Submitting Multiple Jobs in Different Directories with `queue <directory> matching *`](#initialdir_jobs)
+
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<span name="overview"></span>
-
-# Overview
-
+## Overview
 HTCondor has several convenient features for streamlining high-throughput 
 job submission. This guide provides several examples 
 of how to leverage these features to **submit multiple jobs with a 
@@ -56,7 +56,7 @@ work with you to identify options to meet the needs of your work.
 >    
 
 <span name="queue"></span>
-<h1>Submit Multiple Jobs Using <code class="h1">queue</code></h1>
+<h1>1. Submit Multiple Jobs Using <code class="h1">queue</code></h1>
 
 All HTCondor submit files require a `queue` attribute (which must also be 
 the last line of the submit file). By default, `queue` will submit one job, but 
@@ -67,11 +67,11 @@ Below are different HTCondor submit file examples for submitting batches of mult
 jobs and, where applicable, how to indicate the differences between jobs in a batch 
 with user-defined variables. Additional examples and use cases are provided further below:
 
-1.  ***[queue <N\>](#process)*** - will submit *N* number of jobs. Examples 
+1.  ***[queue <N\>](#queueN)*** - will submit *N* number of jobs. Examples 
     include performing replications, where the same job must be repeated *N* number 
     of times, looping through files named with numbers, and looping through 
     a matrix where each job uses information from a specific row or column.
-2.  ***[queue <var\> from <list\>](#foreach)*** - will loop through a 
+2.  ***[queue <var\> from <list\>](#variables)*** - will loop through a 
     list of file names, parameters, etc. as defined in separate text file (i.e. *<list>*). 
     This `queue` option is very flexible and provides users with many options for 
     submitting multiple jobs.
@@ -91,9 +91,7 @@ like input file names, file locations (aka paths), etc. **When selecting a
 variable name, users must avoid bespoke HTCondor submit file variables 
 such as `Cluster`, `Process`, `output`, and `input`, `arguments`, etc.**
 
-<span name="queueN"></span>
-
-<h2>1. Use <code class="h2">queue N</code> in your HTCondor submit files</h2><span name="process"></span>
+<h2>2. Use <code class="h2">queue N</code> in your HTCondor submit files</h2><span name="queueN"></span>
 
 When using `queue N`, HTCondor will submit a total of *N* 
 jobs, counting from 0 to *N* - 1 and each job will be assigned 
@@ -146,7 +144,7 @@ executable used by the job.
 option! Additional examples for using this option include:
 
 <span name="integer"></span>
-### A. Use integer numbered input files
+### 2A. Use integer numbered input files
 
 ```
 [user@login]$ ls *.data
@@ -167,7 +165,7 @@ queue 100
 {: .sub}
 
 <span name="rowcol"></span>
-### B. Specify a row or column number for each job
+### 2B. Specify a row or column number for each job
 
 $(Process) can be used to specify a unique row or column of information in a 
 matrix to be used by each job in the batch. The matrix needs to then be transferred 
@@ -187,7 +185,7 @@ The above exmaples assumes that your job is set up to use an argument to
 specify the row or column to be used by your software.
 
 <span name="n1"></span>
-### C. Need *N* to start at 1
+### 2C. Need *N* to start at 1
 
 If your input files are numbered 1 - 100 instead of 0 - 99, or your matrix 
 row starts with 1 instead of 0, you can perform basic arithmetic in the submit 
@@ -209,7 +207,7 @@ have otherwise used `$(Process)`. Note that there is nothing special about the
 names `plusone` and `NewProcess`, you can use any names you want as variables.
 
 <span name="variables"></span>
-## 2. Submit multiple jobs with one or more distinct variables per job<span name="foreach"></span>
+## 3. Submit multiple jobs with one or more distinct variables per job
 
 Think about what's different between each job that needs to be submitted. 
 Will each job use a different input file or combination of software parameters? Do 
@@ -263,7 +261,8 @@ queue state from states.txt
 ```
 {: .sub}
 
-### Use multiple variables for each job
+<span name="multiple_variables"></span>
+### 3A. Use multiple variables for each job
 
 Let's imagine that each state `.data` file contains data spanning several 
 years and that each job needs to analyze a specific year of data. Then 
@@ -302,7 +301,10 @@ queue state,year from states.txt
 {: .sub}
 
 <span name="initialdir"></span>
-## 3. Organizing Jobs Into Individual Directories
+## 4. Organizing Jobs Into Individual Directories
+
+<span name="initialdir_states"></span>
+### 4A. Submitting Multiple Jobs in Different Directories with `queue <variable> from list` 
 
 One way to organize jobs is to assign each job to its own directory,
 instead of putting files in the same directory with unique names. To
@@ -336,7 +338,7 @@ each job:
 
 ```
 #state-per-dir-job.sub
-initial_dir = $(state_dir)
+initialdir = $(state_dir)
 transfer_input_files = input.data	
 executable = compare_states
 
@@ -366,42 +368,19 @@ Therefore, `transfer_input_files = input.data` can be used without specifying
 the path to this `input.data` file. Any output generated by the job will then be returned to the `initialdir` 
 location.
 
-
-## Submitting Multiple Jobs in Different Directories
+<span name="initialdir_jobs"></span>
+### 4B. Submitting Multiple Jobs in Different Directories with `queue <directory> matching *` 
 
 This section demonstrates how to submit multiple jobs, using a specific
-directory structure. It is relevant to:
+directory structure where folder names have a string of text in common. It is relevant to anyone who wants to submit multiple jobs, where each job has its own directory for input/output files on the submit server.
 
--   Researchers who have used CHTC\'s \"ChtcRun\" tools in the past
--   Anyone who wants to submit multiple jobs, where each job has its own
-    directory for input/output files on the submit server.
-
-**1. Software and Input Preparation**
----------------------------------
-
-As a reminder, the first time you submit jobs, you will need to prepare a portable
-version of your software and a script (what we call the job\'s
-\"executable\") that runs your code. We have guides for preparing:
-
--   [Matlab](matlab-jobs.html)
--   [Python](python-jobs.html)
--   [R](r-jobs.html)
-
-Choose the right guide for you and follow the directions for compiling
-your code (Matlab) or building an installation (Python, R). Also follow
-the instructions for writing a shell script that runs your program.
-These are typically steps 1 and 2 of the above guides.
-
-**2. Directory Structure**
-----------------------
-
-Once you\'ve prepared your code and script, create the same directory
-structure that you would normally use with ChtcRun. For a single batch
-of jobs, the directories will look like this:
+**Directory Structure**
+For a single batch of jobs, the directories will look like this:
 
 ``` 
 project_name/
     run_code.sh
+    submit.sub
     shared/
         scripts, code_package
         shared_input
@@ -420,40 +399,31 @@ project_name/
 You\'ll want to put all your code and files required for every job in
 `shared/` and individual input files in the individual job directories
 in an `input` folder. In the submit file below, it matters that the
-individual job directories start with the word \"job\".
+individual job directories start with the word \"job\". Your directories should all have a string of text in common, so that you can use the `queue <directory> matching <commonString>*` syntax to queue a job for each directory. 
 
 > **Note: the job directories need to be hosted in your `/home` directory 
 > on the submit node. The following instructions will not work for files 
 > hosted on `/staging`!**
 
-**3. Submit File**
---------------
-
-> **Note: if you are submitting more than 10,000 jobs at once, you\'ll
-> need to use a different submit file. Please email the CHTC Research
-> Computing Facilitators at <chtc@cs.wisc.edu> if this is the case!**
-
+**Submit File**
 Your submit file, which should go in your main project directory, should
 look like this:
 
 ``` {.sub}
-# Specify the HTCondor Universe (vanilla is the default and is used
-#  for almost all jobs), the desired name of the HTCondor log file,
-#  and the desired name of the standard error and standard output file.  
-universe = vanilla
-log = process.log
-error = process.err
-output = process.out
-#
 # Specify your executable (single binary or a script that runs several
 #  commands) and arguments
 executable = run_code.sh
 # arguments = arguments to your script go here
 #
+# Specify the desired name of the HTCondor log file,
+#  and the desired name of the standard error and standard output file.  
+log = process.log
+error = process.err
+output = process.out
+#
 # Specify that HTCondor should transfer files to and from the
 #  computer where each job runs. 
 should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
 # Set the submission directory for each job with the $(directory)
 # variable (set below in the queue statement).  Then transfer all 
 # files in the shared directory, and from the input folder in the 
@@ -471,13 +441,9 @@ request_disk = 1GB
 queue directory matching job*
 ```
 
-You **must** change the name of the executable to your own script, and
-in certain cases, add arguments.
+Note that the final line matches the pattern of your directory names that you previously
+created. You can use a different name for the
+directories (like `data`, `sample`, or `seed`), but you should use whatever word
+the directories have in common in the final queue statement in place of \"job\".
 
-Note that the final line matches the pattern of your directory names
-created in the second step. You can use a different name for the
-directories (like `data` or `seed`), but you should use whatever word
-they share in the final queue statement in place of \"job\".
-
-Jobs can then be submitted as described in our [Introduction to HTC
-Guide](helloworld.html), using `condor_submit`.
+Jobs can then be submitted using `condor_submit`.
