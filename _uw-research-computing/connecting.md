@@ -60,13 +60,12 @@ access CHTC resources.
 > log-ins from off-campus. If you are off-campus and want to log in, you
 > can either:
 >
-> -   Activate the campus VPN (more details on how to set this up
->     [here](https://it.wisc.edu/services/wiscvpn/)).
-> -   Log into another computer that is on campus.
+> -   Activate the campus Virtual Private Network (VPN) (more details on how to set this up
+>     [DoIT's VPN webpage](https://it.wisc.edu/services/wiscvpn/)). This will allow you join the campus network when working off-campus. 
+> -   Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our submit server. 
 >
 > In either case, it will appear like you are on-campus, and you should
 > then be able to log into CHTC as usual.
-
 
 <span name="login"></span>
 
