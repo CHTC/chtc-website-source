@@ -139,11 +139,11 @@ for all users.
 
 <span name="tools-for-managing-home-and-staging-space"></span>
 
-## Tools for Managing /home and /staging Space
+## Tools for Managing `/home` and `/staging` Space
 
 <span name="check-home-quota-and-usage"></span>
-### Check /home Quota and Usage
-To see what disk and items quotas are currently set for your /home direcotry, use the 
+### Check `/home` Quota and Usage
+To see what disk and items quotas are currently set for your `/home` direcotry, use the 
 `quota -vs` command. See the example below:
 
 ``` 
@@ -154,25 +154,25 @@ Disk quotas for user alice (uid 20384):
 ```
 {:.term}
 
-The output will list your total data usage under `blocks` on the `/dev/sbd1` filesystem that manages user /home data: 
+The output will list your total data usage under `blocks` on the `/dev/sbd1` filesystem that manages user `/home` data: 
 * `space` (MB): the amount of disk space you are currently using
 * `quota` (MB): your soft `quota`. This is the value we recommend you consider to be your "quota". 
-* `limit` (MB): the hard `limit` or absolute maximum amount of space you can use. This value is almost always 10GB larger than your soft quota, and is only provided as a helpful spillover space. **Once you hit this value, you and your jobs will no longer be allowed to save data.**
-* `files`: the number of files in your /home directory. /home does not typically restrict the number of files a user can have, which is why there are no values for file `quota` and `limit`
+* `limit` (MB): the hard `limit` or absolute maximum amount of space you can use. This value is almost always 10GB larger than your soft quota, and is only provided as a helpful spillover space. **Once you hit this hard limit value, you and your jobs will no longer be allowed to save data.**
+* `files`: the number of files in your `/home` directory. `/home` does not typically restrict the number of files a user can have, which is why there are no values for file `quota` and `limit`
 
 Each of the disk space values are given in megabytes (MB), which can be converted to gigabytes (GB) by dividing by 1024. 
 
 <span name="check-staging-quota-and-usage"></span>
 
-### Check /staging Quota and Usage
+### Check `/staging` Quota and Usage
 
-To see your /staging quota and usage, use the `get_quotas <NetID>` command. For example, 
+To see your `/staging` quota and usage, use the `get_quotas <NetID>` command. For example, 
 ```
 [NetID@submit1 ~]$ get_quotas /staging/NetID
 ```
 {:.term}
 
-If the output of this command is blank, it means you do not have a /staging directory. Contact CHTC staff to request one at any time. 
+If the output of this command is blank, it means you do not have a `/staging` directory. Contact CHTC staff to request one at any time. 
 
 <span name="alt-commands-to-check-quotas"></span>
 
