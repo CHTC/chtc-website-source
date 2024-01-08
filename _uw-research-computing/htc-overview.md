@@ -20,6 +20,7 @@ guide:
     - [HTC Operating System and Software](#operating-system-and-software)
 6. [Data Storage and Management](#data-storage-and-management)   
     - [Tools for managing /home and /staging space](#tools-for-managing-home-and-staging-space)
+
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -122,6 +123,7 @@ To promote fair access to HTC computing resources, all users are subject to a fa
 
 Resource requests will also impact the number of jobs a user has running. Smaller jobs (those requesting smaller amounts of CPUs, memory, and disk) as well as more flexible jobs (those requesting to use a variety of GPUs instead of a specific GPU type) are able to match to more execute points than larger, less flexible jobs. Thus, these jobs will start sooner and more jobs will run in parallel.
 
+<span name="data-storage-and-management"></span>
 # Data Storage and Management
 
 **Data space in the HTC system is not backed-up and should be
@@ -135,8 +137,11 @@ alternate, non-CHTC storage location.
 on the HTC System** in our efforts to maintain filesystem performance
 for all users.
 
+<span name="tools-for-managing-home-and-staging-space"></span>
+
 ## Tools for Managing /home and /staging Space
 
+<span name="check-home-quota-and-usage"></span>
 ### Check /home Quota and Usage
 To see what disk and items quotas are currently set for your /home direcotry, use the 
 `quota -vs` command. See the example below:
@@ -157,7 +162,10 @@ The output will list your total data usage under `blocks` on the `/dev/sbd1` fil
 
 Each of the disk space values are given in megabytes (MB), which can be converted to gigabytes (GB) by dividing by 1024. 
 
+<span name="check-staging-quota-and-usage"></span>
+
 ### Check /staging Quota and Usage
+
 To see your /staging quota and usage, use the `get_quotas <NetID>` command. For example, 
 ```
 [NetID@submit1 ~]$ get_quotas /staging/NetID
@@ -165,6 +173,8 @@ To see your /staging quota and usage, use the `get_quotas <NetID>` command. For 
 {:.term}
 
 If the output of this command is blank, it means you do not have a /staging directory. Contact CHTC staff to request one at any time. 
+
+<span name="alt-commands-to-check-quotas"></span>
 
 ### Alternative Commands to Check Quotas
 Alternatively, the `ncdu` command can also be used to see how many 
@@ -181,6 +191,7 @@ count and allow you to navigate between subdirectories for even more
 details. Type `q` when you\'re ready to exit the output viewer. More
 info here: <https://lintut.com/ncdu-check-disk-usage/>
 
+<span name="request-a-quota-increase"></span>
 ### Request a Quota Increase
 Increased quotas on either of these locations are available upon email 
 request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) after a user has 
