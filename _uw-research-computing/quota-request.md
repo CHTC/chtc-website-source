@@ -5,21 +5,18 @@ alt_title: Request a Quota Change
 ---
 
 To request a change in quota(s) for data storage locations on CHTC systems, please fill out the form below.
-This form applies to 
+This form applies to the following locations for both individual and shared (group) directories:
 
-* HTC `/home` (for files less than 1 GB)
-* HTC `/staging` (for files greater than 1 GB)
-* HPC `/home` (for repeatedly used files)
-* HPC `/scratch` (for working data)
+  {:.gtable}
+  | Location | Purpose |
+  | --- | --- |
+  | HTC `/home` | For files less than 1 GB for jobs on the HTC system |
+  | HTC `/staging` | For files greater than 1 GB for jobs on the HTC system |
+  | HPC `/home` | For repeatedly used files for jobs on the HPC system |
+  | HPC `/scratch` | For working data for jobs on the HPC system |
 
-for both individual and shared (group) directories. 
 For other locations, please email us at [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu). 
-
-Remember, 
-
-* **CHTC data locations are not for long-term storage**
-* **CHTC data locations are backed up**
-
+Remember, **CHTC data locations are not for long-term storage and are NOT backed up**.
 Please review our data policies on the [Policies and Expectations for Users](user-expectations.html#data-policies) page.
 
 ## Quota Request Form
