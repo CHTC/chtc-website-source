@@ -41,6 +41,9 @@ corruption, which are possible in the absence of back-ups.
 CHTC services. If you have data security concerns or any questions about 
 data security in CHTC, [please get in touch](https://chtc.cs.wisc.edu/uw-research-computing/get-help.html)! 
 
+To request a change in the quotas for a storage location, please see
+our [Request a Quota Change](quota-request) guide.
+
 ### Export Control
 
 Users agree not to access, utilize, store, or in any way run export controlled data, information, 

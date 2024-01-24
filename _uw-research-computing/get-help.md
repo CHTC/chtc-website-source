@@ -44,6 +44,11 @@ Form](form.html), and we'll follow up quickly to set up a meeting time
 and create accounts. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
+## Request a Quota Change
+
+If you'd like to request a change in your quotas for one of our data
+storage locations, please see our [Request a Quota Change](quota-request) guide.
+
 ## Help Via Email
 
 We provide support via email at the address

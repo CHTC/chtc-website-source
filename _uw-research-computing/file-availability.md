@@ -222,3 +222,8 @@ output files transferred back, please [contact us](mailto:chtc@cs.wisc.edu).
 Several options exist for managing output file transfers back to your `/home` directory and we 
 encourage you to get in touch with us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) to 
 help identify the best solution for your needs.
+
+## Request a Quota Change
+
+If you find that you are need of more space in you `/home` directory to handle the number
+of jobs that you want to run, please see our [Request a Quota Change](quota-request) guide.
