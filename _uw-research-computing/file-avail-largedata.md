@@ -62,7 +62,7 @@ Any one with a CHTC account whose data meets the intended use above can request
 space in our large data staging area. A Research Computing Facilitator will 
 review the request and follow up. If appropriate, access will be granted via 
 a directory in the system and a quota. Quotas are based on individual user needs; 
-if a larger quota is needed, email chtc@cs.wisc.edu with your request. 
+if a larger quota is needed, see our [Request a Quota Change](quota-request) guide. 
 
 We can also create group or shared spaces by request. 
 
@@ -76,7 +76,7 @@ location.
 - **Remove data**: We expect that users remove data from `/staging` AS
 SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. 
 - **Monitor usage and quota**: Each `/staging` folder has both a size and "items" quota. Quota changes 
-can be requested by emailing chtc@cs.wisc.edu. 
+can be requested as described in our [Request a Quota Change](quota-request) guide. 
 
 CHTC staff reserve the right to remove data from our large data staging 
 location (or any CHTC file system) at any time.
