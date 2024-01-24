@@ -72,7 +72,8 @@ achieve your computing goals.
 -   **The default disk quota is 20 GB** in your `/home` directory, as a 
     starting point. You can track your use of disk space and your quota value,
     using our [Quota Guide](check-quota.html). If you need more space
-    for concurrent work, please send an email to chtc@cs.wisc.edu.
+    for concurrent work, please see our [Request a Quota Change](quota-request)
+    guide.
 -   **Submitting jobs with \"large\" files:** HTCondor\'s
     normal file transfer mechanism (\"transfer\_input\_files\") is good for 
     files up to 100MB in size (or 500MB total, per job). For jobs with larger
