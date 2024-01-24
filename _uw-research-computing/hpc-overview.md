@@ -156,7 +156,7 @@ your `/home` or `/scratch` directory see the
 [instructions below](#tools-for-managing-home-and-software-space).
 
 Changes to quotas for either of these locations are available upon request
-by submitting a [Quota Change Request](quota-request.md). If you don\'t 
+by submitting a [Request a Quota Change](quota-request). If you don\'t 
 know how many files your installation creates, because it\'s more than 
 the current items quota, simply indicate that in your request.
 
