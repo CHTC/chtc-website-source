@@ -64,7 +64,7 @@ We will use this information to give you more effective responses and solutions.
 
 ## Office Hours
 
-**Cancellations will be announced via email and on this webpage.**
+<!-- **Cancellations will be announced via email and on this webpage.**
 
 **We will have a limited office hour schedule over the winter break, beginning Dec. 18.**
 **Office hours will only be held on the following dates during this period:**
@@ -75,6 +75,7 @@ We will use this information to give you more effective responses and solutions.
 - **Thursday, Jan. 18th, 3:00 - 4:30 pm**
 
 **Our regular office hour schedule will resume Jan. 22.** 
+-->
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
