@@ -10,10 +10,10 @@ This form applies to the following locations for both individual and shared (gro
   {:.gtable}
   | Location | Purpose | More Information |
   | --- | --- | --- |
-  | HTC `/home` | For files less than 1 GB for jobs on the HTC system | [Checking Disk Quota and Usage](check-quota.md) |
-  | HTC `/staging` | For files greater than 1 GB for jobs on the HTC system | [Staging Guide](file-avail-largedata.md) |
-  | HPC `/home` | For repeatedly used files for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview.md#data-storage-and-management) |
-  | HPC `/scratch` | For working data for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview.md#data-storage-and-management) |
+  | HTC `/home` | For files less than 1 GB for jobs on the HTC system | [Checking Disk Quota and Usage](check-quota) |
+  | HTC `/staging` | For files greater than 1 GB for jobs on the HTC system | [Staging Guide](file-avail-largedata) |
+  | HPC `/home` | For repeatedly used files for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview#data-storage-and-management) |
+  | HPC `/scratch` | For working data for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview#data-storage-and-management) |
 
 For other locations, please email us at [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu). 
 Remember, **CHTC data locations are not for long-term storage and are NOT backed up**.
@@ -39,6 +39,6 @@ The following link leads to a Qualtrics form that we use for requesting quota ch
 	</div>
 </div>
 
-If you do not receive an automated email from chtc@cs.wisc.edu within a few hours of completing the form,
+If you do not receive an automated email from [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu) within a few hours of completing the form,
  OR if you do not receive a response from a human within two business days (M-F), please email [chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu).
  
