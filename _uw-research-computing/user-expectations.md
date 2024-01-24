@@ -9,8 +9,8 @@ guide:
 
 
 This page lists important policies and expectations for using CHTC computing and 
-data services. Our goal is to provide services that work well for **all users**, 
-enabling us to support as much of campus as possible. If an individual user is taking 
+data services. Our goal is to support a community of users and a variety of 
+research. If an individual user is taking 
 action that negatively impacts our services, we reserve the right to 
 deactivate their account or remove files without notice. 
 
