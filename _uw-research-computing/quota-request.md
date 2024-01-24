@@ -11,7 +11,7 @@ This form applies to the following locations for both individual and shared (gro
   | Location | Purpose | More Information |
   | --- | --- | --- |
   | HTC `/home` | For files less than 1 GB for jobs on the HTC system | [Checking Disk Quota and Usage](check-quota) |
-  | HTC `/staging` | For files greater than 1 GB for jobs on the HTC system | [Staging Guide](file-avail-largedata) |
+  | HTC `/staging` | For files greater than 1 GB for jobs on the HTC system | [Staging Guide](file-avail-largedata#5-checking-your-quota-data-use-and-file-counts) |
   | HPC `/home` | For repeatedly used files for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview#data-storage-and-management) |
   | HPC `/scratch` | For working data for jobs on the HPC system | [HPC Data Storage and Management](hpc-overview#data-storage-and-management) |
 
