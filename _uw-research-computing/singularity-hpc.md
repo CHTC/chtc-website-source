@@ -61,8 +61,8 @@ variable that prevents download of the Docker container.
 	```
 	{:.term}
 	
-	For example, if user \"Alice\" wanted to use the [\"Fenics\" container
-	provided on DockerHub](https://hub.docker.com/r/fenicsproject/stable),
+	For example, if user \"Alice\" wanted to use the \"Fenics\" container
+	provided on DockerHub,
 	and save it to a file named `fenics.simg`, she would run:
 
 	``` 
