@@ -2,7 +2,7 @@ title: ML for failure classification in the OSPool
 scale: Large
 type: Software Development
 summary: |
-  The OS Pool runs hundreds of thousands of jobs every day on dozens of 
+  The OSPool runs hundreds of thousands of jobs every day on dozens of 
   different sites, each unique in their own way.  Naturally, there are 
   many hundreds of failures, most of which the system works around, but
   with added latency to workflow completion. This project would attempt
