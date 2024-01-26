@@ -1,4 +1,5 @@
 title: User interface and Jupyter widgets
+scale: Large
 type: Software Development
 summary: |
   Historically, the User Interface to HTCondor has been purely through the command-line. 
