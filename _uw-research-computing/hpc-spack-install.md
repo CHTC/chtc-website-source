@@ -20,7 +20,7 @@ CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack
 
 1. [Installing Software Using Spack](#1-installing-software-using-spack)
 2. [Using Software Installed in Spack](#2-using-software-installed-in-spack)
-5. [Installing and Using a Specific Compiler](#3-installing-and-using-a-specific-compiler)
+3. [Installing and Using a Specific Compiler](#3-installing-and-using-a-specific-compiler)
 
 # 1. Installing Software Using Spack
 
@@ -31,8 +31,6 @@ Check the documentation for the program you want to install to see if they have 
 > **Note**: For a group installation of Spack, you will not be able to modify or remove the packages installed by a different user. We recommend that you consult with the rest of your group for permission before proceeding.
 
 ## A. Creating and Using a Spack Environment
-
-Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation. 
 
 To create a Spack environment, run the command
 
@@ -73,7 +71,39 @@ You will need to activate the environment when you wish to use the software that
 > 
 > or close the terminal session. 
 
-## B. Finding Program Packages in Spack
+## B. Link the System MPI to Your Spack Environment
+
+Software installations with Spack should be done inside of a Spack environment, to help manage the shell and the paths to access programs and libraries needed for a particular software installation. 
+But first, you will need to make sure that the environment is linked to the system installation
+of MPI that you want to use.
+
+> The following steps will only work if you have properly linked the system Spack installation to your Spack installation, per the instructions in [Setting Up Spack on HPC](hpc-spack-setup.html). 
+
+### i. Identify the version of MPI that you want to use
+
+Using the following table, identify the version of MPI that you want to use. 
+The first row, `openmpi` compiled with `gcc`, is a good default choice if you aren't sure.
+
+{:.gtable}
+| Module                                | Spack Spec                             |
+| ------------------------------------- | -------------------------------------- |
+| openmpi/4.1.3-gcc-11.3.0              | openmpi@4.1.3 %gcc@11.3.0              |
+| openmpi/4.1.3-aocc-3.2.0              | openmpi@4.1.3 %aocc@3.2.0              |
+| intel-oneapi-mpi/2021.10.0-gcc-11.3.0 | intel-oneapi-mpi@2021.10.0 %gcc@11.3.0 |
+| mvapich2/2.3.7-1-gcc-11.3.0           | mvapich2@2.3.7-1 %gcc@11.3.0           |
+
+### ii. Add Spack spec to the environment
+
+Confirm that you are in your environment with `spack env status`. 
+Now add the "spec" from the table above for your desired version of MPI to your environment with
+
+```
+spack add openmpi@4.1.3 %gcc@11.3.0
+```
+
+
+
+## C. Finding Program Packages in Spack
 
 Once inside an active Spack environment, you can run the following command to see what packages are installed in the current environment
 
@@ -318,7 +348,7 @@ In brief, you will first create a separate environment for installing the compil
 
 ### i. Identify the compiler and version
 
-The first step is to identify the compiler and version you need for your program. Consult your program's documentation for the requirements that it has. Then follow the instructions in [B. Finding Program Packages in Spack](#b-finding-program-packages-in-spack) to find the package name and confirm the version is available.
+The first step is to identify the compiler and version you need for your program. Consult your program's documentation for the requirements that it has. Then follow the instructions in [B. Finding Program Packages in Spack](#c-finding-program-packages-in-spack) to find the package name and confirm the version is available.
 
 ### ii. Create the compiler's environment
 
