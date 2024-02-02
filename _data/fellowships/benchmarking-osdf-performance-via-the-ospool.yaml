@@ -1,5 +1,4 @@
 title: Benchmarking OSDF Performance via the OSPool
-scale: Large
 type: Software Development
 summary: |
   The OSDF is the flagship instance of a Pelican data federation and most often used via the OSPool, a 
