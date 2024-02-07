@@ -44,6 +44,11 @@ Form](form.html), and we'll follow up quickly to set up a meeting time
 and create accounts. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
+## Request a Quota Change
+
+If you'd like to request a change in your quotas for one of our data
+storage locations, please see our [Request a Quota Change](quota-request) guide.
+
 ## Help Via Email
 
 We provide support via email at the address
@@ -64,12 +69,23 @@ We will use this information to give you more effective responses and solutions.
 
 ## Office Hours
 
-**Cancellations will be announced via email and on this webpage.**
+<!-- **Cancellations will be announced via email and on this webpage.**
+
+**We will have a limited office hour schedule over the winter break, beginning Dec. 18.**
+**Office hours will only be held on the following dates during this period:**
+
+- **Thursday, Dec. 21st, 3:00 - 4:30 pm**
+- **Thursday, Jan. 4th, 3:00 - 4:30 pm**
+- **Thursday, Jan. 11th, 3:00 - 4:30 pm**
+- **Thursday, Jan. 18th, 3:00 - 4:30 pm**
+
+**Our regular office hour schedule will resume Jan. 22.** 
+-->
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   **Tuesday morning: 10:30am - 12:00pm.** 
--   **Thursday afternoon: 3:00 - 4:30 pm.** 
+-   Tuesday morning: 10:30 am - 12:00 pm. 
+-   Thursday afternoon: 3:00 - 4:30 pm.
 
 To drop in, find the videoconference link in either your email or in the 
 login message when you log into a CHTC server. 

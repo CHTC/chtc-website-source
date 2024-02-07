@@ -1,0 +1,6 @@
+
+{% assign fellowships = "" | split: "" %}
+{% for j in site.data.fellowships %}
+    {% assign fellowship = j[1] %}
+    {% assign fellowships = fellowships | push: fellowship %}
+{% endfor %}

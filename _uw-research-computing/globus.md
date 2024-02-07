@@ -24,40 +24,43 @@ own computer first.
 
 ## Prerequisites
 
-All file transfer via Globus at CHTC is based out of the
-[`/staging`](file-avail-largedata.html) directory and requires login 
-access to the `transfer.chtc.wisc.edu` server.
-Therefore, to use Globus, you will need access to both of those 
-(instructions for requesting access are 
-[here](file-avail-largedata.html#1-policies-and-intended-use);
-mention that you want to use the Globus endpoint in your email).
+All file transfer via Globus at CHTC requires: 
 
-You will need to be able to
+- access to a directory in the [`/staging`](file-avail-largedata.html) or `/projects` folders
+- login access to the `transfer.chtc.wisc.edu` server. 
+
+Contact us at chtc@cs.wisc.edu if you need either of the above. 
+
+You will also need to be able to
 [log in to the Globus web interface](https://app.globus.org/);
 you can use your UW-Madison NetID (if you have one, or similar) by selecting
 University of Wisconsin-Madison from the drop down and pressing "Continue".
 
 
-## Using the CHTC Globus Endpoint
+## Using the CHTC Globus Endpoints
 
 You can use the Globus web interface to transfer files to and from CHTC.
 In the web interface, you can select two endpoints and then initiate a transfer
 between them.
 
-The first step is to find the CHTC Globus endpoint.
-The CHTC Globus endpoint's name is `chtc#staging`.
-It can be found in the Globus web interface 
-[here](https://app.globus.org/file-manager/collections/d0bae6da-db3b-11ea-85a2-0e1702b77d41/overview?back=endpoints),
-or by searching endpoints for that name.
-If you  need the actual endpoint UUID, it is listed on the above page near the bottom
+The first step is to find the CHTC Globus endpoints. They can be found in the Globus web interface 
+by searching endpoints for "CHTC Staging" or "CHTC Projects".
+
+![CHTC Globus endpoints](/images/guides-globus-endpoints.png)
+
+Or can be found at these links: 
+
+* [CHTC Staging](https://app.globus.org/file-manager/collections/6561bd4c-8dc3-42f2-8442-4907d41265a6/overview)
+* [CHTC Projects](https://app.globus.org/file-manager/collections/66429a34-0a52-47b7-8699-d10804a1b75b/overview)
+
+If you  need the actual endpoint UUID, it is listed on the above pages near the bottom
 of the "Overview".
 
 To use an endpoint, you must first **activate** it.
 Activations are usually time-limited, and transfers can only proceed while
 both the source and destination endpoints are activated.
 Activating an endpoint generally requires logging in.
-For the `chtc#staging` endpoint, you should log in using
-the same username and password you use to log in to your submit node.
+You should log in using your UW - Madison NetID. 
 You can see how long your activation will last on the endpoint information page
 in the Globus web interface.
 
@@ -81,7 +84,6 @@ You may find some of the "transfer settings", available by clicking the
 "Transfer & Sync Options" dropdown, useful.
 In particular, `sync` will help reduce the amount of time it takes to transfer
 when some data has already been transferred.
-
 
 ## Running a Personal Globus Endpoint
 

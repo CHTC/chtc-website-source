@@ -63,7 +63,7 @@ jobs:
           SPLIT_BRANCH=$(git subtree split --prefix temp-dir temp-branch)
 
           git remote add web-preview ${{ env.preview_url }}
-          git fetch --all
+          git fetch web-preview
           git checkout -b preview web-preview/main
           git merge $SPLIT_BRANCH -m "Merge Split Branch" --allow-unrelated-histories -X theirs
           git push web-preview HEAD:main

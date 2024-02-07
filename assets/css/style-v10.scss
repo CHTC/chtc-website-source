@@ -206,3 +206,19 @@ html {
     color: $primary;
   }
 }
+
+.primary-callout {
+  background-color: $primary;
+  padding: 0.25rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: .25rem;
+  color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  a {
+    color: #bcecff;
+    text-decoration: underline;
+    &:hover {
+      color: #4ec0ed;
+    }
+  }
+}

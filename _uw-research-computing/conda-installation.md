@@ -171,7 +171,7 @@ set the proper permissions for this file using `chmod`, and check the size of
 the final tarball: 
 
 ```
-(base)[alice@submit]$ conda pack -n env-name
+(base)[alice@submit]$ conda pack -n env-name --dest-prefix='$ENVDIR'
 (base)[alice@submit]$ chmod 644 env-name.tar.gz
 (base)[alice@submit]$ ls -sh env-name.tar.gz
 ```
@@ -208,7 +208,7 @@ set -e
 # replace env-name on the right hand side of this line with the name of your conda environment
 ENVNAME=env-name
 # if you need the environment directory to be named something other than the environment name, change this line
-ENVDIR=$ENVNAME
+export ENVDIR=$ENVNAME
 
 # these lines handle setting up the environment; you shouldn't have to modify them
 export PATH

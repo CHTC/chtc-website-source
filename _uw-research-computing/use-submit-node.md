@@ -63,10 +63,17 @@ achieve your computing goals.
     please [email us](mailto:chtc@cs.wisc.edu) as we have strategies to
     submit that many jobs in a way that will ensure you have as many
     jobs running as possible without also compromising queue performance.
+-   **Submitting many *short* jobs from one submit file.** While HTCondor
+    is designed to submit thousands of jobs at a time, many *short* jobs
+    can overwhelm the submit server, resulting in other jobs taking much
+    longer to start than usual. <u> If you plan on submitting over
+    1000 jobs per submit file, we ask that you ensure each job has a
+    minimum run time of 5 minutes (on average). <u>
 -   **The default disk quota is 20 GB** in your `/home` directory, as a 
     starting point. You can track your use of disk space and your quota value,
     using our [Quota Guide](check-quota.html). If you need more space
-    for concurrent work, please send an email to chtc@cs.wisc.edu.
+    for concurrent work, please see our [Request a Quota Change](quota-request)
+    guide.
 -   **Submitting jobs with \"large\" files:** HTCondor\'s
     normal file transfer mechanism (\"transfer\_input\_files\") is good for 
     files up to 100MB in size (or 500MB total, per job). For jobs with larger

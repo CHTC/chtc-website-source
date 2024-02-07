@@ -115,12 +115,14 @@ title: Available Positions
                 <div class="pt-5">
                     <div class="uw-sidebar-box me-auto">
                         <div class="uw-directory">
-                            <h3>Full-Time Positions</h3>
-                            <ul>
-                                {% for job in fulltime_jobs %}
-                                    <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
-                                {% endfor %}
-                            </ul>
+                            {% if fulltime_jobs.length > 0 %}
+                                <h3>Full-Time Positions</h3>
+                                <ul>
+                                    {% for job in fulltime_jobs %}
+                                        <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <h3>Internships</h3>
                             <ul>
                                 <li><a href="/internships.html">Learn More</a></li>

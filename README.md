@@ -85,9 +85,15 @@ bundle exec jekyll serve --watch -p
 
 At the website root:
 
-```shell
-docker build -t chtc-jekyll . 
-docker run -it -v $PWD:/app -p 4000:4000 chtc-jekyll jekyll serve --watch --config _config.yml -H 0.0.0.0
+```
+docker run -it -p 8001:8000 -v $PWD:/app -w /app ruby:2.7 /bin/bash
+```
+
+This will utilize the latest Jekyll version and map port `8000` to your host.  Within the container, a small HTTP server can be started with the following command:
+
+```
+bundle install
+bundle exec jekyll serve --watch --config _config.yml -H 0.0.0.0 -P 8000
 ```
 
 ## Formatting

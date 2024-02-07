@@ -3,7 +3,7 @@
     <div class="uw-card-content">
         {% if include.src %}
             <a href="{{ include.href | relative_url }}" class="{{ include.class }}">
-                <img class="img-fluid rounded-top" style="height:150px; object-fit: cover" src="{{ include.src | relative_url }}" alt="{{ include.alt }}" />
+                <img class="img-fluid rounded-top" style="aspect-ratio: 2; object-fit: cover" src="{{ include.src | relative_url }}" alt="{{ include.alt }}" />
             </a>
         {% endif %}
         <div class="uw-card-copy">

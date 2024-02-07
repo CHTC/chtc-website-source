@@ -1,0 +1,11 @@
+title: Integrating Pytorch and Pelican
+type: Software Development
+summary: |
+  PyTorch is one of the most popular machine learning frameworks.  An important aspect of 
+  using it is the data engineering: how is input data fed into the model during training?  
+  Going from “tutorial scale” problems to cutting-edge research requires drastically different 
+  techniques around data handling.
+  
+  For this project, we aim to better integrate Pelican into the PyTorch community, providing both
+  technical mechanisms (implementing the fsspec interface for Pelican) and documentation by providing
+  tutorials and recipes for scaling PyTorch-based training using a combination of HTCondor and Pelican.
