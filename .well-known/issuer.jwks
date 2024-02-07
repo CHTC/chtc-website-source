@@ -52,6 +52,24 @@
             "use": "sig",
             "x": "jS5cVffYOKP9fXKysPiT4UhLGsXpsooxXW3kZHFM6aM=",
             "y": "9LWogFfXPRUyGzcCQ9haXbBv-IKx_M5M6KX50M6zrWM="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "dcb8",
+            "kty": "EC",
+            "use": "sig",
+            "x": "uZuja5BBP-CCongrDM0z7rVKeGyieCW0T2bTRaEuyoY=",
+            "y": "eYtm6i8pyOFdfZz7ahmtiBQiC4ioUuwxAxc5txJRUFY="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "d402",
+            "kty": "EC",
+            "use": "sig",
+            "x": "eDK50R6M81DUUWU9JIW9obA02U4sRZQSPR44pcFnkSI=",
+            "y": "P8-SthnBHG5iwfSA1meV5ZV4tvobD4_6Mb_cPgiC9JA="
         }
     ]
 }
