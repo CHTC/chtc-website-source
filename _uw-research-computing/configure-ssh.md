@@ -140,7 +140,7 @@ downloaded or edited, but some do not.
     3. Make sure 'Use multiple connections for single transfer' checkbox is checked.
     4. Click 'OK' to save.
 
-* Cyberduck (taken from [these docs](https://s2.smu.edu/hpc/documentation/access.html)
+* Cyberduck (taken from [these docs](https://southernmethodistuniversity.github.io/hpc_docs/)
 
     Cyberduck does not use SSH configurations, therefore the following setting 
     can be used to enable connection persistence. Within Cyberduck:
