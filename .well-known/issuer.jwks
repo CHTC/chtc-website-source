@@ -56,11 +56,11 @@
         {
             "alg": "ES256",
             "crv": "P-256",
-            "kid": "dcb8",
+            "kid": "8d9b",
             "kty": "EC",
             "use": "sig",
-            "x": "uZuja5BBP-CCongrDM0z7rVKeGyieCW0T2bTRaEuyoY=",
-            "y": "eYtm6i8pyOFdfZz7ahmtiBQiC4ioUuwxAxc5txJRUFY="
+            "x": "N45Fz5S8OXUvRvkziV3IvRku4o84-hfYdbu9RWdapwY=",
+            "y": "haNd4VKCj3_8AHe0luUTWx1XJk5sKDqciiLR35_oAHo="
         },
         {
             "alg": "ES256",
