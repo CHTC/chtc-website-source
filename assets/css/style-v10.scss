@@ -63,6 +63,18 @@ html {
   }
 }
 
+// Logo image in homepage
+.logo-image {
+  width: 90px;
+}
+
+/* Mobile viewports */
+@media (max-width: 768px) {
+  .logo-image {
+    width: 50px; /* or whatever size you deem appropriate for mobile */
+  }
+}
+
 // Navbar
 #uw-sub-menus {
   nav.uw-nav-menu {
