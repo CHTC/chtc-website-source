@@ -1,5 +1,6 @@
 title: Synchronizing datasets via the OSDF
 type: Software Development
+scale: Large
 summary: |
   The `pelican` client tool provides a standalone mechanism to upload and download single
   files from a data federation.  While the client works well, a typical use case is downloading
