@@ -1,5 +1,6 @@
 title: Integrating Pytorch and Pelican
 type: Software Development
+scale: Large
 summary: |
   PyTorch is one of the most popular machine learning frameworks.  An important aspect of 
   using it is the data engineering: how is input data fed into the model during training?  
