@@ -404,5 +404,5 @@ nvidia-docker container, you can use this to run your jobs in CHTC. See
 our [Docker guide](docker-jobs.html) for how to use Docker in CHTC.
 
 Currently we recommend using 
-["nvidia/cuda" containers with a tag beginning with "12.1.0-devel"](https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=12.1.0-devel)
+["nvidia/cuda" containers with a tag beginning with "12.1.1-devel"](https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=12.1.1-devel)
 for best integration with our system.
