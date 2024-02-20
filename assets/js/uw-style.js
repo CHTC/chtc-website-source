@@ -46,24 +46,28 @@ uw_utils.ready(function () {
             return;
         }
         [].forEach.call(dropdown_buttons, function (el) {
-            el.addEventListener("click", function (e) {
+            var parent = el.parentNode;
+            var child_menu = parent.querySelector(".uw-child-menu");
+        
+            el.addEventListener("mouseover", function (e) {
                 e.preventDefault();
-                var parent = this.parentNode,
-                    parent_siblings = uw_utils.getSiblings(parent),
-                    child_menu = parent.querySelector(".uw-child-menu");
-                parent.classList.toggle("uw-is-active");
+                parent.classList.add("uw-is-active");
                 uw_utils.toggleBooleanAttr(this, "aria-expanded");
                 uw_utils.toggleBooleanAttr(child_menu, "aria-hidden");
-                [].forEach.call(parent_siblings, function (el) {
-                    if (el.classList.contains("uw-dropdown")) {
-                        el.classList.remove("uw-is-active");
-                        el.querySelector("a:first-child").setAttribute("aria-expanded", false);
-                        el.querySelector(".uw-child-menu").setAttribute("aria-hidden", true);
-                    }
-                });
+            });
+        
+            parent.addEventListener("mouseleave", function (e) {
+                var relatedTarget = e.relatedTarget || e.toElement;
+        
+                // Check if the mouse is outside both the triggering element and the dropdown
+                if (!parent.contains(relatedTarget)) {
+                    parent.classList.remove("uw-is-active");
+                    uw_utils.toggleBooleanAttr(el, "aria-expanded");
+                    uw_utils.toggleBooleanAttr(child_menu, "aria-hidden");
+                }
             });
         });
-    };
+    };     
     var main_nav_items = document.querySelectorAll("#uw-main-nav > li");
     var calcMainMenuWidth = function () {
         var main_nav_width = 0;
