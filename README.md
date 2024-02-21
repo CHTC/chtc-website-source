@@ -123,7 +123,7 @@ For internal links (to a header inside the document), use this syntax:
 	```
 	[link to header A](#a-sample-header)
 	```
-
+ 
 ### Converting HTML to Markdown
 
 Right now, most of our pages are written in html and have a `.shtml` extension. We are 
