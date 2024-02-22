@@ -61,7 +61,7 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 ## How it Works
 
-Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area. However, you must be located in the United States during the Fellowship Program to particpate. 
+Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area. However, you must be located in the United States during the Fellowship Program to participate. 
 
 **Eligibility:**
 
