@@ -90,7 +90,7 @@ request_disk = 1GB
 # Tell HTCondor to run 3 instances of our job:
 queue 3
 ```
-{:.sub .copy}
+{:.sub }
 
 
 > For a \"template\" version of this submit file without the comments,
@@ -111,7 +111,7 @@ echo "Hello CHTC from Job $1 running on `whoami`@`hostname`"
 # keep this job running for a few minutes so you'll see it in the queue:
 sleep 180
 ```
-{:.file .copy}
+{:.file }
 
 
 By using the \"\$1\" variable in our executable, we are telling HTCondor to fetch the value of the agrument in the first position in the submit file and to insert it in location of \"\$1\" in our executable file. 
@@ -129,7 +129,7 @@ More information on special variables like \"\$1\", \"\$2\", and \"\$@\" can be 
 ```
 [alice@submit]$ condor_submit hello-chtc.sub
 ```
-{:.term .copy}
+{:.term }
 
 
 The `condor_submit` command actually submits your jobs to HTCondor. If
@@ -140,7 +140,7 @@ appears as:
 Submitting job(s).....
 3 job(s) submitted to cluster 436950.
 ```
-{:.term .copy}
+{:.term }
 
 
 **4.** To check on the status of your jobs, run the following command:
@@ -148,7 +148,7 @@ Submitting job(s).....
 ``` 
 [alice@submit]$ condor_q
 ```
-{:.term .copy}
+{:.term }
 
 The output of `condor_q` should look like this:
 
@@ -159,7 +159,7 @@ alice  ID: 436950     4/5  15:34     _     _       3      3  436950.0-2
 
 3 jobs; 0 completed, 0 removed, 3 idle, 0 running, 0 held, 0 suspended
 ```
-{:.term .copy}
+{:.term }
 
 You can run the `condor_q` command periodically to see the progress of
 your jobs. By default, `condor_q` shows jobs grouped into batches by
@@ -198,7 +198,7 @@ total 28
 -rw-rw-r-- 1 alice alice  241 Apr  5 15:33 hello-chtc.sh
 -rw-rw-r-- 1 alice alice 1387 Apr  5 15:33 hello-chtc.sub
 ```
-{:.term .copy}
+{:.term }
 
 **Useful information is provided in the user log and the output files.**
 
@@ -250,7 +250,7 @@ submission of the 3 jobs will look something like this:
         Job terminated of its own accord at 2023-08-18T18:46:33Z with exit-code 0.
 ...
 ```
-{:.file .copy}
+{:.file }
 
 And, if you look at one of the output files, you should see something
 like this:
@@ -258,7 +258,7 @@ like this:
 ``` 
 Hello CHTC from Job 0 running on alice@e389.chtc.wisc.edu
 ```
-{:.file .copy}
+{:.file }
   
 **Congratulations.** You\'ve run your first jobs in the CHTC!
 
@@ -275,7 +275,7 @@ To remove a specific job, specify the job ID number from the queue
 ``` 
 [alice@submit]$ condor_rm 845638.0
 ```
-{:.term .copy}
+{:.term }
 
 You can even remove all of the jobs of the same cluster by specifying
 only the Cluster value for that batch. 
@@ -284,7 +284,7 @@ To remove **all of your jobs**:
 ``` 
 [alice@submit]$ condor_rm $USER
 ```
-{:.term .copy}
+{:.term }
 
 **B. The Importance of Testing**
 ----------------------------
