@@ -29,7 +29,7 @@ guide:
 
 The CHTC high-throughput computing (HTC) cluster provides support a variety of computational research tasks. The HTC system offers CPUs/GPUs, high-memory nodes, and other specialized hardware. Workflows that run well on this system include RNA/DNA sequencing, machine learning workflows, weather modeling, monte carlo simulations, etc. 
 
-To get access to the HTC Cluster, please complete our
+To get access to the HTC System, please complete our
 [New User Consultation Form](form.html). After your request is received, 
 a Research Computing Facilitator will follow up to discuss the computational needs 
 of your research and connect you with computing 
