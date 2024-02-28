@@ -90,7 +90,7 @@ nodes. All users log in at a login node, and submit their workflow as HTCondor j
 
 ## HTC Operating System and Software
 
-Submit servers in the HTC System are running CentOS 8 Stream Linux. 
+Submit servers in the HTC System are running CentOS 7 Linux. 
 
 Due to the distributed and independent nature of the HTC system's execute points, there can be a variety of operating systems on the pool of execution point resources (especially for users that opt into running jobs on the globally available OSPool operated by the OSG). However, the default operating system is CentOS 8 Stream Linux unless users request to run on a different operating system using their HTCondor submit file. 
 
