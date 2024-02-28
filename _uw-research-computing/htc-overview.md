@@ -104,7 +104,6 @@ To see more details of other software on the cluster, see our [HTC Guides page](
 
 There are multiple submit servers for the HTC system. The two most common submit servers are `submit1.chtc.wisc.edu` and `submit2.chtc.wisc.edu`. All users will be notified what submit server they should log into when their account is created.
 
-For more details on logging in, see the "Connecting to CHTC" guide linked above. 
 
 <span name="execute-nodes"></span>
 
