@@ -96,7 +96,7 @@ Due to the distributed and independent nature of the HTC system's execute points
 
 The HTC system is a test bed for the [HTCondor Software Suite](https://htcondor.org/), and thus is typically running the latest or soon-to-be-released versions of HTCondor. 
 
-To see more details of other software on the cluster, see the [HTC Software page](htc-software.html). 
+To see more details of other software on the cluster, see our [HTC Guides page](guides#htc-documentation). 
 
 <span name="submit-servers"></span>
 
