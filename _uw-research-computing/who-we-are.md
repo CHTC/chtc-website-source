@@ -31,8 +31,3 @@ They offer the following services, free-of-charge:
 • Email support
 
 
-<h1>CHTC Community</h1>
-
-
-[Impact 1 item]
-[Impact 2 ]
