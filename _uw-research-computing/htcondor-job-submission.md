@@ -4,7 +4,7 @@ layout: guide
 title: Practice: Submit HTC Jobs using HTCondor
 guide:
     order: 2
-    category: Basics and Policies
+    category: Job Submission
     tag:
         - htc
 ---
