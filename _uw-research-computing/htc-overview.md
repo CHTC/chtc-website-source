@@ -4,7 +4,7 @@ layout: guide
 title: HTC System Overview
 guide:
     order: 0
-    category: Job Submission
+    category: Basics and Policies
     tag:
         - htc
 ---
