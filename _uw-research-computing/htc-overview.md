@@ -4,7 +4,7 @@ layout: guide
 title: HTC System Overview
 guide:
     order: 0
-    category: Job Submission
+    category: Basics and Policies
     tag:
         - htc
 ---
@@ -29,7 +29,7 @@ guide:
 
 The CHTC high-throughput computing (HTC) cluster provides support a variety of computational research tasks. The HTC system offers CPUs/GPUs, high-memory nodes, and other specialized hardware. Workflows that run well on this system include RNA/DNA sequencing, machine learning workflows, weather modeling, monte carlo simulations, etc. 
 
-To get access to the HTC Cluster, please complete our
+To get access to the HTC System, please complete our
 [New User Consultation Form](form.html). After your request is received, 
 a Research Computing Facilitator will follow up to discuss the computational needs 
 of your research and connect you with computing 
@@ -90,13 +90,13 @@ nodes. All users log in at a login node, and submit their workflow as HTCondor j
 
 ## HTC Operating System and Software
 
-Submit servers in the HTC System are running CentOS 8 Stream Linux. 
+Submit servers in the HTC System are running CentOS 7 Linux. 
 
 Due to the distributed and independent nature of the HTC system's execute points, there can be a variety of operating systems on the pool of execution point resources (especially for users that opt into running jobs on the globally available OSPool operated by the OSG). However, the default operating system is CentOS 8 Stream Linux unless users request to run on a different operating system using their HTCondor submit file. 
 
 The HTC system is a test bed for the [HTCondor Software Suite](https://htcondor.org/), and thus is typically running the latest or soon-to-be-released versions of HTCondor. 
 
-To see more details of other software on the cluster, see the [HTC Software page](htc-software.html). 
+To see more details of other software on the cluster, see our [HTC Guides page](guides#htc-documentation). 
 
 <span name="submit-servers"></span>
 
@@ -104,7 +104,6 @@ To see more details of other software on the cluster, see the [HTC Software page
 
 There are multiple submit servers for the HTC system. The two most common submit servers are `submit1.chtc.wisc.edu` and `submit2.chtc.wisc.edu`. All users will be notified what submit server they should log into when their account is created.
 
-For more details on logging in, see the "Connecting to CHTC" guide linked above. 
 
 <span name="execute-nodes"></span>
 

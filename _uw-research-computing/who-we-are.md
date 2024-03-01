@@ -15,7 +15,6 @@ CHTC provides a variety of resources and tools to meet the demands of the Univer
 
 We provide no-cost compute resources (CPUs/GPUs, high-memory servers, etc.), as well as no-cost personalized consultations and classroom support. 
 
-					[What we offer]
 
 <h1>Your Home for Research Computing is Here</h1>
 
@@ -32,8 +31,3 @@ They offer the following services, free-of-charge:
 • Email support
 
 
-<h1>CHTC Community</h1>
-
-
-[Impact 1 item]
-[Impact 2 ]
