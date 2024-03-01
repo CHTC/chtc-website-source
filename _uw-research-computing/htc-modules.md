@@ -9,8 +9,6 @@ guide:
         - htc
 ---
 
-# HTC Software Modules
-
 This guide describes when and how to use software, using MPI as an example, that is available as pre-installed modules on the HTC system. 
 
 **To best understand the below information, users should already have an
