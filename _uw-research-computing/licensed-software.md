@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Using Licensed Software
+title: Use Licensed Software
 guide:
     order: 9
     category: Software Solutions

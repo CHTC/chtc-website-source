@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Running Python Jobs
+title: Run Python Jobs
 guide:
     order: 2
     category: Software Solutions

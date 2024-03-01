@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: Building a Docker Container Image
+title: Build a Docker Container Image
 guide:
     order: 8
     category: Software Solutions

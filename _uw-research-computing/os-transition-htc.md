@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Using Custom Linux Versions in CHTC
+title: Use Custom Linux Versions in CHTC
 guide: 
     order: 7
     category: Special Use Cases

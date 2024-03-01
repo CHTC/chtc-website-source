@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Using Apptainer (Singularity) Environments
+title: Use Apptainer (Singularity) Environments
 guide:
     order: 10
     category: Software Solutions

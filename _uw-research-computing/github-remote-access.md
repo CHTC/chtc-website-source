@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Remotely Access a Private GitHub Repository
+title: Remote Access a Private GitHub Repository
 guide:
     order: 6
     category: Basics and Policies

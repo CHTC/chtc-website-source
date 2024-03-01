@@ -2,7 +2,7 @@
 highlighter: none
 layout: guide
 title: Log In to CHTC Resources
-alt_title: Connecting to CHTC
+alt_title: Connect to CHTC
 guide:
     order: 2
     category: Basics and Policies

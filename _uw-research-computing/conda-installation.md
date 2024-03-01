@@ -2,7 +2,7 @@
 highlighter: none
 layout: guide
 title: Create a Portable Python Installation with Miniconda
-alt_title: Using Conda Environments to Run Python Jobs
+alt_title: Use Conda Environments to Run Python Jobs
 guide:
     order: 4
     category: Software Solutions

@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: Transferring Files Between CHTC and ResearchDrive
+title: Transfer Files Between CHTC and ResearchDrive
 guide:
     order: 4
     category: Basics and Policies

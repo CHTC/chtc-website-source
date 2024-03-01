@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Submitting High Memory Jobs
+title: Submit High Memory Jobs
 guide:
     order: 4
     category: Special Use Cases

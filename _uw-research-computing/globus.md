@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Using Globus to Transfer Files to and from CHTC
+title: Use Globus to Transfer Files to and from CHTC
 guide:
     order: 5
     category: Basics and Policies

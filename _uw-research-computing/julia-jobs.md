@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Running Julia Jobs
+title: Run Julia Jobs
 guide:
     order: 6
     category: Software Solutions
