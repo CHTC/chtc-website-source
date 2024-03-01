@@ -11,9 +11,9 @@ nav_items:
     sub_menu:
       - url: /uw-research-computing/user-expectations.html
         name: User Expectations
-      - url: /uw-research-computing/guides.html#htc-documentation
+      - url: /uw-research-computing/htc/guides.html
         name: HTC Guides
-      - url: /uw-research-computing/guides.html#hpc-documentation
+      - url: /uw-research-computing/hpc/guides.html
         name: HPC Guides
       - url: /uw-research-computing/cite-chtc.html
         name: Cite CHTC Resources
