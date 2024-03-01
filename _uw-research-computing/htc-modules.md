@@ -9,6 +9,8 @@ guide:
         - htc
 ---
 
+# HTC Software Modules
+
 This guide describes when and how to use software, using MPI as an example, that is available as pre-installed modules on the HTC system. 
 
 **To best understand the below information, users should already have an
@@ -17,26 +19,16 @@ understanding of:**
 -   Using the command line to: navigate within directories,
     create/copy/move/delete files and directories, and run their
     intended programs (aka \"executables\").
--   [The CHTC\'s Intro to Running HTCondor
-    Jobs](helloworld.html)
+-   [The CHTC\'s Intro to Running HTCondor Jobs](helloworld.html)
 
-1. General Software Policies
-2. Using Pre-Installed Software in Modules
-A. See Available Software Modules
-B. Load Software in Modules
-C. Unload Software in Modules
-3. Installing Software on the HTC System
- A. Overview
-## B. Step by Step Process
-4. Example: Using an MPI module in HTC Jobs
-5. A. Requirements and Use Cases
-6. B. View MPI Modules on the HTC System
-7. C. Submitting MPI jobs
+## Overview
 
-Overview
-========
+1. [General Software Policies](#1-general-software-policies)
+2. [Using Pre-Installed Software in Modules](#2-using-pre-installed-software-in-modules)
+3. [Installing Software on the HTC System](#3-installing-software-on-the-htc-system)
+4. [Example: Using an MPI module in HTC Jobs](4-example-using-an-mpi-module-in-htc-jobs)
 
-# 1. General Software Policies
+## 1. General Software Policies
 
 In CHTC, we install a minimal set of software for use 
 on our systems. On the HTC System, CHTC staff manage installations of 
@@ -48,12 +40,12 @@ the following types of programs:
 Information on how to access CHTC-managed installations is in the next 
 section of this guide.  
 
-# 2. Using Pre-Installed Software in Modules
+## 2. Using Pre-Installed Software in Modules
 
 All software on the HTC system that is installed by CHTC staff is available via 
 a tool called "modules". 
 
-## A. See Available Software Modules
+### A. See Available Software Modules
 
 There are two ways to search through the software modules on the HTC system: 
 
@@ -71,7 +63,7 @@ There are two ways to search through the software modules on the HTC system:
 [alice@submit]$ module spider openmpi
 ```
 
-## B. Load Software in Modules
+### B. Load Software in Modules
 
 Once you find a software module that you want to use, you need to "load" it 
 into your command line environment to make it active, filling in `module_name` with the name you found through one of the above steps. 
@@ -89,7 +81,7 @@ into your command line environment to make it active, filling in `module_name` w
 > testing, this should be done in an interactive job; otherwise, the module 
 > should be loaded in the job submit file. 
 
-## C. Unload Software in Modules
+### C. Unload Software in Modules
 
 If you no longer want to use a specific software installation, you can "unload"
 the software module with the following command: 
@@ -104,9 +96,9 @@ If you want to clear your command line environment and start over, run the follo
 [alice@submit]$ module purge
 ```
 
-# 3. Installing Software on the HTC System
+## 3. Installing Software on the HTC System
 
-## A. Overview
+### A. Overview
 
 Unless you are using a licensed software program provided via modules, you 
 are able to compile and install the software you need on the HTC System.  
@@ -123,7 +115,7 @@ members, please contact us about getting a shared "group" directory.
 If you are new to software installation, see the section below for 
 a more step-by-step description of the process. 
 
-## B. Step by Step Process
+### B. Step by Step Process
 The process for installing software is described in more detail in our [Compiling or Testing Code with an Interactive Job](inter-submit.html)
 1. **Start an Interactive Job** - it is necessary to build software in an interactive job as noted in [Compiling or Testing Code with an Interactive Job](inter-submit.html)
 1. **Download Source Code** - download the source code for your desired program. 
@@ -203,12 +195,11 @@ available via our modules. If this is the case, send an email to
 [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu), to find out if we can install
 that library into the module system.
 
-C. Submitting MPI jobs
-======================
+### C. Submitting MPI jobs
 
 <span name="compile"></span>
 
-### 1. Compile MPI Code
+#### 1. Compile MPI Code
 
 You can compile your program by submitting an interactive build job to
 one of our compiling servers. Do not compile code on the submit server,
@@ -258,7 +249,7 @@ Facilitators at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if this is the case.
 
 <span name="script"></span>
 
-### 2. Script For Running MPI Jobs
+#### 2. Script For Running MPI Jobs
 
 To run your newly compiled program within a job, you need to write a
 script that loads an MPI module and then runs the program, like so:
@@ -289,7 +280,7 @@ check the program\'s documentation about running multi-core processes.
 
 <span name="submit"></span>
 
-### 3. Submit File Requirements
+#### 3. Submit File Requirements
 
 There are several important requirements to consider when writing a
 submit file for multicore jobs. They are shown in the sample submit file
