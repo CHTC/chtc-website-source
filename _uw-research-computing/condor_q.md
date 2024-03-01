@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Learning About Your Jobs Using condor_q
+title: Learn About Your Jobs Using condor_q
 guide:
     order: 1
     category: Job Submission

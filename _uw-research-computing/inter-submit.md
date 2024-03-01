@@ -2,7 +2,7 @@
 highlighter: none
 layout: guide
 title: Compiling or Testing Code with an Interactive Job
-alt_title: Compiling Software in an Interactive Job
+alt_title: Compile Software in an Interactive Job
 guide:
     order: 0
     category: Software Solutions

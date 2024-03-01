@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: Installing Software Using Spack
+title: Install Software Using Spack
 guide:
   order: 2
   category: Software Solutions

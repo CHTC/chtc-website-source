@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: Creating Custom Modules Using Spack
+title: Create Custom Modules Using Spack
 guide:
   order: 3
   category: Software Solutions

@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Submitting Jobs That Use GPUs
+title: Use GPUs
 guide:
     order: 0
     category: Special Use Cases

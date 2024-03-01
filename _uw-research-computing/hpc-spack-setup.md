@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: Setting Up Spack on HPC
+title: Set Up Spack on HPC
 guide:
   order: 1
   category: Software Solutions

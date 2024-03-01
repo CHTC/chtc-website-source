@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Running R Jobs
+title: Run R Jobs
 guide:
     order: 5
     category: Software Solutions
