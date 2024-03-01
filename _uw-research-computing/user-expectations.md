@@ -9,8 +9,8 @@ guide:
 
 
 This page lists important policies and expectations for using CHTC computing and 
-data services. Our goal is to provide services that work well for **all users**, 
-enabling us to support as much of campus as possible. If an individual user is taking 
+data services. Our goal is to support a community of users and a variety of 
+research. If an individual user is taking 
 action that negatively impacts our services, we reserve the right to 
 deactivate their account or remove files without notice. 
 
@@ -40,6 +40,9 @@ corruption, which are possible in the absence of back-ups.
 **CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
 CHTC services. If you have data security concerns or any questions about 
 data security in CHTC, [please get in touch](https://chtc.cs.wisc.edu/uw-research-computing/get-help.html)! 
+
+To request a change in the quotas for a storage location, please see
+our [Request a Quota Change](quota-request) guide.
 
 ### Export Control
 

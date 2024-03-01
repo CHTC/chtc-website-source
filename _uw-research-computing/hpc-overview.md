@@ -155,10 +155,8 @@ To check how many files and directories you have in
 your `/home` or `/scratch` directory see the 
 [instructions below](#tools-for-managing-home-and-software-space).
 
-Increased quotas on either of these locations are available upon email 
-request to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) after a user has 
-cleared out old data and run relevant test jobs to inform the request. In your request, 
-please include both size (in GB) and file/directory counts. If you don\'t 
+Changes to quotas for either of these locations are available upon request
+per our [Request a Quota Change](quota-request) guide. If you don\'t 
 know how many files your installation creates, because it\'s more than 
 the current items quota, simply indicate that in your request.
 

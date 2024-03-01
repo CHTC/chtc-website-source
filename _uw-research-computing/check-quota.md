@@ -27,6 +27,7 @@ jobs.** If you need more disk space to run a single batch or concurrent
 batches of jobs, please contact us ([Get Help!](get-help.html)). We have multiple ways of dealing with large disk space
 requirements to make things easier for you.
 
+If you wish to change your quotas, please see [Request a Quota Change](quota-request).
 
 **1. Checking Your User Quota and Usage**
 -------------------------------------

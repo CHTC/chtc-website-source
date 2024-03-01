@@ -19,7 +19,7 @@ title: The Center for High Throughput Computing Fellows Program
 
 
 {: .alert .alert-primary }
-**Applications for the [Center for High Throughput Computing (CHTC)](https://chtc.cs.wisc.edu/) Fellows Program for Summer 2024 are now open.** The final deadline for applications is March 1, 2024 (end of the day, any time zone).
+**Applications for the [Center for High Throughput Computing (CHTC)](https://chtc.cs.wisc.edu/) Fellows Program for Summer 2024 are now open.** The final deadline for applications is March 8, 2024 (end of the day, any time zone).
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a 12-week summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
@@ -61,21 +61,22 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 ## How it Works
 
-Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area.
+Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area. However, you must be located in the United States during the Fellowship Program to participate. 
 
 **Eligibility:**
 
 -   You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   U.S. citizenship is not required to participate.
+-   In order to ensure the safety of the workplace, proof of COVID-19 vaccination is required unless an exemption is granted for medical, disability or religious reasons. 
 
 
 **Duration of fellowship and total stipend:**
 
--   The Fellowship Program lasts for 12 weeks during Summer 2024.
+-   The Fellowship Program lasts for 12 weeks during Summer 2024. The Program will begin on June 3 and end on August 23, 2024. 
 -   The Program provides $650/week stipend for large projects and $325/week stipend for medium projects. The stipends will be dispersed monthly.
 -   It is expected that a Fellow working on a large project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
--   Applications are now open - deadline 1 March, 2024 (any time zone).
+-   Applications are now open - deadline 8 March, 2024 (any time zone).
 
 
 **Developing a project**
@@ -96,11 +97,11 @@ To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.
 
 ### Timeline:
 
--   **Friday 1 March, 2024** - Final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
+-   **Friday 8 March, 2024** - Final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
 -   **Friday 15 March, 2024** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
 -   **Monday 1 April, 2024** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
 -   **By 15 April, 2023** - Final selection of Fellows for summer 2024
--   **May-Sep** - Fellows work on projects. (Exact dates may depend on specific academic year constraints.)
+-   **June-August** - Fellows work on projects. 
 
 
 ## Funding

@@ -85,9 +85,15 @@ bundle exec jekyll serve --watch -p
 
 At the website root:
 
-```shell
-docker build -t chtc-jekyll . 
-docker run -it -v $PWD:/app -p 4000:4000 chtc-jekyll jekyll serve --watch --config _config.yml -H 0.0.0.0
+```
+docker run -it -p 8001:8000 -v $PWD:/app -w /app ruby:2.7 /bin/bash
+```
+
+This will utilize the latest Jekyll version and map port `8000` to your host.  Within the container, a small HTTP server can be started with the following command:
+
+```
+bundle install
+bundle exec jekyll serve --watch --config _config.yml -H 0.0.0.0 -P 8000
 ```
 
 ## Formatting
@@ -117,7 +123,7 @@ For internal links (to a header inside the document), use this syntax:
 	```
 	[link to header A](#a-sample-header)
 	```
-
+ 
 ### Converting HTML to Markdown
 
 Right now, most of our pages are written in html and have a `.shtml` extension. We are 
@@ -129,3 +135,9 @@ can install and use the `pandoc` converter:
 You'll still want to go through and double check / clean up the text, but that's a good starting point. Once the 
 document is converted from markdown to html, the file extension should be `.md` instead. If you use the 
 command above, this means you can just delete the `.shtml` version of the file and commit the new `.md` one. 
+
+
+### Adding "Copy Code" Button to code blocks in guides
+
+Add .copy to the class and you will have a small button in the top right corner of your code blocks that
+when clicked, will copy all of the code inside of the block.

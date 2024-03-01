@@ -1,0 +1,13 @@
+title: Benchmarking OSDF Performance via the OSPool
+type: Software Development
+scale: Large
+summary: |
+  The OSDF is the flagship instance of a Pelican data federation and most often used via the OSPool, a 
+  HTCondor pool open to any US-based researcher or collaborators.  In this project, we aim to design a 
+  test harness for benchmarking the OSDF and tools to analyze the performance of a test run.
+  
+  The project would create a toolkit that submits workflows for testing the OSDF across multiple sites; 
+  we aim to test as many combinations of origins, caches, and clusters as possible.  The same toolkit
+  would then be used to analyze the logs of the run and create an HTML report of the performance and
+  reliability of the OSDF.  The ultimate goal is to run the testing nightly, giving the OSDF administrators
+  a morning snapshot of the federation’s status.

@@ -1,0 +1,12 @@
+title: Grid Exerciser
+scale: Large
+type: Software Development
+summary: |
+  The OSPool is a very large, very dynamic, heterogeneous high throughput system composed of execute
+  points from dozens of campuses all over the United States. Sometimes, something will go wrong
+  at one of these many sites, or one network, or one storage point, and it is difficult to determine
+  where the problem is. This project proposed the design and construction of a “Grid Exerciser”,
+  which consists of intentionally sending sample jobs to targeted locations on the OSPool to verify
+  correct operation and sufficient performance.  The project will also have a reporting and
+  visualization component so that the voluminous results can be understood by a human in a
+  concise manner.
