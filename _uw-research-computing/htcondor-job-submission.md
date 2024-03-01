@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Practice: Submit HTC Jobs using HTCondor
+title: "Practice: Submit HTC Jobs using HTCondor"
 guide:
     order: 2
     category: Job Submission
@@ -17,7 +17,7 @@ This guide discusses how to run jobs on the CHTC using HTCondor.
 # Workflow Overview
 The process of running computational workflows on CHTC resources follows the following outline: 
 
-#<img src="../../../assets/overview_htcondor_job_submission.png" class= "img-fluid"/>
+<img src="/images/overview_htcondor_job_submission.png" class= "img-fluid"/>
 
 **Terminology:**
 - **Access point** is where you login and stage your data, executables/scripts, and software to use in jobs. 
