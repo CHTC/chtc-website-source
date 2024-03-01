@@ -7,8 +7,6 @@ guide:
     category: Basics and Policies
 ---
 
-# How to Request a CHTC Account
-
 The following sections detail the processes for requesting a new CHTC account, 
 or for continuing to use an existing CHTC account. Use of CHTC services are free 
 to use in support of University of Wisconsin - Madison’s research and teaching mission.
