@@ -26,7 +26,7 @@ throughput or high performance compute systems. If you haven\'t, see our
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<span name="access"></span>
+<a name="access"></a>
 
 **1. Accessing the Submit Servers**
 ===============================
@@ -67,7 +67,7 @@ access CHTC resources.
 > In either case, it will appear like you are on-campus, and you should
 > then be able to log into CHTC as usual.
 
-<span name="login"></span>
+<a name="login"></a>
 
 **2. Logging In**
 =============
@@ -76,7 +76,7 @@ Using the information described above, you can log in to servers two
 different ways \-- from the command line or using an SSH program:
 
 
-<span name="login-ssh"></span>
+<a name="login-ssh"></a>
 
 A. On the command line
 ----------------------------------
@@ -93,7 +93,7 @@ $ ssh username@hostname
 You will be prompted for your password, and then for Duo 
 authentication. 
 
-<span name="login-putty"></span>
+<a name="login-putty"></a>
 
 B. Using an SSH program (Windows)
 ---------------------------------
@@ -115,7 +115,7 @@ Note that once you have submitted jobs to the queue, you can leave your
 logged in session (by typing `exit`). Your jobs will run and return
 output without you needing to be connected.
 
-<!-- <span name="ssh-keys"></span>
+<!-- <a name="ssh-keys"></a>
 
 C. Logging in automatically
 ---------------------------
@@ -137,7 +137,7 @@ a connection for logging in again or moving files. More details are shown
 in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
 
 
-<span name="learn"></span>
+<a name="learn"></a>
 
 **3. Learning About the Command Line**
 ==================================

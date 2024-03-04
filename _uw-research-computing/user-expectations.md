@@ -25,7 +25,7 @@ notice being shared will be immediately disabled and a meeting with the PI
 (faculty advisor) may be necessary to reinstate the account.
 
 For more information on the process for obtaining an account, see our 
-[How to Request an Account](account-details.md) guide.
+[How to Request an Account](account-details.html) guide.
 
 ## Data Policies
 

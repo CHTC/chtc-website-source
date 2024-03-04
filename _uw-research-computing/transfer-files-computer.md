@@ -19,7 +19,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<span name="transfer"></span>
+<a name="transfer"></a>
 
 **1. Transferring Files**
 =====================
@@ -29,7 +29,7 @@ hostname information for [logging in](#login), as well as understanding
 where your files are and where you would like them to go.
 
 
-<span name="transfer-scp"></span>
+<a name="transfer-scp"></a>
 
 A. On the command line
 ----------------------------------
@@ -67,7 +67,7 @@ Again, for many files, it will be easiest to create a compressed tarball
 individually. 
 
 
-<span name="transfer-winscp"></span>
+<a name="transfer-winscp"></a>
 
 B. Using a file transfer program (Windows/Mac)
 ----------------------------------------------
@@ -87,7 +87,7 @@ and drop.
 There are other programs besides WinSCP that do this. Another that works
 on Mac and Windows is called [Cyberduck](https://cyberduck.io).
 
-<span name="transfer-many"></span>
+<a name="transfer-many"></a>
 
 C. Transferring Multiple Files
 ------------------------------
@@ -117,7 +117,7 @@ or
 ```
 {:.term}
 
-<span name="files"></span>
+<a name="files"></a>
 
 **2. Creating and Editing Files in CHTC**
 =====================================

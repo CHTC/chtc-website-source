@@ -84,7 +84,7 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 	
 	Therefore, when HTCondor runs this executable, it will pass the $(Process) value for each job and hello-world.sh will insert that value for "$1" in hello-world.sh.
 	
-	More information on special variables like "$1", "$2", and "$@" can be found [here](https://swcarpentry.github.io/shell-novice/06-script/index.html).
+	More information on special variables like "$1", "$2", and "$@" can be found [here](https://swcarpentry.github.io/shell-novice/06-script.html).
 		
 3. Now, submit your job to HTCondor’s queue using `condor_submit`:
 	
