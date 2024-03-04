@@ -48,13 +48,11 @@ familiar with:**
 
 Our large data staging location is only for input and output files that 
 are individually too large to be managed by our other data movement 
-methods, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer or SQUID. This includes individual input files 
-greater than 100MB and individual output files greater than 3-4GB. 
+methods, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer or SQUID. This includes individual input 
+and output files greater than 100MB.
 
 Users are expected to abide by this intended use expectation and follow the 
-instructions for using `/staging` written in this guide (e.g. files placed 
-in `/staging `should NEVER be listed in the submit file, but rather accessed 
-via the job's executable (aka .sh) script).
+instructions for using `/staging` written in this guide.
 
 ## B. Access to Large Data Staging
 
@@ -83,7 +81,7 @@ location (or any CHTC file system) at any time.
 
 ## D. Data Access Within Jobs
 
- Staged large data will 
+Staged large data will 
 be available only within the the CHTC pool, on a subset of our total 
 capacity. 
 
@@ -106,7 +104,7 @@ In order to stage large data for use on CHTC's HTC system:
 Space in our large data staging area is granted by request. If you think you need 
 a directory, email CHTC's Research Computing Facilitators (chtc@cs.wisc.edu). 
 
-The created directory will exist at this path: `/staging/username`
+The created directory will exist at this path: `/staging/yourNetID`
 
 ## B. Reduce File Counts
 
@@ -139,30 +137,96 @@ files directly into this user directory from your own computer:
 
 - Example `scp` command on your own Linux or Mac computer:
 ```
-$ scp large.file username@transfer.chtc.wisc.edu:/staging/username/ 
+$ scp large.file username@transfer.chtc.wisc.edu:/staging/yourNetID/ 
 ```
 {.term}
 
 - If using a Windows computer:
 	- Using a file transfer application, like WinSCP, directly drag the large
-file from its location on your computer to a location within
-`/staging/username/` on transfer.chtc.wisc.edu.
+	file from its location on your computer to a location within
+	`/staging/yourNetID/` on transfer.chtc.wisc.edu.
 
 ## D. Remove Files After Jobs Complete
 
 As with all CHTC file spaces, data should be removed from `/staging` AS
 SOON AS IT IS NO LONGER NEEDED FOR ACTIVELY-RUNNING JOBS. Even if it
-will be used it the future, it should be deleted from and copied
+will be used in the future, it should be deleted from and copied
 back at a later date. Files can be taken off of `/staging` using similar 
 mechanisms as uploaded files (as above). 
 
 # 3. Using Staged Files in a Job
 
-As shown above, the staging directory for large data is `/staging/username`. 
-All interaction with files in this location should occur within your job's 
-main executable.
+As shown above, the staging directory for large data is `/staging/yourNetID`. 
+Continuous use of staging can impact server performance. 
+As such, input data on staging should be transferred to the working directory of a job
+at the beginning of the job, and the transfer of output data generated during a job 
+should be transferred at the end of the job.
 
-## A. Accessing Large Input Files
+There are currently two mechanisms for transferring files between a job and the staging system:
+A. via the `file://` transfer plugin in the submit file (recommended) or
+B. via commands in the executable.
+
+Not all machines have access to the staging system. Therefore, be sure to include the
+following requirement in your submit file:
+
+```
+Requirements = (Target.HasCHTCStaging == true)
+```
+
+## A. Using the Submit File Transfer Plugin (recommended)
+
+The `file://` transfer plugin allows you to specify the files that you want to 
+transfer to/from staging by using the submit file.
+
+### i. Accessing Large Input Files
+
+Using the submit file, you can specify the staged file that you want to transfer
+as follows:
+
+``` 
+transfer_input_files = file:///staging/yourNetID/largeinput.tar.gz
+```
+The staged file will be placed in the working directory of the job before your 
+executable file is run. 
+
+This approach has the advantage that you only need to modify the submit file if you want to 
+change the input file. In addition, HTCondor will not attempt to transfer this file back
+at the end of the job, unless it is modified by the job.
+
+### ii. Moving Large Output Files
+
+Using the submit file, you can specify that you want your large output file to
+be transferred to staging as follows.
+
+First, you need to explicitly state that you want to transfer that specific output file:
+
+```
+transfer_output_files = largeoutput.tar.gz
+```
+Second, you need to "remap" the transfer of that output file to use the `file://` plugin 
+for transferring the file to your staging directory:
+
+```
+transfer_output_remaps = "largeoutput.tar.gz = file:///staging/yourNetID/largeoutput.tar.gz"
+```
+### iii. Handling Large Standard Output
+
+In your executable, make sure that you are capturing the standard output of your program
+directly. For example, if running `myprogram`, then the command in the executable should
+look like this:
+
+```
+./myprogram myinput.txt myoutput.txt > large_std.out
+```
+{:.term}
+
+where the `>` symbol "redirects" the standard output to be saved as `large_std.out`. 
+To transfer this file to staging, follow the instructions in the previous section to tell the submit 
+file how to handle this file.
+
+## B. Using the Executable
+
+### i. Accessing Large Input Files
 
 To use large data placed in the `/staging` location, add commands to your 
 job executable that copy input 
@@ -179,7 +243,7 @@ Example, if executable is a shell script:
 #
 # First, copy the compressed tar file from /staging into the working directory,
 #  and un-tar it to reveal your large input file(s) or directories:
-cp /staging/username/large_input.tar.gz ./
+cp /staging/yourNetID/large_input.tar.gz ./
 tar -xzvf large_input.tar.gz
 #
 # Command for myprogram, which will use files from the working directory
@@ -193,7 +257,7 @@ rm large_input.tar.gz large_input.txt
 {: .file}
 
 
-## B. Moving Large Output Files
+### ii. Moving Large Output Files
 
 If jobs produce large (more than 3-4GB) output files, have 
 your executable write the output file(s) to a location within
@@ -211,14 +275,14 @@ Example, if executable is a shell script:
 #
 # Tar and mv output to staging, then delete from the job working directory:
 tar -czvf large_output.tar.gz output_dir/ other_large_files.txt
-mv large_output.tar.gz /staging/username/
+mv large_output.tar.gz /staging/yourNetID/
 rm other_large_files.txt
 #
 # END
 ```
 {: .file}
 
-## C. Handling Standard Output (if needed)
+### C. Handling Standard Output
 
 In some instances, your software may produce very large standard output
 (what would typically be output to the command screen, if you ran the
@@ -246,7 +310,7 @@ run from a script (bash) executable:
 # 
 # tar and move large files to staging so they're not copied to the submit server:
 tar -czvf large_stdout.tar.gz large_std.out
-cp large_stdout.tar.gz /staging/username/subdirectory
+cp large_stdout.tar.gz /staging/yourNetID/subdirectory
 rm large_std.out large_stdout.tar.gz
 # END
 ```
@@ -257,49 +321,22 @@ rm large_std.out large_stdout.tar.gz
 In order to properly submit jobs using staged large data, always do the following:
 
 - **Submit from `/home`**: ONLY submit jobs from within your home directory
-    (`/home/username`), and NEVER from within `/staging`.
+    (`/home/username`), and NEVER from within `/staging`. Similarly, do not use 
+    the `initialdir` option ([Submitting Multiple Jobs in Individual Directories](multiple-job-dirs.html))
+    to specify a directory on `/staging`.
 
 In your submit file: 
 
-- **No large data in the submit file**:  Do NOT list any `/staging` files in any of the submit file
-    lines, including: `executable, log, output, error, transfer_input_files`. Rather, your
-    job's ENTIRE interaction with files in `/staging` needs to occur
-    WITHIN each job's executable, when it runs within the job (as shown [above](#3-using-staged-files-in-a-job))
 - **Request sufficient disk space**: Using `request_disk`, request an amount of disk 
-space that reflects the total of a) input data that each job will copy into
-    the job working directory from `/staging,` and b) any output that
-    will be created in the job working directory.
+    space that reflects the total of a) input data that each job will copy into
+      the job working directory from `/staging,` and b) any output that
+      will be created in the job working directory.
 - **Require access to `/staging`**: Include the CHTC specific attribute that requires 
-servers with access to `/staging`
+  servers with access to `/staging`
 
-See the below submit file, as an example, which would be submitted from
-within the user's `/home` directory:
-
-``` {.sub}
-### Example submit file for a single job that stages large data
-# Files for the below lines MUST all be somewhere within /home/username,
-# and not within /staging/username
-
-executable = run_myprogram.sh
-log = myprogram.log
-output = $(Cluster).out
-error = $(Cluster).err
-
-## Do NOT list the large data files here
-transfer_input_files = myprogram
-
-# IMPORTANT! Require execute servers that can access /staging
-Requirements = (Target.HasCHTCStaging == true)
-
-# Make sure to still include lines like "request_memory", "request_disk", "request_cpus", etc. 
-
-queue
-```
-
-> **Note: in no way should files on `/staging` be specified in the submit file, 
-> directly or indirectly!** For example, do not use the `initialdir` option (
-> [Submitting Multiple Jobs in Individual Directories](multiple-job-dirs.html))
-> to specify a directory on `/staging`.
+  ```
+  Requirements = (Target.HasCHTCStaging == true)
+  ```
 
 # 5. Checking your Quota, Data Use, and File Counts
 
@@ -309,7 +346,7 @@ This command will also let you see how much disk is in use and how many
 items are present in a directory:
 
 ```
-[username@transfer ~]$ get_quotas /staging/username
+[username@transfer ~]$ get_quotas /staging/yourNetID
 ```
 {:.term}
 
@@ -317,7 +354,7 @@ Alternatively, the `ncdu` command can also be used to see how many
 files and directories are contained in a given path:
 
 ``` 
-[username@transfer ~]$ ncdu /staging/username
+[username@transfer ~]$ ncdu /staging/yourNetID
 ```
 {:.term}
 
