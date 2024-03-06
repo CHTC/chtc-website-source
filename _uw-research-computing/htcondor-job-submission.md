@@ -88,7 +88,9 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 		
 3. Now, submit your job to HTCondor’s queue using `condor_submit`:
 	
-	```[alice@submit2]$ condor_submit hello-world.sub```
+	```
+	[alice@ap2002]$ condor_submit hello-world.sub
+	```
 	
 	The `condor_submit` command actually submits your jobs to HTCondor. If all goes well, you will see output from the `condor_submit` command that appears as:
 	```
@@ -99,12 +101,12 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 4. To check on the status of your jobs in the queue, run the following command:
 	
 	```
-	[alice@submit2]$ condor_q
+	[alice@ap2002]$ condor_q
 	
 	The output of `condor_q` should look like this:
-	-- Schedd: submit2.chtc.wisc.edu : <128.104.101.92:9618?... @ 04/14/23 15:35:17
+	-- Schedd: ap2002.chtc.wisc.edu : <128.104.101.92:9618?... @ 04/14/23 15:35:17
 	OWNER     BATCH_NAME     SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
-	Alice ID: 3606214   4/14 12:31      2     1      _      3 36062145.0-2
+	Alice ID: 3606214       4/14 12:31      2     1       _      3 36062145.0-2
 	
 	3 jobs; 2 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 	```
@@ -162,7 +164,9 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 **A. Removing Jobs** 
 To remove a specific job, use `condor_rm <JobID, ClusterID, Username>`. Example:
 	
-`[alice@submit2]$ condor_rm 845638.0`
+```
+[alice@ap2002]$ condor_rm 845638.0
+```
 
 **B. Importance of Testing & Resource Optimization** 
 1. **Examine Job Success** Within the log file, you can see information about the completion of each job, including a system error code (as seen in "return value 0"). You can use this code, as well as information in your ".err" file and other output files, to determine what issues your job(s) may have had, if any.
