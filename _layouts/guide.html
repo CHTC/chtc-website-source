@@ -5,22 +5,25 @@ layout: main
 <div class="container-xxl mb-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-9 mw-1000">
+            {% if page.guide.tag contains 'hpc' %}
             
-            {% assign now = "now" | date: "%s" %}
-            {% if now < "1710219600" %}
-            <br>
-            <div class="p-3 mb-2 bg-danger text-white fw-bold">
-                On March 12, login servers submit1 and submit2 are being replaced 
-                with ap2001 and ap2002, respectively, with accounts and data 
-                automatically transferred over.
-            </div>
-            {% else %}
-            <br>
-            <div class="p-3 mb-2 bg-danger text-white fw-bold">
-                Logins have changed for users with accounts on submit1 and submit2: please see the 
-                <a href="https://chtc.cs.wisc.edu/uw-research-computing/connecting" class="link-light"><u>login guide</u></a> 
-                for details on your new login information.
-            </div>
+                {% assign now = "now" | date: "%s" %}
+                {% if now < "1710219600" %}
+                <br>
+                <div class="p-3 mb-2 bg-danger text-white fw-bold">
+                    On March 12, login servers submit1 and submit2 are being replaced
+                    with ap2001 and ap2002, respectively, with accounts and data
+                    automatically transferred over.
+                </div>
+                {% else %}
+                <br>
+                <div class="p-3 mb-2 bg-danger text-white fw-bold">
+                    Logins have changed for users with accounts on submit1 and submit2: please see the
+                    <a href="https://chtc.cs.wisc.edu/uw-research-computing/connecting" class="link-light"><u>login guide</u></a>
+                    for details on your new login information.
+                </div>
+                {% endif %}
+
             {% endif %}
 
             {% include page-title.html title=page.title %}
