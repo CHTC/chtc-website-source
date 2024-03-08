@@ -26,7 +26,7 @@ distinction between High Performance Computing (HPC) and High Throughput Computi
 [seminar](https://web.archive.org/web/20000229050436/http://cesdis.gsfc.nasa.gov/admin/cesdis.seminars/71196.html) at the NASA Goddard Flight Center
 in July of 1996 and a month later 
 at the European Laboratory for Particle Physics (CERN). In June of 1997 HPCWire
-published an [interview](https://research.cs.wisc.edu/htcondor/doc/HPCwire.1) on High Throughput Computing.
+published an [interview](https://htcondor.org/doc/HPCwire.1) on High Throughput Computing.
 
 The key to HTC is effective management and exploitation of all
 available  computing resources. Since the computing needs of most

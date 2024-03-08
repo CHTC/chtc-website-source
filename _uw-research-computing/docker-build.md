@@ -30,7 +30,7 @@ called a "Dockerfile". This file has commands that allow you to:
 
 You can then "build" an image from this
 file, test it locally, and push it to DockerHub, where
-<a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> can then use the image to build containers to run jobs in. 
+<a href="https://htcondor.org">HTCondor</a> can then use the image to build containers to run jobs in. 
 Different versions of the image can be labeled with different version 
 "tags".
 

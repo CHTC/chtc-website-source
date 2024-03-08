@@ -101,7 +101,7 @@
     - name: Software Carpentry ( Online courses and videos; readings )
       href: "http://software-carpentry.org/lessons/"
     - name: HTCondor Manual
-      href: "http://research.cs.wisc.edu/htcondor/manual/"
+      href: "https://htcondor.org/manual/"
     - name: Slurm Manual
       href: "http://slurm.schedmd.com/"
     - name: DoIT Software Training for Students ( free on-campus courses )

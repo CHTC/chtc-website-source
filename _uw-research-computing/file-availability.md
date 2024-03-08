@@ -142,7 +142,7 @@ By default, the submit file `executable`, `output`, and
 
 # Transferring Output Files
 
-All of your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files should have the following attributes:
+All of your <a href="https://htcondor.org">HTCondor</a> submit files should have the following attributes:
 
 ``` {.sub}
 # my job submit file
@@ -197,7 +197,7 @@ directory.
 
 <h2>Select Specific Output Files to Transfer to <code class="h2">/home</code></h2>
 
-As described above, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> will transfer ALL new or modified files in the top level 
+As described above, <a href="https://htcondor.org">HTCondor</a> will transfer ALL new or modified files in the top level 
 directory of the job (where it ran on the execute server), back to the job's initial directory 
 on the submit server. If your jobs will produce multiple output 
 files but you only need to retain a subset of these output files, we recommend deleting the unrequired 
