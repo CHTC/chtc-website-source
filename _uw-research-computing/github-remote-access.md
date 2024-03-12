@@ -69,7 +69,7 @@ Now we will be adding the SSH public key to your GitHub account, following the i
 3. Go to your account settings by clicking on your profile icon in the top right corner of the webpage, then click on **Settings** within the drop-down menu.  *If your browser window is small, the **Settings** button can be found by clicking the menu button at the top left of the webpage.*
 4. Go to the **SSH and GPG keys** section.  Under the **SSH keys** section, click **New SSH key**.
 5. Paste the contents of the SSH public key from Step 1. into the **Key** textbox.
-6. Name the SSH key using the **Title** textbox.  We recommend "CHTC" plus the name of the submit node.  For example: "CHTC submit1".
+6. Name the SSH key using the **Title** textbox.  We recommend "CHTC" plus the name of the login node.  For example: "CHTC ap2001".
 7. Click **Add SSH key**.  The SSH key will now appear in the **SSH keys** section in your GitHub account settings.
 
 ## C. Accessing Your Private GitHub Repository from the Cluster
