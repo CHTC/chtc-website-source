@@ -4,11 +4,10 @@ layout: guide
 title: HTC Data Storage Locations
 guide:
     order: 6
-    category: FILL IN THIS BLANK
+    category: Troubleshooting
     tag:
         - htc
 ---
-
 [toc]
 
 # Data Storage Locations
