@@ -42,8 +42,8 @@ The HTCondor submit file `transfer_input_files =` line should always be used to 
 | Input Sizes | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
 | 0-500 MB      | /home       | transfer_input_files = input.txt       |
-| 500-10GB   | /staging        | transfer_input_files = **osdf:///chtc/staging/NetID/input.txt        | 
-| 10GB +   | /staging        | transfer_input_files = **file:///staging/NetID/input.txt        | 
+| 500-10GB   | /staging        | transfer_input_files = osdf:///chtc/staging/NetID/input.txt | 
+| 10GB +   | /staging        | transfer_input_files = file:///staging/NetID/input.txt | 
 
 
 ## Transfer Data Back from Jobs to `/home` or `/staging`
