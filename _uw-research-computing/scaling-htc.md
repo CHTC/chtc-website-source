@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Scaling Beyond Local HTC Capacity
+title: Scale Beyond Local HTC Capacity
 guide:
     order: 2
     category: Special Use Cases

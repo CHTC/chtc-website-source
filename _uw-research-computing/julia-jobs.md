@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Running Julia Jobs
+title: Run Julia Jobs
 guide:
     order: 6
     category: Software Solutions
@@ -27,7 +27,7 @@ You will need the 64-bit, tarball compiled for general use on a Linux x86 system
 file name will resemble something like `julia-#.#.#-linux-x86_64.tar.gz`.
 
     * Tip: use `wget` to download directly to your `/home` directory on the 
-submit server, **OR** use `transfer_input_files = url` in your <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit files.
+submit server, **OR** use `transfer_input_files = url` in your <a href="https://htcondor.org">HTCondor</a> submit files.
 
 1. Submit an "interactive build" job to create a Julia project and 
 install packages, else skip to the next step.
@@ -193,7 +193,7 @@ julia> exit()
 ## Save Installed Packages For Later Jobs
 
 To use this project, and the associated installed packages, in 
-subsequent jobs, we need to have <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> return some files to 
+subsequent jobs, we need to have <a href="https://htcondor.org">HTCondor</a> return some files to 
 the submit server by converting the `my-project/` directory
 to a tarball, before exiting the interactive job session:
 
@@ -222,7 +222,7 @@ my-project.tar.gz
 # Submit Julia Jobs
 
 To submit a job that runs a Julia script, create a bash 
-script and <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> submit file following the examples in this section.
+script and <a href="https://htcondor.org">HTCondor</a> submit file following the examples in this section.
 These examples assume that you have downloaded a copy of Julia for Linux as a `tar.gz` 
 file and if using packages, you have gone through the steps above to install them 
 and create an additional `tar.gz` file of the installed packages. 

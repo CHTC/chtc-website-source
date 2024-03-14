@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: Using Software on the HPC Cluster
+title: Use Software on the HPC Cluster
 guide: 
     order: 0
     category: Software Solutions

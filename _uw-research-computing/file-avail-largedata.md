@@ -48,7 +48,7 @@ familiar with:**
 
 Our large data staging location is only for input and output files that 
 are individually too large to be managed by our other data movement 
-methods, <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> file transfer or SQUID. This includes individual input files 
+methods, <a href="https://htcondor.org">HTCondor</a> file transfer or SQUID. This includes individual input files 
 greater than 100MB and individual output files greater than 3-4GB. 
 
 Users are expected to abide by this intended use expectation and follow the 
@@ -222,7 +222,7 @@ rm other_large_files.txt
 
 In some instances, your software may produce very large standard output
 (what would typically be output to the command screen, if you ran the
-command for yourself, instead of having <a href="http://research.cs.wisc.edu/htcondor/">HTCondor</a> do it). Because such
+command for yourself, instead of having <a href="https://htcondor.org">HTCondor</a> do it). Because such
 standard output from your software will usually be captured by HTCondor
 in the submit file "output" file, this "output" file WILL still be
 transferred by HTCondor back to your home directory on the submit

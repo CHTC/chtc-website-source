@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Running Java Jobs
+title: Run Java Jobs
 guide:
     order: 6
     category: Software Solutions

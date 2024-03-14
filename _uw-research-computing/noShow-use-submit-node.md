@@ -12,9 +12,8 @@ guide:
 **If you have not yet requested a CHTC account and met with a Research
 Computing Facilitator, please fill out [this form](form.html).**
 
-Recently created CHTC accounts will use our submit server 
-*submit1.chtc.wisc.edu*. Accounts created before Feb 1, 2023 may be on 
-either *submit1.chtc.wisc.edu* or *submit2.chtc.wisc.edu*. See our 
+When your account was created, a member of our team emailed you with the
+server address you should use for logging in. See our 
 [connecting guide](connecting.html) for additional information. 
 
 Access to other submit servers is granted for

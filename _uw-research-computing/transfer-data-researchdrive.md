@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: Transferring Files Between CHTC and ResearchDrive
+title: Transfer Files Between CHTC and ResearchDrive
 guide:
     order: 4
     category: Basics and Policies
@@ -27,7 +27,7 @@ To transfer data between ResearchDrive and CHTC, do the following:
 
 1. **Log in:** 
 	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
-	2. If you are transferring files and or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+	2. If you are transferring files and or from your `/home` directory, log into your usual submit server (typically `ap2001.chtc.wisc.edu` or `ap2002.chtc.wisc.edu`). 
 2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`), where you would like to transfer files. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
@@ -76,7 +76,7 @@ to transfer to CHTC:
 
 1. **Log in:** 
 	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
-	2. If you are transferring files to or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+	2. If you are transferring files to or from your `/home` directory, log into your usual submit server (typically `ap2001.chtc.wisc.edu` or `ap2002.chtc.wisc.edu`). 
 2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`), where you would like to put the files. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 
@@ -110,7 +110,7 @@ after your jobs complete:
 
 1. **Log in:** 
 	1. If you are transferring files to or from a `/staging` directory, log in to `transfer.chtc.wisc.edu`. 
-	2. If you are transferring files to or from your `/home` directory, log into your usual submit server (typically `submit1.chtc.wisc.edu` or `submit2.chtc.wisc.edu`). 
+	2. If you are transferring files to or from your `/home` directory, log into your usual submit server (typically `ap2001.chtc.wisc.edu` or `ap2002.chtc.wisc.edu`). 
 2. **Choose a folder:** Navigate to the folder in CHTC (`/staging` or `/home`) where your output files are located. 
 3. **Connect to ResearchDrive:** Run the following command to connect to ResearchDrive, filling in the username of 
 your PI: 

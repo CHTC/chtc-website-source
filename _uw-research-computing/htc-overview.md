@@ -102,8 +102,7 @@ To see more details of other software on the cluster, see our [HTC Guides page](
 
 ## HTC Submit Servers
 
-There are multiple submit servers for the HTC system. The two most common submit servers are `submit1.chtc.wisc.edu` and `submit2.chtc.wisc.edu`. All users will be notified what submit server they should log into when their account is created.
-
+There are multiple submit servers for the HTC system. The two most common submit servers are `ap2001.chtc.wisc.edu` and `ap2002.chtc.wisc.edu` (formerly `submit1.chtc.wisc.edu` and `submit2.chtc.wisc.edu`, respectively). All users will be notified what submit server they should log into when their account is created.
 
 <span name="execute-nodes"></span>
 
@@ -167,7 +166,7 @@ Each of the disk space values are given in megabytes (MB), which can be converte
 
 To see your `/staging` quota and usage, use the `get_quotas <NetID>` command. For example, 
 ```
-[NetID@submit1 ~]$ get_quotas /staging/NetID
+[NetID@ap2001 ~]$ get_quotas /staging/NetID
 ```
 {:.term}
 
@@ -180,8 +179,8 @@ Alternatively, the `ncdu` command can also be used to see how many
 files and directories are contained in a given path:
 
 ``` 
-[NetID@submit1 ~]$ ncdu /home/NetID
-[NetID@submit1 ~]$ ncdu /staging/NetID
+[NetID@ap2001 ~]$ ncdu /home/NetID
+[NetID@ap2001 ~]$ ncdu /staging/NetID
 ```
 {:.term}
 

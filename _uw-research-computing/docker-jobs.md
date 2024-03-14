@@ -2,7 +2,7 @@
 highlighter: none
 layout: guide
 title: Running HTC Jobs Using Docker Containers
-alt_title: Using Software Installed in a Docker Container
+alt_title: Use Software Installed in a Docker Container
 guide:
     order: 7
     category: Software Solutions

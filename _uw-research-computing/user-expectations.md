@@ -24,7 +24,8 @@ accounts for individuals or group-owned spaces for sharing files. Accounts that 
 notice being shared will be immediately disabled and a meeting with the PI 
 (faculty advisor) may be necessary to reinstate the account.
 
-For more information on access to CHTC after graduation, see [below](#access-chtc-resources-after-graduation).
+For more information on the process for obtaining an account, see our 
+[How to Request an Account](account-details.html) guide.
 
 ## Data Policies
 
@@ -92,28 +93,3 @@ in your user quota. Both our HTC and HPC systems use a fair shair policy and eac
 researcher has a user priority. **Submitting many jobs that fail or do not produce 
 the unexpected output will decrease your user priority without helping you complete 
 your research.**  User priorities naturally reset over time. 
-
-## Access CHTC Resources after Graduation
-
-We understand that some users may need to continue carrying out their computational 
-analyses after graduation and the subsequent expiration of their NetID. 
-
-To maintain access to CHTC resources after you leave your position at the University, 
-your faculty advisor can sponsor continued access to CHTC resources and your NetID. 
-Your Faculty Sponsor should email CHTC (chtc@cs.wisc.edu) and provide:
-
-1. Your name,
-1. The reason you need continued access to CHTC resources,
-1. The amount of time they would like to sponsor your account,
-1. Your new city/country of residence, and 
-1. Your new institution. 
-
-CHTC staff will then go through the needed steps to extend your account. 
-
-* We highly recommend reaching out to CHTC staff before your NetID expires, if possible. 
-* Your faculty sponsor can sponsor your account for up to one year at a time. If 
-you need continued access past one year, your faculty sponsor must contact us and 
-re-confirm that you should have continued access. 
-* As a reminder, CHTC accounts are deactivated and user data is erased after a user 
-is no longer actively using their account (~1 year of inactivity). It is your responsibility
-to maintain your data and important files in a location that is not CHTC's file systems. 

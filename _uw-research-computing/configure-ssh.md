@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: Automating CHTC Log In
+title: Automate CHTC Log In
 guide:
     order: 4
     category: Basics and Policies

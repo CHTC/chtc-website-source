@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Checking Disk Quota and Usage
+title: Check Disk Quota and Usage
 guide:
     order: 7
     category: Basics and Policies
