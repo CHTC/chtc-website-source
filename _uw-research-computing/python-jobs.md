@@ -116,8 +116,8 @@ CentOS Stream 8. **
 universe = vanilla
 log = interactive.log
 
-# There is a bug in the current version of HTCondor that requires there to be an executable for the interactive job to work. 
-#   Choice of "hostname" was arbitrary.
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
 executable = /bin/hostname
 
 # Choose a version of Python from the tables above

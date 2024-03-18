@@ -58,8 +58,8 @@ To submit an interactive job, create a submit file called `build.sub` as shown b
 universe = vanilla
 log = interactive.log
 
-# There is a bug in the current version of HTCondor that requires there to be an executable for the interactive job to work. 
-#   Choice of "hostname" was arbitrary.
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
 executable = /bin/hostname
 
 # change the name of the file to be the name of your source code

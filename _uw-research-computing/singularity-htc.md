@@ -41,8 +41,8 @@ In your `/home` directory, create a submit file for your Apptainer build job cal
 universe = vanilla
 log = interactive.log
 
-# There is a bug in the current version of HTCondor that requires there to be an executable for the interactive job to work. 
-#   Choice of "hostname" was arbitrary.
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
 executable = /bin/hostname
 
 # If your build job needs access to any files in your /home directory, transfer them to your job using transfer_input_files
