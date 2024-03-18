@@ -77,7 +77,7 @@ Using a text editor, create the following file, which can be named `build.sub`
 universe = vanilla
 log = julia-build.log
 
-# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+# There is a bug in the current version of HTCondor that requires there to be an executable for the interactive job to work. 
 #   Choice of "hostname" was arbitrary.
 executable = /bin/hostname
 
