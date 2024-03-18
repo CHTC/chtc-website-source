@@ -64,6 +64,10 @@ Note that you'll want to use `+IsBuildJob = true` to specifically match to CHTC'
 universe = vanilla
 log = interactive.log
 
+# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+#   Choice of "hostname" was arbitrary.
+executable = /bin/hostname
+
 # change the name of the file to be the name of your source code
 transfer_input_files = source_code.tar.gz
 

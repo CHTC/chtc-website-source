@@ -77,6 +77,10 @@ Using a text editor, create the following file, which can be named `build.sub`
 universe = vanilla
 log = julia-build.log
 
+# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+#   Choice of "hostname" was arbitrary.
+executable = /bin/hostname
+
 # have job transfer a copy of precompiled Julia software
 # be sure to match the name of the version 
 # that you have downloaded to your home directory

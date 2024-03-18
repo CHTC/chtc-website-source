@@ -81,6 +81,10 @@ it something like `build.sub`.
 universe = vanilla
 log = interactive.log
 
+# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+#   Choice of "hostname" was arbitrary.
+executable = /bin/hostname
+
 # List all of your .m files, or a tar.gz file if you've combined them.
 transfer_input_files = script.m, functions.tar.gz
 

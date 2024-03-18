@@ -99,6 +99,10 @@ it something like `build.sub`.
 universe = vanilla
 log = interactive.log
 
+# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+#   Choice of "hostname" was arbitrary.
+executable = /bin/hostname
+
 # Choose a version of R from the table above
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
 

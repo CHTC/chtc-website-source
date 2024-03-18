@@ -116,6 +116,10 @@ CentOS Stream 8. **
 universe = vanilla
 log = interactive.log
 
+# Currently there is a bug that requires there to be an executable for the interactive job to work. 
+#   Choice of "hostname" was arbitrary.
+executable = /bin/hostname
+
 # Choose a version of Python from the tables above
 # If building on CentOS 7 (To be Phased Out)
 # transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz
