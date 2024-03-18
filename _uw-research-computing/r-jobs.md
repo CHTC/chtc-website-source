@@ -101,7 +101,7 @@ log = interactive.log
 
 # In the latest version of HTCondor on CHTC, interactive jobs require an executable.
 # If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = /bin/hostname
+executable = /usr/bin/hostname
 
 # Choose a version of R from the table above
 transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R###.tar.gz
