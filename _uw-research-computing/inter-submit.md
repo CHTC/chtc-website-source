@@ -64,6 +64,10 @@ Note that you'll want to use `+IsBuildJob = true` to specifically match to CHTC'
 universe = vanilla
 log = interactive.log
 
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
 # change the name of the file to be the name of your source code
 transfer_input_files = source_code.tar.gz
 

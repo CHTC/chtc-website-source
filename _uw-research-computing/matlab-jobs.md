@@ -81,6 +81,10 @@ it something like `build.sub`.
 universe = vanilla
 log = interactive.log
 
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
 # List all of your .m files, or a tar.gz file if you've combined them.
 transfer_input_files = script.m, functions.tar.gz
 

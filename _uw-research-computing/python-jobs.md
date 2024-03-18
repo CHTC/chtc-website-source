@@ -116,6 +116,10 @@ CentOS Stream 8. **
 universe = vanilla
 log = interactive.log
 
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
 # Choose a version of Python from the tables above
 # If building on CentOS 7 (To be Phased Out)
 # transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python##.tar.gz

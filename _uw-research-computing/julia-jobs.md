@@ -77,6 +77,10 @@ Using a text editor, create the following file, which can be named `build.sub`
 universe = vanilla
 log = julia-build.log
 
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
 # have job transfer a copy of precompiled Julia software
 # be sure to match the name of the version 
 # that you have downloaded to your home directory
