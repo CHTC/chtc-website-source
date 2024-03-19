@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d284716f461424990c231353a17c7d8d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d284716f461424990c231353a17c7d8d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d284716f461424990c231353a17c7d8d = L.map(
+                "map_d284716f461424990c231353a17c7d8d",
+                {
+                    center: [43.079373, -89.414836],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_74c22dd31e651627dbed9c01c6be69f8 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_74c22dd31e651627dbed9c01c6be69f8.addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var marker_b105332040af68436361ee43f6c01fd2 = L.marker(
+                [43.0736469, -89.4054156],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_cc6075054c2f78032b5f7981e94a7150 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_b105332040af68436361ee43f6c01fd2.setIcon(icon_cc6075054c2f78032b5f7981e94a7150);
+        
+    
+        var popup_95596ca7434c5b1e8a02ea4829fee922 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1d38d81797179f3a9e382871f5d54712 = $(`<div id="html_1d38d81797179f3a9e382871f5d54712" style="width: 100.0%; height: 100.0%;"><div style='width: 249px; height: 60px;'><b>Physics</b> <br>Users: 512 <br>Projects: 17 <br>Total Computing Hours: 238658127</div></div>`)[0];
+                popup_95596ca7434c5b1e8a02ea4829fee922.setContent(html_1d38d81797179f3a9e382871f5d54712);
+            
+        
+
+        marker_b105332040af68436361ee43f6c01fd2.bindPopup(popup_95596ca7434c5b1e8a02ea4829fee922)
+        ;
+
+        
+    
+    
+            var marker_6142ec544aee007e6146bb065f933757 = L.marker(
+                [43.074406417025585, -89.40700630069334],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_db6b8ad0285c4eedd21d5e2dc50505d1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_6142ec544aee007e6146bb065f933757.setIcon(icon_db6b8ad0285c4eedd21d5e2dc50505d1);
+        
+    
+        var popup_2278529583aa8b6350ca1e0f11e638d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_886b4a80e473bbf641266491d2bb434c = $(`<div id="html_886b4a80e473bbf641266491d2bb434c" style="width: 100.0%; height: 100.0%;"><div style='width: 255px; height: 60px;'><b>Statistics</b> <br>Users: 140 <br>Projects: 18 <br>Total Computing Hours: 14595751</div></div>`)[0];
+                popup_2278529583aa8b6350ca1e0f11e638d7.setContent(html_886b4a80e473bbf641266491d2bb434c);
+            
+        
+
+        marker_6142ec544aee007e6146bb065f933757.bindPopup(popup_2278529583aa8b6350ca1e0f11e638d7)
+        ;
+
+        
+    
+    
+            var marker_bd262cd510bcd95bf92432266685890b = L.marker(
+                [43.07622285432959, -89.42610199081737],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_e58f0e051865368c28840d806798c37e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_bd262cd510bcd95bf92432266685890b.setIcon(icon_e58f0e051865368c28840d806798c37e);
+        
+    
+        var popup_6401ee7004041b1b512bb623ebee748e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_222b00912c1958cab292b78c8d78c7fb = $(`<div id="html_222b00912c1958cab292b78c8d78c7fb" style="width: 100.0%; height: 100.0%;"><div style='width: 327px; height: 60px;'><b>Biostatistics & Medical Informatics</b> <br>Users: 77 <br>Projects: 12 <br>Total Computing Hours: 27345823</div></div>`)[0];
+                popup_6401ee7004041b1b512bb623ebee748e.setContent(html_222b00912c1958cab292b78c8d78c7fb);
+            
+        
+
+        marker_bd262cd510bcd95bf92432266685890b.bindPopup(popup_6401ee7004041b1b512bb623ebee748e)
+        ;
+
+        
+    
+    
+            var marker_cce2ccb07007fc103e2647354936908d = L.marker(
+                [43.0728101, -89.40805197184173],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_1bc46f5c5f40ffcf1a60e6e29ae6b261 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_cce2ccb07007fc103e2647354936908d.setIcon(icon_1bc46f5c5f40ffcf1a60e6e29ae6b261);
+        
+    
+        var popup_2528f2c266a825776ef580fcaef6026b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_889e57598136917c9df462129734dce6 = $(`<div id="html_889e57598136917c9df462129734dce6" style="width: 100.0%; height: 100.0%;"><div style='width: 228px; height: 60px;'><b>OSG</b> <br>Users: 55 <br>Projects: 3 <br>Total Computing Hours: 14349563</div></div>`)[0];
+                popup_2528f2c266a825776ef580fcaef6026b.setContent(html_889e57598136917c9df462129734dce6);
+            
+        
+
+        marker_cce2ccb07007fc103e2647354936908d.bindPopup(popup_2528f2c266a825776ef580fcaef6026b)
+        ;
+
+        
+    
+    
+            var marker_8b67de5e100963bb0bf4dbdb9aed40cd = L.marker(
+                [43.07270785, -89.40455659080945],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_b3873257b1f014a66e4733b149ac0d85 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_8b67de5e100963bb0bf4dbdb9aed40cd.setIcon(icon_b3873257b1f014a66e4733b149ac0d85);
+        
+    
+        var popup_adca7441efec1cce401b54d0fde1179f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e98fc2da3d47c37998444339f7fe7944 = $(`<div id="html_e98fc2da3d47c37998444339f7fe7944" style="width: 100.0%; height: 100.0%;"><div style='width: 246px; height: 60px;'><b>Chemistry</b> <br>Users: 47 <br>Projects: 8 <br>Total Computing Hours: 18511602</div></div>`)[0];
+                popup_adca7441efec1cce401b54d0fde1179f.setContent(html_e98fc2da3d47c37998444339f7fe7944);
+            
+        
+
+        marker_8b67de5e100963bb0bf4dbdb9aed40cd.bindPopup(popup_adca7441efec1cce401b54d0fde1179f)
+        ;
+
+        
+    
+    
+            var marker_e84f14cd76bb01a2fb1de5c8afe32a99 = L.marker(
+                [43.07370587699153, -89.41385217493871],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_4e25bfc0b6dd6ed30d15e5e211b02e58 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_e84f14cd76bb01a2fb1de5c8afe32a99.setIcon(icon_4e25bfc0b6dd6ed30d15e5e211b02e58);
+        
+    
+        var popup_7adaaf5892a6f35a40d395c15c1ac20e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_125518e867d6b90e42687e7a212c846f = $(`<div id="html_125518e867d6b90e42687e7a212c846f" style="width: 100.0%; height: 100.0%;"><div style='width: 294px; height: 60px;'><b>Wisconsin Energy Institute</b> <br>Users: 44 <br>Projects: 1 <br>Total Computing Hours: 1506845</div></div>`)[0];
+                popup_7adaaf5892a6f35a40d395c15c1ac20e.setContent(html_125518e867d6b90e42687e7a212c846f);
+            
+        
+
+        marker_e84f14cd76bb01a2fb1de5c8afe32a99.bindPopup(popup_7adaaf5892a6f35a40d395c15c1ac20e)
+        ;
+
+        
+    
+    
+            var marker_3e76f79c0a09384c0b922c22bfb51532 = L.marker(
+                [43.071966423127, -89.4104361881232],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_7bf7e7b3b6e1fa969ea15a7df7aa8169 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_3e76f79c0a09384c0b922c22bfb51532.setIcon(icon_7bf7e7b3b6e1fa969ea15a7df7aa8169);
+        
+    
+        var popup_5f663eef7c4109dedc4dce4fb49f8a21 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f5b59214e86d6b7ea10c6d51c0e4eb39 = $(`<div id="html_f5b59214e86d6b7ea10c6d51c0e4eb39" style="width: 100.0%; height: 100.0%;"><div style='width: 318px; height: 60px;'><b>Electrical & Computer Engineering</b> <br>Users: 41 <br>Projects: 19 <br>Total Computing Hours: 6347661</div></div>`)[0];
+                popup_5f663eef7c4109dedc4dce4fb49f8a21.setContent(html_f5b59214e86d6b7ea10c6d51c0e4eb39);
+            
+        
+
+        marker_3e76f79c0a09384c0b922c22bfb51532.bindPopup(popup_5f663eef7c4109dedc4dce4fb49f8a21)
+        ;
+
+        
+    
+    
+            var marker_db34daa63db326287ede097052952cf8 = L.marker(
+                [43.0741374, -89.4120237980814],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_33710a4ae3c34727bf4baa28f3a4a132 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_db34daa63db326287ede097052952cf8.setIcon(icon_33710a4ae3c34727bf4baa28f3a4a132);
+        
+    
+        var popup_6ae4bd3d37b2eb4d7c062019d006f435 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d280a4a84880ea667dd34a8e0a25c9c7 = $(`<div id="html_d280a4a84880ea667dd34a8e0a25c9c7" style="width: 100.0%; height: 100.0%;"><div style='width: 255px; height: 60px;'><b>Biochemistry</b> <br>Users: 39 <br>Projects: 13 <br>Total Computing Hours: 3931129</div></div>`)[0];
+                popup_6ae4bd3d37b2eb4d7c062019d006f435.setContent(html_d280a4a84880ea667dd34a8e0a25c9c7);
+            
+        
+
+        marker_db34daa63db326287ede097052952cf8.bindPopup(popup_6ae4bd3d37b2eb4d7c062019d006f435)
+        ;
+
+        
+    
+    
+            var marker_eeca18ae3c0a0ee269d16f2c4c1acafe = L.marker(
+                [43.0715589, -89.40670673073748],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_bed42596d4e7dc3d77f8c43b3183524e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_eeca18ae3c0a0ee269d16f2c4c1acafe.setIcon(icon_bed42596d4e7dc3d77f8c43b3183524e);
+        
+    
+        var popup_9ef87680e85e88b33b8043cadcbae2ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ec9040ec16c58f7375653223a5c1962 = $(`<div id="html_1ec9040ec16c58f7375653223a5c1962" style="width: 100.0%; height: 100.0%;"><div style='width: 270px; height: 60px;'><b>Computer Sciences</b> <br>Users: 39 <br>Projects: 18 <br>Total Computing Hours: 6193176</div></div>`)[0];
+                popup_9ef87680e85e88b33b8043cadcbae2ae.setContent(html_1ec9040ec16c58f7375653223a5c1962);
+            
+        
+
+        marker_eeca18ae3c0a0ee269d16f2c4c1acafe.bindPopup(popup_9ef87680e85e88b33b8043cadcbae2ae)
+        ;
+
+        
+    
+    
+            var marker_f87936185277f58e3f8937f6deb3463c = L.marker(
+                [43.07257835, -89.41162686001644],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8db9c1b96e1e5297304c6201905596ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f87936185277f58e3f8937f6deb3463c.setIcon(icon_8db9c1b96e1e5297304c6201905596ca);
+        
+    
+        var popup_f229a430f4e4df1cbb0df479151efec3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9d570cf4b4339c81a508b32c09db5802 = $(`<div id="html_9d570cf4b4339c81a508b32c09db5802" style="width: 100.0%; height: 100.0%;"><div style='width: 273px; height: 60px;'><b>Engineering Physics</b> <br>Users: 36 <br>Projects: 7 <br>Total Computing Hours: 3167964</div></div>`)[0];
+                popup_f229a430f4e4df1cbb0df479151efec3.setContent(html_9d570cf4b4339c81a508b32c09db5802);
+            
+        
+
+        marker_f87936185277f58e3f8937f6deb3463c.bindPopup(popup_f229a430f4e4df1cbb0df479151efec3)
+        ;
+
+        
+    
+    
+            var marker_d4fa2efa8461bd238f6c1c50b1f6c842 = L.marker(
+                [43.07261668695193, -89.41242574226301],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_edfacc4f1b43ef916924762fc07f735e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_d4fa2efa8461bd238f6c1c50b1f6c842.setIcon(icon_edfacc4f1b43ef916924762fc07f735e);
+        
+    
+        var popup_6552341f7260c30ac1cf246d77cc0c08 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82ce02e8b5fba68519070915ecc8cb43 = $(`<div id="html_82ce02e8b5fba68519070915ecc8cb43" style="width: 100.0%; height: 100.0%;"><div style='width: 288px; height: 60px;'><b>Mechanical Engineering</b> <br>Users: 35 <br>Projects: 15 <br>Total Computing Hours: 12847325</div></div>`)[0];
+                popup_6552341f7260c30ac1cf246d77cc0c08.setContent(html_82ce02e8b5fba68519070915ecc8cb43);
+            
+        
+
+        marker_d4fa2efa8461bd238f6c1c50b1f6c842.bindPopup(popup_6552341f7260c30ac1cf246d77cc0c08)
+        ;
+
+        
+    
+    
+            var marker_4d4cfb40f7e1d4114034a838fda0c2d0 = L.marker(
+                [43.07140106124259, -89.40703109358219],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_b2978f0b8a77bc3bef4a46bb27ada09d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_4d4cfb40f7e1d4114034a838fda0c2d0.setIcon(icon_b2978f0b8a77bc3bef4a46bb27ada09d);
+        
+    
+        var popup_050cae12e84e596038deac585ced0083 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a65d1c6d36784b2c25a2b5ff5e841689 = $(`<div id="html_a65d1c6d36784b2c25a2b5ff5e841689" style="width: 100.0%; height: 100.0%;"><div style='width: 225px; height: 60px;'><b>CHTC</b> <br>Users: 26 <br>Projects: 2 <br>Total Computing Hours: 559210</div></div>`)[0];
+                popup_050cae12e84e596038deac585ced0083.setContent(html_a65d1c6d36784b2c25a2b5ff5e841689);
+            
+        
+
+        marker_4d4cfb40f7e1d4114034a838fda0c2d0.bindPopup(popup_050cae12e84e596038deac585ced0083)
+        ;
+
+        
+    
+    
+            var marker_9b1a7085d0685bbf7889a0bf6b22abb2 = L.marker(
+                [43.07302665, -89.41128901138504],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_6c9a00502c63255b42bb810c67629e96 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_9b1a7085d0685bbf7889a0bf6b22abb2.setIcon(icon_6c9a00502c63255b42bb810c67629e96);
+        
+    
+        var popup_aedff12469f35987ae773e229e676a3d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b84ae455fa5a018b94b6f8d919549f77 = $(`<div id="html_b84ae455fa5a018b94b6f8d919549f77" style="width: 100.0%; height: 100.0%;"><div style='width: 312px; height: 60px;'><b>Materials Science & Engineering</b> <br>Users: 25 <br>Projects: 6 <br>Total Computing Hours: 22390778</div></div>`)[0];
+                popup_aedff12469f35987ae773e229e676a3d.setContent(html_b84ae455fa5a018b94b6f8d919549f77);
+            
+        
+
+        marker_9b1a7085d0685bbf7889a0bf6b22abb2.bindPopup(popup_aedff12469f35987ae773e229e676a3d)
+        ;
+
+        
+    
+    
+            var marker_89d899e28ff69a9141f434e3d786a76a = L.marker(
+                [43.07547609305661, -89.413691415125],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_ec0e4aa5fffe9f56d47dd8f5769bc0cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_89d899e28ff69a9141f434e3d786a76a.setIcon(icon_ec0e4aa5fffe9f56d47dd8f5769bc0cb);
+        
+    
+        var popup_329e58cd83965e2ba3327d6778b57c7d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_24757a1b0614cd563182c88dbe772259 = $(`<div id="html_24757a1b0614cd563182c88dbe772259" style="width: 100.0%; height: 100.0%;"><div style='width: 297px; height: 60px;'><b>Forestry & Wildlife Ecology</b> <br>Users: 25 <br>Projects: 9 <br>Total Computing Hours: 3924192</div></div>`)[0];
+                popup_329e58cd83965e2ba3327d6778b57c7d.setContent(html_24757a1b0614cd563182c88dbe772259);
+            
+        
+
+        marker_89d899e28ff69a9141f434e3d786a76a.bindPopup(popup_329e58cd83965e2ba3327d6778b57c7d)
+        ;
+
+        
+    
+    
+            var marker_3045dfb1a00e7b4e586e0b3a172ee3fb = L.marker(
+                [43.07441595, -89.40353639978453],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_dfe708c37a796e6591d209fd15f83e89 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_3045dfb1a00e7b4e586e0b3a172ee3fb.setIcon(icon_dfe708c37a796e6591d209fd15f83e89);
+        
+    
+        var popup_a9e4457a96a8e36b29ec73f74431ea1d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_caf08eb552b36040ce1501aefc296534 = $(`<div id="html_caf08eb552b36040ce1501aefc296534" style="width: 100.0%; height: 100.0%;"><div style='width: 231px; height: 60px;'><b>Botany</b> <br>Users: 24 <br>Projects: 8 <br>Total Computing Hours: 881404</div></div>`)[0];
+                popup_a9e4457a96a8e36b29ec73f74431ea1d.setContent(html_caf08eb552b36040ce1501aefc296534);
+            
+        
+
+        marker_3045dfb1a00e7b4e586e0b3a172ee3fb.bindPopup(popup_a9e4457a96a8e36b29ec73f74431ea1d)
+        ;
+
+        
+    
+    
+            var marker_ae35bcf01f61cf7d01e6b898eb25adba = L.marker(
+                [43.071570867574216, -89.41073974896275],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_cfaac9a70b3407a33521a3b110bb96c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ae35bcf01f61cf7d01e6b898eb25adba.setIcon(icon_cfaac9a70b3407a33521a3b110bb96c5);
+        
+    
+        var popup_c97190ed298991f6b3f3bd0f962f7621 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_70e800bedbfd97bfeec2cbac8e6b93c7 = $(`<div id="html_70e800bedbfd97bfeec2cbac8e6b93c7" style="width: 100.0%; height: 100.0%;"><div style='width: 315px; height: 60px;'><b>Chemical & Biological Engineering</b> <br>Users: 24 <br>Projects: 7 <br>Total Computing Hours: 4800115</div></div>`)[0];
+                popup_c97190ed298991f6b3f3bd0f962f7621.setContent(html_70e800bedbfd97bfeec2cbac8e6b93c7);
+            
+        
+
+        marker_ae35bcf01f61cf7d01e6b898eb25adba.bindPopup(popup_c97190ed298991f6b3f3bd0f962f7621)
+        ;
+
+        
+    
+    
+            var marker_a7533d9ee23c31330e706f2d11e8ec13 = L.marker(
+                [43.07587155, -89.41226618509228],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_da3ddb660dff171baca3fd0531ee37e8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a7533d9ee23c31330e706f2d11e8ec13.setIcon(icon_da3ddb660dff171baca3fd0531ee37e8);
+        
+    
+        var popup_f1a269b212cc2dcb980d122514a65cf8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf05a3432a471c7b94986a930c4b0503 = $(`<div id="html_cf05a3432a471c7b94986a930c4b0503" style="width: 100.0%; height: 100.0%;"><div style='width: 249px; height: 60px;'><b>Bacteriology</b> <br>Users: 23 <br>Projects: 6 <br>Total Computing Hours: 430729</div></div>`)[0];
+                popup_f1a269b212cc2dcb980d122514a65cf8.setContent(html_cf05a3432a471c7b94986a930c4b0503);
+            
+        
+
+        marker_a7533d9ee23c31330e706f2d11e8ec13.bindPopup(popup_f1a269b212cc2dcb980d122514a65cf8)
+        ;
+
+        
+    
+    
+            var marker_c764890fd546ce17269496654557cd2c = L.marker(
+                [43.0719447, -89.4097802],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_87495e219dd495d3e5d8e87d35421df5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c764890fd546ce17269496654557cd2c.setIcon(icon_87495e219dd495d3e5d8e87d35421df5);
+        
+    
+        var popup_79f805a69fe3ffaa8652f9c951e8f3a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e80c177c71b1ea1c8b716e8ee889d11f = $(`<div id="html_e80c177c71b1ea1c8b716e8ee889d11f" style="width: 100.0%; height: 100.0%;"><div style='width: 315px; height: 60px;'><b>Civil & Environmental Engineering</b> <br>Users: 18 <br>Projects: 6 <br>Total Computing Hours: 1508006</div></div>`)[0];
+                popup_79f805a69fe3ffaa8652f9c951e8f3a1.setContent(html_e80c177c71b1ea1c8b716e8ee889d11f);
+            
+        
+
+        marker_c764890fd546ce17269496654557cd2c.bindPopup(popup_79f805a69fe3ffaa8652f9c951e8f3a1)
+        ;
+
+        
+    
+    
+            var marker_0637331d83064005a0477f32c6ed4993 = L.marker(
+                [43.07458205, -89.40584709517424],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8a12cfd9ceba21edc872c00fa787b658 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_0637331d83064005a0477f32c6ed4993.setIcon(icon_8a12cfd9ceba21edc872c00fa787b658);
+        
+    
+        var popup_114d8b49da1b188c07ccee39949aa36e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd0f0f99b44e0e721ba6083ffa0640c6 = $(`<div id="html_fd0f0f99b44e0e721ba6083ffa0640c6" style="width: 100.0%; height: 100.0%;"><div style='width: 243px; height: 60px;'><b>Astronomy</b> <br>Users: 17 <br>Projects: 7 <br>Total Computing Hours: 4153188</div></div>`)[0];
+                popup_114d8b49da1b188c07ccee39949aa36e.setContent(html_fd0f0f99b44e0e721ba6083ffa0640c6);
+            
+        
+
+        marker_0637331d83064005a0477f32c6ed4993.bindPopup(popup_114d8b49da1b188c07ccee39949aa36e)
+        ;
+
+        
+    
+    
+            var marker_2e6f1539d8162249809ced9e3ce52a02 = L.marker(
+                [43.07262425, -89.40628037339656],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_3ae27fff8bec7830964245cc01c5284c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_2e6f1539d8162249809ced9e3ce52a02.setIcon(icon_3ae27fff8bec7830964245cc01c5284c);
+        
+    
+        var popup_d509b42fb8b8f8e6fd87b55464a8d7a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3db7fd3a2ecc779314f219154f282e67 = $(`<div id="html_3db7fd3a2ecc779314f219154f282e67" style="width: 100.0%; height: 100.0%;"><div style='width: 243px; height: 60px;'><b>Psychology</b> <br>Users: 16 <br>Projects: 5 <br>Total Computing Hours: 725774</div></div>`)[0];
+                popup_d509b42fb8b8f8e6fd87b55464a8d7a8.setContent(html_3db7fd3a2ecc779314f219154f282e67);
+            
+        
+
+        marker_2e6f1539d8162249809ced9e3ce52a02.bindPopup(popup_d509b42fb8b8f8e6fd87b55464a8d7a8)
+        ;
+
+        
+    
+    
+            var marker_9485eb41d26357e821a9fffdd4adde7f = L.marker(
+                [43.071515000000005, -89.4045206970595],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c49e305959de466b997627337b14f9e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_9485eb41d26357e821a9fffdd4adde7f.setIcon(icon_c49e305959de466b997627337b14f9e4);
+        
+    
+        var popup_378b948a89ddfb483b078fdcc9fc22fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_51172911d095930f9c33e642d37c8d65 = $(`<div id="html_51172911d095930f9c33e642d37c8d65" style="width: 100.0%; height: 100.0%;"><div style='width: 273px; height: 60px;'><b>Integrative Biology</b> <br>Users: 16 <br>Projects: 6 <br>Total Computing Hours: 1924696</div></div>`)[0];
+                popup_378b948a89ddfb483b078fdcc9fc22fa.setContent(html_51172911d095930f9c33e642d37c8d65);
+            
+        
+
+        marker_9485eb41d26357e821a9fffdd4adde7f.bindPopup(popup_378b948a89ddfb483b078fdcc9fc22fa)
+        ;
+
+        
+    
+    
+            var marker_32b7c709215a13fa16db18ca9f078cca = L.marker(
+                [43.07647625, -89.41129394503041],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8675ff45df9995aefaa9569296ff5350 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_32b7c709215a13fa16db18ca9f078cca.setIcon(icon_8675ff45df9995aefaa9569296ff5350);
+        
+    
+        var popup_c2caad2c8bd41d730ff321835ade2011 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f347035f47a94596871d7c9df17645b8 = $(`<div id="html_f347035f47a94596871d7c9df17645b8" style="width: 100.0%; height: 100.0%;"><div style='width: 249px; height: 60px;'><b>Soil Science</b> <br>Users: 15 <br>Projects: 2 <br>Total Computing Hours: 227021</div></div>`)[0];
+                popup_c2caad2c8bd41d730ff321835ade2011.setContent(html_f347035f47a94596871d7c9df17645b8);
+            
+        
+
+        marker_32b7c709215a13fa16db18ca9f078cca.bindPopup(popup_c2caad2c8bd41d730ff321835ade2011)
+        ;
+
+        
+    
+    
+            var marker_7b32fa768e7bfc67de9dc29c9458af2d = L.marker(
+                [43.07401002387072, -89.409936934257],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_bd3331f549c2aac82d54228bee1ad9a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_7b32fa768e7bfc67de9dc29c9458af2d.setIcon(icon_bd3331f549c2aac82d54228bee1ad9a4);
+        
+    
+        var popup_b57ac27190113b827412baf5c0cc443b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0befd8c300eb409bfc9237683b698008 = $(`<div id="html_0befd8c300eb409bfc9237683b698008" style="width: 100.0%; height: 100.0%;"><div style='width: 276px; height: 60px;'><b>Genomics & Genetics</b> <br>Users: 13 <br>Projects: 5 <br>Total Computing Hours: 14611347</div></div>`)[0];
+                popup_b57ac27190113b827412baf5c0cc443b.setContent(html_0befd8c300eb409bfc9237683b698008);
+            
+        
+
+        marker_7b32fa768e7bfc67de9dc29c9458af2d.bindPopup(popup_b57ac27190113b827412baf5c0cc443b)
+        ;
+
+        
+    
+    
+            var marker_be55fa47abde5b2a1f25620317295998 = L.marker(
+                [43.07284855, -89.41244735929726],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_b65d3487ba865ca3ac48477879b458d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_be55fa47abde5b2a1f25620317295998.setIcon(icon_b65d3487ba865ca3ac48477879b458d8);
+        
+    
+        var popup_f14a84424d43eb68815fa0e4f9366cfd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_833bc6c571a0778bc637c8074fb1840e = $(`<div id="html_833bc6c571a0778bc637c8074fb1840e" style="width: 100.0%; height: 100.0%;"><div style='width: 309px; height: 60px;'><b>Industrial & Systems Engineering</b> <br>Users: 13 <br>Projects: 8 <br>Total Computing Hours: 680321</div></div>`)[0];
+                popup_f14a84424d43eb68815fa0e4f9366cfd.setContent(html_833bc6c571a0778bc637c8074fb1840e);
+            
+        
+
+        marker_be55fa47abde5b2a1f25620317295998.bindPopup(popup_f14a84424d43eb68815fa0e4f9366cfd)
+        ;
+
+        
+    
+    
+            var marker_fa066ffb34c6a40f260d766c8b1794a8 = L.marker(
+                [43.0773763539928, -89.42992723497518],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_6a147d66b5fecc836a1fa8fbcd781ff7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_fa066ffb34c6a40f260d766c8b1794a8.setIcon(icon_6a147d66b5fecc836a1fa8fbcd781ff7);
+        
+    
+        var popup_c198d2b11b1d9ee7583bafdcae14a45a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f15be0358be2884ff613e057f40c762e = $(`<div id="html_f15be0358be2884ff613e057f40c762e" style="width: 100.0%; height: 100.0%;"><div style='width: 261px; height: 60px;'><b>Medical Physics</b> <br>Users: 11 <br>Projects: 4 <br>Total Computing Hours: 7834641</div></div>`)[0];
+                popup_c198d2b11b1d9ee7583bafdcae14a45a.setContent(html_f15be0358be2884ff613e057f40c762e);
+            
+        
+
+        marker_fa066ffb34c6a40f260d766c8b1794a8.bindPopup(popup_c198d2b11b1d9ee7583bafdcae14a45a)
+        ;
+
+        
+    
+    
+            var marker_e31da27853a05283e8417512ffc564cc = L.marker(
+                [43.0763751, -89.43200488089545],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_5bcfb22d7e88d10b161adc4c59308b32 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_e31da27853a05283e8417512ffc564cc.setIcon(icon_5bcfb22d7e88d10b161adc4c59308b32);
+        
+    
+        var popup_e8cc8f1ba942067588e84ca5d0da6acc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e5ad75f0f86ff358a67011fb1c74c7c3 = $(`<div id="html_e5ad75f0f86ff358a67011fb1c74c7c3" style="width: 100.0%; height: 100.0%;"><div style='width: 237px; height: 60px;'><b>Radiology</b> <br>Users: 11 <br>Projects: 3 <br>Total Computing Hours: 22846</div></div>`)[0];
+                popup_e8cc8f1ba942067588e84ca5d0da6acc.setContent(html_e5ad75f0f86ff358a67011fb1c74c7c3);
+            
+        
+
+        marker_e31da27853a05283e8417512ffc564cc.bindPopup(popup_e8cc8f1ba942067588e84ca5d0da6acc)
+        ;
+
+        
+    
+    
+            var marker_8a4f4c41d8f6945178dd4443a42ba04b = L.marker(
+                [43.0705257, -89.4059387],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_3822d432bcad9578d091a0b492e840e9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_8a4f4c41d8f6945178dd4443a42ba04b.setIcon(icon_3822d432bcad9578d091a0b492e840e9);
+        
+    
+        var popup_a3691ac6eb60448d15d4bda97645544d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0b74444b173de66cfb24d08e58b255a = $(`<div id="html_d0b74444b173de66cfb24d08e58b255a" style="width: 100.0%; height: 100.0%;"><div style='width: 243px; height: 60px;'><b>Geoscience</b> <br>Users: 11 <br>Projects: 6 <br>Total Computing Hours: 277488</div></div>`)[0];
+                popup_a3691ac6eb60448d15d4bda97645544d.setContent(html_d0b74444b173de66cfb24d08e58b255a);
+            
+        
+
+        marker_8a4f4c41d8f6945178dd4443a42ba04b.bindPopup(popup_a3691ac6eb60448d15d4bda97645544d)
+        ;
+
+        
+    
+    
+            var marker_ae453d471fa5d32d1210af2c23fab6bb = L.marker(
+                [43.07837305, -89.42824773829737],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_16adce9f1ebc12fe9323b21439a10225 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ae453d471fa5d32d1210af2c23fab6bb.setIcon(icon_16adce9f1ebc12fe9323b21439a10225);
+        
+    
+        var popup_e9fe7cb353db5090e7be4feed2f89f43 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c36c3651436dac7db1a448ace06628b2 = $(`<div id="html_c36c3651436dac7db1a448ace06628b2" style="width: 100.0%; height: 100.0%;"><div style='width: 240px; height: 60px;'><b>Pharmacy</b> <br>Users: 11 <br>Projects: 3 <br>Total Computing Hours: 3704500</div></div>`)[0];
+                popup_e9fe7cb353db5090e7be4feed2f89f43.setContent(html_c36c3651436dac7db1a448ace06628b2);
+            
+        
+
+        marker_ae453d471fa5d32d1210af2c23fab6bb.bindPopup(popup_e9fe7cb353db5090e7be4feed2f89f43)
+        ;
+
+        
+    
+    
+            var marker_30852704a74374ba38a4f729641c540d = L.marker(
+                [43.07600585, -89.41158079161508],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_56d16020e706160d94dd15e83ddb5500 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_30852704a74374ba38a4f729641c540d.setIcon(icon_56d16020e706160d94dd15e83ddb5500);
+        
+    
+        var popup_c058f8a8e30ff4e379715a686b9c2a9c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_43e9ba2d0ca917d751900939973e6d77 = $(`<div id="html_43e9ba2d0ca917d751900939973e6d77" style="width: 100.0%; height: 100.0%;"><div style='width: 282px; height: 60px;'><b>Life Sciences Communication</b> <br>Users: 10 <br>Projects: 2 <br>Total Computing Hours: 38</div></div>`)[0];
+                popup_c058f8a8e30ff4e379715a686b9c2a9c.setContent(html_43e9ba2d0ca917d751900939973e6d77);
+            
+        
+
+        marker_30852704a74374ba38a4f729641c540d.bindPopup(popup_c058f8a8e30ff4e379715a686b9c2a9c)
+        ;
+
+        
+    
+    
+            var marker_df8d49907da3c518bcc44f60b2809b6d = L.marker(
+                [43.0760308, -89.41545339926266],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_b5211781032bf9eab7d7ed5cf3bfc5e6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_df8d49907da3c518bcc44f60b2809b6d.setIcon(icon_b5211781032bf9eab7d7ed5cf3bfc5e6);
+        
+    
+        var popup_84c14b133c8a5719074d6be514db7385 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e96fc9d88ee68f7a8e4286c47b2f6e65 = $(`<div id="html_e96fc9d88ee68f7a8e4286c47b2f6e65" style="width: 100.0%; height: 100.0%;"><div style='width: 282px; height: 60px;'><b>Animal & Dairy Sciences</b> <br>Users: 10 <br>Projects: 4 <br>Total Computing Hours: 231900</div></div>`)[0];
+                popup_84c14b133c8a5719074d6be514db7385.setContent(html_e96fc9d88ee68f7a8e4286c47b2f6e65);
+            
+        
+
+        marker_df8d49907da3c518bcc44f60b2809b6d.bindPopup(popup_84c14b133c8a5719074d6be514db7385)
+        ;
+
+        
+    
+    
+            var marker_f09881bd648e936145b312313212762f = L.marker(
+                [43.0748388, -89.4048687769802],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_6409d671ac83182245ae0fc30326421f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f09881bd648e936145b312313212762f.setIcon(icon_6409d671ac83182245ae0fc30326421f);
+        
+    
+        var popup_7bb1c7fc7ae848f8a503e4d16d0208a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_693aa24292c142c8374135999cb5a4c6 = $(`<div id="html_693aa24292c142c8374135999cb5a4c6" style="width: 100.0%; height: 100.0%;"><div style='width: 240px; height: 60px;'><b>Mathematics</b> <br>Users: 9 <br>Projects: 3 <br>Total Computing Hours: 13518</div></div>`)[0];
+                popup_7bb1c7fc7ae848f8a503e4d16d0208a3.setContent(html_693aa24292c142c8374135999cb5a4c6);
+            
+        
+
+        marker_f09881bd648e936145b312313212762f.bindPopup(popup_7bb1c7fc7ae848f8a503e4d16d0208a3)
+        ;
+
+        
+    
+    
+            var marker_6ccaf2b30c00df4c7405b0880214c68b = L.marker(
+                [43.07545729083347, -89.41390391569168],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_cc992601700885f436ea64fc3b66583d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_6ccaf2b30c00df4c7405b0880214c68b.setIcon(icon_cc992601700885f436ea64fc3b66583d);
+        
+    
+        var popup_4130be80821cc6059f3983067a0865b1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_608255d091d073dd24beefa2afda2c5d = $(`<div id="html_608255d091d073dd24beefa2afda2c5d" style="width: 100.0%; height: 100.0%;"><div style='width: 255px; height: 60px;'><b>Plant Pathology</b> <br>Users: 8 <br>Projects: 2 <br>Total Computing Hours: 319198</div></div>`)[0];
+                popup_4130be80821cc6059f3983067a0865b1.setContent(html_608255d091d073dd24beefa2afda2c5d);
+            
+        
+
+        marker_6ccaf2b30c00df4c7405b0880214c68b.bindPopup(popup_4130be80821cc6059f3983067a0865b1)
+        ;
+
+        
+    
+    
+            var marker_70e0c8e942ac473d0e76dbdfdf4fa08b = L.marker(
+                [43.07183225, -89.4035683968679],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_9f91afbbd7030caec5d56c3018abfc6f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_70e0c8e942ac473d0e76dbdfdf4fa08b.setIcon(icon_9f91afbbd7030caec5d56c3018abfc6f);
+        
+    
+        var popup_cf94543d37979d6a9b0fab623241832b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fb434658878d1e2b992ec127669179b0 = $(`<div id="html_fb434658878d1e2b992ec127669179b0" style="width: 100.0%; height: 100.0%;"><div style='width: 276px; height: 60px;'><b>Educational Psychology</b> <br>Users: 7 <br>Projects: 5 <br>Total Computing Hours: 621106</div></div>`)[0];
+                popup_cf94543d37979d6a9b0fab623241832b.setContent(html_fb434658878d1e2b992ec127669179b0);
+            
+        
+
+        marker_70e0c8e942ac473d0e76dbdfdf4fa08b.bindPopup(popup_cf94543d37979d6a9b0fab623241832b)
+        ;
+
+        
+    
+    
+            var marker_a183b4b8277851d76e8eb60a7efb6bbc = L.marker(
+                [43.07564441443841, -89.43322642731434],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_70cb7fbbdc6f9f490a7a9cb0fe27b68d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a183b4b8277851d76e8eb60a7efb6bbc.setIcon(icon_70cb7fbbdc6f9f490a7a9cb0fe27b68d);
+        
+    
+        var popup_1824178c7c4c10e7a832772eeb420026 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_93c1379eb568eceeb1405dfb1ba0ab55 = $(`<div id="html_93c1379eb568eceeb1405dfb1ba0ab55" style="width: 100.0%; height: 100.0%;"><div style='width: 303px; height: 60px;'><b>Pathology & Laboratory Medicine</b> <br>Users: 6 <br>Projects: 2 <br>Total Computing Hours: 352856</div></div>`)[0];
+                popup_1824178c7c4c10e7a832772eeb420026.setContent(html_93c1379eb568eceeb1405dfb1ba0ab55);
+            
+        
+
+        marker_a183b4b8277851d76e8eb60a7efb6bbc.bindPopup(popup_1824178c7c4c10e7a832772eeb420026)
+        ;
+
+        
+    
+    
+            var marker_b536054c77c126549a5ce5c49b422b32 = L.marker(
+                [43.0765867, -89.40523145947692],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_d28e9310dc1b30136b7d8dadbcabf688 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_b536054c77c126549a5ce5c49b422b32.setIcon(icon_d28e9310dc1b30136b7d8dadbcabf688);
+        
+    
+        var popup_e0ce31fffe53b9997a46317846b5b8fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d3c9cab7d7b2bebbf1fa2d5e30c74fa = $(`<div id="html_3d3c9cab7d7b2bebbf1fa2d5e30c74fa" style="width: 100.0%; height: 100.0%;"><div style='width: 240px; height: 60px;'><b>Economics</b> <br>Users: 6 <br>Projects: 5 <br>Total Computing Hours: 3407038</div></div>`)[0];
+                popup_e0ce31fffe53b9997a46317846b5b8fa.setContent(html_3d3c9cab7d7b2bebbf1fa2d5e30c74fa);
+            
+        
+
+        marker_b536054c77c126549a5ce5c49b422b32.bindPopup(popup_e0ce31fffe53b9997a46317846b5b8fa)
+        ;
+
+        
+    
+    
+            var marker_c383307540bfc2313738d34866734790 = L.marker(
+                [43.07526698603992, -89.42020897066864],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_e9cd45ea07d46c80fbf4854864d2676c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c383307540bfc2313738d34866734790.setIcon(icon_e9cd45ea07d46c80fbf4854864d2676c);
+        
+    
+        var popup_975fe67a5e9e0bd3d00bdc3a24857a9d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_994d3ffa45e9dcc0149e07dfa5155315 = $(`<div id="html_994d3ffa45e9dcc0149e07dfa5155315" style="width: 100.0%; height: 100.0%;"><div style='width: 282px; height: 60px;'><b>Pathobiological Sciences</b> <br>Users: 5 <br>Projects: 2 <br>Total Computing Hours: 154058</div></div>`)[0];
+                popup_975fe67a5e9e0bd3d00bdc3a24857a9d.setContent(html_994d3ffa45e9dcc0149e07dfa5155315);
+            
+        
+
+        marker_c383307540bfc2313738d34866734790.bindPopup(popup_975fe67a5e9e0bd3d00bdc3a24857a9d)
+        ;
+
+        
+    
+    
+            var marker_4d7b285feb606fd96c76dacaff1b8bb9 = L.marker(
+                [43.07572565348619, -89.40290521439502],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8e4ad0f7743aefa195db2fa39aa78830 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_4d7b285feb606fd96c76dacaff1b8bb9.setIcon(icon_8e4ad0f7743aefa195db2fa39aa78830);
+        
+    
+        var popup_9f530a96fe6cb6128bc801feecb784b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f606f76575a7c84070e876cbc2ec7819 = $(`<div id="html_f606f76575a7c84070e876cbc2ec7819" style="width: 100.0%; height: 100.0%;"><div style='width: 258px; height: 60px;'><b>Political Science</b> <br>Users: 5 <br>Projects: 3 <br>Total Computing Hours: 22400</div></div>`)[0];
+                popup_9f530a96fe6cb6128bc801feecb784b3.setContent(html_f606f76575a7c84070e876cbc2ec7819);
+            
+        
+
+        marker_4d7b285feb606fd96c76dacaff1b8bb9.bindPopup(popup_9f530a96fe6cb6128bc801feecb784b3)
+        ;
+
+        
+    
+    
+            var marker_f478af0807d3a0c34dab68cfbdb310b8 = L.marker(
+                [43.07257049225237, -89.41145751751374],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_3933b11a521f0dcccc391f6ef626244d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f478af0807d3a0c34dab68cfbdb310b8.setIcon(icon_3933b11a521f0dcccc391f6ef626244d);
+        
+    
+        var popup_01ffe3345b767ccc2e678ea2afd44d50 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ff1e855780dd1c68fa2e59e64ec29e7a = $(`<div id="html_ff1e855780dd1c68fa2e59e64ec29e7a" style="width: 100.0%; height: 100.0%;"><div style='width: 270px; height: 60px;'><b>Nuclear Engineering</b> <br>Users: 5 <br>Projects: 1 <br>Total Computing Hours: 1188963</div></div>`)[0];
+                popup_01ffe3345b767ccc2e678ea2afd44d50.setContent(html_ff1e855780dd1c68fa2e59e64ec29e7a);
+            
+        
+
+        marker_f478af0807d3a0c34dab68cfbdb310b8.bindPopup(popup_01ffe3345b767ccc2e678ea2afd44d50)
+        ;
+
+        
+    
+    
+            var marker_8eeeac2d26ad490b63a3b23ca42b805d = L.marker(
+                [43.07624996118911, -89.40765675370565],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_1ad12d49fdedbb5d048c3acce45404b3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_8eeeac2d26ad490b63a3b23ca42b805d.setIcon(icon_1ad12d49fdedbb5d048c3acce45404b3);
+        
+    
+        var popup_fee40dadf9eee4322f76017bc685c5ab = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a73a25e9d815834ffc522c1ea1f5eb77 = $(`<div id="html_a73a25e9d815834ffc522c1ea1f5eb77" style="width: 100.0%; height: 100.0%;"><div style='width: 249px; height: 60px;'><b>Public Affairs</b> <br>Users: 5 <br>Projects: 1 <br>Total Computing Hours: 29082</div></div>`)[0];
+                popup_fee40dadf9eee4322f76017bc685c5ab.setContent(html_a73a25e9d815834ffc522c1ea1f5eb77);
+            
+        
+
+        marker_8eeeac2d26ad490b63a3b23ca42b805d.bindPopup(popup_fee40dadf9eee4322f76017bc685c5ab)
+        ;
+
+        
+    
+    
+            var marker_ab8608f46c551869b52add6ad816d3d2 = L.marker(
+                [43.070845535107864, -89.40687530979113],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_ddfec7c9b3ea8b9d117202fea8ca1de4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ab8608f46c551869b52add6ad816d3d2.setIcon(icon_ddfec7c9b3ea8b9d117202fea8ca1de4);
+        
+    
+        var popup_4d357ba97c6e7839fd241ebdb0961c1a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6699b1ae85df6ca11f074916ccc4b23c = $(`<div id="html_6699b1ae85df6ca11f074916ccc4b23c" style="width: 100.0%; height: 100.0%;"><div style='width: 315px; height: 60px;'><b>Space Science & Engineering Center</b> <br>Users: 5 <br>Projects: 2 <br>Total Computing Hours: 5161850</div></div>`)[0];
+                popup_4d357ba97c6e7839fd241ebdb0961c1a.setContent(html_6699b1ae85df6ca11f074916ccc4b23c);
+            
+        
+
+        marker_ab8608f46c551869b52add6ad816d3d2.bindPopup(popup_4d357ba97c6e7839fd241ebdb0961c1a)
+        ;
+
+        
+    
+    
+            var marker_14aa1c715dcee30d768d1b0c7692434d = L.marker(
+                [43.07533043325869, -89.43313997254553],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_78015beaf8926bef7401e6d7de31cc92 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_14aa1c715dcee30d768d1b0c7692434d.setIcon(icon_78015beaf8926bef7401e6d7de31cc92);
+        
+    
+        var popup_25b6ba30aecd0110df11dab37dc90fdd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_46cf751d6d8c7b86fb44bac47e7e2433 = $(`<div id="html_46cf751d6d8c7b86fb44bac47e7e2433" style="width: 100.0%; height: 100.0%;"><div style='width: 243px; height: 60px;'><b>Orthopedics</b> <br>Users: 4 <br>Projects: 1 <br>Total Computing Hours: 723554</div></div>`)[0];
+                popup_25b6ba30aecd0110df11dab37dc90fdd.setContent(html_46cf751d6d8c7b86fb44bac47e7e2433);
+            
+        
+
+        marker_14aa1c715dcee30d768d1b0c7692434d.bindPopup(popup_25b6ba30aecd0110df11dab37dc90fdd)
+        ;
+
+        
+    
+    
+            var marker_f437642dfb40ef98eccb99dd8404a1a8 = L.marker(
+                [43.05407273124281, -89.48500670963908],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_36d05b0a99c5c24d20aced9093884ddc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f437642dfb40ef98eccb99dd8404a1a8.setIcon(icon_36d05b0a99c5c24d20aced9093884ddc);
+        
+    
+        var popup_ba68a0dee57dee66027a909831164e10 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_92e1673b6b31e267365e4548a2e132ab = $(`<div id="html_92e1673b6b31e267365e4548a2e132ab" style="width: 100.0%; height: 100.0%;"><div style='width: 240px; height: 60px;'><b>Psychiatry</b> <br>Users: 4 <br>Projects: 1 <br>Total Computing Hours: 303858</div></div>`)[0];
+                popup_ba68a0dee57dee66027a909831164e10.setContent(html_92e1673b6b31e267365e4548a2e132ab);
+            
+        
+
+        marker_f437642dfb40ef98eccb99dd8404a1a8.bindPopup(popup_ba68a0dee57dee66027a909831164e10)
+        ;
+
+        
+    
+    
+            var marker_c8d5ef8cf31d988e57bea6e7ce499aeb = L.marker(
+                [43.07295230428655, -89.40839330573694],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_211fea87ca639a5bfc3c806f21241551 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c8d5ef8cf31d988e57bea6e7ce499aeb.setIcon(icon_211fea87ca639a5bfc3c806f21241551);
+        
+    
+        var popup_27774c31d0fb39af293ff4ac46279f5b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0c24c35501af478edc367d2de58ac2a6 = $(`<div id="html_0c24c35501af478edc367d2de58ac2a6" style="width: 100.0%; height: 100.0%;"><div style='width: 306px; height: 60px;'><b>Morgridge Institute for Research</b> <br>Users: 4 <br>Projects: 4 <br>Total Computing Hours: 741607</div></div>`)[0];
+                popup_27774c31d0fb39af293ff4ac46279f5b.setContent(html_0c24c35501af478edc367d2de58ac2a6);
+            
+        
+
+        marker_c8d5ef8cf31d988e57bea6e7ce499aeb.bindPopup(popup_27774c31d0fb39af293ff4ac46279f5b)
+        ;
+
+        
+    
+    
+            var marker_a073c4f377a16d0617cc63576fbe3749 = L.marker(
+                [43.0771985446671, -89.4028360191722],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c5077acf0ba41c6bae0cf445069db954 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a073c4f377a16d0617cc63576fbe3749.setIcon(icon_c5077acf0ba41c6bae0cf445069db954);
+        
+    
+        var popup_194c50024709b922c7e0a4e512cf1db1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7c60745a1222802a4fc773c348793f6b = $(`<div id="html_7c60745a1222802a4fc773c348793f6b" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Limnology</b> <br>Users: 4 <br>Projects: 1 <br>Total Computing Hours: 26865</div></div>`)[0];
+                popup_194c50024709b922c7e0a4e512cf1db1.setContent(html_7c60745a1222802a4fc773c348793f6b);
+            
+        
+
+        marker_a073c4f377a16d0617cc63576fbe3749.bindPopup(popup_194c50024709b922c7e0a4e512cf1db1)
+        ;
+
+        
+    
+    
+            var marker_16ec9a878e7d9649a849c65cf9a7cdf7 = L.marker(
+                [43.07254863866239, -89.4114138075222],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_a7c0a5b54815608239c0a7dbfb2aa0e2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_16ec9a878e7d9649a849c65cf9a7cdf7.setIcon(icon_a7c0a5b54815608239c0a7dbfb2aa0e2);
+        
+    
+        var popup_626e656fed2c3d02fdd987070f083313 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ecc771b7bd84654edff6f038d7732ee = $(`<div id="html_4ecc771b7bd84654edff6f038d7732ee" style="width: 100.0%; height: 100.0%;"><div style='width: 276px; height: 60px;'><b>Engine Research Center</b> <br>Users: 4 <br>Projects: 1 <br>Total Computing Hours: 408299</div></div>`)[0];
+                popup_626e656fed2c3d02fdd987070f083313.setContent(html_4ecc771b7bd84654edff6f038d7732ee);
+            
+        
+
+        marker_16ec9a878e7d9649a849c65cf9a7cdf7.bindPopup(popup_626e656fed2c3d02fdd987070f083313)
+        ;
+
+        
+    
+    
+            var marker_ebbd5ddca1a5710bb8e4821ef6434c92 = L.marker(
+                [43.072537757175795, -89.41326100735094],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_e32bd8f8b70fbe0a708bb96d53bada57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ebbd5ddca1a5710bb8e4821ef6434c92.setIcon(icon_e32bd8f8b70fbe0a708bb96d53bada57);
+        
+    
+        var popup_e7bf167ea1a80a9844c86d4e00539268 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba6abfbf316cced792f7d17f9bab7776 = $(`<div id="html_ba6abfbf316cced792f7d17f9bab7776" style="width: 100.0%; height: 100.0%;"><div style='width: 264px; height: 60px;'><b>Biomedical Engineering</b> <br>Users: 4 <br>Projects: 3 <br>Total Computing Hours: 66</div></div>`)[0];
+                popup_e7bf167ea1a80a9844c86d4e00539268.setContent(html_ba6abfbf316cced792f7d17f9bab7776);
+            
+        
+
+        marker_ebbd5ddca1a5710bb8e4821ef6434c92.bindPopup(popup_e7bf167ea1a80a9844c86d4e00539268)
+        ;
+
+        
+    
+    
+            var marker_d72d2f5b42a08cac470aec0e4a7048bf = L.marker(
+                [43.074054298597694, -89.40730943677258],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_cfa784075eefbd14814ae90dbfcac3a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_d72d2f5b42a08cac470aec0e4a7048bf.setIcon(icon_cfa784075eefbd14814ae90dbfcac3a2);
+        
+    
+        var popup_181f08e4f475b9ff38b23677a8022cbd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c2691698a9ccc2bfb4dbb8ca1405eff4 = $(`<div id="html_c2691698a9ccc2bfb4dbb8ca1405eff4" style="width: 100.0%; height: 100.0%;"><div style='width: 258px; height: 60px;'><b>Medical Sciences</b> <br>Users: 3 <br>Projects: 2 <br>Total Computing Hours: 140108</div></div>`)[0];
+                popup_181f08e4f475b9ff38b23677a8022cbd.setContent(html_c2691698a9ccc2bfb4dbb8ca1405eff4);
+            
+        
+
+        marker_d72d2f5b42a08cac470aec0e4a7048bf.bindPopup(popup_181f08e4f475b9ff38b23677a8022cbd)
+        ;
+
+        
+    
+    
+            var marker_e44663b501768f3b2516ad621df7a163 = L.marker(
+                [43.07492518360973, -89.41198131448617],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8ca573ec47341a41c9583cf2f080bf33 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_e44663b501768f3b2516ad621df7a163.setIcon(icon_8ca573ec47341a41c9583cf2f080bf33);
+        
+    
+        var popup_a527c4f1234813a29a6406505463950e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6117fe234ba7d9d7d51f5f9bfbaf5523 = $(`<div id="html_6117fe234ba7d9d7d51f5f9bfbaf5523" style="width: 100.0%; height: 100.0%;"><div style='width: 246px; height: 60px;'><b>Horticulture</b> <br>Users: 3 <br>Projects: 3 <br>Total Computing Hours: 643948</div></div>`)[0];
+                popup_a527c4f1234813a29a6406505463950e.setContent(html_6117fe234ba7d9d7d51f5f9bfbaf5523);
+            
+        
+
+        marker_e44663b501768f3b2516ad621df7a163.bindPopup(popup_a527c4f1234813a29a6406505463950e)
+        ;
+
+        
+    
+    
+            var marker_a962eaf77a489168e052116b9be1f97f = L.marker(
+                [43.07630124831376, -89.43190400645673],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_8024d32e67882e4249ad1f5cac3ea2cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a962eaf77a489168e052116b9be1f97f.setIcon(icon_8024d32e67882e4249ad1f5cac3ea2cf);
+        
+    
+        var popup_24400869dcac86604038c3ad17647150 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f502c3f8d7ff6fee40db243b46a77151 = $(`<div id="html_f502c3f8d7ff6fee40db243b46a77151" style="width: 100.0%; height: 100.0%;"><div style='width: 231px; height: 60px;'><b>Surgery</b> <br>Users: 3 <br>Projects: 2 <br>Total Computing Hours: 892489</div></div>`)[0];
+                popup_24400869dcac86604038c3ad17647150.setContent(html_f502c3f8d7ff6fee40db243b46a77151);
+            
+        
+
+        marker_a962eaf77a489168e052116b9be1f97f.bindPopup(popup_24400869dcac86604038c3ad17647150)
+        ;
+
+        
+    
+    
+            var marker_30ad2938213b8e0915632abdc3ca875b = L.marker(
+                [43.07472645024536, -89.41229644870562],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c019bf6aa407cc7957760d26d21c5399 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_30ad2938213b8e0915632abdc3ca875b.setIcon(icon_c019bf6aa407cc7957760d26d21c5399);
+        
+    
+        var popup_cb756c7c1cb87adec57d212160921171 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_246c2b7426c1b493e81249732abe71a2 = $(`<div id="html_246c2b7426c1b493e81249732abe71a2" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Agronomy</b> <br>Users: 3 <br>Projects: 3 <br>Total Computing Hours: 102850</div></div>`)[0];
+                popup_cb756c7c1cb87adec57d212160921171.setContent(html_246c2b7426c1b493e81249732abe71a2);
+            
+        
+
+        marker_30ad2938213b8e0915632abdc3ca875b.bindPopup(popup_cb756c7c1cb87adec57d212160921171)
+        ;
+
+        
+    
+    
+            var marker_3d6f128d655aeaed0318da16d70cc503 = L.marker(
+                [43.07531649043214, -89.43304947652666],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c4e726e88f0fcb49a57594deb5fa9cc0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_3d6f128d655aeaed0318da16d70cc503.setIcon(icon_c4e726e88f0fcb49a57594deb5fa9cc0);
+        
+    
+        var popup_2b9ce0ec1b3e211f989f858de9ed8386 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bf52578ecc1f2e5b45f064298ebc2f32 = $(`<div id="html_bf52578ecc1f2e5b45f064298ebc2f32" style="width: 100.0%; height: 100.0%;"><div style='width: 231px; height: 60px;'><b>Medicine</b> <br>Users: 3 <br>Projects: 2 <br>Total Computing Hours: 81134</div></div>`)[0];
+                popup_2b9ce0ec1b3e211f989f858de9ed8386.setContent(html_bf52578ecc1f2e5b45f064298ebc2f32);
+            
+        
+
+        marker_3d6f128d655aeaed0318da16d70cc503.bindPopup(popup_2b9ce0ec1b3e211f989f858de9ed8386)
+        ;
+
+        
+    
+    
+            var marker_443a22da735a0a1d1361042f56821215 = L.marker(
+                [43.07672372821333, -89.40150283751707],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_37d5e86e735a764389ef1071350ff823 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_443a22da735a0a1d1361042f56821215.setIcon(icon_37d5e86e735a764389ef1071350ff823);
+        
+    
+        var popup_3b7a03694a72815aab10a4ede3c60441 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6f116fc9564980bc274e34409fbdb461 = $(`<div id="html_6f116fc9564980bc274e34409fbdb461" style="width: 100.0%; height: 100.0%;"><div style='width: 252px; height: 60px;'><b>Information School</b> <br>Users: 3 <br>Projects: 2 <br>Total Computing Hours: 49</div></div>`)[0];
+                popup_3b7a03694a72815aab10a4ede3c60441.setContent(html_6f116fc9564980bc274e34409fbdb461);
+            
+        
+
+        marker_443a22da735a0a1d1361042f56821215.bindPopup(popup_3b7a03694a72815aab10a4ede3c60441)
+        ;
+
+        
+    
+    
+            var marker_2b337abd4c6729f21b08cc7615bee9e6 = L.marker(
+                [43.07629579261957, -89.4314247043766],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c3677c68415841c830a5f629c6c1205e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_2b337abd4c6729f21b08cc7615bee9e6.setIcon(icon_c3677c68415841c830a5f629c6c1205e);
+        
+    
+        var popup_b61d9a5bbb3068ab7eb7f9c893a5fcea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0faeb696faccc48b81ccdb055d500ea3 = $(`<div id="html_0faeb696faccc48b81ccdb055d500ea3" style="width: 100.0%; height: 100.0%;"><div style='width: 246px; height: 60px;'><b>Human Oncology</b> <br>Users: 3 <br>Projects: 2 <br>Total Computing Hours: 6905</div></div>`)[0];
+                popup_b61d9a5bbb3068ab7eb7f9c893a5fcea.setContent(html_0faeb696faccc48b81ccdb055d500ea3);
+            
+        
+
+        marker_2b337abd4c6729f21b08cc7615bee9e6.bindPopup(popup_b61d9a5bbb3068ab7eb7f9c893a5fcea)
+        ;
+
+        
+    
+    
+            var marker_1647218fceb655fd2552f9c368514def = L.marker(
+                [43.07239318308457, -89.40197601651393],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_0297fa9d2de8dad6532b17458667b8d9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_1647218fceb655fd2552f9c368514def.setIcon(icon_0297fa9d2de8dad6532b17458667b8d9);
+        
+    
+        var popup_f37ea28de8fd1952f13f24e3ad911578 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0d0a15b49fd1a10c1db91cc0ac476aa2 = $(`<div id="html_0d0a15b49fd1a10c1db91cc0ac476aa2" style="width: 100.0%; height: 100.0%;"><div style='width: 237px; height: 60px;'><b>Real Estate</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 6186</div></div>`)[0];
+                popup_f37ea28de8fd1952f13f24e3ad911578.setContent(html_0d0a15b49fd1a10c1db91cc0ac476aa2);
+            
+        
+
+        marker_1647218fceb655fd2552f9c368514def.bindPopup(popup_f37ea28de8fd1952f13f24e3ad911578)
+        ;
+
+        
+    
+    
+            var marker_04bddeb5166c2952218baa85755fe7ee = L.marker(
+                [43.07270137717677, -89.39989259055564],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_0427e81fa62102f1c91c816f9e13bdad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_04bddeb5166c2952218baa85755fe7ee.setIcon(icon_0427e81fa62102f1c91c816f9e13bdad);
+        
+    
+        var popup_f80f31fc14c75ce4556f84f383cc42c6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3060745e22cf8a0cc9ba82ee2f2e43eb = $(`<div id="html_3060745e22cf8a0cc9ba82ee2f2e43eb" style="width: 100.0%; height: 100.0%;"><div style='width: 255px; height: 60px;'><b>Communication Arts</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 187</div></div>`)[0];
+                popup_f80f31fc14c75ce4556f84f383cc42c6.setContent(html_3060745e22cf8a0cc9ba82ee2f2e43eb);
+            
+        
+
+        marker_04bddeb5166c2952218baa85755fe7ee.bindPopup(popup_f80f31fc14c75ce4556f84f383cc42c6)
+        ;
+
+        
+    
+    
+            var marker_952bb9ea3bd520bfcb3ba20fca8a4500 = L.marker(
+                [43.07443367380505, -89.40896197495597],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_bce29c34ecb975295e44515ebcd3c139 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_952bb9ea3bd520bfcb3ba20fca8a4500.setIcon(icon_bce29c34ecb975295e44515ebcd3c139);
+        
+    
+        var popup_a6dd7170db8b45abbd0e8a2c9157c3a5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b1b715a9dcb83be969c45fe93744a899 = $(`<div id="html_b1b715a9dcb83be969c45fe93744a899" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Data Science</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 84</div></div>`)[0];
+                popup_a6dd7170db8b45abbd0e8a2c9157c3a5.setContent(html_b1b715a9dcb83be969c45fe93744a899);
+            
+        
+
+        marker_952bb9ea3bd520bfcb3ba20fca8a4500.bindPopup(popup_a6dd7170db8b45abbd0e8a2c9157c3a5)
+        ;
+
+        
+    
+    
+            var marker_9509f3f7ea23248647132413fc217515 = L.marker(
+                [43.07125450631598, -89.40654138005723],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_47b1a51c01ff90edd72721239232dbf2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_9509f3f7ea23248647132413fc217515.setIcon(icon_47b1a51c01ff90edd72721239232dbf2);
+        
+    
+        var popup_32d911feba3dcb3729720e03d54b0092 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_819f40e4e8c17b46ddf27e3f2b23ce86 = $(`<div id="html_819f40e4e8c17b46ddf27e3f2b23ce86" style="width: 100.0%; height: 100.0%;"><div style='width: 210px; height: 60px;'><b>DoIT</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 11</div></div>`)[0];
+                popup_32d911feba3dcb3729720e03d54b0092.setContent(html_819f40e4e8c17b46ddf27e3f2b23ce86);
+            
+        
+
+        marker_9509f3f7ea23248647132413fc217515.bindPopup(popup_32d911feba3dcb3729720e03d54b0092)
+        ;
+
+        
+    
+    
+            var marker_fff78e9cc20a088bdf5ff9a62f2a941b = L.marker(
+                [43.07544834762171, -89.41310799674922],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_e91c2a4ffe2a5c665c3cc2a89d00cef6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_fff78e9cc20a088bdf5ff9a62f2a941b.setIcon(icon_e91c2a4ffe2a5c665c3cc2a89d00cef6);
+        
+    
+        var popup_14b13116d738c5f4a35290f8cc80de2a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cd5a6847c31c837acc457960898fe933 = $(`<div id="html_cd5a6847c31c837acc457960898fe933" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Entomology</b> <br>Users: 2 <br>Projects: 2 <br>Total Computing Hours: 9027</div></div>`)[0];
+                popup_14b13116d738c5f4a35290f8cc80de2a.setContent(html_cd5a6847c31c837acc457960898fe933);
+            
+        
+
+        marker_fff78e9cc20a088bdf5ff9a62f2a941b.bindPopup(popup_14b13116d738c5f4a35290f8cc80de2a)
+        ;
+
+        
+    
+    
+            var marker_995b565527b82c1a4c73a38c906be877 = L.marker(
+                [43.076534133498924, -89.432296618843],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_0057e47491a48a11c76acdf47b42fc7c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_995b565527b82c1a4c73a38c906be877.setIcon(icon_0057e47491a48a11c76acdf47b42fc7c);
+        
+    
+        var popup_a0172eaa6a3e07b07646119f939994de = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe02308ae2ba4cf5b85c92cf395b765e = $(`<div id="html_fe02308ae2ba4cf5b85c92cf395b765e" style="width: 100.0%; height: 100.0%;"><div style='width: 252px; height: 60px;'><b>Anesthesiology</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 536587</div></div>`)[0];
+                popup_a0172eaa6a3e07b07646119f939994de.setContent(html_fe02308ae2ba4cf5b85c92cf395b765e);
+            
+        
+
+        marker_995b565527b82c1a4c73a38c906be877.bindPopup(popup_a0172eaa6a3e07b07646119f939994de)
+        ;
+
+        
+    
+    
+            var marker_11e1515629dee43ee3a769978b8bad7f = L.marker(
+                [43.07856899257394, -89.42824765368744],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_afefed7f91e02230b5171b6a926f3e21 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_11e1515629dee43ee3a769978b8bad7f.setIcon(icon_afefed7f91e02230b5171b6a926f3e21);
+        
+    
+        var popup_85a063ca3ed935e442633198abd71680 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b9053f7dccb7dad8cc44de76d505d38f = $(`<div id="html_b9053f7dccb7dad8cc44de76d505d38f" style="width: 100.0%; height: 100.0%;"><div style='width: 273px; height: 60px;'><b>Pharmaceutical Sciences</b> <br>Users: 2 <br>Projects: 2 <br>Total Computing Hours: 2128</div></div>`)[0];
+                popup_85a063ca3ed935e442633198abd71680.setContent(html_b9053f7dccb7dad8cc44de76d505d38f);
+            
+        
+
+        marker_11e1515629dee43ee3a769978b8bad7f.bindPopup(popup_85a063ca3ed935e442633198abd71680)
+        ;
+
+        
+    
+    
+            var marker_b6f7bf7e86d946b1357164dddb72eef7 = L.marker(
+                [43.07610032515194, -89.41528919944341],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_b8a95b9cbb95a3ca0c5f7badddb74a11 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_b6f7bf7e86d946b1357164dddb72eef7.setIcon(icon_b8a95b9cbb95a3ca0c5f7badddb74a11);
+        
+    
+        var popup_e6a804a6c5c8e089c7addecee3a760ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_981c681b0b3ca10f1dc2f57af2ddfd91 = $(`<div id="html_981c681b0b3ca10f1dc2f57af2ddfd91" style="width: 100.0%; height: 100.0%;"><div style='width: 363px; height: 60px;'><b>Laboratory for Optical and Computational Instrumentation</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 4</div></div>`)[0];
+                popup_e6a804a6c5c8e089c7addecee3a760ae.setContent(html_981c681b0b3ca10f1dc2f57af2ddfd91);
+            
+        
+
+        marker_b6f7bf7e86d946b1357164dddb72eef7.bindPopup(popup_e6a804a6c5c8e089c7addecee3a760ae)
+        ;
+
+        
+    
+    
+            var marker_609e106c71dfdaa228a3a2b14a944906 = L.marker(
+                [43.07470712539205, -89.40235755775598],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_24e2f32a75eed0f7300a662e923e4be9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_609e106c71dfdaa228a3a2b14a944906.setIcon(icon_24e2f32a75eed0f7300a662e923e4be9);
+        
+    
+        var popup_108dd8d14aab21c32c6901b4da43b50f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7c20df32d85ae19e4acf5df1163de12f = $(`<div id="html_7c20df32d85ae19e4acf5df1163de12f" style="width: 100.0%; height: 100.0%;"><div style='width: 222px; height: 60px;'><b>Law</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 3610751</div></div>`)[0];
+                popup_108dd8d14aab21c32c6901b4da43b50f.setContent(html_7c20df32d85ae19e4acf5df1163de12f);
+            
+        
+
+        marker_609e106c71dfdaa228a3a2b14a944906.bindPopup(popup_108dd8d14aab21c32c6901b4da43b50f)
+        ;
+
+        
+    
+    
+            var marker_0d64001f701f9bb73e4eb75876854df9 = L.marker(
+                [43.0725769988833, -89.4019228492469],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_e68ce23c0ca3ce44e2b7d30b5bb30349 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_0d64001f701f9bb73e4eb75876854df9.setIcon(icon_e68ce23c0ca3ce44e2b7d30b5bb30349);
+        
+    
+        var popup_9e4dae16cede415df37637e682815897 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8bc44b2b4b152bcf088c9525f2d68c58 = $(`<div id="html_8bc44b2b4b152bcf088c9525f2d68c58" style="width: 100.0%; height: 100.0%;"><div style='width: 228px; height: 60px;'><b>Marketing</b> <br>Users: 2 <br>Projects: 2 <br>Total Computing Hours: 601</div></div>`)[0];
+                popup_9e4dae16cede415df37637e682815897.setContent(html_8bc44b2b4b152bcf088c9525f2d68c58);
+            
+        
+
+        marker_0d64001f701f9bb73e4eb75876854df9.bindPopup(popup_9e4dae16cede415df37637e682815897)
+        ;
+
+        
+    
+    
+            var marker_b2095d346d23ea600471e03054a8026c = L.marker(
+                [43.078246143395845, -89.43160728329755],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_399308ea66b5acbe8f74bf3eec4eca86 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_b2095d346d23ea600471e03054a8026c.setIcon(icon_399308ea66b5acbe8f74bf3eec4eca86);
+        
+    
+        var popup_b12f026c8e195f5e87832dc40c84c023 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d5d70181bd074824c760ceaa9236e356 = $(`<div id="html_d5d70181bd074824c760ceaa9236e356" style="width: 100.0%; height: 100.0%;"><div style='width: 237px; height: 60px;'><b>Neuroscience</b> <br>Users: 2 <br>Projects: 2 <br>Total Computing Hours: 281</div></div>`)[0];
+                popup_b12f026c8e195f5e87832dc40c84c023.setContent(html_d5d70181bd074824c760ceaa9236e356);
+            
+        
+
+        marker_b2095d346d23ea600471e03054a8026c.bindPopup(popup_b12f026c8e195f5e87832dc40c84c023)
+        ;
+
+        
+    
+    
+            var marker_c5e67f829b1a2a3e594e094c08f69946 = L.marker(
+                [43.07529908386983, -89.4329952878806],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_f50f550dea10a718e2107179f70aaa0a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c5e67f829b1a2a3e594e094c08f69946.setIcon(icon_f50f550dea10a718e2107179f70aaa0a);
+        
+    
+        var popup_ead41f28e27e49e1473d64ab41da4216 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a25868f083ffe2dbdbf2eeeb4a627354 = $(`<div id="html_a25868f083ffe2dbdbf2eeeb4a627354" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Neurology</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 14591</div></div>`)[0];
+                popup_ead41f28e27e49e1473d64ab41da4216.setContent(html_a25868f083ffe2dbdbf2eeeb4a627354);
+            
+        
+
+        marker_c5e67f829b1a2a3e594e094c08f69946.bindPopup(popup_ead41f28e27e49e1473d64ab41da4216)
+        ;
+
+        
+    
+    
+            var marker_ab963bd84ff5b49a120fb7336d3f9a0a = L.marker(
+                [43.07588094240679, -89.4010542749089],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_701605be975388d5b0f7912d470bda3d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ab963bd84ff5b49a120fb7336d3f9a0a.setIcon(icon_701605be975388d5b0f7912d470bda3d);
+        
+    
+        var popup_865bd60268bcee42e9130448cd5c0caa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_39d419afa9868820e1b30ddb3e2c5c2a = $(`<div id="html_39d419afa9868820e1b30ddb3e2c5c2a" style="width: 100.0%; height: 100.0%;"><div style='width: 330px; height: 60px;'><b>Nelson Institute for Environmental Studies</b> <br>Users: 2 <br>Projects: 2 <br>Total Computing Hours: 3043</div></div>`)[0];
+                popup_865bd60268bcee42e9130448cd5c0caa.setContent(html_39d419afa9868820e1b30ddb3e2c5c2a);
+            
+        
+
+        marker_ab963bd84ff5b49a120fb7336d3f9a0a.bindPopup(popup_865bd60268bcee42e9130448cd5c0caa)
+        ;
+
+        
+    
+    
+            var marker_606cc72c925a1d95398caa7d8b3d1c51 = L.marker(
+                [43.07556887421596, -89.41176220673668],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_2cd81876c57d4022ceab27f29acb093b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_606cc72c925a1d95398caa7d8b3d1c51.setIcon(icon_2cd81876c57d4022ceab27f29acb093b);
+        
+    
+        var popup_2880cfbd14c984597a852ccd49f5891c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f262946758dedf26f9c670e3f0b6d4e0 = $(`<div id="html_f262946758dedf26f9c670e3f0b6d4e0" style="width: 100.0%; height: 100.0%;"><div style='width: 309px; height: 60px;'><b>Medical Microbiology & Immunology</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 433978</div></div>`)[0];
+                popup_2880cfbd14c984597a852ccd49f5891c.setContent(html_f262946758dedf26f9c670e3f0b6d4e0);
+            
+        
+
+        marker_606cc72c925a1d95398caa7d8b3d1c51.bindPopup(popup_2880cfbd14c984597a852ccd49f5891c)
+        ;
+
+        
+    
+    
+            var marker_b1ca290e5cd3a3965caf5ab4fbfeaba3 = L.marker(
+                [43.07479352642687, -89.41069582656769],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_03f1b831b61dea29cc4908437534636c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_b1ca290e5cd3a3965caf5ab4fbfeaba3.setIcon(icon_03f1b831b61dea29cc4908437534636c);
+        
+    
+        var popup_40678762be2e4bb3c98fd6d3e92c1033 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d3c1f572128001f1b94dcc45fc4c9180 = $(`<div id="html_d3c1f572128001f1b94dcc45fc4c9180" style="width: 100.0%; height: 100.0%;"><div style='width: 297px; height: 60px;'><b>Biological Systems Engineering</b> <br>Users: 2 <br>Projects: 1 <br>Total Computing Hours: 27314</div></div>`)[0];
+                popup_40678762be2e4bb3c98fd6d3e92c1033.setContent(html_d3c1f572128001f1b94dcc45fc4c9180);
+            
+        
+
+        marker_b1ca290e5cd3a3965caf5ab4fbfeaba3.bindPopup(popup_40678762be2e4bb3c98fd6d3e92c1033)
+        ;
+
+        
+    
+    
+            var marker_209f71c368eb38319cc10a4af134d93f = L.marker(
+                [43.07440324898496, -89.42152054175527],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_3b7c2147156e72993a095b4b96fe3890 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_209f71c368eb38319cc10a4af134d93f.setIcon(icon_3b7c2147156e72993a095b4b96fe3890);
+        
+    
+        var popup_494cec080e34ed6f8bbc336319eec088 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_79b8e3dc15c05dbe6ffea480842b30b3 = $(`<div id="html_79b8e3dc15c05dbe6ffea480842b30b3" style="width: 100.0%; height: 100.0%;"><div style='width: 327px; height: 60px;'><b>Wisconsin Veterinary Diagnostic Laboratory</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 335</div></div>`)[0];
+                popup_494cec080e34ed6f8bbc336319eec088.setContent(html_79b8e3dc15c05dbe6ffea480842b30b3);
+            
+        
+
+        marker_209f71c368eb38319cc10a4af134d93f.bindPopup(popup_494cec080e34ed6f8bbc336319eec088)
+        ;
+
+        
+    
+    
+            var marker_77bc7ef045ac0ccc9cf9b3e4f79b5654 = L.marker(
+                [43.071577775090816, -89.41027930481359],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_c78ec332814733d07629317c2b7e59d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_77bc7ef045ac0ccc9cf9b3e4f79b5654.setIcon(icon_c78ec332814733d07629317c2b7e59d5);
+        
+    
+        var popup_5cff093ed7b3876c5cb6c52147ccd413 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_16ef347a634b438658101dd79d89f53a = $(`<div id="html_16ef347a634b438658101dd79d89f53a" style="width: 100.0%; height: 100.0%;"><div style='width: 315px; height: 60px;'><b>Traffic Operations & Safety Laboratory</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 447</div></div>`)[0];
+                popup_5cff093ed7b3876c5cb6c52147ccd413.setContent(html_16ef347a634b438658101dd79d89f53a);
+            
+        
+
+        marker_77bc7ef045ac0ccc9cf9b3e4f79b5654.bindPopup(popup_5cff093ed7b3876c5cb6c52147ccd413)
+        ;
+
+        
+    
+    
+            var marker_93c18653f1ad26f2ce5fb170ebe3d0d5 = L.marker(
+                [43.07289723489971, -89.40200920123665],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_6e21580b10e06699ee838334d37f4dba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_93c18653f1ad26f2ce5fb170ebe3d0d5.setIcon(icon_6e21580b10e06699ee838334d37f4dba);
+        
+    
+        var popup_2ebe6b54f160d244ef92f9f5a51dfdaf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bddee86fc524d085cbc241b5984287af = $(`<div id="html_bddee86fc524d085cbc241b5984287af" style="width: 100.0%; height: 100.0%;"><div style='width: 225px; height: 60px;'><b>Finance</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 1947</div></div>`)[0];
+                popup_2ebe6b54f160d244ef92f9f5a51dfdaf.setContent(html_bddee86fc524d085cbc241b5984287af);
+            
+        
+
+        marker_93c18653f1ad26f2ce5fb170ebe3d0d5.bindPopup(popup_2ebe6b54f160d244ef92f9f5a51dfdaf)
+        ;
+
+        
+    
+    
+            var marker_808ddf43646f2f5e3318ac78a35399b5 = L.marker(
+                [43.07795414787566, -89.43132645335885],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_3e1b2af0b7a08902610cc97d29253cd7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_808ddf43646f2f5e3318ac78a35399b5.setIcon(icon_3e1b2af0b7a08902610cc97d29253cd7);
+        
+    
+        var popup_bfce0c32c49ed695baa17204ae197917 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b20f347127975a5d5f66babe026e2d7b = $(`<div id="html_b20f347127975a5d5f66babe026e2d7b" style="width: 100.0%; height: 100.0%;"><div style='width: 276px; height: 60px;'><b>Cell & Regenerative Biology</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 0</div></div>`)[0];
+                popup_bfce0c32c49ed695baa17204ae197917.setContent(html_b20f347127975a5d5f66babe026e2d7b);
+            
+        
+
+        marker_808ddf43646f2f5e3318ac78a35399b5.bindPopup(popup_bfce0c32c49ed695baa17204ae197917)
+        ;
+
+        
+    
+    
+            var marker_5c82bd24d252d2c4e911086a4948057a = L.marker(
+                [43.07847349888818, -89.43214755539591],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_523d626b0bec824bef39354412c122c4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_5c82bd24d252d2c4e911086a4948057a.setIcon(icon_523d626b0bec824bef39354412c122c4);
+        
+    
+        var popup_e0935a3208b49b1b67cd6252f6eb89cf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_87edcec97f282f138ebebe7b1ab116c6 = $(`<div id="html_87edcec97f282f138ebebe7b1ab116c6" style="width: 100.0%; height: 100.0%;"><div style='width: 312px; height: 60px;'><b>Small Molecule Screening Facility</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 6994319</div></div>`)[0];
+                popup_e0935a3208b49b1b67cd6252f6eb89cf.setContent(html_87edcec97f282f138ebebe7b1ab116c6);
+            
+        
+
+        marker_5c82bd24d252d2c4e911086a4948057a.bindPopup(popup_e0935a3208b49b1b67cd6252f6eb89cf)
+        ;
+
+        
+    
+    
+            var marker_117cc859d6e83cb3acceece55d90f1f8 = L.marker(
+                [43.078981301957626, -89.41867326770294],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_0c46dd90469ac4ce3eb1caf0f35dc662 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_117cc859d6e83cb3acceece55d90f1f8.setIcon(icon_0c46dd90469ac4ce3eb1caf0f35dc662);
+        
+    
+        var popup_35c9b42bea6d9c388973667aadb47dfd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ed2fb55c687107b5c530572c495d476e = $(`<div id="html_ed2fb55c687107b5c530572c495d476e" style="width: 100.0%; height: 100.0%;"><div style='width: 297px; height: 60px;'><b>Communication Sciences & Disorders</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 0</div></div>`)[0];
+                popup_35c9b42bea6d9c388973667aadb47dfd.setContent(html_ed2fb55c687107b5c530572c495d476e);
+            
+        
+
+        marker_117cc859d6e83cb3acceece55d90f1f8.bindPopup(popup_35c9b42bea6d9c388973667aadb47dfd)
+        ;
+
+        
+    
+    
+            var marker_2e7545849a7a2cd5f6ecc0d9468016c8 = L.marker(
+                [43.07653573406297, -89.43131409326968],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_f287e436fb508788cf11abe942e8e0aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_2e7545849a7a2cd5f6ecc0d9468016c8.setIcon(icon_f287e436fb508788cf11abe942e8e0aa);
+        
+    
+        var popup_0ae78ceda235701399dbebb6e268c5a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f761af4b17726f57f221675924fe3d68 = $(`<div id="html_f761af4b17726f57f221675924fe3d68" style="width: 100.0%; height: 100.0%;"><div style='width: 234px; height: 60px;'><b>Pediatrics</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 3003</div></div>`)[0];
+                popup_0ae78ceda235701399dbebb6e268c5a1.setContent(html_f761af4b17726f57f221675924fe3d68);
+            
+        
+
+        marker_2e7545849a7a2cd5f6ecc0d9468016c8.bindPopup(popup_0ae78ceda235701399dbebb6e268c5a1)
+        ;
+
+        
+    
+    
+            var marker_9be4a69d4621eeae8a5b420b4d888eb5 = L.marker(
+                [43.0767990613178, -89.43246164451408],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_9f9ce33e5c4c321822869aa9c8f1e3c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_9be4a69d4621eeae8a5b420b4d888eb5.setIcon(icon_9f9ce33e5c4c321822869aa9c8f1e3c5);
+        
+    
+        var popup_8413fad553877acf59fb3c2dd27306af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2ba8328a36b25f1f6a06d3202e4aca18 = $(`<div id="html_2ba8328a36b25f1f6a06d3202e4aca18" style="width: 100.0%; height: 100.0%;"><div style='width: 270px; height: 60px;'><b>Obstetrics & Gynecology</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 908</div></div>`)[0];
+                popup_8413fad553877acf59fb3c2dd27306af.setContent(html_2ba8328a36b25f1f6a06d3202e4aca18);
+            
+        
+
+        marker_9be4a69d4621eeae8a5b420b4d888eb5.bindPopup(popup_8413fad553877acf59fb3c2dd27306af)
+        ;
+
+        
+    
+    
+            var marker_47c3438595de6760858b7e44beddf5a1 = L.marker(
+                [43.07442421010378, -89.4093903732519],
+                {}
+            ).addTo(map_d284716f461424990c231353a17c7d8d);
+        
+    
+            var icon_02641ed2d6cfa3356d045c181af8d538 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-map-marker", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_47c3438595de6760858b7e44beddf5a1.setIcon(icon_02641ed2d6cfa3356d045c181af8d538);
+        
+    
+        var popup_96acf9c049d23236f06f1b7efe3b166d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b72b343512fdc423f288bedaa7d2a87 = $(`<div id="html_5b72b343512fdc423f288bedaa7d2a87" style="width: 100.0%; height: 100.0%;"><div style='width: 294px; height: 60px;'><b>Agricultural & Applied Economics</b> <br>Users: 1 <br>Projects: 1 <br>Total Computing Hours: 17</div></div>`)[0];
+                popup_96acf9c049d23236f06f1b7efe3b166d.setContent(html_5b72b343512fdc423f288bedaa7d2a87);
+            
+        
+
+        marker_47c3438595de6760858b7e44beddf5a1.bindPopup(popup_96acf9c049d23236f06f1b7efe3b166d)
+        ;
+
+        
+    
+    
+            tile_layer_74c22dd31e651627dbed9c01c6be69f8.addTo(map_d284716f461424990c231353a17c7d8d);
+        
+</script>
+</html>
