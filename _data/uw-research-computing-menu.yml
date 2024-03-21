@@ -20,6 +20,9 @@ nav_items:
   - id: get-help
     name: Get Help
     url: /uw-research-computing/get-help.html
+  - id: status-page
+    name: System Status
+    url: https://status.chtc.wisc.edu/
   - id: menu-other-resources
     name: Other Resources
     url: /uw-research-computing/other-resources.html
