@@ -61,12 +61,11 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 			
 	# Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
 	#  queue number assigned to this set of jobs at the time of submission.
-	
 	log = hello-world_$(Cluster)_$(Process).log
 	error = hello-world_$(Cluster)_$(Process).err
 	output = hello-world_$(Cluster)_$(Process).out
 	
-	# This lines *would* be used if there were any other files
+	# This line *would* be used if there were any other files
 	# needed for the executable to use.
 	# transfer_input_files = file1,/absolute/pathto/file2,etc
 	
