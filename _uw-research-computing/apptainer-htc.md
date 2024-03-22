@@ -9,13 +9,77 @@ guide:
         - htc
 --- 
 
-## Overview
+## Introduction
+
 HTCondor supports the use of Apptainer (formerly known as Singularity) environments for jobs on the High Throughput Computing system. 
 
 Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
 This means your jobs will run in a more consistent environment that is easily reproducible by others. 
-Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of more of CHTC's High Throughput resources because Apptainer jobs can run on both our new CentOS8 machines and our older CentOS7 machines. 
-Similarly, Apptainer jobs can more easily back fill on external compute resources (e.g.[`+WantFlocking` and `+WantGlideIn` resources](scaling-htc.html)).
+Additionally, similar to Docker containers, Apptainer jobs are able to take advantage of more of CHTC's High Throughput resources because Apptainer jobs do not require a specific operating system.
+
+{% capture content %}
+1. [Quickstart](#quickstart)
+
+
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
+## Quickstart <a name="quickstart"></a>
+
+Here is the general process for building and using an Apptainer container on the HTC system.
+For more information on any particular step, see the corresponding section later in this guide.
+
+1. **Create a definition file**
+
+    The definition (`.def`) file contains the instructions for what software to install while building the container.
+    CHTC provides example definition files in the "software" folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes).
+
+2. **Start an interactive job**
+
+    Start an interactive build job (an example submit file is provided below).
+    Be sure to include your `.def` file in the `transfer_input_files` line, or else create the file once the interactive job starts using a command line editor.
+
+3. **Build your container**
+
+    While in an interactive build job, run the command
+
+    ```
+    apptainer build CONTAINER.sif CONTAINER.def
+    ```
+
+    where you should replace `CONTAINER.def` with the name of your definition `.def` file, 
+    and replace `CONTAINER.sif` with your desired name of the `.sif` file.
+
+    > The container build step is non-interactive: the commands in the `.def` file must be exactly correct, and cannot require user intervention.
+
+    If the command finishes successfully, then the container image (`.sif`) file is created.
+    This file is used for actually executing the container.
+
+4. **Test your container**
+
+    While still in the interactive build job, run the command
+
+    ```
+    apptainer shell CONTAINER.sif
+    ```
+    
+    where you should replace `CONTAINER.sif` with the name of your actual `.sif` file.
+
+    This command will start the container and log you into it, allowing you to test your software commands.
+    
+    Once you are done testing the container, enter
+
+    ```
+    exit
+    ```
+
+    once to exit the container.
+
+5. **Exit the interactive job**
+
+    
+
+
 
 ## 1. Choose or create an Apptainer Image
 To run an Apptainer job, it is necessary to first choose a pre-existing Apptainer image or create your own. 
