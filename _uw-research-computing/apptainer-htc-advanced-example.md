@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: Advanced Apptainer Example - SUMO
 guide:
-    order: 11
+    order: 12
     category: Software Solutions
     tag:
         - htc
@@ -13,7 +13,20 @@ Sometimes the program you want to use does not have a pre-existing container tha
 Then you will need to install the program and its dependencies inside of the container.
 In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
 
-## Choose the Base Container Image
+- For an introduction to the Apptainer definition (`.def`) file, see our [Building an Apptainer Container](apptainer-build.html) guide.
+- For information on building and using the container on the HTC system, see our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
+
+{% capture content %}
+
+[1. Choose the Base Container Image](#1-choose-the-base-container-image)
+[2. Add the Installation Commands](#2-add-the-installation-commands)
+[3. Add the Environment Variables](#3-add-environment-variables)
+[Summary](#summary)
+
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
+## 1. Choose the Base Container Image
 
 First, you will need to choose a base image for the container.
 Consult the documentation for the program you want to install to make sure you select a compatible operating system.
@@ -26,7 +39,7 @@ Bootstrap: docker
 From: ubuntu:22.04
 ```
 
-## Add the installation commands
+## 2. Add the Installation Commands
 
 All of the installation commands that you want Apptainer to execute during the container build step are provided in the `%post` section of the definition file.
 
@@ -174,7 +187,7 @@ From: ubuntu:22.04
     make
 ```
 
-## Add environment variables
+## 3. Add Environment Variables
 
 While the `%post` section now contains all of the instructions for installing and compiling your desired program, 
 you likely need to add commands for setting up the environment so that the shell recognizes your program.
@@ -237,8 +250,3 @@ From: ubuntu:22.04
 ```
 
 We can now build the container using this definition file.
-
-For additional information on Apptainer definition files, see the [Apptainer documentation](https://apptainer.org/docs/user/latest/definition_files.html).
-The manual page provides a full reference on the different sections of the definition file.
-
-> Note that the `%runscript` section is ignored when the container is executed on the High Throughput system.
