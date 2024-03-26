@@ -22,76 +22,117 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 
 [Quickstart](#quickstart)
 
+* [Use an existing container](#use-an-existing-container)
+* [Build your own container](#build-your-own-container)
+
+
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
 ## Quickstart <a name="quickstart"></a>
 
-Here is the general process for building and using an Apptainer container on the HTC system.
-For more information on any particular step, see the corresponding section later in this guide.
+### Use an existing container
 
-<!-- Might be worth setting up the quick-start items as dropdown items. -->
+If you or a group member have already created the Apptainer `.sif` file, or using a container from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/), follow these steps to use it in an HTCondor job.
 
-1. <details><summary>**Create a definition file**</summary>
+1. *Add the container `.sif` file to your submit file* <a name="quickstart-use-submit"></a>
+
+    If the `.sif` file is **on the submit server**:
+
+    ```
+    container_image = path/to/my-container.sif
+    ```
+
+    If the `.sif` file is **on the `/staging` server**:
+
+    ```
+    container_image = file:///staging/path/to/my-container.sif
+    ```
+
+    If the `.sif` file is **on the `/staging` server AND you are using `+WantFlocking` or `+WantGliding`**:
+
+    ```
+    container_image = osdf:///chtc/staging/path/to/my-container.sif
+    ```
+
+    [Jump to more information](#use-an-apptainer-container-in-htc-jobs)
+
+2. *Test your container job* <a name="quickstart-use-test"></a>
+
+    As always with the High Throughput system, submit a single test job and confirm that your job behaves as expected.
+    If there are issues with the job, you may need to modify your executable, or even (re)build your own container.
+
+### Build your own container
+
+If you need to create your own container for the software you want to use, follow these steps.
+For more information on any particular step, jump to the corresponding section later in this guide.
+
+<!-- 
+Might be worth setting up the quick-start items as dropdown items.
+Need help from Cannon; default approach does not render well on the website.
+-->
+
+1. *Create a definition file* <a name="quickstart-build-definition-file"></a>
 
     The definition (`.def`) file contains the instructions for what software to install while building the container.
     CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). Choose from one of the existing examples, or create your own using the instructions later in this guide.
 
-    </details>
+    [Jump to more information](#create-a-definition-file)
 
-2. **Start an interactive job**
+2. *Start an interactive build job* <a name="quickstart-build-interactive"></a>
 
-    Start an interactive build job (an example submit file is provided below).
+    Start an interactive build job (an example submit file  `build.sub` is provided below).
     Be sure to include your `.def` file in the `transfer_input_files` line, or else create the file once the interactive job starts using a command line editor.
 
-3. **Build your container**
+    Then submit the interactive build job with
+
+    ```
+    condor_submit -i build.sub
+    ```
+
+    [Jump to more information](#start-an-interactive-build-job)
+
+3. *Build your container* <a name="quickstart-build-build"></a>
 
     While in an interactive build job, run the command
 
     ```
-    apptainer build CONTAINER.sif CONTAINER.def
+    apptainer build my-container.sif image.def
     ```
 
-    where you should replace `CONTAINER.def` with the name of your definition `.def` file, 
-    and replace `CONTAINER.sif` with your desired name of the `.sif` file.
-
-    > The container build step is non-interactive: the commands in the `.def` file must be exactly correct, and cannot require user intervention.
-
-    If the command finishes successfully, then the container image (`.sif`) file is created.
+    If the container build finishes successfully, then the container image (`.sif`) file is created.
     This file is used for actually executing the container.
 
-4. **Test your container**
+    [Jump to more information](#build-your-container)
+
+4. *Test your container* <a name="quickstart-build-test"></a>
 
     While still in the interactive build job, run the command
 
     ```
-    apptainer shell CONTAINER.sif
+    apptainer shell my-container.sif
     ```
     
-    where you should replace `CONTAINER.sif` with the name of your actual `.sif` file.
-
     This command will start the container and log you into it, allowing you to test your software commands.
-    
+
     Once you are done testing the container, enter
-
+    
     ```
-    exit
+exit
     ```
+    
+    **once** to exit the container.
 
-    once to exit the container.
+    [Jump to more information](#test-your-container)
 
-5. **Copy the container .sif file to staging**
+5. *Move the container .sif file to staging* <a name="quickstart-build-move"></a>
 
     Once you are satisfied that your container is built correctly, copy your `.sif` file to your staging directory.
 
     ```
-    cp CONTAINER.sif /staging/yourNetID
+    mv my-container.sif /staging/$USER
     ```
-
-    where you need to replace `yourNetID` with your NetID.
-
-    > If you do not have a /staging directory, or if you need to request an increase in your quotas, please fill out the form here: [Request a Quota Change](quota-request.html).
 
     Once the file has transferred, exit the interactive job with
 
@@ -99,56 +140,50 @@ For more information on any particular step, see the corresponding section later
     exit
     ```
 
-6. **Add the container .sif file to your submit file**
+    [Jump to more information]()
 
-    In your submit file, add the line
+Once you've built the container, use the instructions [above](#use-an-existing-container) to use the container in your HTCondor job.
 
-    ```
-    container_image = osdf:///staging/yourNetID/CONTAINER.sif
-    ```
-    
-    where again you need to replace `yourNetID` with your NetID and `CONTAINER.sif` with the name of you actual `.sif` file.
+## Create a definition file
 
-    That's it!
+To create your own container using Apptainer, you will need to create a definition (`.def`) file. 
+For the purposes of this guide, we will call the definition file `image.def`.
 
-7. **Test your container job**
+CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). We strongly recommend that you use one of the existing examples as the starting point for creating your own container. 
 
-    Submit a test job that uses a container, and confirm that your job behaves as expected.
-    If there are issues with the job, you may need to modify your executable, or even rebuild your container.
+If the software you want to use is not in the CHTC Recipes repository, you can create your own container. Here is general process for creating your own definition file for building your custom container:
 
-## 1. Choose or create an Apptainer Image
-To run an Apptainer job, it is necessary to first choose a pre-existing Apptainer image or create your own. 
+1. Consult your software's documentation to find (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.
+2. Choose a base container that is at minimum using a compatible operating system. Ideally the container you choose also has many of the prerequisite libraries/programs already installed.
+3. Create your own definition file with the installation commands needed to set up your software.
 
-### A. Pre-existing Images
-Like with Docker, the easiest way to use Apptainer in your jobs is to find a pre-existing image that contains your desired software and environment setup. 
+We encourage you to read our [Building an Apptainer Container](apptainer-build.html) guide to learn more about the components of the Apptainer definition file.
 
-Pre-existing images can be found in reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/). 
-It is also possible to convert a Docker container (e.g your own or from DockerHub) to a Apptainer image. 
-**If your apptainer image does not require any additional packages or libraries, skip to [7. Use an Apptainer Container in HTC Jobs](#7-use-an-apptainer-container-in-htc-jobs).**   
+An advanced example of a definition file is provided in our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide.
 
-### B. Create Your Own Image
-To create your own image, it is still necessary to select a "base" image to add to. 
-Check the documentation of the software you are interested in to see if they maintain images for the software program or its dependencies.
-The majority of the guide that follows explains how to customize your base image by adding and preparing additional software packages/libraries.
+[Jump back to Quickstart](#quickstart-build-definition-file)
 
-## 2. Submit an interactive job
-In your `/home` directory, create a submit file for your Apptainer build job called something like `build.sub`: 
+## Start an interactive build job
+
+Building a container can be a computationally intense process. 
+As such, we require that you only build containers while in an interactive build job.
+On the High Throughput system, you can use the following submit file `build.sub`:
 
 ```
-# Apptainer build file
+# build.sub
+# For building an Apptainer container
 
 universe = vanilla
-log = interactive.log
+log = build.log
 
 # In the latest version of HTCondor on CHTC, interactive jobs require an executable.
 # If you do not have an existing executable, use a generic linux command like hostname as shown below.
 executable = /usr/bin/hostname
 
-# If your build job needs access to any files in your /home directory, transfer them to your job using transfer_input_files
-# transfer_input_files = 
+# If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
+transfer_input_files = image.def
 
 +IsBuildJob = true
-requirements = (OpSysMajorVer =?= 8)
 request_cpus = 4
 request_memory = 16GB
 request_disk = 16GB
@@ -156,170 +191,123 @@ request_disk = 16GB
 queue
 ```
 
-Once your submit file is ready, queue an interactive job by running the following command:
+Note that this submit file assumes you have a definition file named `image.def` in the same directory as the submit file.
+
+Once you've created the submit file, you can submit an interactive job with the command 
 
 ```
 condor_submit -i build.sub
 ```
-{:.term}
 
-It may take a few minutes for the build job to start.
+> Apptainer `.sif` files can be fairly large, especially if you have a complex software stack. 
+> If your interactive job abruptly fails during the build step, you may need to increase the value of `request_disk` in your submit file.
+> In this case, the `.log` file should have a message about the reason the interactive job was interrupted.
 
-## 3. Create your Apptainer Build File
+[Jump back to Quickstart](#quickstart-build-interactive)
 
-Inside your interactive job, create a blank text file called `image.def`. In this `.def` file, you will *def*ine what you want the Apptainer image to look like. You can name this file using an alternative name, but you should always use the `.def` file extension.
-The simple example below describes how to augment a pre-existing container that already contains most of what you need.
-An advanced example at the end of this guide describes how to build a container from a base operating system.
+## Build your container
 
-For this simple example, you will augment a pre-existing Docker container called `rocker/geospatial:4.2.2`, which can be found on Docker Hub.
-This container contains several common R geospatial packages, which makes it convenient to use for geospatial code in R.
-This container does not have *all* R packages, however, and you will likely want to add additional packages particular to your work.
+Once the interactive build job starts, confirm that your `image.def` was transferred to the current directory.
 
-To begin, the first lines of the `image.def` file should include where to get the base image from. 
-If using the `rocker/geospatial:4.2.2` Docker image as your starting point, your `image.def` file would look like this:
-
-```
-Bootstrap: docker
-From: rocker/geospatial:4.2.2
-```
-
-These lines tell Apptainer to pull the pre-existing image from Docker Hub, and to use it as the base for the container that will be built using this `image.def` file.
-
-Next, you will want to include instructions in the `image.def` file for installing the additional packages that you want R to have.
-In the `image.def` file, the installation instructions are placed in the `%post` section.
-Note that because the `rocker` container already contains R, there is no need to install R in the `%post` section.
-
-Let's say that you want to install the R package `cowsay`, which does not come preinstalled in the `rocker` container.
-To do so, you will need to add an install command to the `%post` section:
-
-```
-%post
-    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
-```
-
-The `R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')" ` command will execute the `install.packages` command inside the `R` terminal.
-Since the command was placed in the `%post` section, Apptainer will execute this command when you build the container.
-
-The full `image.def` file for this simple example is now:
-
-```
-Bootstrap: docker
-From: rocker/geospatial:4.2.2
-
-%post
-    R -e "install.packages('cowsay', dependencies=TRUE, repos='http://cran.rstudio.com/')"
-```
-
-The `image.def` file is can now be used to build the container.
-
-## 4. Build your Apptainer Container
-
-Once your image definition file is ready, you can "build" the container. 
-The process of building an apptainer image will convert your `.def` file to a `.sif` Apptainer/Singularity image, which you will use for future job submissions. 
+To build a container, Apptainer uses the instructions in the `.def` file to create a `.sif` file. The `.sif` file is the compressed collection of all the files that comprise the container.
 
 To build your container, run this command:
 
 ```
 apptainer build my-container.sif image.def
 ```
+
 {:.term}
+
+Feel free to rename the `.sif` file as you desire; for the purposes of this guide we are using `my-container.sif`.
 
 As the command runs, a variety of information will be printed to the terminal regarding the container build process.
 Unless something goes wrong, this information can be safely ignored.
 Once the command has finished running, you should see `INFO:    Build complete: my-container.sif`.
-Using the `ls` command, you should now see your executable Apptainer/Singularity file `my-container.sif`. 
+Using the `ls` command, you should now see the container file `my-container.sif`. 
 
 If the build command fails, examine the output for error messages that may explain why the build was unsuccessful.
-Typically there is an issue with a package installation, such as a typo or a missing but required dependency. 
-To make it easier to troubleshoot, you can rerun the build command but redirect the output to a file.
-For example, the following command will save the build output to `build.log` instead of printing it to the screen.
-
-```
-apptainer build my-container.sif image.def &> build.log
-```
-{:.term}
-
-You can then examine the `build.log` file for the relevant error messages.
-
-Sometimes there will be an error in a package installation that doesn't cause the apptainer build command to fail.
+Typically there is an issue with a package installation, such as a typo or a missing but required dependency.
+Sometimes there will be an error during an earlier package installation that doesn't immediately cause the container build to fail.
 But, when you test the container, you may notice an issue with the package.
-In that case, edit the definition file and remove (or comment out) the installation commands that come after the package in question.
+
+If you are having trouble finding the error message, edit the definition file and remove (or comment out) the installation commands that come after the package in question.
 Then rebuild the image, and now the relevant error messages should be near the end of the build output.
 
-Once the image is built, it is important to test it to make sure you have all software, packages, and libraries installed correctly. 
+Once the image is built, it is important to test it to make sure you have all software, packages, and libraries installed correctly.
 
-## 5. Testing Your Container
+For more information on building Apptainer containers, see our [Building an Apptainer Container](apptainer-build.html) guide.
 
-Just like it is important to test your codes and jobs at a small scale, you should make sure that your container is working correctly. To do this, start an interactive Apptainer session with the Apptainer/Singularity "shell" mode. The recommended command line, similar to how containers are started for jobs, is:
+[Jump back to Quickstart](#quickstart-build-build)
 
-```
-apptainer shell \
-            --home $PWD:/srv \
-            --pwd /srv \
-            --scratch /var/tmp \
-            --scratch /tmp \
-            --containall \
-            my-container.sif
-``` 
-{:.term}
+## Test your container
 
-This will give you an interactive shell running in your container, with your current working directory mounted under `/srv`. 
-Your prompt should change to: 
+Once your container builds successfully, we highly encourage you to immediately test the container while still in the interactive build session.
+
+To test your container, use the command
 
 ```
-Apptainer>
+apptainer shell -e my-container.sif
 ```
-{:.term}
 
-You can explore the container and test your code in this mode. 
+You should see your command prompt change to `Apptainer>`.
+
+The shell command logs you into a terminal "inside" the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your `image.def` file.
+(The `-e` option is used to prevent this terminal from trying to use the host system's programs.)
+
+While "inside" the container, try to run your program(s) that you installed in the container. 
+Typically it is easiest to try to print your program's "help" text, e.g., `my-program --help`. 
+If using a programming language such as `python3` or `R`, try to start an interactive code session and load the packages that you installed.
+
+If you installed your program in a custom location, consider using `ls` to verify the files are in the right location. 
+You may need to manually set the `PATH` environment variable to point to the location of your program's executable binaries.
 For example,
 
 ```
-Apptainer> pwd
-/srv
-Apptainer> ls
-image.def my-container.sif tmp/ var/
-Apptainer> exit
-[alice@build ~]$ 
-```
-{:.term}
-
-Once you are done exploring, exit the container by entering `exit` or by using the keyboard shortcut `CTRL+D`.
-
-## 6. Exit your HTCondor Interactive Job
-
-Once you have tested your container image and are ready to use it in regular jobs, there are a couple of things to do before you exit the interactive job.
-
-### A. Decide where to host the `.sif` file
-
-By default, when you exit the interactive job the definition file and image file will return to same directory as your submit file on the submit file.
-If your `.sif` file is large (> 100 MB), however, you should consider moving it to your staging directory instead (`mv my-container.sif /staging/yourNetID/`).
-See our `/staging` guide at [Managing Large Data in HTC Jobs](file-avail-largedata.html) for more information.
-
-### B. Clear out the Apptainer cache
-
-When building the `.sif` file, Apptainer saves key parts of container image to a cache directory.
-This allows repeated build attempts to run more quickly by skipping the download step for these key parts.
-The cache, however, should be emptied out once you are done with the build and those files are no longer needed.
-To clear our the cache directory, run the command
-
-```
-apptainer cache clean -f
+export PATH=/opt/my-program/bin:$PATH
 ```
 
-### C. Exit the interactive session
+Consult the "Special Considerations" section of our [Building an Apptainer Container](apptainer-build.html#special-considerations-for-building-your-container) guide for additional information on setting up and testing your container.
 
-To exit, simply enter `exit` to end the interactive session and return to the submit node.
+When you are finished running commands inside the container, run the command `exit` to exit the container. 
+Your prompt should change back to something like `[username@build4000 ~]$`.
+
+[Jump back to Quickstart](#quickstart-build-test)
+
+## Move the container .sif file to staging
+
+Since Apptainer `.sif` files are routinely more than 1GB in size, we recommend that you transfer `my-container.sif` to your `/staging` directory.
+It is usually easiest to move the container file directly to staging while still in the interactive build job:
+
+```
+mv my-container.sif /staging/$USER
+```
+
+If you do not have a `/staging` directory, you can skip this step and the `.sif` file will be automatically transferred back to the login server when you exit the interactive job.
+We encourage you to request a `/staging` directory, especially if you plan on running many jobs using this container.
+See our [Managing Large Data in Jobs](file-avail-largedata.html) guide for more information on using staging.
+
+[Jump back to Quickstart](#quickstart-build-move)
 
 
-## 7. Use an Apptainer Container in HTC Jobs
+## Use an Apptainer Container in HTC Jobs
 
 Now that you have the container image saved in the form of the `.sif` file, you can use it as the environment for running your HTCondor jobs.
-In your submit file, simply specify the image file using the `container_image` command and include the file in the `transfer_input_files` line, i.e.
+In your submit file, specify the image file using the `container_image` command.
+HTCondor will automatically transfer the `.sif` file and automatically execute your `executable` file inside of the container; you do not need to include any `apptainer` commands in your `executable` file. 
+
+If the `.sif` file is located on the login server, you can use 
 
 ```
 container_image = my-container.sif
-transfer_input_files = my-container.sif
+```
+
+although we generally don't recommend this, since `.sif` files are large and should instead be located in [staging](file-avail-largedata.html).
+
+Therefore, we recommend using
+
+```
+container_image = file:///staging/path/to/my-container.sif
 ```
 
 The full submit file otherwise looks like normal, for example:
@@ -328,14 +316,12 @@ The full submit file otherwise looks like normal, for example:
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-# (`universe = container` is optional as long as `container_image` is specified)
-container_image = my-container.sif
-universe = container
+container_image = file:///staging/path/to/my-container.sif
 
 executable = myExecutable.sh
 
-# Tell HTCondor to transfer the my-container.sif file to each job
-transfer_input_files = my-container.sif, other_job_files
+# Include other files that need to be transferred here.
+# transfer_input_files = other_job_files
 
 log = job.log
 error = job.err
@@ -344,45 +330,53 @@ output = job.out
 # Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 1
 request_memory = 4GB
-request_disk = 2GB      
+request_disk = 10GB      
 
 queue
 ```
 
-Then simply use `condor_submit` with the name of your submit file.
-
-> **Before running multiple jobs using your container, be sure to check the size of the `.sif` file.**
-> If greater than 100 MB, the `.sif` file should **NOT** be transferred using `transfer_input_files`.
-> Instead, you should plan to use either CHTC's web proxy (SQUID) or large data filesystem (`/staging`).
-> For more information, see our guides on SQUID ([Transfer Large Input Files Via Squid](file-avail-squid.html)) and `/staging` ([Managing Large Data in HTC Jobs](file-avail-largedata.html)).
-
-## 8. How HTCondor Runs a Container Job
-
-From the user's perspective, a container job is practically identical to a regular job.
-The main difference is that instead of running on the execute point's default operation system, the job is run inside the container.
-
-When you submit a job to HTCondor using a submit file with `container_image` set, HTCondor automatically handles the process of obtaining and running the container.
-The process looks roughly like
-
-- Claim machine that satisifies submit file requirements
-- Pull (or transfer) the container image
-- Transfer input files, executable to working directory 
-- Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)
-- Transfer output files back to the submit server
-
-For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).
+Then use `condor_submit` with the name of your submit file:
 
 ```
-apptainer exec \
-        --scratch /tmp \
-        --scratch /var/tmp \
-        --workdir $(pwd) \
-        --pwd $(pwd) \
-        --bind $(pwd) \
-        --no-home \
-        --containall \
-        my-container.sif \
-        /bin/bash myExecutable.sh 1> job.out 2> job.err
+condor_submit apptainer.sub
 ```
-{:.term}
+
+If you are using `+WantFlocking` or `+WantGliding` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
+
+```
+container_image = osdf:///chtc/staging/path/to/my-container.sif
+```
+
+to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/services/osdf.html) to compute capacity beyond CHTC.
+
+[Jump back to Quickstart](#quickstart-use-submit)
+
+> From the user's perspective, a container job is practically identical to a regular job.
+> The main difference is that instead of running on the execute point's default operation system, the job is run inside the container.
+>
+> When you submit a job to HTCondor using a submit file with `container_image` set, HTCondor automatically handles the process of obtaining and running the container.
+> The process looks roughly like
+>
+> - Claim machine that satisifies submit file requirements
+> - Pull (or transfer) the container image
+> - Transfer input files, executable to working directory 
+> - Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)
+> - Transfer output files back to the submit server
+>
+> For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).
+>
+> ```
+> apptainer exec \
+>         --scratch /tmp \
+>         --scratch /var/tmp \
+>         --workdir $(pwd) \
+>         --pwd $(pwd) \
+>         --bind $(pwd) \
+>         --no-home \
+>         --containall \
+>         my-container.sif \
+>         /bin/bash myExecutable.sh 1> job.out 2> job.err
+> ```
+> {:.term}
+>
 

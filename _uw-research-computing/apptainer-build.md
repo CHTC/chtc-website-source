@@ -224,7 +224,7 @@ For an existing container, you can inspect the help text with the command `appta
 The actual container image, which can be executed by Apptainer as a stand-alone operating system, is stored in a `.sif` file.\* 
 The instructions for constructing the `.sif` file are provided by the `.def` definition file, as described above.
 Basically, the `.sif` file is a compression of all of the files in the stand-alone operating system that comprises a "container".
-Apptainer can use this one file to reconstitute container at runtime.
+Apptainer can use this one file to reconstitute the container at runtime.
 
 *\* `sif` stands for "Singularity Image File"; Apptainer is formerly an open-source fork of the original program called Singularity.*
 
