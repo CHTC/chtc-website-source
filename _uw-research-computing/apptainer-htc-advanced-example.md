@@ -143,11 +143,11 @@ After installing the dependencies, you can provide the commands for actually com
 We now add the commands for compiling the SUMO program itself:
 
 ```
-git clone --recursive https://github.com/eclipse/sumo
-export SUMO_HOME=/sumo
-mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
-cmake ../..
-make
+    git clone --recursive https://github.com/eclipse/sumo
+    export SUMO_HOME=/sumo
+    mkdir sumo/build/cmake-build && cd sumo/build/cmake-build
+    cmake ../..
+    make
 ```
 
 The `%post` section is now complete and will install SUMO and its dependencies in the container at build time.

@@ -90,6 +90,7 @@ Need help from Cannon; default approach does not render well on the website.
     ```
     condor_submit -i build.sub
     ```
+    {:.term}
 
     [Jump to more information](#start-an-interactive-build-job)
 
@@ -100,6 +101,7 @@ Need help from Cannon; default approach does not render well on the website.
     ```
     apptainer build my-container.sif image.def
     ```
+    {:.term}
 
     If the container build finishes successfully, then the container image (`.sif`) file is created.
     This file is used for actually executing the container.
@@ -113,14 +115,16 @@ Need help from Cannon; default approach does not render well on the website.
     ```
     apptainer shell my-container.sif
     ```
+    {:.term}
     
     This command will start the container and log you into it, allowing you to test your software commands.
 
     Once you are done testing the container, enter
     
     ```
-exit
+    exit
     ```
+    {:.term}
     
     **once** to exit the container.
 
@@ -133,12 +137,14 @@ exit
     ```
     mv my-container.sif /staging/$USER
     ```
+    {:.term}
 
     Once the file has transferred, exit the interactive job with
 
     ```
     exit
     ```
+    {:.term}
 
     [Jump to more information]()
 
@@ -198,6 +204,7 @@ Once you've created the submit file, you can submit an interactive job with the 
 ```
 condor_submit -i build.sub
 ```
+{:.term}
 
 > Apptainer `.sif` files can be fairly large, especially if you have a complex software stack. 
 > If your interactive job abruptly fails during the build step, you may need to increase the value of `request_disk` in your submit file.
@@ -216,7 +223,6 @@ To build your container, run this command:
 ```
 apptainer build my-container.sif image.def
 ```
-
 {:.term}
 
 Feel free to rename the `.sif` file as you desire; for the purposes of this guide we are using `my-container.sif`.
@@ -249,6 +255,7 @@ To test your container, use the command
 ```
 apptainer shell -e my-container.sif
 ```
+{:.term}
 
 You should see your command prompt change to `Apptainer>`.
 
@@ -266,6 +273,7 @@ For example,
 ```
 export PATH=/opt/my-program/bin:$PATH
 ```
+{:.term}
 
 Consult the "Special Considerations" section of our [Building an Apptainer Container](apptainer-build.html#special-considerations-for-building-your-container) guide for additional information on setting up and testing your container.
 
@@ -282,6 +290,7 @@ It is usually easiest to move the container file directly to staging while still
 ```
 mv my-container.sif /staging/$USER
 ```
+{:.term}
 
 If you do not have a `/staging` directory, you can skip this step and the `.sif` file will be automatically transferred back to the login server when you exit the interactive job.
 We encourage you to request a `/staging` directory, especially if you plan on running many jobs using this container.
@@ -340,6 +349,7 @@ Then use `condor_submit` with the name of your submit file:
 ```
 condor_submit apptainer.sub
 ```
+{:.term}
 
 If you are using `+WantFlocking` or `+WantGliding` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
 

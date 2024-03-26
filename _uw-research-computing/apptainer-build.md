@@ -196,6 +196,7 @@ For an existing container, you can inspect the metadata with the command `apptai
 > ContactEmail: bbadger@wisc.edu
 > Name: Bucky's First Container
 > ```
+> {:.term}
 > 
 > along with some automatically generated labels.
 
@@ -235,6 +236,7 @@ To create the `.sif` file from the `.def` file, you need to run the command
 ```
 apptainer build my-container.sif my-container.def
 ```
+{:.term}
 
 Here the syntax is to provide the name of the `.sif` file that you want to create and then provide the name of the existing `.def` definition file.
 
@@ -252,6 +254,7 @@ To do so, use the command
 ```
 apptainer build my-container.sif docker://user/repo:tag
 ```
+{:.term}
 
 where `user/repo:tag` is any valid address to a Docker-based container registry. (For example, `rocker/tidyverse:4.1.3` from DockerHub or `nvcr.io/nvidia/tensorflow:24.02-tf2-py3` from NVIDIA Container Registry.)
 
@@ -263,6 +266,7 @@ Assuming that you are in an interactive session (i.e., not on the login server),
 ```
 apptainer shell my-container.sif
 ```
+{:.term}
 
 This command should log you into a terminal that is backed by the container's operating system.
 
@@ -282,6 +286,7 @@ Usage: units [options] ['from-unit' 'to-unit']
 
 <additional output truncated>
 ```
+{:.term}
 
 > By default, only your current directory will be mounted into the container, meaning the only files you can see from the host system are those in the directory where you ran the command.
 >
@@ -375,5 +380,6 @@ If you are interested in mutli-node execution using containers, contact a facili
   ```
   export HOME=$(pwd)
   ```
+  {:.term}
 
   If this does not address the issue, examine the error messages and consult the program documentation for how configure the program to use an alternate location for cache or temporary directories.
