@@ -25,7 +25,12 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 * [Use an existing container](#use-an-existing-container)
 * [Build your own container](#build-your-own-container)
 
-
+[Create a Definition File](#create-a-definition-file)
+[Start an Interactive Build Job](#start-an-interactive-build-job)
+[Build Your Container](#build-your-container)
+[Test Your Container](#test-your-container)
+[Move the Container .sif File to Staging](#move-the-container-sif-file-to-staging)
+[Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs)
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -150,7 +155,7 @@ Need help from Cannon; default approach does not render well on the website.
 
 Once you've built the container, use the instructions [above](#use-an-existing-container) to use the container in your HTCondor job.
 
-## Create a definition file
+## Create a Definition File
 
 To create your own container using Apptainer, you will need to create a definition (`.def`) file. 
 For the purposes of this guide, we will call the definition file `image.def`.
@@ -169,7 +174,7 @@ An advanced example of a definition file is provided in our [Advanced Apptainer 
 
 [Jump back to Quickstart](#quickstart-build-definition-file)
 
-## Start an interactive build job
+## Start an Interactive Build Job
 
 Building a container can be a computationally intense process. 
 As such, we require that you only build containers while in an interactive build job.
@@ -212,7 +217,7 @@ condor_submit -i build.sub
 
 [Jump back to Quickstart](#quickstart-build-interactive)
 
-## Build your container
+## Build Your Container
 
 Once the interactive build job starts, confirm that your `image.def` was transferred to the current directory.
 
@@ -246,7 +251,7 @@ For more information on building Apptainer containers, see our [Building an Appt
 
 [Jump back to Quickstart](#quickstart-build-build)
 
-## Test your container
+## Test Your Container
 
 Once your container builds successfully, we highly encourage you to immediately test the container while still in the interactive build session.
 
@@ -282,7 +287,7 @@ Your prompt should change back to something like `[username@build4000 ~]$`.
 
 [Jump back to Quickstart](#quickstart-build-test)
 
-## Move the container .sif file to staging
+## Move the Container .sif File to Staging
 
 Since Apptainer `.sif` files are routinely more than 1GB in size, we recommend that you transfer `my-container.sif` to your `/staging` directory.
 It is usually easiest to move the container file directly to staging while still in the interactive build job:
