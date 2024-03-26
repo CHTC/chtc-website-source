@@ -251,4 +251,4 @@ From: ubuntu:22.04
 We can now build the container using this definition file.
 
 - For more information on the components of an Apptainer definition (`.def`) file and container image file (`.sif`), see our [Building an Apptainer Container](apptainer-build.html) guide.
-- For information on building and using the container on the HTC system, see our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
+- For information on building and using the container on the HTC system, see our [Use Apptainer Containers](apptainer-htc.html) guide.

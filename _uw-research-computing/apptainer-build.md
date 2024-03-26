@@ -241,7 +241,7 @@ Here the syntax is to provide the name of the `.sif` file that you want to creat
 > **Don't run the `apptainer build` command on the login server!** 
 > Building the container image can be an intensive process and can consume the resources of the login server.
 > 
-> * On the High Throughput system, first start an interactive build job as described in our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
+> * On the High Throughput system, first start an interactive build job as described in our [Use Apptainer Containers](apptainer-htc.html) guide.
 > * On the High Performance system, first launch an interactive Slurm session as described [here](hpc-job-submission.html#for-simple-testing-or-compiling).
 
 ### Converting a Docker image to an Apptainer container image
@@ -292,7 +292,7 @@ Usage: units [options] ['from-unit' 'to-unit']
 
 #### Using the High Throughput system
 
-To use your `.sif` container image on the High Throughput system, see our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
+To use your `.sif` container image on the High Throughput system, see our [Use Apptainer Containers](apptainer-htc.html) guide.
 HTCondor is designed to automatically execute jobs inside of a container image, provided the `.sif` file is provided in the HTCondor submit file.
 
 #### Using the High Performance system
