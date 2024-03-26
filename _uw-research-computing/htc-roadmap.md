@@ -3,6 +3,20 @@
 
 HTC Getting Started Guidelines
 ====================================
+
+
+1. Introduction to the the High Throughput Computing System
+2. Log on to an OSG Access Point
+
+3. Learn to submit HTCondor jobs
+Computational work is run on the OSPool by submitting it as “jobs” to the HTCondor scheduler. Jobs submitted to HTCondor are then scheduled and run on different resources that are part of the Open Science Pool. Before submitting your own computational work, it is important to understand how HTCondor job submission works. The following guides show how to submit basic HTCondor jobs.
+
+Overview: Submit Jobs to the OSPool using HTCondor
+
+4. Test a First Job¶
+
+
+
    
 <details>
 <summary>Software</summary>
@@ -24,6 +38,44 @@ The HTC system contains several machines designed for users to use when building
 Conda environments: It is possible to install software using miniconda.
 <br>
 </details>
+
+
+<details>
+<summary>Access your Data on the HTC system</summary>
+<br>
+<b>Upload data to CHTC</b>
+When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using `s3` file transfer, or pull data using standard unix commands (`wget`). 
+<br>
+To learn how to upload data from different sources, including your laptop, see: 
+   <br>
+Transfer Files between CHTC and your Computer
+   <br>
+Transferring Files Between CHTC and ResearchDrive
+   <br>
+Using Globus to Transfer Files to and from CHTC
+   <br>
+Remotely Access a Private GitHub Repository
+
+When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: /home and /staging. 
+<br>
+/home is more efficent at handling "small" files, while /staging is more effient at handling "large" files. For more information on what is considered "small" and "large" data files, see _____. 
+<br>
+</details>
+
+
+<details>
+<summary>Learn to run HTCondor jobs</summary>
+<br>
+
+
+
+
+
+
+
+
+
+
 
 
 
