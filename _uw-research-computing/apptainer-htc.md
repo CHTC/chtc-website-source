@@ -31,10 +31,14 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 Here is the general process for building and using an Apptainer container on the HTC system.
 For more information on any particular step, see the corresponding section later in this guide.
 
-1. **Create a definition file**
+<!-- Might be worth setting up the quick-start items as dropdown items. -->
+
+1. <details><summary>**Create a definition file**</summary>
 
     The definition (`.def`) file contains the instructions for what software to install while building the container.
     CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). Choose from one of the existing examples, or create your own using the instructions later in this guide.
+
+    </details>
 
 2. **Start an interactive job**
 
