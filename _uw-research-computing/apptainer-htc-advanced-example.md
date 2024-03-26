@@ -13,9 +13,6 @@ Sometimes the program you want to use does not have a pre-existing container tha
 Then you will need to install the program and its dependencies inside of the container.
 In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
 
-- For an introduction to the Apptainer definition (`.def`) file, see our [Building an Apptainer Container](apptainer-build.html) guide.
-- For information on building and using the container on the HTC system, see our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
-
 {% capture content %}
 
 [1. Choose the Base Container Image](#1-choose-the-base-container-image)
@@ -48,7 +45,7 @@ All of the installation commands that you want Apptainer to execute during the c
 First, you may need to instruct programs that you are executing commands in a non-interactive environment.
 There can be issues with installing packages in a container that would not normally occur when installing manually in the terminal. 
 
-Most commonly, the `/tmp` directory inside of the container needs to be given global read/write permissions.
+On the HTC system in particular, the `/tmp` directory inside of the container needs to be given global read/write permissions.
 This can be done by adding the following line at the start of the `%post` section:
 
 ```
@@ -120,6 +117,7 @@ From: ubuntu:22.04
 %post
     chmod 777 /tmp
     DEBIAN_FRONTEND=noninteractive
+
     apt-get update -y
     apt-get install -y \
         git \
@@ -163,6 +161,7 @@ From: ubuntu:22.04
 %post
     chmod 777 /tmp
     DEBIAN_FRONTEND=noninteractive
+
     apt-get update -y
     apt-get install -y \
         git \
@@ -220,7 +219,7 @@ From: ubuntu:22.04
 %post
     chmod 777 /tmp
     DEBIAN_FRONTEND=noninteractive
-    chmod 777 /tmp
+
     apt-get update -y
     apt-get install -y \
         git \
@@ -250,3 +249,6 @@ From: ubuntu:22.04
 ```
 
 We can now build the container using this definition file.
+
+- For more information on the components of an Apptainer definition (`.def`) file and container image file (`.sif`), see our [Building an Apptainer Container](apptainer-build.html) guide.
+- For information on building and using the container on the HTC system, see our [Use Apptainer (Singularity) Environments](apptainer-htc.html) guide.
