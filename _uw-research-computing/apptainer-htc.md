@@ -26,10 +26,15 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 * [Build your own container](#build-your-own-container)
 
 [Create a Definition File](#create-a-definition-file)
+
 [Start an Interactive Build Job](#start-an-interactive-build-job)
+
 [Build Your Container](#build-your-container)
+
 [Test Your Container](#test-your-container)
+
 [Move the Container .sif File to Staging](#move-the-container-sif-file-to-staging)
+
 [Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs)
 
 {% endcapture %}
@@ -41,7 +46,7 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 
 If you or a group member have already created the Apptainer `.sif` file, or using a container from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/), follow these steps to use it in an HTCondor job.
 
-1. *Add the container `.sif` file to your submit file* <a name="quickstart-use-submit"></a>
+#### 1. Add the container `.sif` file to your submit file <a name="quickstart-use-submit"></a>
 
     If the `.sif` file is **on the submit server**:
 
@@ -63,7 +68,7 @@ If you or a group member have already created the Apptainer `.sif` file, or usin
 
     [Jump to more information](#use-an-apptainer-container-in-htc-jobs)
 
-2. *Test your container job* <a name="quickstart-use-test"></a>
+#### 2. Test your container job <a name="quickstart-use-test"></a>
 
     As always with the High Throughput system, submit a single test job and confirm that your job behaves as expected.
     If there are issues with the job, you may need to modify your executable, or even (re)build your own container.
@@ -78,80 +83,80 @@ Might be worth setting up the quick-start items as dropdown items.
 Need help from Cannon; default approach does not render well on the website.
 -->
 
-1. *Create a definition file* <a name="quickstart-build-definition-file"></a>
+#### 1. Create a definition file <a name="quickstart-build-definition-file"></a>
 
-    The definition (`.def`) file contains the instructions for what software to install while building the container.
-    CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). Choose from one of the existing examples, or create your own using the instructions later in this guide.
+The definition (`.def`) file contains the instructions for what software to install while building the container.
+CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). Choose from one of the existing examples, or create your own using the instructions later in this guide.
 
-    [Jump to more information](#create-a-definition-file)
+[Jump to more information](#create-a-definition-file)
 
-2. *Start an interactive build job* <a name="quickstart-build-interactive"></a>
+#### 2. Start an interactive build job <a name="quickstart-build-interactive"></a>
 
-    Start an interactive build job (an example submit file  `build.sub` is provided below).
-    Be sure to include your `.def` file in the `transfer_input_files` line, or else create the file once the interactive job starts using a command line editor.
+Start an interactive build job (an example submit file  `build.sub` is provided below).
+Be sure to include your `.def` file in the `transfer_input_files` line, or else create the file once the interactive job starts using a command line editor.
 
-    Then submit the interactive build job with
+Then submit the interactive build job with
 
-    ```
-    condor_submit -i build.sub
-    ```
-    {:.term}
+```
+condor_submit -i build.sub
+```
+{:.term}
 
-    [Jump to more information](#start-an-interactive-build-job)
+[Jump to more information](#start-an-interactive-build-job)
 
-3. *Build your container* <a name="quickstart-build-build"></a>
+#### 3. Build your container <a name="quickstart-build-build"></a>
 
-    While in an interactive build job, run the command
+While in an interactive build job, run the command
 
-    ```
-    apptainer build my-container.sif image.def
-    ```
-    {:.term}
+```
+apptainer build my-container.sif image.def
+```
+{:.term}
 
-    If the container build finishes successfully, then the container image (`.sif`) file is created.
-    This file is used for actually executing the container.
+If the container build finishes successfully, then the container image (`.sif`) file is created.
+This file is used for actually executing the container.
 
-    [Jump to more information](#build-your-container)
+[Jump to more information](#build-your-container)
 
-4. *Test your container* <a name="quickstart-build-test"></a>
+#### 4. Test your container <a name="quickstart-build-test"></a>
 
-    While still in the interactive build job, run the command
+While still in the interactive build job, run the command
 
-    ```
-    apptainer shell my-container.sif
-    ```
-    {:.term}
-    
-    This command will start the container and log you into it, allowing you to test your software commands.
+```
+apptainer shell my-container.sif
+```
+{:.term}
 
-    Once you are done testing the container, enter
-    
-    ```
-    exit
-    ```
-    {:.term}
-    
-    **once** to exit the container.
+This command will start the container and log you into it, allowing you to test your software commands.
 
-    [Jump to more information](#test-your-container)
+Once you are done testing the container, enter
 
-5. *Move the container .sif file to staging* <a name="quickstart-build-move"></a>
+```
+exit
+```
+{:.term}
 
-    Once you are satisfied that your container is built correctly, copy your `.sif` file to your staging directory.
+**once** to exit the container.
 
-    ```
-    mv my-container.sif /staging/$USER
-    ```
-    {:.term}
+[Jump to more information](#test-your-container)
 
-    Once the file has transferred, exit the interactive job with
+#### 5. Move the container .sif file to staging <a name="quickstart-build-move"></a>
 
-    ```
-    exit
-    ```
-    {:.term}
+Once you are satisfied that your container is built correctly, copy your `.sif` file to your staging directory.
 
-    [Jump to more information]()
+```
+mv my-container.sif /staging/$USER
+```
+{:.term}
+
+Once the file has transferred, exit the interactive job with
+
+```
+exit
+```
+{:.term}
+
+[Jump to more information]()
 
 Once you've built the container, use the instructions [above](#use-an-existing-container) to use the container in your HTCondor job.
 
@@ -164,13 +169,21 @@ CHTC provides example definition files in the `software` folder of our [Recipes 
 
 If the software you want to use is not in the CHTC Recipes repository, you can create your own container. Here is general process for creating your own definition file for building your custom container:
 
-1. Consult your software's documentation to find (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.
-2. Choose a base container that is at minimum using a compatible operating system. Ideally the container you choose also has many of the prerequisite libraries/programs already installed.
-3. Create your own definition file with the installation commands needed to set up your software.
+1. **Consult your software's documentation** 
+   
+   Determine the requirements for installing the software you want to use.
+   In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.
 
-We encourage you to read our [Building an Apptainer Container](apptainer-build.html) guide to learn more about the components of the Apptainer definition file.
+2. **Choose a base container** 
 
-An advanced example of a definition file is provided in our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide.
+   The base container should at minimum use an operating system compatible with your software. 
+   Ideally the container you choose also has many of the prerequisite libraries/programs already installed.
+
+3. **Create your own definition file**
+
+   The definition file contains the installation commands needed to set up your software.
+   We encourage you to read our [Building an Apptainer Container](apptainer-build.html) guide to learn more about the components of the Apptainer definition file.
+   An advanced example of a definition file is provided in our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide.
 
 [Jump back to Quickstart](#quickstart-build-definition-file)
 
@@ -264,7 +277,7 @@ apptainer shell -e my-container.sif
 
 You should see your command prompt change to `Apptainer>`.
 
-The shell command logs you into a terminal "inside" the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your `image.def` file.
+The `shell` command logs you into a terminal "inside" the container, with access to the libraries, packages, and programs that were installed in the container following the instructions in your `image.def` file.
 (The `-e` option is used to prevent this terminal from trying to use the host system's programs.)
 
 While "inside" the container, try to run your program(s) that you installed in the container. 
@@ -302,7 +315,6 @@ We encourage you to request a `/staging` directory, especially if you plan on ru
 See our [Managing Large Data in Jobs](file-avail-largedata.html) guide for more information on using staging.
 
 [Jump back to Quickstart](#quickstart-build-move)
-
 
 ## Use an Apptainer Container in HTC Jobs
 

@@ -16,8 +16,11 @@ In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/in
 {% capture content %}
 
 [1. Choose the Base Container Image](#1-choose-the-base-container-image)
+
 [2. Add the Installation Commands](#2-add-the-installation-commands)
+
 [3. Add the Environment Variables](#3-add-environment-variables)
+
 [Summary](#summary)
 
 {% endcapture %}
