@@ -7,6 +7,7 @@ guide:
     category: Software Solutions
     tag:
         - htc
+        - hpc
 --- 
 
 {% capture content %}
@@ -25,7 +26,6 @@ guide:
 * [Building the container](#building-the-container)
 * [Converting a Docker image to an Apptainer container image](#converting-a-docker-image-to-an-apptainer-container-image)
 * [Testing the container interactively](#testing-the-container-interactively)
-* [Running the container on CHTC](#running-the-container-on-chtc)
 
 [Special Considerations for Building Your Container](#special-considerations-for-building-your-container)
 
@@ -279,7 +279,7 @@ An easy way to check if your program is at least in recognized by the container 
 For example,
 
 ```
-[user@build4000 ~]$ apptainer shell units.sif
+[username@hostname ~]$ apptainer shell units.sif
 Apptainer> units --help
 
 Usage: units [options] ['from-unit' 'to-unit']
@@ -292,38 +292,6 @@ Usage: units [options] ['from-unit' 'to-unit']
 >
 > Furthermore, the interactive container session may inherit environment variables from your terminal session on the host system, which may conflict with the container environment.
 > In this case, use the `-e` option to use a "clean" environment for the interactive session: `apptainer shell -e my-container.sif`.
-
-### Running the container on CHTC
-
-#### Using the High Throughput system
-
-To use your `.sif` container image on the High Throughput system, see our [Use Apptainer Containers](apptainer-htc.html) guide.
-HTCondor is designed to automatically execute jobs inside of a container image, provided the `.sif` file is provided in the HTCondor submit file.
-
-#### Using the High Performance system
-
-##### On a single node
-
-For execution on a single node, we recommend adding the following commands to your sbatch script:
-
-```
-export TMPDIR=/scratch/$USER/apptainer_tmp/${SLURM_JOB_ID}
-mkdir -p $TMPDIR
-
-srun apptainer exec -e \
-    --bind /home/$USER \
-    --bind /scratch/$USER \
-    --bind $TMPDIR \
-    my-container.sif my-job-script
-
-rm -rf $TMPDIR
-```
-
-##### On multiple nodes
-
-We are still in the early stages of deploying containers on the High Performance system.
-A complicating factor is the construction of the `.def` file to deploy MPI on the system to allow for execution across multiple nodes.
-If you are interested in mutli-node execution using containers, contact a facilitator for more information.
 
 ## Special Considerations for Building Your Container
 

@@ -4,6 +4,11 @@ layout: guide
 title: Using Software in a Container on the HPC Cluster
 ---
 
+## DEPRECATED
+
+See instead our "Using Apptainer Containers on HPC" guide: [https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc](https://chtc.cs.wisc.edu/uw-research-computing/apptainer-hpc).
+
+## Overview
 
 Software that is packaged in a \"container\" can
 be run on the HPC cluster. This guide assumes that you are starting with 
