@@ -125,6 +125,7 @@ Consult the "Special Considerations" section of our [Building an Apptainer Conta
 
 When you are finished running commands inside the container, run the command `exit` to exit the container. 
 Your prompt should change back to something like `[username@spark-a006 directory]$`.
+If you are satisfied with the container that you built, run the `exit` command again to exit the interactive Slurm session.
 
 ## Use an Apptainer Container in HPC Jobs
 
