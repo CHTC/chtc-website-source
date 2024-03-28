@@ -11,7 +11,7 @@ guide:
 
 Sometimes the program you want to use does not have a pre-existing container that you can build on top of.
 Then you will need to install the program and its dependencies inside of the container.
-In this example, you will install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container.
+In this example, we will show how to install the program [SUMO](https://sumo.dlr.de/docs/index.html) in a container, as an illustration of how to build a container more-or-less from scratch. 
 
 {% capture content %}
 
