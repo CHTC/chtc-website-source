@@ -10,6 +10,13 @@ guide:
         - hpc
 --- 
 
+This guide describes the general process for creating an Apptainer container. 
+Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. 
+
+For instructions on using and building Apptainer containers
+
+* on the High Throughput system: [Using Apptainer Containers](apptainer-htc.html).
+* on the High Performance system: [Using Apptainer Containers on HPC](apptainer-hpc.html).
 {% capture content %}
 
 [The Apptainer Definition File](#the-apptainer-definition-file)
