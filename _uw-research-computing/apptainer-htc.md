@@ -48,30 +48,30 @@ If you or a group member have already created the Apptainer `.sif` file, or usin
 
 #### 1. Add the container `.sif` file to your submit file <a name="quickstart-use-submit"></a>
 
-    If the `.sif` file is **on the submit server**:
+If the `.sif` file is **on the submit server**:
 
-    ```
-    container_image = path/to/my-container.sif
-    ```
+```
+container_image = path/to/my-container.sif
+```
 
-    If the `.sif` file is **on the `/staging` server**:
+If the `.sif` file is **on the `/staging` server**:
 
-    ```
-    container_image = file:///staging/path/to/my-container.sif
-    ```
+```
+container_image = file:///staging/path/to/my-container.sif
+```
 
-    If the `.sif` file is **on the `/staging` server AND you are using `+WantFlocking` or `+WantGliding`**:
+If the `.sif` file is **on the `/staging` server AND you are using `+WantFlocking` or `+WantGliding`**:
 
-    ```
-    container_image = osdf:///chtc/staging/path/to/my-container.sif
-    ```
+```
+container_image = osdf:///chtc/staging/path/to/my-container.sif
+```
 
-    [Jump to more information](#use-an-apptainer-container-in-htc-jobs)
+[Jump to more information](#use-an-apptainer-container-in-htc-jobs)
 
 #### 2. Test your container job <a name="quickstart-use-test"></a>
 
-    As always with the High Throughput system, submit a single test job and confirm that your job behaves as expected.
-    If there are issues with the job, you may need to modify your executable, or even (re)build your own container.
+As always with the High Throughput system, submit a single test job and confirm that your job behaves as expected.
+If there are issues with the job, you may need to modify your executable, or even (re)build your own container.
 
 ### Build your own container
 
@@ -92,7 +92,7 @@ CHTC provides example definition files in the `software` folder of our [Recipes 
 
 #### 2. Start an interactive build job <a name="quickstart-build-interactive"></a>
 
-Start an interactive build job (an example submit file  `build.sub` is provided below).
+Start an interactive build job ([an example submit file  `build.sub` is provided below](#build-submit-file)).
 Be sure to include your `.def` file in the `transfer_input_files` line, or else create the file once the interactive job starts using a command line editor.
 
 Then submit the interactive build job with
@@ -193,6 +193,7 @@ Building a container can be a computationally intense process.
 As such, we require that you only build containers while in an interactive build job.
 On the High Throughput system, you can use the following submit file `build.sub`:
 
+<a name="build-submit-file"></a>
 ```
 # build.sub
 # For building an Apptainer container
