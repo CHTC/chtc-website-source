@@ -46,12 +46,12 @@ The following table summarizes the sections that are routinely used when constru
 
 | Section | Description |
 | ------- | ----------- |
-| "Header" | Defines the base container to build on top of. |
-| `%files` | Specifies files to copy into the container at build time from the host. |
-| `%post`  | Commands to execute during the container build. |
-| `%environment` | Environment variables to set whenever the container is started. |
-| `%labels` | Custom metadata for the container. |
-| `%help` | Custom help text for the container. |
+| "Header" | Choose an existing container to start from. |
+| `%files` | Add existing files (e.g., pre-downloaded source code) to use in the container. |
+| `%post`  | Installation commands for adding libraries/programs to the container. |
+| `%environment` | Automatically set environment variables when the container is started to help find installed programs. |
+| `%labels` | Add information or metadata to help identify the container and its contents. |
+| `%help` | Add text to help others use the container and its contents. |
 
 With the exception of the "Header", sections in the definition file begin with a line starting with `%name_of_section` and all subsequent lines belong to that section until the end of the file or the next `%section` line is encountered.
 Typically the contents of a section are indented to help visually distinguish the different parts.
