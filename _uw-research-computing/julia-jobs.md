@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: Run Julia Jobs
 guide:
-    order: 6
+    order: 7
     category: Software Solutions
     tag:
         - htc

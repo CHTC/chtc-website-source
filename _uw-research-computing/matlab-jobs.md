@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: Running Matlab Jobs
 guide:
-    order: 1
+    order: 2
     category: Software Solutions
     tag:
         - htc
