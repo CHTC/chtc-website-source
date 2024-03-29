@@ -1,6 +1,6 @@
 ---
-short_title: Save the Dates for Throughput Computing 2024
-title: Save the Dates for Throughput Computing 2024 
+short_title: Registration is Open for Throughput Computing 2024
+title: Registration is Open for Throughput Computing 2024 
 
 layout: events
 published: true
@@ -12,40 +12,45 @@ excerpt: |
 start_date: 2024-07-8
 end_date: 2024-07-12
 location: "University of Wisconsin–Madison’s Fluno Center and Online via Zoom"
-image: "/images/events/Throughput-Computing-2024-BannerCHTC.jpg"
-header_image: "/images/events/Throughput-Computing-2024-BannerCHTC.jpg"
+image: "/images/events/throughput-2024-banners.png"
+header_image: "/images/events/throughput-2024-banners.png"
 ---
 
 {% capture main %}
 
-**Don't miss this opportunity to connect with colleagues and learn more about HTC.** 
+**Don't miss this opportunity to reconnect with colleagues and learn more about HTC.** 
 
-Join us for the second annual integrated Throughput Computing event — which combines HTCondor’s former annual event “HTCondor Week” and the OSG’s “All-Hands Meeting” — from July 8-12 to be held at the University of Wisconsin-Madison’s [Fluno Center](https://fluno.com/). HTC24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
+Join us for the second annual Throughput Computing event from July 8-12 to be held at the University of Wisconsin-Madison’s [Fluno Center](https://fluno.com/). HTC 24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
 
 
-Registration will open in March. This will primarily be an in-person event, but remote participation (via Zoom) for the many plenary events will also be offered.
-If you register for the in-person event at the University of Wisconsin–Madison, you can attend plenary and non-plenary sessions, mingle with colleagues, and have planned or ad hoc meetings. Evening events are also planned throughout the week.
+**[Registration is Open!](https://agenda.hep.wisc.edu/event/2175/)** This will primarily be an in-person event, but remote participation (via Zoom) for the many plenary events will also be offered.
+If you register for the in-person event at the University of Wisconsin–Madison, you can attend plenary and non-plenary sessions, mingle with colleagues, and have planned or ad hoc meetings. Evening social and recreational events are also planned throughout the week.
 
 
 ### The Agenda
 
-All the topics typically covered by HTCondor Week and the OSG All-Hands Meeting will be included:
+Topics Include:
 
-- Science Enabled by the OSPool and the HTCondor Software Suite (HTCSS)
-- OSG Technology
-- HTCondor Technology
-- HTCondor and OSG Tutorials
-- State of the OSG
-- Campus  Services and Perspectives
-
+- Grabbing Data by the Horns Without Getting Gored: Including OSDF, Pelican, Data Hungry Workflows and Tutorials
+- CC* Current and Prospective Campuses: Meet the Team, Stump the Experts and Technical Talks
+- Campus Services and Perspectives
+- Powering AI and ML with Distributed Computing
+- Featured Research on the OSPool
+- HTCondor In Depth and Under the Hood
+- HTCondor Training Outside the Box
+- Complex Workflows
+- Collaborations Meetings and Discussions 
+- U.S. ATLAS and CMS Meetings
+- and the Todd and Greg Comedy Hour!
+  
 
 ### Questions and Resources
 
 For questions about attending, speaking, accommodations, and other concerns please contact us at [htc@path-cc.io](mailto:htc@path-cc.io).
 
-To learn about this event in more detail, view last year’s schedules for HTC23:
+To learn about HTC 24 in more detail, view the event website:
 
-- [HTC23 Schedule](https://agenda.hep.wisc.edu/event/2014/timetable/#all.detailed)
+- [HTC 24 Site](https://agenda.hep.wisc.edu/event/2175/)
 {% endcapture %}
 
 
@@ -64,11 +69,19 @@ Organizations, researchers, campuses, facilitators and administrators interested
 
 ### Registration
 
-Registration for Throughput Computing 2024 will open in March. 
+Registration Is Open! [Visit the Event Site for registration information.](https://agenda.hep.wisc.edu/event/2175/) Registration is **required** for attendees, even if you plan to attend remotely only. Registration for in-person attendance will cost $125 per day; there is no fee for registration for virtual attendance. There are two places to register, depending upon whether you will be attending in person or remotely:
 
+- [In-Person Attendance](https://uwmadison.eventsair.com/htc24/reg/Site/Register)
+- [Virtual Participation](https://agenda.hep.wisc.edu/event/2175/registrations/257/)
+ 
 ### Questions?
 
 Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
+
+{% endcapture %}
+
+{% capture endblock %}
+
 
 {% endcapture %}
 
