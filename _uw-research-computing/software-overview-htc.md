@@ -55,3 +55,23 @@ In this section, we provide a brief introduction into how to use containers for 
 ## Python
 
 To use Python 3 on the HTC system, use an existing container or build your own with the version and packages that you want to use.
+
+<!--Replace ALL occurrences of accordionExample in this dropdown with a unique string id dropdown-->
+<!--For instance if this is for a python item you could replace it with `python`-->
+
+<div class="accordion pb-3" id="pythonExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header mt-0" id="pythonExample-heading">
+      <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#pythonExample-collapseOne" aria-expanded="true" aria-controls="pythonExample-collapseOne">
+        Python Dropdown
+      </button>
+    </h2>
+    <div id="pythonExample-collapseOne" class="accordion-collapse collapse" aria-labelledby="pythonExample-headingOne" data-bs-parent="#pythonExample">
+      <div class="accordion-body p-2">
+        <p>Python is an open-source programming language that emphasizes readability of the code, implicit typing, and the automatic management of process level details.</p>
+        <p>For more information, visit <a href="https://www.python.org/">python.org</a>.</p>
+        Presumably, markdown style code will be interpreted literally. For example, this link: [CHTC Recipes Repository](#chtc-recipes-repository).
+      </div>
+    </div>
+  </div>
+</div>
