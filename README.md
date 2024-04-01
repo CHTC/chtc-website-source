@@ -4,6 +4,10 @@ Source repository for CHTC website
 
 ![Build Status](https://github.com/CHTC/chtc-website-source/workflows/Build%2Fdeploy%20web%20pages/badge.svg)
 
+## Research Computing Guides Guide
+
+[View Research Computing Guides Guide Here](./_uw-research-computing/README.md)
+
 ## How to Edit
 
 ### Setup (one time, or anytime you want to start fresh)
