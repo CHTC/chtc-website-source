@@ -9,13 +9,16 @@ guide:
         - htc
 ---
 
+<a name="top"></a>
 While our High Throughput system has little in the way of pre-installed software, 
 we've created resources to help users set up the software they want to use for running their jobs.
 
 {% capture content %}
 
 [Quickstart](#quickstart)
+
 [CHTC Recipes Repository](#chtc-recipes-repository)
+
 [Containers](#containers)
 
 {% endcapture %}
@@ -28,7 +31,22 @@ More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repo
 
 <table>
     <tr>
+        <td><a href="#alphafold">AlphaFold</a></td>
+        <td><a href="#gromacs">GROMACS</a></td>
+        <td><a href="#java">Java</a></td>
+    </tr>
+    <tr>
+        <td><a href="#julia">Julia</a></td>
+        <td><a href="#matlab">Matlab</a></td>
+        <td><a href="#miniconda">Miniconda</a></td>
+    </tr>
+    <tr>
         <td><a href="#python">Python</a></td>
+        <td><a href="#pytorch">PyTorch</a></td>
+        <td><a href="#r-lang">R</a></td>
+    </tr>
+    <tr>
+        <td><a href="#tensorflow">TensorFlow</a></td>
     </tr>
 </table>
 
@@ -48,30 +66,43 @@ In this section, we provide a brief introduction into how to use containers for 
 
 #### Apptainer
 
-### Find an Existing Container
+### Use an Existing Container
 
 ### Build Your Own Container
 
 ## Python
 
-To use Python 3 on the HTC system, use an existing container or build your own with the version and packages that you want to use.
+### Quickstart<a name="python-quickstart"></a>
 
-<!--Replace ALL occurrences of accordionExample in this dropdown with a unique string id dropdown-->
-<!--For instance if this is for a python item you could replace it with `python`-->
+To use Python 3 on the HTC system, we recommend that you use an existing container, or build your own with the version and packages that you want to use.
 
-<div class="accordion pb-3" id="pythonExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header mt-0" id="pythonExample-heading">
-      <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#pythonExample-collapseOne" aria-expanded="true" aria-controls="pythonExample-collapseOne">
-        Python Dropdown
-      </button>
-    </h2>
-    <div id="pythonExample-collapseOne" class="accordion-collapse collapse" aria-labelledby="pythonExample-headingOne" data-bs-parent="#pythonExample">
-      <div class="accordion-body p-2">
-        <p>Python is an open-source programming language that emphasizes readability of the code, implicit typing, and the automatic management of process level details.</p>
-        <p>For more information, visit <a href="https://www.python.org/">python.org</a>.</p>
-        Presumably, markdown style code will be interpreted literally. For example, this link: [CHTC Recipes Repository](#chtc-recipes-repository).
-      </div>
-    </div>
-  </div>
-</div>
+To use an existing container with a base installation of python, follow the [instructions above](#use-an-existing-container) and choose from one of these sources: 
+
+* [OSG Base Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
+* [DockerHub Python Containers](https://hub.docker.com/_/python)
+
+To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the following example [Recipes](#chtc-recipes-repository):
+
+* [Base python](https://github.com/CHTC/recipes/tree/main/software/Python/base-python)
+* [Python with numpy](https://github.com/CHTC/recipes/tree/main/software/Python/numpy)
+* [Python with scipy](https://github.com/CHTC/recipes/tree/main/software/Python/scipy)
+
+See also: [Miniconda](#miniconda), PyTorch, TensorFlow
+
+[Back to Top](#top)
+
+### More information<a name="python-info"></a>
+
+All CHTC machines have a base installation of Python 3.
+The exact versions and packages installed, however, can vary from machine to machine.
+You should be able to include simple python commands in your calculations, i.e., `python3 simple-script.py`.
+
+If you need a specific version of Python 3 or would like to install your own packages, we recommend that you use a container as described above.
+
+The example recipes provided above for building your own container are intended for python packages that can be installed using `python3 -m pip install`. 
+Additional software can be installed when building your own container.
+
+For packages that need to be installed with `conda install`, see the section on [Miniconda](#miniconda). 
+
+## Miniconda
+
