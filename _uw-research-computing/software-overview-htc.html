@@ -59,7 +59,13 @@ More information is provided in the <a href="#chtc-recipes-repository">Recipes r
     </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade fw-normal" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Home tab content</div>
+    <div class="tab-pane fade fw-normal" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      {% capture content %}
+      ### Home tab content
+      Home tab paragraph
+      {% endcapture %}
+      {% include /components/markdown-container.html %}
+    </div>
     <div class="tab-pane fade fw-normal" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Profile tab content</div>
     <div class="tab-pane fade fw-normal" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Contact tab content</div>
 </div>
