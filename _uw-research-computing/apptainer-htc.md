@@ -44,23 +44,23 @@ Container jobs are able to take advantage of more of CHTC's High Throughput reso
 
 ### Use an existing container
 
-If you or a group member have already created the Apptainer `.sif` file, or using a container from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/), follow these steps to use it in an HTCondor job.
+If you or a group member have already created the Apptainer `.sif` file, or are using a container from reputable sources such as the [OSG](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/), follow these steps to use it in an HTCondor job.
 
 #### 1. Add the container `.sif` file to your submit file <a name="quickstart-use-submit"></a>
 
-If the `.sif` file is **on the submit server**:
+If the `.sif` file is **in a `/home` directory**:
 
 ```
 container_image = path/to/my-container.sif
 ```
 
-If the `.sif` file is **on the `/staging` server**:
+If the `.sif` file is **in a `/staging` directory**:
 
 ```
 container_image = file:///staging/path/to/my-container.sif
 ```
 
-If the `.sif` file is **on the `/staging` server AND you are using `+WantFlocking` or `+WantGliding`**:
+If the `.sif` file is **in a `/staging` directory AND you are using `+WantFlocking` or `+WantGliding`**:
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
@@ -123,7 +123,7 @@ This file is used for actually executing the container.
 While still in the interactive build job, run the command
 
 ```
-apptainer shell my-container.sif
+apptainer shell -e my-container.sif
 ```
 {:.term}
 
@@ -185,6 +185,22 @@ If the software you want to use is not in the CHTC Recipes repository, you can c
    We encourage you to read our [Building an Apptainer Container](apptainer-build.html) guide to learn more about the components of the Apptainer definition file.
    An advanced example of a definition file is provided in our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide.
 
+### A simple definition file
+
+As a simple example, here is the `.def` file that uses an existing container with python installed inside (`python:3.11`, [from DockerHub](https://hub.docker.com/_/python)), 
+and furthermore installs the desired packages `cowsay` and `tqdm`:
+
+```
+Bootstrap: docker
+From: python:3.11
+
+%post
+    python3 -m pip install cowsay tqdm
+```
+
+Remember that the `.def` file contains the *instructions* for creating your container and is not itself the container. 
+To use the software defined within the `.def` file, you will need to first "build" the container and create the `.sif` file, as described in the following sections.
+
 [Jump back to Quickstart](#quickstart-build-definition-file)
 
 ## Start an Interactive Build Job
@@ -207,6 +223,8 @@ executable = /usr/bin/hostname
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = image.def
+
+requirements = (HasCHTCStaging == true)
 
 +IsBuildJob = true
 request_cpus = 4
@@ -354,6 +372,8 @@ log = job.log
 error = job.err
 output = job.out
 
+requirements = (HasCHTCStaging == true)
+
 # Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 1
 request_memory = 4GB
@@ -391,7 +411,9 @@ to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/ser
 > - Run the executable script inside the container, as the submit user, with key directories mounted inside (such as the working directory, /staging directories, etc.)
 > - Transfer output files back to the submit server
 >
-> For testing purposes, you can replicate the behavior of a container job with the following command (remember to first start an interactive job if you are logged in to the submit server).
+> For testing purposes, you can replicate the behavior of a container job with the following command.
+> First, start an interactive job.
+> Then run this command but change `my-container.sif` and `myExecutable.sh` to the names of the `.sif` and `.sh` files that you are using:
 >
 > ```
 > apptainer exec \
