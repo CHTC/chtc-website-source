@@ -65,7 +65,7 @@ CHTC provides helpful information for learning about creating and using Docker a
 
 **CHTC users are welcome to reach out to the Facilitation team via email or in office hours for help installing their software into a container.** 
 
-## Option 2: Request a Specific Operating System
+### Option 2: Request a Specific Operating System
 
 At any time, you can require a specific operating system 
 version (or versions) for your jobs. This option is more limiting because 
