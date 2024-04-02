@@ -104,7 +104,7 @@ DockerHub. See [this link to our guide on building containers](docker-build.html
 documentation](https://docs.docker.com/engine/getstarted/) for more
 information.
 
-Simiilarly, we recommend using container tags. Importantly, whenever you make a significant change
+Similarly, we recommend using container tags. Importantly, whenever you make a significant change
 to your container, you will want to use a new tag name to ensure that your jobs are getting an
 updated version of the container, and not an 'old' version that has been cached by DockerHub 
 or CHTC.
