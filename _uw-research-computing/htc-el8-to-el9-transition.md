@@ -34,7 +34,7 @@ CentOS Stream 9.
 
 ## What You Need to Do
 * **No action is needed for researchers already using a Docker or Singularity/Apptainer software containers in their jobs.** Becuase software containers have a small operating system installed inside of them, these jobs carry everything they need with them and do not rely signifcantly on the host operating system. By default, your jobs will match to any operating system in the HTC pool, including the new CentOS Stream 9 hosts. 
-* **Researchers not already using a Docker or Apptainer software container will need to either (a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled or (b) switch to using a software container (recommended). Option A ** 
+* **Researchers not already using a Docker or Apptainer software container will need to either (a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled or (b) switch to using a software container (recommended). See the [below](#option-1-using-a-container-recommended) for additional information** 
 
 ## Troubleshooting and Additional Comments
 * **If your jobs were running successfully before, but now failing**, scale down your submissions 
