@@ -37,10 +37,6 @@ CentOS Stream 9.
 * **Researchers not already using a Docker or Apptainer software container will need to either (a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled or (b) switch to using a software container (recommended). See the [below](#option-1-using-a-container-recommended) for additional information** 
 
 ## Troubleshooting and Additional Comments
-* **If your jobs were running successfully before, but now failing**, scale down your submissions 
-and run a few test jobs on the new operating system (now the default). If you absolutely 
-HAVE to keep running, you can continue to (temporarily) run on CentOS 8 by following 
-the instructions [below](#requesting-a-specific-operating-system)
 * **If you are having trouble getting your jobs to run successfully on the new operating system**, 
 please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
 * **If you would like to access as much computing capacity as possible**, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the [information below](#option-1-using-a-container-recommended) for detailed instructions on creating and using software containers. 
