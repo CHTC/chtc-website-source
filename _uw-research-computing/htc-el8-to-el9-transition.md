@@ -41,7 +41,7 @@ CentOS Stream 9.
 please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
 * **If you would like to access as much computing capacity as possible**, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the [information below](#option-1-using-a-container-recommended) for detailed instructions on creating and using software containers. 
 
-## Use a Container or Request a Specific Operating System
+## Options For Transitioning Your Jobs
 
 1. [Use a Container (recommended)](#option-1-using-a-container-recommended)
 1. [Request a Specific Operating System](#option-2-requesting-a-specific-operating-system).
