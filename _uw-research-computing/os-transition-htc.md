@@ -12,8 +12,7 @@ guide:
 ### Default Operating System
 
 By default, CHTC-managed submit servers automatically add a job 
-requirement that requires jobs to run on servers running our primary operating system,
-CentOS 8, unless otherwise specified by the user. There are two options to override this
+requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this
 default: 
 
 1. [Using a Container (recommended)](#option-1-using-a-container-recommended)
@@ -40,31 +39,36 @@ version (or versions) for your jobs. This option is more limiting because
 you are restricted to operating systems used by CHTC, and the number of nodes 
 running that operating system. 
 
-### Use Both CentOS 7 (previous default) and CentOS Stream 8 (current default)
+### Use Both CentOS Stream 8 (previous default) and CentOS Stream 9 (current default)
 
 To request that your jobs run on computers running **either** version of 
 CentOS Linux, add the following requirements line to your submit file:
 
 ``` {.sub}
-requirements = (OpSysMajorVer == 7) || (OpSysMajorVer == 8)
+requirements = (OpSysMajorVer == 8) || (OpSysMajorVer == 9)
 ```
+If you are not comfortable with using class ads in your requirements statement, you can also add one or both of these options to your submit file instead: 
 
-> Note: this requirement is not necessary for jobs that use Docker containers; 
+```{.sub}
++WantEL9  # tells HTCondor your job can be matched to CentOS Stream 9 machines
++WantEL8  # tells HTCondor your job can be matched to CentOS Stream 8 machines
+```
+> Note: these requirements are not necessary for jobs that use Docker containers; 
 > these jobs will run on servers with any operating system automatically. 
 
 The advantage of this option is that you may be able to access a
 larger number of computers in CHTC. Note that code compiled on a
 newer version of Linux may not run older versions of Linux. Make
-sure to test your jobs specifically on both CentOS Stream 8 and CentOS 7
+sure to test your jobs specifically on both CentOS Stream 8 and CentOS Stream 9
 before using the option above.
 
-### Require CentOS 7 (previous default)
+### Require CentOS 8 (previous default)
 
-To request that your jobs run on servers with CentOS 7 **only** add the
+To request that your jobs run on servers with CentOS 8 **only** add the
 following requirements line to your submit file:
 
 ``` {.sub}
-requirements = (OpSysMajorVer == 7)
+requirements = (OpSysMajorVer == 8)
 ```
 
 ### Combining Requirements
@@ -81,7 +85,13 @@ requirements = (Target.HasCHTCStaging == true)
 You can add the requirements for using CentOS Stream 8 like so:
 
 ``` {.submit}
-requirements = (Target.HasCHTCStaging == true) && (OpSysMajorVer == 7)
+requirements = (Target.HasCHTCStaging == true) && (OpSysMajorVer == 8)
+```
+Or use the +WantEL syntax: 
+
+``` {.submit}
+requirements = (Target.HasCHTCStaging == true)
++WantEL8 
 ```
 
 
