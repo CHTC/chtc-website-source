@@ -46,7 +46,7 @@ please contact the facilitation team at chtc@cs.wisc.edu or [come to office hour
 1. [Use a Container (recommended)](#option-1-using-a-container-recommended)
 1. [Request a Specific Operating System](#option-2-requesting-a-specific-operating-system).
 
-## Option 1: Use a Software Container (Recommended)
+### Option 1: Use a Software Container (Recommended)
 
 Using a software container to provide a base version of Linux will allow you to 
 run on any nodes in the HTC system regardless of the operating system it is running, and not limit you to a subset of nodes. 
