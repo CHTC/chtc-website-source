@@ -12,8 +12,8 @@ excerpt: |
 start_date: 2024-07-8
 end_date: 2024-07-12
 location: "University of Wisconsin–Madison’s Fluno Center and Online via Zoom"
-image: "/assets/images/events/throughput-2024-banners.png"
-header_image: "/assets/images/events/throughput-2024-banners.png"
+image: "/images/events/throughput-2024-banners.png"
+header_image: "/images/events/throughput-2024-banners.png"
 ---
 
 {% capture main %}
@@ -81,3 +81,6 @@ Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
 
 
 {% endcapture %}
+
+
+{% include event/event-page.html %}
