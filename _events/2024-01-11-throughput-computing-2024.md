@@ -1,6 +1,6 @@
 ---
-short_title: Registration is Open for Throughput Computing 2024
-title: Registration is Open for Throughput Computing 2024 
+short_title: You are Invited to Attend Throughput Computing 2024
+title: Join Us at Throughput Computing 2024, July 8 - 12
 
 layout: events
 published: true
@@ -12,37 +12,34 @@ excerpt: |
 start_date: 2024-07-8
 end_date: 2024-07-12
 location: "University of Wisconsin–Madison’s Fluno Center and Online via Zoom"
-image: "/images/events/throughput-2024-banners.png"
-header_image: "/images/events/throughput-2024-banners.png"
+image: "/assets/images/events/throughput-2024-banners.png"
+header_image: "/assets/images/events/throughput-2024-banners.png"
 ---
 
 {% capture main %}
 
 **Don't miss this opportunity to reconnect with colleagues and learn more about HTC.** 
 
-Join us for the second annual Throughput Computing event from July 8-12 to be held at the University of Wisconsin-Madison’s [Fluno Center](https://fluno.com/). HTC 24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
+You are invited to the second annual Throughput Computing event (HTC 24) from July 8-12 to be held at the University of Wisconsin-Madison’s [Fluno Center](https://fluno.com/). The goal of HTC 24 is to bring together researchers, campuses, facilitators, administrators, government representatives and professionals interested in high throughput computing to:
+
+- Engage with the throughput computing community, including the [OSG Consortium](https://osg-htc.org/) and the [PATh](https://path-cc.io/) and [Pelican](https://pelicanplatform.org/) teams and many others contributing to HTC
+- Be inspired by engaging presentations and conversations with community leaders and contributors sharing common interests
+- Learn about HTC and new developments to advance your science, your collaboration or your campus
+
+**[Registration is Open!](https://agenda.hep.wisc.edu/event/2175/)**
+
+This year for the first time we will have a track dedicated to CC* or potential CC* campuses on Wednesday, July 10th. These sessions will bring together campus staff involved with HTC with the OSG Consortium staff engaged with and supporting these organizations. The goal is to connect with and learn from each other to improve the experience of providing or utilizing capacity and to advance scientific research.
+
+Also new this year following its success at the European HTCondor Week, we are introducing Lightning Showcases from the community on Tuesday, July 9. We hope you will consider presenting. Because we want to keep this relaxed and informal, sign up will only be available shortly before HTC begins. 
+
+We also encourage you to consider a more formal talk. Technical presentations at HTC 24 are short, typically 20 minutes in length. Applying merely requires a [brief abstract submission](https://agenda.hep.wisc.edu/event/2175/abstracts/). 
+
+Madison, Wisconsin is both a beautiful and a popular place to visit in the summer; we encourage you to register and book your hotel room as early as possible. Visit the Event Site [Local Arrangements](https://agenda.hep.wisc.edu/event/2175/page/67-local-arrangements) for accommodation details. 
 
 
-**[Registration is Open!](https://agenda.hep.wisc.edu/event/2175/)** This will primarily be an in-person event, but remote participation (via Zoom) for the many plenary events will also be offered.
-If you register for the in-person event at the University of Wisconsin–Madison, you can attend plenary and non-plenary sessions, mingle with colleagues, and have planned or ad hoc meetings. Evening social and recreational events are also planned throughout the week.
+HTC 24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
 
 
-### The Agenda
-
-Topics Include:
-
-- Grabbing Data by the Horns Without Getting Gored: Including OSDF, Pelican, Data Hungry Workflows and Tutorials
-- CC* Current and Prospective Campuses: Meet the Team, Stump the Experts and Technical Talks
-- Campus Services and Perspectives
-- Powering AI and ML with Distributed Computing
-- Featured Research on the OSPool
-- HTCondor In Depth and Under the Hood
-- HTCondor Training Outside the Box
-- Complex Workflows
-- Collaborations Meetings and Discussions 
-- U.S. ATLAS and CMS Meetings
-- and the Todd and Greg Comedy Hour!
-  
 
 ### Questions and Resources
 
@@ -61,7 +58,7 @@ Monday, July 8 through Friday, July 12, 2024.
 
 ### Who
 
-Organizations, researchers, campuses, facilitators and administrators interested in the [HTCondor Software Suite](https://htcondor.org) and high throughput computing or the [OSG Consortium](https://osg-htc.org/) resources or services (including the [OSPool](https://osg-htc.org/services/open_science_pool.html), the [Open Science Data Federation](https://osg-htc.org/services/osdf.html), the [Pelican Platform](https://pelicanplatform.org/), or the [PATh Facility](https://path-cc.io/facility/).)
+Researchers, campuses, scientific collaborations, facilitators, administrators and professionals interested in the [HTCondor Software Suite](https://htcondor.org) and high throughput computing or the [OSG Consortium](https://osg-htc.org/) resources or services (including the [OSPool](https://osg-htc.org/services/open_science_pool.html), the [Open Science Data Federation](https://osg-htc.org/services/osdf.html), the [Pelican Platform](https://pelicanplatform.org/), or the [PATh Facility](https://path-cc.io/facility/).)
 
 ### Where
 
@@ -84,5 +81,3 @@ Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
 
 
 {% endcapture %}
-
-{% include event/event-page.html %}
