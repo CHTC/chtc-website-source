@@ -176,6 +176,17 @@ require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
 	{:.sub}
 	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
 
+ 	> We are testing a new set of submit commands for specifying the requirements of the GPU:
+  	>
+  	> ```
+   	> gpus_minimum_capability = <version>
+    	> gpus_maximum_capability = <version>
+     	> gpus_minimum_memory = <quantity>
+    	> ```{:.sub}
+     	>
+      	> More information on these commands can be found in the [HTCondor manual](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability).
+      
+
 - **Indicate Software or Data Requirements Using `requirements`**: If your data is large enough to 
 	use our `/staging` data system (see more information [here](file-avail-largedata.html)), 
 	or you are using modules or other software in our shared `/software` system, include 
