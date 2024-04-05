@@ -64,11 +64,27 @@ In this section, we provide a brief introduction into how to use containers for 
 
 ## Java
 
+### Quickstart<a name="java-quickstart"></a>
+
+### More information<a name="java-info"></a>
+
 ## Julia
+
+### Quickstart<a name="julia-quickstart"></a>
+
+### More information<a name="julia-info"></a>
 
 ## Matlab
 
+### Quickstart<a name="matlab-quickstart"></a>
+
+### More information<a name="matlab-info"></a>
+
 ## Miniconda
+
+### Quickstart<a name="miniconda-quickstart"></a>
+
+### More information<a name="miniconda-info"></a>
 
 ## Python
 
@@ -106,5 +122,7 @@ For packages that need to be installed with `conda install`, see the section on 
 
 ## R
 
+### Quickstart<a name="r-quickstart"></a>
 
+### More information<a name="r-info"></a>
 
