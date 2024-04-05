@@ -31,22 +31,14 @@ More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repo
 
 <table>
     <tr>
-        <td><a href="#alphafold">AlphaFold</a></td>
-        <td><a href="#gromacs">GROMACS</a></td>
         <td><a href="#java">Java</a></td>
-    </tr>
-    <tr>
         <td><a href="#julia">Julia</a></td>
         <td><a href="#matlab">Matlab</a></td>
+    </tr>
+    <tr>
         <td><a href="#miniconda">Miniconda</a></td>
-    </tr>
-    <tr>
         <td><a href="#python">Python</a></td>
-        <td><a href="#pytorch">PyTorch</a></td>
         <td><a href="#r-lang">R</a></td>
-    </tr>
-    <tr>
-        <td><a href="#tensorflow">TensorFlow</a></td>
     </tr>
 </table>
 
@@ -70,6 +62,14 @@ In this section, we provide a brief introduction into how to use containers for 
 
 ### Build Your Own Container
 
+## Java
+
+## Julia
+
+## Matlab
+
+## Miniconda
+
 ## Python
 
 ### Quickstart<a name="python-quickstart"></a>
@@ -87,7 +87,7 @@ To build your own container with the version and packages that you want, follow 
 * [Python with numpy](https://github.com/CHTC/recipes/tree/main/software/Python/numpy)
 * [Python with scipy](https://github.com/CHTC/recipes/tree/main/software/Python/scipy)
 
-See also: [Miniconda](#miniconda), PyTorch, TensorFlow
+See also: [Miniconda](#miniconda)
 
 [Back to Top](#top)
 
@@ -104,5 +104,7 @@ Additional software can be installed when building your own container.
 
 For packages that need to be installed with `conda install`, see the section on [Miniconda](#miniconda). 
 
-## Miniconda
+## R
+
+
 
