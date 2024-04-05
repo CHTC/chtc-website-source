@@ -38,7 +38,7 @@ More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repo
     <tr>
         <td><a href="#miniconda">Miniconda</a></td>
         <td><a href="#python">Python</a></td>
-        <td><a href="#r-lang">R</a></td>
+        <td><a href="#r">R</a></td>
     </tr>
 </table>
 
