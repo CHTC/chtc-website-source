@@ -90,9 +90,46 @@ In this section, we provide a brief introduction into how to use containers for 
 
 ### Quickstart<a name="miniconda-quickstart"></a>
 
+To use Miniconda environments on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container) 
+and use our example [Miniconda Recipe](https://github.com/CHTC/recipes/tree/main/software/Miniconda) in our [recipes repository](#chtc-recipes-repository):
+
+* [Miniconda](https://github.com/CHTC/recipes/tree/main/software/Miniconda/miniconda)
+
+Alternatively, you could follow our old process for creating a portable copy of a conda environment, as described in our guide 
+[Use Conda Environments to Run Python Jobs](conda-installation.html). Note, however, that this process may be sensitive to the 
+operating system of the execution point, and not all conda packages can be made portable using this process.
+
+See also: [Python](#python), [R](#r)
+
 [Back to Top](#top)
 
 ### More information<a name="miniconda-info"></a>
+
+The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
+Miniconda can be used to install Python and R and corresponding packages. 
+But if you only need to install Python or R, and do not otherwise need to use a `conda install` command to set up the packages, 
+you should see our instructions for setting up [Python](#python) or [R](#r) because there is less chance of obscure errors when building your container.
+
+When building or using a Miniconda container, you do not need to create or activate a conda environment.
+For the build process, you skip directly to the `conda install` commands you want to run.
+Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+
+#### Executable
+
+If you are planning to execute a python `.py` script using your Miniconda container, you can follow the instructions in the [Python Executable](#python-executable) section.
+
+If you are planning to execute a `.R` script using your Miniconda container, you can follow the instructions in the [R Executable](#r-executable) section.
+
+Otherwise, you can use a bash `.sh` script as the submit file `executable`:
+
+```
+#!/bin/bash
+
+<your commands go here>
+```
+
+where the contents of the file are the commands that you want to execute using your conda environment.
+You do not and should not try to activate the conda environment in the executable if you are using a container.
 
 ## Python
 
@@ -105,7 +142,8 @@ To use an existing container with a base installation of python, follow the [ins
 * [OSG Base Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
 * [DockerHub Python Containers](https://hub.docker.com/_/python)
 
-To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the example [Python Recipes](https://github.com/CHTC/recipes/tree/main/software/Python/) in our [recipes repository](#chtc-recipes-repository):
+To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) 
+and use one of the example [Python Recipes](https://github.com/CHTC/recipes/tree/main/software/Python/) in our [recipes repository](#chtc-recipes-repository):
 
 * [Base python](https://github.com/CHTC/recipes/tree/main/software/Python/base-python)
 * [Python with numpy](https://github.com/CHTC/recipes/tree/main/software/Python/numpy)
@@ -128,7 +166,7 @@ Additional software can be installed when building your own container.
 
 For packages that need to be installed with `conda install`, see the section on [Miniconda](#miniconda). 
 
-#### Executable
+#### Executable<a name="python-executable"></a>
 
 When using a container, you can use a python `.py` script as the submit file `executable`, provided that the first line (the "shebang") in the `.py` file is
 
@@ -159,7 +197,8 @@ To use an existing container with a base installation of R, follow the [instruct
 * [OSG R containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr))
 * [Rocker R containers](https://rocker-project.org/images/)
 
-To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the following example [R Recipes](https://github.com/CHTC/recipes/tree/main/software/R/) in our [recipes repository](#chtc-recipes-repository):
+To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) 
+and use one of the following example [R Recipes](https://github.com/CHTC/recipes/tree/main/software/R/) in our [recipes repository](#chtc-recipes-repository):
 
 * [Base R](https://github.com/CHTC/recipes/tree/main/software/R/base-r)
 * [R with tidyverse](https://github.com/CHTC/recipes/tree/main/software/R/tidyverse)
@@ -172,7 +211,7 @@ To build your own container with the version and packages that you want, follow 
 No CHTC machine has R pre-installed, so you **must** configure a portable copy of R to work on the HTC system.
 Using a container as described above is the easiest way to accomplish this.
 
-#### Executable
+#### Executable<a name="r-executable"></a>
 
 When using a container, you can use a `.R` script as the submit file `executable`, provided that the first line (the "shebang") in the `.R` file is
 
