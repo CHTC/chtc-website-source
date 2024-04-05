@@ -66,11 +66,15 @@ In this section, we provide a brief introduction into how to use containers for 
 
 ### Quickstart<a name="java-quickstart"></a>
 
+[Back to Top](#top)
+
 ### More information<a name="java-info"></a>
 
 ## Julia
 
 ### Quickstart<a name="julia-quickstart"></a>
+
+[Back to Top](#top)
 
 ### More information<a name="julia-info"></a>
 
@@ -78,11 +82,15 @@ In this section, we provide a brief introduction into how to use containers for 
 
 ### Quickstart<a name="matlab-quickstart"></a>
 
+[Back to Top](#top)
+
 ### More information<a name="matlab-info"></a>
 
 ## Miniconda
 
 ### Quickstart<a name="miniconda-quickstart"></a>
+
+[Back to Top](#top)
 
 ### More information<a name="miniconda-info"></a>
 
@@ -97,7 +105,7 @@ To use an existing container with a base installation of python, follow the [ins
 * [OSG Base Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
 * [DockerHub Python Containers](https://hub.docker.com/_/python)
 
-To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the following example [Recipes](#chtc-recipes-repository):
+To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the example [Python Recipes](https://github.com/CHTC/recipes/tree/main/software/Python/) in our [recipes repository](#chtc-recipes-repository):
 
 * [Base python](https://github.com/CHTC/recipes/tree/main/software/Python/base-python)
 * [Python with numpy](https://github.com/CHTC/recipes/tree/main/software/Python/numpy)
@@ -120,9 +128,66 @@ Additional software can be installed when building your own container.
 
 For packages that need to be installed with `conda install`, see the section on [Miniconda](#miniconda). 
 
+#### Executable
+
+When using a container, you can use a python `.py` script as the submit file `executable`, provided that the first line (the "shebang") in the `.py` file is
+
+```
+#!/usr/bin/env python3
+```
+
+with the rest of the file containing the commands that you want to run using Python.
+
+Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `python3` command:
+
+```
+#!/bin/bash
+
+python3 my-script.py
+```
+
+In this case, remember to include your `.py` file in the `transfer_input_files` line of your submit file.
+
 ## R
 
 ### Quickstart<a name="r-quickstart"></a>
 
+To use R on the HTC system, we recommend that you use an existing container, or build your own with the version and packages that you want to use.
+
+To use an existing container with a base installation of R, follow the [instructions above](#use-an-existing-container) and choose from one of these sources:
+
+* [OSG R containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr))
+* [Rocker R containers](https://rocker-project.org/images/)
+
+To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) and use one of the following example [R Recipes](https://github.com/CHTC/recipes/tree/main/software/R/) in our [recipes repository](#chtc-recipes-repository):
+
+* [Base R](https://github.com/CHTC/recipes/tree/main/software/R/base-r)
+* [R with tidyverse](https://github.com/CHTC/recipes/tree/main/software/R/tidyverse)
+* [R with geospatial packages](https://github.com/CHTC/recipes/tree/main/software/R/geospatial)
+
+[Back to Top](#top)
+
 ### More information<a name="r-info"></a>
 
+No CHTC machine has R pre-installed, so you **must** configure a portable copy of R to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.
+
+#### Executable
+
+When using a container, you can use a `.R` script as the submit file `executable`, provided that the first line (the "shebang") in the `.R` file is
+
+```
+#!/usr/bin/env Rscript
+```
+
+with the rest of the file containing the commands that you want to run using R.
+
+Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `Rscript` command:
+
+```
+#!/bin/bash
+
+Rscript my-script.R
+```
+
+In this case, remember to include your `.R` file in the `transfer_input_files` line of your submit file.
