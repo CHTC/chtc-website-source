@@ -111,7 +111,7 @@ The Toolboxes available for each supported version of Matlab are described here:
 Navigate to the text file for the version of interest, and look at the section named "INSTALL PRODUCTS".
 The example recipes linked above provide instructions on how to specify the packages you want to install when building the container.
 
-#### Executable
+#### Executable<a name="matlab-executable"></a>
 
 When using the Matlab container, we recommend the following process for executing your Matlab commands in an HTCondor job:
 
@@ -135,7 +135,7 @@ When using the Matlab container, we recommend the following process for executin
    ```
    {:.sub}
 
-#### Arguments
+#### Arguments<a name="matlab-arguments"></a>
 
 To pass arguments from the submit file to your `.m` script, you need to set up your executable `.sh` file to create an additional `.m` file with the desired variable definitions.
 For example, to use an argument to define a different value of `data_file` for each job, you would use the following executable:
