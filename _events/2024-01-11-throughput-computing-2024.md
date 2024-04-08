@@ -63,7 +63,7 @@ Monday, July 8 through Friday, July 12, 2024.
 
 ### Who
 
-Researchers, campuses, scientific collaborations, facilitators, administrators and professionals interested in the [HTCondor Software Suite](https://htcondor.org) and high throughput computing or the [OSG Consortium](https://osg-htc.org/) resources or services (including the [OSPool](https://osg-htc.org/services/open_science_pool.html), the [Open Science Data Federation](https://osg-htc.org/services/osdf.html), the [Pelican Platform](https://pelicanplatform.org/), or the [PATh Facility](https://path-cc.io/facility/).)
+Researchers, campuses, scientific collaborations, facilitators, administrators, and professionals interested in the [HTCondor Software Suite](https://htcondor.org) and high throughput computing or the [OSG Consortium](https://osg-htc.org/) resources or services (including the [OSPool](https://osg-htc.org/services/open_science_pool.html), the [Open Science Data Federation](https://osg-htc.org/services/osdf.html), the [Pelican Platform](https://pelicanplatform.org/), or the [PATh Facility](https://path-cc.io/facility/).)
 
 ### Where
 
