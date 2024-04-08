@@ -16,6 +16,7 @@ image: "/images/events/throughput-2024-banners.png"
 header_image: "/images/events/throughput-2024-banners.png"
 ---
 
+
 {% capture main %}
 
 **Don't miss this opportunity to connect with the High Throughput Computing community.** 
@@ -82,13 +83,3 @@ Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
 {% endcapture %}
 
 {% capture endblock %}
-
-
-{% endcapture %}
-
-{% include event/event-page.html %}
-
-{% endcapture %}
-
-
-{% include event/event-page.html %}
