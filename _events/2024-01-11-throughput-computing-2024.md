@@ -6,7 +6,7 @@ layout: events
 published: true
 
 excerpt: |
-    Don't miss this opportunity to reconnect with colleagues and learn about more about HTC.
+    Don't miss this opportunity to connect with the High Throughput Computing community.
 
 
 start_date: 2024-07-8
@@ -18,30 +18,34 @@ header_image: "/images/events/throughput-2024-banners.png"
 
 {% capture main %}
 
-**Don't miss this opportunity to reconnect with colleagues and learn more about HTC.** 
+**Don't miss this opportunity to connect with the High Throughput Computing community.** 
 
-You are invited to the second annual Throughput Computing event (HTC 24) from July 8-12 to be held at the University of Wisconsin-Madison’s [Fluno Center](https://fluno.com/). The goal of HTC 24 is to bring together researchers, campuses, facilitators, administrators, government representatives and professionals interested in high throughput computing to:
+You are invited to the second annual Throughput Computing event (HTC 24) from July 8-12 to be held at in beautiful Madison, Wisconsin. HTC 24 brings together researchers, campuses, science collaborations, facilitators, administrators, government representatives and professionals interested in high throughput computing to:
 
 - Engage with the throughput computing community, including the [OSG Consortium](https://osg-htc.org/) and the [PATh](https://path-cc.io/) and [Pelican](https://pelicanplatform.org/) teams and many others contributing to HTC
-- Be inspired by engaging presentations and conversations with community leaders and contributors sharing common interests
+- Be inspired by presentations and conversations with community leaders and contributors sharing common interests
 - Learn about HTC and new developments to advance your science, your collaboration or your campus
 
 **[Registration is Open!](https://agenda.hep.wisc.edu/event/2175/)**
 
-This year for the first time we will have a track dedicated to CC* or potential CC* campuses on Wednesday, July 10th. These sessions will bring together campus staff involved with HTC with the OSG Consortium staff engaged with and supporting these organizations. The goal is to connect with and learn from each other to improve the experience of providing or utilizing capacity and to advance scientific research.
+### Connect with CC* Campuses and OSG Staff 
 
-Also new this year following its success at the European HTCondor Week, we are introducing Lightning Showcases from the community on Tuesday, July 9. We hope you will consider presenting. Because we want to keep this relaxed and informal, sign up will only be available shortly before HTC begins. 
+[CC* campuses](https://osg-htc.org/campus-cyberinfrastructure.html) (current and potential) will have the opportunity to build connections and to advance their technical know how at the dedicated CC* track held Wednesday, July 10th. These sessions will bring together campus staff, including staff involved directly with HTC technology, with the OSG Consortium staff. The goal is to engage with and to learn from each other to improve the experience of providing or utilizing capacity and to advance scientific research on your own campus and across the nation.
+
+### Speaking Opportunities 
+
+We are introducing Lightning Showcases from the community on Tuesday, July 9.  Come and give a lightning talk about your project, tool, or activities around HTC.  To keep the session relaxed and informal, there will be opportunities for signing up for a slot on the first day of the workshop.
 
 We also encourage you to consider a more formal talk. Technical presentations at HTC 24 are short, typically 20 minutes in length. Applying merely requires a [brief abstract submission](https://agenda.hep.wisc.edu/event/2175/abstracts/). 
 
-Madison, Wisconsin is both a beautiful and a popular place to visit in the summer; we encourage you to register and book your hotel room as early as possible. Visit the Event Site [Local Arrangements](https://agenda.hep.wisc.edu/event/2175/page/67-local-arrangements) for accommodation details. 
+### Visiting Madison
 
-
-HTC 24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
-
+Madison, Wisconsin is both a beautiful and a popular place to visit in the summer. We do have a limited number of room blocks reserved for HTC 24 and encourage you to register and book your hotel room as early as possible. Visit the Event Site [Local Arrangements](https://agenda.hep.wisc.edu/event/2175/page/67-local-arrangements) for accommodation details. 
 
 
 ### Questions and Resources
+
+HTC 24 is sponsored by the OSG Consortium, the HTCondor team and the UW-Madison Center for High Throughput Computing. 
 
 For questions about attending, speaking, accommodations, and other concerns please contact us at [htc@path-cc.io](mailto:htc@path-cc.io).
 
@@ -79,6 +83,10 @@ Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
 
 {% capture endblock %}
 
+
+{% endcapture %}
+
+{% include event/event-page.html %}
 
 {% endcapture %}
 
