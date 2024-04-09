@@ -139,14 +139,14 @@ you would have `docker://nvcr.io/nvidia/repository:tag`.
 For historical reasons, the Apptainer container file has the file extension `.sif`. 
 The syntax for giving HTCondor the name of the container file depends on where it is located on the CHTC system.
 
-If the `.sif` file is in a ** /home directory**:
+If the `.sif` file is in a **`/home` directory**:
 
 ```
 container_image = path/to/my-container.sif
 ```
 {:.sub}
 
-If the `.sif` file is in a ** `/staging` directory**:
+If the `.sif` file is in a **`/staging` directory**:
 
 ```
 container_image = file:///staging/path/to/my-container.sif
