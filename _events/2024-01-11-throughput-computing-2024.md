@@ -83,3 +83,4 @@ Please email [htc@path-cc.io](mailto:htc@path-cc.io) with any questions.
 {% endcapture %}
 
 {% capture endblock %}
+{% endcapture %}
