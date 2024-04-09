@@ -95,20 +95,16 @@ This requires that you have Docker installed on your computer so that you can bu
 [https://apptainer.org/](https://apptainer.org/)
 
 Apptainer is an open-source container technology for building containers. 
-Apptainer creates a single, stand-alone file that is the container image ([?](#what-is-container-image)).
+Apptainer creates a single, stand-alone file that is the ([container image](#what-is-container-image)).
 As long as you have the container image file, you can use Apptainer to run your container.
 
 On the HTC system, you can provide the name of your Apptainer file in your submit file,
 and HTCondor will use a copy of it to create the software environment for executing your job.
 You can use Apptainer to build the container image file on CHTC servers, so there is no need to install the container software on your own computer.
-You do, however, have to manage the location of the file and since the file can also be large (100s MB - 10s GB), it is not easily shared outside of CHTC.
 
 ### Use an Existing Container
 
-If you or a colleague have already built a container for use on CHTC, it is fairly straightforward to modify your jobs to use the container environment.
-
-> **Note**: When using a container on CHTC, you are unable to modify the contents of the container. 
-> If you want to make permanent changes to the container, you should build your own as discussed below.
+If you or a colleague have already built a container for use on CHTC, it is fairly straightforward to modify your jobs to use the container environment as discussed below.
 
 #### Use a Docker container
 
@@ -143,21 +139,21 @@ you would have `docker://nvcr.io/nvidia/repository:tag`.
 For historical reasons, the Apptainer container file has the file extension `.sif`. 
 The syntax for giving HTCondor the name of the container file depends on where it is located on the CHTC system.
 
-If the `.sif` file is **on the submit server**:
+If the `.sif` file is in a ** /home directory**:
 
 ```
 container_image = path/to/my-container.sif
 ```
 {:.sub}
 
-If the `.sif` file is **on the `/staging` server**:
+If the `.sif` file is in a ** `/staging` directory**:
 
 ```
 container_image = file:///staging/path/to/my-container.sif
 ```
 {:.sub}
 
-If the `.sif` file is **on the `/staging` server AND you are using `+WantFlocking` or `+WantGliding`**:
+If the `.sif` file is **in a `/staging` directory AND you are using `+WantFlocking` or `+WantGliding`**:
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
@@ -196,7 +192,7 @@ The general process is the same whether you are using Docker or Apptainer.
 
    To use the container on CHTC servers, you'll need to distribute the container to right location.
    For Docker containers, this means "pushing" the container to Docker Hub or similar container registry.
-   For Apptainer containers, this typically means copying the container `.sif` file to the [staging system](file-avail-largedata.html).
+   For Apptainer containers, this typically means copying the container `.sif` file to the [/staging system](file-avail-largedata.html).
 
 You can then use the container following the [instructions above](#use-an-existing-container).
 
