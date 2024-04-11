@@ -2,11 +2,98 @@
 highlighter: none
 layout: guide
 title: Running Matlab Jobs
+software-icon: matlab-icon.png
 guide:
     order: 1
     category: Software Solutions
     tag:
         - htc
+excerpt: |
+        To use Matlab on the HTC system, we recommend that you build your own container with the version and packages that you want to use.
+        Follow the [instructions above](#build-your-own-container) and use one of the example [Matlab Recipes](https://github.com/CHTC/recipes/tree/main/software/Matlab) in our [recipes repository](#chtc-recipes-repository):
+
+        * [Base Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab/base-matlab)
+        * [Matlab with Symbolic Math Toolbox](https://github.com/CHTC/recipes/tree/main/software/Matlab/symbolic-math)
+
+        Once you've built your container, follow the [instructions above](#use-an-existing-container) to use the container in your jobs.    
+
+        > **Note**: Because Matlab is a licensed software, you **must** add the following line to your submit file:
+        > 
+        > ```
+        > concurrency_limits = MATLAB:1
+        > ```
+        > {:.sub}
+        > 
+        > Failure to do so may cause your or other users' jobs to fail to obtain a license from the license server.
+
+        ### More information
+
+        CHTC has a site license for Matlab that allows for up to 10,000 jobs to run at any given time across *all CHTC users*. 
+        Hence the requirement for adding the line `concurrency_limits = MATLAB:1` to your submit files, so that HTCondor can keep track of which jobs are using or will use a license.
+
+        Following the instructions above, you are able to install a variety of Matlab Toolboxes when building the container.
+        The Toolboxes available for each supported version of Matlab are described here: https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/mpm-input-files/.
+        Navigate to the text file for the version of interest, and look at the section named "INSTALL PRODUCTS".
+        The example recipes linked above provide instructions on how to specify the packages you want to install when building the container.
+
+        #### Executable
+
+        When using the Matlab container, we recommend the following process for executing your Matlab commands in an HTCondor job:
+
+        1. Put your Matlab commands in a `.m` script. For this example, we'll call it `my-script.m`.
+
+        2. Create the file `run-matlab.sh` with the following contents:
+        
+        ```
+        #!/bin/bash
+        
+        matlab -batch "my-script"
+        ```
+
+        Note that in the script, the `.m` extension has been dropped from the file name (uses `"my-script"` instead of `"my-script.m"`).
+
+        3. In your submit file, set the `.sh` script as the executable and list the `.m` file to be transferred:
+
+        ```
+        executable = run-matlab.sh
+        transfer_input_files = my-script.m
+        ```
+        {:.sub}
+
+        #### Arguments
+
+        To pass arguments from the submit file to your `.m` script, you need to set up your executable `.sh` file to create an additional `.m` file with the desired variable definitions.
+        For example, to use an argument to define a different value of `data_file` for each job, you would use the following executable:
+
+        ```
+        #!/bin/bash
+
+        cat << EOF > variables.m
+        data_file = '${1}'
+        EOF
+
+        matlab -batch "variables;my-script"
+
+        rm variables.m
+        ```
+
+        The `variables.m` file is created with `data_file` defined as the value passed from the submit file `arguments` line.
+        Then when matlab is started, it first loads the definitions from the `variables.m` line before executing your main `my-script.m`.
+        (Of course, for this to be useful, the code in `my-script.m` needs to use the variable `data_file` to do something.)
+        Finally, the temporary `variables.m` file is removed so that it is not brought back to the submit server when the job completes.
+
+        More than one variable can be defined.
+        For example, if we wanted to add the variable `x`, we would use this:
+
+        ```
+        cat << EOF > variables.m
+        data_file = '${1}'
+        x = ${2}
+        EOF
+        ```
+
+        where the values of `data_file` and `x` will correspond to the first and second values of the submit file `arguments` line, respectively.
+
 ---
 
 

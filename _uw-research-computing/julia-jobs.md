@@ -2,11 +2,55 @@
 highlighter: none
 layout: guide
 title: Running Julia Jobs
+software-icon: julia-icon.png
 guide:
     order: 6
     category: Software Solutions
     tag:
         - htc
+excerpt: |
+        To use Julia on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container)
+        and use our example [Julia Recipe](https://github.com/CHTC/recipes/tree/main/software/Julia) in our [recipes repository](#chtc-recipes-repository):
+
+        * [Julia](https://github.com/CHTC/recipes/tree/main/sfotware/Julia/julia)
+
+        Once you've built the container, follow the [instructions above](#use-an-existing-container) to use the container in your jobs.
+
+        Alternatively, you could follow our old process for using a portable copy of Julia and creating a portable copy of your packages, 
+        as described in our guide [Run Julia Jobs](julia-jobs.html). 
+        Note that this process may be sensitive to the operating system of the execution point.
+        If you run into issues, we recommend using a container instead.
+
+        ### More information
+
+        No CHTC machine has Julia pre-installed, so you **must** configure a portable copy of Julia to work on the HTC system.
+        Using a container as described above is the easiest way to accomplish this.
+
+        #### Executable
+
+        When using a container, you can use a `.jl` script as the submit file `executable`, provided that the first line (the "shebang") in the `.jl` file is
+
+        ```
+        #!/usr/bin/env julia
+        ```
+
+        with the rest of the file containing the commands you want to run using Julia.
+
+        Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `julia` command:
+
+        ```
+        #!/bin/bash
+
+        julia my-script.jl
+        ```
+
+        In this case, remember to include your `.jl` file in the `transfer_input_files` line of your submit file.
+
+        #### Arguments
+
+        For more information on passing arguments to a Julia script, see the 
+        [Julia documentation](https://docs.julialang.org/en/v1/manual/command-line-interface/#Using-arguments-inside-scripts).
+
 ---
 
 # Overview
