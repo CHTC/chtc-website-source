@@ -1,3 +1,6 @@
 [submodule "_news"]
 	path = _news
 	url = https://github.com/CHTC/Articles.git
+[submodule "staff-list"]
+	path = staff-list
+	url = https://github.com/CHTC/staff-list.git
