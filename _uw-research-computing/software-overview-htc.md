@@ -283,7 +283,7 @@ java -jar program.jar
 To use Julia on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container)
 and use our example [Julia Recipe](https://github.com/CHTC/recipes/tree/main/software/Julia) in our [recipes repository](#chtc-recipes-repository):
 
-* [Julia](https://github.com/CHTC/recipes/tree/main/sfotware/Julia/julia)
+* [Julia](https://github.com/CHTC/recipes/tree/main/software/Julia/base-julia)
 
 Once you've built the container, follow the [instructions above](#use-an-existing-container) to use the container in your jobs.
 
@@ -420,9 +420,9 @@ where the values of `data_file` and `x` will correspond to the first and second 
 ### Quickstart<a name="miniconda-quickstart"></a>
 
 To use Miniconda environments on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container) 
-and use our example [Miniconda Recipe](https://github.com/CHTC/recipes/tree/main/software/Miniconda) in our [recipes repository](#chtc-recipes-repository):
+and use our example [Conda Recipe](https://github.com/CHTC/recipes/tree/main/software/Conda) in our [recipes repository](#chtc-recipes-repository):
 
-* [Miniconda](https://github.com/CHTC/recipes/tree/main/software/Miniconda/miniconda)
+* [Conda](https://github.com/CHTC/recipes/tree/main/software/Conda/base-conda)
 
 Once you've built your container, follow the [instructions above](#use-an-existing-container) to use the container in your jobs.
 
