@@ -10,24 +10,28 @@ guide:
 ---
 
 <a name="top"></a>
-While our High Throughput system has little in the way of pre-installed software, 
-we've created resources to help users set up the software they want to use for running their jobs.
+In order to run jobs on the High Throughput Computing (HTC) system, researchers need to set up their software on the system. 
+This guide introduces how to build software in a container (our recommended strategy), links to a repository with a selection of software installation “recipes”, and quick links to common software packages and their installation recommendations. 
 
 {% capture content %}
 
 [Quickstart](#quickstart)
 
-[CHTC Recipes Repository](#chtc-recipes-repository)
-
 [Containers](#containers)
+
+[Recipes](#recipes)
+
+[Software](#software)
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
+---
+
 ## Quickstart
 
 Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
-More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repository) and [Containers](#containers) sections.
+More information is provided in the [CHTC Recipes Repository](#recipes) and [Containers](#containers) sections.
 
 <table>
     <tr>
@@ -42,10 +46,16 @@ More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repo
     </tr>
 </table>
 
-## CHTC Recipes Repository
+---
 
-CHTC provides examples for software and workflows for use on our systems in our "Recipes" repository on Github: 
+## Recipes
+
+CHTC provides specific examples for software and workflows for use on our systems in our "Recipes" repository on Github: 
 [https://github.com/CHTC/recipes](https://github.com/CHTC/recipes).
+
+Links to specific recipes are used in the [Software](#software) section for certain softwares and coding languages.
+
+---
 
 ## Containers
 
@@ -216,6 +226,27 @@ You can use CHTC servers to build the container, so there is no need to install 
 
 [Back to Top](#top)
 
+---
+
+## Software
+
+The following sections cover how to deploy specific softwares and coding langauges on the HTC system. 
+
+<table>
+    <tr>
+        <td><a href="#java">Java</a></td>
+        <td><a href="#julia">Julia</a></td>
+        <td><a href="#matlab">Matlab</a></td>
+    </tr>
+    <tr>
+        <td><a href="#miniconda">Miniconda</a></td>
+        <td><a href="#python">Python</a></td>
+        <td><a href="#r">R</a></td>
+    </tr>
+</table>
+
+> Note: we are planning to move each section to a standalone webpage in the future, but they will still be linked through this webpage.
+
 ## Java
 
 ### Quickstart<a name="java-quickstart"></a>
@@ -281,7 +312,7 @@ java -jar program.jar
 ### Quickstart<a name="julia-quickstart"></a>
 
 To use Julia on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container)
-and use our example [Julia Recipe](https://github.com/CHTC/recipes/tree/main/software/Julia) in our [recipes repository](#chtc-recipes-repository):
+and use our example [Julia Recipe](https://github.com/CHTC/recipes/tree/main/software/Julia) in our [recipes repository](#recipes):
 
 * [Julia](https://github.com/CHTC/recipes/tree/main/software/Julia/base-julia)
 
@@ -329,7 +360,7 @@ For more information on passing arguments to a Julia script, see the
 ### Quickstart<a name="matlab-quickstart"></a>
 
 To use Matlab on the HTC system, we recommend that you build your own container with the version and packages that you want to use.
-Follow the [instructions above](#build-your-own-container) and use one of the example [Matlab Recipes](https://github.com/CHTC/recipes/tree/main/software/Matlab) in our [recipes repository](#chtc-recipes-repository):
+Follow the [instructions above](#build-your-own-container) and use one of the example [Matlab Recipes](https://github.com/CHTC/recipes/tree/main/software/Matlab) in our [recipes repository](#recipes):
 
 * [Base Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab/base-matlab)
 * [Matlab with Symbolic Math Toolbox](https://github.com/CHTC/recipes/tree/main/software/Matlab/symbolic-math)
@@ -420,7 +451,7 @@ where the values of `data_file` and `x` will correspond to the first and second 
 ### Quickstart<a name="miniconda-quickstart"></a>
 
 To use Miniconda environments on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container) 
-and use our example [Conda Recipe](https://github.com/CHTC/recipes/tree/main/software/Conda) in our [recipes repository](#chtc-recipes-repository):
+and use our example [Conda Recipe](https://github.com/CHTC/recipes/tree/main/software/Conda) in our [recipes repository](#recipes):
 
 * [Conda](https://github.com/CHTC/recipes/tree/main/software/Conda/base-conda)
 
@@ -474,7 +505,7 @@ To use an existing container with a base installation of python, follow the [ins
 * [DockerHub Python Containers](https://hub.docker.com/_/python)
 
 To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) 
-and use one of the example [Python Recipes](https://github.com/CHTC/recipes/tree/main/software/Python/) in our [recipes repository](#chtc-recipes-repository):
+and use one of the example [Python Recipes](https://github.com/CHTC/recipes/tree/main/software/Python/) in our [recipes repository](#recipes):
 
 * [Base python](https://github.com/CHTC/recipes/tree/main/software/Python/base-python)
 * [Python with numpy](https://github.com/CHTC/recipes/tree/main/software/Python/numpy)
@@ -531,7 +562,7 @@ To use an existing container with a base installation of R, follow the [instruct
 * [Rocker R containers](https://rocker-project.org/images/)
 
 To build your own container with the version and packages that you want, follow the [instructions above](#build-your-own-container) 
-and use one of the following example [R Recipes](https://github.com/CHTC/recipes/tree/main/software/R/) in our [recipes repository](#chtc-recipes-repository):
+and use one of the following example [R Recipes](https://github.com/CHTC/recipes/tree/main/software/R/) in our [recipes repository](#recipes):
 
 * [Base R](https://github.com/CHTC/recipes/tree/main/software/R/base-r)
 * [R with tidyverse](https://github.com/CHTC/recipes/tree/main/software/R/tidyverse)
