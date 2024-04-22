@@ -89,7 +89,7 @@ You can add the requirements for using CentOS Stream 8 like so:
 ``` {.submit}
 requirements = (Target.HasCHTCStaging == true) && (OpSysMajorVer == 8)
 ```
-Or use the +WantEL syntax: 
+Or use the `chtc_want_el` syntax: 
 
 ``` {.submit}
 requirements = (Target.HasCHTCStaging == true)
