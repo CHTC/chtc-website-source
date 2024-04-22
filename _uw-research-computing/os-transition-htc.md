@@ -69,6 +69,12 @@ requirements = (OpSysMajorVer == 8)
 chtc_want_el8 = true
 ```
 
+To request that your jobs run on servers with CentOS 9 **only**, add one of the following requirements lines to your submit file: 
+
+```{.sub}
+requirements = (OpSysMajorVer == 9)
+# or
+chtc_want_el9 = true 
 ### Combining Requirements
 
 Does your job already have a requirements statement? If so, you can
