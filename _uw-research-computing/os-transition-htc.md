@@ -52,7 +52,7 @@ If you are not comfortable with using class ads in your requirements statement, 
 ```{.sub}
 chtc_want_el9 = true  # tells HTCondor your job should be matched to CentOS Stream 9 machines
 # or
-+WantEL8  # tells HTCondor your job can be matched to CentOS Stream 8 machines
+chtc_want_el8 = true  # tells HTCondor your job should be matched to CentOS Stream 8 machines
 ```
 > Note: these requirements are not necessary for jobs that use Docker containers; 
 > these jobs will run on servers with any operating system automatically. 
