@@ -1,6 +1,6 @@
 ---
 short_title: "Save The Date: 2024 European HTCondor Workshop" 
-title: "Save The Date for European HTCondor Workshop, September 24-27"
+title: "Save The Date for the European HTCondor Workshop, September 24-27"
 
 layout: events
 published: true
