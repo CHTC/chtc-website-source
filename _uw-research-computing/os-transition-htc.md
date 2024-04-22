@@ -50,7 +50,8 @@ requirements = (OpSysMajorVer == 8) || (OpSysMajorVer == 9)
 If you are not comfortable with using class ads in your requirements statement, you can also add **one** of these options to your submit file instead: 
 
 ```{.sub}
-+WantEL9  # tells HTCondor your job can be matched to CentOS Stream 9 machines
+chtc_want_el9 = true  # tells HTCondor your job should be matched to CentOS Stream 9 machines
+# or
 +WantEL8  # tells HTCondor your job can be matched to CentOS Stream 8 machines
 ```
 > Note: these requirements are not necessary for jobs that use Docker containers; 
