@@ -70,6 +70,6 @@ CHTC provides helpful information for learning about creating and using Docker a
 At any time, you can require a specific operating system 
 version (or versions) for your jobs. This option is more limiting because 
 you are restricted to operating systems used by CHTC, and the number of nodes 
-running that operating system. Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significant disrupted by this transition.
+running that operating system. Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significantly disrupted by this transition.
 
 Instructions for requesting a specific operating system(s) is outlined in [Use Custom Linux Versions in CHTC](os-transition-htc.html).
