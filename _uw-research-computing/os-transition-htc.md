@@ -47,7 +47,7 @@ CentOS Linux, add the following requirements line to your submit file:
 ``` {.sub}
 requirements = (OpSysMajorVer == 8) || (OpSysMajorVer == 9)
 ```
-If you are not comfortable with using class ads in your requirements statement, you can also add one or both of these options to your submit file instead: 
+If you are not comfortable with using class ads in your requirements statement, you can also add **one** of these options to your submit file instead: 
 
 ```{.sub}
 +WantEL9  # tells HTCondor your job can be matched to CentOS Stream 9 machines
