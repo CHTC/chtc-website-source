@@ -70,6 +70,8 @@ following requirements line to your submit file:
 
 ``` {.sub}
 requirements = (OpSysMajorVer == 8)
+# or 
+chtc_want_el8 = true
 ```
 
 ### Combining Requirements
