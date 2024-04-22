@@ -65,8 +65,8 @@ before using the option above.
 
 ### Require CentOS 8 (previous default)
 
-To request that your jobs run on servers with CentOS 8 **only** add the
-following requirements line to your submit file:
+To request that your jobs run on servers with CentOS 8 **only**, add one of the
+following requirements lines to your submit file:
 
 ``` {.sub}
 requirements = (OpSysMajorVer == 8)
