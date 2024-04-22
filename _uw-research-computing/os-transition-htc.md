@@ -94,7 +94,7 @@ Or use the +WantEL syntax:
 
 ``` {.submit}
 requirements = (Target.HasCHTCStaging == true)
-+WantEL8 
+chtc_want_el8 = true
 ```
 
 
