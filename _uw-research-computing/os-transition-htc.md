@@ -58,7 +58,7 @@ newer version of Linux may not run older versions of Linux. Make
 sure to test your jobs specifically on both CentOS Stream 8 and CentOS Stream 9
 before using the option above.
 
-### Require CentOS 8 (previous default)
+### Require CentOS Stream 8 (previous default) or CentOS Stream 9
 
 To request that your jobs run on servers with CentOS 8 **only**, add one of the
 following requirements lines to your submit file:
