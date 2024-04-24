@@ -4,17 +4,19 @@ layout: guide
 title: Create a Portable Python Installation with Miniconda
 alt_title: Use Conda Environments to Run Python Jobs
 guide:
-    order: 4
-    category: Software Solutions
     tag:
         - htc
 ---
 
 The Anaconda/Miniconda distribution of Python is a common tool for 
 installing and managing Python-based software and other tools. This guide 
-describes how to use Miniconda to create a Python 
+describes how to use Miniconda to create a portable Python 
 environment for use in CHTC jobs. 
 
+**We recommend setting up a container for using Conda, as described [here](software-overview-htc.md#miniconda-quickstart-a).**
+We are keeping this process as an alternative. 
+
+<!--
 # Overview
 
 When should you use Miniconda as an installation method in CHTC? 
@@ -52,9 +54,7 @@ to create a more consistent and reproducible environment with specified versions
 packages.
 
 # Option 1: Pre-Install Miniconda and Transfer to Jobs
-
-In this approach, we will create an entire software installation inside Miniconda 
-and then use a tool called `conda pack` to package it up for running jobs. 
+-->
 
 ## 1. Create a Miniconda installation
 
@@ -233,6 +233,7 @@ In your submit file, make sure to have the following:
   delivering the installation to your jobs, 
   likely our [SQUID web proxy](file-avail-squid.html).**
 
+<!--
 # Option 2: Install Miniconda Inside Each Job
 
 In this approach, rather than copying the Miniconda installation with each job, 
@@ -293,8 +294,9 @@ arguments = myscript.py
 transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input.file
 ```
 {:.sub}
+-->
 
-# Specifying Exact Dependency Versions
+## Specifying Exact Dependency Versions
 
 An important part of improving reproducibility and consistency between runs
 is to ensure that you use the correct/expected versions of your dependencies.
@@ -316,6 +318,7 @@ This file can be re-used by a different conda command to recreate that
 exact environment on another computer.
 
 To create an `environment.yml` file from your currently-activated environment, run
+
 ```
 [alice@submit]$ conda env export > environment.yml
 ```
@@ -326,10 +329,12 @@ environment*. This can sometimes be problematic if you are moving between
 platforms because a package version may not be available on some other platform,
 causing an "unsatisfiable dependency" or "inconsistent environment" error.
 A much less strict pinning is
+
 ```
 [alice@submit]$ conda env export --from-history > environment.yml
 ```
 {: .term}
+
 which only lists packages that you installed manually, and **does not pin their
 versions unless you yourself pinned them during installation**. 
 If you need an intermediate solution, it is also possible to manually edit 
@@ -341,10 +346,12 @@ transferable between platforms (e.g., between Windows and Linux).
 **We strongly recommend using the strictest possible pinning available to you.**
 
 To create an environment from an `environment.yml` file, run
+
 ```
 [alice@submit]$ conda env create -f environment.yml
 ```
 {: .term}
+
 By default, the name of the environment will be whatever the name of the source
 environment was; you can change the name by adding a `-n <name>` option to the
 `conda env create` command.

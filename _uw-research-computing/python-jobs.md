@@ -3,8 +3,6 @@ highlighter: none
 layout: guide
 title: Run Python Jobs
 guide:
-    order: 3
-    category: Software Solutions
     tag:
         - htc
 ---

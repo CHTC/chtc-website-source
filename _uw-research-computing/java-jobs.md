@@ -3,8 +3,6 @@ highlighter: none
 layout: guide
 title: Run Java Jobs
 guide:
-    order: 6
-    category: Software Solutions
     tag:
         - htc
 ---

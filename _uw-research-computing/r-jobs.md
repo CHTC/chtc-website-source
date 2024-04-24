@@ -3,8 +3,6 @@ highlighter: none
 layout: guide
 title: Run R Jobs
 guide:
-    order: 5
-    category: Software Solutions
     tag:
         - htc
 ---
