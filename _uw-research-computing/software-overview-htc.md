@@ -247,6 +247,8 @@ The following sections cover how to deploy specific softwares and coding langaug
 
 > Note: we are planning to move each section to a standalone webpage in the future, but they will still be linked through this webpage.
 
+---
+
 ## Java
 
 ### Quickstart<a name="java-quickstart"></a>
@@ -307,6 +309,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 java -jar program.jar
 ```
 
+---
+
 ## Julia
 
 ### Quickstart<a name="julia-quickstart"></a>
@@ -359,6 +363,8 @@ In this case, remember to include your `.jl` file in the `transfer_input_files` 
 
 For more information on passing arguments to a Julia script, see the 
 [Julia documentation](https://docs.julialang.org/en/v1/manual/command-line-interface/#Using-arguments-inside-scripts).
+
+---
 
 ## Matlab
 
@@ -449,6 +455,8 @@ EOF
 
 where the values of `data_file` and `x` will correspond to the first and second values of the submit file `arguments` line, respectively.
 
+---
+
 ## Miniconda
 
 ### Quickstart<a name="miniconda-quickstart"></a>
@@ -499,6 +507,8 @@ Otherwise, you can use a bash `.sh` script as the submit file `executable`:
 
 where the contents of the file are the commands that you want to execute using your conda environment.
 You do not and should not try to activate the conda environment in the executable if you are using a container.
+
+---
 
 ## Python
 
@@ -556,6 +566,8 @@ python3 my-script.py
 ```
 
 In this case, remember to include your `.py` file in the `transfer_input_files` line of your submit file.
+
+---
 
 ## R
 
