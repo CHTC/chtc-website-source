@@ -5,7 +5,10 @@ title: Run R Jobs
 guide:
     tag:
         - htc
+published: false
 ---
+
+<!-- Archived 2024-05 -->
 
 _ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ 
 
