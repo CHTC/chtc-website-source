@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: "Overview: Software"
+title: "<b>Overview: Software</b>"
 guide:
     order: 0
     category: Software Solutions
