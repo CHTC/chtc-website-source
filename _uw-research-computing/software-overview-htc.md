@@ -367,7 +367,7 @@ For more information on passing arguments to a Julia script, see the
 Build a container with Matlab & toolboxes installed inside:
 
 1. [How to build your own container](#build-your-own-container)
-2. [Example container recipes for Julia](https://github.com/CHTC/recipes/tree/main/software/Matlab)
+2. [Example container recipes for Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab)
 3. [Use your container in your HTC jobs](#use-an-existing-container)
 
 > **Note**: Because Matlab is a licensed software, you **must** add the following line to your submit file:
