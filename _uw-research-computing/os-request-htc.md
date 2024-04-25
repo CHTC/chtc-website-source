@@ -25,7 +25,7 @@ Using a container to provide a base version of Linux will allow you to
 run on any nodes in the HTC system, and not limit you to a subset of nodes. 
 
 After finding a container with the desired version of Linux, just follow our instructions 
-for [Docker](docker-jobs.html) or [Singularity/Apptainer](singularity-htc.html) jobs. 
+for [Docker](docker-jobs.html) or [Singularity/Apptainer](apptainer-htc.html) jobs. 
 
 Note that the default Linux containers on Docker Hub are often missing commonly installed 
 packages. Our collaborators in OSG Services maintain a few curated containers with a 
@@ -38,6 +38,27 @@ At any time, you can require a specific operating system
 version (or versions) for your jobs. This option is more limiting because 
 you are restricted to operating systems used by CHTC, and the number of nodes 
 running that operating system. 
+
+### Require CentOS Stream 8 (previous default) or CentOS Stream 9
+
+To request that your jobs run on servers with CentOS 8 **only**, add the
+following line to your submit file:
+
+``` {.sub}
+chtc_want_el8 = true
+```
+
+To request that your jobs run on servers with CentOS 9 **only**, add 
+the following line to your submit file: 
+
+``` {.sub}
+chtc_want_el9 = true 
+```
+
+> Note that after May 1, 2024, CentOS9 will be the default and CentOS8 will be phased out 
+> by the middle of summer 2024. If you think your code relies on CentOS8, make sure to 
+> see our [transition guide](htc-el8-to-el9-transition.html) or talk to the facilitation 
+> team about a long-term strategy for running your work. 
 
 ### Use Both CentOS Stream 8 (previous default) and CentOS Stream 9 (current default)
 
@@ -56,25 +77,6 @@ newer version of Linux may not run older versions of Linux. Make
 sure to test your jobs specifically on both CentOS Stream 8 and CentOS Stream 9
 before using the option above.
 
-### Require CentOS Stream 8 (previous default) or CentOS Stream 9
-
-To request that your jobs run on servers with CentOS 8 **only**, add one of the
-following requirements lines to your submit file:
-
-``` {.sub}
-requirements = (OpSysMajorVer == 8)
-# or 
-chtc_want_el8 = true
-```
-
-To request that your jobs run on servers with CentOS 9 **only**, add one of the following requirements lines to your submit file: 
-
-``` {.sub}
-requirements = (OpSysMajorVer == 9)
-# or
-chtc_want_el9 = true 
-### Combining Requirements
-
 Does your job already have a requirements statement? If so, you can
 add the requirements above to the pre-existing requirements by using
 the characters `&&`. For example, if your jobs already require large
@@ -84,17 +86,9 @@ data staging:
 requirements = (Target.HasCHTCStaging == true) 
 ```
 
-You can add the requirements for using CentOS Stream 8 like so:
+You can add the requirements for using both operating system versions like so: 
 
 ``` {.sub}
-requirements = (Target.HasCHTCStaging == true) && (OpSysMajorVer == 8)
+requirements = (Target.HasCHTCStaging == true) && ((OpSysMajorVer == 8) || (OpSysMajorVer == 9))
 ```
-Or use the `chtc_want_el` syntax: 
-
-``` {.submit}
-requirements = (Target.HasCHTCStaging == true)
-chtc_want_el8 = true
-```
-
-
 
