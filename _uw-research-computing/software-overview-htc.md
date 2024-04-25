@@ -1,12 +1,13 @@
 ---
 highlighter: none
 layout: guide
-title: "Overview: Software"
+title: "Overview: How to use Software"
 guide:
     order: 0
     category: Software Solutions
     tag:
         - htc
+        - bold
 ---
 
 <a name="top"></a>
