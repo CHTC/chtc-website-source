@@ -13,7 +13,7 @@ title: Get Help
     {% for facilitator in facilitators %}
         <div class="col-auto">
             <figure class="p-3 d-flex flex-column">
-                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
+                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="/staff-list/{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
                 <figcaption class="mt-1 text-center"><b>{{ facilitator.name }}</b><br>{{facilitator.title}}</figcaption>
             </figure>
         </div>
