@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: HTC System Transition to a New Linux Version (CentOS Stream 9)
+title: "HTC System Transition to a New Linux Version (CentOS Stream 9)"
 guide: 
     button_class: bg-warning
     order: 0
