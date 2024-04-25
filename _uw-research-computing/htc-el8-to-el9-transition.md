@@ -6,8 +6,8 @@ guide:
     button_class: bg-warning
     order: 0
     category: Basics and Policies
-        tag:
-        - htc
+    tag:
+    - htc
 ---
 
 Starting in March 2024, CHTC's high throughput computing (HTC) system began upgrading
