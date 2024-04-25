@@ -26,11 +26,10 @@ also include a notification to the `chtc-users` mailing list.
 *Note: By default, CHTC-managed submit servers automatically add a job 
 requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user.*
 
-* **April 2023**: HTC system will support CentOS 7, CentOS Stream 8, and CentOS Stream 9. By default, 
+* **April 2024**: HTC system will support CentOS 7, CentOS Stream 8, and CentOS Stream 9. By default, 
 all jobs not using a software container will continue to match to servers running CentOS 8, however,
 **users should begin using software containers or testing jobs on servers running CentOS Stream 9**. 
-* **May 2023**: Default operating system requirements for jobs will change from CentOS 8 to 
-CentOS Stream 9.
+* **May 1, 2024**: Default operating system requirements for jobs will change from CentOS 8 to CentOS Stream 9.
 
 ## What You Need to Do
 
@@ -70,14 +69,9 @@ CHTC provides helpful information for learning about creating and using Docker a
 - [Build a Docker Container Image](docker-build.html)
 - [Running HTC Jobs Using Docker Containers](docker-jobs.html)
 
-**CHTC users are welcome to reach out to the Facilitation team via email or in office hours for help installing their software into a container.** 
+**CHTC users are welcome to reach out to the Facilitation team via email or in office hours for help installing their software into a container.**
 
 ### Option 2: Transition to a New Operating System
-
-At any time, you can require a specific operating system 
-version (or versions) for your jobs. Instructions for requesting a specific operating system(s) are outlined here:
-
-* [Use Custom Linux Versions in CHTC](os-transition-htc.html).
 
 This option is more limiting because 
 you are restricted to operating systems used by CHTC, and the number of nodes 
@@ -85,8 +79,14 @@ running that operating system.
 
 Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significantly disrupted by this transition. We recommend: 
 
-* Test your jobs by requesting the new operating system  (`chtc_want_el9 = true `) for 1-2 test jobs. (Note that after May 1, this option will not be required as EL9 will be default.)
+* Test your jobs by requesting the new operating system  (`chtc_want_el9 = true`, see
+more details below) for 1-2 test jobs. (Note that after May 1, this option will not be required as EL9 will be default.)
 * If needed, recompile your code. 
+
+Note that if you have not tested your code by May 1, you may want to opt into the old 
+operating system temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
+
+* [Use Custom Linux Versions in CHTC](os-transition-htc.html).
 
 **If you are having trouble getting your jobs to run successfully on the new operating system**, 
 please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
