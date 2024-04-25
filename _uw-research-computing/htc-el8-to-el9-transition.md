@@ -83,11 +83,10 @@ running that operating system.
 Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significantly disrupted by this transition. We recommend: 
 
 * Test your jobs by requesting the new operating system  (`chtc_want_el9 = true`, see
-more details below) for 1-2 test jobs. (Note that after May 1, this option will not be required as EL9 will be default.)
+more details below) for 1-2 test jobs. (Note that after May 1, this option will not be required as CentOS Stream 9 will be the default.)
 * If needed, recompile your code. 
 
-Note that if you have not tested your code by May 1, you may want to opt into the old 
-operating system temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
+Note that if you have not tested your code by May 1, you may want to opt into CentOS Stream 8 temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
 
 * [Use Custom Linux Versions in CHTC](os-request-htc.html#option-2-requesting-a-specific-operating-system)
 
