@@ -9,7 +9,6 @@ guide:
         - htc
 --- 
 
-### Default Operating System
 
 By default, CHTC-managed submit servers automatically add a job 
 requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this
