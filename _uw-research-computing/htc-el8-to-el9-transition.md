@@ -7,7 +7,7 @@ guide:
     order: 0
     category: Basics and Policies
     tag:
-    - htc
+        - htc
 ---
 
 Starting in March 2024, CHTC's high throughput computing (HTC) system began upgrading
@@ -30,6 +30,7 @@ requirement that requires jobs to run on servers running our primary operating s
 all jobs not using a software container will continue to match to servers running CentOS 8, however,
 **users should begin using software containers or testing jobs on servers running CentOS Stream 9**. 
 * **May 1, 2024**: Default operating system requirements for jobs will change from CentOS 8 to CentOS Stream 9.
+* **May 8, 2024**: No more CentOS8 servers remain in the HTC system. 
 
 ## What You Need to Do
 
@@ -46,6 +47,8 @@ all jobs not using a software container will continue to match to servers runnin
 - (b) switch to using a software container (recommended). See the [below](#option-1-using-a-container-recommended) for additional information. 
 
 If you would like to access as much computing capacity as possible, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the [information below](#option-1-using-a-container-recommended) for detailed instructions on creating and using software containers. 
+
+If you are unable to test or transition your jobs to CentOS Stream 9 before May 1st, there is an option to opt into CentOS Stream 8 for the short term. See [Transition to New Operating System](#option-2-transition-to-new-operations-system).
 
 ## Options For Transitioning Your Jobs
 
@@ -86,7 +89,7 @@ more details below) for 1-2 test jobs. (Note that after May 1, this option will 
 Note that if you have not tested your code by May 1, you may want to opt into the old 
 operating system temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
 
-* [Use Custom Linux Versions in CHTC](os-transition-htc.html).
+* [Use Custom Linux Versions in CHTC](os-request-htc.html#option-2-requesting-a-specific-operating-system)
 
 **If you are having trouble getting your jobs to run successfully on the new operating system**, 
 please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
