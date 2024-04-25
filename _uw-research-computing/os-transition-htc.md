@@ -69,7 +69,7 @@ chtc_want_el8 = true
 
 To request that your jobs run on servers with CentOS 9 **only**, add one of the following requirements lines to your submit file: 
 
-```{.sub}
+``` {.sub}
 requirements = (OpSysMajorVer == 9)
 # or
 chtc_want_el9 = true 
@@ -86,7 +86,7 @@ requirements = (Target.HasCHTCStaging == true)
 
 You can add the requirements for using CentOS Stream 8 like so:
 
-``` {.submit}
+``` {.sub}
 requirements = (Target.HasCHTCStaging == true) && (OpSysMajorVer == 8)
 ```
 Or use the `chtc_want_el` syntax: 
