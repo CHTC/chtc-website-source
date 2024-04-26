@@ -59,7 +59,11 @@ Read through these user expectations and policies before using CHTC services.
 					<h4 class="mt-0 mx-auto">{{ category }}</h4>
 				</div>
 				{% for document in category_documents %}
-				<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}">{{ document.alt_title | default: document.title }}</a>
+					{%if document.guide.tag contains 'bold' %}
+					<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}"><b>{{ document.alt_title | default: document.title }}</b></a>
+					{% else %}
+					<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}">{{ document.alt_title | default: document.title }}</a>
+					{% endif %}
 				{% endfor %}
 			</div>
 		</div>
