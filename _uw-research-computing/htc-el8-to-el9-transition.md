@@ -30,30 +30,30 @@ requirement that requires jobs to run on servers running our primary operating s
 all jobs not using a software container will continue to match to servers running CentOS 8, however,
 **users should begin using software containers or testing jobs on servers running CentOS Stream 9**. 
 * **May 1, 2024**: Default operating system requirements for jobs will change from CentOS 8 to CentOS Stream 9.
-* **May 8, 2024**: No more CentOS8 servers remain in the HTC system. 
+* **May 31, 2024**: No more CentOS8 servers remain in the HTC system. 
 
 ## What You Need to Do
 
 ### If your jobs use containers (Docker, Singularity/Apptainer)
 
-**No action is needed for researchers already using a Docker or Singularity/Apptainer software containers in their jobs.** Becuase software containers have a small operating system installed inside of them, these jobs carry everything they need with them and do not rely signifcantly on the host operating system. By default, your jobs will match to any operating system in the HTC pool, including the new CentOS Stream 9 hosts. 
+**No action is needed for researchers already using a Docker or Singularity/Apptainer software containers in their jobs.** Because software containers have a small operating system installed inside of them, these jobs carry everything they need with them and do not rely signifcantly on the host operating system. By default, your jobs will match to any operating system in the HTC pool, including the new CentOS Stream 9 hosts. 
 
 ### All other jobs (not using containers)
 
 **Researchers not already using a Docker or Apptainer software container** will need to either 
 
-- (a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled. See [Transition to New Operating System](#option-2-transition-to-new-operations-system).
+- (a) test their software/code on a CentOS Stream 9 machine to see their software needs to be reinstalled. See [Transition to New Operating System](#option-2-transition-to-a-new-operating-system).
 - **or** 
-- (b) switch to using a software container (recommended). See the [below](#option-1-using-a-container-recommended) for additional information. 
+- (b) switch to using a software container (recommended). See  [below](#option-1-use-a-software-container-recommended) for additional information. 
 
-If you would like to access as much computing capacity as possible, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the [information below](#option-1-using-a-container-recommended) for detailed instructions on creating and using software containers. 
+If you would like to access as much computing capacity as possible, consider using a Docker or Apptainer software container for your jobs so that your jobs can match to a variety of operating systems. See the [information below](#option-1-use-a-software-container-recommended) for detailed instructions on creating and using software containers. 
 
-If you are unable to test or transition your jobs to CentOS Stream 9 before May 1st, there is an option to opt into CentOS Stream 8 for the short term. See [Transition to New Operating System](#option-2-transition-to-new-operations-system).
+If you are unable to test or transition your jobs to CentOS Stream 9 before May 1st, there is an option to opt into CentOS Stream 8 for the short term. See [Transition to New Operating System](#option-2-transition-to-a-new-operating-system).
 
 ## Options For Transitioning Your Jobs
 
-1. [Use a Container (recommended)](#option-1-using-a-container-recommended)
-1. [Transition to  New Operating System](#option-2-transition-to-new-operations-system)
+1. [Use a Container (recommended)](#option-1-use-a-software-container-recommended)
+1. [Transition to  New Operating System](#option-2-transition-to-a-new-operating-system)
 
 ### Option 1: Use a Software Container (Recommended)
 
@@ -83,11 +83,10 @@ running that operating system.
 Researchers that do not wish to use containers for their job should test their jobs on the CentOS Stream 9 machines as soon as possible so that jobs are not significantly disrupted by this transition. We recommend: 
 
 * Test your jobs by requesting the new operating system  (`chtc_want_el9 = true`, see
-more details below) for 1-2 test jobs. (Note that after May 1, this option will not be required as EL9 will be default.)
+more details below) for 1-2 test jobs. (Note that after May 1, this option will not be required as CentOS Stream 9 will be the default.)
 * If needed, recompile your code. 
 
-Note that if you have not tested your code by May 1, you may want to opt into the old 
-operating system temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
+Note that if you have not tested your code by May 1, you may want to opt into CentOS Stream 8 temporarily until you have tested and transitioned your code. Instructions for requesting a specific operating system(s) are outlined here:
 
 * [Use Custom Linux Versions in CHTC](os-request-htc.html#option-2-requesting-a-specific-operating-system)
 
