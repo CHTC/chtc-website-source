@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: "Overview: How to use Software"
+title: "Overview: How to Use Software"
 guide:
     order: 0
     category: Software Solutions
