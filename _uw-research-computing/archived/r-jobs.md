@@ -5,15 +5,18 @@ title: Run R Jobs
 guide:
     tag:
         - htc
-published: false
+published: true
 ---
 
 <!-- Archived 2024-05 -->
 
-_ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ 
+<!-- _ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ -->
 
-**To best understand the below information, users should already have an
-understanding of:**
+**This guide is deprecated and will be removed May 15th, 2024.**
+**For developing new workflows, you should instead follow the instructions [here](../software-overview-htc.html#r-quickstart).**
+
+*To best understand the below information, users should already have an
+understanding of:*
 
 -   Using the command line to: navigate within directories,
     create/copy/move/delete files and directories, and run their
