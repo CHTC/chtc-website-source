@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: Use Licensed Software
 guide:
-    order: 9
+    order: 10
     category: Software Solutions
     tag:
         - htc

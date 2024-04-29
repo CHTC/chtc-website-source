@@ -3,8 +3,6 @@ highlighter: none
 layout: guide
 title: Run Julia Jobs
 guide:
-    order: 6
-    category: Software Solutions
     tag:
         - htc
 ---
@@ -14,6 +12,9 @@ guide:
 This guide documents steps for submitting jobs that will execute 
 Julia code, including preliminary steps for installing specific Julia 
 packages that may be required for your work.
+
+**We recommend setting up a container for using Julia, as described [here](software-overview-htc.md#julia-quickstart-a).**
+We are keeping this process as an alternative. 
 
 # Table of Contents
 1.  [Quickstart Instructions](#quickstart-instructions)

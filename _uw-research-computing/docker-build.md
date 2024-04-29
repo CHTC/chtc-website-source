@@ -2,7 +2,7 @@
 layout: guide
 title: Build a Docker Container Image
 guide:
-    order: 8
+    order: 9
     category: Software Solutions
     tag:
         - htc

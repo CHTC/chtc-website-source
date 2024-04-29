@@ -3,12 +3,12 @@ highlighter: none
 layout: guide
 title: Running Matlab Jobs
 guide:
-    order: 1
-    category: Software Solutions
     tag:
         - htc
+published: false
 ---
 
+<!-- Archived 2024-05 -->
 
 **To best understand the below information, users should already have an understanding of:**
 
