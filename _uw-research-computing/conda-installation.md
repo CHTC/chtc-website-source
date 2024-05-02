@@ -2,12 +2,55 @@
 highlighter: none
 layout: guide
 title: Create a Portable Python Installation with Miniconda
-alt_title: Use Conda Environments to Run Python Jobs
+alt_title: Using Conda Environments to Run Python Jobs
+link: software
 guide:
     order: 4
     category: Software Solutions
     tag:
         - htc
+excerpt: |
+    To use Miniconda environments on the HTC system, we recommend that you build your own container following the [instructions above](#build-your-own-container) 
+    and use our example [Miniconda Recipe](https://github.com/CHTC/recipes/tree/main/software/Miniconda) in our [recipes repository](#chtc-recipes-repository):
+
+    * [Miniconda](https://github.com/CHTC/recipes/tree/main/software/Miniconda/miniconda)
+
+    Once you've built your container, follow the [instructions above](#use-an-existing-container) to use the container in your jobs.
+
+    Alternatively, you could follow our old process for creating a portable copy of a conda environment, as described in our guide 
+    [Use Conda Environments to Run Python Jobs](conda-installation.html). Note, however, that this process may be sensitive to the 
+    operating system of the execution point, and not all conda packages can be made portable using this process.
+
+    See also: [Python](#python), [R](#r)
+
+    ### More information
+
+    The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
+    Miniconda can be used to install Python and R and corresponding packages. 
+    But if you only need to install Python or R, and do not otherwise need to use a `conda install` command to set up the packages, 
+    you should see our instructions for setting up [Python](#python) or [R](#r) because there is less chance of obscure errors when building your container.
+
+    When building or using a Miniconda container, you do not need to create or activate a conda environment.
+    For the build process, you skip directly to the `conda install` commands you want to run.
+    Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+
+    #### Executable
+
+    If you are planning to execute a python `.py` script using your Miniconda container, you can follow the instructions in the [Python Executable](#python-executable) section.
+
+    If you are planning to execute a `.R` script using your Miniconda container, you can follow the instructions in the [R Executable](#r-executable) section.
+
+    Otherwise, you can use a bash `.sh` script as the submit file `executable`:
+
+    ```
+    #!/bin/bash
+
+    <your commands go here>
+    ```
+
+    where the contents of the file are the commands that you want to execute using your conda environment.
+    You do not and should not try to activate the conda environment in the executable if you are using a container.
+
 ---
 
 The Anaconda/Miniconda distribution of Python is a common tool for 
