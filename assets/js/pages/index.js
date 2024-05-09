@@ -214,12 +214,14 @@ const StatisticRow = () => {
     }, [])
 
     if(data){
+        const totalCoreYears = data.reduce((p, c) => {
+            return p + c['HTCYears'] + c['HPCYears'];
+          }, 0);
         return(
             h("div", {className: "row"}, ...[
-                h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-3"}, ),
-                h(StatisticCard, {label: "HTC Core Years", value: data.reduce((p, c) => {return p + c['HTCYears']}, 0), className: "col-6 col-md-3"}, ),
-                h(StatisticCard, {label: "HPC Core Years", value: data.reduce((p, c) => {return p + c['HPCYears']}, 0), className: "col-6 col-md-3"}, ),
-                h(StatisticCard, {label: "Facilitator Interactions", value: data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0), className: "col-6 col-md-3"}, ),
+                h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-4"}, ),
+                h(StatisticCard, {label: "Facilitator Interactions", value: data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0), className: "col-6 col-md-4"}, ),
+                h(StatisticCard, {label: "HTC + HPC Core Years", value: totalCoreYears, className: "col-6 col-md-4"}),
             ])
         )
     }
