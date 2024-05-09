@@ -241,7 +241,7 @@ interactive job will be copied back to the submit location for you.
 If your MPI program is especially large (more than 100 MB, compiled), or
 if it can *only* run from the exact location to which it was installed,
 you may also need to take advantage of CHTC\'s shared software location
-or our public web proxy called Squid. Email CHTC\'s Research Computing
+or large data staging system. Email CHTC\'s Research Computing
 Facilitators at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if this is the case.
 
 

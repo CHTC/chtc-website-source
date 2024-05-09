@@ -13,7 +13,7 @@ Overview
 
 Typically, software in CHTC jobs is installed or compiled locally by
 individual users and then brought along to each job, either using the
-default file transfer or our SQUID web server. However, another option
+default file transfer or our staging system. However, another option
 is to use a *container* system, where the software is installed in a
 *container image*. CHTC (and the OS Pool) have capabilities to access and
 start containers and run jobs inside them. One container option

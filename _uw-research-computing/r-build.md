@@ -4,6 +4,8 @@ layout: guide
 title: Building R in HTC
 ---
 
+**This guide is deprecated. Please follow the instructions [here](software-overview-htc.html#r) instead.**
+
 # Overview
 
 **This guide will provide instructions for compiling base R from source code and is intended 
