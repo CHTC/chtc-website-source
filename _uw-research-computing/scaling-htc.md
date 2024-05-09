@@ -74,7 +74,7 @@ to us, they have two major requirements:
 
 -   **Moderate Data Sizes**: We can support input file sizes of up to 
 	20 GB per file per job. This covers input files that would normally be 
-	transferred out of a `/home` directory or use SQUID, in addition to larger 
+	transferred out of a `/home` directory or use staging, in addition to larger 
 	files up to 20GB. Outputs per job can be of similar sizes. If your input or 
 	output files are larger than 1GB, or you have any other questions about 
 	handling data on resources beyond CHTC, please [contact us](mailto:chtc@cs.wisc.edu)! 

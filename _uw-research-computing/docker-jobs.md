@@ -18,7 +18,7 @@ submit jobs that use Docker containers.
 
 Typically, software in CHTC jobs is installed or compiled locally by
 individual users and then brought along to each job, either using the
-default file transfer or our SQUID web server. However, another option
+default file transfer or the staging system. However, another option
 is to use a *container* system, where the software is installed in a
 *container image*. Using a container to handle software can be
 advantageous if the software installation 1) has many dependencies, 2)

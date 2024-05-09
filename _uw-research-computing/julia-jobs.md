@@ -212,9 +212,9 @@ After the job exits, you will be returned to your `/home` directory on the
 submit server (specifically where ever you were located when you submitted 
 the interactive build job). A copy of `packages.tar.gz` will be present. **Be 
 sure to check the size of the project tarball before proceeding to subsequent job 
-submissions.** If the file is >100MB please contact us at <chtc@cs.wisc.edu> so 
-that we can get you setup with access to our SQUID web proxy. More details 
-are available on our SQUID guide: [File Availability with SQUID](file-avail-squid.html)
+submissions.** If the file is >100MB please use your staging directory instead. 
+More details are available in our large data staging guide: 
+[Use Large Input and Output Files Via Staging](file-avail-largedata.html)
 
 ```
 [alice@submit]$ ls 
@@ -320,8 +320,8 @@ For project tar.gz files that are <100MB, you can follow the below example:
 transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl, my-project.tar.gz
 ```
 
-For project tar.gz files that are larger than 100MB, email a facilitator about 
-using SQUID.  
+For project tar.gz files that are larger than 100MB, use your `/staging` directory.
+For more information, see our [guide on staging large data](file-avail-largedata.html).
 
 Modify the CPU/memory request lines to match what is needed by the job. 
 Test a few jobs for disk space/memory usage in order to make sure your 
