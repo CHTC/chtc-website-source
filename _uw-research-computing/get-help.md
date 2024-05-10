@@ -4,38 +4,9 @@ layout: markdown-page
 title: Get Help
 ---
 
-### There are multiple ways to get help from CHTC staff. See below:
+See below for the various ways to get help when using CHTC services. 
 
-## Research Computing Facilitators
-
-<div class="row justify-content-around d-none d-sm-flex">
-    {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
-    {% for facilitator in facilitators %}
-        <div class="col-auto">
-            <figure class="p-3 d-flex flex-column">
-                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="/staff-list/{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
-                <figcaption class="mt-1 text-center"><b>{{ facilitator.name }}</b><br>{{facilitator.title}}</figcaption>
-            </figure>
-        </div>
-    {% endfor %}
-</div>
-
-
-To help researchers effectively utilize computing resources, our Research
-Computing Facilitators (RCFs) not only assist your in
-implementing your computational work on CHTC compute resources
-resources, but can also point you to other on- and off-campus services
-related to research computing and data needs. For example, RCFs can: 
-
-* Assist with planning your computational approach for a research
-problem 
-* Teach you to submit jobs to CHTC compute systems 
-* Help you with troubleshooting on CHTC compute systems 
-* Connect you with other researchers using similar software or methods 
-* Point to learning materials for programming and software development 
-* Help you identify applicable non-CHTC data storage options provided by DoIT 
-* Find the person who knows the answer to your question, even if the RCF doesn't 
-* ... and other helpful activities to facilitate your use of cyberinfrastructure
+![Facilitation team](/images/20240308_facilitators_morgridge.jpg)
 
 ## Get An Account
 
@@ -116,3 +87,11 @@ during Office Hours.) -->
 We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
+
+## More About Us
+
+Support at CHTC is provided by the whole team, and lead by the Research 
+Computing Facilitation Team. Learn more about us here: 
+
+* [The Facilitation Team](facilitation-team.html)
+
