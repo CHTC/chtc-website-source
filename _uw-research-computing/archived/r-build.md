@@ -2,6 +2,7 @@
 highlighter: none
 layout: guide
 title: Building R in HTC
+published: false
 ---
 
 # Overview

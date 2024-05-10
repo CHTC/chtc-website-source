@@ -2,6 +2,7 @@
 highlighter: none
 layout: markdown-page
 title: Status
+published: false
 ---
 
 Below is a list of important user news updates, sorted by date. Please
