@@ -60,7 +60,7 @@ After following this tutorial, we <b>highly recommend</b> users review the <a hr
 <b>Step Five</b>
 
 <details>
-<summary>Access your Data on the HTC system</summary>
+<summary>Access your Data on the HTC System</summary>
    <br>
 <b>Upload your data to CHTC</b>
    <br>
@@ -139,7 +139,7 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
    Researchers with jobs that run for less than ~10 hours, use less than ~20GB of data per job, and do not require CHTC modules, can take advantage of additional CPUs/GPUs to run there jobs. These researchers can typically expect to have more jobs running simultaniously. 
    <br>
    <br>
-   To opt into using this additional capacity, your jobs will run on hardware that CHTC does not own. Instead, your jobs will "backfill" on resources owned by research groups, UW-Madison departments and organizations, and a national scale compute system: the OSG's Open Science Pool. This allows researchers to access capacity beyond what CHTC can provide. To learn how to take advantage of additional CPUs/GPUs, visit <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>
+   To opt into using this additional capacity, your jobs will run on hardware that CHTC does not own. Instead, your jobs will "backfill" on resources owned by research groups, UW-Madison departments and organizations, and a national scale compute system: the OSG's Open Science Pool. This allows researchers to access capacity beyond what CHTC can provide. To learn how to take advantage of additional CPUs/GPUs, visit <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>.
 </details>
 
 <b>Step Ten</b>
