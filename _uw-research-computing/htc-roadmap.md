@@ -12,7 +12,7 @@ HTC Getting Started Summary
 Like nearly all large-scale compute system, users of both CHTC's High Throughput Computing and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
 <br>
    <br>
-High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs (~30+ CPUs/job).
+High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
 <br>
    <br>
 It is best to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs (i.e., those requesting smaller amounts of CPU, memory, and disk resources per job) are easier to find a slot to run on. This means that users will notice they will have jobs start quicker and will have more running simultanioutsly. It is almost always beneficial to break up your analysis pipeline into smaller pieces to take advantage of getting more jobs up and running, quicker. 
@@ -21,19 +21,19 @@ It is best to keep this distinction in mind when setting up your jobs. On the HT
 Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many resources as possible. 
 <br>
    <br>
-More detailed information regarding CHTC's HTC system can be found in our overview guide: ----- 
+More detailed information regarding CHTC's HTC system can be found in the HTC Overview Guide.
 </details>
 
 
 <b>Step Two</b>
 
 <details>
-<summary>Log on to a an HTC System Access Point</summary>
+<summary>Log on to a HTC System Access Point</summary>
 <br>
-Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed login information.
+Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed your login information.
 <br>
    <br>
-For security purposes, every CHTC user is required to be connnected to either a UW-Madison internet network or campus VPN and to use two-factor authenticaiton when logging in to your CHTC "access point" (also called a "submit server").  
+For security purposes, every CHTC user is required to be connnected to either a University of Wisconsin internet network or campus VPN and to use two-factor authenticaiton when logging in to your CHTC "access point" (also called a "submit server").  
 <br>
 </details>
 
@@ -43,7 +43,7 @@ For security purposes, every CHTC user is required to be connnected to either a 
 <details>
 <summary>Learn to Submit HTCondor Jobs</summary>
 <br>
-Computational work is run on the CHTC's execution machines by submitting it as “jobs” to the HTCondor scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial onhow to submit basic HTCondor jobs: Practice: Submit HTC Jobs using HTCondor. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
+Computational work is run on the CHTC's execution machines by submitting it as “jobs” to the HTCondor scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a><b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
 </details>
 
 <b>Step Four</b>
