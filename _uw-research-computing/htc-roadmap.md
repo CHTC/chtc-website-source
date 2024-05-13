@@ -7,7 +7,7 @@ HTC Getting Started Summary
 <b>Step One</b>
 
 <details>
-<summary>Learn the High Throughput Computing Strategy</summary>
+<summary>Introduction to the High Throughput Computing Strategy</summary>
 <br>
 Like nearly all large-scale compute system, users of both CHTC's High Throughput Computing and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
 <br>
