@@ -438,7 +438,7 @@ matlab -batch "foo=${1};my-script"
 
 This will use the first argument from the submit file to define the Matlab variable `foo`.
 By default, such values are read in by Matlab as numeric values (or as a Matlab function/variable that evaluates to a numeric function).
-If you want Matlab to read in the argument as a string, you need to add quotations around the value, like this:
+If you want Matlab to read in the argument as a string, you need to add apostrophes around the value, like this:
 
 ```
 #!/bin/bash
@@ -446,7 +446,7 @@ If you want Matlab to read in the argument as a string, you need to add quotatio
 matlab -batch "foo=${1};bar='${2}';my-script"
 ```
 
-Here, the value of `bar` is defined as the second argument from the submit file, and will be identified by Matlab as a string because its wrapped in quotations (`'${2}'`).
+Here, the value of `bar` is defined as the second argument from the submit file, and will be identified by Matlab as a string because it's wrapped in apostrophes (`'${2}'`).
 
 If you have defined your script to act as a function, you can call the function directly and pass the arguments directly as well.
 For example, if you have constructed your `my-script.m` as a function, then you can do 
@@ -456,6 +456,8 @@ For example, if you have constructed your `my-script.m` as a function, then you 
 
 matlab -batch "my-script(${1}, ${2})"
 ```
+
+Again, by default Matlab will interpret these value of these variables as numeric values, unless you wrap the argument in apostrophes as described above.
 
 ---
 
