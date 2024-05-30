@@ -119,3 +119,88 @@ Spack is a package manager platform that allows users to install software withou
 CHTC also uses Spack to install the software underlying the system-wide modules discussed above.
 
 > If you have not used Spack before, you can skip this section and go directly to the [Set Up Spack on HPC](hpc-spack-setup.html) guide.
+
+Here is the general process for setting up your software on the upgraded EL9 system:
+
+1. Identify the environments you currently have and which you want to reproduce on the upgraded system. 
+
+2. Remove your existing Spack folders. 
+
+3. Do a clean installation of Spack.
+
+4. In an interactive job, create your Spack environment(s) and install the packages as you did previously.
+
+5. Update your job submission scripts and/or recompile programs as needed to use the new Spack environment(s). 
+
+*The following instructions assume that you installed Spack in your home (`~/`) directory for individual use.*
+
+#### 1. Identify your environments
+
+You can see your Spack environments with 
+
+```
+spack env list
+```
+
+Activate an environment that you want to replicate with
+
+```
+spack env activate environment_name
+```
+
+Then list your package "specs" with the command
+
+```
+spack find
+```
+
+There is a section `==> Root specs` that lists the package specs you explicity added when you created your environment.
+Save a copy of these specs somewhere safe, so that you can use them to replicate the environment later on.
+You can ignore `installed packages` section, as that will certainly change on the new system.
+
+Repeat the above steps for each environment you want to replicate on the upgraded system.
+
+#### 2. Remove your existing Spack folders
+
+The easiest way to update Spack for the upgraded system is to remove the current Spack installation and reinstall from scratch.
+
+> Before proceeding, you may want to make a backup of each folder using
+>
+> ```
+> tar -czf folder_name.tar.gz ~/folder_name
+> ```
+
+For most users, the following commands should work:
+
+```
+cd ~/
+rm -rf spack spack_programs spack_modules .spack
+```
+
+The command may take a while to run.
+
+#### 3. Fresh install of Spack
+
+Next, follow the instructions in our guide [Set Up Spack on HPC](hpc-spack-setup.html) to do a fresh installation of Spack.
+The commands in the guide have been updated for setting up Spack on the new operating system.
+
+#### 4. Recreate your environments
+
+Follow the instructions in our guide [Install Software Using Spack](hpc-spack-install.html) to create your desired environments
+using the "root specs" that you saved earlier.
+
+**NOTE**: We've made small but important change to this guide: **you should always start an interactive Slurm job before creating or modifying a Spack environment**.
+The login server uses different hardware than the execute servers, and the mismatch leads to Spack using the wrong settings for installing packages.
+Of course, as before, you should only install packages while in interactive Slurm job.
+
+Behind the scenes, we've made a few changes to the configuration that will hopefully make the package installation much smoother.
+
+#### 5. Update your workflow
+
+Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.
+
+* If you explicitly provid paths to packages installed using Spack, be sure to update those paths in your compiler configuration or in your job submission script.
+
+* If you used Spack to provide dependencies for manually compiling a program, remember to recompile the program.
+
+* If you changed the name of your environment, be sure to update the name in your job submission script.
