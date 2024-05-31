@@ -1,13 +1,13 @@
 ---
 highlighter: none
-layout: guide
-title: HPC System Transition to a New Linux Version (CentOS Stream 9) and Cluster Configuration
+layout: hpc_layout
+title: HPC System Transition to a New Linux Version (CentOS Stream 9)
 published: true
 guide: 
     button_class: bg-warning
     order: 0
     category: Basics and Policies
-        tag:
+    tag:
         - hpc
 ---
 
@@ -22,10 +22,10 @@ also include a notification to the `chtc-users` mailing list.
 
 ## Important Dates
 
-* **May 15**: Worker nodes start transitioning from the existing cluster to upgraded cluster partitions. 
-* **May 22**: Log in to upgraded cluster login node is available.
-* **May 22 - May 31**: Users should rebuild their code and test jobs on 
-* **June 1, 2024**: The old cluster partitions are closed. 
+* **May 31**: Log in to upgraded cluster login node is available. Worker nodes start transitioning from the existing cluster to upgraded cluster partitions. 
+* **May 31 - June 17**: Users should rebuild their code and test jobs on the upgraded cluster. Users should be running primarily on the upgraded cluster.
+* **June 17**: Most nodes will have been upgraded and transitioned.
+* **June 24**: The old cluster partitions are closed. 
 
 ## What is Changing
 
