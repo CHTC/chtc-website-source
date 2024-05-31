@@ -15,7 +15,7 @@ Starting in May 2024, CHTC's high performance computing (HPC) cluster began upgr
 the Linux distribution and version we use on our servers to **CentOS Stream 9** (EL9). This transition is expected to complete in June 2024. 
 
 Note that this page only applies to a transition on the HPC cluster. For information 
-on the HTC system transition, see [HPC System Transition to a New Linux Version (CentOS Stream 9)](htc-el8-to-el9-transition.html)
+on the HTC system transition, see [HTC System Transition to a New Linux Version (CentOS Stream 9)](htc-el8-to-el9-transition.html)
 
 All updates to the HPC Cluster will be reflected on this page; significant changes may 
 also include a notification to the `chtc-users` mailing list. 
