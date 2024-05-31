@@ -2,7 +2,7 @@
 highlighter: none
 layout: guide
 title: HPC System Transition to a New Linux Version (CentOS Stream 9) and Cluster Configuration
-published: false
+published: true
 guide: 
     button_class: bg-warning
     order: 0
