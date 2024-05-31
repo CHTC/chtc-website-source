@@ -63,7 +63,7 @@ please contact the facilitation team at chtc@cs.wisc.edu or [come to office hour
 Almost all packages and libraries have been upgraded as part of the operating system transition. 
 Unless your code is fairly simple, you will likely need to recompile it.
 
-Remember to always compile your code/programs in a (interactive) Slurm job!
+**Remember to always compile your code/programs in a (interactive) Slurm job!**
 
 > Not only does this help avoid stressing the resources of the login server, but the upgraded login server uses a newer CPU architecture than the worker nodes in the cluster.
 > Most compilers auto-detect the CPU architecture and adapt the compilation to use that architecture.
@@ -105,13 +105,13 @@ otherwise you may encounter "module(s) are unknown" errors.
 | netcdf-fortran | 4.5.4 | 4.6.1 | 
 | openmpi (aocc) | 4.1.3 | *dropped* |
 | openmpi (gcc) | 4.1.3 | 5.0.3 |
-| patchelf (gcc) | 0.17.2 | 0.18.0\* |
+| patchelf (gcc) | 0.17.2 | 0.17.2 |
 | patchelf (intel) | 0.18.0 | *dropped* | 
-| patchelf (oneapi) | 0.18.0 | *dropped* | 
+| patchelf (oneapi) | 0.18.0 | 0.17.2 | 
 | petsc | 3.18.1 | 3.21.1 |
 | pmix | *n/a* | 5.0.1 |
 
-> Modules that are "dropped" or "deprecated" may be manually installed by the user using [Spack](#spack).
+> Different versions of module packages, or packages that are "dropped" or "deprecated" may be manually installed by the user using [Spack](#spack).
 
 ### Spack
 
@@ -132,7 +132,7 @@ Here is the general process for setting up your software on the upgraded EL9 sys
 
 5. Update your job submission scripts and/or recompile programs as needed to use the new Spack environment(s). 
 
-*The following instructions assume that you installed Spack in your home (`~/`) directory for individual use.*
+*The following instructions assume that you previously installed Spack in your home (`~/`) directory for individual use.*
 
 #### 1. Identify your environments
 
@@ -141,22 +141,25 @@ You can see your Spack environments with
 ```
 spack env list
 ```
+{:.term}
 
 Activate an environment that you want to replicate with
 
 ```
 spack env activate environment_name
 ```
+{:.term}
 
 Then list your package "specs" with the command
 
 ```
 spack find
 ```
+{:.term}
 
-There is a section `==> Root specs` that lists the package specs you explicity added when you created your environment.
+There is a section "`==> Root specs`" that lists the package specs you explicity added when you created your environment.
 Save a copy of these specs somewhere safe, so that you can use them to replicate the environment later on.
-You can ignore `installed packages` section, as that will certainly change on the new system.
+You can ignore the "`installed packages`" section, as that will certainly change on the new system.
 
 Repeat the above steps for each environment you want to replicate on the upgraded system.
 
@@ -169,6 +172,7 @@ The easiest way to update Spack for the upgraded system is to remove the current
 > ```
 > tar -czf folder_name.tar.gz ~/folder_name
 > ```
+> {:.term}
 
 For most users, the following commands should work:
 
@@ -176,6 +180,7 @@ For most users, the following commands should work:
 cd ~/
 rm -rf spack spack_programs spack_modules .spack
 ```
+{:.term}
 
 The command may take a while to run.
 
