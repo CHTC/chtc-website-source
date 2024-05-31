@@ -15,7 +15,7 @@ Starting in May 2024, CHTC's high performance computing (HPC) cluster began upgr
 the Linux distribution and version we use on our servers to **CentOS Stream 9** (EL9). This transition is expected to complete in June 2024. 
 
 Note that this page only applies to a transition on the HPC cluster. For information 
-on the HTC system transition, see [HPC System Transition to a New Linux Version (CentOS Stream 9)](htc-el8-to-el9.html)
+on the HTC system transition, see [HPC System Transition to a New Linux Version (CentOS Stream 9)](htc-el8-to-el9-transition.html)
 
 All updates to the HPC Cluster will be reflected on this page; significant changes may 
 also include a notification to the `chtc-users` mailing list. 
@@ -50,7 +50,7 @@ The files in your `/home` and `/scratch` directories will be unchanged.
 
 3. If your jobs no longer run, archive your previous software installation(s) and 
    rebuild your software. The [Software Changes](#software-changes) section below has 
-   more specific information. 
+   more specific information about how to do this. 
 
 4. If you recompiled your code, run a few small test jobs to confirm that the 
    code is working correctly. 
@@ -63,7 +63,7 @@ please contact the facilitation team at chtc@cs.wisc.edu or [come to office hour
 Almost all packages and libraries have been upgraded as part of the operating system transition. 
 Unless your code is fairly simple, you will likely need to recompile it.
 
-**Remember to always compile your code/programs in a (interactive) Slurm job!**
+**Remember to always compile your code/programs in a (interactive) Slurm job! [How To](hpc-job-submission.html#for-simple-testing-or-compiling)**
 
 > Not only does this help avoid stressing the resources of the login server, but the upgraded login server uses a newer CPU architecture than the worker nodes in the cluster.
 > Most compilers auto-detect the CPU architecture and adapt the compilation to use that architecture.
@@ -120,7 +120,7 @@ CHTC also uses Spack to install the software underlying the system-wide modules 
 
 > If you have not used Spack before, you can skip this section and go directly to the [Set Up Spack on HPC](hpc-spack-setup.html) guide.
 
-Here is the general process for setting up your software on the upgraded EL9 system:
+Here is the general process for setting up your software on the upgraded EL9 system; detailed instructions are provided after the general process: 
 
 1. Identify the environments you currently have and which you want to reproduce on the upgraded system. 
 
@@ -204,7 +204,7 @@ Behind the scenes, we've made a few changes to the configuration that will hopef
 
 Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.
 
-* If you explicitly provid paths to packages installed using Spack, be sure to update those paths in your compiler configuration or in your job submission script.
+* If you explicitly provide paths to packages installed using Spack, be sure to update those paths in your compiler configuration or in your job submission script.
 
 * If you used Spack to provide dependencies for manually compiling a program, remember to recompile the program.
 
