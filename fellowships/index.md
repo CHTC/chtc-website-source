@@ -22,10 +22,12 @@ The CHTC Fellows Program trains students in the development and use of cyberinfr
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
-<div class="primary-callout" markdown="1">
-### What is CHTC?
-CHTC is a research center within UW-Madison and the Morgridge Institute for Research with an aim of advancing the concepts of High Throughput Computing (HTC). Its activities include developing the [HTCondor Software Suite](http://htcondor.org/) (HTCSS) which has over 30 years of experience in tackling HTC problems; leading the [PATh project](https://path-cc.io/), which, with the [OSG Consortium](https://osg-htc.org/), provides a national-scale environment for distributed HTC; developing [the Pelican Platform](https://pelicanplatform.org/) for large-scale dataset distribution; and advancing the concept of Research Computing Facilitation which empowers scientists to use computing as a tool to advance their research.
-</div>
+## Featured Fellow
+{% include get/team.liquid %}
+{% assign member = team | where_exp: "staff", "staff contains 'fellowship'" | sort: "name" | sample %}
+{% include /components/fellow-card.html %}
+
+[View all fellows](/fellowships/fellows)
 
 
 ### How do you find a project?
