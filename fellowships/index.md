@@ -36,23 +36,23 @@ As part of the application process, students will be paired with potential mento
 
 The CHTC Fellows Program aims to be inclusive of students at all levels of experience and skill sets; a willingness to learn and interest in science is prioritized over past accomplishments.
 
-For summer 2024, projects are available in the following areas:
+Projects have been available in the following areas in the past:
 
 
 <div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Research Facilitation](/fellowships/list#research-facilitation)
+### Research Facilitation
 
 Are you interested in and comfortable with collaborative problem-solving, documentation and training, and community building? Are you looking for opportunities to learn about technologies, collaborate with teammates, and develop skills to communicate about technical concepts to a general audience?
 </div>
 
 <div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Infrastructure Services](/fellowships/list#infrastructure-services)
+### Infrastructure Services
 
 Are you interested in state of the art hardware, complex systems and leading technologies? Are you interested in expanding your skills by learning about these diverse technologies, including Linux servers, networking, Kubernetes, distributed file systems, batch systems, and databases?
 </div>
 
 <div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Software Development](/fellowships/list#software-development)
+### Software Development
 
 Are you comfortable with programming skills acquired from coursework or dedicated training activities? Are you interested in building on those skills to gain experience in a project in support of scientific research?
 </div>
@@ -72,10 +72,9 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 **Duration of fellowship and total stipend:**
 
--   The Fellowship Program lasts for 12 weeks during Summer 2024. The Program will begin on June 3 and end on August 23, 2024. 
+-   The Fellowship Program lasts for 12 weeks during Summer 2024, running from June 3 to August 23. 
 -   The Program provides $650/week stipend for large projects and $325/week stipend for medium projects. The stipends will be dispersed monthly.
 -   It is expected that a Fellow working on a large project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
--   Applications are now open - deadline 8 March, 2024 (any time zone).
 
 
 **Developing a project**
@@ -88,13 +87,15 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 <div class="primary-callout" markdown="1">
 ## Applying
 
+Applications for the summer of 2024 are closed. The information below is provided to inform those interested future opportunities.
+
 To apply, send an email to [htcondor-jobs@cs.wisc.edu ](mailto:htcondor-jobs@cs.wisc.edu ) with the following information:
 
 -   A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 -   A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.
 </div>
 
-### Timeline:
+### Summer 2024 Timeline:
 
 -   **Friday 8 March, 2024** - Final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
 -   **Friday 15 March, 2024** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)

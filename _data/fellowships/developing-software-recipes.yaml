@@ -1,7 +1,0 @@
-title: Developing software recipes
-scale: Medium
-type: Research Facilitation
-summary: |
-  Implement a repository of apptainer container recipes for common software packages. 
-  Create a self-serve tutorial on building containers and show how to use the recipe
-  repository and OSPool guides to build your own container.
