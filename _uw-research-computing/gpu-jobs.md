@@ -181,7 +181,7 @@ require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
   > ```
   > gpus_minimum_capability = <version>
   > gpus_maximum_capability = <version>
-  > gpus_minimum_memory = <quantity>
+  > gpus_minimum_memory = <quantity in MB>
   > ```
   > {:.sub}
   >
