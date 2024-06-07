@@ -424,37 +424,40 @@ When using the Matlab container, we recommend the following process for executin
 
 #### Arguments<a name="matlab-arguments"></a>
 
-To pass arguments from the submit file to your `.m` script, you need to set up your executable `.sh` file to create an additional `.m` file with the desired variable definitions.
-For example, to use an argument to define a different value of `data_file` for each job, you would use the following executable:
+You can pass arguments from your submit file to your Matlab code via your executable `.sh` and the `matlab -batch` command. 
+Arguments in your submit file are accessible inside your executable `.sh` script with the syntax `${n}`, where `n` is the nth value passed in the arguments line.
+You can use this syntax inside of the `matlab -batch` command.
+
+For example, if your Matlab script (`my-script.m`) is expecting a variable `foo`, you can add `foo=${1}` before calling `my-script`:
 
 ```
 #!/bin/bash
 
-cat << EOF > variables.m
-data_file = '${1}'
-EOF
-
-matlab -batch "variables;my-script"
-
-rm variables.m
+matlab -batch "foo=${1};my-script"
 ```
 
-The `variables.m` file is created with `data_file` defined as the value passed from the submit file `arguments` line.
-Then when matlab is started, it first loads the definitions from the `variables.m` line before executing your main `my-script.m`.
-(Of course, for this to be useful, the code in `my-script.m` needs to use the variable `data_file` to do something.)
-Finally, the temporary `variables.m` file is removed so that it is not brought back to the submit server when the job completes.
-
-More than one variable can be defined.
-For example, if we wanted to add the variable `x`, we would use this:
+This will use the first argument from the submit file to define the Matlab variable `foo`.
+By default, such values are read in by Matlab as numeric values (or as a Matlab function/variable that evaluates to a numeric function).
+If you want Matlab to read in the argument as a string, you need to add apostrophes around the value, like this:
 
 ```
-cat << EOF > variables.m
-data_file = '${1}'
-x = ${2}
-EOF
+#!/bin/bash
+
+matlab -batch "foo=${1};bar='${2}';my-script"
 ```
 
-where the values of `data_file` and `x` will correspond to the first and second values of the submit file `arguments` line, respectively.
+Here, the value of `bar` is defined as the second argument from the submit file, and will be identified by Matlab as a string because it's wrapped in apostrophes (`'${2}'`).
+
+If you have defined your script to act as a function, you can call the function directly and pass the arguments directly as well.
+For example, if you have constructed your `my-script.m` as a function, then you can do 
+
+```
+#!/bin/bash
+
+matlab -batch "my-script(${1}, ${2})"
+```
+
+Again, by default Matlab will interpret these value of these variables as numeric values, unless you wrap the argument in apostrophes as described above.
 
 ---
 

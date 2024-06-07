@@ -6,7 +6,7 @@ guide:
     button_class: bg-warning
     order: 0
     category: Basics and Policies
-        tag:
+    tag:
         - htc
 ---
 

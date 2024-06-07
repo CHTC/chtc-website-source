@@ -1,0 +1,19 @@
+---
+layout: default
+title: Open projects for CHTC Fellows
+---
+
+{% include get/team.liquid %}
+<div class="bg-light pt-1 mt-1 pb-4">
+    <div class="container-xxl">
+        <h2 class="uw-mini-bar">CHTC Fellows</h2>
+        <div class="row gx-1">
+            {% assign sorted_team = team | where_exp: "staff", "staff contains 'fellowship'" | sort: "name" %}
+            {% for member in sorted_team %}
+                <div class="col-12 col-lg-6">
+                    {% include /components/fellow-card.html %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
