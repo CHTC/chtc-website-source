@@ -1,9 +1,11 @@
 ---
 highlighter: none
-layout: markdown-page
-title: Use Tensorboard to profile a ML training job
+layout: guide
+title: Profiling with Tensorboard
+published: false
 ---
-#Overview
+
+# Overview
 This guide will walk you through using tensorboard to profile the gpu, and cpu usage of your machine learning model written in pytorch or tensorflow and run on HTConder. Furthermore, this guide will show you how to use ssh tunneling to view the results off chtc from your local machine.
 
 ## 1: Modify code
