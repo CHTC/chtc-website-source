@@ -16,9 +16,12 @@ js_extension:
     </picture>
 </div>
 <div class="container-xxl">
-    <div class="row pt-5 justify-content-center {{ include.class }}">
-        <div class="col-12 col-md-8">
-            <div class="">
+    <div class="row pt-4 justify-content-center {{ include.class }}">
+        <div class="d-none d-sm-block">
+        {% include get/news.liquid %}      
+        {% include /components/news-card.html %} 
+        </div>
+        <div class="col-12 col-xs-8">
                 <p>
                     <strong>
                         The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
@@ -67,33 +70,27 @@ js_extension:
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4 d-flex flex-column">
-            <h2 class="uw-mini-bar mt-1">
-                <a href="news.html">News</a>
-            </h2>
-            {% include get/news.liquid %}
-            {% for article in news limit:1 %}
-                {% include news-posting.html
-                    class=" col-12"
-                    href=article.url
-                    title=article.title
-                    author=article.author
-                    src=article.image.path
-                    alt=article.image.alt
-                    date=article.date
-                    excerpt=article.excerpt
-                %}
-            {% endfor %}
-            {% for article in news limit:1 offset:1 %}
-            {% include news-posting.html
-                class=" col-12 "
-                href=article.url
-                title=article.title
-                author=article.author
-                date=article.date
-                excerpt=article.excerpt
-            %}
-            {% endfor %}
+    </div>
+</div>
+<div class="container">
+    <div class="col-12 col-md-6 d-block d-sm-none">
+        <h2 class="uw-mini-bar mb-4">News</h2>
+        {% include get/news.liquid %}      
+        {% include /components/news-card.html %} 
+        <div class="row">
+                <div class="col-6 ">
+                    {% include news-posts.html
+                        class="col-6"
+                        src=article.image.path
+                        alt=article.image.alt
+                    %}
+                </div>
+                <div class="col-6 ">
+                    <div class="col-12">
+                        <a href="{{ article.url }}" style="font-weight: bold;">{{ article.title }}</a>
+                        <p style="font-size: 0.95em;">{{ article.date | date: "%B %d, %Y" }} </p>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
