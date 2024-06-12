@@ -579,7 +579,7 @@ In this case, remember to include your `.py` file in the `transfer_input_files` 
 
 #### Option A (recommended)<a name="r-quickstart-a"></a>
 
-Build a container with Python & packages installed inside:
+Build a container with R & packages installed inside:
 
 1. [How to build your own container](#build-your-own-container)
 2. [Example container recipes for R](https://github.com/CHTC/recipes/tree/main/software/R/)
