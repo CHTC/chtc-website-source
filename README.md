@@ -152,8 +152,8 @@ When creating a new Software Guide format the frontmatter like this:
 
 software_icon: /uw-research-computing/guide-icons/miniconda-icon.png
 software: Miniconda
-excerpt_separator: '<!--more-->'
+excerpt_separator: &lt;!--more--&gt;
 
 Software Icon and software are how the guides are connected to the Software Overview page. The 
-excerpt_seperator must be '<!--more-->' and can be placed anywhere in a document and all text 
+excerpt_seperator must be &lt;!--more--&gt; and can be placed anywhere in a document and all text 
 above it will be put in the excerpt.
