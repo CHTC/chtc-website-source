@@ -9,7 +9,7 @@ HTC Getting Started Summary
 <details>
 <summary>Introduction to the High Throughput Computing Strategy</summary>
 <br>
-Like nearly all large-scale compute system, users of both CHTC's High Throughput Computing and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
+Like nearly all large-scale compute systems, users of both CHTC's High Throughput Computing and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
 <br>
    <br>
 High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
