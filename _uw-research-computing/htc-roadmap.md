@@ -9,7 +9,7 @@ HTC Getting Started Summary
 <details>
 <summary>Introduction to the High Throughput Computing Strategy</summary>
 <br>
-Like nearly all large-scale compute system, users of both CHTC's High Throughput Computing and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
+Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
 <br>
    <br>
 High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
@@ -33,7 +33,7 @@ More detailed information regarding CHTC's HTC system can be found in the <a hre
 Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed your login information.
 <br>
    <br>
-For security purposes, every CHTC user is required to be connnected to either a University of Wisconsin internet network or campus VPN and to use two-factor authenticaiton when logging in to your CHTC "access point" (also called a "submit server").  
+For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your CHTC "access point" (also called a "submit server").  
 <br>
 </details>
 
@@ -43,7 +43,7 @@ For security purposes, every CHTC user is required to be connnected to either a 
 <details>
 <summary>Understand the Basics of Submitting HTCondor Jobs</summary>
 <br>
-Computational work is run on the CHTC's execution machines by submitting it as “jobs” to the HTCondor scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
+Computational work is run on the CHTC's execution machines by submitting it as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
 </details>
 
 
@@ -77,9 +77,9 @@ To learn how to upload data from different sources, including your laptop, see:
    <br>
 <b>Choose a Location to Stage your Data</b>
    <br>
-When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: /home and /staging. 
+When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: `/home` and `/staging`. 
    <br>
-/home is more efficent at handling "small" files, while /staging is more effient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our HTC Data guides. 
+`/home` is more efficient at handling "small" files, while `/staging` is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our HTC Data guides. 
    <br>
    </details>
 
@@ -94,7 +94,7 @@ Our “Software Solutions” guides contain information about how to install and
 <br>
 <b>Software Containers</b>
    <br>
-In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system, users with software containers have the most flexibility with where their jobs run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
+In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
 <br>
 <br>
 <b>Use Pre-installed Software in Modules</b>
@@ -118,7 +118,7 @@ Once you have your data, software, code, and HTCondor submit file prepared, you 
    <br>
 Things to look for: 
    <ul>
-      <li>Jobs being placed on hold (hold messages can be viewed using `condor_q jobID -hold`</li>
+      <li>Jobs being placed on hold (hold messages can be viewed using `condor_q jobID -hold`)</li>
       <li>Jobs producing expected your desired files</li>
       <li>Size and number of output files (to make sure output is being directed to the correct location and that your quota is sufficient for all of your output data as you submit more jobs)</li>
    </ul>
@@ -136,7 +136,7 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
 <details>
    <summary>Access Additional Compute Capacity</summary>
    <br>
-   Researchers with jobs that run for less than ~10 hours, use less than ~20GB of data per job, and do not require CHTC modules, can take advantage of additional CPUs/GPUs to run there jobs. These researchers can typically expect to have more jobs running simultaniously. 
+   Researchers with jobs that run for less than ~10 hours, use less than ~20GB of data per job, and do not require CHTC modules, can take advantage of additional CPUs/GPUs to run there jobs. These researchers can typically expect to have more jobs running simultaneously. 
    <br>
    <br>
    To opt into using this additional capacity, your jobs will run on hardware that CHTC does not own. Instead, your jobs will "backfill" on resources owned by research groups, UW-Madison departments and organizations, and a national scale compute system: the OSG's Open Science Pool. This allows researchers to access capacity beyond what CHTC can provide. To learn how to take advantage of additional CPUs/GPUs, visit <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>.
