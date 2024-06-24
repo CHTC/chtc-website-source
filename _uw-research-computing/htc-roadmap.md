@@ -1,4 +1,14 @@
-
+---
+highlighter: none
+layout: guide
+title: HTC Getting Started Summary
+alt_title: HTC Getting Started
+guide:
+    order: 3
+    category: Basics and Policies
+    tag:
+        - htc
+---
 
 
 HTC Getting Started Summary
