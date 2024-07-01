@@ -16,39 +16,18 @@ js_extension:
     </picture>
 </div>
 <div class="container-xxl">
-    <div class="row pt-5 justify-content-center {{ include.class }}">
-        <div class="col-12 col-md-8">
-            <div class="">
+    <div class="row pt-4 justify-content-center {{ include.class }}">
+        <div class="d-none d-sm-block">
+        {% include get/news.liquid %}      
+        {% include /components/news-card.html %} 
+        </div>
+        <div class="col-lg-9 col-12">
                 <p>
                     <strong>
                         The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
                         of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped
                         by insight from all fields.
                     </strong>
-                </p>
-                <div class="bg-light rounded px-1 py-1 mb-3">
-                    <h3 class="mt-3 text-center">CHTC Fellowship Program</h2>
-                    <p class="text-center">
-                        The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a 12-week summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
-                    </p>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <a href="/fellowships/" class="button mb-3 rounded btn-primary p-2">Learn More ⬏</a>
-                        </div>
-                    </div>
-                </div>
-
-                <p>
-                    <a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
-                    of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
-                    improved use of a computing resource, improved automation, and help drive the scientific problem forward.
-                </p>
-                <p>
-                    The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
-                    Suite</a> which has over 30 years of experience in tackling HTC problems;
-                    it manages shared computing resources
-                    for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
-                    a national-scale environment for distributed HTC.
                 </p>
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -65,36 +44,28 @@ js_extension:
                         </div>
                     </div>
                 </div>
+                <p>
+                    <a href="htc.html">High Throughput Computing</a> is a collection of principles and techniques which maximize the effective throughput
+                    of computing resources towards a given problem.  When applied for scientific computing, HTC can result in
+                    improved use of a computing resource, improved automation, and help drive the scientific problem forward.
+                </p>
+                <p>
+                    The team at CHTC develops technologies and services for HTC.  CHTC is the home of the <a href="http://htcondor.org">HTCondor Software
+                    Suite</a> which has over 30 years of experience in tackling HTC problems;
+                    it manages shared computing resources
+                    for researchers on the UW-Madison campus; and it leads the <a href="https://osg-htc.org">OSG Consortium</a>,
+                    a national-scale environment for distributed HTC.
+                </p>
+
             </div>
         </div>
-        <div class="col-12 col-md-4 d-flex flex-column">
-            <h2 class="uw-mini-bar mt-1">
-                <a href="news.html">News</a>
-            </h2>
-            {% include get/news.liquid %}
-            {% for article in news limit:1 %}
-                {% include news-posting.html
-                    class=" col-12"
-                    href=article.url
-                    title=article.title
-                    author=article.author
-                    src=article.image.path
-                    alt=article.image.alt
-                    date=article.date
-                    excerpt=article.excerpt
-                %}
-            {% endfor %}
-            {% for article in news limit:1 offset:1 %}
-            {% include news-posting.html
-                class=" col-12 "
-                href=article.url
-                title=article.title
-                author=article.author
-                date=article.date
-                excerpt=article.excerpt
-            %}
-            {% endfor %}
-        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-12 col-md-6 d-block d-sm-none">
+        <h2 class="uw-mini-bar mb-4">News</h2>
+        {% include get/news.liquid %}      
+        {% include /components/news-card.html %}
     </div>
 </div>
 <div id="stats" class="container-lg">

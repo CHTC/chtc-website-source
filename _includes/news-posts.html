@@ -1,0 +1,24 @@
+<!-- News Posts removes the mini bar beneath the title and was made for the index
+page to display the news articles next to eachother-->
+<div class="uw-card p-0">
+    <div class="uw-card-content pb-0">
+        {% if include.src %}
+            <a href="{{ include.href | relative_url }}" class="{{ include.class }}">
+                <img class="img-fluid rounded-top rounded-bottom" style="aspect-ratio: 2; object-fit: cover" src="{{ include.src | relative_url }}" alt="{{ include.alt }}" />
+            </a>
+        {% endif %}
+            <a href="{{ include.href | relative_url }}" class="{{ include.class }}">
+                <h4>{{ include.title }}</h4>
+            </a>
+            <div class="text-dark d-flex flex-row justify-content-between">
+                {% if include.author %}
+                    <div class="w-auto">
+                            {{ include.author }}
+                    </div>
+                {% endif %}
+                <div class="w-auto">
+                    {{ include.date | date: "%b %d, %Y" }}
+                </div>
+            </div>
+    </div>
+</div>
