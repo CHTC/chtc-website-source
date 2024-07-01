@@ -4,7 +4,7 @@
         <nav class="uw-nav-menu uw-nav-menu-reverse" aria-label="Main Menu">
             <ul id="{{ include.ul_id }}">
                 <div class="uw-header-crest">
-                    <a href="{{ href | relative_url }}"><img class="uw-crest-svg" src="{{'/images/logos/CHTC_Logo_Full_Color.svg' | relative_url}}" alt="Link to CHTC Home Page" style="padding: 15px;"></a>
+                    <a href="{{ '/' | relative_url }}"><img class="uw-crest-svg" src="{{'/images/logos/CHTC_Logo_Full_Color.svg' | relative_url}}" alt="Link to CHTC Home Page" style="padding: 15px;"></a>
                 </div>
                 {% for nav_item in nav_items %}
                     {% include navbar/nav-item.html%}
