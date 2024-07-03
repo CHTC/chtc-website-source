@@ -16,7 +16,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Sections" %}
 
-# General
+## General
 ### When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".
 #### Cause:
 This is a complicated bug that can strike randomly. We're working on a fix.
@@ -27,7 +27,9 @@ echo | condor_store_cred add-oauth -s scitokens -i -
 ```
 {:.term}
 
-# Containers
+<br>
+
+## Containers
 ### When building an Apptainer, "apt" commands in the %post block fail to run.
 #### Example error message:
 ```
@@ -58,7 +60,9 @@ docker build --platform linux/amd64 .
 ```
 {:.term}
 
-# GPUs
+<br>
+
+## GPUs
 ### My GPU job has been in the queue for a long period of time and is not starting.
 #### Cause:
 Jobs default to using CentOS9, but most GPU nodes are currently running CentOS8.
@@ -67,3 +71,8 @@ To your submit file, add the following line and resubmit:
 ```
 requirements = (OpSysMajorVer > 7)
 ```
+
+<br>
+
+## Can't find your issue?
+Visit our [Get Help](get-help) page.
