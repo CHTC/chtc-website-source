@@ -24,7 +24,7 @@ Visit our [Get Help](get-help) page to find more resources for troubleshooting.
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c">[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".</h3>
+<h3 style="color:#c5050c" id="general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available">[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".</h3>
 #### Cause:
 This is a complicated bug that can strike randomly. We're working on a fix.
 #### Solution:
@@ -37,7 +37,7 @@ echo | condor_store_cred add-oauth -s scitokens -i -
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c">[Container] When building an Apptainer, "apt" commands in the %post block fail to run.</h3>
+<h3 style="color:#c5050c" id="containers-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run">[Container] When building an Apptainer, "apt" commands in the %post block fail to run.</h3>
 
 #### Example error message:
 ```
@@ -61,7 +61,7 @@ We also recommend using the `-y` option to prevent installation from hanging due
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c">[Container] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".</h3>
+<h3 style="color:#c5050c" id="containers-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error">[Container] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".</h3>
 
 #### Cause:
 The Docker container is likely built on an Apple computer using an ARM processor, which is incompatible with Linux machines.
@@ -74,7 +74,7 @@ docker build --platform linux/amd64 .
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c"> [GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
+<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
 
 #### Cause:
 Jobs default to using CentOS9, but most GPU nodes are currently running CentOS8.
