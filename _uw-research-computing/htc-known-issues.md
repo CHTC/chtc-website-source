@@ -48,7 +48,7 @@ Couldn't create temporary file /tmp/apt.conf.9vQdLs for passing config to apt-ke
 #### Cause:
 The container needs global read/write permissions in order to update or install packages using the `apt` command.
 #### Solution:
-Add `chmod 777 /tmp` to the front of your %post block. See the example below:
+Add `chmod 777 /tmp` to the front of your `%post` block. See the example below:
 ```
 Bootstrap: docker
 From: ubuntu:22.04
