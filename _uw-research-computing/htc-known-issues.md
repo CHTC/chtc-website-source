@@ -25,6 +25,7 @@ Visit our [Get Help](get-help) page to find more resources for troubleshooting.
 <hr width="100%" size="2">
 
 <h3 style="color:#c5050c" id="general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available">[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".</h3>
+
 #### Cause:
 This is a complicated bug that can strike randomly. We're working on a fix.
 #### Solution:
