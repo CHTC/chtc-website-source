@@ -9,6 +9,15 @@ js_extension:
     type: module
 ---
 
+{% include get/jobs.liquid %}
+{% if jobs.size > 0 %}
+<div class="bg-primary py-2">
+    <div class="container-xxl">
+        <span class="text-white">CHTC is hiring, view the new job on the jobs page and apply now!</a>
+        <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job</a>
+    </div>
+</div>
+{% endif %}
 <div class="bg-light overflow-hidden">
     <picture>
         <source srcset="{{ 'images/HTC_Graphic_Outline.webp' | relative_url }}">
