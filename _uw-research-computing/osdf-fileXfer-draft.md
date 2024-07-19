@@ -63,21 +63,27 @@ Before running your computation, you may need to untar your tarball. To untar:
 {:.term}
 
 # Transferring Data to Jobs
-The HTCondor submit file `transfer_input_files =` line should always be used to tell HTCondor what files to transfer to each job, regardless of if that file originates from your `/home` or `/staging` directory. However, the syntax you use to tell HTCondor to fetch files from `/home` and `/staging` and transfer to your running job will change:
+The HTCondor submit file `transfer_input_files` line should always be used to tell HTCondor what files to transfer to each job, regardless of if that file originates from your `/home` or `/staging` directory. However, the syntax you use to tell HTCondor to fetch files from `/home` and `/staging` and transfer to your running job will change:
 
 
 | Input Sizes | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
-| 0-500 MB      | /home       | transfer_input_files = input.txt       |
-| 500-10GB   | /staging        | transfer_input_files = osdf:///chtc/staging/NetID/input.txt        | 
-| 10GB +   | /staging        | transfer_input_files = file:///staging/NetID/input.txt        | 
+| 0-500 MB      | /home       | `transfer_input_files = input.txt`       |
+| 500-10GB   | /staging        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
+| 10GB +   | /staging        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 
 ***What's the situation for osdf:/// or file:///? If we are going to leave this as-is, we will probably need to explain why there's a difference.
 
 
 # Transfer Data Back from Jobs to `/home` or `/staging`
 
-When a job completes, by default, HTCondor will return newly created or edited files on the top level directory back to your `/home` directory. 
+When a job completes, by default, HTCondor will return newly created or edited files on the top level directory back to your `/home` directory. Files in subdirectories are *not* transferred. Ensure that the files you want are in the top level directory by moving them or creating tarballs.
+
+If you don't want to transfer all files but only *specific files*, in your HTCondor submit file, use
+```
+transfer_output_files = file1.txt, file2.txt
+```
+{:.sub}
 
 To transfer files or folders back to `/staging`, in your HTCondor submit file, use 
 ```
@@ -92,7 +98,7 @@ transfer_output_remaps = "output1.txt = file:///staging/NetID/output1.txt; outpu
 ```
 {:.sub}
 
-Make sure to only include one set of quotation marks that wraps around the information you are feeding to `transfer_output_remaps =`. 
+Make sure to only include one set of quotation marks that wraps around the information you are feeding to `transfer_output_remaps`. 
 
 # Related pages
 - [Managing Large Data in HTC Jobs](/uw-research-computing/file-avail-largedata)
