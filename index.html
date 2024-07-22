@@ -9,19 +9,14 @@ js_extension:
     type: module
 ---
 
-{% capture now %}{{ "now" | date: "%Y-%m-%d %H:%M" }}{% endcapture %}
-{% assign cutoff_date = "2024-08-01 23:55" %}
-
-{% if now < cutoff_date %}
-    {% include get/jobs.liquid %}
-    {% if jobs.size > 0 %}
-    <div class="bg-primary py-2">
-        <div class="container-xxl">
-            <span class="text-white">CHTC is hiring! View the new Research Cyberinfrastructure Specialist position on the jobs page and apply by August 1st.</a>
-            <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
-        </div>
+{% include get/jobs.liquid %}
+{% if jobs.size > 0 %}
+<div class="bg-primary py-2">
+    <div class="container-xxl">
+        <span class="text-white">CHTC is hiring! View the new Research Cyberinfrastructure Specialist position on the jobs page and apply by August 1st.</a>
+        <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
     </div>
-    {% endif %}
+</div>
 {% endif %}
 <div class="bg-light overflow-hidden">
     <picture>
@@ -72,15 +67,6 @@ js_extension:
                 </p>
 
             </div>
-            {% include get/future_events.html %}
-            {% if future_events.size > 0 %}
-            <div class="col-lg-3 col-12">
-                <h2 style="margin-top: 0%;">Upcoming Events</h2>
-                {% for event in future_events %}
-                        {% include event/event-card.html %}
-                {% endfor %}
-            </div>
-            {% endif %}
         </div>
     </div>
 </div>
