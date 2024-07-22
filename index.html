@@ -9,14 +9,19 @@ js_extension:
     type: module
 ---
 
-{% include get/jobs.liquid %}
-{% if jobs.size > 0 %}
-<div class="bg-primary py-2">
-    <div class="container-xxl">
-        <span class="text-white">CHTC is hiring! View the new Research Cyberinfrastructure Specialist position on the jobs page and appy by August 1st.</a>
-        <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
+{% capture now %}{{ "now" | date: "%Y-%m-%d %H:%M" }}{% endcapture %}
+{% assign cutoff_date = "2024-08-01 23:55" %}
+
+{% if now < cutoff_date %}
+    {% include get/jobs.liquid %}
+    {% if jobs.size > 0 %}
+    <div class="bg-primary py-2">
+        <div class="container-xxl">
+            <span class="text-white">CHTC is hiring! View the new Research Cyberinfrastructure Specialist position on the jobs page and apply by August 1st.</a>
+            <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
+        </div>
     </div>
-</div>
+    {% endif %}
 {% endif %}
 <div class="bg-light overflow-hidden">
     <picture>
