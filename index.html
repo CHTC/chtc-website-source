@@ -67,6 +67,15 @@ js_extension:
                 </p>
 
             </div>
+            {% include get/future_events.html %}
+            {% if future_events.size > 0 %}
+            <div class="col-lg-3 col-12">
+                <h2 style="margin-top: 0%;">Upcoming Events</h2>
+                {% for event in future_events %}
+                        {% include event/event-card.html %}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
