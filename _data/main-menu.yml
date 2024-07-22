@@ -17,6 +17,8 @@ nav_items:
         name: Internships
       - url: /fellowships/index.html
         name: Fellowships
+      - url: /contact.html
+        name: Contact
   - id: uw-research-computing
     name: UW Research Computing
     url: /uw-research-computing/index.html
