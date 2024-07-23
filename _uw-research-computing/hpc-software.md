@@ -97,8 +97,9 @@ If you want to clear your command line environment and start over, run the follo
 ## A. Overview
 
 Unless you are using a licensed software program provided via modules, you 
-are able to compile and install the software you need on the HPC Cluster.  
+are able to compile and install the software you need on the HPC Cluster. 
 
+**If your software requires modules to compile, you must compile software on an interactive job.**
 Compilation can be done via an interactive job as described in 
 our [HPC Job Submission Guide](hpc-job-submission.html#1-submitting-jobs-using-slurm).
 Software should be installed to your `/home/username` 
