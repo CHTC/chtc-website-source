@@ -29,7 +29,8 @@ Many executables require arguments to perform tasks. This exercise will show you
 
 In this exercise, we will perform a linear least squares regression analysis on life expectancy data for each country. This exercise was adapted from the work by the [Software Carpentry](https://software-carpentry.org/) under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
-1.  In your working directory on the access point, download gapminder-life-expectancy.csv data.
+1.  In your working directory on the access point, download `gapminder-life-expectancy.csv data`.
+
     ```
     [user@ap2002]$ wget [insert link here]
     ```
@@ -157,8 +158,8 @@ Now that we know how to run our script and what to expect, let’s translate thi
 
 1. Create a submit file for the job called `least_squares.sub.`
 	
-   ```
-   # least_squares.sub - an example HTCondor submit file for passing arguments
+	```
+	# least_squares.sub - an example HTCondor submit file for passing arguments
 
 	# Custom variable can be specified
 	country = Brazil
@@ -218,6 +219,7 @@ One of the default variables in an HTCondor submit file is `$(Process)` or `$(Pr
 In this exercise, we will use `$(Process)` to estimate the life expectancy within the years 2000-2009.
 
 1.	Create a new submit file, `least_squares_process.sub`.
+
 	```
 	# least_squares_process.sub - an example HTCondor submit file for passing arguments
 	# with the $(Process) variable
@@ -252,11 +254,12 @@ In this exercise, we will use `$(Process)` to estimate the life expectancy withi
 
 	Notice the differences between this submit script and the previous one:
 	* At the bottom of the script, `queue 10` tells HTCondor to run 10 instances of our calculation. Each calculation will be assigned a number `$(Process)`, which will range from 0 to 9.
-	* We want to estimate life expectancy between 2000 and 2009, so we set a custom variable `processplus = $(Process) + 2000`. This is a string, i.e. “0 + 2000”. This isn’t what we want! We convert it to a useful integer value in the next line: `year = $INT(processplus,%d)`. Each calculation can now use the variable `$(year)`, which will now range from 2000 to 2009.
+	* We want to estimate life expectancy between 2000 and 2009, so we set a custom variable `processplus = $(Process) + 2000`. This returns a string, i.e. “0 + 2000”, but this isn’t what we want! In the next line, we convert it to a useful integer value: `year = $INT(processplus,%d)`, which will now range from 2000 to 2009.
 	* In our arguments, we append our new variable `$(year)`.
 	* To prevent HTCondor from rewriting outputs from each calculation over each other, `_$(year)` is appended to the filenames of the log, error, and output files.
 
 3. 	Submit the job.
+
 	```
 	[user@ap2002]$ condor_submit least_squares_process.sub
 	```
@@ -271,6 +274,7 @@ In this exercise, we will use `$(Process)` to estimate the life expectancy withi
 Let’s say we want to perform our analysis on a few countries in the year 2024, but not all. Instead of creating separate submit files from each country, we can utilize HTCondor’s `queue <variable> from <list>` function.
 
 1.	Create text file called `countries.txt`. Within it, paste the following:
+
 	```
 	Argentina
 	Brazil
@@ -278,6 +282,7 @@ Let’s say we want to perform our analysis on a few countries in the year 2024,
 	```
 
 2.	Create a new submit script, `least_squares_list.sub`.
+
 	```
 	# least_squares_list.sub - an example HTCondor submit file for passing arguments
 
@@ -308,6 +313,7 @@ Let’s say we want to perform our analysis on a few countries in the year 2024,
 	* In our arguments line, we use the `$(country)` variable.
 
 3. 	Submit the job.
+
 	```
 	[user@ap2002]$ condor_submit least_squares_process.sub
 	```
@@ -315,7 +321,8 @@ Let’s say we want to perform our analysis on a few countries in the year 2024,
 	
 	Monitor the job with `condor_q`.
 
-4. Once the job is fully complete, you can check your outputs to see if it worked as expected.
+4. Once the job is fully complete, check the outputs to see if it worked as expected.
+
 	```
 	[user@ap2002]$ cat *2024.out
 	```
@@ -327,3 +334,8 @@ Let’s say we want to perform our analysis on a few countries in the year 2024,
 * Custom variables can be created within the submit script and utilized in arguments with the `$(variable)` syntax.
 * HTCondor’s default variables, such as `$(Process)` can be leveraged in arguments.
 * The `queue` attribute can be used to submit multiple jobs from one submit file that pass various arguments.
+
+## See also
+* [Practice: Submit HTC Jobs using HTCondor](/uw-research-computing/htcondor-job-submission)
+* [Submitting Multiple Jobs Using HTCondor](/uw-research-computing/multiple-jobs)
+* [HTCondor Docs: Submitting a Job](https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html)
