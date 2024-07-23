@@ -213,7 +213,7 @@ You are now ready to use Spack for installing the packages that you need! See th
 
 1. Log in to the HPC cluster ([Connecting to CHTC](connecting.html)).
    ```
-   ssh yourNetID@hpclogin3.chtc.wisc.edu
+   ssh yourNetID@spark-login.chtc.wisc.edu
    ```
    {:.term}
 
