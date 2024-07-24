@@ -49,8 +49,8 @@ servers or head nodes:
   {:.gtable}
   | HPC Cluster |
   | --- |
-  | `hpclogin3.chtc.wisc.edu`
-  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` - access the old HPC cluster until February 28, 2023 |
+  | `spark-login.chtc.wisc.edu`
+  | `hpclogin3.chtc.wisc.edu` - access the old HPC cluster, slated to be decommissioned |
 
 As of December 2022, we also require two-factor authentication with Duo to 
 access CHTC resources. 

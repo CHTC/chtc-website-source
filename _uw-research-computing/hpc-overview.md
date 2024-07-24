@@ -61,7 +61,7 @@ To see more details of other software on the cluster, see the [HPC Software page
 
 ## Login Nodes
 
-The login node for the cluster is: `hpclogin3.chtc.wisc.edu` 
+The login node for the cluster is: `spark-login.chtc.wisc.edu` 
 
 For more details on logging in, see the "Connecting to CHTC" guide linked above. 
 
