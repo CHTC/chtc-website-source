@@ -328,6 +328,45 @@ Let’s say we want to perform our analysis on a few countries in the year 2024,
 	```
 	{:.term}
 
+## Writing wrapper scripts for passing arguments
+A wrapper script can be useful in jobs, enabling more complex operations and simple pre- and post- calculation commands. Wrapper scripts can also take and pass on arguments. Let's see how to write a simple wrapper script for our calculation.
+
+In this exercise, we will obtain data for multiple countries between the years 2024 and 2033 and return them in tarballs organized by country.
+
+1.  Create `least_squares_range.sh`.
+	
+	```
+	#!/bin/bash
+
+	# This wrapper script takes in four arguments:
+	# Usage: ./least_squares_range.sh [CSV] [Country] [Start Year] [End Year]
+
+	# Assign variables for readability
+	CSV=$1
+	Country=$2
+	StartY=$3
+	EndY=$4
+
+	# Loop least_squares.py over start and end years
+	for i in $(seq $StartY $EndY);
+	do
+		./least_squares.py ${CSV} $Country $i > ${Country}_${i}.txt
+	done
+
+	# Create tarball
+	tar -czf ${Country}.tar ${Country}*.txt
+	```
+
+	In a shell script, arguments are assigned integers according to their order. The executable script itself, `least_squares_range.sh`, is assigned `$0`.
+
+	While not necessary, it's useful to assign descriptive variables to input arguments to keep track of what's happening in the wrapper script. `Country=$2` assigns the variable `$Country` with the same value as the second argument. Note that there must be no spaces around the `=` sign.
+
+	The script then uses a simple `for` loop to run `least_squares.py` over a range of years and writes them to text files.
+
+	Once the loop is complete, the text files are consolidated into a tarball. Since this object is in the top-level directory of the job, it will automatically be transferred back to the submit server.
+
+2.	
+
 ## Summary
 
 * In the submit script, arguments are passed to the executable with the `arguments = ` attribute.
