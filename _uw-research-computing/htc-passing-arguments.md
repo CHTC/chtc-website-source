@@ -15,7 +15,8 @@ guide:
 - [Sample calculation: A linear least squares regression on life expectancy data](#sample-calculation-a-linear-least-squares-regression-on-life-expectancy-data)
 - [Writing a submit file for a single sample calculation](#writing-a-submit-file-for-a-single-sample-calculation)
 - [Leveraging $(Process)/$(ProcID) as arguments](#leveraging-processprocid-as-arguments)
-- [Filenames as arguments using queue \<variable\> from \<list\>](#filenames-as-arguments-using-queue-from-)
+- [Filenames as arguments using queue \<variable\> from \<list\>](#filenames-as-arguments-using-queue-variable-from-list)
+- [Writing wrapper scripts for passing arguments](#writing-wrapper-scripts-for-passing-arguments)
 - [Summary](#summary)
 
 {% endcapture %}
@@ -354,7 +355,10 @@ In this exercise, we will obtain data for multiple countries between the years 2
 	done
 
 	# Create tarball
-	tar -czf ${Country}.tar ${Country}*.txt
+	tar -czf ${Country}.tar.gz ${Country}*.txt
+
+	# Delete text files
+	rm *.txt
 	```
 
 	In a shell script, arguments are assigned integers according to their order. The executable script itself, `least_squares_range.sh`, is assigned `$0`.
@@ -365,7 +369,60 @@ In this exercise, we will obtain data for multiple countries between the years 2
 
 	Once the loop is complete, the text files are consolidated into a tarball. Since this object is in the top-level directory of the job, it will automatically be transferred back to the submit server.
 
-2.	
+2.	Create a new submit script, `least_squares_range.sub`.
+
+	```
+	# least_squares_range.sub - an example HTCondor submit file for passing arguments
+
+	# Custom variables can be specified
+	country = Brazil
+
+	# Specify your executable and your arguments
+	# Usage: ./least_squares_range.sh [CSV] [Country] [Start Year] [End Year]
+	executable = least_squares_range.sh
+	arguments = gapminder-life-expectancy.csv $(country) 2024 2033
+
+	# Specify the log, standard error, and standard output (or screen output) files
+	log = $(country)_24_33.log
+	error = $(country)_24_33.err
+	output = $(country)_24_33.out
+
+	# We need to also transfer the csv file for the calculation
+	transfer_input_files = gapminder-life-expectancy.csv, least_squares.py
+
+	# Requirements for our calculation
+	request_cpus = 1
+	request_memory = 1GB
+	request_disk = 1GB
+
+	# Tell HTCondor to run instances of our calculation from a list
+	queue
+	```
+
+	Key highlights:
+	* The `executable` is now our wrapper script, `least_squares_range.sh`
+	* We edit the `arguments` line according to the usage of the wrapper script we wrote.
+	* `transfer_input_files` now includes `least_squares.py`. We now need to specify this file to be transferred over, since it is no longer our executable.
+
+3. Submit the job.
+	```
+	[user@ap2002]$ condor_submit least_squares_process.sub
+	```
+	{:.term}
+	
+	Monitor the job with `condor_q`.
+
+4. If your job executed correctly, you should now have `Brazil.tar.gz`.
+	```
+	[user@ap2002]$ ls
+	Brazil_24_33.err
+	Brazil_24_33.log
+	Brazil_24_33.out
+	Brazil.tar.gz
+	least_squares_range.sh
+	least_squares_range.sub
+	```
+	{:.term}
 
 ## Summary
 
@@ -373,6 +430,7 @@ In this exercise, we will obtain data for multiple countries between the years 2
 * Custom variables can be created within the submit script and utilized in arguments with the `$(variable)` syntax.
 * HTCondor’s default variables, such as `$(Process)` can be leveraged in arguments.
 * The `queue` attribute can be used to submit multiple jobs from one submit file that pass various arguments.
+* Wrapper scripts are useful for performing pre-/post- calculation commands or complex operations and can take and pass arguments.
 
 ## See also
 * [Practice: Submit HTC Jobs using HTCondor](/uw-research-computing/htcondor-job-submission)
