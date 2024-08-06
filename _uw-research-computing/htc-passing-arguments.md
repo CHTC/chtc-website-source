@@ -30,10 +30,10 @@ Many executables require arguments to perform tasks. This exercise will show you
 
 In this exercise, we will perform a linear least squares regression analysis on life expectancy data for each country. This exercise was adapted from the work by the [Software Carpentry](https://software-carpentry.org/) under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
-1.  In your working directory on the access point, download `gapminder-life-expectancy.csv data`.
+1.  In your working directory on the access point, download `gapminder-life-expectancy.csv`.
 
     ```
-    [user@ap2002]$ wget [insert link here]
+    [user@ap2002]$ wget https://chtc.cs.wisc.edu/uw-research-computing/files/gapminder-life-expectancy.csv
     ```
     {:.term}
 
