@@ -15,6 +15,10 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - name: Update Submodules
+        run: git submodule update --init --recursive --remote
+
+
       - name: Attach hidden files
         run: |
           curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
