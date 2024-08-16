@@ -1,0 +1,38 @@
+<div id="{{ member.name | slugify }}" class="bg-white team-card justify-content-center mb-3 flex-grow-1">
+    <div class="uw-card-content shadow">
+        <div class="row">
+            <div class="col-3">
+                <div class="img-container" class="overflow-hidden d-flex justify-content-center">
+                    {% assign base_image_path = "/staff-list/" %}
+                    {% if member.website %}=
+                    <a href="{{ member.website }}">
+                        <img src="{{ base_image_path | append: member.image | relative_url }}" alt="Headshot for {{member.name}}">
+                    </a>
+                    {% else %}
+                    <img src="{{ base_image_path | append: member.image | relative_url }}" alt="Headshot for {{member.name}}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="uw-card-copy">
+                    <div>
+                        <h2 class="uw-mini-bar mb-0 mt-3">
+                            {% if member.website %}
+                            <a href="{{ member.website }}">{{ member.name }}</a>
+                            {% else %}
+                            {{ member.name }}
+                            {% endif %}
+                        </h2>
+                        <div><h6 class="mt-2">Mentor(s):</h6> {{ member.fellowship.mentor }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <h4 class="mt-3">{{ member.fellowship.name }}</h4>
+                <div class="pt-2">
+                    {{ member.fellowship.description | markdownify }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,11 +8,11 @@ text: |
   programmatic interfaces, or making workloads run more effectively across thousands of cores, the
   RSE will have a diversity of challenges and help advance Morgridge’s goals of Fearless Science. 
   
-  Potential projects will be diverse, including computational Cryo-EM, storage management for distributed
-  computing, natural language processing, and single-cell RNAseq; projects can be tailored based on the candidate.
+  Potential projects will be diverse, including facilitating machine learning projects, developing 
+  tools for global distributed data management, and enabling large-scale protein simulation; 
+  projects will be tailored based on the candidate.
 button:
   href: https://morgridge.org/job-posting/research-software-engineer/
   text: View Posting
 type: Full Time
 institution: Morgridge Institute for Research
-close_date: 1

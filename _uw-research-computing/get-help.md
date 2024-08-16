@@ -40,9 +40,9 @@ We will use this information to give you more effective responses and solutions.
 
 ## Office Hours
 
-<!-- **Cancellations will be announced via email and on this webpage.**
+<!-- **Cancellations will be announced via email and on this webpage.** -->
 
-**We will have a limited office hour schedule over the winter break, beginning Dec. 18.**
+<!-- **We will have a limited office hour schedule over the winter break, beginning Dec. 18.**
 **Office hours will only be held on the following dates during this period:**
 
 - **Thursday, Dec. 21st, 3:00 - 4:30 pm**
@@ -55,7 +55,7 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm. 
+-   Tuesday morning: 10:30 am - 12:00 pm. **CANCELED OVER THE SUMMER (May 28 through August 27)**
 -   Thursday afternoon: 3:00 - 4:30 pm.
 
 To drop in, find the videoconference link in either your email or in the 

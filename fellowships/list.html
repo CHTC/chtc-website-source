@@ -17,10 +17,11 @@ title: Open projects for CHTC Fellows
             {% include page-title.html title="page.title" %}
             <p>
                 This page lists software development, infrastructure services, and research facilitation
-                projects for CHTC Fellow applicants to consider.
+                projects for CHTC Fellow applicants to consider. Please check back in January 2025 for the next round of
+                fellowship opportunities.
             </p>
             <p>
-                Updated February 2, 2023
+                Updated June 3, 2024
             </p>
             {% include /get/fellowships.liquid %}
             {% assign software = fellowships | where: "type", "Software Development" %}
@@ -28,16 +29,25 @@ title: Open projects for CHTC Fellows
             {% assign research = fellowships | where: "type", "Research Facilitation" %}
 
             <h2 id="software-development">Software Development</h2>
+            {% if software.size == 0 %}
+                <p>No software development projects are currently available.</p>
+            {% endif %}
             {% for fellowship in software %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
 
             <h2 id="infrastructure-services">Infrastructure Services</h2>
+            {% if infrastructure.size == 0 %}
+                <p>No software development projects are currently available.</p>
+            {% endif %}
             {% for fellowship in infrastructure %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
 
             <h2 id="research-facilitation">Research Facilitation</h2>
+            {% if research.size == 0 %}
+                <p>No software development projects are currently available.</p>
+            {% endif %}
             {% for fellowship in research %}
                 {% include /components/fellowship-card.html %}
             {% endfor %}
@@ -59,6 +69,6 @@ title: Open projects for CHTC Fellows
                 </div>
             </div>
         </div>
-        <p class="text-center">Questions: <a href="mailto:htcondor-jobs@cs.wisc.edu ">htcondor-jobs@cs.wisc.edu </a></p>
+        <p class="text-center">Questions: <a href="mailto:chtc-jobs@g-groups.wisc.edu ">chtc-jobs@g-groups.wisc.edu </a></p>
     </div>
 </div>

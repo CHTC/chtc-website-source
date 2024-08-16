@@ -13,7 +13,7 @@ installing and managing Python-based software and other tools. This guide
 describes how to use Miniconda to create a portable Python 
 environment for use in CHTC jobs. 
 
-**We recommend setting up a container for using Conda, as described [here](software-overview-htc.md#miniconda-quickstart-a).**
+**We recommend setting up a container for using Conda, as described [here](software-overview-htc#miniconda).**
 We are keeping this process as an alternative. 
 
 <!--
