@@ -33,7 +33,7 @@ We are available to answer questions via an email “ticket” system. We
 aim to provide a first response (although not necessarily a solution!)
 within 1-2 business days.
 
-In addition to email, we host drop-in “office hours” on zoom twice a
+In addition to email, we host drop-in “office hours” online twice a
 week. No appointment is needed, just show up during the available times!
 
 To email us or drop by office hours, see the information on our [get
@@ -41,7 +41,7 @@ help page](get-help.html).
 
 ## Course and Group Visits 
 
-The facilitation team is
+The Facilitation Team is
 available to provide guest lectures and introductory presentations to
 campus courses, regular department or program seminars, or individual
 lab group meetings.
@@ -50,7 +50,7 @@ lab group meetings.
 
 ## Training
 
-The facilitation team offers occasional training sessions for CHTC
+The Facilitation Team offers occasional training sessions for CHTC
 users. Upcoming training events are announced via the CHTC Users email
 list and are listed on the CHTC events page:
 
