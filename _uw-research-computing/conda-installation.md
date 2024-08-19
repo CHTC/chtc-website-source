@@ -3,21 +3,146 @@ highlighter: none
 layout: guide
 title: Create a Portable Python Installation with Miniconda
 alt_title: Using Conda Environments to Run Python Jobs
-software_icon: /uw-research-computing/guide-icons/miniconda-icon.png
-software: Miniconda
+software_icon: /uw-research-computing/guide-icons/conda-icon.png
+software: Conda
 guide:
-    order: 4
-    category: Software Solutions
     tag:
         - htc
 excerpt_separator: <!--more-->
+published: true
 ---
 
-The Anaconda/Miniconda distribution of Python is a common tool for 
-installing and managing Python-based software and other tools. This guide 
-describes how to use Miniconda to create a Python 
-environment for use in CHTC jobs. 
+## Quickstart: Conda
 
+### Option A (recommended)
+
+Build a container with Conda packages installed inside:
+
+1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+2. [Example container recipes for Conda](https://github.com/CHTC/recipes/tree/main/software/Conda)
+3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+
+### Option B
+
+Create your own portable copy of your Conda packages:
+
+1. Follow the instructions in [our guide](conda-installation.html#option-b-create-your-own-portable-copy)
+
+> This approach may be sensitive to the operating system of the execution point. 
+> We recommend building a container instead, but are keeping these instructions as a backup.
+
+<!--more-->
+
+## More information
+
+The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
+Miniconda can be used to install Python and R and corresponding packages. 
+But if you only need to install Python or R, and do not otherwise need to use a `conda install` command to set up the packages, 
+you should see the instructions specifically for setting up [Python or R](software-overview-htc.html#quickstart) because there is less chance of obscure errors when building your container.
+
+When building or using a Miniconda container, you do not need to create or activate a conda environment.
+For the build process, you skip directly to the `conda install` commands you want to run.
+Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+
+### Executable
+
+If you are planning to execute a python `.py` script using your Miniconda container, you can follow the instructions in the [Python guide](python-jobs.html#executable).
+
+If you are planning to execute a `.R` script using your Miniconda container, you can follow the instructions in the [R guide](r-jobs.html#executable).
+
+Otherwise, you can use a bash `.sh` script as the submit file `executable`:
+
+```
+#!/bin/bash
+
+<your commands go here>
+```
+
+where the contents of the file are the commands that you want to execute using your conda environment.
+You do not and should not try to activate the conda environment in the executable if you are using a container.
+
+### Specifying Exact Dependency Versions
+
+An important part of improving reproducibility and consistency between runs
+is to ensure that you use the correct/expected versions of your dependencies.
+
+When you run a command like `conda install numpy`, `conda` tries to install
+**the most recent version of `numpy`**. For example, `numpy` version `1.18.2`
+was released on March 17, 2020. To install exactly this version of `numpy`, you
+would run `conda install numpy=1.18.2` 
+(the same works for `pip`, if you replace `=` with `==`). We
+recommend installing with an explicit version to make sure you have exactly 
+the version of a package that you want. This is often called 
+"pinning" or "locking" the version of the package.
+
+If you want a record of what is installed in your environment, or want to 
+reproduce your environment on another computer, conda can create a file, usually
+called `environment.yml`, that describes the exact versions of all of the 
+packages you have installed in an environment.
+This file can be re-used by a different conda command to recreate that 
+exact environment on another computer.
+
+To create an `environment.yml` file from your currently-activated environment, run
+
+```
+[alice@submit]$ conda env export > environment.yml
+```
+{: .term}
+
+This `environment.yml` will pin the exact version of *every dependency in your
+environment*. This can sometimes be problematic if you are moving between
+platforms because a package version may not be available on some other platform,
+causing an "unsatisfiable dependency" or "inconsistent environment" error.
+A much less strict pinning is
+
+```
+[alice@submit]$ conda env export --from-history > environment.yml
+```
+{: .term}
+
+which only lists packages that you installed manually, and **does not pin their
+versions unless you yourself pinned them during installation**. 
+If you need an intermediate solution, it is also possible to manually edit 
+`environment.yml` files; see the 
+[conda environment documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#)
+for more details about the format and what is possible.
+In general, exact environment specifications are simply not guaranteed to be
+transferable between platforms (e.g., between Windows and Linux).
+**We strongly recommend using the strictest possible pinning available to you.**
+
+To create an environment from an `environment.yml` file, run
+
+```
+[alice@submit]$ conda env create -f environment.yml
+```
+{: .term}
+
+By default, the name of the environment will be whatever the name of the source
+environment was; you can change the name by adding a `-n <name>` option to the
+`conda env create` command.
+
+If you use a source control system like `git`, we recommend checking your
+`environment.yml` file into source control and making sure to recreate it 
+when you make changes to your environment.
+Putting your environment under source control gives you a way to track how it
+changes along with your own code.
+
+If you are developing software on your local computer for eventual use on 
+the CHTC pool, your workflow might look like this:
+1. Set up a conda environment for local development and install packages as desired
+   (e.g., `conda create -n science; conda activate science; conda install numpy`).
+2. Once you are ready to run on the CHTC pool, create an `environment.yml` file
+   from your local environment (e.g., `conda env export > environment.yml`).
+3. Move your `environment.yml` file from your local computer to the submit machine
+   and create an environment from it (e.g., `conda env create -f environment.yml`),
+   then pack it for use in your jobs, as per 
+   [Create Software Package](#3-create-software-package).
+
+More information on conda environments can be found in 
+[their documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
+
+
+<!--
 # Overview
 
 When should you use Miniconda as an installation method in CHTC? 
@@ -48,18 +173,18 @@ If it doesn't work, discuss the second option with a facilitator.
 
 - Recommended: [Option 1: Pre-Install Miniconda and Transfer to Jobs](#option-1-pre-install-miniconda-and-transfer-to-jobs)
 - Alternative: [Option 2: Install Miniconda Inside Each Job](#option-2-install-miniconda-inside-each-job)
-<!--more-->
+
 This guide also discusses how to 
 ["pin" your conda environment](#specifying-exact-dependency-versions)
 to create a more consistent and reproducible environment with specified versions of 
 packages.
 
 # Option 1: Pre-Install Miniconda and Transfer to Jobs
+-->
 
-In this approach, we will create an entire software installation inside Miniconda 
-and then use a tool called `conda pack` to package it up for running jobs. 
+## Option B: Create your own portable copy
 
-## 1. Create a Miniconda installation
+### 1. Create a Miniconda installation
 
 On the submit server, 
 download the latest Linux [miniconda installer](https://docs.conda.io/en/latest/miniconda.html) and run it. 
@@ -71,12 +196,15 @@ download the latest Linux [miniconda installer](https://docs.conda.io/en/latest/
 {: .term}
 
 Accept the license agreement and default options. At the end, you can choose whether or 
-not to "initialize Miniconda3 by running conda init?" The default is no; you would 
-then run the `eval` command listed by the installer to "activate" Miniconda. If you
-choose "no" you'll want to save this command so that you can reactivate the 
-Miniconda installation when needed in the future.
+not to "initialize Miniconda3 by running conda init?" 
+We recommend that you enter "yes".
+Once you've completed the installer, you'll be prompted to restart your terminal. 
+Log out and log back in, and conda will be ready to use to set up your software.
 
-## 2. Create a conda "environment" with your software
+> If you choose "no" you'll want to save the `eval` command shown by the installer so that you can reactivate the 
+> Miniconda installation when needed in the future.
+
+### 2. Create a conda "environment" with your software
 
 > (If you are using an `environment.yml` file as described 
 > [later](#specifying-exact-dependency-versions), you should instead create
@@ -101,7 +229,6 @@ environment:
 (base)[alice@submit]$ conda activate env-name
 ```
 {: .term}
-
 
 Then, run the `conda install` command to install the different packages and 
 software you want to include in the installation. How this should look is often 
@@ -144,12 +271,12 @@ of commands:
 ```
 {: .term}
 
-> ## More about Miniconda
+> ### More about Miniconda
 > 
 > See the [official conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) for 
 > more information on creating and managing environments with `conda`. 
 
-## 3. Create Software Package
+### 3. Create Software Package
 
 Make sure that your job's Miniconda environment is created, but deactivated, so 
 that you're in the "base" Miniconda environment: 
@@ -183,7 +310,7 @@ the final tarball:
 When this step finishes, you should see a file in your current directory named
 `env-name.tar.gz`
 
-## 4. Check Size of Conda Environment Tar Archive
+### 4. Check Size of Conda Environment Tar Archive
 
 The tar archive, `env-name.tar.gz`, created in the previous step will be used as input for 
 subsequent job submission. As with all job input files, you should check the size of this 
@@ -195,7 +322,7 @@ chtc@cs.wisc.edu to determine the best option for your jobs.
 More information is available at [File Availability with Squid Web Proxy](file-avail-squid.html) 
 and [Managing Large Data in HTC Jobs](file-avail-largedata.html).
 
-## 5. Create a Job Executable
+### 5. Create a Job Executable
 
 The job will need to go through a few steps to use this "packed" conda environment; 
 first, setting the `PATH`, then unzipping the environment, then activating it, 
@@ -224,7 +351,7 @@ python3 hello.py
 ```
 {: .file}
 
-## 6. Submit Jobs
+### 6. Submit Jobs
 
 In your submit file, make sure to have the following: 
 
@@ -236,6 +363,7 @@ In your submit file, make sure to have the following:
   delivering the installation to your jobs, 
   likely our [SQUID web proxy](file-avail-squid.html).**
 
+<!--
 # Option 2: Install Miniconda Inside Each Job
 
 In this approach, rather than copying the Miniconda installation with each job, 
@@ -296,78 +424,5 @@ arguments = myscript.py
 transfer_input_files = Miniconda3-latest-Linux-x86_64.sh, script.py, other_input.file
 ```
 {:.sub}
+-->
 
-# Specifying Exact Dependency Versions
-
-An important part of improving reproducibility and consistency between runs
-is to ensure that you use the correct/expected versions of your dependencies.
-
-When you run a command like `conda install numpy`, `conda` tries to install
-**the most recent version of `numpy`**. For example, `numpy` version `1.18.2`
-was released on March 17, 2020. To install exactly this version of `numpy`, you
-would run `conda install numpy=1.18.2` 
-(the same works for `pip`, if you replace `=` with `==`). We
-recommend installing with an explicit version to make sure you have exactly 
-the version of a package that you want. This is often called 
-"pinning" or "locking" the version of the package.
-
-If you want a record of what is installed in your environment, or want to 
-reproduce your environment on another computer, conda can create a file, usually
-called `environment.yml`, that describes the exact versions of all of the 
-packages you have installed in an environment.
-This file can be re-used by a different conda command to recreate that 
-exact environment on another computer.
-
-To create an `environment.yml` file from your currently-activated environment, run
-```
-[alice@submit]$ conda env export > environment.yml
-```
-{: .term}
-
-This `environment.yml` will pin the exact version of *every dependency in your
-environment*. This can sometimes be problematic if you are moving between
-platforms because a package version may not be available on some other platform,
-causing an "unsatisfiable dependency" or "inconsistent environment" error.
-A much less strict pinning is
-```
-[alice@submit]$ conda env export --from-history > environment.yml
-```
-{: .term}
-which only lists packages that you installed manually, and **does not pin their
-versions unless you yourself pinned them during installation**. 
-If you need an intermediate solution, it is also possible to manually edit 
-`environment.yml` files; see the 
-[conda environment documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#)
-for more details about the format and what is possible.
-In general, exact environment specifications are simply not guaranteed to be
-transferable between platforms (e.g., between Windows and Linux).
-**We strongly recommend using the strictest possible pinning available to you.**
-
-To create an environment from an `environment.yml` file, run
-```
-[alice@submit]$ conda env create -f environment.yml
-```
-{: .term}
-By default, the name of the environment will be whatever the name of the source
-environment was; you can change the name by adding a `-n <name>` option to the
-`conda env create` command.
-
-If you use a source control system like `git`, we recommend checking your
-`environment.yml` file into source control and making sure to recreate it 
-when you make changes to your environment.
-Putting your environment under source control gives you a way to track how it
-changes along with your own code.
-
-If you are developing software on your local computer for eventual use on 
-the CHTC pool, your workflow might look like this:
-1. Set up a conda environment for local development and install packages as desired
-   (e.g., `conda create -n science; conda activate science; conda install numpy`).
-2. Once you are ready to run on the CHTC pool, create an `environment.yml` file
-   from your local environment (e.g., `conda env export > environment.yml`).
-3. Move your `environment.yml` file from your local computer to the submit machine
-   and create an environment from it (e.g., `conda env create -f environment.yml`),
-   then pack it for use in your jobs, as per 
-   [Create Software Package](#3-create-software-package).
-
-More information on conda environments can be found in 
-[their documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).

@@ -37,5 +37,3 @@ nav_items:
         name: CHTC News
       - url: /events.html
         name: Events
-      - url: /uw-research-computing/user-news.html
-        name: User News

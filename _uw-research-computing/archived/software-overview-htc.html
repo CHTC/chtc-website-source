@@ -1,0 +1,66 @@
+<!---
+highlighter: none
+layout: guide
+title: "Overview: Software"
+guide:
+    order: 0
+    category: Software Solutions
+    tag:
+        - htc
+--->
+
+<p>
+While our High Throughput system has little in the way of pre-installed software, 
+we've created resources to help users set up the software they want to use for running their jobs.
+</p>
+
+{% capture content %}
+
+<p><a href="#quickstart">Quickstart</a></p>
+<p><a href="#chtc-recipes-repository">CHTC Recipes Repository</a></p>
+<p><a href="#containers">Containers</a></p>
+
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
+<h2 id="quickstart" class="">Quickstart</h2>
+
+<p>
+Click the button that corresponds to the language/program/software that you want to use.
+More information is provided in the <a href="#chtc-recipes-repository">Recipes repository</a> and <a href="#containers">Containers</a> sections.
+</p>
+
+<!-- Buttons stuff goes here-->
+
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade fw-normal" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Home tab content</div>
+    <div class="tab-pane fade fw-normal" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Profile tab content</div>
+    <div class="tab-pane fade fw-normal" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Contact tab content</div>
+</div>
+
+<h2 id="chtc-recipes-repository">CHTC Recipes Repository</h2>
+
+<p>
+CHTC provides examples for software and workflows for use on our systems in our "Recipes" repository on Github: 
+<a href="https://github.com/CHTC/recipes">https://github.com/CHTC/recipes</a>.
+</p>
+
+<h2 id="containers">Containers</h2>
+
+<p>
+Many of the recipes in our Recipes repository involve building your own container. 
+In this section, we provide a brief introduction into how to use containers for setting up your own software to run on the High Throughput system.
+</p>
+
+<!-- Relative URL syntax: <a href="{{ '/uw-research-computing/account-details.html' | relative_url }}">Link Text</a> -->

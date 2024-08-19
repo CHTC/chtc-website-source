@@ -9,7 +9,7 @@ guide:
     -hpc
 ---
 
-CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command). Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies (similar to Conda and Miniconda).
+CHTC uses Spack ([https://github.com/spack/spack](https://github.com/spack/spack)) for installing and managing software packages on the HPC cluster for all users to use, via the `module` command. Recently, Spack has developed a feature that allows for users to integrate their local installation of Spack with the system-wide installation. This means that when a user installs software with their local installation of Spack, they can automatically incorporate the system-wide packages to satisfy their software's dependencies (similar to Conda and Miniconda).
 
 **This guide describes how to set up a local copy of Spack and integrate it with the system installation, either for an individual user or for a group of users.** For instructions on how to install packages with Spack, see our other guide, [Installing Software Using Spack](hpc-spack-install.html).
 
@@ -80,7 +80,7 @@ where you need to replace `yourNetID` with your NetID.
 To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
 
 ```
-cp -R /software/chtc/newspack/chtc-user-config/ ~/.spack
+cp -R /software/chtc/el9/spack-user-config ~/.spack
 ```
 {:.term}
 
@@ -163,7 +163,7 @@ where you need to replace `yourGroupName` with the name of your group.
 To simplify the process of configuring your local installation of Spack, we have provided a folder with the necessary configuration files. All that you need to do is copy it to your home directory using the following command.
 
 ```
-cp -R /software/chtc/newspack/chtc-user-config/ /home/groups/yourGroupName/.spack
+cp -R /software/chtc/el9/spack-user-config/ /home/groups/yourGroupName/.spack
 ```
 {:.term}
 
@@ -213,7 +213,7 @@ You are now ready to use Spack for installing the packages that you need! See th
 
 1. Log in to the HPC cluster ([Connecting to CHTC](connecting.html)).
    ```
-   ssh yourNetID@hpclogin3.chtc.wisc.edu
+   ssh yourNetID@spark-login.chtc.wisc.edu
    ```
    {:.term}
 

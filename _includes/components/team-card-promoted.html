@@ -2,12 +2,13 @@
     <div class=" uw-card-content">
         <div class="row gx-4">
             <div class="col-5 col-sm-4 col-md-3 col-lg-4">
+                {% assign base_image_path = "/staff-list/" %}
                 {% if member.website %}
                     <a href="{{ member.website }}">
-                        <img src="{{ member.image | relative_url }}" alt="Headshot for {{member.name}}">
+                        <img src="{{ base_image_path | append: member.image | relative_url }}" alt="Headshot for {{member.name}}">
                     </a>
                 {% else %}
-                    <img src="{{ member.image | relative_url }}" alt="Headshot for {{member.name}}">
+                    <img src="{{ base_image_path | append: member.image | relative_url }}" alt="Headshot for {{member.name}}">
                 {% endif %}
             </div>
             <div class="col">
@@ -20,7 +21,7 @@
                                 {{ member.name }}
                             {% endif %}
                         </h2>
-                        <p>{{member.title}}</p>
+                        <p>{{  member.chtc.title | default: member.title }}</p>
                     </div>
                     <div>
                         <span class="institution">{{member.institution}}</span>

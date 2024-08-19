@@ -148,7 +148,7 @@ html {
 
 #hero-image-ultrawide {
   height:50vw;
-  max-height:500px;
+  max-height:350px;
   width: auto;
   max-width: none;
   margin-left: 50%;
@@ -259,4 +259,10 @@ html {
   padding-right: 0;
   padding-left: 0;
   margin-bottom: 5px;
+}
+
+.news-bar {
+  width: auto;
+  height: 200px;
+  padding: 0%;
 }

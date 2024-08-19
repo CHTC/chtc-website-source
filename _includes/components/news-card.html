@@ -1,0 +1,26 @@
+<div id="news-container" class="screen-size">
+    {% include get/news.liquid %}
+    <div class="row p-0">
+        {% for article in news limit:2 %}
+            <div class="col-12 col-lg-6 {% if forloop.index == 1 %}d-none d-lg-block{% endif %}">
+                <div class="row">
+                    <div class="col-6 pb-0">
+                        {% include news-posts.html
+                            class="col-6"
+                            src=article.image.path
+                            alt=article.image.alt
+                        %}
+                    </div>
+                    <div class="col-6 pb-0">
+                        <div class="row pb-2">
+                            <div class="col-12">
+                                <a href="{{ article.url }}" style="font-weight: bold;">{{ article.title }}</a>
+                                <p style="font-size: 0.95em;">{{ article.date | date: "%B %d, %Y" }} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

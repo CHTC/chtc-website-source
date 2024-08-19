@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: Advanced Apptainer Example - SUMO
 guide:
-    order: 12
+    order: 13
     category: Software Solutions
     tag:
         - htc
