@@ -1,27 +1,74 @@
 ---
 highlighter: none
 layout: guide
-title: Run Julia Jobs
+title: Running Julia Jobs
+software_icon: /uw-research-computing/guide-icons/julia-icon.png
+software: Julia
 guide:
     tag:
         - htc
+excerpt_separator: <!--more-->
+published: true
 ---
 
-# Overview
+## Quickstart: Julia
 
-This guide documents steps for submitting jobs that will execute 
-Julia code, including preliminary steps for installing specific Julia 
-packages that may be required for your work.
+### Option A (recommended)
 
-**We recommend setting up a container for using Julia, as described [here](software-overview-htc.md#julia-quickstart-a).**
-We are keeping this process as an alternative. 
+Build a container with Julia & packages installed inside:
 
-# Table of Contents
-1.  [Quickstart Instructions](#quickstart-instructions)
-1.  [Install Julia Packages](#install-julia-packages)
-1.  [Submit Julia Jobs](#submit-julia-jobs)
+1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+2. [Example container recipes for Julia](https://github.com/CHTC/recipes/tree/main/software/Julia)
+3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
 
-# Quickstart Instructions
+### Option B
+
+Use a portable copy of Julia and create your own portable copy of your Julia packages:
+
+1. Follow the instructions in our guide [Run Julia Jobs](julia-jobs.html#option-b-create-your-own-portable-copy). 
+
+> This approach may be sensitive to the operating system of the execution point. 
+> We recommend building a container instead, but are keeping these instructions as a backup.
+
+<!--more-->
+
+## More information
+
+No CHTC machine has Julia pre-installed, so you **must** configure a portable copy of Julia to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.
+
+#### Executable
+
+When using a container, you can use a `.jl` script as the submit file `executable`, provided that the first line (the "shebang") in the `.jl` file is
+
+```
+#!/usr/bin/env julia
+```
+
+with the rest of the file containing the commands you want to run using Julia.
+
+Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `julia` command:
+
+```
+#!/bin/bash
+
+julia my-script.jl
+```
+
+In this case, remember to include your `.jl` file in the `transfer_input_files` line of your submit file.
+
+#### Arguments
+
+For more information on passing arguments to a Julia script, see the 
+[Julia documentation](https://docs.julialang.org/en/v1/manual/command-line-interface/#Using-arguments-inside-scripts).
+
+
+
+## Option B: Create your own portable copy
+
+Use a portable copy of Julia and create your own portable copy of your Julia packages
+
+**This approach may be sensitive to the operating system of the execution point. We recommend building a container instead, but are keeping these instructions as a backup.**
 
 1. Download the precompiled Julia software from <https://julialang.org/downloads/>. 
 You will need the 64-bit, tarball compiled for general use on a Linux x86 system. The 
@@ -30,13 +77,13 @@ file name will resemble something like `julia-#.#.#-linux-x86_64.tar.gz`.
     * Tip: use `wget` to download directly to your `/home` directory on the 
 submit server, **OR** use `transfer_input_files = url` in your <a href="https://htcondor.org">HTCondor</a> submit files.
 
-1. Submit an "interactive build" job to create a Julia project and 
+2. Submit an "interactive build" job to create a Julia project and 
 install packages, else skip to the next step.
 
     * For more details, see the section on installing Julia 
     packages below: [Installing Julia Packages](#install-julia-packages)
 
-1. Submit a job that executes a Julia script using the Julia precompiled binary
+3. Submit a job that executes a Julia script using the Julia precompiled binary
 with base Julia and Standard Library.
 
 	```
@@ -56,14 +103,14 @@ with base Julia and Standard Library.
     * For more details on the job submission, see the section 
     below: [Submit Julia Jobs](#submit-julia-jobs)
 
-# Install Julia Packages
+### Install Julia Packages
 
 If your work requires additional Julia packages, you will need to peform a one-time 
 installation of these packages within a Julia project. A copy of the project 
 can then be saved for use in subsequent job submissions. For more details, 
 please see Julia's documentation at [Julia Pkg.jl](https://julialang.github.io/Pkg.jl).
 
-## Create An Interactive Build Job Submit File
+### Create An Interactive Build Job Submit File
 
 To install your Julia packages, first create an HTCondor submit for 
 submitting an "interactive build" job which is a job that will run 
@@ -99,7 +146,7 @@ queue
 The only thing you should need to change in the above file is the name
 of the Julia tarball file in the \"transfer\_input\_files\" line.
 
-## Submit Your Interactive Build Job
+### Submit Your Interactive Build Job
 
 Once this submit file is created, submit the job using the following command:
 
@@ -110,7 +157,7 @@ Once this submit file is created, submit the job using the following command:
 
 It may take a few minutes for the build job to start.
 
-## Install Julia Packages Interactively
+### Install Julia Packages Interactively
 
 Once the interactive jobs starts you should see the following
 inside the job's working directory:
@@ -195,7 +242,7 @@ julia> exit()
 ```
 {:.term}
 
-## Save Installed Packages For Later Jobs
+### Save Installed Packages For Later Jobs
 
 To use this project, and the associated installed packages, in 
 subsequent jobs, we need to have <a href="https://htcondor.org">HTCondor</a> return some files to 
@@ -224,7 +271,7 @@ my-project.tar.gz
 ```
 {:.term}
 
-# Submit Julia Jobs
+## Submit Julia Jobs
 
 To submit a job that runs a Julia script, create a bash 
 script and <a href="https://htcondor.org">HTCondor</a> submit file following the examples in this section.
@@ -232,7 +279,7 @@ These examples assume that you have downloaded a copy of Julia for Linux as a `t
 file and if using packages, you have gone through the steps above to install them 
 and create an additional `tar.gz` file of the installed packages. 
 
-## Create Executable Bash Script
+### Create Executable Bash Script
 
 Your job will use a bash script as the HTCondor `executable`. This script 
 will contain all the steps needed to unpack the Julia binaries and 
@@ -240,7 +287,7 @@ execute your Julia script (`script.jl`). Below are two example bash script,
 one which can be used to execute a script with base Julia, and one that 
 will use packages installed in Julia project (see [Install Julia Packages](#install-julia-packages)).
 
-### Example Bash Script For Base Julia Only
+#### Example Bash Script For Base Julia Only
 
 If your Julia script can run without additional packages (other than base Julia and 
 the Julia Standard library) use the example script directly below.
@@ -261,7 +308,7 @@ julia script.jl
 ```
 {: .file}
 
-### Example Bash Script For Julia With Installed Packages
+#### Example Bash Script For Julia With Installed Packages
 
 ```
 #!/bin/bash
@@ -282,7 +329,7 @@ julia --project=my-project script.jl
 ```
 {: .file}
 
-## Create HTCondor Submit File 
+### Create HTCondor Submit File 
 
 After creating a bash script to run Julia, then create a submit file 
 to submit the job to run. 
@@ -328,7 +375,7 @@ Test a few jobs for disk space/memory usage in order to make sure your
 requests for a large batch are accurate! Disk space and memory usage can be found in the 
 log file after the job completes.
 
-## Submit Your Julia Job
+### Submit Your Julia Job
 
 Once you have created an executable bash script and submit file, you can 
 submit the job to run using the following command:

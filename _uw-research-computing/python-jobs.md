@@ -1,17 +1,72 @@
 ---
 highlighter: none
 layout: guide
-title: Run Python Jobs
+title: Running Python Jobs
+software_icon: /uw-research-computing/guide-icons/python-icon.png
+software: Python
 guide:
     tag:
         - htc
-published: false
+excerpt_separator: <!--more-->
+published: true
 ---
 
-<!-- Archived 2024-05 -->
+## Quickstart: Python
 
-_ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This may impact users who use Python in their jobs. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._
+### Option A (recommended)
 
+Build a container with Python & packages installed inside:
+
+1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+2. [Example container recipes for Python](https://github.com/CHTC/recipes/tree/main/software/Python/)
+3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+
+#### Option B
+
+Use an existing container with a base installation of Python:
+
+1. Choose an existing container. See 
+   [OSG Base Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
+   or
+   [DockerHub Python Containers](https://hub.docker.com/_/python).
+2. [Use the container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+
+<!--more-->
+
+## More information
+
+All CHTC machines have a base installation of Python 3.
+The exact versions and packages installed, however, can vary from machine to machine.
+You should be able to include simple python commands in your calculations, i.e., `python3 simple-script.py`.
+
+If you need a specific version of Python 3 or would like to install your own packages, we recommend that you use a container as described above.
+
+The example recipes provided above for building your own container are intended for python packages that can be installed using `python3 -m pip install`. 
+Additional software can be installed when building your own container.
+
+For packages that need to be installed with `conda install`, see the guide on [Conda](software-overview-htc.html#quickstart). 
+
+### Executable
+
+When using a container, you can use a python `.py` script as the submit file `executable`, provided that the first line (the "shebang") in the `.py` file is
+
+```
+#!/usr/bin/env python3
+```
+
+with the rest of the file containing the commands that you want to run using Python.
+
+Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `python3` command:
+
+```
+#!/bin/bash
+
+python3 my-script.py
+```
+
+In this case, remember to include your `.py` file in the `transfer_input_files` line of your submit file.
+
+<!-- Archived 2024-05
 
 **To best understand the below information, you should already have an
 understanding of:**
@@ -405,3 +460,4 @@ changes in order to run Python jobs:
 > the tarball using `transfer_input_files`. Instead, you should use
 > CHTC\'s web proxy, `squid`. In order to request space on `squid`,
 > email the research computing facilitators at <chtc@cs.wisc.edu>.
+ -->
