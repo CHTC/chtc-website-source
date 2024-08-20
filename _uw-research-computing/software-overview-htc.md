@@ -35,9 +35,12 @@ More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repo
     <div class="row gx-1">
         {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
         {% for page in pages %}
-             <div class="col col-6 col-md-2">
-             <button class="btn btn-guide mb-lg-0 {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')"><img class="img-btn-guide" src="{{ page.software_icon }}" alt="{{ page.title }}">{{ page.software }}</button>
-             </div>
+            <div class="col col-6 col-md-2">
+               <button class="btn btn-guide mb-lg-0 d-flex flex-column {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')">
+                  <img class="img-btn-guide mx-auto" src="{{ page.software_icon }}" alt="{{ page.title }}">
+                  <span class="mx-auto">{{ page.software }}</span>
+               </button>
+            </div>
         {% endfor %}
     </div>
     <div class="card-body side-divider" style="display: block;">
