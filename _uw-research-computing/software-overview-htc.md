@@ -31,25 +31,23 @@ This guide introduces how to build software in a container (our recommended stra
 Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
 More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repository) and [Containers](#containers) sections.
 
-<div class="row no-gutters">
-{% for page in site.uw-research-computing %}
-    {% if page.software_icon.size > 0 %}
-        <div class="col col-6 col-md-2 no-gutters">
-        <button class="btn btn-guide mb-lg-0 {% if page.software_icon.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')"><img class="img-btn-guide" src="{{ page.software_icon }}" alt="{{ page.title }}">{{ page.software }}</button>
-        </div>
-    {% endif %}
-{% endfor %}
-</div>
-
-<div class="card-body side-divider" style="display: block;">
-    {% for page in site.uw-research-computing %}
-    {% if page.software_icon.size > 0 %}
-        <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
-            {{ page.excerpt | markdownify }}
-            <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
-        </div>
-    {% endif %}
-{% endfor %}
+<div class="shadow p-3 border rounded">
+    <div class="row gx-1">
+        {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
+        {% for page in pages %}
+             <div class="col col-6 col-md-2">
+             <button class="btn btn-guide mb-lg-0 {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')"><img class="img-btn-guide" src="{{ page.software_icon }}" alt="{{ page.title }}">{{ page.software }}</button>
+             </div>
+        {% endfor %}
+    </div>
+    <div class="card-body side-divider" style="display: block;">
+        {% for page in pages %}
+            <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
+                {{ page.excerpt | markdownify }}
+                <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 ---

@@ -2,7 +2,7 @@
     layout: blank
 ---
 
-    function showExcerpt(id, sideDividerClass, buttonId) {
+function showExcerpt(id, sideDividerClass, buttonId) {
     console.log("Button clicked with ID:", id);
 
     var buttons = document.querySelectorAll('.btn-guide');
@@ -31,4 +31,4 @@
     }
     // Add button colors to clicked button
     event.currentTarget.classList.add("btn-guide-highlighted");
-    }
+}
