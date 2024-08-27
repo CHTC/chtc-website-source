@@ -30,8 +30,10 @@ cd built_website
 rsync -av --delete --include-from=../script/rsync_include_list --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
 # We need this single well-known directory to support OIDC metadata discovery for SciTokens.
 rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
-mkdir -p ./icecube
-rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/icecube/.well-known ./icecube
+for issuer in icecube nsdf; do
+  mkdir -p ./$issuer
+  rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/$issuer/.well-known ./$issuer
+done
 # Prevent GitHub from trying to render files as MarkDown - we're just static HTML!
 touch .nojekyll
 set -x

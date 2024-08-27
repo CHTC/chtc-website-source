@@ -1,0 +1,4 @@
+{
+  "issuer": "https://chtc.cs.wisc.edu/nsdf",
+  "jwks_uri": "https://chtc.cs.wisc.edu/nsdf/.well-known/issuer.jwks"
+}
