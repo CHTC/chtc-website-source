@@ -49,7 +49,6 @@ Our high memory servers have the following specs:
 {:.gtable}
   | Number of servers| Memory per server | CPUs per server | Local disk space on server | Names | 
   | --- | --- | --- | --- | --- |
-  | 1 | 512 GB | 16 | 2.5 TB | `wid-003`|
   | 16 | 512 GB | 40 | 1.2 TB | `e2003`-`e2018` |
   | 2 | 2 TB | 80 | 3.5+ TB | `mem2001`, `mem2002` |
 
