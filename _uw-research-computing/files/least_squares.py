@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Usage: least_squares.py [CSV] [Country] [Year, optional]
 
-import os, sys, time
+import os, sys
 import csv
 
 # Calculates least squares
