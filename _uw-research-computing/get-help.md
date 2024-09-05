@@ -4,44 +4,15 @@ layout: markdown-page
 title: Get Help
 ---
 
-### There are multiple ways to get help from CHTC staff. See below:
+See below for the various ways to get help when using CHTC services. 
 
-## Research Computing Facilitators
-
-<div class="row justify-content-around d-none d-sm-flex">
-    {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
-    {% for facilitator in facilitators %}
-        <div class="col-auto">
-            <figure class="p-3 d-flex flex-column">
-                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="/staff-list/{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
-                <figcaption class="mt-1 text-center"><b>{{ facilitator.name }}</b><br>{{facilitator.title}}</figcaption>
-            </figure>
-        </div>
-    {% endfor %}
-</div>
-
-
-To help researchers effectively utilize computing resources, our Research
-Computing Facilitators (RCFs) not only assist your in
-implementing your computational work on CHTC compute resources
-resources, but can also point you to other on- and off-campus services
-related to research computing and data needs. For example, RCFs can: 
-
-* Assist with planning your computational approach for a research
-problem 
-* Teach you to submit jobs to CHTC compute systems 
-* Help you with troubleshooting on CHTC compute systems 
-* Connect you with other researchers using similar software or methods 
-* Point to learning materials for programming and software development 
-* Help you identify applicable non-CHTC data storage options provided by DoIT 
-* Find the person who knows the answer to your question, even if the RCF doesn't 
-* ... and other helpful activities to facilitate your use of cyberinfrastructure
+<img src="/images/20240308_facilitators_morgridge.jpg" class= "img-fluid"/>
 
 ## Get An Account
 
 If you don't have an account yet, please fill out our [Request
-Form](form.html), and we'll follow up quickly to set up a meeting time
-and create accounts. If you don't have an account but just have general
+Form](form.html), and we'll follow up with your account details 
+or a request to meet. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
 ## Request a Quota Change
@@ -52,9 +23,9 @@ storage locations, please see our [Request a Quota Change](quota-request) guide.
 ## Help Via Email
 
 We provide support via email at the address
-[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
-to start by sending questions or issues via email. You can typically
-expect a first response within a few business hours.
+[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu) and this is a good, 
+general way to reach us. You can typically
+expect a first response within 1-2 business days. 
 
 When emailing us for assistance in troubleshooting an issue, please provide which system you are using, 
 an explanation of what you expected to happen versus what actually happened, and  
@@ -84,7 +55,7 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm. **CANCELED OVER THE SUMMER (May 28 through August 27)**
+-   Tuesday morning: 10:30 am - 12:00 pm.
 -   Thursday afternoon: 3:00 - 4:30 pm.
 
 To drop in, find the videoconference link in either your email or in the 
@@ -95,24 +66,27 @@ at our usual support address to schedule a separate meeting.
 
 [Click to sign-in for office hours](sign-in.html)
 
+## Check System Status
 
-<!-- For users who already have accounts, we have drop-in office hours on:
+We have a system status page at [https://status.chtc.wisc.edu](https://status.chtc.wisc.edu) that we 
+use to provide updates 
+about CHTC system issues, including outages and scheduled maintenance. Major outages and maintenance 
+issues are still communicated via the `chtc-users` email list, but minor issues and updates to 
+ongoing issues will be communicated via the status page. 
 
--   **Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.**
--   **Wednesday morning from 9:30 - 11:30 am**
-
-Office Hours are located in the [Discovery
-Building](http://map.wisc.edu/s/919bjy8v) at the second-floor round
-table, just off of the main staircase.\
- **For researchers without access to the upper floors of the Discovery
-Building, check in at the front desk and ask them to "call CHTC."**\
- We will confirm that you are here for office hours and you will be let
-upstairs. (Note: If you ask the desk to call for a facilitator, by name,
-no one will answer as facilitators will not be in their *own* offices
-during Office Hours.) --> 
+* If you are experiencing an issue with the system, please check the status page! If you 
+don't see a corresponding incident, feel free to email us.
 
 ## Make an Appointment
 
 We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
+
+## More About Us
+
+Support at CHTC is provided by the whole team, and lead by the Research 
+Computing Facilitation Team. Learn more about us here: 
+
+* [The Facilitation Team](facilitation-team.html)
+
