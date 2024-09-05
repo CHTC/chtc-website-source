@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2024-09-18
 end_date: 2024-09-18
 location: "UW-Madison Campus, Room 1240 of the Computer Sciences Building"
-image: "/images/OSGUS23-andrew-help.jpg"
-header_image: "/images/OSGUS23-andrew-help.jpg"
+image: "/images/20240308_Morgridge_RCFs.jpg"
+header_image: "/images/20240308_Morgridge_RCFs.jpg"
 ---
 
 {% capture main %}
