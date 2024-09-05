@@ -1,16 +1,67 @@
 ---
 highlighter: none
 layout: guide
-title: Run R Jobs
+title: Running R Jobs
+software_icon: /uw-research-computing/guide-icons/r-icon.png
+software: R
 guide:
     tag:
         - htc
-published: false
+excerpt_separator: <!--more-->
+published: true
 ---
 
-<!-- Archived 2024-05 -->
+## Quickstart: R
 
-<!-- _ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ -->
+#### Option A (recommended)
+
+Build a container with R & packages installed inside:
+
+1. [How to build your own container](#build-your-own-container)
+2. [Example container recipes for R](https://github.com/CHTC/recipes/tree/main/software/R/)
+3. [Use your container in your HTC jobs](#use-an-existing-container)
+
+#### Option B
+
+Use an existing container with a base installation of R:
+
+1. Choose an existing container. See 
+   [OSG R containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr))
+   or 
+   [Rocker R containers](https://rocker-project.org/images/).
+2. [Use the container in your HTC jobs](#use-an-existing-container)
+
+<!--more-->
+
+## More information
+
+No CHTC machine has R pre-installed, so you **must** configure a portable copy of R to work on the HTC system.
+Using a container as described above is the easiest way to accomplish this.
+
+### Executable<a name="r-executable"></a>
+
+When using a container, you can use a `.R` script as the submit file `executable`, provided that the first line (the "shebang") in the `.R` file is
+
+```
+#!/usr/bin/env Rscript
+```
+
+with the rest of the file containing the commands that you want to run using R.
+
+Alternatively, you can use a bash `.sh` script as the submit file `executable`, and in that file you can use the `Rscript` command:
+
+```
+#!/bin/bash
+
+Rscript my-script.R
+```
+
+In this case, remember to include your `.R` file in the `transfer_input_files` line of your submit file.
+
+
+<!-- Archived 2024-05 
+
+_ACTION REQUIRED: As of September 29th, the HTC system's default operating system will transition to CentOS Stream 8. This guide has been updated to reflect this change. However, this transition may impact users were running R jobs before September 29th. For more information, see the [HTC Operating System Transition](/uw-research-computing/os-transition-htc.html) guide._ 
 
 **This guide is deprecated and will be removed May 15th, 2024.**
 **For developing new workflows, you should instead follow the instructions [here](../software-overview-htc.html#r-quickstart).**
@@ -390,3 +441,4 @@ changes in order to run R jobs:
 > Proxy](file-avail-squid.html). To request
 > space on `squid`, email the research computing facilitators at
 > <chtc@cs.wisc.edu>.
+-->

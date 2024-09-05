@@ -2,13 +2,106 @@
 highlighter: none
 layout: guide
 title: Running Matlab Jobs
+software_icon: /uw-research-computing/guide-icons/matlab-icon.png
+software: Matlab
 guide:
     tag:
         - htc
-published: false
+excerpt_separator: <!--more-->
+published: true
 ---
 
-<!-- Archived 2024-05 -->
+## Quickstart: Matlab
+
+Build a container with Matlab & toolboxes installed inside:
+
+1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+2. [Example container recipes for Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab)
+3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+
+> **Note**: Because Matlab is a licensed software, you **must** add the following line to your submit file:
+> 
+> ```
+> concurrency_limits = MATLAB:1
+> ```
+> {:.sub}
+> 
+> Failure to do so may cause your or other users' jobs to fail to obtain a license from the license server.
+
+<!--more-->
+
+## More information
+
+CHTC has a site license for Matlab that allows for up to 10,000 jobs to run at any given time across *all CHTC users*. 
+Hence the requirement for adding the line `concurrency_limits = MATLAB:1` to your submit files, so that HTCondor can keep track of which jobs are using or will use a license.
+
+Following the instructions above, you are able to install a variety of Matlab Toolboxes when building the container.
+The Toolboxes available for each supported version of Matlab are described here: https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/mpm-input-files/.
+Navigate to the text file for the version of interest, and look at the section named "INSTALL PRODUCTS".
+The example recipes linked above provide instructions on how to specify the packages you want to install when building the container.
+
+### Executable<a name="matlab-executable"></a>
+
+When using the Matlab container, we recommend the following process for executing your Matlab commands in an HTCondor job:
+
+1. Put your Matlab commands in a `.m` script. For this example, we'll call it `my-script.m`.
+
+2. Create the file `run-matlab.sh` with the following contents:
+   
+   ```
+   #!/bin/bash
+   
+   matlab -batch "my-script"
+   ```
+
+   Note that in the script, the `.m` extension has been dropped from the file name (uses `"my-script"` instead of `"my-script.m"`).
+
+3. In your submit file, set the `.sh` script as the executable and list the `.m` file to be transferred:
+
+   ```
+   executable = run-matlab.sh
+   transfer_input_files = my-script.m
+   ```
+   {:.sub}
+
+### Arguments<a name="matlab-arguments"></a>
+
+You can pass arguments from your submit file to your Matlab code via your executable `.sh` and the `matlab -batch` command. 
+Arguments in your submit file are accessible inside your executable `.sh` script with the syntax `${n}`, where `n` is the nth value passed in the arguments line.
+You can use this syntax inside of the `matlab -batch` command.
+
+For example, if your Matlab script (`my-script.m`) is expecting a variable `foo`, you can add `foo=${1}` before calling `my-script`:
+
+```
+#!/bin/bash
+
+matlab -batch "foo=${1};my-script"
+```
+
+This will use the first argument from the submit file to define the Matlab variable `foo`.
+By default, such values are read in by Matlab as numeric values (or as a Matlab function/variable that evaluates to a numeric function).
+If you want Matlab to read in the argument as a string, you need to add apostrophes around the value, like this:
+
+```
+#!/bin/bash
+
+matlab -batch "foo=${1};bar='${2}';my-script"
+```
+
+Here, the value of `bar` is defined as the second argument from the submit file, and will be identified by Matlab as a string because it's wrapped in apostrophes (`'${2}'`).
+
+If you have defined your script to act as a function, you can call the function directly and pass the arguments directly as well.
+For example, if you have constructed your `my-script.m` as a function, then you can do 
+
+```
+#!/bin/bash
+
+matlab -batch "my-script(${1}, ${2})"
+```
+
+Again, by default Matlab will interpret these value of these variables as numeric values, unless you wrap the argument in apostrophes as described above.
+
+<!-- Archived 2024-05
 
 **To best understand the below information, users should already have an understanding of:**
 
@@ -315,3 +408,4 @@ produces different random values when Matlab runs for the first time.
 Deliberately choosing your own different random seed values for each job
 can be another way to ensure different results.
 
+ -->

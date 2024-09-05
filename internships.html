@@ -12,7 +12,6 @@ title: The Path to Internship and Fellowship Opportunities
          alt="Collage photos of current and previous CHTC interns."/>
     <img class="w-100 d-none d-lg-block" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner-lg.jpg' | relative_url }}"
          alt="Collage photos of current and previous CHTC interns."/>
-    <figcaption class="p-1 bg-light">Photo: Morgridge Institute for Research</figcaption>
 </figure>
 
 <div class="container-xxl">
@@ -73,22 +72,24 @@ title: The Path to Internship and Fellowship Opportunities
                 {% endfor %}
             {% endif %}
         </div>
-        <div class="d-none d-lg-block col-12 col-lg-4">
-            <div class="sticky-top mt-5">
-                <div class="pt-5">
-                    <div class="uw-sidebar-box me-auto">
-                        <div class="uw-directory">
-                            <h3>Open Positions</h3>
-                            <ul>
-                                {% for job in student_jobs %}
-                                    <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
-                                {% endfor %}
-                            </ul>
+        {% if available_jobs.size > 0 %}
+            <div class="d-none d-lg-block col-12 col-lg-4">
+                <div class="sticky-top mt-5">
+                    <div class="pt-5">
+                        <div class="uw-sidebar-box me-auto">
+                            <div class="uw-directory">
+                                <h3>Open Positions</h3>
+                                <ul>
+                                    {% for job in student_jobs %}
+                                        <li><a href="#{{ job.title |  slugify }}">{{ job.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
         <p class="text-center">Questions: <a href="mailto:chtc-jobs@g-groups.wisc.edu">chtc-jobs@g-groups.wisc.edu</a></p>
     </div>
 </div>
