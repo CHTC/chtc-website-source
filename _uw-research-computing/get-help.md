@@ -6,7 +6,7 @@ title: Get Help
 
 See below for the various ways to get help when using CHTC services. 
 
-![Facilitation team](/images/20240308_facilitators_morgridge.jpg)
+<img src="/images/20240308_facilitators_morgridge.jpg" class= "img-fluid"/>
 
 ## Get An Account
 
@@ -55,7 +55,7 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm. **CANCELED OVER THE SUMMER (May 28 through August 27)**
+-   Tuesday morning: 10:30 am - 12:00 pm.
 -   Thursday afternoon: 3:00 - 4:30 pm.
 
 To drop in, find the videoconference link in either your email or in the 
@@ -68,7 +68,14 @@ at our usual support address to schedule a separate meeting.
 
 ## Check System Status
 
+We have a system status page at [https://status.chtc.wisc.edu](https://status.chtc.wisc.edu) that we 
+use to provide updates 
+about CHTC system issues, including outages and scheduled maintenance. Major outages and maintenance 
+issues are still communicated via the `chtc-users` email list, but minor issues and updates to 
+ongoing issues will be communicated via the status page. 
 
+* If you are experiencing an issue with the system, please check the status page! If you 
+don't see a corresponding incident, feel free to email us.
 
 ## Make an Appointment
 
