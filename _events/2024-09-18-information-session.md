@@ -46,6 +46,8 @@ Wednesday, September 18, 2023, 10:30 am - 12:00 pm CST
 
 ### Where
 
+In-Person only
+
 Computer Sciences Building, Room 1240, UW-Madison Campus
 
 ## Registration
