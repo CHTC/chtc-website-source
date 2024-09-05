@@ -11,8 +11,8 @@ See below for the various ways to get help when using CHTC services.
 ## Get An Account
 
 If you don't have an account yet, please fill out our [Request
-Form](form.html), and we'll follow up quickly to set up a meeting time
-and create accounts. If you don't have an account but just have general
+Form](form.html), and we'll follow up with your account details 
+or a request to meet. If you don't have an account but just have general
 questions, feel free to send an email to chtc@cs.wisc.edu (see below).
 
 ## Request a Quota Change
@@ -23,9 +23,9 @@ storage locations, please see our [Request a Quota Change](quota-request) guide.
 ## Help Via Email
 
 We provide support via email at the address
-[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
-to start by sending questions or issues via email. You can typically
-expect a first response within a few business hours.
+[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu) and this is a good, 
+general way to reach us. You can typically
+expect a first response within 1-2 business days. 
 
 When emailing us for assistance in troubleshooting an issue, please provide which system you are using, 
 an explanation of what you expected to happen versus what actually happened, and  
@@ -66,21 +66,9 @@ at our usual support address to schedule a separate meeting.
 
 [Click to sign-in for office hours](sign-in.html)
 
+## Check System Status
 
-<!-- For users who already have accounts, we have drop-in office hours on:
 
--   **Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.**
--   **Wednesday morning from 9:30 - 11:30 am**
-
-Office Hours are located in the [Discovery
-Building](http://map.wisc.edu/s/919bjy8v) at the second-floor round
-table, just off of the main staircase.\
- **For researchers without access to the upper floors of the Discovery
-Building, check in at the front desk and ask them to "call CHTC."**\
- We will confirm that you are here for office hours and you will be let
-upstairs. (Note: If you ask the desk to call for a facilitator, by name,
-no one will answer as facilitators will not be in their *own* offices
-during Office Hours.) --> 
 
 ## Make an Appointment
 

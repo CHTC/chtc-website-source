@@ -21,8 +21,8 @@ title: The Facilitation Team
 ## What We Do
 
 To help researchers effectively utilize computing resources, our
-Research Computing Facilitators (RCFs) not only assist in implementing
-computational work on CHTC compute resources resources, but can also
+Research Computing Facilitators (RCFs) not only guide the implementation of 
+computational work on CHTC compute capacity, but can also
 point researchers to other on- and off-campus services related to
 research computing and data needs. Our primary activities include the
 following.
@@ -46,7 +46,10 @@ available to provide guest lectures and introductory presentations to
 campus courses, regular department or program seminars, or individual
 lab group meetings.
 
+Examples of previous class visits: 
+
 * [UW Statistics Course Using CHTC](https://chtc.cs.wisc.edu/Gillett.html)
+* [CHTC Leads High Throughput Computing Demonstrations](https://chtc.cs.wisc.edu/chtc-demo.html)
 
 ## Training
 
