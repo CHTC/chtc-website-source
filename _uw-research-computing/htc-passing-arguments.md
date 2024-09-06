@@ -12,38 +12,39 @@ guide:
 {% capture content %}
 
 - [Purpose](#purpose)
-- [Sample calculation: A linear least squares regression on life expectancy data](#sample-calculation-a-linear-least-squares-regression-on-life-expectancy-data)
-- [Writing a submit file for a single sample calculation](#writing-a-submit-file-for-a-single-sample-calculation)
-- [Leveraging $(Process)/$(ProcID) as arguments](#leveraging-processprocid-as-arguments)
-- [Filenames as arguments using queue \<variable\> from \<list\>](#filenames-as-arguments-using-queue-variable-from-list)
-- [Writing wrapper scripts for passing arguments](#writing-wrapper-scripts-for-passing-arguments)
+- [Understand and test the script with arguments](#understand-and-test-the-script-with-arguments)
+- [Write and submit an HTCondor submit file with arguments](#write-and-submit-an-htcondor-submit-file-with-arguments)
+- [Pass arguments through a wrapper script](#pass-arguments-through-a-wrapper-script)
 - [Summary](#summary)
+- [Next steps](#next-steps)
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
 ## Purpose
 
-Many executables require arguments to perform tasks. This exercise will show you how to pass arguments from the HTCondor submit file to these executables.
+Many executables require arguments to perform tasks. As a user, you may need to specify specific files or parameters for your calculations. This exercise will show how arguments are used in a simple calculation and walk through how to write an HTCondor submit file to pass these arguments to the executable.
 
-## Sample calculation: A linear least squares regression on life expectancy data
+## Understand and test the script with arguments
 
-In this exercise, we will perform a linear least squares regression analysis on life expectancy data for each country. This exercise was adapted from the work by the [Software Carpentry](https://software-carpentry.org/) under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+In this exercise, we will perform a linear least squares regression analysis on life expectancy data for a country.We will need to understand how the script utilizes arguments.
 
-1.  In your working directory on the access point, download `gapminder-life-expectancy.csv`.
+This exercise was adapted from the work by the [Software Carpentry](https://software-carpentry.org/) under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+
+1.  In your working directory on the access point, download the data: `gapminder-life-expectancy.csv`.
 
     ```
     [user@ap2002]$ wget https://chtc.cs.wisc.edu/uw-research-computing/files/gapminder-life-expectancy.csv
     ```
     {:.term}
 
-2.	Download our script: `least_squares.py`.
+2.	Download the script: `least_squares.py`.
 	```
     [user@ap2002]$ wget https://chtc.cs.wisc.edu/uw-research-computing/files/least_squares.py
     ```
     {:.term}
 
-3.	For this exercise, it’s not necessary to understand each line of code, but in essence, this code reads a .csv file and performs a linear least squares regression on a specified country’s data. Let’s see how to use this code. 
+3.	For this exercise, it’s not necessary to understand each line of code, but in summary, this code reads a .csv file and performs a linear least squares regression on a specified country’s data. Let’s see how to use this code. 
 
 	First we need to make our code executable:
 
@@ -91,7 +92,7 @@ In this exercise, we will perform a linear least squares regression analysis on 
 	```
 	{:.term}
 
-## Writing a submit file for a single sample calculation
+## Write and submit an HTCondor submit file with arguments
 
 Now that we know how to run our script and what to expect, let’s translate this into a job for HTCondor.
 
@@ -150,124 +151,7 @@ Now that we know how to run our script and what to expect, let’s translate thi
 	```
 	{:.term}
 
-
-## Leveraging $(Process)/$(ProcID) as arguments
-   
-One of the default variables in an HTCondor submit file is `$(Process)` or `$(ProcID)`. This is assigned an integer that numbers N instances of the calculation, starting from 0 and ending at N-1. `$(Process)`/`$(ProcID)` can be useful for distinguishing filenames of outputs of different calculations within a job to prevent rewriting over outputs (also `$(Cluster)`/`$(ClusterID)`), but it may also be used as an argument for an executable.
-
-In this exercise, we will use `$(Process)` to estimate the life expectancy within the years 2000-2009.
-
-1.	Create a new submit file, `least_squares_process.sub`.
-
-	```
-	# least_squares_process.sub - an example HTCondor submit file for passing arguments
-	# with the $(Process) variable
-
-	# Custom variables can be specified
-	country = Brazil
-	processplus = $(Process)+2000
-	year = $INT(processplus,%d)
-
-	# Specify your executable and your arguments
-	# Usage: least_squares.py [CSV] [Country] [Year, optional]
-	executable = least_squares.py
-	arguments = gapminder-life-expectancy.csv $(country) $(year)
-
-	# Specify the log, standard error, and standard output (or screen output) files
-	log = $(country)_$(year).log
-	error = $(country)_$(year).err
-	output = $(country)_$(year).out
-
-	# We need to also transfer the csv file for the calculation
-	transfer_input_files = gapminder-life-expectancy.csv
-
-	# Requirements for our calculation
-	request_cpus = 1
-	request_memory = 1GB
-	request_disk = 1GB
-
-	# Tell HTCondor to run 10 instances of our calculation
-	queue 10
-	```
-	{:.sub}
-
-	Notice the differences between this submit script and the previous one:
-	* At the bottom of the script, `queue 10` tells HTCondor to run 10 instances of our calculation. Each calculation will be assigned a number `$(Process)`, which will range from 0 to 9.
-	* We want to estimate life expectancy between 2000 and 2009, so we set a custom variable `processplus = $(Process) + 2000`. This returns a string, i.e. “0 + 2000”, but this isn’t what we want! In the next line, we convert it to a useful integer value: `year = $INT(processplus,%d)`, which will now range from 2000 to 2009.
-	* In our arguments, we append our new variable `$(year)`.
-	* To prevent HTCondor from rewriting outputs from each calculation over each other, `_$(year)` is appended to the filenames of the log, error, and output files.
-
-3. 	Submit the job.
-
-	```
-	[user@ap2002]$ condor_submit least_squares_process.sub
-	```
-	{:.term}
-	
-	Monitor the job with `condor_q`.
-
-4. Once the job is fully complete, you can check your outputs to see if it worked as expected.
-
-## Filenames as arguments using queue \<variable\> from \<list\>
-
-Let’s say we want to perform our analysis on a few countries in the year 2024, but not all. Instead of creating separate submit files from each country, we can utilize HTCondor’s `queue <variable> from <list>` function.
-
-1.	Create text file called `countries.txt`. Within it, paste the following:
-
-	```
-	Argentina
-	Brazil
-	Chile
-	```
-
-2.	Create a new submit script, `least_squares_list.sub`.
-
-	```
-	# least_squares_list.sub - an example HTCondor submit file for passing arguments
-
-	# Specify your executable and your arguments
-	# Usage: least_squares.py [CSV] [Country] [Year, optional]
-	executable = least_squares.py
-	arguments = gapminder-life-expectancy.csv $(country) 2024
-
-	# Specify the log, standard error, and standard output (or screen output) files
-	log = $(country)_2024.log
-	error = $(country)_2024.err
-	output = $(country)_2024.out
-
-	# We need to also transfer the csv file for the calculation
-	transfer_input_files = gapminder-life-expectancy.csv
-
-	# Requirements for our calculation
-	request_cpus = 1
-	request_memory = 1GB
-	request_disk = 1GB
-
-	# Tell HTCondor to run instances of our calculation from a list
-	queue country from countries.txt
-	```
-
-	Notice differences between this submit file and the previous examples.
-	* At the bottom of the submit file, we now use `queue country from countries.txt`. This tells HTCondor to iterate over `countries.txt` and in each iteration, set the variable `country` to the value on that line.
-	* In our arguments line, we use the `$(country)` variable.
-
-3. 	Submit the job.
-
-	```
-	[user@ap2002]$ condor_submit least_squares_process.sub
-	```
-	{:.term}
-	
-	Monitor the job with `condor_q`.
-
-4. Once the job is fully complete, check the outputs to see if it worked as expected.
-
-	```
-	[user@ap2002]$ cat *2024.out
-	```
-	{:.term}
-
-## Writing wrapper scripts for passing arguments
+## Pass arguments through a wrapper script
 A wrapper script can be useful in jobs, enabling more complex operations and simple pre- and post- calculation commands. Wrapper scripts can also take and pass on arguments. Let's see how to write a simple wrapper script for our calculation.
 
 In this exercise, we will obtain data for multiple countries between the years 2024 and 2033 and return them in tarballs organized by country.
@@ -333,7 +217,7 @@ In this exercise, we will obtain data for multiple countries between the years 2
 	request_memory = 1GB
 	request_disk = 1GB
 
-	# Tell HTCondor to run instances of our calculation from a list
+	# Tell HTCondor to run instances of our calculation
 	queue
 	```
 
@@ -366,11 +250,9 @@ In this exercise, we will obtain data for multiple countries between the years 2
 
 * In the submit script, arguments are passed to the executable with the `arguments = ` attribute.
 * Custom variables can be created within the submit script and utilized in arguments with the `$(variable)` syntax.
-* HTCondor’s default variables, such as `$(Process)` can be leveraged in arguments.
-* The `queue` attribute can be used to submit multiple jobs from one submit file that pass various arguments.
 * Wrapper scripts are useful for performing pre-/post- calculation commands or complex operations and can take and pass arguments.
 
-## See also
-* [Practice: Submit HTC Jobs using HTCondor](/uw-research-computing/htcondor-job-submission)
-* [Submitting Multiple Jobs Using HTCondor](/uw-research-computing/multiple-jobs)
-* [HTCondor Docs: Submitting a Job](https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html)
+## Next steps
+In the next part of this guide, we will submit multiple jobs with different arguments with just one submit file.
+
+[Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File](htc-passing-arguments-2)
