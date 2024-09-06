@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: "Basic scripting with arguments"
 guide:
-    order: 2
+    order: 5
     category: Job Submission
     tag:
         - htc

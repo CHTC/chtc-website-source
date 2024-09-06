@@ -3,7 +3,7 @@ highlighter: none
 layout: guide
 title: "Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File"
 guide:
-    order: 2
+    order: 7
     category: Job Submission
     tag:
         - htc
