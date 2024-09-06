@@ -16,6 +16,7 @@ guide:
 - [What is an argument?](#what-is-an-argument)
 - [What is a wrapper script, and why should I write one?](#what-is-a-wrapper-script-and-why-should-i-write-one)
 - [Using arguments in different programming languages](#using-arguments-in-different-programming-languages)
+- [Next steps](#next-steps)
 - [See also](#see-also)
 
 {% endcapture %}
@@ -68,6 +69,9 @@ Let's see how different programming languages might take an argument. Each tab c
     </div>
 </div>
 
+## Next steps
+Practice with a more complex example, including submitting multiple jobs with different arguments: [Practice: Passing Arguments from the Submit File to the Executable Script](htc-passing-arguments)
+
 ## See also
-* [Practice: Passing Arguments from the Submit File to the Executable Script](htc-passing-arguments)
+* [Submitting Multiple Jobs Using HTCondor](multiple-jobs)
 * [Overview: How to Use Software](software-overview-htc)

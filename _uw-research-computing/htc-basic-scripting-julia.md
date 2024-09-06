@@ -65,59 +65,14 @@ Post-processing could go here.
 
 ### Passing arguments with the HTCondor submit file
 
-Now that we've understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor's submit file by specifying the `arguments` attribute.
+Now that we've understood how arguments work in Julia and how to write simple wrapper scripts that pass those arguments, we can pass arguments in HTCondor's submit file by specifying the `arguments` attribute, as shown in this excerpt:
 
-Our HTCondor submit file, `echo-next.sub`:
 ```
-# HTCondor submit file
-
 # Create custom variable called "data"
 data = data.csv
-
-# Use official Julia container
-container_image = docker://julia:1.10
 
 # Specify the executable & arguments
 executable = wrapper.sh
 arguments = $(data)
-
-# Specify files to transfer
-# We want to transfer our Julia script and data
-# The Julia executable is already included in the container, so no need to transfer it
-transfer_input_files = echo-next.jl, $(data)
-
-log = echo-next.log
-output = echo-next.out
-error = echo-next.err
-
-# Requirements
-request_cpus = 1
-request_memory = 1GB
-request_disk = 1GB
-
-queue
-```
-
-You can test this submit file!
-
-First, create an empty `data.csv` file with the `touch` command. We need to create this file as it is our "data" that will be transferred, as specified by `transfer_input_files` attribute.
-```
-[user@login]$ touch data.csv
-```
-{:.term}
-
-Submit the job with the `condor_submit` command.
-```
-[user@login]$ condor_submit echo-next.sub
-Submitting job(s).
-1 job(s) submitted to cluster 1916134.
-```
-{:.term}
-
-Check the job status with `condor_q`. Once it's complete, check the out file to ensure it runs as expected! You should see:
-```
-Pre-processing could go here.
-data.csv
-Post-processing could go here.
 ```
 <!--more-->
