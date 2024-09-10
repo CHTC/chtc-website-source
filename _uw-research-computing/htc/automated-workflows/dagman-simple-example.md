@@ -72,6 +72,7 @@ JOB B B.sub
 # Define the connections
 PARENT A CHILD B
 ```
+{:.file}
 
 In a DAGMan input file, a node is defined using the `JOB` keyword, followed by the name of the node and the name of the corresponding submit file.
 In this case, we have created a node named `A` and instructed DAGMan to use the submit file `A.sub` for executing that node.
@@ -108,6 +109,7 @@ request_disk = 1GB
 
 queue
 ```
+{:.sub}
 
 The executable file simply saves the hostname of the machine running the script:
 
@@ -119,6 +121,7 @@ hostname > output.txt
 
 sleep 1m  # so we can see the job in "running" status
 ```
+{:.file}
 
 ### Node B
 
@@ -143,6 +146,7 @@ request_disk = 1GB
 
 queue
 ```
+{:.sub}
 
 The executable file contains the command for printing the desired message, which will be printed to `B.out`.
 
@@ -155,6 +159,7 @@ cat output.txt
 
 sleep 1m  # so we can see the job in "running" status
 ```
+{:.file}
 
 ### The directory structure
 
@@ -170,6 +175,7 @@ DAG_simple/
 |-- B.sub
 |-- simple.dag
 ```
+{:.term}
 
 It is possible to organize each job into its own directory, but for now we will use this simple, flat organization.
 
@@ -180,6 +186,7 @@ To run the DAG workflow described by `simple.dag`, we use the HTCondor command `
 ```
 condor_submit_dag simple.dag
 ```
+{:.term}
 
 The DAGMan utility will then parse the input file and generate an assortment of related files that it will use for monitoring and managing your workflow.
 Here is the output of running the above command:
@@ -199,6 +206,7 @@ Submitting job(s).
 1 job(s) submitted to cluster 562265.
 -----------------------------------------------------------------------
 ```
+{:.term}
 
 The output shows the list of standard files that are created with every DAG submission along with brief descriptions. 
 A couple of additional files, some of them temporary, will be created during the lifetime of the DAG.
@@ -214,6 +222,7 @@ You can see the status of the DAG in your queue just like with any other HTCondo
 OWNER       BATCH_NAME           SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
 user        simple.dag+562265  12/14 11:26      _      _      1      2 562279.0
 ```
+{:.term}
 
 There are a couple of things to note about the `condor_q` output: 
 
@@ -234,6 +243,7 @@ For example,
 562265.0   user                12/14 11:26   0+00:00:37 R  0    0.5 condor_dagman -p 0 -f -l . -Loc
 562279.0    |-A                12/14 11:26   0+00:00:00 I  0    0.0 A.sh
 ```
+{:.term}
 
 In this case, the first entry is the DAGMan scheduler job that you created when you first submitted the DAG. 
 The following entries correspond to the nodes whose jobs are currently in the queue.

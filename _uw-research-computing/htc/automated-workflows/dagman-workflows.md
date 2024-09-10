@@ -71,7 +71,7 @@ To define a DAG job, we begin a new line with `JOB` then provide the name, the s
 ```
 JOB JobName JobSubmitFile [additional options]
 ```
-{:.sub}
+{:.file}
 
 where you need to replace `JobName` with the name you would like the DAG job to have, and `JobSubmitFile` with the name or path of the corresponding submit file. Both `JobName` and `JobSubmitFile` need to be specified.
 
@@ -84,7 +84,7 @@ To define the relationship between DAG jobs in a workflow, we begin a new line w
 ```
 PARENT p1 [p2 ...] CHILD c1 [c2 ...]
 ```
-{:.sub}
+{:.file}
 
 where you replace `p#` with the `JobName` for each parent DAG job, and `c#` with the `JobName` for each child DAG job. The child DAG jobs will only be submitted if all of the parent DAG jobs are completed successfully. Each `JobName` you provide must have a corresponding `JOB` entry elsewhere in the `.dag` input file.
 
@@ -211,7 +211,7 @@ SCRIPT PRE my_node setup.sh
 # Define a script for executing after run.sub has completed (optional)
 SCRIPT POST my_node cleanup.sh
 ```
-{:.sub}
+{:.file}
 
 In this example, when it is time for DAGMan to execute the node `my_node`, it will take the following steps:
 
@@ -238,7 +238,7 @@ JOB my_node run.sub
 # Define the number of times to retry "my_node"
 RETRY my_node 2
 ```
-{:.sub}
+{:.file}
 
 In this example, if the job associated with node `my_node` fails for some reason, then DAGMan will resubmit `run.sub` up to 2 more times.
 
@@ -248,7 +248,7 @@ For example,
 ```
 RETRY ALL_NODES 2
 ```
-{:.sub}
+{:.file}
 
 As a general rule, you should not set the number of retry attempts to more than 1 or 2 times. 
 If a job is failing repeatedly, it is better to troubleshoot the cause of that failure.
