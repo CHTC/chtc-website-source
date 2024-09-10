@@ -71,6 +71,7 @@ To define a DAG job, we begin a new line with `JOB` then provide the name, the s
 ```
 JOB JobName JobSubmitFile [additional options]
 ```
+{:.sub}
 
 where you need to replace `JobName` with the name you would like the DAG job to have, and `JobSubmitFile` with the name or path of the corresponding submit file. Both `JobName` and `JobSubmitFile` need to be specified.
 
@@ -83,6 +84,7 @@ To define the relationship between DAG jobs in a workflow, we begin a new line w
 ```
 PARENT p1 [p2 ...] CHILD c1 [c2 ...]
 ```
+{:.sub}
 
 where you replace `p#` with the `JobName` for each parent DAG job, and `c#` with the `JobName` for each child DAG job. The child DAG jobs will only be submitted if all of the parent DAG jobs are completed successfully. Each `JobName` you provide must have a corresponding `JOB` entry elsewhere in the `.dag` input file.
 
@@ -106,6 +108,7 @@ Because the DAG workflow represents a special type of job, a special command is 
 ```
 condor_submit_dag example.dag
 ```
+{:.term}
 
 where `example.dag` is the name of your DAG input file containing the `JOB` and `PARENT`-`CHILD` definitions for your workflow.
 This will create and submit a "DAGMan job" that will in turn be responsible for submitting and monitoring the job nodes described in your DAG input file.
@@ -125,6 +128,7 @@ Submitting job(s).
 1 job(s) submitted to cluster ######.
 ------------------------------------------------------------------------
 ```
+{:.term}
 
 ### 2. Monitoring the DAG
 
@@ -137,12 +141,14 @@ For a more detailed status display, you can use
 ```
 condor_q -dag -nobatch
 ```
+{:.term}
 
 If you want to see the status of just the DAGMan job proper, use
 
 ```
 condor_q -dag -nobatch -constr 'JobUniverse == 7'
 ```
+{:.term}
 
 (Technically, this shows all "scheduler" type HTCondor jobs, but for most users this will only include DAGMan jobs.)
 
@@ -155,6 +161,7 @@ If you want to see the status of a specific node, use
 ```
 condor_q -dag -nobatch -constr 'DAGNodeName == "YourNodeName"'
 ```
+{:.term}
 
 where `YourNodeName` should be replaced with the name of the node you want to know the status of. 
 Note that this works only for jobs that are currently in the queue; if the node has not yet been submitted, or if it has completed and thus exited the queue, then you will not see the node using this command.
@@ -164,6 +171,7 @@ A simple way to see the relevant log messages is to use a command like
 ```
 grep "Node YourNodeName" example.dag.dagman.out
 ```
+{:.term}
 
 If you'd like to monitor the status of the individual nodes in your DAG workflow using `condor_watch_q`, then wait long enough for the `.nodes.log` file to be generated.
 Then run
@@ -171,6 +179,7 @@ Then run
 ```
 condor_watch_q -file example.dag.nodes.log
 ```
+{:.term}
 
 Now `condor_watch_q` will update when DAGMan submits another job.
 
@@ -202,6 +211,7 @@ SCRIPT PRE my_node setup.sh
 # Define a script for executing after run.sub has completed (optional)
 SCRIPT POST my_node cleanup.sh
 ```
+{:.sub}
 
 In this example, when it is time for DAGMan to execute the node `my_node`, it will take the following steps:
 
@@ -228,6 +238,7 @@ JOB my_node run.sub
 # Define the number of times to retry "my_node"
 RETRY my_node 2
 ```
+{:.sub}
 
 In this example, if the job associated with node `my_node` fails for some reason, then DAGMan will resubmit `run.sub` up to 2 more times.
 
@@ -237,6 +248,7 @@ For example,
 ```
 RETRY ALL_NODES 2
 ```
+{:.sub}
 
 As a general rule, you should not set the number of retry attempts to more than 1 or 2 times. 
 If a job is failing repeatedly, it is better to troubleshoot the cause of that failure.
@@ -273,17 +285,17 @@ If more than one Rescue DAG exists for a given `.dag` input file, then DAGMan wi
 # Automatically use the Rescue DAG if it exists
 condor_submit_dag example.dag
 ```
+{:.term}
 
-<blockquote>
   
-If you do NOT want DAGMan to use an existing Rescue DAG, then you can use the `-force` option to start the DAG completely from scratch:
+> If you do NOT want DAGMan to use an existing Rescue DAG, then you can use the `-force` option to start the DAG completely from scratch:
 
 ```
 # Do NOT use the Rescue DAG if it exists
 condor_submit_dag -force example.dag
 ```
+{:.term}
 
-</blockquote>
 
 For more information on Rescue DAGs and how to explicitly control them, see the [HTCondor documentation](https://htcondor.readthedocs.io/en/latest/automated-workflows/dagman-resubmit-failed.html).
 
