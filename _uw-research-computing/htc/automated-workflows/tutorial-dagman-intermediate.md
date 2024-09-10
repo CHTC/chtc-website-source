@@ -9,8 +9,9 @@ guide:
         - htc
 --- 
 
-This tutorial helps you explore HTCondor's DAGMan its many features.
-You can download the tutorial materials with the following command:
+This tutorial helps you explore HTCondor's DAGMan and its many features. Download the tutorial files from [Github](https://github.com/OSGConnect/tutorial-dagman-intermediate/tree/main).
+
+Alternatively, you can download the tutorial materials on the command line with the following command:
 
 <pre class="term"><code>$ git clone https://github.com/OSGConnect/tutorial-dagman-intermediate</code></pre>
 
@@ -167,7 +168,7 @@ See the HTCondor documentation for more details: [File Paths in DAGs](https://ht
 
 ## Additional Examples
 
-Additional examples that cover various topics related to DAGMan are provided in the folder `additional_examples` with corresponding READMEs. 
+[Additional examples](https://github.com/OSGConnect/tutorial-dagman-intermediate/tree/main/additional_examples) that cover various topics related to DAGMan are provided in the folder `additional_examples` with corresponding READMEs. 
 The following order of the examples is recommended:
 
 1. `RescueDag` - Example for DAGs that don't exit successfully
