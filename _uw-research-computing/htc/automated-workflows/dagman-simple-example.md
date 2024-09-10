@@ -102,8 +102,6 @@ error = A.err
 
 transfer_output_files = output.txt
 
-+JobDurationCategory = "Medium"
-
 request_cpus = 1
 request_memory = 1GB
 request_disk = 1GB
@@ -138,8 +136,6 @@ output = B.out
 error = B.err
 
 transfer_input_files = output.txt
-
-+JobDurationCategory = "Medium"
 
 request_cpus = 1
 request_memory = 1GB
