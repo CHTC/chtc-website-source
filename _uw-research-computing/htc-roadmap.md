@@ -60,6 +60,30 @@ After following this tutorial, we <b>highly recommend</b> users review the <a hr
 <b>Step Five</b>
 
 <details>
+<summary>Install your Software</summary>
+<br>
+Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Software Solutions</a> guides contain information about how to install and use software on the HTC system.
+<br>
+<br>
+<b>Software Containers</b>
+   <br>
+In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
+<br>
+<br>
+<b>Use Pre-installed Software in Modules</b>
+   <br>
+CHTC's infrastructure team has provided a limited collection of software as modules, which users can load and then use in their jobs. This collection includes tools shared across domains, including COMSOL, ANSYS, ABAQUS, GUROBI, and others. To learn how to load these software into your jobs, our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-modules">Use Software Available in Modules</a> and <a href="https://chtc.cs.wisc.edu/uw-research-computing/licensed-software">Use Licensed Software</a> guides. 
+<br>
+<br>
+<b>Access Software Building Tools on CHTC's Software Building Machines</b>
+   <br>
+The HTC system contains several machines designed for users to use when building their software. These machines have access to common compilers (e.g., gcc) that are necessary to install many software packages. To learn how to submit an interactive job to log into these machines to build your software, see <a href="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>.  
+</details>
+
+
+<b>Step Six</b>
+
+<details>
 <summary>Access your Data on the HTC System</summary>
    <br>
 <b>Upload your data to CHTC</b>
@@ -84,30 +108,7 @@ When uploading data to the HTC system, users need to choose a location to store 
    <br>
    </details>
 
-
-<b>Step Six</b>
-
-<details>
-<summary>Install your Software</summary>
-<br>
-Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Software Solutions</a> guides contain information about how to install and use software on the HTC system.
-<br>
-<br>
-<b>Software Containers</b>
-   <br>
-In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
-<br>
-<br>
-<b>Use Pre-installed Software in Modules</b>
-   <br>
-CHTC's infrastructure team has provided a limited collection of software as modules, which users can load and then use in their jobs. This collection includes tools shared across domains, including COMSOL, ANSYS, ABAQUS, GUROBI, and others. To learn how to load these software into your jobs, our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-modules">Use Software Available in Modules</a> and <a href="https://chtc.cs.wisc.edu/uw-research-computing/licensed-software">Use Licensed Software</a> guides. 
-<br>
-<br>
-<b>Access Software Building Tools on CHTC's Software Building Machines</b>
-   <br>
-The HTC system contains several machines designed for users to use when building their software. These machines have access to common compilers (e.g., gcc) that are necessary to install many software packages. To learn how to submit an interactive job to log into these machines to build your software, see <a href="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>.  
-</details>
-
+   
 
 <b>Step Seven</b>
 
