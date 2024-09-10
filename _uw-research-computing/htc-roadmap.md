@@ -15,10 +15,10 @@ Like nearly all large-scale compute systems, users of both CHTC's High Throughpu
 High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
 <br>
    <br>
-It is best to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs (i.e., those requesting smaller amounts of CPU, memory, and disk resources per job) are easier to find a slot to run on. This means that users will notice they will have jobs start quicker and will have more running simultanioutsly. It is almost always beneficial to break up your analysis pipeline into smaller pieces to take advantage of getting more jobs up and running, quicker. 
+It is best to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs (i.e., those requesting smaller amounts of CPU, memory, and disk resources per job) are easier to find a slot to run on. This means that users will notice they will have jobs start quicker and will have more running simultaneously It is almost always beneficial to break up your analysis pipeline into smaller pieces to take advantage of getting more jobs up and running, quicker. 
 <br>
    <br>
-Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many resources as possible. 
+Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many compute resources as possible. 
 <br>
    <br>
 More detailed information regarding CHTC's HTC system can be found in the <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview">HTC Overview Guide</a>.
@@ -28,12 +28,12 @@ More detailed information regarding CHTC's HTC system can be found in the <a hre
 <b>Step Two</b>
 
 <details>
-<summary>Log on to a HTC System Access Point</summary>
+<summary>Log on to an HTCondor HTC Access Point</summary>
 <br>
 Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed your login information.
 <br>
    <br>
-For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your CHTC "access point" (also called a "submit server").  
+For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your HTC access point (also called a "submit server").  
 <br>
 </details>
 
@@ -43,7 +43,7 @@ For security purposes, every CHTC user is required to be connected to either a U
 <details>
 <summary>Understand the Basics of Submitting HTCondor Jobs</summary>
 <br>
-Computational work is run on the CHTC's execution machines by submitting it as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
+Computational work is run on the the High Throughput Computing system's execution machines by submitting tasks as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
 </details>
 
 
@@ -60,36 +60,9 @@ After following this tutorial, we <b>highly recommend</b> users review the <a hr
 <b>Step Five</b>
 
 <details>
-<summary>Access your Data on the HTC System</summary>
-   <br>
-<b>Upload your data to CHTC</b>
-   <br>
-When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using `s3` file transfer, or pull data using standard unix commands (`wget`). 
-<br>
-   <br>
-To learn how to upload data from different sources, including your laptop, see: 
-   <ul>
-      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a></li>
-      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a></li>
-      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a></li>
-      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a></li>
-   </ul>
-   <br>
-<b>Choose a Location to Stage your Data</b>
-   <br>
-When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: `/home` and `/staging`. 
-   <br>
-`/home` is more efficient at handling "small" files, while `/staging` is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our HTC Data guides. 
-   <br>
-   </details>
-
-
-<b>Step Six</b>
-
-<details>
 <summary>Install your Software</summary>
 <br>
-Our “Software Solutions” guides contain information about how to install and use software on the HTC system.
+Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Software Solutions</a> guides contain information about how to install and use software on the HTC system.
 <br>
 <br>
 <b>Software Containers</b>
@@ -108,18 +81,47 @@ The HTC system contains several machines designed for users to use when building
 </details>
 
 
+<b>Step Six</b>
+
+<details>
+<summary>Access your Data on the HTC System</summary>
+   <br>
+<b>Upload your data to CHTC</b>
+   <br>
+When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using `s3` file transfer, pull data using standard unix commands (`wget`), among other transfer mechanisms. 
+<br>
+   <br>
+To learn how to upload data from different sources, including your laptop, see: 
+   <ul>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-files-computer">Transfer Files between CHTC and your Computer</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/transfer-data-researchdrive">Transferring Files Between CHTC and ResearchDrive</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/globus">Using Globus to Transfer Files to and from CHTC</a></li>
+      <li><a href="https://chtc.cs.wisc.edu/uw-research-computing/github-remote-access">Remotely Access a Private GitHub Repository</a></li>
+   </ul>
+   <br>
+<b>Choose a Location to Stage your Data</b>
+   <br>
+When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: `/home` and `/staging`. 
+   <br>
+   <br>
+`/home` is more efficient at handling "small" files, while `/staging` is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">HTC Data</a> guides. 
+   <br>
+   </details>
+
+   
+
 <b>Step Seven</b>
 
 <details>
 <summary>Run Test Jobs</summary>
 <br>
-Once you have your data, software, code, and HTCondor submit file prepared, you should submit several test jobs. The table created by HTCondor in the `.log` file will help you determine the amount of resources (CPUs/GPUs, memory, and disk) your job used, which is beneficial for understanding future job resource requests as well as troubleshooting. The `.out` file will contain all text your code printed to the terminal screen while running, while the `.err` file will contain any standard errors that your software printed out while running. 
+Once you have your data, software, code, and HTCondor submit file prepared, you should submit several test jobs. The table created by HTCondor in the `.log` file will help you determine the amount of resources (CPUs/GPUs, memory, and disk) your job used, which is beneficial for understanding future job resource requests as well as troubleshooting. The standard out`.out` file will contain all text your code printed to the terminal screen while running, while the standard error `.err` file will contain any standard errors that your software printed out while running. 
 <br>
    <br>
 Things to look for: 
    <ul>
       <li>Jobs being placed on hold (hold messages can be viewed using `condor_q jobID -hold`)</li>
-      <li>Jobs producing expected your desired files</li>
+      <li>Jobs producing expected files</li>
       <li>Size and number of output files (to make sure output is being directed to the correct location and that your quota is sufficient for all of your output data as you submit more jobs)</li>
    </ul>
 </details>
