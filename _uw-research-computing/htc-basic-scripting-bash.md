@@ -27,6 +27,10 @@ data.csv
 ```
 {:.term}
 
+> In bash, `$1` references the first argument to a script. If you have more 
+> arguments, `$2` will refer to the second, `$3` to the third, etc. There are 
+> also ways to refer to the whole list of arguments if needed. 
+
 ### Wrapper script
 
 We can now write a wrapper script! This script checks that one argument is passed, and also allows room for pre- and post-processing in this simple workflow.

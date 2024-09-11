@@ -16,11 +16,15 @@ icon: /uw-research-computing/guide-icons/python-icon.png
 Our executable written in Python, `echo-next.py`:
 ```
 import sys
-print(sys.argv[1])
+filename = sys.argv[1]
+print(filename)
 ```
+
+`sys.argv` is a list -- if you have multiple arguments, you can reference each item in the 
+list using Python's usual notation (`sys.argv[1]`, `sys.argv[2]`, etc.). 
 See [Python documentation on sys.argv](https://docs.python.org/3/library/sys.html#sys.argv) for details.
 
-We can use it on the command line, assuming Python is installed and on the `PATH`:
+We can use the script on the command line, assuming Python is installed and on the `PATH`:
 ```
 [user@login]$ python3 echo-next.py data.csv
 data.csv

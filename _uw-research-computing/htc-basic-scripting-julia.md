@@ -15,11 +15,15 @@ icon: /uw-research-computing/guide-icons/julia-icon.png
 
 Our executable written in Julia, `echo-next.jl`:
 ```
-println(ARGS[1])
+filename = ARGS[1]
+println(filename)
 ```
+
+The `ARGS` constant is an array -- if you have multiple arguments, you can reference 
+them using Julia's usual notation (`ARGS[1]`, `ARGS[2]`, etc.)
 See [Julia documentation on arguments](https://docs.julialang.org/en/v1/manual/command-line-interface/) for details.
 
-We can use it on the command line, assuming Julia is installed and on the `PATH`:
+We can use the script on the command line, assuming Julia is installed and on the `PATH`:
 ```
 [user@login]$ julia echo-next.jl data.csv
 data.csv
