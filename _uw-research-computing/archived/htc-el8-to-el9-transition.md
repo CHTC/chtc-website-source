@@ -1,4 +1,5 @@
 ---
+published: false
 highlighter: none
 layout: guide
 title: HTC System Transition to a New Linux Version (CentOS Stream 9)
