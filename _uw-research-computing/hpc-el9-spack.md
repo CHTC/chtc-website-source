@@ -1,67 +1,20 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: HPC System Transition to a New Linux Version (CentOS Stream 9)
+title: Recreating Spack Installs on a New Operating System
 published: true
 guide: 
-    button_class: bg-warning
-    order: 0
-    category: Basics and Policies
+    order: 4
+    category: Software Solutions
     tag:
         - hpc
 ---
 
-Starting in May 2024, CHTC's high performance computing (HPC) cluster began upgrading
-the Linux distribution and version we use on our servers to **CentOS Stream 9** (EL9). This transition is expected to complete in June 2024. 
+If you had a software install on the HPC cluster before June 2024 and need to update it, read through 
+the details in this guide. Unless your code is fairly simple, you will likely need to recompile it.
 
-Note that this page only applies to a transition on the HPC cluster. For information 
-on the HTC system transition, see [HTC System Transition to a New Linux Version (CentOS Stream 9)](htc-el8-to-el9-transition.html)
-
-All updates to the HPC Cluster will be reflected on this page; significant changes may 
-also include a notification to the `chtc-users` mailing list. 
-
-## Important Dates
-
-* **May 31**: Log in to upgraded cluster login node is available. Worker nodes start transitioning from the existing cluster to upgraded cluster partitions. 
-* **May 31 - June 17**: Users should rebuild their code and test jobs on the upgraded cluster. Users should be running primarily on the upgraded cluster.
-* **June 17**: Most nodes will have been upgraded and transitioned.
-* **June 24**: The old cluster partitions are closed. 
-
-## What is Changing
-
-As part of this transition, there will be a new login node for 
-the HPC cluster: `spark-login.chtc.wisc.edu`. 
-
-If you log into `spark-login`, you will have access to a new 
-module stack, compiled on CentOS Stream 9, and the partitions available will 
-have worker nodes that are running CentOS Stream 9. 
-
-The files in your `/home` and `/scratch` directories will be unchanged. 
-
-## What You Need to Do
-
-**As soon as possible**, do the following: 
-
-1. Log into the new login node `spark-login.chtc.wisc.edu`. 
-
-2. Run a typical job as a test. It is highly likely that certain codes will 
-   fail on the new worker nodes, as the underlying dependencies of your code, including 
-   the operating system, and any modules used, have changed. 
-
-3. If your jobs no longer run, archive your previous software installation(s) and 
-   rebuild your software. The [Software Changes](#software-changes) section below has 
-   more specific information about how to do this. 
-
-4. If you recompiled your code, run a few small test jobs to confirm that the 
-   code is working correctly. 
-
-**If you are having trouble getting your jobs to run successfully on the new operating system**, 
-please contact the facilitation team at chtc@cs.wisc.edu or [come to office hours](/uw-research-computing/get-help.html)
-
-## Software Changes
-
-Almost all packages and libraries have been upgraded as part of the operating system transition. 
-Unless your code is fairly simple, you will likely need to recompile it.
+If you are installing something on the HPC cluster for the first time, refer to our main software 
+guide to start: [Use HPC Software](hpc-software)
 
 **Remember to always compile your code/programs in a (interactive) Slurm job! [How To](hpc-job-submission.html#for-simple-testing-or-compiling)**
 
@@ -69,7 +22,7 @@ Unless your code is fairly simple, you will likely need to recompile it.
 > Most compilers auto-detect the CPU architecture and adapt the compilation to use that architecture.
 > Attempting to use such compiled code on a different/older CPU architecture can lead to "Illegal instruction" errors, among others.
 
-### Modules
+## Modules
 
 Most of the modules on the upgraded cluster have been kept, but with upgraded versions.
 The following table is a comparison of the modules on the old operating system (EL8) versus the new operating system (EL9).
@@ -79,7 +32,7 @@ You will likely need to recompile your code to use the new module versions.
 Remember to also update any `module load` commands that specify a particular version of the module,
 otherwise you may encounter "module(s) are unknown" errors.
 
-#### Module comparison
+### Module comparison
 
 | Module name | Old version (EL8) | New version (EL9) |
 | :--- | :--- | :--- |
@@ -113,7 +66,7 @@ otherwise you may encounter "module(s) are unknown" errors.
 
 > Different versions of module packages, or packages that are "dropped" or "deprecated" may be manually installed by the user using [Spack](#spack).
 
-### Spack
+## Spack
 
 Spack is a package manager platform that allows users to install software without admin privileges.
 CHTC also uses Spack to install the software underlying the system-wide modules discussed above.
@@ -163,7 +116,7 @@ You can ignore the "`installed packages`" section, as that will certainly change
 
 Repeat the above steps for each environment you want to replicate on the upgraded system.
 
-#### 2. Remove your existing Spack folders
+### 2. Remove your existing Spack folders
 
 The easiest way to update Spack for the upgraded system is to remove the current Spack installation and reinstall from scratch.
 
@@ -184,12 +137,12 @@ rm -rf spack spack_programs spack_modules .spack
 
 The command may take a while to run.
 
-#### 3. Fresh install of Spack
+### 3. Fresh install of Spack
 
 Next, follow the instructions in our guide [Set Up Spack on HPC](hpc-spack-setup.html) to do a fresh installation of Spack.
 The commands in the guide have been updated for setting up Spack on the new operating system.
 
-#### 4. Recreate your environments
+### 4. Recreate your environments
 
 Follow the instructions in our guide [Install Software Using Spack](hpc-spack-install.html) to create your desired environments
 using the "root specs" that you saved earlier.
@@ -200,7 +153,7 @@ Of course, as before, you should only install packages while in interactive Slur
 
 Behind the scenes, we've made a few changes to the configuration that will hopefully make the package installation much smoother.
 
-#### 5. Update your workflow
+### 5. Update your workflow
 
 Finally, remember to update your workflow to use the new Spack environments and the packages installed therein.
 
@@ -209,3 +162,4 @@ Finally, remember to update your workflow to use the new Spack environments and 
 * If you used Spack to provide dependencies for manually compiling a program, remember to recompile the program.
 
 * If you changed the name of your environment, be sure to update the name in your job submission script.
+

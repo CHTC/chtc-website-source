@@ -1,4 +1,5 @@
 ---
+published: false
 layout: guide
 title: Policies for Using HTC Submit Servers
 alt_title: Using CHTC's HTC Submit Nodes
