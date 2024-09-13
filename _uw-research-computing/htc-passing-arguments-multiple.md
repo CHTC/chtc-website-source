@@ -24,7 +24,14 @@ guide:
 
 This guide is a continuation of [Practice: Passing Arguments from the Submit File to the Executable Script](htc-passing-arguments). In the previous example, we wrote and submitted a single submit file, which passed arguments to a single job.
 
-What if you want to submit a list of jobs, each with unique arguments? Instead of tediously creating separate submit files for each job, we can utilize attributes in the submit file to pass various arguments to multiple jobs. On this page, we will introduce two methods: using numerical arguments, and using custom arguments.
+What if you want to submit a list of jobs, each with unique arguments? Instead of tediously 
+creating separate submit files for each job, we can utilize attributes in the submit file to 
+pass various arguments to multiple jobs. On this page, we will introduce two methods: using 
+numerical arguments, and using custom arguments. While this guide shows specific scripts and 
+examples, we hope that you can apply the underlying principles to your own jobs. For more 
+general descriptions of using arguments and submitting multiple jobs, see: 
+* [Basic Scripting and Job Submission with Arguments](htc-basic-scripting)
+* [Submitting Multiple Jobs Using HTCondor](multiple-jobs)
 
 
 ## Submit multiple jobs by leveraging $(Process)/$(ProcID) as numerical arguments
