@@ -261,4 +261,4 @@ In this exercise, we will obtain data for multiple countries between the years 2
 ## Next steps
 In the next part of this guide, we will submit multiple jobs with different arguments with just one submit file.
 
-[Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File](htc-passing-arguments-2)
+[Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File](htc-passing-arguments-multiple)
