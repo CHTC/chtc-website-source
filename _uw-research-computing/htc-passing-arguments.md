@@ -23,7 +23,13 @@ guide:
 
 ## Purpose
 
-Many executables require arguments to perform tasks. As a user, you may need to specify specific files or parameters for your calculations. This exercise will show how arguments are used in a simple calculation and walk through how to write an HTCondor submit file to pass these arguments to the executable.
+Many executables require arguments to perform tasks. As a user, you may need to specify 
+specific files or parameters for your calculations. This exercise will show how arguments are 
+used in a simple calculation and walk through how to write an HTCondor submit file to pass 
+these arguments to the executable. This guide builds on the concepts shown in  [Basic Scripting 
+and Job Submission with Arguments](htc-basic-scripting). To see how to submit multiple jobs 
+using arguments, see [Passing Multiple Arguments to Multiple Jobs with One Submit 
+File](htc-passing-arguments-multiple).
 
 ## Understand and test the script with arguments
 
@@ -255,4 +261,4 @@ In this exercise, we will obtain data for multiple countries between the years 2
 ## Next steps
 In the next part of this guide, we will submit multiple jobs with different arguments with just one submit file.
 
-[Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File](htc-passing-arguments-2)
+[Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File](htc-passing-arguments-multiple)

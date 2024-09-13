@@ -16,11 +16,15 @@ icon: /uw-research-computing/guide-icons/r-icon.png
 Our executable written in R, `echo-next.R`:
 ```
 args <- commandArgs(trailingOnly = TRUE)
-cat(args[1],"\n")
+filename <- args[1]
+cat(filename,"\n")
 ```
+
+The output of `commandArgs` is a vector -- if you have multiple arguments, you can reference each 
+item using R's usual notation (`args[1]`, `args[2]`, etc.). 
 See [R documentation on commandArgs](https://search.r-project.org/CRAN/refmans/R.utils/html/commandArgs.html) for details.
 
-We can use it on the command line, assuming R is installed and on the `PATH`:
+We can use the script on the command line, assuming R is installed and on the `PATH`:
 ```
 [user@login]$ Rscript echo-next.R data.csv
 data.csv

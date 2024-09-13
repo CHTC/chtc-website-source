@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: "Basic scripting with arguments"
+title: "Basic Scripting and Job Submission with Arguments"
 guide:
     order: 5
     category: Job Submission
@@ -9,7 +9,7 @@ guide:
         - htc
 ---
 <script type="text/javascript" src="{{ '/assets/js/pages/software-overview.js' | relative_url }}" defer></script>
-
+	
 {% capture content %}
 
 - [Purpose](#purpose)
