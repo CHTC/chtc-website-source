@@ -3,8 +3,8 @@ highlighter: none
 layout: guide
 title: HTC Data Storage Locations
 guide:
-    order: 6
-    category: FILL IN THIS BLANK
+    order: 4
+    category: Handling Data in Jobs
     tag:
         - htc
 ---
@@ -23,7 +23,7 @@ guide:
 # Data Storage Locations
 The HTC system has two primary locations where users can store files: `/home` and `/staging`.
 
-The mechanisms behind `/home` and `/staging` that manage data are different and are optimized to handle different file sizes. `/home` is more efficient at managing small files, while `/staging` is more efficient at managing larger files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem. 
+The data management mechanisms behind `/home` and `/staging` that are different and are optimized to handle different file sizes. `/home` is more efficient at managing small files, while `/staging` is more efficient at managing larger files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem. 
 
 
 # Understand your file sizes
@@ -34,6 +34,10 @@ The command `ls` stands for "list" and, by default, lists the files in your curr
 
 ```
 [user@ap2002] $ ls -lh
+-rw-r--r-- 1 user user 0 Sep 13 13:34 data.csv
+-rw-r--r-- 1 user user 0 Sep 13 13:34 job.sub
+drwxr-xr-x 2 user user 4.0K Sep 13 13:36 sample_dir
+-rwxr-xr-x 1 user user 0 Sep 13 13:34 script.sh
 ```
 {:.term}
 
@@ -42,6 +46,8 @@ Similar to `ls -lh`, `du -h` prints out the "disk usage" of directories in a hum
 
 ```
 [user@ap2002] $ du -h
+166M    ./sample_dir
+166M    .
 ```
 {:.term}
 
