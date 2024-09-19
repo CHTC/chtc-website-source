@@ -1,17 +1,7 @@
----
-highlighter: none
-layout: guide
-title: HTC Getting Started Roadmap
-alt_title: HTC Getting Started Roadmap
-guide:
-    order: 3
-    category: Basics and Policies
-    tag:
-        - htc
----
 
 
-HTC Getting Started Roadmap
+
+HTC Getting Started Summary
 ====================================
 
 <b>Step One</b>
