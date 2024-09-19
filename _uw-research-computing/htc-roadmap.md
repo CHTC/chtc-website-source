@@ -1,9 +1,3 @@
-
-
-
-HTC Getting Started Summary
-====================================
-
 <b>Step One</b>
 
 <details>
@@ -151,6 +145,5 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
    Data stored on CHTC systems is not backed up. While CHTC staff try to maintain a stable compute environment, it is possible for unexpected outages to occur that may impact your data on our system. <b>We highly recommend all CHTC users maintain copies of important scripts and input files on another compute system (your laptop, lab server, ResearchDrive, etc.) throughout their analysis. Additionally, as you complete your analysis on CHTC servers, we highly recommend you move your data off our system to a backed up storage location.</b>
    <br>
    <br>
-   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs. 
-</details></b> 
+   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs. </b> 
 </details>
