@@ -290,10 +290,10 @@ summary::before {
   left: 7px;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
-  transition: all cubic-bezier(.56,-0.85,.7,2.24) .5s;
+  transition: all linear .2s;
 }
 
-summary:hover::before {
+details[open] summary::before {
   content: url("/images/icons/triangle-fill.svg"); /* Unicode for pencil icon */
   position: absolute;
   left: 7px;
