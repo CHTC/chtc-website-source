@@ -10,11 +10,34 @@ guide:
         - htc
 ---
 
+<style>
+summary {
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+  padding: 5px;
+  padding-left: 30px; /* Adjust padding to make space for the icon */
+  background-color: #f9e6e7;
+  border-left: #c5050c 4px solid;
+  border-radius: 5px;
+}
 
-HTC Getting Started Roadmap
-====================================
+summary:hover {
+  color: black;
+  background-color: #efc6c8;
+}
 
-<b>Step One</b>
+summary::before {
+  content: url("/images/icons/pencil.svg"); /* Unicode for pencil icon */
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>
+
+#### Step One
 
 <details>
 <summary>Introduction to the High Throughput Computing Strategy</summary>
@@ -35,7 +58,7 @@ More detailed information regarding CHTC's HTC system can be found in the <a hre
 </details>
 
 
-<b>Step Two</b>
+#### Step Two
 
 <details>
 <summary>Log on to an HTCondor HTC Access Point</summary>
@@ -48,7 +71,7 @@ For security purposes, every CHTC user is required to be connected to either a U
 </details>
 
 
-<b>Step Three</b>
+#### Step Three
 
 <details>
 <summary>Understand the Basics of Submitting HTCondor Jobs</summary>
@@ -57,7 +80,7 @@ Computational work is run on the the High Throughput Computing system's executio
 </details>
 
 
-<b>Step Four</b>
+#### Step Four
 
 <details>
 <summary>Learn to Run Many HTCondor Jobs using one Submit File</summary>
@@ -67,7 +90,7 @@ After following this tutorial, we <b>highly recommend</b> users review the <a hr
 </details>
 
 
-<b>Step Five</b>
+#### Step Five
 
 <details>
 <summary>Install your Software</summary>
@@ -91,7 +114,7 @@ The HTC system contains several machines designed for users to use when building
 </details>
 
 
-<b>Step Six</b>
+#### Step Six
 
 <details>
 <summary>Access your Data on the HTC System</summary>
@@ -118,9 +141,9 @@ When uploading data to the HTC system, users need to choose a location to store 
    <br>
    </details>
 
-   
 
-<b>Step Seven</b>
+
+#### Step Seven
 
 <details>
 <summary>Run Test Jobs</summary>
@@ -137,14 +160,14 @@ Things to look for:
 </details>
 
 
-<b> Step Eight</b>
+#### Step Eight
 <details>
    <summary>Submit Your Workflow</summary>
 <br>
 Once your jobs succeed and you have confirmed your quota is sufficient to store the files your job creates, you are ready to submit your full workflow. For researchers interested in queuing many jobs or accessing GPUs, we encourage you to consider accessing additional CPUs/GPUs outside of CHTC. Information is provided in the following step. 
 </details>
 
-<b> Step Nine</b>
+#### Step Nine
 <details>
    <summary>Access Additional Compute Capacity</summary>
    <br>
@@ -154,13 +177,12 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
    To opt into using this additional capacity, your jobs will run on hardware that CHTC does not own. Instead, your jobs will "backfill" on resources owned by research groups, UW-Madison departments and organizations, and a national scale compute system: the OSG's Open Science Pool. This allows researchers to access capacity beyond what CHTC can provide. To learn how to take advantage of additional CPUs/GPUs, visit <a href="https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc">Scale Beyond Local HTC Capacity</a>.
 </details>
 
-<b>Step Ten</b>
+#### Step Ten
 <details>
    <summary>Move Your Data off CHTC</summary>
    <br>
    Data stored on CHTC systems is not backed up. While CHTC staff try to maintain a stable compute environment, it is possible for unexpected outages to occur that may impact your data on our system. <b>We highly recommend all CHTC users maintain copies of important scripts and input files on another compute system (your laptop, lab server, ResearchDrive, etc.) throughout their analysis. Additionally, as you complete your analysis on CHTC servers, we highly recommend you move your data off our system to a backed up storage location.</b>
    <br>
    <br>
-   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs. 
-</details></b> 
+   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs.
 </details>
