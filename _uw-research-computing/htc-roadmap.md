@@ -17,7 +17,7 @@ summary {
   text-decoration: underline;
   position: relative;
   padding: 5px;
-  padding-left: 30px; /* Adjust padding to make space for the icon */
+  padding-left: 34px; /* Adjust padding to make space for the icon */
   background-color: #f9e6e7;
   border-left: #c5050c 4px solid;
   border-radius: 5px;
@@ -29,11 +29,20 @@ summary:hover {
 }
 
 summary::before {
-  content: url("/images/icons/pencil.svg"); /* Unicode for pencil icon */
+  content: url("/images/icons/triangle-fill.svg"); /* Unicode for pencil icon */
   position: absolute;
-  left: 5px;
+  left: 7px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(180deg);
+  transition: all ease-in-out .2s;
+}
+
+summary:hover::before {
+  content: url("/images/icons/triangle-fill.svg"); /* Unicode for pencil icon */
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
 }
 </style>
 
