@@ -65,7 +65,7 @@ the capacity of the GPU Lab to run their work.
     <td>4</td>
     <td>gpulab2000 - gpulab2003</td>
     <td>8</td>
-    <td>GeForce RTX 2080 Ti</td>
+    <td>NVIDIA GeForce RTX 2080 Ti</td>
     <td>7.5</td>
     <td>10GB</td>
   </tr>
@@ -73,7 +73,7 @@ the capacity of the GPU Lab to run their work.
     <td>2</td>
     <td>gpulab2004, gpulab2005</td>
     <td>4</td>
-    <td>A100-SXM4-40GB</td>
+    <td>NVIDIA A100-SXM4-40GB</td>
     <td>8.0</td>
     <td>40GB</td>
   </tr>
@@ -81,7 +81,7 @@ the capacity of the GPU Lab to run their work.
     <td>10</td>
     <td>gpu2002 - gpu2011</td>
     <td>4</td>
-    <td>A100-SXM4-80GB</td>
+    <td>NVIDIA A100-SXM4-80GB</td>
     <td>8.0</td>
     <td>80GB</td>
   </tr>
@@ -89,9 +89,17 @@ the capacity of the GPU Lab to run their work.
     <td>3</td>
     <td>gpu4000 - gpu4002</td>
     <td>10</td>
-    <td>L40</td>
+    <td>NVIDIA L40</td>
     <td>8.9</td>
     <td>45GB</td>
+  </tr>
+ <tr>
+    <td>1</td>
+    <td>gpu4003</td>
+    <td>8</td>
+    <td>NVIDIA H100 80GB HBM3</td>
+    <td>9.0</td>
+    <td>80GB</td>
   </tr>
 </table>
 

@@ -36,21 +36,20 @@ servers or head nodes:
 
 **Username and Password**
 
-- UW - Madison NetId and password
+- UW-Madison NetID and password
 
 **Hostname**
 
   {:.gtable}
   | HTC System |
   | --- |
-  | `ap2001.chtc.wisc.edu` (formerly `submit1.chtc.wisc.edu`) - typically for accounts created before June 2019, between March 2021 - June 2022, or after Feb 1, 2023 |
-  | `ap2002.chtc.wisc.edu` (formerly `submit2.chtc.wisc.edu`) - typically for accounts created between June 2019 - February 2021 or between July 1, 2022 - Jan 31, 2023 |
+  | `ap2001.chtc.wisc.edu` |
+  | `ap2002.chtc.wisc.edu` |
 
   {:.gtable}
   | HPC Cluster |
   | --- |
-  | `spark-login.chtc.wisc.edu`
-  | `hpclogin3.chtc.wisc.edu` - access the old HPC cluster, slated to be decommissioned |
+  | `spark-login.chtc.wisc.edu` |
 
 As of December 2022, we also require two-factor authentication with Duo to 
 access CHTC resources. 
