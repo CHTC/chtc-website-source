@@ -17,8 +17,7 @@ Contents
 
 1. [Submitting Jobs Using SLURM](#1-submitting-jobs-using-slurm)
 1. [Viewing Jobs in the Queue](#2-viewing-jobs-in-the-queue)
-1. [Viewing Additional Job Information](#3-viewing-additional-job-information)
-1. [Removing or Holding Jobs](#4-removing-or-holding-jobs)
+1. [Removing or Holding Jobs](#3-removing-or-holding-jobs)
 
 The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node `spark-login.chtc.wisc.edu`. If this is not
@@ -259,105 +258,8 @@ To view your jobs in the SLURM queue, use the following command:
 Issuing `squeue` alone will show all user jobs in the queue. You can
 view all jobs for a particular partition with `squeue -p shared`.
 
-**3. Viewing Additional Job Information**
-==================
 
-Accounting information for jobs that are invoked with SLURM are logged. The `sacct` command displays job accouting data in a variety of forms for your analysis. 
-
-**If you are having trouble viewing output from `sacct` try running this command first**
-
-```
-[alice@login]$ sacct --start=2018-01-01
-```
-{:.term}
-
-
-## How To Select Jobs
-
-- To display information about a specific job or list of jobs use `-j` or `--jobs` followed by a job number or comma separated list of job numbers.
-	
-	```
-	[alice@login]$ sacct --jobs job1,job2,job3
-	```
-	{:.term}
-<!-- Sample output -->
-
-- To select information about jobs in a certain date range use `--start` and `--end` Without it, `sacct` will only return jobs from the current day.
-	
-	```
-	[alice@login]$ sacct --start=YYYY-MM-DD
-	```
-	{:.term}
-
-- To select information about jobs in a certian time range use `--starttime` and `--endtime` The default start time is 00:00:00 of the current day, unless used with `-j`, then the default start time is Unix Epoch 0. The default end time is time of running the command. Valid time formats are
-	```
-	HH:MM[:SS] [AM|PM]
-	MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
-	MM/DD[/YY]-HH:MM[:SS]
-	YYYY-MM-DD[THH:MM[:SS]] 
-	```
-
-	```
-	[alice@login]$ sacct --starttime 08/23 --endtime 08/24
-	```
-	{:.term}
-
-- To display another user's jobs use `--user`
-	
-	```
-	[alice@login]$ sacct --user BuckyBadger
-	```
-	{:.term}
-	<!-- Sample output -->
-
-- To only show statistics relevant to the job allocation itself, not taking steps into consideration use `-X`. This can be useful when trying to figure out which part of a job errored out.
-	
-	```
-	[alice@login]$ sacct -X
-	```
-	{:.term}
-	<!-- Sample Output -->
-
-## Displaying Specific Fields
-
-`sacct` can display different fields about your jobs. You can use the `--helpformat` flag to get a full list.
-
-```	
-[alice@login]$ sacct --helpformat
-```
-{:.term}
-
-### Recommended Fields
-
-When looking for information about your jobs CHTC recommends using these fields
-```
-elapsed
-end
-exitcode
-jobid
-ncpus
-nnodes
-nodelist
-ntasks
-partition
-start
-state
-submit
-user
-```
-
-For example run
-
-```
-sacct --start=2020-01-01 --format=jobid
-```
-{:.term}
-
-to see jobIDs of all jobs ran since 1/1/2020.
-
-
-
-**4. Removing or Holding Jobs**
+**3. Removing or Holding Jobs**
 ==================
 
 You can kill and/or remove your job from the
