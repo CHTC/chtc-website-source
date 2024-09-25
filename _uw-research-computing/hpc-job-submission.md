@@ -12,23 +12,27 @@ guide:
 The HPC Cluster uses SLURM to manage jobs on the HPC Cluster. This page describes 
 how to submit and manage jobs using SLURM. 
 
-Contents
-========
-
-1. [Submitting Jobs Using SLURM](#1-submitting-jobs-using-slurm)
-1. [Viewing Jobs in the Queue](#2-viewing-jobs-in-the-queue)
-1. [Removing or Holding Jobs](#3-removing-or-holding-jobs)
+{% capture content %}
+- [1. Submitting Jobs Using SLURM](#1-submitting-jobs-using-slurm)
+   * [A. Submitting a Job](#a-submitting-a-job)
+   * [B. Optimizing Your Submit File](#b-optimizing-your-submit-file)
+   * [C. Requesting an Interactive Job (\"int\" and \"pre\" partitions)](#c-requesting-an-interactive-job-int-and-pre-partitions)
+      + [For simple testing or compiling](#for-simple-testing-or-compiling)
+      + [For running MPI code](#for-running-mpi-code)
+- [2. Viewing Jobs in the Queue](#2-viewing-jobs-in-the-queue)
+- [3. Removing or Holding Jobs](#3-removing-or-holding-jobs)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 The following assumes that you have been granted access to the HPC cluster 
 and can log into the head node `spark-login.chtc.wisc.edu`. If this is not
 the case, please see the [CHTC account application page](form.html) or email
 the facilitation team at chtc@cs.wisc.edu. 
 
-**1. Submitting Jobs Using SLURM**
-==================
+# 1. Submitting Jobs Using SLURM
 
-**A. Submitting a Job**
------------------
+
+## A. Submitting a Job
 
 Jobs can be submitted to the cluster using a submit file, sometimes also 
 called a "batch" file. The top half of the file consists of `#SBATCH` 
@@ -70,8 +74,7 @@ Once the submit file is created, it can be submitted using the `sbatch` command:
 ```
 {:.term}
 
-**B. Optimizing Your Submit File**
--------------------
+## B. Optimizing Your Submit File
 
 The new cluster has different partition names and different sized nodes. **We always recommend requesting cores per node (instead of total cores), using a multiple of 32 cores as your request per node.** Requesting multiple nodes is not advantageous if your jobs are smaller than 128 cores. We also now recommend requesting memory per core instead of memory per node, for similar reasons, using the `--mem-per-cpu` flag with units of MB. Here are our recommendations for different sized jobs: 
 
@@ -104,8 +107,7 @@ The new cluster has different partition names and different sized nodes. **We al
 	</tr>
 </table>
 
-**C. Requesting an Interactive Job (\"int\" and \"pre\" partitions)**
------------------
+## C. Requesting an Interactive Job (\"int\" and \"pre\" partitions)
 
 If you want to run your job commands yourself, as a test before submitting 
 a job as described above, you can request an interactive job on the cluster. 
@@ -245,8 +247,7 @@ give up the allocated resources.
 > > a `SLURM_JOB_UID` variable is created for the interactive `srun`.
 
 
-**2. Viewing Jobs in the Queue**
-==================
+# 2. Viewing Jobs in the Queue
 
 To view your jobs in the SLURM queue, use the following command: 
 
@@ -259,8 +260,7 @@ Issuing `squeue` alone will show all user jobs in the queue. You can
 view all jobs for a particular partition with `squeue -p shared`.
 
 
-**3. Removing or Holding Jobs**
-==================
+# 3. Removing or Holding Jobs
 
 You can kill and/or remove your job from the
 queue with the following:
