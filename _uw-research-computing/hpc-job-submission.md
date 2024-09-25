@@ -259,6 +259,8 @@ To view your jobs in the SLURM queue, use the following command:
 Issuing `squeue` alone will show all user jobs in the queue. You can
 view all jobs for a particular partition with `squeue -p shared`.
 
+> More commands to review job information and monitor jobs are described in [Reviewing Job Information Using SLURM](hpc-job-monitoring).
+
 
 # 3. Removing or Holding Jobs
 
