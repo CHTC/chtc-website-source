@@ -18,7 +18,7 @@ title: The Center for High Throughput Computing Fellows Program
 </h1>
 
 
-The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a 12-week summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
+The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
@@ -32,7 +32,7 @@ The Program aims to provide opportunities for undergraduate and graduate student
 
 ### How do you find a project?
 
-As part of the application process, students will be paired with potential mentors to develop the project ideas from the suggested [projects list](./list.html); project submissions are due prior to the start of the summer. Projects can be large- or medium-sized, taking about 480 or 240 hours to complete, respectively.
+As part of the application process, students will be paired with potential mentors to develop the project ideas from the suggested [projects list](./list.html); project submissions are due prior to the start of the summer.
 
 The CHTC Fellows Program aims to be inclusive of students at all levels of experience and skill sets; a willingness to learn and interest in science is prioritized over past accomplishments.
 
@@ -60,7 +60,7 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 ## How it Works
 
-Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is preferred to maximize interaction with mentors and others in the cohort, but remote involvement is an option for some projects for those based outside of the Madison, Wisconsin area. However, you must be located in the United States during the Fellowship Program to participate. 
+Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort.
 
 **Eligibility:**
 
@@ -68,13 +68,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   U.S. citizenship is not required to participate.
 -   In order to ensure the safety of the workplace, proof of COVID-19 vaccination is required unless an exemption is granted for medical, disability or religious reasons. 
-
-
-**Duration of fellowship and total stipend:**
-
--   The Fellowship Program lasts for 12 weeks during Summer 2024, running from June 3 to August 23. 
--   The Program provides $650/week stipend for large projects and $325/week stipend for medium projects. The stipends will be dispersed monthly.
--   It is expected that a Fellow working on a large project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
+-   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2024.
 
 
 **Developing a project**
@@ -87,15 +81,15 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 <div class="primary-callout" markdown="1">
 ## Applying
 
-Applications for the summer of 2024 are closed. The information below is provided to inform those interested future opportunities.
+Applications for the summer of 2025 will open November 3, 2024
 
 To apply, send an email to [chtc-jobs@g-groups.wisc.edu ](mailto:chtc-jobs@g-groups.wisc.edu ) with the following information:
 
 -   A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
--   A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.
+-   A cover letter that describes your interest in the Fellowship Program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project list, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.
 </div>
 
-### Summer 2024 Timeline:
+### Summer 2025 Timeline Will be Published November 3, 2024. For reference, the 2024 timeline is below::
 
 -   **Friday 8 March, 2024** - Final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
 -   **Friday 15 March, 2024** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
