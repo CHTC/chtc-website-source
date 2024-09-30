@@ -59,6 +59,24 @@ title: Available Positions
                 {% endfor %}
             {% endif %}
 
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
+            {% assign available_jobs = jobs | where_exp: "x", "x.available == true" %}
+            {% if student_jobs.size > 0 %}
+                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
+                <p>
+                    We're always looking for smart motivated students to partner with
+                    software developer and system administrator mentors. We expect students
+                    to work between 10 and 20 hours a week, with 10 of those being during
+                    business hours, with some flexibility on remaining hours. During the
+                    summer and breaks, it is possible to work up to 29 hours per week.
+                </p>
+
+                {% for job in student_jobs %}
+
+                    {% include /components/job-card.html %}
+                {% endfor %}
+            {% endif %}
+
             <hr>
             <h2 id="benefits">Benefits</h2>
 
