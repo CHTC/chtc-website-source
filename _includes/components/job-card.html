@@ -2,7 +2,7 @@
     <div>
         {% if job.button.href %}
             <h3 id="{{ job.title | slugify }}" class="my-2 mb-1 uw-mini-bar"><a href="{{ job.button.href }}">{{ job.title }}</a></h3>
-        {%} else %}
+        {% else %}
             <h3 id="{{ job.title | slugify }}" class="my-2 mb-1 uw-mini-bar">{{ job.title }}</h3>
         {% endif %}
         <div class="row justify-content-between d-flex">
