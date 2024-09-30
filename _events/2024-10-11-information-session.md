@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2024-10-11
 end_date: 2024-10-11
-location: "UW-Madison Campus, Location TBD"
+location: "UW-Madison Campus, Room 1170 of the Discovery Building"
 image: "/images/20240308_Morgridge_RCFs.jpg"
 header_image: "/images/20240308_Morgridge_RCFs.jpg"
 ---
@@ -46,9 +46,9 @@ Friday, October 11, 1 pm - 2:30 pm
 
 ### Where
 
-In-Person
+In-Person only
 
-Exact location TBD
+Discovery Building, Room 1170, UW-Madison Campus
 
 ## Registration
 
