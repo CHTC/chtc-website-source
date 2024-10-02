@@ -77,6 +77,14 @@ In this section, we provide a brief introduction into how to use containers for 
 A container is a portable, self-contained operating system and can be easily executed on different computers regardless of their operating systems or programs.
 When building the container you can choose the operating system you want to use, and can install programs as if you were the owner of the computer.
 
+<p style="text-align:center"><img src="/images/container-analogy-infographic1.png" width=800></p>
+
+As an analogy, you could consider a container to be like a camping backpack. Every time you plan to use it, you will need a standard set of gear, which you could pre-pack. Other items, like maps, food, or fuel would depend on where you're going, but you would still have access to the standard gear.
+
+In the same way, you build a container image by installing your software and any additional dependencies. Jobs that use containers can differ in their tasks or data, but they still have access to the installed software and environment.
+
+<p style="text-align:center"><img src="/images/container-analogy-infographic2.png" width=800></p>
+
 While there are some caveats, containers are useful for deploying software on shared computing systems like CHTC, where you do not have permission to install programs directly.
 
 *"You can build a container using Apptainer on your laptop, and then run it on many of the largest HPC clusters in the world, local university or company clusters, a single server, in the cloud, or on a workstation down the hall."*
