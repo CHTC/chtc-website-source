@@ -68,7 +68,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   U.S. citizenship is not required to participate.
 -   In order to ensure the safety of the workplace, proof of COVID-19 vaccination is required unless an exemption is granted for medical, disability or religious reasons. 
--   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2024.
+-   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2025.
 
 
 **Developing a project**
