@@ -78,7 +78,7 @@ the capacity of the GPU Lab to run their work.
     <td>40GB</td>
   </tr>
   <tr>
-    <td>10</td>
+    <td>8</td>
     <td>gpu2002 - gpu2011</td>
     <td>4</td>
     <td>NVIDIA A100-SXM4-80GB</td>
