@@ -12,8 +12,8 @@ excerpt: |
 start_date: 2025-06-2
 end_date: 2025-06-6
 location: "University of Wisconsin–Madison’s Fluno Center and Online via Zoom"
-image: "/assets/images/events/throughput-2025-banners.png"
-header_image: "/assets/images/events/throughput-2025-banners.png"
+image: "/images/events/throughput-2025-banners.png"
+header_image: "images/events/throughput-2025-banners.png"
 ---
 
 {% capture main %}
