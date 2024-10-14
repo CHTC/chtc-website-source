@@ -10,15 +10,27 @@ See below for the various ways to get help when using CHTC services.
 
 ## Get An Account
 
-If you don't have an account yet, please fill out our [Request
-Form](form.html), and we'll follow up with your account details 
-or a request to meet. If you don't have an account but just have general
-questions, feel free to send an email to chtc@cs.wisc.edu (see below).
+If you don't have an account yet, please fill out our request form, and we'll
+follow up with your account details or a request to meet. If you don't have an
+account but just have general questions, feel free to send an email to
+[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu).
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_8f6nTgaaVhefdmS">Request a CHTC Account</a>
+	</div>
+</div>
 
 ## Request a Quota Change
 
 If you'd like to request a change in your quotas for one of our data
 storage locations, please see our [Request a Quota Change](quota-request) guide.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="quota-request">Request a Quota Change</a>
+	</div>
+</div>
 
 ## Help Via Email
 
