@@ -66,6 +66,14 @@ at our usual support address to schedule a separate meeting.
 
 [Click to sign-in for office hours](sign-in.html)
 
+### CHTC Events and Office Hours Calendar
+<iframe id="open-web-calendar" 
+    style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
+    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?ending_hour=18&amp;hour_format=%25g%3A%25i%E2%80%AF%25a&amp;prefer_browser_language=true&amp;start_of_week=work&amp;starting_hour=8&amp;tab=week&amp;tabs=month&amp;tabs=week&amp;target=_blank&amp;title=CHTC%20Events%20and%20Office%20Hours&amp;url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_ab942dce7a1330adb574945756788f3c3291e5e0e8508de8d8b7b9dda1ea4a0b%2540group.calendar.google.com%2Fpublic%2Fbasic.ics"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    allowTransparency="true" scrolling="no" 
+    frameborder="0" height="600px" width="100%"></iframe>
+
 ## Check System Status
 
 We have a system status page at [https://status.chtc.wisc.edu](https://status.chtc.wisc.edu) that we 
