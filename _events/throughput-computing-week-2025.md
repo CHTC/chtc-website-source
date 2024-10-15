@@ -1,6 +1,6 @@
 ---
 short_title: You are Invited to Attend Throughput Computing Week 2025
-title: Join Us at Throughput Computing Week 2025, June 2 - 6
+title: Join Us at Throughput Computing Week 2025
 
 layout: events
 published: true
