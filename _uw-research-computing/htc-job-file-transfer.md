@@ -33,7 +33,7 @@ The HTCondor submit file `transfer_input_files` line should always be used to te
 | Input Sizes | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
 | 0 - 1 GB      | /home       | `transfer_input_files = input.txt`       |
-| 1 GB - 30 GB   | /staging        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
+| 1 GB - 30 GB   | /staging        | `transfer_input_files = osdf://chtc/staging/NetID/input.txt`        | 
 | > 30 GB   | /staging        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 
 > Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.
