@@ -45,6 +45,8 @@ Once your request for an account has been approved by a Research Computing Facil
    <br>
 For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your HTC access point (also called a "submit server").  
 <br>
+See how to <a href="connecting">Log In to CHTC Resources</a>.
+<br>
 </details>
 
 
@@ -77,7 +79,7 @@ Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Sof
 <br>
 <b>Software Containers</b>
    <br>
-In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with `conda`, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
+In general, we recommend installing your software into a "container" if your software relies on a specific version of R/Python, can be installed with <code>conda</code>, if your software has many dependencies, or if it already has a pre-existing container (which many common software packages do). There are many advantages to using a software container; one example is that software containers contain their own operating system. As a result, jobs with software containers have the most flexibility with where they run on CHTC or the OSPool. The CHTC website provides several guides on building, testing, and using software containers.
 <br>
 <br>
 <b>Use Pre-installed Software in Modules</b>
@@ -98,7 +100,7 @@ The HTC system contains several machines designed for users to use when building
    <br>
 <b>Upload your data to CHTC</b>
    <br>
-When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using `s3` file transfer, pull data using standard unix commands (`wget`), among other transfer mechanisms. 
+When getting started on the HTC system, it is typically necessary to upload your data files to our system so that they can be used in jobs. For users that do not want to upload data to our system, it is possible to configure your HTCondor jobs to pull/push files using <code>s3</code> file transfer, pull data using standard unix commands (<code>wget</code>), among other transfer mechanisms. 
 <br>
    <br>
 To learn how to upload data from different sources, including your laptop, see: 
@@ -111,10 +113,10 @@ To learn how to upload data from different sources, including your laptop, see:
    <br>
 <b>Choose a Location to Stage your Data</b>
    <br>
-When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: `/home` and `/staging`. 
+When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: <code>/home</code> and <code>/staging</code>. 
    <br>
    <br>
-`/home` is more efficient at handling "small" files, while `/staging` is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">HTC Data</a> guides. 
+<code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">HTC Data</a> guides. 
    <br>
    </details>
 
@@ -125,12 +127,12 @@ When uploading data to the HTC system, users need to choose a location to store 
 <details>
 <summary>Run Test Jobs</summary>
 <br>
-Once you have your data, software, code, and HTCondor submit file prepared, you should submit several test jobs. The table created by HTCondor in the `.log` file will help you determine the amount of resources (CPUs/GPUs, memory, and disk) your job used, which is beneficial for understanding future job resource requests as well as troubleshooting. The standard out`.out` file will contain all text your code printed to the terminal screen while running, while the standard error `.err` file will contain any standard errors that your software printed out while running. 
+Once you have your data, software, code, and HTCondor submit file prepared, you should submit several test jobs. The table created by HTCondor in the <code>.log</code> file will help you determine the amount of resources (CPUs/GPUs, memory, and disk) your job used, which is beneficial for understanding future job resource requests as well as troubleshooting. The standard out <code>.out</code> file will contain all text your code printed to the terminal screen while running, while the standard error <code>.err</code> file will contain any standard errors that your software printed out while running. 
 <br>
    <br>
 Things to look for: 
    <ul>
-      <li>Jobs being placed on hold (hold messages can be viewed using `condor_q jobID -hold`)</li>
+      <li>Jobs being placed on hold (hold messages can be viewed using <code>condor_q jobID -hold</code>)</li>
       <li>Jobs producing expected files</li>
       <li>Size and number of output files (to make sure output is being directed to the correct location and that your quota is sufficient for all of your output data as you submit more jobs)</li>
    </ul>
@@ -161,5 +163,5 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
    Data stored on CHTC systems is not backed up. While CHTC staff try to maintain a stable compute environment, it is possible for unexpected outages to occur that may impact your data on our system. <b>We highly recommend all CHTC users maintain copies of important scripts and input files on another compute system (your laptop, lab server, ResearchDrive, etc.) throughout their analysis. Additionally, as you complete your analysis on CHTC servers, we highly recommend you move your data off our system to a backed up storage location.</b>
    <br>
    <br>
-   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs.
+   CHTC staff periodically delete data of users that have not logged in or submitted jobs in several months to clear up space for new users. <b>Eventually, all users should expect their data to be deleted off CHTC servers and should plan accordingly. Data on CHTC is meant to be used for analyses actively being carried out - CHTC is not a long-term storage solution for your data storage needs.</b>
 </details>
