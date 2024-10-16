@@ -39,7 +39,7 @@ expect a first response within 1-2 business days.
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
-		<a class="btn btn-primary" href="mailto:chtc@cs.wisc.edu">Email us</a>
+		<a class="btn btn-primary" href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>
 	</div>
 </div>
 
