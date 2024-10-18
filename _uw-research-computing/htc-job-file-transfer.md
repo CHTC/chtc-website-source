@@ -11,8 +11,13 @@ guide:
 
 {% capture content %}
 - [Data Storage Locations](#data-storage-locations)
-- [Transfer Data to Jobs](#transfer-data-to-jobs)
-- [Transfer Data Back from Jobs to `/home` or `/staging`](#transfer-data-back-from-jobs-to-home-or-staging)
+   * [/home](#home)
+   * [/staging](#staging)
+- [Transferring Data to Jobs with `transfer_input_files`](#transferring-data-to-jobs-with-transfer_input_files)
+   * [Important Note: File Transfers and Caching with `osdf://`](#important-note-file-transfers-and-caching-with-osdf)
+- [Transferring Data Back from Jobs to `/home` or `/staging`](#transferring-data-back-from-jobs-to-home-or-staging)
+   * [Default Behavior for Transferring Output Files](#default-behavior-for-transferring-output-files)
+   * [Specify Which Output Files to Transfer with `transfer_output_files` and `transfer_output_remaps`](#specify-which-output-files-to-transfer-with-transfer_output_files-and-transfer_output_remaps)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
