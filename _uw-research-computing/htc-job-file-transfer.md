@@ -1,6 +1,6 @@
 ---
 highlighter: none
-layout: guide
+layout: file_avail
 title: Data Storage Locations on the HTC
 guide:
     order: 1
