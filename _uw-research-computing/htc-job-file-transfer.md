@@ -1,9 +1,9 @@
 ---
 highlighter: none
 layout: guide
-title: HTC Data Storage Locations
+title: Data Storage Locations on the HTC
 guide:
-    order: 4
+    order: 1
     category: Handling Data in Jobs
     tag:
         - htc
@@ -19,29 +19,54 @@ guide:
 
 ## Data Storage Locations
 The HTC system has two primary locations where users can place their files:
-* `/home`: default location, good for smaller files to be transferred (<1 GB)
-* `/staging`: for larger files to be transferred (>1 GB)
+### /home
+* The default location for files and job submission
+* Efficiently handles many files
+* Smaller input files (<100 MB) should be placed here
 
-The data management mechanisms behind `/home` and `/staging` that are different and are optimized to handle different file sizes during file transfer in an HTCondor job. `/home` is more efficient for transferring smaller files, while `/staging` is more efficient at transferring larger files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.
+### /staging
+* Expandable storage system but cannot efficiently handle many files
+* Larger input files (>100 MB) should be placed here, including container images (.sif)
+
+The data management mechanisms behind `/home` and `/staging` are different and are optimized to handle different file sizes and numbers of files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.
 
 > If you need a `/staging` directory, [request one here](quota-request).
 
 
-## Transfer Data to Jobs
-The HTCondor submit file `transfer_input_files` line should always be used to tell HTCondor what files to transfer to each job, regardless of if that file originates from your `/home` or `/staging` directory. However, the syntax you use to tell HTCondor to fetch files from `/home` and `/staging` and transfer to your running job will change:
+## Transferring Data to Jobs with `transfer_input_files`
+
+In the HTCondor submit file, `transfer_input_files` should always be used to tell HTCondor what files to transfer to each job, regardless of if that file originates from your `/home` or `/staging` directory. However, the syntax you use to tell HTCondor to fetch files from `/home` and `/staging` and transfer to your job will change depending on the file size.
 
 | Input Sizes | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
-| 0 - 1 GB      | /home       | `transfer_input_files = input.txt`       |
-| 1 GB - 30 GB   | /staging        | `transfer_input_files = osdf://chtc/staging/NetID/input.txt`        | 
-| > 30 GB   | /staging        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
+| 0 - 100 MB      | `/home`       | `transfer_input_files = input.txt`       |
+| 100 MB - 30 GB   | `/staging`        | `transfer_input_files = osdf://chtc/staging/NetID/input.txt`        | 
+| > 30 GB   | `/staging`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 
-> Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.
+Multiple input files and file transfer protocols can be specified and delimited by commas, as shown below:
 
-## Transfer Data Back from Jobs to `/home` or `/staging`
+```
+# My job submit file
 
+transfer_input_files = file1, osdf://chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
+
+... other submit file details ...
+```
+{:.sub}
+
+Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.
+
+### Important Note: File Transfers and Caching with `osdf://`
+The `osdf://` file transfer protocol uses a [caching](https://en.wikipedia.org/wiki/Cache_(computing)) mechanism for input files to reduce file transfers over the network. This can affect users who refer to input files that are frequently modified.
+
+*If you are changing the contents of the input files frequently, you should rename the file or change its path to ensure the new version is transferred.*
+
+## Transferring Data Back from Jobs to `/home` or `/staging`
+
+### Default Behavior for Transferring Output Files
 When a job completes, by default, HTCondor will return **newly created or edited files only in top-level directory** back to your `/home` directory. **Files in subdirectories are *not* transferred.** Ensure that the files you want are in the top-level directory by moving them or [creating tarballs](transfer-files-computer#c-transferring-multiple-files).
 
+### Specify Which Output Files to Transfer with `transfer_output_files` and `transfer_output_remaps`
 If you don't want to transfer all files but only *specific files*, in your HTCondor submit file, use
 ```
 transfer_output_files = file1.txt, file2.txt
