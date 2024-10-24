@@ -174,7 +174,7 @@ transfer_input_files = file:///staging/username/file
 
 By default, any new or changed files in the top-level directory are transferred to your working directory on `/home`. If you have large output files, this is undesirable.
 
-Large outputs should be transferred to staging using the same file transfer protocols in conjunction with `transfer_output_remaps`.
+Large outputs should be transferred to staging using the same file transfer protocols in HTCondor's `transfer_output_remaps` option: 
 
 ```
 transfer_output_files = file1, file2
