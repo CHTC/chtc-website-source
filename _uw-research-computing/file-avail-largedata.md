@@ -160,12 +160,7 @@ Staged files should be specified in the job submit file using the `osdf://` or `
 depending on the size of the files to be transferred. [See this table for more information](htc-job-file-transfer#transferring-data-to-jobs-with-transfer_input_files).
 
 ```
-transfer_input_files = osdf://chtc/staging/username/file
-```
-{:.sub}
-
-```
-transfer_input_files = file:///staging/username/file
+transfer_input_files = osdf://chtc/staging/username/file1, file:///staging/username/file2, file3 
 ```
 {:.sub}
 
