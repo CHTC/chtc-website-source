@@ -177,45 +177,6 @@ transfer_output_remaps = "file1 = osdf://chtc/staging/username/file1; file2 = fi
 ```
 {:.sub}
 
-## C. Handling Standard Output (if needed)
-
-In some instances, your software may produce very large standard output
-(what would typically be output to the command screen, if you ran the
-command for yourself, instead of having <a href="https://htcondor.org">HTCondor</a> do it). Because such
-standard output from your software will usually be captured by HTCondor
-in the submit file "output" file, this "output" file WILL still be
-transferred by HTCondor back to your home directory on the submit
-server, which may be very bad for you and others, if that captured
-standard output is very large.
-
-In these cases, it is useful to redirect the standard output of commands
-in your executable to a file in the working directory, and then move it
-into `/staging` at the end of the job.
-
-Example, if "`myprogram`" produces very large standard output, and is
-run from a script (bash) executable:
-
-```
-#!/bin/bash
-#
-# script to run myprogram,
-# 
-# redirecting large standard output to a file in the working directory:
-./myprogram myinput.txt myoutput.txt > large_std.out
-# 
-# tar and move large files to staging so they're not copied to the submit server:
-tar -czvf large_stdout.tar.gz large_std.out
-# END
-```
-{: .file}
-
-We also need to tell HTCondor to transfer the large standard output using the file transfer protocols above.
-```
-transfer_output_files = file1, large_stdout.tar.gz
-transfer_output_remaps = "large_stdout.tar.gz = osdf://chtc/staging/username/large_stdout.tar.gz;"
-```
-{:.sub}
-
 # 4. Submit Jobs Using Staged Data
 
 In order to properly submit jobs using staged large data, always do the following:
