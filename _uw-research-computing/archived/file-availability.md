@@ -3,6 +3,7 @@ highlighter: none
 layout: file_avail
 title: Small Input and Output File Availability Via HTCondor
 alt_title: Transfer Small Input and Output
+published: false
 guide:
     tag:
         - htc
