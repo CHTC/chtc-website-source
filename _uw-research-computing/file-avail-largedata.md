@@ -22,17 +22,25 @@ familiar with:**
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka "executables").
-2.  CHTC's [Intro to Running HTCondor Jobs](helloworld.html)
-3.  CHTC's guide for [Typical File Transfer](file-availability.html)
+2.  CHTC's [Intro to Running HTCondor Jobs](htcondor-job-submission)
+3.  CHTC's guide for [Typical File Transfer](htc-job-file-transfer)
 
 {% capture content %}
-1.  [Policies and Intended Use](#1-policies-and-intended-use)
-2.  [Staging Large Data](#2-staging-large-data)
-3.  [Using Staged Files in a Job](#3-using-staged-files-in-a-job)
-	* [Accessing Large Input Files](#a-accessing-large-input-files)
-	* [Moving Large Output Files](#b-moving-large-output-files)
-4.  [Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
-5.  [Checking your Quota, Data Use, and File Counts](#5-checking-your-quota-data-use-and-file-counts)
+- [1. Policies and Intended Use](#1-policies-and-intended-use)
+   * [A. Intended Use](#a-intended-use)
+   * [B. Access to Large Data Staging](#b-access-to-large-data-staging)
+   * [C. User Data Management Responsibilities](#c-user-data-management-responsibilities)
+   * [D. Data Access Within Jobs](#d-data-access-within-jobs)
+- [2. Staging Large Data](#2-staging-large-data)
+   * [A. Get a Directory](#a-get-a-directory)
+   * [B. Reduce File Counts](#b-reduce-file-counts)
+   * [C. Use the Transfer Server](#c-use-the-transfer-server)
+   * [D. Remove Files After Jobs Complete](#d-remove-files-after-jobs-complete)
+- [3. Using Staged Files in a Job](#3-using-staged-files-in-a-job)
+   * [A. Transferring Large Input Files](#a-transferring-large-input-files)
+   * [B. Transferring Large Output Files](#b-transferring-large-output-files)
+- [4. Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
+- [5. Checking your Quota, Data Use, and File Counts](#5-checking-your-quota-data-use-and-file-counts)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
