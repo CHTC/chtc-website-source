@@ -30,7 +30,7 @@ The HTC system has two primary locations where users can place their files:
 * Smaller input files (<100 MB) should be placed here
 
 ### /staging
-* Expandable storage system but cannot efficiently handle many files
+* Expandable storage system but cannot efficiently handle many small (few MB or less) files
 * Larger input files (>100 MB) should be placed here, including container images (.sif)
 
 The data management mechanisms behind `/home` and `/staging` are different and are optimized to handle different file sizes and numbers of files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.
