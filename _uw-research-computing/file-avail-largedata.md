@@ -40,7 +40,7 @@ familiar with:**
    * [A. Transferring Large Input Files](#a-transferring-large-input-files)
    * [B. Transferring Large Output Files](#b-transferring-large-output-files)
 - [4. Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
-- [5. Checking your Quota, Data Use, and File Counts](#5-checking-your-quota-data-use-and-file-counts)
+- [5. Related Pages](#5-related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -224,27 +224,8 @@ Requirements = (Target.HasCHTCStaging == true)
 queue
 ```
 
-# 5. Checking your Quota, Data Use, and File Counts
+# 5. Related Pages
 
-You can use the command `get_quotas` to see what disk 
-and items quotas are currently set for a given directory path. 
-This command will also let you see how much disk is in use and how many 
-items are present in a directory:
-
-```
-[username@transfer ~]$ get_quotas /staging/username
-```
-{:.term}
-
-Alternatively, the `ncdu` command can also be used to see how many 
-files and directories are contained in a given path:
-
-``` 
-[username@transfer ~]$ ncdu /staging/username
-```
-{:.term}
-
-When `ncdu` has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type `q` when you\'re ready to exit the output viewer. More
-info here: <https://lintut.com/ncdu-check-disk-usage/>
+* [Data Storage Locations on the HTC](htc-job-file-transfer)
+* [Check Disk Quota and Usage](check-quota)
+* [Request a /staging directory or quota change](quota-request)
