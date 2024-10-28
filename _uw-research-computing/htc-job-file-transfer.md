@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: file_avail
-title: Data Storage Locations on the HTC
+title: Using and transferring data in jobs on the HTC system
 guide:
     order: 1
     category: Handling Data in Jobs
@@ -75,17 +75,17 @@ When a job completes, by default, HTCondor will return **newly created or edited
 ### Specify Which Output Files to Transfer with `transfer_output_files` and `transfer_output_remaps`
 If you don't want to transfer all files but only *specific files*, in your HTCondor submit file, use
 ```
-transfer_output_files = file1.txt, file2.txt
+transfer_output_files = file1.txt, file2.txt, file3.txt
 ```
 {:.sub}
 
 To transfer a file or folder back to `/staging`, you will need an additional line in your HTCondor submit file:
 ```
-transfer_output_remaps = "output1.txt = file:///staging/NetID/output1.txt"
+transfer_output_remaps = "file1.txt = file:///staging/NetID/output1.txt; file2.txt = /home/NetId/outputs/output2.txt"
 ```
 {:.sub}
 
-where `output1.txt` is the name of the output file or folder you would like transferred back to a `/staging` directory. Ensure you have the right file transfer syntax (`osdf://` or `file:///` depending on the anticipated file size).
+In this example above, `file1.txt` is remapped to the staging directory using the `file:///` transfer protocol and simultaneously renamed `output1.txt`. In addition, `file2.txt` is renamed to `output2.txt`and will be transferred to a different directory on `/home`. Ensure you have the right file transfer syntax (`osdf://` or `file:///` depending on the anticipated file size).
 
 If you have multiple files or folders to transfer back to `/staging`, use a semicolon (;) to separate each object: 
 ```
