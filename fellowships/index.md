@@ -81,7 +81,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
 
  
-**Eligibility:**
+## Eligibility 
 
 -  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
@@ -90,14 +90,14 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2025.
 
 
-**Developing a project**
+## Developing a project 
 
 -   After you apply, we will make a first selection of candidates and reach out to you for a “matchmaking discussion” with a mentor to discuss possible projects.
 -   It is not necessary to prepare a project proposal before application, however including information on your potential interests as part of the application will help us match you with a mentor.
 -   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline. Based on that, we will make a final fellows selection.
 -   During the Fellowship, you will work with your mentor and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
 
-### The Timeline for fall/winter 2024 applicants for the 2025 Fellows Program is below:
+## The timeline for fall/winter 2024 applicants for the 2025 Fellows Program:
 
 -   **Friday, 20 December, 2024** - Deadline for fall/winter applications for Summer 2025. 
 -   **Friday 7 February, 2025** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
