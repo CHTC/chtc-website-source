@@ -1,0 +1,21 @@
+title: Measuring Throughput in CHTC
+type: Research Facilitation
+summary: |
+  The focus of this project is to measure and categorize the throughput of workflows in [CHTC’s](https://chtc.cs.wisc.edu/) high throughput computing (HTC) system, by implementing various test workflows and then developing tools to analyze wait and run times. This analysis would aim to answer questions like the following:
+
+  -   How long does it take to run N jobs? What is the “profile” of the workload in terms of running jobs over time?
+  -   Compare answers to the above questions based on different workflows, e.g.
+      -   Prototypical HTC workflow: 1CPU, 2GB RAM, 2GB disk
+      -   Request more CPUs, memory, disk; use GPUs
+  -   If time allows, this study could be expanded to include questions like how often backfill jobs are evicted and how that impacts overall throughput.
+
+  #### Project Objectives:
+
+  -   Understand the impact of user priority, resource request size, and pool environment on overall throughput for a standard set of jobs.
+  -   Benchmark throughput in the CHTC pool to better communicate with CHTC users.
+
+  #### Prerequisite skills or education:
+
+  -   Statistics / modeling, preferred
+  -   Basic unix skills, preferred
+  -   Basic scripting for data analysis and modeling, preferred
