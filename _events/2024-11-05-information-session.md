@@ -48,7 +48,7 @@ Tuesday, November 5, 2:30 pm - 4:00 pm
 
 In-Person
 
-Location TBD
+Discovery Building 1170
 
 ## Registration
 
