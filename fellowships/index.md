@@ -73,13 +73,19 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 ## How it Works
 
-Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a monthly stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort.
+Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort. 
 
+## Duration of Fellowship and Total Stipend
+-  The Fellowship Program lasts for 11 weeks during Summer 2025, running from May 19 to August 8.
+-  The Program provides $650/week stipend. 
+-  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
+
+ 
 **Eligibility:**
 
--   You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
+-  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
--   U.S. citizenship is not required to participate.
+-   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).  
 -   In order to ensure the safety of the workplace, proof of COVID-19 vaccination is required unless an exemption is granted for medical, disability or religious reasons. 
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2025.
 
@@ -91,13 +97,13 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline. Based on that, we will make a final fellows selection.
 -   During the Fellowship, you will work with your mentor and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
 
-### For reference, the 2024 timeline is below::
+### The Timeline for fall/winter 2024 applicants for the 2025 Fellows Program is below:
 
--   **Friday 8 March, 2024** - Final deadline for applications (applications will be reviewed on a rolling basis as they arrive.)
--   **Friday 15 March, 2024** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
--   **Monday 1 April, 2024** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
--   **By 15 April, 2023** - Final selection of Fellows for summer 2024
--   **June-August** - Fellows work on projects.
+-   **Friday, 20 December, 2024** - Deadline for fall/winter applications for Summer 2025. 
+-   **Friday 7 February, 2025** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
+-   **Friday 28 February, 2025** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
+-   **By 15 March, 2025** - Final selection of Fall 2024 applicants for Fellows Program for summer 2025
+-   **May-August 2025** - Fellows work on projects.
 
 ## Funding
 
