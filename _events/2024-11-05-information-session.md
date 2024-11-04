@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2024-11-05
 end_date: 2024-11-05
-location: "UW-Madison Campus, Location TBD"
+location: "UW-Madison Campus, Room 1170 of the Discovery Building"
 image: "/images/20240308_Morgridge_RCFs.jpg"
 header_image: "/images/20240308_Morgridge_RCFs.jpg"
 ---
