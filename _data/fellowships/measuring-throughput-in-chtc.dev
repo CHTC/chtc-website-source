@@ -1,21 +1,18 @@
 title: Measuring Throughput in CHTC
 type: Research Facilitation
 summary: |
-  The focus of this project is to measure and categorize the throughput of workflows in [CHTC’s](https://chtc.cs.wisc.edu/) high throughput computing (HTC) system, by implementing various test workflows and then developing tools to analyze wait and run times. This analysis would aim to answer questions like the following:
-
-  -   How long does it take to run N jobs? What is the “profile” of the workload in terms of running jobs over time?
-  -   Compare answers to the above questions based on different workflows, e.g.
-      -   Prototypical HTC workflow: 1CPU, 2GB RAM, 2GB disk
-      -   Request more CPUs, memory, disk; use GPUs
-  -   If time allows, this study could be expanded to include questions like how often backfill jobs are evicted and how that impacts overall throughput.
+CHTC’s High Throughput Computing (HTC) system supports hundreds of users and thousands of jobs each day. It is optimized for workloads or sets of jobs, where many jobs can run in parallel as computational capacity becomes available. This project aims to better understand the impact of workload size and requirements on overall throughput through empirical measurement of workloads in CHTC. A key component of the project will be developing tools to a) submit sample workloads and b) gather metrics about their performance. Once these tools are developed, they can be used to run experiments with different workload types. 
 
   #### Project Objectives:
 
-  -   Understand the impact of user priority, resource request size, and pool environment on overall throughput for a standard set of jobs.
-  -   Benchmark throughput in the CHTC pool to better communicate with CHTC users.
+  -  Develop a synthetic workload generation tool that uses job parameters to automatically generate test HTC workloads.
+  -  Identify a list of 5-6 core metrics for measuring HTC workload performance in collaboration with the Facilitation team.
+  -  Develop a tool that extracts these core metrics using HTCondor log files or other command line tools. 
+  -  Use the above tools end-to-end to generate a test workload and measure its outcomes
+  - Run additional tests and benchmarks and write up a summary of findings. 
+
 
   #### Prerequisite skills or education:
 
-  -   Statistics / modeling, preferred
-  -   Basic unix skills, preferred
-  -   Basic scripting for data analysis and modeling, preferred
+  -  Familiarity with unix and Python
+  -  Familiarity with [HTCondor]'https://htcondor.com/' preferred
