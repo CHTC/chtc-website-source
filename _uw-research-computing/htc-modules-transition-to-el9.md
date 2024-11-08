@@ -11,7 +11,7 @@ guide:
 
 **This announcement concerns users of the HTC system who rely on modules for their software needs.**
 
-As part of our operating system transition, we are depreciating modules that are compiled for EL7 and EL8 operating systems on **Monday November 18**. See the below table for affected modules and their corresponding solutions.
+As part of our operating system transition, we are deprecating modules that are compiled for EL7 and EL8 operating systems on **Monday November 18**. See the below table for affected modules and their corresponding solutions.
 
 ## Affected modules 
 
@@ -40,7 +40,7 @@ As part of our operating system transition, we are depreciating modules that are
 
 Users can also view the list of modules using the `module avail` command.
 
-Modules to be depreciated are listed under `/software/chtc/modules`.
+Modules to be deprecated are listed under `/software/chtc/modules`.
 
 Unaffected modules are listed under `/software/chtc/manual/el9/modules`.
 
