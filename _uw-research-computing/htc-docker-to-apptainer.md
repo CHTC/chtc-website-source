@@ -34,10 +34,6 @@ You will need to launch an interactive job to build the Apptainer image. Below i
 
 log = build.log
 
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = /usr/bin/hostname
-
 requirements = (HasCHTCStaging == true)
 
 +IsBuildJob = true
