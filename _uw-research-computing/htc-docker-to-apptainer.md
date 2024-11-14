@@ -26,7 +26,7 @@ While HTCondor can pull container images from Docker Hub, we recommmend converti
 
 ## Convert a Docker image into an Apptainer image
 
-We will need to launch an interactive job to build the Apptainer image. Below is an example of a submit file. You may want to change memory or disk space requirements, depending on the expected requirements for your image.
+You will need to launch an interactive job to build the Apptainer image. Below is an example of a submit file. You may want to change memory or disk space requirements, depending on the expected requirements for your image.
 
 ```
 # build.sub
