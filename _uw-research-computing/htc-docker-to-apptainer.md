@@ -52,7 +52,6 @@ Submitting job(s).
 1 job(s) submitted to cluster 3017972.
 Waiting for job to start...
 Welcome to build1_1@build4000.chtc.wisc.edu!
- == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
 
 [user@build4000 ~]$
 ```
