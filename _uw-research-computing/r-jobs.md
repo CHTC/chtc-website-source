@@ -17,9 +17,9 @@ published: true
 
 Build a container with R & packages installed inside:
 
-1. [How to build your own container](#build-your-own-container)
+1. [How to build your own container](software-overview-htc.html#build-your-own-container)
 2. [Example container recipes for R](https://github.com/CHTC/recipes/tree/main/software/R/)
-3. [Use your container in your HTC jobs](#use-an-existing-container)
+3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
 
 #### Option B
 
