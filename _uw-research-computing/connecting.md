@@ -11,13 +11,14 @@ guide:
         - hpc
 ---
 
-This guide assumes
-that you have already gotten a CHTC account for either our high
-throughput or high performance compute systems. If you haven\'t, see our
-[getting started](get-started.html) page.
+# Introduction
+
+This guide outlines login information for CHTC services, including how to log in to CHTC servers after your account has been created, access point information, and how to re-use ssh connections to reduce the frequency of using Duo Multi-factor Authentication.
+
+If you don't have an account, see our [getting started](get-started.html) page.
 
 {% capture content %}
-1.  [Accessing the Submit Servers](#access)
+1.  [Access points](#access)
 2.  [Logging In](#login)
     -   [On the command line](#login-ssh)
     -   [Using an SSH program (Windows/Mac)](#login-putty)
@@ -26,120 +27,84 @@ throughput or high performance compute systems. If you haven\'t, see our
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="access"></a>
+# 1. Before you log in
 
-**1. Accessing the Submit Servers**
-===============================
+After obtaining a CHTC account, you will need the following to log into our CHTC access points:
 
-You will need the following information to log into our CHTC submit
-servers or head nodes:
+## Duo Multi-factor authentication (MFA)
 
-**Username and Password**
+- [Set up Duo Multi-factor authentication](https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/)
+
+## Connection to the campus network or Virtual Private Network (VPN)
+
+All of our CHTC acccess points are firewalled to block log-ins from off-campus. If you are off-campus and want to log in, you can either:
+* Activate the campus Virtual Private Network (VPN) (see [DoIT's VPN webpage](https://it.wisc.edu/services/wiscvpn/)). This will allow you join the campus network when working off-campus. 
+* Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our access point. 
+
+## Username and Password
 
 - UW-Madison NetID and password
 
-**Hostname**
+## Hostname / Access point information
+
+Please use the access point specified in your welcome email.
 
   {:.gtable}
-  | HTC System |
+  | High Throughput Computing (HTC) System |
   | --- |
   | `ap2001.chtc.wisc.edu` |
   | `ap2002.chtc.wisc.edu` |
 
   {:.gtable}
-  | HPC Cluster |
+  | High Performance Computing (HPC) System |
   | --- |
   | `spark-login.chtc.wisc.edu` |
 
-As of December 2022, we also require two-factor authentication with Duo to 
-access CHTC resources. 
 
-> **Are you off-campus?**\
-> All of our CHTC submit servers and head nodes are firewalled to block
-> log-ins from off-campus. If you are off-campus and want to log in, you
-> can either:
->
-> -   Activate the campus Virtual Private Network (VPN) (more details on how to set this up
->     [DoIT's VPN webpage](https://it.wisc.edu/services/wiscvpn/)). This will allow you join the campus network when working off-campus. 
-> -   Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our submit server. 
->
-> In either case, it will appear like you are on-campus, and you should
-> then be able to log into CHTC as usual.
+# 2. Log in
 
-<a name="login"></a>
+You can log in to the access points two different ways — from the command line or using an SSH program.
 
-**2. Logging In**
-=============
+## Log in with the command line
 
-Using the information described above, you can log in to servers two
-different ways \-- from the command line or using an SSH program:
-
-
-<a name="login-ssh"></a>
-
-A. On the command line
-----------------------------------
-
-On Mac, Linux, and modern Windows (10+) systems, you can use the \"Terminal\" application to
-log in. Open a terminal window and use the following command to connect
-to the appropriate server:
+On Mac, Linux, and modern Windows (10+) systems, you can use the "Terminal" application to log in. Open a terminal window and use the following command to connect to the appropriate server:
 
 ``` 
-$ ssh username@hostname
+ssh username@hostname
 ```
 {:.term}
 
-You will be prompted for your password, and then for Duo 
-authentication. 
+You will be prompted for your password, then for Duo authentication. 
 
 <a name="login-putty"></a>
 
-B. Using an SSH program (Windows)
----------------------------------
+## Log in with an SSH program (Windows)
 
-There are multiple programs to connect to remote servers for Windows. We
-recommend \"PuTTy\", which can be downloaded
-[here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-To log in, click on the PuTTy executable (`putty.exe`). You should see a
-screen like this:
+There are multiple programs to connect to remote servers for Windows. We recommend "PuTTy", which can be downloaded [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). To log in, run the PuTTy executable (`putty.exe`). The PuTTY Configuration options will load in a new window.
 
-![](/images/putty-7.jpeg)
+![The PuTTY Configuration window](/images/putty-7.jpeg)
 
-Fill in the hostname as described in part 1. You should use Port 22 and
-connect using \"ssh\" \-- these are usually the defaults. After you
-click \"connect\" you will be prompted to fill in your username and
-password, and then to authenticate with Duo. 
+Fill in the hostname with the [hostname for your access point](#hostname). Use Port 22 and the "SSH" connection type — these are usually the defaults.
 
-Note that once you have submitted jobs to the queue, you can leave your
-logged in session (by typing `exit`). Your jobs will run and return
-output without you needing to be connected.
+After clicking "Open", you will be prompted to fill in your username and password, then to authenticate with Duo. 
 
-<!-- <a name="ssh-keys"></a>
+## Demo
 
-C. Logging in automatically
----------------------------
+See the following video for a demonstration of logging into CHTC and authenticating with Duo Multi-factor Authentication.
 
-Tired of typing your password everytime you log in? It\'s possible to
-set up a file on your local computer called an ssh key, that allows you
-to log into CHTC and transfer files without entering your password. [See
-this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
-for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**. -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Log out
+
+Log out by entering `exit` into the command line. Any submitted jobs will run and return output without you needing to be connected.
 
 
-C. Re-Using SSH Connections
----------------------------
+# 3. Re-using SSH Connections
 
-To reduce the number of times it is necessary to enter your credentials, it’s 
-possible to customize your SSH configuration in a way that allows you to "reuse" 
-a connection for logging in again or moving files. More details are shown 
-in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
+To reduce the number of times it is necessary to enter your credentials, you can customize your SSH configuration in a way that allows you to "reuse" a connection for logging in again or moving files.
 
 
-<a name="learn"></a>
-
-**3. Learning About the Command Line**
-==================================
+# 3. Learning About the Command Line
 
 **Why learn about the command line?** If you haven\'t used the command
 line before, it might seem like a big challenge to get started, and
