@@ -51,10 +51,10 @@ Instructions coming the week of Dec 2 or Dec 9.
 
 ## Stay Informed
 
-In order to find out when the new file system is available and when recovered data is available, we recommend following the relevant incident(s) on the CHTC status page: [https://status.chtc.wisc.edu/](https://status.chtc.wisc.edu/)
+In order to find out when the new file system is available and when recovered data is available, we recommend following the relevant incident(s) on the CHTC status page. You can subscribe to the status page for the latest updates: [https://status.chtc.wisc.edu/](https://status.chtc.wisc.edu/)
 
 This web guide will also be updated as changes occur. 
 
 ## Contact Us
 
-We appreciate the challenge of restarting your work after an event like this. If you have any questions or specific concerns after reading through this guide, please contact us at chtc@cs.wisc.edu. We will do our best to help all CHTC users get up and running again as soon as possible. 
+We understand the challenge of restarting your work after an event like this. If you have any questions or specific concerns after reading through this guide, please contact us at chtc@cs.wisc.edu. We will do our best to help all CHTC users get up and running again as soon as possible. 
