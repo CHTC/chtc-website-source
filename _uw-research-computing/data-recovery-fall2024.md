@@ -40,7 +40,7 @@ By Tuesday, November 26, all HTC users should have access to a empty `/staging` 
 A few notes about special circumstances: 
 * **Quota changes:** Quotas from the previous file system will not transfer over, so if you anticipate needing space beyond the default quota, especially in the short term, please fill out our [Quota Request Form](https://chtc.cs.wisc.edu/uw-research-computing/quota-request)
 * **Immediate deadlines:** If you have a short-term deadline (within the next 2-3 weeks) please reach out to see how we can support you. Email chtc@cs.wisc.edu with the following: 
-Include your name and the deadline date in the subject line
+	* Include your name and the deadline date in the subject line
 	* Cc your PI or advisor
 	* Describe the nature of the deadline (paper submission, thesis defense, conference deadline, etc.)
 	* Describe what specific computational or data capacity you need in order to meet the deadline (how many jobs, how many resources per job, how much data, etc.)
