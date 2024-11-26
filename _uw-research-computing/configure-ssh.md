@@ -10,22 +10,10 @@ guide:
 ---
 
 This guide describes 
-* how to authenticate with Duo when logging into CHTC's HTC and HPC systems
 * how to set your login (SSH) configuration to “reuse” a two-factor authenticated 
 connection over a certain period of time. 
 * terminals and applications that are known to support persistent connections
 
-## Authentication with Duo
-
-As of December 2022, accessing CHTC resources 
-now requires two-factor authentication. The first “factor” uses your NetID password 
-(or SSH keys) and the second “factor” is authentication using Duo, via either a 
-Duo fob or the Duo app. 
-
-See the following video for an demonstration of two-factor authentication with Duo 
-when logging into CHTC: 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Re-Using SSH Connections
 
@@ -49,6 +37,7 @@ The instructions below are meant for users who can use a terminal (Mac, Linux, n
 1. Create (or edit) your personal SSH configuration file at `~/.ssh/config` to use 
 what’s called "ControlMaster"
 This is the text that should be added to a file called `config` in the `.ssh` directory in your computer's home directory: 
+
 	```	
 	Host *.chtc.wisc.edu
 	  # Turn ControlMaster on
@@ -82,7 +71,7 @@ This is the text that should be added to a file called `config` in the `.ssh` di
 1. You also create a directory that will be used to track connections. In 
 the same .ssh directory, make a folder called `connections` by typing: 
 	```
-	$ mkdir -p ~/.ssh/connections
+	mkdir -p ~/.ssh/connections
 	```
 	{: .term}
 	
