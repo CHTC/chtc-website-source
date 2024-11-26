@@ -35,9 +35,10 @@ Evaluation and restoration of HTC `/software` directories will happen after the 
 
 ### Resume Running Jobs
 
-By Tuesday, November 26, all HTC users should have access to a empty `/staging` directory with a default quota of 100GB / 1000 items. This space can be used exactly like the previous `/staging` directories to run jobs. 
+All HTC users should now have access to a empty `/staging` directory with a default quota of 100GB / 1000 items. This space can be used exactly like the previous `/staging` directories to run jobs. 
 
 A few notes about special circumstances: 
+* **Group and project directories:** Group and project directories will need to be created manually -- contact the facilitators at chtc@cs.wisc.edu or fill out our [quota request form](https://chtc.cs.wisc.edu/uw-research-computing/quota-request) to have a group directory created. 
 * **Quota changes:** Quotas from the previous file system will not transfer over, so if you anticipate needing space beyond the default quota, especially in the short term, please fill out our [Quota Request Form](https://chtc.cs.wisc.edu/uw-research-computing/quota-request)
 * **Immediate deadlines:** If you have a short-term deadline (within the next 2-3 weeks) please reach out to see how we can support you. Email chtc@cs.wisc.edu with the following: 
 	* Include your name and the deadline date in the subject line
