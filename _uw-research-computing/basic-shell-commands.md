@@ -12,79 +12,97 @@ guide:
 ---
 
 # Introduction
-
-
+<br>
+This page contains quick references for basic shell commands and links to more detailed resources. Users need to know basic shell commands to navigate directories and modify files for use on CHTC systems. Users can reference this page to gain familiarity or refresh their knowledge of shell commands.
 
 {% capture content %}
-
+- [Introduction](#introduction)
+- [Learn about the command line](#learn-about-the-command-line)
+- [Quick reference: basic shell commands](#quick-reference-basic-shell-commands)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-# Basic shell commands (quick reference)
+# Learn about the command line
+## Why should you learn about the command line?
+
+If you haven't used the command line before, it might seem like a big challenge to get started. However, we strongly recommend learning more about the command line for multiple reasons:
+
+* Only a few basic commands are needed to successfully submit jobs on CHTC.
+* With practice, typing on the command line is significantly faster and much more powerful than using a point-and-click graphic interface.
+* Command line skills are useful for more than just large-scale computing.
+
+## Get started with the command line
+
+For a good overview of command line tools, see the [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. We recommend the sections on:
+
+-   understand the filesystem and how to navigate it ([Navigating Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
+-   tab-completion (section entitled "Nelle's Pipeline, Organizing Files", in [Navigating Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
+-   creating files ([Working With Files and Directories](https://swcarpentry.github.io/shell-novice/03-create.html))
+-   using the star wildcard (first part of [Pipes and Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
+-   writing shell scripts ([Shell Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))
+
+
+# Quick reference: basic shell commands
 
 ## Navigate directories
 
 | Command | Use | Notes |
 | --- | --- | --- |
-| `cd <directory>` | change current directory to `directory` | `.` - the current directory |
+| `cd <path/to/directory>` | changes current directory to `path/to/directory` | `.` - the current directory |
 | | | `..` - one level above the current directory |
 | | | `~` - your home directory (`/home/username/`) |
 | `pwd` | prints path of the working (current) directory |
-| `ls` | list files in current directory| `-lh` prints human-readable information |
+| `ls` | lists files in current directory| `-lh` prints human-readable information |
 | | | `-a` prints hidden files |
 | `mkdir <directory>` | creates a directory |
 | `rmdir <directory>` | removes a directory (must be empty) |
 
 ## Inspect files
 
-| Command | Use | Notes |
+| Command | Use |
+| --- | --- |
 | `cat <file>` | prints contents of `file` |
+| `less <file>` | views contents of `file` (similar to `vim`, but without edit capabilities) |
 | `head <file>` | prints the first ten lines of `file` |
 | `tail <file>` | prints the last ten lines of `file` |
 | `grep <phrase> <file>` | grabs and prints every instance of `phrase` in `file` |
 
 ## Edit files
 
-| Command | Use |
-| `nano <file>` | opens or creates `file` in the `nano` text editor |
-| `vim <file>` | opens or creates `file` in the `vim` text editor |
+| Command | Use | Notes |
+| --- | --- | --- |
+| `nano <file>` | opens or creates `file` in the `nano` text editor | [cheatsheet for nano commands](https://www.nano-editor.org/dist/latest/cheatsheet.html) |
+| `vim <file>` or `vi <file>` | opens or creates `file` in the `vim` text editor | [cheatsheet for vim commands](https://vimsheet.com/) |
 
 ## Copy, move, and remove files
 
 | Command | Use |
+| --- | --- |
 | `cp <file1> <file2>` | copies `file1` to `file2` |
 | `mv <file1> <file2>` | moves or renames `file1` to `file2` |
 | `rm <file1>` | removes `file1` |
+| `scp <file> <destination>` | moves files between machines. See how to [transfer files to/from your local computer](transfer-files-computer) |
 
-# Learn about the command line
+## Wildcards
 
-**Why learn about the command line?** If you haven\'t used the command
-line before, it might seem like a big challenge to get started, and
-easier to use other tools, especially if you have a Windows computer.
-However, we strongly recommend learning more about the command line for
-multiple reasons:
+| Wildcard | Use | Notes |
+| --- | --- | --- |
+| `?` | matching any character | Example: `rm ?.txt` removes `1.txt` and `b.txt` but not `24.txt` | 
+| `*` | matching any characters of any length | Example: `rm *.txt` removes all files with the `.txt` extension |
 
--   You can do most of what you need to do in CHTC by learning a few
-    basic commands.
--   With a little practice, typing on the command line is significantly
-    faster and much more powerful than using a point-and-click graphic
-    interface.
--   Command line skills are useful for more than just large-scale
-    computing.
+[Read more](https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm) about wildcards.
 
-For a good overview of command line tools, see the [Software Carpentry
-Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. In
-particular, we recommend the sections on:
+## Other commands
 
--   understanding the filesystem and how to navigate it ([Navigating
-    Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
--   tab-completion (section entitled \"Nelle\'s Pipeline, Organizing
-    Files\", in [Navigating Files and
-    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
--   creating files ([Working With Files and
-    Directories](https://swcarpentry.github.io/shell-novice/03-create.html))
--   using the star wildcard (first part of [Pipes and
-    Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
--   writing shell scripts ([Shell
-    Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))
+| Commmand | Use | Notes |
+| --- | --- | --- |
+| `echo <$var>` | prints the value of `$var` | Example: `echo $PWD` returns the current directory |
+| `chmod +x` | adds executable permissions to a file |
 
+# Related pages
+<br>
+Below are more resources for learning the basic shell commands and the command line.
+
+* [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lessons
+* [Ubuntu tutorial: The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
