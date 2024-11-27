@@ -35,7 +35,7 @@ Evaluation and restoration of HTC `/software` directories will happen after the 
 
 ### Resume Running Jobs
 
-All HTC users should now have access to a empty `/staging` directory with a default quota of 100GB / 1000 items. This space can be used exactly like the previous `/staging` directories to run jobs. 
+All HTC users should now have access to a empty `/staging` directory with a default quota of 100GB / 1000 items. This space can be used exactly like the previous `/staging` directories to run jobs ([See our staging guide](https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata)). 
 
 A few notes about special circumstances: 
 * **Group and project directories:** Group and project directories will need to be created manually -- contact the facilitators at chtc@cs.wisc.edu or fill out our [quota request form](https://chtc.cs.wisc.edu/uw-research-computing/quota-request) to have a group directory created. 
