@@ -1,0 +1,27 @@
+---
+layout: main
+---
+
+<!-- This Layout is used for news articles. Different from character_optimized by adding author tags. -->
+
+
+<div class="container-xxl">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-9 col-lg-8">
+            <h1 class="uw-mini-bar mb-4">
+                {{ page.title }}
+            </h1>
+            <div class="text-dark d-flex flex-row justify-content-between">
+                {% if page.author %}
+                    <div>
+                        {{ page.author }}
+                    </div>
+                {% endif %}
+                <div>
+                    {{ page.date | date: "%b %d, %Y" }}
+                </div>
+            </div>
+            {{ content }}
+        </div>
+    </div>
+</div>
