@@ -11,15 +11,15 @@ layout: main
             <h1 class="uw-mini-bar mb-4">
                 {{ page.title }}
             </h1>
-            <div class="text-dark d-flex flex-row justify-content-between">
+            <div class="text-dark d-flex flex-row justify-content-between mb-3">
                 {% if page.author %}
-                    <div>
+                    <h4 class="mt-0">
                         {{ page.author }}
-                    </div>
+                    </h4>
                 {% endif %}
-                <div>
+                <h4 class="mt-0">
                     {{ page.date | date: "%b %d, %Y" }}
-                </div>
+                </h4>
             </div>
             {{ content }}
         </div>
