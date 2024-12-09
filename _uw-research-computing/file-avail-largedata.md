@@ -164,11 +164,11 @@ mechanisms as uploaded files (as above).
 
 # 3. Using Staged Files in a Job
 ## A. Transferring Large Input Files
-Staged files should be specified in the job submit file using the `osdf://` or `file:///` syntax,
+Staged files should be specified in the job submit file using the `osdf:///` or `file:///` syntax,
 depending on the size of the files to be transferred. [See this table for more information](htc-job-file-transfer#transferring-data-to-jobs-with-transfer_input_files).
 
 ```
-transfer_input_files = osdf://chtc/staging/username/file1, file:///staging/username/file2, file3 
+transfer_input_files = osdf:///chtc/staging/username/file1, file:///staging/username/file2, file3 
 ```
 {:.sub}
 
@@ -181,7 +181,7 @@ Large outputs should be transferred to staging using the same file transfer prot
 
 ```
 transfer_output_files = file1, file2
-transfer_output_remaps = "file1 = osdf://chtc/staging/username/file1; file2 = file:///staging/username/file2"
+transfer_output_remaps = "file1 = osdf:///chtc/staging/username/file1; file2 = file:///staging/username/file2"
 ```
 {:.sub}
 
@@ -214,7 +214,7 @@ log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-transfer_input_files = osdf://chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
+transfer_input_files = osdf:///chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)

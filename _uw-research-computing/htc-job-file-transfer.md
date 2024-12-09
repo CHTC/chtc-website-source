@@ -14,7 +14,7 @@ guide:
    * [/home](#home)
    * [/staging](#staging)
 - [Transferring Data to Jobs with `transfer_input_files`](#transferring-data-to-jobs-with-transfer_input_files)
-   * [Important Note: File Transfers and Caching with `osdf://`](#important-note-file-transfers-and-caching-with-osdf)
+   * [Important Note: File Transfers and Caching with `osdf:///`](#important-note-file-transfers-and-caching-with-osdf)
 - [Transferring Data Back from Jobs to `/home` or `/staging`](#transferring-data-back-from-jobs-to-home-or-staging)
    * [Default Behavior for Transferring Output Files](#default-behavior-for-transferring-output-files)
    * [Specify Which Output Files to Transfer with `transfer_output_files` and `transfer_output_remaps`](#specify-which-output-files-to-transfer-with-transfer_output_files-and-transfer_output_remaps)
@@ -45,7 +45,7 @@ In the HTCondor submit file, `transfer_input_files` should always be used to tel
 | Input Sizes | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
 | 0 - 100 MB      | `/home`       | `transfer_input_files = input.txt`       |
-| 100 MB - 30 GB   | `/staging`        | `transfer_input_files = osdf://chtc/staging/NetID/input.txt`        | 
+| 100 MB - 30 GB   | `/staging`        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
 | > 30 GB   | `/staging`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 | > 100 GB | | For larger datasets (100GB+ per job), contact the facilitation team about the best strategy to stage your data |
 
@@ -54,7 +54,7 @@ Multiple input files and file transfer protocols can be specified and delimited 
 ```
 # My job submit file
 
-transfer_input_files = file1, osdf://chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
+transfer_input_files = file1, osdf:///chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
 
 ... other submit file details ...
 ```
@@ -62,8 +62,8 @@ transfer_input_files = file1, osdf://chtc/staging/username/file2, file:///stagin
 
 Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.
 
-### Important Note: File Transfers and Caching with `osdf://`
-The `osdf://` file transfer protocol uses a [caching](https://en.wikipedia.org/wiki/Cache_(computing)) mechanism for input files to reduce file transfers over the network. This can affect users who refer to input files that are frequently modified.
+### Important Note: File Transfers and Caching with `osdf:///`
+The `osdf:///` file transfer protocol uses a [caching](https://en.wikipedia.org/wiki/Cache_(computing)) mechanism for input files to reduce file transfers over the network. This can affect users who refer to input files that are frequently modified.
 
 *If you are changing the contents of the input files frequently, you should rename the file or change its path to ensure the new version is transferred.*
 
@@ -85,7 +85,7 @@ transfer_output_remaps = "file1.txt = file:///staging/NetID/output1.txt; file2.t
 ```
 {:.sub}
 
-In this example above, `file1.txt` is remapped to the staging directory using the `file:///` transfer protocol and simultaneously renamed `output1.txt`. In addition, `file2.txt` is renamed to `output2.txt`and will be transferred to a different directory on `/home`. Ensure you have the right file transfer syntax (`osdf://` or `file:///` depending on the anticipated file size).
+In this example above, `file1.txt` is remapped to the staging directory using the `file:///` transfer protocol and simultaneously renamed `output1.txt`. In addition, `file2.txt` is renamed to `output2.txt`and will be transferred to a different directory on `/home`. Ensure you have the right file transfer syntax (`osdf:///` or `file:///` depending on the anticipated file size).
 
 If you have multiple files or folders to transfer back to `/staging`, use a semicolon (;) to separate each object: 
 ```
