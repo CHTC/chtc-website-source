@@ -9,9 +9,8 @@ layout: guide
     <tr>
         <th>Input Sizes</th>
         <th>Output Sizes</th>
-        <th>Link to Guide</th>
         <th>File Location</th>
-        <th>How to Transfer</th>
+        <th>Syntax for <code>transfer_input_files</code></th>
         <th>Availability, Security</th>
         <!--<th>Special Considerations</th>-->
     </tr>
@@ -19,30 +18,18 @@ layout: guide
     <tr>
         <td>0 - 100 MB per file, up to 500 MB per job</td>
         <td>0 - 5 GB per job</td>
-        <td><a href="file-availability.html">Small Input/Output File Transfer via <b>HTCondor</b></a></td>
         <td><code>/home</code></td>
-        <td><b>submit file</b>; filename in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; works for <i>your</i> jobs</td>
+        <td>No special syntax</td>
+        <td>CHTC and external pools</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
-    </tr>
-
-    <tr>
-        <td>100 MB - 1 GB per repeatedly-used file</td>
-        <td>Not available for output</td>
-        <td><a href="file-avail-squid.html">Large Input File Availability Via <b>Squid</b></a></td>
-        <td><code>/squid</code></td>
-        <td><b>submit file</b>; http link in <small><code>transfer_input_files</code></small></td>
-        <td>CHTC, UW Grid, and OSG; files are made *publicly-readable* via an HTTP address</i></td>
-        <!--<td>large files unique to individual jobs are better for large data staging</td>-->
     </tr>
 
     <tr>
         <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
         <td>4 GB - TBs per job</td>
-        <td><a href="file-avail-largedata.html">Large Input and Output File Availability Via <b>Staging</b></a></td>
          <td><code>/staging</code></td>
-        <td><b>job executable</b>; copy or move within the job</td>
-        <td>a portion of CHTC; accessible only to <i>your</i> jobs</td>
+        <td><code>osdf:///</code> or <code>file:///</code></td>
+        <td>all of CHTC/external pools or a subset of CHTC</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
