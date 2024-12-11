@@ -37,18 +37,32 @@ A few notes about special circumstances:
 
 #### Recover `/staging` and `/software` data
 
-We are in the final stages of getting the recovered /staging data ready to share. There should be an update 12/11 with details about accessing recovered /staging data as well as an updated timeline for the rest of the recovery process.
+The data recovery process for `/staging` and `/software` was completed on 12/11. We believe we have recovered about 50% of the data that was originally present in these directories. Some of the metadata for files (like file creation date) may be incorrect; **_we strongly recommend validating any data that you copy from the recovered file system._**
+
+Any recovered data is available at this path: 
+  * `/recovery/staging/<your username>`
+  * `/recovery/software/<your username>`
+
+Users should **copy** any recovered files they want to save into their new `/staging` directories. 
+
+References to data using the paths to recovered staging directories should ***not*** be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them. 
+
+**_If your directory doesn’t exist in the recovery path, that means that none of your data was recovered._**
+
+
+#### Updated `/projects` timeline
+
+We are now working on data recovery for `/projects` folders. Due to the large size of this data store, we anticipate that the recovery process will take longer than `/staging` and likely stretch into January. 
+
 
 ## CHTC Next Steps and Timeline
 
 * Nov 25 - 27: New data backend for /staging and /projects
-	* During the week of Nov 25-27, we created a new data store to serve the `/staging` and `/projects` directories. Initially, _there is no data inside these directories._ This new data backend for the `/staging` and `/projects` directories will be used for CHTC data storage moving forward and is usable in jobs _immediately_. 
+	* This week (Nov 25-27), we will create a new data store to serve the `/staging` and `/projects` directories. Initially, _there will be no data inside these directories._ This new data backend for the `/staging` and `/projects` directories will be used for CHTC data storage moving forward and will be usable in jobs _immediately_ once it is available. 
 * Nov 25 - Dec 10: Recovering data from `/staging` directories
-	* We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  _We are still developing the mechanism for this process and will provide more information as it becomes available._
+	* We will run multiple recovery processes on the old data store over the next 1-2 weeks. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  _We are still developing the mechanism for this process and will provide more information as it becomes available._
 * Dec 11 onward: Recovering data from `/projects`
 	* This will be the same process as recovering data from `/staging`. 
-
-**Note that this timeline means that you will not know how much of your data from the previous data store was lost or recovered until after Dec 2, at the earliest.**  Consider re-transferring or reproducing the data instead of waiting for potential recovery.
 
 ## Stay Informed
 
