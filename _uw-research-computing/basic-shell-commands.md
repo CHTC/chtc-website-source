@@ -109,3 +109,4 @@ Below are more resources for learning the basic shell commands and the command l
 
 * [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lessons
 * [Ubuntu tutorial: The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
+* [Unix/Linux Command Reference cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)
