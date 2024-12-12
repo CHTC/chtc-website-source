@@ -22,8 +22,8 @@ If you don't have an account, see our [getting started](get-started.html) page.
 - [Before you log in](#before-you-log-in)
 - [Hostname / Access point information](#hostname--access-point-information)
 - [Log in](#log-in)
-   * [Log in with a terminal](#log-in-with-a-terminal)
-   * [Log in with PuTTY, an SSH program for Windows](#log-in-with-putty-an-ssh-program-for-windows)
+   * [Option 1: Log in with a terminal](#option-1-log-in-with-a-terminal)
+   * [Option 2: Log in with PuTTY, an SSH program for Windows](#option-2-log-in-with-putty-an-ssh-program-for-windows)
 - [Log out](#log-out)
 - [SSH programs](#ssh-programs)
 - [Summary](#summary)
@@ -61,7 +61,7 @@ You can log in to the access points two different ways — from a terminal progr
 
 See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
-### Log in with a terminal
+### Option 1: Log in with a terminal
 
 1. Open a terminal window. Enter the following command, where `user` is your username (typically your NetID) and `hostname.chtc.wisc.edu` is your assigned access point in your welcome email.
 
@@ -72,7 +72,7 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
 2. You will be prompted for your password, then for Duo MFA authentication.
 
-### Log in with PuTTY, an SSH program for Windows
+### Option 2: Log in with PuTTY, an SSH program for Windows
 
 There are multiple programs to connect to remote servers for Windows. We recommend "PuTTy", which can be downloaded [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
