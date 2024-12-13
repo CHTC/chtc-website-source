@@ -32,7 +32,7 @@ If you haven't used the command line before, it might seem like a big challenge 
 * With practice, typing on the command line is significantly faster and much more powerful than using a point-and-click graphic interface.
 * Command line skills are useful for more than just large-scale computing.
 
-> ## For beginning users: Get started with the command line
+> ### For beginning users: Get started with the command line
 {:.tip-header}
 
 > For a good overview of command line tools, see the [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. We recommend that you learn how to:

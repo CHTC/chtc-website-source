@@ -72,6 +72,13 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
 2. You will be prompted for your password, then for Duo MFA authentication.
 
+> ### 🎞️ Demo: Log into a CHTC access point
+{:.tip-header}
+
+> This video demonstrates how to log into CHTC and authenticate with Duo MFA.
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{:.tip}
+
 ### Option 2: Log in with PuTTY, an SSH program for Windows
 
 There are multiple programs to connect to remote servers for Windows. We recommend "PuTTy", which can be downloaded [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
@@ -84,13 +91,6 @@ There are multiple programs to connect to remote servers for Windows. We recomme
 
 3. After clicking "Open", you will be prompted to fill in your username and password, then to authenticate with Duo. 
 
-> ### 🎞️ Demo: Log into a CHTC access point
-{:.tip-header}
-
-> This video demonstrates how to log into CHTC and authenticate with Duo MFA.
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-{:.tip}
-
 ## Log out
 
 Log out by entering `exit` into the command line. Any submitted jobs will run and return output without you needing to be connected.
@@ -99,15 +99,16 @@ Log out by entering `exit` into the command line. Any submitted jobs will run an
 
 This is a non-exhaustive list of programs that can be used to log into CHTC servers or transfer files.
 
-| Operating system | Program | Type | Supports [Persistent Connections](configure-ssh) | Notes |
+| Operating system | Program | Type | Supports [persistent connections](configure-ssh) | Notes |
 | --- | --- | --- | --- |
 | Linux | Terminal | terminal | ✓ | pre-installed |
 | MacOS | Terminal | terminal | ✓ | pre-installed |
 | | [Cyberduck](https://cyberduck.io/) | file-transfer utility | ✓ | |
-| Windows | [PuTTY](https://www.putty.org/) | SSH client | ✓ | recommended for beginning users |
+| Windows | Terminal (PowerShell) | terminal | X | pre-installed |
 | | [Terminal (Windows Subshell for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) | terminal | ✓ | recommended for users familiar with the Unix shell |
 | | [MobaXTerm](https://mobaxterm.mobatek.net/) | terminal, SSH client, file-transfer utility | ✓ | |
 | | [WinSCP](https://winscp.net/eng/index.php) | file-transfer utility | ✓ |
+| | [PuTTY](https://www.putty.org/) | SSH client | ✓ | |
 | Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [setup](https://code.visualstudio.com/docs/remote/ssh-tutorial) (ignore steps on creating a virtual machine) |
 | Linux, MacOS, Chrome, and more | [Mosh](https://mosh.org/) | terminal | X | |
 
