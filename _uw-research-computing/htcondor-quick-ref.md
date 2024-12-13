@@ -12,9 +12,19 @@ guide:
 
 This page lists common HTCondor commands and options for jobs. Users familiar with HTCondor and job submission on CHTC's High Throughput Computing (HTC) system can use this page as a quick reference. For users who are just starting out, we suggest reading the full guides (linked) to understand the full context of each command or option.
 
+{% capture content %}
+- [Introduction](#introduction)
+- [Submit jobs](#submit-jobs)
+- [Monitor jobs](#monitor-jobs)
+- [Machine information](#machine-information)
+- [Glossary](#glossary)
+- [Related Pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
 Note: Bracketed items (`<>`) denote where to place your input. Do not include the brackets in your command.
 
-## Job submission
+## Submit jobs
 
 You can use these commands to submit, hold, or remove your jobs.
 
@@ -62,13 +72,19 @@ These commands display information about the execution points - machines that ex
 | --- | --- |
 | access point | The machine which you log into to access CHTC's servers. This is the machine you use to prepare files for job submission and submit jobs. |
 | cluster ID | A unique number associated with a single job submission. |
-| error file / standard error | The file where your job typically prints any errors. |
+| error file / standard error | The file in which your job typically prints any errors. |
 | execution point | The machine that executes or runs your job. |
+| held/hold | A job state in which your job has stopped running due to an error. |
 | idle | A job state in which your job has not yet matched to an execution point and hasn't started running yet. |
 | job ID | The unique number associated with a job. This consists of a cluster ID, followed by a period and a process ID. For example, the job ID `12345.0` has a cluster ID of `12345` and a process ID of `0`. |
 | log file | The file where HTCondor prints messages about your job's execution and resource usage. |
 | output file / standard out | The file where your job typically prints output. Any messages printed to the "screen" in a job will be saved in this file. |
 | process ID | A unique number associated with each job within a job submission. See [submit multiple jobs](multiple-jobs). |
 | running | A job state in which your job has matched to the execution point and is currently executing/running. |
-| held/hold | A job state in which your job has stopped running due to an error. |
 | submit file | A text-based file that tells HTCondor details about your job, including the commands to run, what files need to be transferred, where to save the outputs, and more. See the [job submission](htcondor-job-submission). |
+
+## Related Pages
+
+* [Job submission](htcondor-job-submission)
+* [Monitor your jobs](condor_q)
+* [HTCondor manual](https://htcondor.readthedocs.io/en/latest/)
