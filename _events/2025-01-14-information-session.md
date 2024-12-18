@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2025-01-14
 end_date: 2025-01-14
 location: "UW-Madison Campus, Discovery Building Room 1170 and Virtually"
-image: "/images/20240308_Morgridge_RCFs.jpg"
-header_image: "/images/20240308_Morgridge_RCFs.jpg"
+image: "/images/20240806_osgschool_consultation.jpg"
+header_image: "/images/20240806_osgschool_consultation.jpg"
 ---
 
 {% capture main %}

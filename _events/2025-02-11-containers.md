@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2025-02-11
 end_date: 2025-02-11
 location: "UW-Madison Campus, Location TBD and Virtually"
-image: "/images/20240308_Morgridge_RCFs.jpg"
-header_image: "/images/20240308_Morgridge_RCFs.jpg"
+image: "/images/OSGUS23-andrew-help.jpg"
+header_image: "/images/OSGUS23-andrew-help.jpg"
 ---
 
 {% capture main %}

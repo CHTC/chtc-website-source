@@ -9,8 +9,8 @@ excerpt: |
 start_date: 2025-04-08
 end_date: 2025-04-08
 location: "UW-Madison Campus, Discovery Building Orchard View Room 3280 and Virtually"
-image: "/images/20240308_Morgridge_RCFs.jpg"
-header_image: "/images/20240308_Morgridge_RCFs.jpg"
+image: "/images/HTC23-osg-services.jpg"
+header_image: "/images/HTC23-osg-services.jpg"
 ---
 
 {% capture main %}
