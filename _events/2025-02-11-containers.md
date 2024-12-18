@@ -22,7 +22,7 @@ Learn about building and using your software environment with containers! In thi
 
 [Register Here](https://docs.google.com/forms/d/e/1FAIpQLSdmkVtOBtocgX57RmShjhzRuhNAeuBhU8iUXOXOWLY6AQUAug/viewform)
 
-Researcher's Link is located in a restricted area of the Discovery Building. *For in-person attendees, please meet us at the elevators by the staircase, so we can guide you to the event room.*
+**Researcher's Link is located in a restricted area of the Discovery Building. *For in-person attendees, please meet us at the elevators by the staircase, so we can guide you to the event room.***
 
 {% endcapture %}
 
