@@ -32,3 +32,49 @@ pre.other {
     border-left: 0px solid #0D4F8B;
     padding: 0.5em 1.2em;
 }
+
+blockquote.tip-header {
+	border-radius: 5px 5px 0 0;
+   -moz-border-radius: 5px 5px 0 0;
+   -webkit-border-radius: 5px 5px 0 0;
+    font-style: normal;
+	margin: 1em 2em;
+    background: #f9e6e7;
+    color: #333;
+    border-top: 2px solid #B70101;
+    border-left: 2px solid #B70101;
+    border-right: 2px solid #B70101;
+	padding: 0.5em 1.2em;
+    margin-bottom: 0px;
+}
+
+blockquote.tip-header h2, blockquote.tip-header h3 {
+    margin: 0.9rem 0;
+    color: #B70101;
+}
+
+blockquote.tip {
+	border-radius: 0 0 5px 5px;
+   -moz-border-radius: 0 0 5px 5px;
+   -webkit-border-radius: 0 0 5px 5px;
+    font-style: unset;
+	margin: 1em 2em;
+    background: #fff;
+    color: #333;
+    border: 2px solid #B70101;
+	padding: 0.5em 1.2em;
+    margin-top: 0px;
+}
+
+blockquote.tip p {
+    font-size: 1.125rem;
+    margin: 0.75rem 0;
+}
+
+blockquote.tip em {
+    font-style: italic;
+}
+
+blockquote.tip ul, blockquote.tip ol {
+    margin-left:2em;
+}
