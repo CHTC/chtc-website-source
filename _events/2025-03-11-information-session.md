@@ -21,7 +21,7 @@ and data services for UW-Madison affiliates at this information session!</p>
 CHTC staff will present an overview of CHTC services and how these services can help 
 researchers accomplish their research and computational goals. CHTC staff will also 
 help attendees identify the next steps for getting started - whether that is 
-getting an account, how to log in, or how to start running work. After 
+getting an account, how to log in, or how to start running work. If you are attending in person, after 
 the presentation, there will be time for Q+A and hands-on help from the CHTC 
 Facilitation Team. 
 
