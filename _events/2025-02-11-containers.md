@@ -33,7 +33,7 @@ Learn about building and using your software environment with containers! In thi
 
 ### When
 
-Tuesday, April 8, 10:30am - 12:00pm
+Tuesday, February 11, 10:30am - 12:00pm
 
 ### Where
 
