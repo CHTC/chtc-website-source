@@ -1,0 +1,21 @@
+{% if link.url %}
+    <a href="{{ link.url }}" class="list-group-item list-group-item-action d-flex align-items-center rounded-0 border-0 py-1 px-3">
+
+        {% if link.icon and link.icon != "" %}
+            <i class="{{ link.icon }} me-2"></i>
+        {% endif %}
+        {{ link.text }}
+    </a>
+{% else %}
+    <span class="list-group-item d-flex align-items-center rounded-0 border-0 p-1 px-3 bg-light">
+        <i class="bi bi-book-fill me-2"></i>
+        {{ link.text }}
+    </span>
+{% endif %}
+{% if link.links %}
+    <div class="list-group ms-4 border-start">
+        {% for link in link.links %}
+            {% include components/guide-button-link.liquid %}
+        {% endfor %}
+    </div>
+{% endif %}

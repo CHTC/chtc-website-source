@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        <h2 id="{{ section.text | slugify }}" class="m-0 text-light">
+            <i class="{{ section.icon }} me-2"></i>
+            {{ section.text }}
+        </h2>
+    </div>
+    <div>
+        {% assign links = section.links %}
+        {% for link in links %}
+            {% include components/guide-button-link.liquid %}
+        {% endfor %}
+    </div>
+</div>
