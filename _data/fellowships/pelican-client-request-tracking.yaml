@@ -1,0 +1,21 @@
+title: "Pelican Passport: Where did we go and what did we do? — Client side request tracking in Pelican"
+type: Software Development
+summary: |
+  In a distributed system with multiple services communicating with one another, a key challenge is tracking each service that a job or request interacts with and reporting the success of those interactions. This project aims to design a method for monitoring which services are accessed by a client request and whether each interaction was successful. In addition to identifying where failures occur, this approach will help explain why certain successful tasks might exhibit different behaviors, such as performance slowdowns.
+
+  Depending on the fellow’s interests and focus, this project may involve exploring tracking mechanisms in distributed systems, classifying requests and jobs, and engaging in client-side programming and troubleshooting, possibly including Python API development. It may also encompass the collection of client-side data and determining effective ways to present this information to both system users and administrators.
+
+  #### Project Objectives:
+
+  -   Develop a method for error propagation across various clients accessing a distributed system.
+  -   Create a system for client-side request tracking and monitoring.
+  -   Enhance client-side monitoring and error understanding by enabling users to view exactly which services a job interacted with.
+
+  By the end of the fellowship, the fellow will gain a comprehensive understanding of distributed data systems and client-side monitoring, as well as insights into distributed and heterogeneous computing using HTCondor. They will also learn to implement methods for error propagation across various clients for accessing the system as well as how to effectively convey that information to a user. Additionally, the fellow will acquire hands-on experience in Python and Go programming.
+
+  #### Prerequisite skills or education:
+
+  -   A willingness to tackle steep learning curves (required)
+  -   Python or Golang (required)
+  -   HTTP development (required)
+  -   Distributed Computing (preferred)

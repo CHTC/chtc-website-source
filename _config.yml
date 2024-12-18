@@ -32,7 +32,7 @@ defaults:
       path: ""
       type: "news"
     values:
-      layout: character_optimized
+      layout: news-page
       permalink: :title.html
   - scope:
       type: events

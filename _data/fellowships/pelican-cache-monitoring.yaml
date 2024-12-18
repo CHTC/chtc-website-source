@@ -1,0 +1,24 @@
+title: Expanded Pelican Cache Monitoring
+type: Software Development
+summary: |
+  Get ready to contribute to the national Cyber Infrastructure, because CHTC is a leader in the development and operation of nationally-distributed, heterogeneous systems — an environment in which services owned and operated by many different organizations spanning vast geographical regions are brought together to deliver cohesive experiences for users. Perhaps the most pressing challenge in this environment is that of system monitoring, or the task of understanding health for both the overall system and its individual components. Key questions include defining what it means for something to be "healthy/unhealthy" and detecting when a particular service requires human intervention. While monitoring requires both data collection and data presentation, the skills and interests of the fellow will guide which aspect is the focus of this project.
+  
+  In particular, the fellow will start this activity by getting hands on with the Pelican Platform ([https://pelicanplatform.org](https://pelicanplatform.org)). Here, early focus will be on expanded monitoring for Pelican’s “cache” component, which allows researchers to stage large volumes of scientific data close to computational resources needed for analysis.
+
+  #### Project Objectives:
+  
+  This project aims to:
+  
+  -   Provide fellows a direct look at the challenges facing distributed systems at national and international scales
+  -   Develop an understanding of what it means for various components in a distributed system to be “healthy”
+  -   Create monitoring solutions (data collection, data presentation) that allow administrators to quickly assess the state of these systems
+  
+  By the end of the fellowship, the fellow will gain hands-on experience working with distributed systems, and depending on focus may have opportunities to work with any of Go, C++, Prometheus (and other Cloud Native tools), the XRootD software stack, and web design.
+  
+  #### Prerequisite skills or education:
+  
+  -   C++ or Golang (required)
+  -   Linux/CLI (required)
+  -   React/NextJS (preferred)
+  -   Git/GitHub/GitHub Actions (preferred)
+  -   Docker/Kubernetes (preferred)

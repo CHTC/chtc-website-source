@@ -18,6 +18,15 @@ js_extension:
     </div>
 </div>
 {% endif %}
+{% include get/fellowships.liquid %}
+{% if fellowships.size > 0 %}
+<div class="bg-primary py-2">
+    <div class="container-xxl">
+        <span class="text-white">Applications are being accepted for CHTC's Summer Fellowship Program!</a>
+        <a class="btn btn-light px-1 ms-2 py-0" href="/fellowships/">View and Apply Now</a>
+    </div>
+</div>
+{% endif %}
 <div class="bg-light overflow-hidden">
     <picture>
         <source srcset="{{ 'images/HTC_Graphic_Outline.webp' | relative_url }}">

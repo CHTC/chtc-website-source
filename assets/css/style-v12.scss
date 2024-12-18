@@ -233,7 +233,7 @@ html {
   border-width: 2px;
   text-align: center; 
   white-space: nowrap; 
-  overflow: hidden; 
+  overflow: header; 
   text-overflow: ellipsis; 
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -299,4 +299,18 @@ details[open] summary::before {
   left: 7px;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
+}
+
+// Used for the Header links
+.header-link {
+  display: none;
+}
+
+h1:hover .header-link,
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  display: inline;
 }

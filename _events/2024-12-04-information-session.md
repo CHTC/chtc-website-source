@@ -1,14 +1,14 @@
 ---
-short_title: "CHTC Information Session - November"
-title: "CHTC Information Session - November"
+short_title: "CHTC Information Session - December"
+title: "CHTC Information Session - December"
 published: true
 
 excerpt: |
     Want to learn more about how the CHTC could support your research or how to get started? Come to an information session!
 
-start_date: 2024-11-05
-end_date: 2024-11-05
-location: "UW-Madison Campus, Room 1170 of the Discovery Building"
+start_date: 2024-12-04
+end_date: 2024-12-04
+location: "UW-Madison Campus, Location TBD"
 image: "/images/20240308_Morgridge_RCFs.jpg"
 header_image: "/images/20240308_Morgridge_RCFs.jpg"
 ---
@@ -42,13 +42,13 @@ about CHTC - whether you are just curious or have already gotten an account.
 
 ### When
 
-Tuesday, November 5, 2:30 pm - 4:00 pm
+Wednesday, December 4, 10:00 - 11:30am
 
 ### Where
 
 In-Person
 
-Discovery Building 1170
+Location TBD
 
 ## Registration
 

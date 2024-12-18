@@ -1,0 +1,21 @@
+title: Turbocharge HTCondor with Smart Aggregation and Indexing
+type: Software Development
+summary: |
+  This is your opportunity to showcase your software engineering skills and contribute to HTCondor, an internationally recognized open-source software suite in use at hundreds of universities and government labs worldwide. You'll design, code, test, and commit a new service within the HTCondor Software Suite to GitHub. If successful, your work will be deployed at numerous prominent institutions globally. Not only will you impress future employers by pointing to your GitHub contributions, but you'll also feel proud knowing your efforts are helping translate computing power into research discoveries. HTCondor harnesses the computing power of thousands of servers at organizations like DreamWorks Animation, SpaceX, Boeing, Hubble Telescope Operations, and CERN, and has managed computations for international scientific collaborations that have resulted in two Nobel Prizes.
+  
+  An HTCondor deployment can complete thousands of computing tasks daily. The information about these completed tasks is archived, but this archive is essentially a simple flat file. You will create a service (in either Python or C++) that monitors this archive and, when new data is added, updates a SQLite relational database with index and aggregate information. Additionally, you will design the database schema to ensure efficient data organization and retrieval. This will significantly speed up query responses for users seeking information about completed tasks.
+
+
+  #### Project Objectives:
+  - Acquire hands-on experience writing production quality-software and with the full software engineering lifecycle: design, coding, code reviews, regression testing, documenting, and working with a professional team
+  - Build an understanding of high throughput computing architecture and systems performance in the context of the HTCondor Software Suite
+  - Learn and practice both crafting relational database schemas
+  - Learn and practice effectively navigating the API of an extremely popular and widely used database system (SQLite) from Python and/or C++
+  - Refine your abilities in public speaking, presentation, and the ability to communicate highly complex subject matter
+
+  #### Prerequisite Skills:
+  - Python or C++ (at least one required)
+  - Introductory exposure to SQL (preferred)
+  - Linux/CLI (preferred)
+  - Docker (preferred)
+  - Git/GitHub (preferred)
