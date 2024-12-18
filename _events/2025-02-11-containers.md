@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2025-02-11
 end_date: 2025-02-11
-location: "UW-Madison Campus, Location TBD and Virtually"
+location: "UW-Madison Campus, Discovery Building Researcher's Link and Virtually"
 image: "/images/OSGUS23-andrew-help.jpg"
 header_image: "/images/OSGUS23-andrew-help.jpg"
 ---
@@ -21,6 +21,8 @@ header_image: "/images/OSGUS23-andrew-help.jpg"
 Learn about building and using your software environment with containers! In this workshop, we’ll introduce basic container concepts, guidelines for building and storing container images, and using them in job submission. In the last half of the training, CHTC facilitators will assist as users build their own Docker or Apptainer container images (in-person only). A CHTC account is required.
 
 [Register Here](https://docs.google.com/forms/d/e/1FAIpQLSdmkVtOBtocgX57RmShjhzRuhNAeuBhU8iUXOXOWLY6AQUAug/viewform)
+
+Researcher's Link is located in a restricted area of the Discovery Building. *For in-person attendees, please meet us at the elevators by the staircase, so we can guide you to the event room.*
 
 {% endcapture %}
 
@@ -39,7 +41,7 @@ Tuesday, February 11, 10:30am - 12:00pm
 
 In-Person / Zoom
 
-Location TBD
+Discovery Building Researcher's Link
 
 ## Registration
 
