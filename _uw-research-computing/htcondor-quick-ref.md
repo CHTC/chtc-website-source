@@ -22,7 +22,11 @@ This page lists common HTCondor commands and options for jobs. Users familiar wi
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-Note: Bracketed items (`<>`) denote where to place your input. Do not include the brackets in your command.
+> **Please note the following!** 
+> 
+> * Bracketed items (`<>`) denote where to place your input. 
+>   Do not include the brackets in your command.
+> * All commands should be entered on a single line.
 
 ## Submit jobs
 
