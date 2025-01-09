@@ -78,3 +78,11 @@ blockquote.tip em {
 blockquote.tip ul, blockquote.tip ol {
     margin-left:2em;
 }
+
+table.command-table td:nth-of-type(1) {
+    min-width: 33%;
+}
+
+table.command-table td:nth-of-type(2) {
+    min-width: 40%;
+}
