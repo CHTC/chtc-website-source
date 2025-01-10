@@ -4,6 +4,7 @@
     - text: "HPC system transition to a new Linux Version (CentOS Stream 9)"
       url: "/uw-research-computing/archived/hpc-el8-to-el9"
       icon: ""
+      highlight: true
     - text: "CHTC /staging and /projects next steps"
       url: "/uw-research-computing/data-recovery-fall2024"
       icon: ""
