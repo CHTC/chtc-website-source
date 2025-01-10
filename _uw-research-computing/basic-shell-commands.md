@@ -4,8 +4,7 @@ layout: guide
 title: Basic shell commands
 alt_title: Basic shell commands
 guide:
-    order: 4
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
         - hpc

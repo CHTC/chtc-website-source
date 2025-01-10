@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: HTC Modules Transition to EL9
 guide:
-    order: 5
-    category: Special Use Cases
+    category: Software
     tag:
         - htc
 ---

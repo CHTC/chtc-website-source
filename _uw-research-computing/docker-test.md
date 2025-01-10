@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Explore and Test Docker Containers
 guide:
-    order: 1
-    category: Troubleshooting
+    category: Software
     tag:
         - htc
 ---

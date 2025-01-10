@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Overview: How to Use Software"
 guide:
-    order: 0
-    category: Software Solutions
+    category: Software
     tag:
         - htc
         - bold

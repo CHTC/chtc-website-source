@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Access a Private GitHub Repository Remotely 
 guide:
-    order: 6
-    category: Basics and Policies
+    category: Manage data
     tag:
         - htc
         - hpc

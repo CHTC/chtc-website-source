@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Run Machine Learning Jobs
 guide:
-    order: 1
-    category: Special Use Cases
+    category: Special use cases
     tag:
         - htc
 ---

@@ -2,9 +2,8 @@
 highlighter: none
 layout: hpc_layout
 title: Reviewing Job Information Using SLURM
-guide: 
-    order: 1
-    category: Job Submission
+guide:
+    category: Submit jobs
     tag:
         - hpc
 ---

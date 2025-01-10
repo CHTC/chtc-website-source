@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Simple Example of a DAGMan workflow"
 guide:
-    order: 10
-    category: Job Submission
+    category: Workflows
     tag:
         - htc
 --- 

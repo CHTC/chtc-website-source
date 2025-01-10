@@ -2,9 +2,8 @@
 highlighter: none
 layout: hpc_layout
 title: Submitting and Managing Jobs Using SLURM
-guide: 
-    order: 0
-    category: Job Submission
+guide:
+    category: Submit jobs
     tag:
         - hpc
 ---

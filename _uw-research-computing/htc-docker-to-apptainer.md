@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Convert Docker images to Apptainer images"
 guide: 
-    order: 8
-    category: Software Solutions
+    category: Software
     tag:
         - htc
 ---

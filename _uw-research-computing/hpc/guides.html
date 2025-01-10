@@ -1,84 +1,31 @@
 ---
 highlighter: none
-layout: markdown-page
+layout: default
 title: HPC Computing Guides
 ---
 
 
-<p>
-Below is a list of guides for some of the most common tasks our users need to
-carry out as they begin and continue to use the HPC resources at the CHTC.
-</p>
-
-<h2 id="user-expectations" class="">User Expectations</h2>
-
-Read through these user expectations and policies before using CHTC services.
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="px-2 w-100">
-		<button class="navbar-toggler w-100 mb-2 mb-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<a class="nav-link btn btn-primary text-white mb-2 mb-lg-0 w-100" aria-current="page" href="{{ '/uw-research-computing/user-expectations.html' | relative_url }}">User Expectations</a>
-		</div>
-	</div>
-</nav>
-
-
-{% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
-
-<h2 id="hpc-documentation">HPC Documentation</h2>
-{% assign documentation = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'hpc'" %}
-<div class="row gx-2">
-	{% for category in category_order %}
-		{% assign category_documents = documentation | where_exp: "x", "x.guide.category == category" | sort: "guide.order" %}
-		{% if category_documents.size != 0 %}
-			<div class="col-12 col-sm-6 col-lg-4">
-				<div class="list-group mb-3">
-					<div class="list-group-item d-flex flex-column">
-						{% if category == "Basics and Policies" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/checkmark.png" %}
-						{% endif %}
-						{% if category == "Job Submission" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/laptop_arrow.png" %}
-						{% endif %}
-						{% if category == "Handling Data in Jobs" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/data.png" %}
-						{% endif %}
-						{% if category == "Software Solutions" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/gear.png" %}
-						{% endif %}
-						{% if category == "Special Use Cases" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/processor.png" %}
-						{% endif %}
-						{% if category == "Troubleshooting" %}
-						{% assign img_src = "/uw-research-computing/guide-icons/trouble.png" %}
-						{% endif %}
-						<img class="mx-auto" style="height: 60px;" src="{{ img_src | relative_url }}" />
-						<h4 class="mt-0 mx-auto">{{ category }}</h4>
-					</div>
-					{% for document in category_documents %}
-						{%if document.guide.tag contains 'bold' %}
-						<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}"><b>{{ document.alt_title | default: document.title }}</b></a>
-						{% else %}
-						<a href="{{ document.url | relative_url }}" class="list-group-item list-group-item-action {{document.guide.button_class}}">{{ document.alt_title | default: document.title }}</a>
-						{% endif %}
-					{% endfor %}
-				</div>
-			</div>
-		{% endif %}
-	{% endfor %}
+<div class="container-xl">
+    <h1 class="uw-mini-bar mt-5 mb-4">HPC Computing Guides</h1>
+    <div class="row">
+        <div class="col-xl-8 col-lg-12 mb-4">
+            {% for section in site.data.hpc-guide-menu %}
+                <div class="mb-4">
+                    {% include components/guide-section.liquid %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xl-4 d-none d-xl-block">
+            <div class="position-sticky" style="top: 20px;">
+                <h2 class="mt-0">Guide Sections</h2>
+                <div class="list-group border-start">
+                    {% for section in site.data.hpc-guide-menu %}
+                        <a href="#{{ section.text | slugify }}" class="list-group-item list-group-item-action d-flex align-items-">
+                            <i class="{{ section.icon }} me-2"></i>{{ section.text }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<h2 id="external-documentation">External Documentation</h2>
-<div class="list-group">
-	<a href="http://software-carpentry.org/lessons/" class="list-group-item list-group-item-action">Software Carpentry ( Online courses and videos; readings )</a>
-	<a href="https://htcondor.org/manual/" class="list-group-item list-group-item-action">HTCondor Manual</a>
-	<a href="http://slurm.schedmd.com/" class="list-group-item list-group-item-action">Slurm Manual</a>
-	<a href="http://www.doit.wisc.edu/training/student/" class="list-group-item list-group-item-action">DoIT Software Training for Students ( free on-campus courses )</a>
-</div>
-
-
-
-<a href="{{ '/icon_credits.html' | relative_url}}">Icon Credits</a>
