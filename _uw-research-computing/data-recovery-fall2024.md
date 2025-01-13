@@ -14,7 +14,7 @@ guide:
 
 On Thursday, November 21, CHTC personnel were alerted to data issues in our `/staging` and `/projects` directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since. 
 
-The underlying cause has been identified and affected the `/squid`, `/staging`, `/projects` and HTC `/software` directories. We are able to prevent it from recurring; however, **it resulted in significant data loss in /staging, /projects, HTC /software and /squid** before CHTC personnel were able to react. All data in `/squid` is unrecoverable. Data recovery on `/staging` is complete as of mid December 2024; Data recovery on `/staging` is complete as of mid January 2025. 
+The underlying cause has been identified and affected the `/squid`, `/staging`, `/projects` and HTC `/software` directories. We are able to prevent it from recurring; however, **it resulted in significant data loss in /staging, /projects, HTC /software and /squid** before CHTC personnel were able to react. All data in `/squid` is unrecoverable. Data recovery on `/staging` is complete as of mid December 2024; Data recovery on `/projects` is complete as of mid January 2025. 
 
 We recognize that this outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below. 
 
