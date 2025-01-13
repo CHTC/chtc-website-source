@@ -12,11 +12,11 @@ guide:
         - htc
 ---
 
-On Thursday, November 21, CHTC personnel were alerted to data issues in our `/staging` and `/projects` directories. We took immediate action on Thursday afternoon and have been working on it through the weekend. 
+On Thursday, November 21, CHTC personnel were alerted to data issues in our `/staging` and `/projects` directories. We took immediate action on Thursday afternoon and have been working on mitigation and data recovery since. 
 
-The underlying cause has been identified and affected the `/squid`, `/staging`, `/projects` and HTC `/software` directories. We are able to prevent it from recurring; however, **it resulted in significant data loss in /staging, /projects, HTC /software and /squid** before CHTC personnel were able to react. All data in `/squid` is unrecoverable. Data recovery on `/staging` is complete; any remaining data in `/projects` is currently inaccessible as we work to recover whatever additional data we can.
+The underlying cause has been identified and affected the `/squid`, `/staging`, `/projects` and HTC `/software` directories. We are able to prevent it from recurring; however, **it resulted in significant data loss in /staging, /projects, HTC /software and /squid** before CHTC personnel were able to react. All data in `/squid` is unrecoverable. Data recovery on `/staging` is complete as of mid December 2024; Data recovery on `/staging` is complete as of mid January 2025. 
 
-We recognize that this ongoing outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below. 
+We recognize that this outage and accompanying data loss is disruptive to important work. Our plan to bring systems and data back online is outlined below. 
 
 ## User Next Steps
 
@@ -49,20 +49,29 @@ References to data using the paths to recovered staging directories should ***no
 
 **_If your directory doesn’t exist in the recovery path, that means that none of your data was recovered._**
 
+#### Recover `/projects` data
 
-#### Updated `/projects` timeline
+The data recovery process for `/projects` was completed on 1/10. We believe we have recovered most, if not all, of the data that was originally present in these directories. Some of the metadata for files (like file creation date) may be incorrect; **_we strongly recommend validating any data that you copy from the recovered file system._**
 
-We are now working on data recovery for `/projects` folders. Due to the large size of this data store, we anticipate that the recovery process will take longer than `/staging` and likely stretch into January. 
+Any recovered data is available at this path: 
+  * `/recovery/projects/<project-name>`
 
+Users should **copy** any recovered files they want to save into their new `/projects` directories. 
+
+References to data using the paths to recovered staging directories should ***not*** be used in job submission. The directories for recovered data are read-only, and you will not be able to write into them. 
+
+**_If your directory doesn’t exist in the recovery path, that means that none of your data was recovered._**
 
 ## CHTC Next Steps and Timeline
 
 * Nov 25 - 27: New data backend for /staging and /projects
 	* During the week of Nov 25-27, we created a new data store to serve the `/staging` and `/projects` directories. Initially, _there is no data inside these directories._ This new data backend for the `/staging` and `/projects` directories will be used for CHTC data storage moving forward and is usable in jobs _immediately_. 
 * Nov 25 - Dec 10: Recovering data from `/staging` directories
-	* We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime.  _We are still developing the mechanism for this process and will provide more information as it becomes available._
+	* We have run multiple recovery processes on the old data store. Once each recovery process is complete, CHTC users will be able to access recovered data and copy it to the new data store. CHTC will not overwrite or replace data created in the meantime. See above for more details. 
 * Dec 11 onward: Recovering data from `/projects`
 	* This will be the same process as recovering data from `/staging`.  
+* Jan 13: Recovered data from `/projects` available
+	* Data recovery for `/projects` is complete. See above for more details. 
 
 ## Stay Informed
 
