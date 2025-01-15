@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Using Apptainer Containers on HPC
 guide:
-  order: 5
-  category: Software Solutions
+  category: Software
   tag:
     - hpc
 --- 

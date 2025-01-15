@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Building an Apptainer Container
 guide:
-    order: 12
-    category: Software Solutions
+    category: Software
     tag:
         - htc
         - hpc

@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Use GPUs
 guide:
-    order: 0
-    category: Special Use Cases
+    category: Special use cases
     tag:
         - htc
 ---

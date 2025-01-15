@@ -14,11 +14,8 @@ nav_items:
       - url: /jobs.html
         name: Our Open Positions
   - id: uw-research-computing
-    name: UW Research Computing
+    name: Research Computing
     url: /uw-research-computing/index.html
-  - id: guides
-    name: Guides
-    url: /uw-research-computing/guides.html
   - id: technologies
     name: Technologies
     url: /technologies.html
@@ -27,9 +24,8 @@ nav_items:
     url: /research.html
   - id: news
     name: News
-    url: /news-navigation.html
-    sub_menu:
-      - url: /news.html
-        name: CHTC News
-      - url: /events.html
-        name: Events
+    url: /news.html
+  - url: /events.html
+    name: Events
+    id: events
+

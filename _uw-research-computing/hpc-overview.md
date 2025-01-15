@@ -1,10 +1,9 @@
 ---
 highlighter: none
 layout: hpc_layout
-title: HPC Cluster Overview
-guide: 
-    order: 1
-    category: Basics and Policies
+title: HPC System Overview
+guide:
+    category: Get started
     tag:
         - hpc
 ---

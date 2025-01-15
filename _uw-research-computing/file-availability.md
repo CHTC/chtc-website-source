@@ -4,8 +4,7 @@ layout: file_avail
 title: Small Input and Output File Availability Via HTCondor
 alt_title: Transfer Small Input and Output
 guide:
-    order: 0
-    category: Handling Data in Jobs
+    category: Manage data
     tag:
         - htc
 ---

@@ -2,8 +2,7 @@
 layout: guide
 title: Transfer Files Between CHTC and ResearchDrive
 guide:
-    order: 4
-    category: Basics and Policies
+    category: Manage data
     tag:
         - htc
         - hpc

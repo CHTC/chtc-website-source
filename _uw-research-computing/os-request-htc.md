@@ -2,9 +2,8 @@
 highlighter: none
 layout: guide
 title: Use Custom Linux Versions in CHTC
-guide: 
-    order: 7
-    category: Special Use Cases
+guide:
+    category: Special use cases
     tag:
         - htc
 --- 

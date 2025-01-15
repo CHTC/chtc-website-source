@@ -4,8 +4,7 @@ layout: guide
 title: Log in to CHTC
 alt_title: Log in to CHTC
 guide:
-    order: 2
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
         - hpc

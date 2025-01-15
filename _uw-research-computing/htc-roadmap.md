@@ -1,11 +1,9 @@
 ---
 highlighter: none
 layout: guide
-title: HTC Getting Started Roadmap
-alt_title: HTC Getting Started Roadmap
+title: Roadmap to getting started
 guide:
-    order: 3
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
 ---

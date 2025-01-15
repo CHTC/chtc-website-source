@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Check Disk Quota and Usage
 guide:
-    order: 7
-    category: Basics and Policies
+    category: Manage data
     tag:
         - htc
 ---

@@ -2,8 +2,7 @@
 layout: guide
 title: Automate CHTC login
 guide:
-    order: 4
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
         - hpc

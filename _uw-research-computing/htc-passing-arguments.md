@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Practice: Passing Arguments from the Submit File to the Executable Script"
 guide:
-    order: 6
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

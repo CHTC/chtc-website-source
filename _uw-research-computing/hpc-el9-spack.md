@@ -3,9 +3,8 @@ highlighter: none
 layout: hpc_layout
 title: Recreating Spack Installs on a New Operating System
 published: true
-guide: 
-    order: 4
-    category: Software Solutions
+guide:
+    category: Software
     tag:
         - hpc
 ---

@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Basic Scripting and Job Submission with Arguments"
 guide:
-    order: 5
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

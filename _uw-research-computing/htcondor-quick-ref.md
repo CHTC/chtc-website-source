@@ -3,8 +3,7 @@ layout: guide
 title: "Quick reference: HTCondor commands"
 alt_title: "Quick reference: HTCondor commands"
 guide:
-    order: 5
-    category: Basics and Policies
+    category: Get started
     tag: htc
 ---
 

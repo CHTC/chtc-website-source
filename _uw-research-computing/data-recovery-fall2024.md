@@ -2,11 +2,8 @@
 highlighter: none
 layout: guide
 title: "CHTC /staging and /projects Next Steps"
-published: true
 guide: 
-    button_class: bg-warning
-    order: 0
-    category: Basics and Policies
+    category: Get started
     tag:
         - hpc
         - htc

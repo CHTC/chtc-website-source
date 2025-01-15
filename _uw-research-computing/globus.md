@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Use Globus to Transfer Files to and from CHTC
 guide:
-    order: 5
-    category: Basics and Policies
+    category: Manage data
     tag:
         - htc
 ---

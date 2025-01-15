@@ -3,7 +3,6 @@ highlighter: none
 layout: guide
 title: Windows / Linux Incompatibility
 guide:
-    order: 0
     category: Troubleshooting
     tag:
         - htc

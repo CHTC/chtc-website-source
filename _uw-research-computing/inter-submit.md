@@ -4,8 +4,7 @@ layout: guide
 title: Compiling or Testing Code with an Interactive Job
 alt_title: Compile Software in an Interactive Job
 guide:
-    order: 1
-    category: Software Solutions
+    category: Software
     tag:
         - htc
 ---
