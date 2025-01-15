@@ -4,3 +4,4 @@
     {% assign fellowship = j[1] %}
     {% assign fellowships = fellowships | push: fellowship %}
 {% endfor %}
+{% assign fellowships = fellowships | sort: "sort" |  reverse %}
