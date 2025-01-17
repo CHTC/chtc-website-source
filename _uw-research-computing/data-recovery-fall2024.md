@@ -38,14 +38,13 @@ A few notes about special circumstances:
 > ### ⚠️ Data removal for recovered files on Feb 17
 {:.tip-header}
 
-> We are planning to delete all recovered data (located in `/recovery`) on Monday, February 17 to free up space to improve the performance of the `/staging` and `/projects` file system. To facilitate this process, we have made recovered files readable + writable for users to move and delete their files.
+> Data in the `/recovery` space will be available until Monday, February 17. 
 > <br><br>
 > **Before Feb 17, you should move all data you want to keep** to your new `/staging` or `/projects` directory or other locations such as ResearchDrive.
-> <br>
->   * If you are moving data to new `/staging` or `/projects` spaces, we recommend that you *move* data (`mv`) instead of copying data (`cp`).
->     * By moving the data, the data will stay in the same location in the storage system, but its metadata will be updated with the new `/staging` or `/projects` address. (Only data with their metadata pointing to `/recovery` will be removed on Feb 17.)
->     * By copying the data, you will instead rewrite *all* of the data into a new location in the storage system. The write process will be intensive and time-consuming, and is ultimately unnecessary.
->   * If you have files you no longer need in `/recovery` directories, please delete them.
+> <br><br>
+> If you are moving data to new `/staging` or `/projects` spaces, we recommend that you *move* data (`mv`) instead of copying data (`cp`), as moving data is more efficient than copying.
+> <br><br>
+> If you have files you no longer need in `/recovery` directories, please delete them.
 > <br><br>
 > _**After February 17, all data in /recovery will no longer be accessible.**_
 > <br><br>
