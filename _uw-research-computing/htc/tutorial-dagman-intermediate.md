@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Intermediate DAGMan: Uses and Features"
 guide:
-    order: 11
-    category: Job Submission
+    category: Workflows
     tag:
         - htc
 --- 

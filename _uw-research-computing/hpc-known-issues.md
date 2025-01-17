@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Known Issues on the HPC
 guide:
-    order: 8
-    category: Basics and Policies
+    category: Troubleshooting
     tag:
         - hpc
 ---

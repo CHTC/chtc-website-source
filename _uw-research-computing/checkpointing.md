@@ -4,8 +4,7 @@ layout: guide
 title: Checkpointing Jobs
 category: Special Use Cases
 guide:
-    order: 3
-    category: Special Use Cases
+    category: Workflows
     tag:
         - htc
 ---

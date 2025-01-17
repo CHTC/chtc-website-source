@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Learn About Your Jobs Using condor_q
 guide:
-    order: 2
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

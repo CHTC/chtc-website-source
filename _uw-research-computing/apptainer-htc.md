@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Use Apptainer Containers
 guide:
-    order: 11
-    category: Software Solutions
+    category: Software
     tag:
         - htc
 --- 

@@ -1,9 +1,7 @@
 ---
 layout: guide
 title: How to Request a CHTC Account
-alt_title: How to Request a CHTC Account
 guide:
-    order: 2
     category: Basics and Policies
 ---
 

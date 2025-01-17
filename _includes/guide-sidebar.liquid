@@ -1,6 +1,6 @@
 {% assign page_tag = page.tag[0] %}
 {% assign data = site.uw-research-computing | where_exp: "x", "x.tag contains page.tag" | sort: "category" %}
-{% assign category_order = "Basics and Policies,Job Submission,Handling Data in Jobs,Software Solutions,Special Use Cases,Troubleshooting" | split: "," %}
+{% assign category_order = "Get started,Submit jobs,Manage data,Software,Troubleshooting,External Resources" | split: "," %}
 
     <div id="guide-sidebar">
         {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
@@ -22,11 +22,11 @@
                         {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
+                            <span class="accordion-header mt-0" id="{{ category | slugify }}">
                                 <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
                                     {{ category }}
                                 </button>
-                            </h2>
+                            </span>
                             <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
                                 {% for page in pages_in_category %}
 
@@ -39,7 +39,8 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        {% elsif page.guide.tag contains 'htc' %}
+        {% endif %}
+        {% if page.guide.tag contains 'htc' %}
             {% assign htc_pages = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" | sort: "category" %}
 
             {% assign categories = "" | split: "" %}
@@ -57,14 +58,17 @@
                         {% assign pages_in_category = htc_pages | where_exp: "x", "x.guide.category == category" |  sort: "guide.order" %}
 
                         {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
+                        {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
+                            {% assign active = "" |  split: "" %}
+                        {% endif %}
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                            <span class="accordion-header mt-0" id="{{ category | slugify }}-htc">
+                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-htc-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}-htc">
                                     {{ category }}
                                 </button>
-                            </h2>
-                            <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
+                            </span>
+                            <div id="{{ category | slugify }}-htc-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}-htc" data-bs-parent="#guide-sidebar">
                                 {% for page in pages_in_category %}
 
                                     <div class="document-link-wrapper bg-light">
@@ -76,7 +80,8 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        {% elsif page.guide.tag contains 'hpc' %}
+        {% endif %}
+        {% if page.guide.tag contains 'hpc' %}
             {% assign hpc_pages = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'hpc'" | sort: "category" %}
 
             {% assign categories = "" | split: "" %}
@@ -94,14 +99,17 @@
                         {% assign pages_in_category = hpc_pages | where_exp: "x", "x.guide.category == category" |  sort: "guide.order" %}
 
                         {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
+                        {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
+                            {% assign active = "" |  split: "" %}
+                        {% endif %}
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header mt-0" id="{{ category | slugify }}">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                            <span class="accordion-header mt-0" id="{{ category | slugify }}-hpc">
+                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-hpc-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}-hpc">
                                     {{ category }}
                                 </button>
-                            </h2>
-                            <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
+                            </span>
+                            <div id="{{ category | slugify }}-hpc-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}-hpc" data-bs-parent="#guide-sidebar">
                                 {% for page in pages_in_category %}
 
                                     <div class="document-link-wrapper bg-light">

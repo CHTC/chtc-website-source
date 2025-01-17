@@ -1,10 +1,9 @@
 ---
 highlighter: none
 layout: guide
-title: HTC System Overview
+title: System Overview
 guide:
-    order: 0
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
 ---

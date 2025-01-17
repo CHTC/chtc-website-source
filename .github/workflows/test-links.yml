@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: CannonLock/test_links@master
+      - uses: CHTC/test_links@master
         with:
           file_ignore: "/./staff/.*/,/./includes/.*/,/./doc/.*/"
