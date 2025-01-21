@@ -1,6 +1,6 @@
 {% assign page_tag = page.tag[0] %}
 {% assign data = site.uw-research-computing | where_exp: "x", "x.tag contains page.tag" | sort: "category" %}
-{% assign category_order = "Get started,Submit jobs,Manage data,Software,Troubleshooting,External Resources" | split: "," %}
+{% assign category_order = "Get started,Submit jobs,Manage data,Software,Workflows,Special use cases,Troubleshooting,External Resources" | split: "," %}
 
     <div id="guide-sidebar">
         {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
