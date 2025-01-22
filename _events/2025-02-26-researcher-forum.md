@@ -17,6 +17,12 @@ header_image: "/images/2024_HTC_attendees_chatting.JPG"
 
 We invite all CHTC users and the UW Madison research computing community to join us at the inaugural CHTC Researcher Forum this February! 
 
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_elMPzasJgsUGxfw">Register here</a>
+	</div>
+</div>
+
 In this 2 hour event, you will have a chance to: 
 * Learn about recent changes at CHTC and what’s new and upcoming
 * Connect with CHTC users and learn from each other about their use of CHTC at a mini poster session
@@ -30,9 +36,6 @@ Schedule:
 * 3:10 – 3:30 – Q+A time
 * 3:30 – 4:15 – Poster session
 * 4:15 – 5:00 – Stay and chat!
-
-
-[Register here](https://uwmadison.co1.qualtrics.com/jfe/form/SV_elMPzasJgsUGxfw)
 
 {% endcapture %}
 
