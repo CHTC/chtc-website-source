@@ -89,8 +89,11 @@
 - text: "Software"
   icon: "bi bi-pc-display"
   links:
-    - text: "Overview and policies"
+    - text: "Overview"
       url: "/uw-research-computing/software-overview-htc"
+      icon: ""
+    - text: "Quickstart"
+      url: "/uw-research-computing/software-overview-htc#quickstart"
       icon: ""
     - text: "Containers "
       icon: ""
