@@ -48,6 +48,10 @@ the capacity of the GPU Lab to run their work.
     <th>GPU Memory <code>GlobalMemoryMB</code></th>
   </tr>
   {% for gpu in site.data.gpus %}
+	{% if gpu.owner != "campus" %}
+		{% continue %}
+    {% endif %}
+
   <tr>
 	<td>{{ gpu.number_of_servers }}</td>
 	<td>{{ gpu.names }}</td>
