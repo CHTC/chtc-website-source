@@ -47,59 +47,16 @@ the capacity of the GPU Lab to run their work.
     <th>Hardware Generation <code>Capability</code></th>
     <th>GPU Memory <code>GlobalMemoryMB</code></th>
   </tr>
-<!--  <tr>
-    <td>gpu-3.chtc.wisc.edu</td> 
-    <td>1 </td>
-    <td>Tesla K40c</td>
-  </tr>   -->  
+  {% for gpu in site.data.gpus %}
   <tr>
-    <td>2</td>
-    <td>gpu2000, gpu2001</td>
-    <td>2</td>
-    <td>Tesla P100-PCIE-16GB</td>
-    <td>6.0</td>
-    <td>16GB</td>
+	<td>{{ gpu.number_of_servers }}</td>
+	<td>{{ gpu.names }}</td>
+	<td>{{ gpu.gpus_per_server }}</td>
+	<td>{{ gpu.gpu_type }}</td>
+	<td>{{ gpu.hardware_generation }}</td>
+	<td>{{ gpu.gpu_memory }}</td>
   </tr>
-  <tr>
-    <td>4</td>
-    <td>gpulab2000 - gpulab2003</td>
-    <td>8</td>
-    <td>NVIDIA GeForce RTX 2080 Ti</td>
-    <td>7.5</td>
-    <td>10GB</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>gpulab2004, gpulab2005</td>
-    <td>4</td>
-    <td>NVIDIA A100-SXM4-40GB</td>
-    <td>8.0</td>
-    <td>40GB</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>gpu2003 - gpu2011</td>
-    <td>4</td>
-    <td>NVIDIA A100-SXM4-80GB</td>
-    <td>8.0</td>
-    <td>80GB</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>gpu4000 - gpu4002</td>
-    <td>10</td>
-    <td>NVIDIA L40</td>
-    <td>8.9</td>
-    <td>45GB</td>
-  </tr>
- <tr>
-    <td>1</td>
-    <td>gpu4003</td>
-    <td>8</td>
-    <td>NVIDIA H100 80GB HBM3</td>
-    <td>9.0</td>
-    <td>80GB</td>
-  </tr>
+  {% endfor %}
 </table>
 
 ### Special GPU Lab Policies

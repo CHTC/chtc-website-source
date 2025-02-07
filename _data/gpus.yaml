@@ -1,0 +1,36 @@
+- number_of_servers: 2
+  names: gpu2000, gpu2001
+  gpus_per_server: 2
+  gpu_type: Tesla P100-PCIE-16GB
+  hardware_generation: 6.0
+  gpu_memory: 16GB
+- number_of_servers: 4
+  names: gpulab2000 - gpulab2003
+  gpus_per_server: 8
+  gpu_type: NVIDIA GeForce RTX 2080 Ti
+  hardware_generation: 7.5
+  gpu_memory: 10GB
+- number_of_servers: 2
+  names: gpulab2004, gpulab2005
+  gpus_per_server: 4
+  gpu_type: NVIDIA A100-SXM4-40GB
+  hardware_generation: 8.0
+  gpu_memory: 40GB
+- number_of_servers: 9
+  names: gpu2003 - gpu2011
+  gpus_per_server: 4
+  gpu_type: NVIDIA A100-SXM4-80GB
+  hardware_generation: 8.0
+  gpu_memory: 80GB
+- number_of_servers: 3
+  names: gpu4000 - gpu4002
+  gpus_per_server: 10
+  gpu_type: NVIDIA L40
+  hardware_generation: 8.9
+  gpu_memory: 45GB
+- number_of_servers: 1
+  names: gpu4003
+  gpus_per_server: 8
+  gpu_type: NVIDIA H100 80GB HBM3
+  hardware_generation: 9.0
+  gpu_memory: 80GB
