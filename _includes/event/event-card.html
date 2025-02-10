@@ -15,11 +15,12 @@
         {% if event.start_date %}
             <h4 class="mt-0 text-muted">
                 {% if event.start_date != event.end_date %}
-                    {% assign end = event.end_date | date: "-%e" %}
-                    {{ event.start_date | date: "%b %e, %Y" | upcase | append : end }}
+                    {% assign date = event.start_date | date: "%B %e" %}
+                    {% assign date = event.end_date | date: "-%e, %Y" | prepend: date %}
                 {% else %}
-                    {{ event.start_date | date: "%b %e, %Y" | upcase }}
+                    {% assign date = event.start_date | date: "%B %e, %Y" %}
                 {% endif %}
+                {{ date }}
             </h4>
         {% endif %}
         <h4 class="fw-normal mt-3">
