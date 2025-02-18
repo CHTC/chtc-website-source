@@ -1,4 +1,0 @@
-{  
-   "issuer":"https://chtc.cs.wisc.edu/uwdf",
-   "jwks_uri":"https://chtc.cs.wisc.edu/uwdf/public_signing_key.jwks"
-}
