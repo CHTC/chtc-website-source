@@ -1,4 +1,4 @@
----
+
 layout: guide
 title: "Quick reference: HTCondor commands"
 alt_title: "Quick reference: HTCondor commands"
@@ -52,7 +52,7 @@ You can use these commands to submit, hold, or remove your jobs.
 | `condor_q -l <job_ID>` | lists all attributes of the job(s) associated with `job_ID` |
 | `condor_q -hold <job_ID>` | displays the hold reason for job(s) associated with `job_ID` |
 | `condor_q -better-analyze <job_ID>` | displays *simulated* results of the matching process associated with the job | This is a *starting point* for troubleshooting jobs sitting in the idle state. |
-| `watch_condor_q` | displays the "real-time" status of your jobs | Updated every 2 seconds. `CTRL + C` to exit. |
+| `condor_watch_q` | displays the "real-time" status of your jobs | Updated every 2 seconds. `CTRL + C` to exit. |
 | `condor_tail <job_ID>` | prints the last 10 lines of the standard output the job associated with `job_ID` |
 {:.command-table}
 
