@@ -69,35 +69,10 @@ To test changes on a publicly viewable development location do the following ste
 
 ## Testing Changes Locally
 
-### Quickstart (Unix Only)
-
-1. Install Docker if you don't already have it on your computer.
-2. Open a terminal and `cd` to your local copy of the `chtc-website-source` repository
-3. Run the `./edit.sh` script.
-4. The website should appear at [http://localhost:8080](http://localhost:8080). Note that this system is missing the secret sauce of our setup that converts 
-the pages to an `.shtml` file ending, so links won't work but just typing in the name of a page into the address bar (with no 
-extension) will. 
-
-### Run via Ruby
-
 ```shell
-bundle install
-bundle exec jekyll serve --watch -p 
-```
-
-### Run Docker Manually
-
-At the website root:
-
-```
-docker run -it -p 8001:8000 -v $PWD:/app -w /app ruby:2.7 /bin/bash
-```
-
-This will utilize the latest Jekyll version and map port `8000` to your host.  Within the container, a small HTTP server can be started with the following command:
-
-```
-bundle install
-bundle exec jekyll serve --watch --config _config.yml -H 0.0.0.0 -P 8000
+# From website root
+git submodule update --init --recursive --remote
+docker compose up
 ```
 
 ## Formatting
