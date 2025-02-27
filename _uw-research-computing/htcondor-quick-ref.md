@@ -1,4 +1,4 @@
-
+---
 layout: guide
 title: "Quick reference: HTCondor commands"
 alt_title: "Quick reference: HTCondor commands"
