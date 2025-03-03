@@ -1,0 +1,39 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+
+    - name: Update Submodules
+      run: |
+        git submodule update --init --recursive --remote    
+        
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.4
+        bundler-cache: true
+
+    - name: Build and Deploy
+      run: |
+        # Build the production version of website
+        JEKYLL_ENV=production bundle exec jekyll build
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Upload entire repository
+        path: './_site'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
