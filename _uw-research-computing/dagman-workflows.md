@@ -1,31 +1,5 @@
 ---
-highlighter: none
-layout: guide
-title: Workflows with HTCondor's DAGMan
-guide:
-    order: 3
-    category: Job Submission
-    tag:
-        - htc
+layout: redirect
+redirect_url: /uw-research-computing/htc/dagman-workflows
+permalink: /uw-research-computing/dagman-workflows
 ---
-
-## Overview
-
-If your work requires jobs that run in a particular sequence, you may benefit 
-from a workflow tool that submits and monitors jobs for you in the correct 
-order. A simple workflow manager that integrates with HTCondor is DAGMan, 
-or "DAG Manager" where DAG stands for the typical picture of a workflow, a 
-directed acyclic graph. 
-
-## Learning Resources
-
-This talk (originally presented at HTCondor Week 2020) gives a good overview of 
-when to use DAGMan and its most useful features: 
-
-<a href="https://www.youtube.com/watch?v=1MvVHxRs7iU">
-<img alt="DAGMan Talk" src="https://raw.githubusercontent.com/OSGConnect/connectbook/master/images/dagman-talk-screenshot.png" width="360" height="204">
-</a>
-
-For full details on various DAGMan features, see the HTCondor manual page: 
-
-* [DAGMan Manual Page](https://htcondor.readthedocs.io/en/latest/automated-workflows/index.html)

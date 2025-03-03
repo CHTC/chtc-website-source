@@ -70,6 +70,24 @@
             "use": "sig",
             "x": "eDK50R6M81DUUWU9JIW9obA02U4sRZQSPR44pcFnkSI=",
             "y": "P8-SthnBHG5iwfSA1meV5ZV4tvobD4_6Mb_cPgiC9JA="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "ad6b",
+            "kty": "EC",
+            "use": "sig",
+            "x": "Bg08GpOLHvreC49sjFEL3DuCSw00wTdpa8QnqRq0-Rs=",
+            "y": "o27QrMjGIBXsaZLaGLYBysMO0AoEL24YONrzxPydbQ4="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "7304",
+            "kty": "EC",
+            "use": "sig",
+            "x": "pFlWJmLNn-dMcmwfzWy-Hf6q-EybZN0SXs0x8HVuTt8=",
+            "y": "csu8vZmHXxSKVu5Un2d4Li6ST5g44BtuPhmZPZQi5-Q="
         }
     ]
 }

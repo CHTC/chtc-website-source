@@ -1,0 +1,27 @@
+title: Expanding Pelican with Globus Interoperability
+type: Software Development
+summary: |
+  Modern scientific research relies on data that is Findable, Accessible, Interoperable, and Reusable (FAIR) – a foundational yet complex requirement in today’s large-scale scientific research, where automation and fault tolerance must scale to manage hundreds, thousands, and even millions of individual computations.
+  
+  The Pelican Platform is at the forefront of this ecosystem, and this project will focus on giving the fellow(s) an opportunity to advance FAIR data principles by developing a robust client that allows Pelican to interface with Globus, a leading service for secure, high-performance data transfers. This client will enable Pelican users to easily locate and access data across platforms, facilitating seamless data sharing and reuse between Pelican and Globus. Through this work, fellows will explore the technical and security aspects of cross-platform interoperability, learning to design solutions that make data more accessible and usable for global research efforts.
+
+  #### Project Objectives:
+  
+  This project aims to:
+  
+  
+    -   Introduce fellows to the FAIR data principles and the technical challenges of creating interoperable and accessible systems in a distributed computing environment
+    -   Explore and implement secure data transfer protocols, especially as applied to Globus integrations
+    -   Offer experience with cloud-based data systems, high-performance computing, and RESTful API development
+  
+    By the end of the fellowship, fellows will gain hands-on experience in developing and testing components for distributed data systems, with potential exposure to technologies such as Golang/C++, REST APIs, OAuth/token authorization, XRootD, and Globus.
+  
+  #### Prerequisite skills or education that would be good for the Fellow to have to work on the project:
+  
+    -   C++ or Golang (required)
+    -   Networking fundamentals (required)
+    -   Security basics: OAuth, SSL/TLS (preferred)
+    -   Git/GitHub/GitHub Actions (preferred)
+    -   Linux/CLI (preferred)
+    -   Docker/Kubernetes (preferred)
+sort: 1

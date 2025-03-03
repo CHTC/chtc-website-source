@@ -3,8 +3,7 @@ highlighter: none
 layout: hpc_layout
 title: Create Custom Modules Using Spack
 guide:
-  order: 3
-  category: Software Solutions
+  category: Software
   tag:
     -hpc
 ---

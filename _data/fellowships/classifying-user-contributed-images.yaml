@@ -1,0 +1,17 @@
+title: Classifying User Contributed Images
+type: Software Development
+summary: |
+  CHTC’s High Throughput Computing (HTC) system supports numerous applications, including the UW-Macrostrat Rockd mobile App ([https://rockd.org](https://rockd.org)). Every day, many of the thousands of Rockd users from around the world contribute content in the form of georeferenced photos with associated text descriptions. As is the case in any such system with open user contributions, not all of the submitted images are of the same quality or are of the most relevant objects. This project aims to develop AI/ML methods to analyze new user contributed photos and associated metadata and text and then classify/rank them for quality and relevance. The goal is to create a system that can automatically prioritize new image submissions and present them for manual assessment and moderation, with iterative learning improvements that enhance the system.Project Objectives:
+  
+  #### Project Objectives:
+    
+    - Develop an automated image classification and rating system that is trained over the existing 57K user-contributed images submitted to Rockd thus far.
+    - Develop a tool to present the results of this automated system to human content curators and collect annotations that further improve the classification tool.
+    - Use the above tools end-to-end, in real time, as new user contributions to Rockd are made.
+
+  #### Prerequisite skills or education that would be good for the Fellow to have to work on the project:
+    
+    - Prior programming experience (required)
+    - Familiarity with AI/ML methods, particularly those that are image related (strongly preferred)
+    - Prior unix experience (preferred)
+sort: 0

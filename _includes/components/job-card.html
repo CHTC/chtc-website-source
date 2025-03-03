@@ -1,6 +1,10 @@
 <div class="rounded p-4 mb-3 shadow">
     <div>
-        <h3 id="{{ job.title | slugify }}" class="my-2 mb-1 uw-mini-bar" href="/jobs.html">{{ job.title }}</h3>
+        {% if job.button.href %}
+            <h3 id="{{ job.title | slugify }}" class="my-2 mb-1 uw-mini-bar"><a href="{{ job.button.href }}">{{ job.title }}</a></h3>
+        {% else %}
+            <h3 id="{{ job.title | slugify }}" class="my-2 mb-1 uw-mini-bar">{{ job.title }}</h3>
+        {% endif %}
         <div class="row justify-content-between d-flex">
             <div class="col-auto">
                 <span class="fw-light">{{ job.type}} - {{ job.institution}}</span>

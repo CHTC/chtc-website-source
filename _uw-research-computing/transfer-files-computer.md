@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Transfer Files between CHTC and your Computer
 guide:
-    order: 2
-    category: Basics and Policies
+    category: Manage data
     tag:
         - htc
         - hpc

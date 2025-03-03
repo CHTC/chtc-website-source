@@ -34,12 +34,16 @@ title: Available Positions
                 animation teams.
             </p>
 
-            <h2 id="internships">Internships</h2>
+
+
+            <h2 id="internships" class="mb-0">Fellowships & Internships</h2>
+            <h5 class="mt-1 mb-3"><span class="badge bg-primary">Summer 2025 Now Available</span></h5>
+
             <p>
-                Our internship program provides undergraduate and graduate students with learning opportunities in
+                Our student programs provides undergraduate and graduate students with learning opportunities in
                 research computing, system administration, web development, and communication.
             </p>
-            <a class="btn btn-primary" href="/internships.html">Learn More</a>
+            <a class="btn btn-dark" href="/internships.html">Discover Active Fellowships and Internships</a>
 
 
             {% assign fulltime_jobs = jobs | where_exp: "x", "x.type == 'Full Time'" %}
@@ -55,6 +59,24 @@ title: Available Positions
                 </p>
 
                 {% for job in fulltime_jobs %}
+                    {% include /components/job-card.html %}
+                {% endfor %}
+            {% endif %}
+
+            {% assign student_jobs = jobs | where_exp: "x", "x.type == 'Internship'" %}
+            {% assign available_jobs = jobs | where_exp: "x", "x.available == true" %}
+            {% if student_jobs.size > 0 %}
+                <h2 id="student-hourly-positions-undergrad-and-grad">Student Hourly Positions (Undergrad and Grad)</h2>
+                <p>
+                    We're always looking for smart motivated students to partner with
+                    software developer and system administrator mentors. We expect students
+                    to work between 10 and 20 hours a week, with 10 of those being during
+                    business hours, with some flexibility on remaining hours. During the
+                    summer and breaks, it is possible to work up to 29 hours per week.
+                </p>
+
+                {% for job in student_jobs %}
+
                     {% include /components/job-card.html %}
                 {% endfor %}
             {% endif %}
@@ -123,9 +145,13 @@ title: Available Positions
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <h3>Fellowships</h3>
+                            <ul>
+                                <li><a href="/fellowships">View Fellowships</a></li>
+                            </ul>
                             <h3>Internships</h3>
                             <ul>
-                                <li><a href="/internships.html">Learn More</a></li>
+                                <li><a href="#student-hourly-positions-undergrad-and-grad">View Internships</a></li>
                             </ul>
                         </div>
                     </div>

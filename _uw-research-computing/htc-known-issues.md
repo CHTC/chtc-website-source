@@ -3,7 +3,6 @@ highlighter: none
 layout: guide
 title: Known Issues on the HTC
 guide:
-    order: 3
     category: Troubleshooting
     tag:
         - htc

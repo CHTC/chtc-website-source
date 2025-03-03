@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Use Software Available in Modules
 guide:
-    order: 5
-    category: Special Use Cases
+    category: Software
     tag:
         - htc
 ---

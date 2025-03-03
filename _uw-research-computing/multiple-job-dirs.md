@@ -4,8 +4,7 @@ layout: guide
 title: Submitting Multiple Jobs in Individual Directories
 alt_title: Submitting Multiple Jobs in Different Directories
 guide:
-    order: 4
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

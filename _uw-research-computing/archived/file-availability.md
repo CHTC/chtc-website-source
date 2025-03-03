@@ -65,7 +65,7 @@ accessible HTC resources including the UW Grid of campus pools, and the
 * Data Security:  
 Files transferred with HTCondor transfer are owned by the job and
 protected by user permissions in the CHTC pool. When signaling your jobs
-to run on the UW Grid (Flocking) or the OS Pool (Glidein),
+to run on the UW Grid (`want_campus_pools = true`) or the OS Pool (`want_ospool = true`),
 your files will exist on someone else\'s computer only for the duration
 of each job. Please feel free to email us if you have data security
 concerns regarding HTCondor file transfer, as encryption options are

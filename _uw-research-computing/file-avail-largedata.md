@@ -4,8 +4,7 @@ layout: file_avail
 title: Managing Large Data in HTC Jobs
 alt_title: Use Large Input and Output Files Via Staging
 guide:
-    order: 2
-    category: Handling Data in Jobs
+    category: Manage data
     tag:
         - htc
 ---
@@ -110,7 +109,7 @@ In order to stage large data for use on CHTC's HTC system:
 ## A. Get a Directory
 
 Space in our large data staging area is granted by request. If you think you need 
-a directory, email CHTC's Research Computing Facilitators (chtc@cs.wisc.edu). 
+a directory, fill out our [quota request form](https://chtc.cs.wisc.edu/uw-research-computing/quota-request.html).
 
 The created directory will exist at this path: `/staging/username`
 
@@ -133,7 +132,7 @@ moving output to /staging). For example:
 ```
 $ tar -czvf job_package.tar.gz file_or_dir 
 ```
-{: .term}
+{:.term}
 
 ## C. Use the Transfer Server
 

@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Building an Apptainer Container
 guide:
-    order: 12
-    category: Software Solutions
+    category: Software
     tag:
         - htc
         - hpc
@@ -93,6 +92,13 @@ From: nvcr.io/nvidia/tensorflow:24.02-tf2-py3
 ```
 
 would use the [NVIDIA TensorFlow 2 v24.02](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow/tags) container hosted on the [NVIDIA Container Registry](https://catalog.ngc.nvidia.com/containers) (`nvcr`). 
+
+To build on a local Apptainer image (e.g. `container.sif`), use:
+
+```
+Bootstrap: localimage
+From: container.sif
+```
 
 > If you just want to convert an existing Docker container into an Apptainer container, you do not need to use a definition file.
 > Instead, you can directly run the `apptainer build` command using the Docker address, as described [below](#converting-a-docker-image-to-an-apptainer-container-image).

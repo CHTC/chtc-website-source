@@ -1,174 +1,127 @@
 ---
 highlighter: none
 layout: guide
-title: Log In to CHTC Resources
-alt_title: Connect to CHTC
+title: Log in to CHTC
+alt_title: Log in to CHTC
 guide:
-    order: 2
-    category: Basics and Policies
+    category: Get started
     tag:
         - htc
         - hpc
 ---
 
-This guide assumes
-that you have already gotten a CHTC account for either our high
-throughput or high performance compute systems. If you haven\'t, see our
-[getting started](get-started.html) page.
+## Introduction
+
+This guide outlines login information for CHTC services, including how to log in to CHTC servers after your account has been created, access point information, and how to re-use ssh connections to reduce the frequency of using Duo Multi-factor Authentication (MFA).
+
+If you don't have an account, see our [getting started](get-started.html) page.
 
 {% capture content %}
-1.  [Accessing the Submit Servers](#access)
-2.  [Logging In](#login)
-    -   [On the command line](#login-ssh)
-    -   [Using an SSH program (Windows/Mac)](#login-putty)
-    -   [Re-using SSH connections](#c-re-using-ssh-connections)
-3.  [Learning about the command line](#learn)
+- [Introduction](#introduction)
+- [Before you log in](#before-you-log-in)
+- [Hostname / Access point information](#hostname--access-point-information)
+- [Log in](#log-in)
+   * [Option 1: Log in with a terminal](#option-1-log-in-with-a-terminal)
+   * [Option 2: Log in with PuTTY, an SSH program for Windows](#option-2-log-in-with-putty-an-ssh-program-for-windows)
+- [Log out](#log-out)
+- [SSH programs](#ssh-programs)
+- [Summary](#summary)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="access"></a>
+## Before you log in
 
-**1. Accessing the Submit Servers**
-===============================
+After obtaining a CHTC account, you will need the following to log into our CHTC access points:
 
-You will need the following information to log into our CHTC submit
-servers or head nodes:
+* [Duo Multi-factor authentication (MFA)](https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/)
+* [a connection to the campus network or Virtual Private Network (VPN)](https://it.wisc.edu/services/wiscvpn/)
+* a username and password (typically your UW-Madison NetID and password)
 
-**Username and Password**
+## Hostname / Access point information
 
-- UW - Madison NetId and password
-
-**Hostname**
+Please use the access point specified in your welcome email.
 
   {:.gtable}
-  | HTC System |
+  | High Throughput Computing (HTC) System |
   | --- |
-  | `ap2001.chtc.wisc.edu` (formerly `submit1.chtc.wisc.edu`) - typically for accounts created before June 2019, between March 2021 - June 2022, or after Feb 1, 2023 |
-  | `ap2002.chtc.wisc.edu` (formerly `submit2.chtc.wisc.edu`) - typically for accounts created between June 2019 - February 2021 or between July 1, 2022 - Jan 31, 2023 |
+  | `ap2001.chtc.wisc.edu` |
+  | `ap2002.chtc.wisc.edu` |
 
   {:.gtable}
-  | HPC Cluster |
+  | High Performance Computing (HPC) System |
   | --- |
-  | `hpclogin3.chtc.wisc.edu`
-  | `hpclogin1.chtc.wisc.edu` and/or `hpclogin2.chtc.wisc.edu` - access the old HPC cluster until February 28, 2023 |
-
-As of December 2022, we also require two-factor authentication with Duo to 
-access CHTC resources. 
-
-> **Are you off-campus?**\
-> All of our CHTC submit servers and head nodes are firewalled to block
-> log-ins from off-campus. If you are off-campus and want to log in, you
-> can either:
->
-> -   Activate the campus Virtual Private Network (VPN) (more details on how to set this up
->     [DoIT's VPN webpage](https://it.wisc.edu/services/wiscvpn/)). This will allow you join the campus network when working off-campus. 
-> -   Log into another computer that is on campus (typically by SSH-ing into that computer) and then SSH to our submit server. 
->
-> In either case, it will appear like you are on-campus, and you should
-> then be able to log into CHTC as usual.
-
-<a name="login"></a>
-
-**2. Logging In**
-=============
-
-Using the information described above, you can log in to servers two
-different ways \-- from the command line or using an SSH program:
+  | `spark-login.chtc.wisc.edu` |
 
 
-<a name="login-ssh"></a>
+## Log in
 
-A. On the command line
-----------------------------------
+You can log in to the access points two different ways — from a terminal program or using an SSH program.
 
-On Mac, Linux, and modern Windows (10+) systems, you can use the \"Terminal\" application to
-log in. Open a terminal window and use the following command to connect
-to the appropriate server:
+See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
-``` 
-$ ssh username@hostname
-```
-{:.term}
+### Option 1: Log in with a terminal
 
-You will be prompted for your password, and then for Duo 
-authentication. 
+1. Open a terminal window. Enter the following command, where `user` is your username (typically your NetID) and `hostname.chtc.wisc.edu` is your assigned access point in your welcome email.
 
-<a name="login-putty"></a>
+    ``` 
+    ssh username@hostname.chtc.wisc.edu
+    ```
+    {:.term}
 
-B. Using an SSH program (Windows)
----------------------------------
+2. You will be prompted for your password, then for Duo MFA authentication.
 
-There are multiple programs to connect to remote servers for Windows. We
-recommend \"PuTTy\", which can be downloaded
-[here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-To log in, click on the PuTTy executable (`putty.exe`). You should see a
-screen like this:
+> ### 🎞️ Demo: Log into a CHTC access point
+{:.tip-header}
 
-![](/images/putty-7.jpeg)
+> This video demonstrates how to log into CHTC and authenticate with Duo MFA.
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{:.tip}
 
-Fill in the hostname as described in part 1. You should use Port 22 and
-connect using \"ssh\" \-- these are usually the defaults. After you
-click \"connect\" you will be prompted to fill in your username and
-password, and then to authenticate with Duo. 
+### Option 2: Log in with PuTTY, an SSH program for Windows
 
-Note that once you have submitted jobs to the queue, you can leave your
-logged in session (by typing `exit`). Your jobs will run and return
-output without you needing to be connected.
+There are multiple programs to connect to remote servers for Windows. We recommend "PuTTy", which can be downloaded [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-<!-- <a name="ssh-keys"></a>
+1. To log in, run the PuTTy executable (`putty.exe`). The PuTTY Configuration options will load in a new window.
 
-C. Logging in automatically
----------------------------
+    ![The PuTTY Configuration window](/images/putty-7.jpeg)
 
-Tired of typing your password everytime you log in? It\'s possible to
-set up a file on your local computer called an ssh key, that allows you
-to log into CHTC and transfer files without entering your password. [See
-this guide](http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/)
-for instructions on how to do this, starting at the section titled
-**\"SSH and SCP Without Passwords\"**. -->
+2. Fill in the hostname with the [hostname for your access point](#hostname). Use Port 22 and the "SSH" connection type — these are usually the defaults.
 
+3. After clicking "Open", you will be prompted to fill in your username and password, then to authenticate with Duo. 
 
-C. Re-Using SSH Connections
----------------------------
+## Log out
 
-To reduce the number of times it is necessary to enter your credentials, it’s 
-possible to customize your SSH configuration in a way that allows you to "reuse" 
-a connection for logging in again or moving files. More details are shown 
-in this guide: [Automating CHTC Log In](/uw-research-computing/configure-ssh.html)
+Log out by entering `exit` into the command line. Any submitted jobs will run and return output without you needing to be connected.
 
+## SSH programs
 
-<a name="learn"></a>
+This is a non-exhaustive list of programs that can be used to log into CHTC servers or transfer files.
 
-**3. Learning About the Command Line**
-==================================
+| Operating system | Program | Type | Supports [persistent connections](configure-ssh) | Notes |
+| --- | --- | --- | --- |
+| Linux | Terminal | terminal | ✓ | pre-installed |
+| MacOS | Terminal | terminal | ✓ | pre-installed |
+| | [Cyberduck](https://cyberduck.io/) | file-transfer utility | ✓ | |
+| Windows | Terminal (PowerShell) | terminal | X | pre-installed |
+| | [Terminal (Windows Subshell for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) | terminal | ✓ | recommended for users familiar with the Unix shell |
+| | [MobaXTerm](https://mobaxterm.mobatek.net/) | terminal, SSH client, file-transfer utility | ✓ | |
+| | [WinSCP](https://winscp.net/eng/index.php) | file-transfer utility | ✓ |
+| | [PuTTY](https://www.putty.org/) | SSH client | ✓ | |
+| Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [setup](https://code.visualstudio.com/docs/remote/ssh-tutorial) (ignore steps on creating a virtual machine) |
+| Linux, MacOS, Chrome, and more | [Mosh](https://mosh.org/) | terminal | X | |
 
-**Why learn about the command line?** If you haven\'t used the command
-line before, it might seem like a big challenge to get started, and
-easier to use other tools, especially if you have a Windows computer.
-However, we strongly recommend learning more about the command line for
-multiple reasons:
+## Summary
 
--   You can do most of what you need to do in CHTC by learning a few
-    basic commands.
--   With a little practice, typing on the command line is significantly
-    faster and much more powerful than using a point-and-click graphic
-    interface.
--   Command line skills are useful for more than just large-scale
-    computing.
+From this guide, users should know:
+* the information and connections necessary to log in
+* hostname of their access point
+* how to log in to their CHTC access point
+* how to log out of their access point
+* programs they can use to log in to CHTC
 
-For a good overview of command line tools, see the [Software Carpentry
-Unix Shell](http://swcarpentry.github.io/shell-novice/) lesson. In
-particular, we recommend the sections on:
+## Related pages
 
--   understanding the filesystem and how to navigate it ([Navigating
-    Files and Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
--   tab-completion (section entitled \"Nelle\'s Pipeline, Organizing
-    Files\", in [Navigating Files and
-    Directories](https://swcarpentry.github.io/shell-novice/02-filedir.html))
--   creating files ([Working With Files and
-    Directories](https://swcarpentry.github.io/shell-novice/03-create.html))
--   using the star wildcard (first part of [Pipes and
-    Filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
--   writing shell scripts ([Shell
-    Scripts](https://swcarpentry.github.io/shell-novice/06-script.html))
-
+* [Automate CHTC log in](configure-ssh)
+* [Basic shell commands](basic-shell-commands)
+* [Transfer files to/from CHTC and your computer](transfer-files-computer)

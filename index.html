@@ -9,6 +9,16 @@ js_extension:
     type: module
 ---
 
+{% include get/jobs.liquid %}
+{% if jobs.size > 0 %}
+<div class="bg-primary py-2">
+    <div class="container-xxl">
+        <span class="text-white">CHTC is hiring, view the new position on the jobs page and apply now!</a>
+        <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
+    </div>
+</div>
+{% endif %}
+{% include get/fellowships.liquid %}
 <div class="bg-light overflow-hidden">
     <picture>
         <source srcset="{{ 'images/HTC_Graphic_Outline.webp' | relative_url }}">
@@ -21,7 +31,7 @@ js_extension:
         {% include get/news.liquid %}      
         {% include /components/news-card.html %} 
         </div>
-        <div class="col-lg-9 col-12">
+        <div class="col-12 col-lg-8">
                 <p>
                     <strong>
                         The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power
@@ -58,6 +68,17 @@ js_extension:
                 </p>
 
             </div>
+            {% include get/future_events.html %}
+            {% if future_events.size > 0 %}
+                <div class="col-12 col-lg-4">
+                    <div class="rounded bg-light px-3 py-1">
+                        <h2 class="uw-mini-bar mt-4">Upcoming Events</h2>
+                        {% for event in future_events limit:1 %}
+                                {% include event/event-card.html %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -17,12 +17,24 @@ title: Open projects for CHTC Fellows
             {% include page-title.html title="page.title" %}
             <p>
                 This page lists software development, infrastructure services, and research facilitation
-                projects for CHTC Fellow applicants to consider. Please check back in January 2025 for the next round of
-                fellowship opportunities.
+                projects for CHTC Fellow applicants to consider.
             </p>
+
+            <div class="primary-callout mt-3">
+                <h2 class="mt-1">Applications are open!</h2>
+
+                <p>To apply, send an email to <a href="mailto:chtc-jobs@g-groups.wisc.edu">chtc-jobs@g-groups.wisc.edu</a> with the following information:</p>
+
+                <ul class="mb-2">
+                    <li>A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.</li>
+                    <li>A cover letter that describes your interest in the Fellowship Program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project list, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.</li>
+                </ul>
+            </div>
             <p>
-                Updated June 3, 2024
+                Updated January 15th, 2025
             </p>
+
+
             {% include /get/fellowships.liquid %}
             {% assign software = fellowships | where: "type", "Software Development" %}
             {% assign infrastructure = fellowships | where: "type", "Infrastructure Services" %}
@@ -58,7 +70,7 @@ title: Open projects for CHTC Fellows
                 <div class="pt-5">
                     <div class="uw-sidebar-box me-auto">
                         <div class="uw-directory">
-                            <h3>Fellowships</h3>
+                            <h3 class="mt-0">Fellowships</h3>
                             <ul>
                                 {% for fellowship in fellowships %}
                                     <li><a href="#{{ fellowship.title |  slugify }}">{{ fellowship.title }}</a></li>

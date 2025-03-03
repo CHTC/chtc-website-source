@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Scale Beyond Local HTC Capacity
 guide:
-    order: 2
-    category: Special Use Cases
+    category: Special use cases
     tag:
         - htc
 ---
@@ -49,8 +48,6 @@ Statistics) or large physics projects (IceCube, CMS). Through agreements
 with these groups, jobs submitted in CHTC can opt into running on these
 other campus pools if there is space.
 
-We call sending jobs to other pools on campus *flocking*.
-
 <span name="osg"></span>
 
 B. UW-Madison's OSG Pool
@@ -59,8 +56,6 @@ B. UW-Madison's OSG Pool
 CHTC maintains an OSG pool for the campus community, which includes 
 resources contributed by campuses, national labs, and other institutions 
 across and beyond the US.
-
-When you send jobs to other institutions in our OSG pool, we call that *gliding*.
 
 
 <span name="job"></span>
@@ -96,8 +91,8 @@ either the UW Grid or OS Pool to run jobs, in addition to CHTC, you can add
 the following to your submit file:
 
 {:.gtable}
-  | +WantFlocking = true | Also send jobs to other HTCondor Pools on campus (UW Grid)<br>Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
-  | +WantGlideIn = true  | Also send jobs to the OS Pool. <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
+  | `want_campus_pools = true` | Also send jobs to other HTCondor Pools on campus (UW Grid)<br>Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
+  | `want_ospool = true`  | Also send jobs to the OS Pool. <br> Good for jobs that are less than \~8 hours, on average, or checkpointing jobs. |
 
 To guarantee maximum efficiency, **please do the following steps
 whenever submitting a new type of job to the UW Grid or OSG:**
@@ -123,5 +118,5 @@ whenever submitting a new type of job to the UW Grid or OSG:**
 3.  **Scaling Up:** Once you have tested your jobs and they seem to be
     running successfully, you are ready to submit a full batch of jobs
     that uses CHTC and the UW Grid/OS Pool. **REMOVE** the `Poolname`
-    requirement from the test jobs but leave the `+wantFlocking` and
-    `+wantGlidein` lines.
+    requirement from the test jobs but leave the `want_campus_pools` and
+    `want_ospool` lines.

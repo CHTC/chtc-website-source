@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: "Practice: Submit HTC Jobs using HTCondor"
 guide:
-    order: 1
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

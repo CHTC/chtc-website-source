@@ -1,0 +1,15 @@
+title: Monitoring CHTC
+type: Infrastructure Services
+summary: |
+  Support high throughput computing at UW-Madison and around the world by joining the CHTC Fellowship Program, where through this project you will build and refine your skills in IT Observability by learning to use ubiquitous industry tools such as Prometheus and Grafana. Home of the [HTCondor Software Suite](https://htcondor.com/), this project is an excellent opportunity to expand your portfolio and IT skill set. In a distributed high throughput system, there are endless opportunities to collect and display metrics; however, discretion is the better part of observability. With the guidance of your mentor, you will strategically gather data with Prometheus, writing alerts to notify System Administrators and Research Computing Facilitators to call attention to system issues. Additionally, you will craft dashboards with just enough information to allow for rapid assessment of both individual components and overall system health and performance. Observability tools and systems designed during this fellowship are ultimately intended to ship worldwide with the HTCondor Software Suite and via dashboard sharing services such as Grafana.
+
+  #### Project Objectives:
+  - Acquire hands-on experience with Prometheus Monitoring tools and Grafana by creating Prometheus metrics and alerts as well as Grafana Dashboards for both HTCondor and system exported metrics.
+  - Build an understanding of high throughput computing architecture and systems performance in the context of the HTCondor Software Suite.
+  - Learn observability and Linux best practices in a dynamic and collaborative environment.
+  - Refine your abilities in public speaking, presentation, and the ability to communicate highly complex subject matter.
+
+  #### Prerequisite Skills:
+  - Prior programming experience, required.
+  - Prior Linux experience, strongly preferred.
+  - Prior experience with Prometheus and Grafana (or similar), desired but not required.

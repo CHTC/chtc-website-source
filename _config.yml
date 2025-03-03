@@ -15,7 +15,7 @@ twitter:
 google_analytics:
 
 # Jekyll does not build hidden directories by default.
-include: [".well-known", ".htaccess", ".gitignore", "icecube/.well-known"]
+include: [".well-known", ".htaccess", ".gitignore", "icecube/.well-known", "nsdf/.well-known"]
 
 markdown_ext : "md,shtml"
 
@@ -32,7 +32,7 @@ defaults:
       path: ""
       type: "news"
     values:
-      layout: character_optimized
+      layout: news-page
       permalink: :title.html
   - scope:
       type: events

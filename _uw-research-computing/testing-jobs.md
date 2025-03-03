@@ -32,8 +32,8 @@ effective high-throughput computing in the following ways:
     high-throughput system while not returning any results.
 -   **Making good choices:** knowing how big and how long your jobs are,
     and the size of input/output files will show you how to most
-    effectively use CHTC resources. Jobs under 2 hrs or so? Allow your
-    jobs to flock and glide to the UW Grid and <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>. Input
+    effectively use CHTC resources. Are your jobs under 2 hrs? Allow your
+    jobs to opt in to the UW Grid and <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a>. Input
     files of more than 5 GB? You should probably be using the CHTC large
     file staging area. Longer jobs? Include a line in your submit file
     restricting your jobs to the CHTC servers that guarantee 72 hours.

@@ -4,8 +4,7 @@ layout: guide
 title: Submitting Multiple Jobs Using HTCondor
 alt_title: Submitting Multiple Jobs Using HTCondor
 guide:
-    order: 2
-    category: Job Submission
+    category: Submit jobs
     tag:
         - htc
 ---

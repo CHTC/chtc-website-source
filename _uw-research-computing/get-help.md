@@ -4,66 +4,53 @@ layout: markdown-page
 title: Get Help
 ---
 
-### There are multiple ways to get help from CHTC staff. See below:
+See below for the various ways to get help when using CHTC services. 
 
-## Research Computing Facilitators
-
-<div class="row justify-content-around d-none d-sm-flex">
-    {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
-    {% for facilitator in facilitators %}
-        <div class="col-auto">
-            <figure class="p-3 d-flex flex-column">
-                <img style="object-fit: cover; border-radius: 50%; width: 12rem; height: 12rem" class="mx-auto" src="/staff-list/{{ facilitator.image | relative_url}}" alt="{{ facilitator.name}}'s Headshot">
-                <figcaption class="mt-1 text-center"><b>{{ facilitator.name }}</b><br>{{facilitator.title}}</figcaption>
-            </figure>
-        </div>
-    {% endfor %}
-</div>
-
-
-To help researchers effectively utilize computing resources, our Research
-Computing Facilitators (RCFs) not only assist your in
-implementing your computational work on CHTC compute resources
-resources, but can also point you to other on- and off-campus services
-related to research computing and data needs. For example, RCFs can: 
-
-* Assist with planning your computational approach for a research
-problem 
-* Teach you to submit jobs to CHTC compute systems 
-* Help you with troubleshooting on CHTC compute systems 
-* Connect you with other researchers using similar software or methods 
-* Point to learning materials for programming and software development 
-* Help you identify applicable non-CHTC data storage options provided by DoIT 
-* Find the person who knows the answer to your question, even if the RCF doesn't 
-* ... and other helpful activities to facilitate your use of cyberinfrastructure
+<img src="/images/20240308_facilitators_morgridge.jpg" class= "img-fluid"/>
 
 ## Get An Account
 
-If you don't have an account yet, please fill out our [Request
-Form](form.html), and we'll follow up quickly to set up a meeting time
-and create accounts. If you don't have an account but just have general
-questions, feel free to send an email to chtc@cs.wisc.edu (see below).
+If you don't have an account yet, please fill out our request form, and we'll
+follow up with your account details or a request to meet. If you don't have an
+account but just have general questions, feel free to send an email to
+[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu).
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_8f6nTgaaVhefdmS">Request a CHTC Account</a>
+	</div>
+</div>
 
 ## Request a Quota Change
 
 If you'd like to request a change in your quotas for one of our data
 storage locations, please see our [Request a Quota Change](quota-request) guide.
 
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="quota-request">Request a Quota Change</a>
+	</div>
+</div>
+
 ## Help Via Email
 
-We provide support via email at the address
-[chtc@cs.wisc.edu](Mailto:chtc@cs.wisc.edu), and it's never a bad idea
-to start by sending questions or issues via email. You can typically
-expect a first response within a few business hours.
+We provide general support via email at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu). You can typically
+expect a first response within 1-2 business days. 
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a>
+	</div>
+</div>
 
 When emailing us for assistance in troubleshooting an issue, please provide which system you are using, 
-an explanation of what you expected to happen versus what actually happened, and  
-include relevant files (or provide the locations of them on the system), such as:
+an explanation of what you expected to happen versus what actually happened, and include relevant files
+(or provide the locations of them on the system), such as:
 
-* The job submit file (.sub)
-* The job executable (.sh) or list of commands used in an interactive job
-* Standard error and standard output files (usually .out or .err)
-* If on the HTC system, the HTCondor log file (.log)
+* The job submit file (`.sub`)
+* The job executable (`.sh`) or list of commands used in an interactive job
+* Standard error and standard output files (usually `.out` or `.err`)
+* If on the HTC system, the HTCondor log file (`.log`)
 
 We will use this information to give you more effective responses and solutions.
 
@@ -84,7 +71,7 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm. **CANCELED OVER THE SUMMER (May 28 through August 27)**
+-   Tuesday morning: 10:30 am - 12:00 pm.
 -   Thursday afternoon: 3:00 - 4:30 pm.
 
 To drop in, find the videoconference link in either your email or in the 
@@ -93,26 +80,45 @@ login message when you log into a CHTC server.
 As always, if the times above don't work for you, please email us 
 at our usual support address to schedule a separate meeting. 
 
-[Click to sign-in for office hours](sign-in.html)
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="sign-in.html">Sign-in for office hours</a>
+	</div>
+</div>
 
+### CHTC Events and Office Hours Calendar
+<iframe id="open-web-calendar" 
+    style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
+    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?ending_hour=18&amp;hour_format=%25g%3A%25i%E2%80%AF%25a&amp;prefer_browser_language=true&amp;start_of_week=work&amp;starting_hour=8&amp;tab=week&amp;tabs=month&amp;tabs=week&amp;target=_blank&amp;title=CHTC%20Events%20and%20Office%20Hours&amp;url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_ab942dce7a1330adb574945756788f3c3291e5e0e8508de8d8b7b9dda1ea4a0b%2540group.calendar.google.com%2Fpublic%2Fbasic.ics"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    allowTransparency="true" scrolling="no" 
+    frameborder="0" height="600px" width="100%"></iframe>
 
-<!-- For users who already have accounts, we have drop-in office hours on:
+## Check System Status
 
--   **Tuesday/Thursday afternoons, from 3:00 - 4:30 pm.**
--   **Wednesday morning from 9:30 - 11:30 am**
+Check our system status page at [https://status.chtc.wisc.edu](https://status.chtc.wisc.edu), where we 
+provide updates  about CHTC system issues, including outages and scheduled maintenance. Major outages and maintenance  issues are still communicated via the `chtc-users` email list, but minor issues and updates to 
+ongoing issues will be communicated via the status page. 
 
-Office Hours are located in the [Discovery
-Building](http://map.wisc.edu/s/919bjy8v) at the second-floor round
-table, just off of the main staircase.\
- **For researchers without access to the upper floors of the Discovery
-Building, check in at the front desk and ask them to "call CHTC."**\
- We will confirm that you are here for office hours and you will be let
-upstairs. (Note: If you ask the desk to call for a facilitator, by name,
-no one will answer as facilitators will not be in their *own* offices
-during Office Hours.) --> 
+> If you are experiencing an issue with the system, please check the status page! If you 
+> don't see a corresponding incident, feel free to email us.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://status.chtc.wisc.edu">Check System Status</a>
+	</div>
+</div>
 
 ## Make an Appointment
 
 We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
+
+## More About Us
+
+Support at CHTC is provided by the whole team, and lead by the Research 
+Computing Facilitation Team. Learn more about us here: 
+
+* [The Facilitation Team](facilitation-team.html)
+

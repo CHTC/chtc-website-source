@@ -3,8 +3,7 @@ highlighter: none
 layout: guide
 title: Use GPUs
 guide:
-    order: 0
-    category: Special Use Cases
+    category: Special use cases
     tag:
         - htc
 ---
@@ -48,51 +47,20 @@ the capacity of the GPU Lab to run their work.
     <th>Hardware Generation <code>Capability</code></th>
     <th>GPU Memory <code>GlobalMemoryMB</code></th>
   </tr>
-<!--  <tr>
-    <td>gpu-3.chtc.wisc.edu</td> 
-    <td>1 </td>
-    <td>Tesla K40c</td>
-  </tr>   -->  
+  {% for gpu in site.data.gpus %}
+	{% if gpu.owner != "campus" %}
+		{% continue %}
+    {% endif %}
+
   <tr>
-    <td>2</td>
-    <td>gpu2000, gpu2001</td>
-    <td>2</td>
-    <td>Tesla P100-PCIE-16GB</td>
-    <td>6.0</td>
-    <td>16GB</td>
+	<td>{{ gpu.number_of_servers }}</td>
+	<td>{{ gpu.names }}</td>
+	<td>{{ gpu.gpus_per_server }}</td>
+	<td>{{ gpu.gpu_type }}</td>
+	<td>{{ gpu.hardware_generation }}</td>
+	<td>{{ gpu.gpu_memory }}</td>
   </tr>
-  <tr>
-    <td>4</td>
-    <td>gpulab2000 - gpulab2003</td>
-    <td>8</td>
-    <td>GeForce RTX 2080 Ti</td>
-    <td>7.5</td>
-    <td>10GB</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>gpulab2004, gpulab2005</td>
-    <td>4</td>
-    <td>A100-SXM4-40GB</td>
-    <td>8.0</td>
-    <td>40GB</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>gpu2002 - gpu2011</td>
-    <td>4</td>
-    <td>A100-SXM4-80GB</td>
-    <td>8.0</td>
-    <td>80GB</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>gpu4000 - gpu4002</td>
-    <td>10</td>
-    <td>L40</td>
-    <td>8.9</td>
-    <td>45GB</td>
-  </tr>
+  {% endfor %}
 </table>
 
 ### Special GPU Lab Policies
@@ -149,43 +117,28 @@ like to submit by using the submit file option below.
 	your jobs will run in less than 12 hours, it is advantageous to indicate that they are 
 	"short" jobs because you will be able to have more jobs running at once. 
 
-- **Request Specific GPUs or CUDA Functionality Using `require_gpus` (optional)**: If your software or code requires a certain
-type of GPU, or has some other special requirement, there is a special submit file line 
-to request these capabilities, `require_gpus`. For example, if you want a certain 
-class of GPU, represented by 
-the attribute `Capability`, your `require_gpus` statement would look like this: 
+- **Request Specific GPUs or CUDA Functionality (optional)**: If your software or code requires a certain "capability" of GPU (see table above) or a certain amount of memory
+you can request them with these submit file options: 
+
+	To request a certain range of capabilities: 
 	```
-require_gpus = (Capability > 7.5)
+gpus_minimum_capability = <version>
+gpus_maximum_capability = <version>
 	```
-	{: .sub}
+	{:.sub}
 	
-	You can see a table of the different attributes that HTCondor tracks 
-	about the GPU nodes, and how to explore their values, in the section
-	on [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus).
-		
+	To request a minimum amount of GPU memory: 
+	```
+gpus_minimum_memory = <quantity in MB>
+	```
+	{:.sub}
+
+	More information on these commands can be found in the [HTCondor manual](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability).
+
 	It may be tempting to add requirements for specific GPU servers or
 	types of GPU cards. However, when possible, it is best to write your
 	code so that it can run across GPU types and without needing the
 	latest version of CUDA.
-	
-
-- **Specify Multiple GPU Requirements (optional)**: Multiple requirements can be specified by using && statements:
-	```
-require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
-	```
-	{:.sub}
-	Ensure all specified requirements match the attributes of the GPU/Server of interest. HTCondor matches jobs to GPUs that match all specified requirements. Otherwise, the jobs will sit idle indefinitely.
-
-  > We are testing a new set of submit commands for specifying the requirements of the GPU:
-  >
-  > ```
-  > gpus_minimum_capability = <version>
-  > gpus_maximum_capability = <version>
-  > gpus_minimum_memory = <quantity in MB>
-  > ```
-  > {:.sub}
-  >
-  > More information on these commands can be found in the [HTCondor manual](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability).
 
 - **Indicate Software or Data Requirements Using `requirements`**: If your data is large enough to 
 	use our `/staging` data system (see more information [here](file-avail-largedata.html)), 
@@ -204,6 +157,12 @@ require_gpus = (Capability >= 7.5) && (GlobalMemoryMb >= 11000)
 	For more information about the servers that you can run on with this option, 
 	and what it means to run your jobs as "backfill" see 
 	the section below on [Accessing Research Group GPUs](#1-access-research-group-gpus).
+
+- **Complex GPU requirements**: if your jobs have more complex requirements than 
+the capability and memory options shown above, you can use a more general submit file 
+option `require_gpus` to construct a complex, custom requirement. Contact the facilitators
+at chtc@cs.wisc.edu if you believe you need to use this option. 
+
 
 ## 2. Sample Submit File
 
