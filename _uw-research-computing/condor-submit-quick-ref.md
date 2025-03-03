@@ -44,13 +44,54 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `arguments` | lists all execution point slots |
-| `environment` | lists information about the specified `execution_point` |
+| `arguments = <args>` | lists all execution point slots |
+| `environment = <parameter_list>` | lists information about the specified `execution_point` |
+| `log = <job.log>` | lists all attributes of `execution_point` |
+| `output = <job.out>` | lists all attributes of `execution_point` |
+| `error = <job.err>` | lists all attributes of `execution_point` |
+| `executable = <executable.sh>` | lists all attributes of `execution_point` |
+| `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
+{:.command-table}
+
+## Managing File Transfers in HTCondor
+
+These commands display information about the execution points - machines that execute/run jobs.
+
+| Command | Use | Example | Notes |
+| --- | --- | --- | --- |
+| `transfer_input_files = ` | lists all execution point slots |
+| `transfer_input_files = ` | lists information about the specified `execution_point` |
 | `log = <job.log>` | lists all attributes of `execution_point` |
 | `out = <job.out>` | lists all attributes of `execution_point` |
 | `error = <job.err>` | lists all attributes of `execution_point` |
 | `executable = <executable.sh>` | lists all attributes of `execution_point` |
 | `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
+{:.command-table}
+
+## Controlling Where Your Job Runs
+
+These commands display information about the execution points - machines that execute/run jobs.
+
+| Command | Use | Example | Notes |
+| --- | --- | --- | --- |
+| `request_cpus = <int>` | lists all execution point slots |
+| `request_disk = <quantity>` | lists information about the specified `execution_point` |
+| `request_memory = <quantity>` | lists all attributes of `execution_point` |
+| `request_gpus = <int>` | lists all attributes of `execution_point` |
+| `requirements = <ClassAd Boolean>` | lists all attributes of `execution_point` |
+| `gpus_minimum_capacity = <version>` | lists all attributes of `execution_point` |
+| `cuda_version = <version>` | lists all attributes of `execution_point` |
+{:.command-table}
+
+## Controlling How Your Job Runs
+
+These commands display information about the execution points - machines that execute/run jobs.
+
+| Command | Use | Example | Notes |
+| --- | --- | --- | --- |
+| `universe = <vanilla, scheduler, local, grid, java, vm, parallel, docker, container>` | lists all execution point slots |
+| `container_image = ` | lists information about the specified `execution_point` |
+| `container_target_dir = </path/to/dir >` | lists all attributes of `execution_point` |
 {:.command-table}
 
 ## Queue Statement Options
@@ -59,9 +100,9 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `arguments` | lists all execution point slots |
-| `environment` | lists information about the specified `execution_point` |
-| `log = <job.log>` | lists all attributes of `execution_point` |
+| `queue` | lists all execution point slots |
+| `queue <int>` | lists information about the specified `execution_point` |
+| `queue ` | lists all attributes of `execution_point` |
 | `out = <job.out>` | lists all attributes of `execution_point` |
 | `error = <job.err>` | lists all attributes of `execution_point` |
 | `executable = <executable.sh>` | lists all attributes of `execution_point` |
