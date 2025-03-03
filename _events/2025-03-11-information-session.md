@@ -8,7 +8,7 @@ excerpt: |
 
 start_date: 2025-03-11
 end_date: 2025-03-11
-location: "UW-Madison Campus, Discovery Building Room 1170 and Virtually"
+location: "UW-Madison Campus, Discovery Building Room 1260 and Virtually"
 image: "/images/20240308_Morgridge_RCFs.jpg"
 header_image: "/images/20240308_Morgridge_RCFs.jpg"
 ---
@@ -48,7 +48,7 @@ Tuesday, March 11, 10:30 - 11:15am
 
 In-Person / Zoom
 
-Discovery Building Room 1170
+Discovery Building Room 1260
 
 ## Registration
 
