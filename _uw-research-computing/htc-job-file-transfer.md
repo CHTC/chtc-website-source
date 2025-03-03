@@ -46,6 +46,7 @@ In the HTCondor submit file, `transfer_input_files` should always be used to tel
 | ----------- | ----------- | ----------- | ----------- |
 | 0 - 100 MB      | `/home`       | `transfer_input_files = input.txt`       |
 | 100 MB - 30 GB   | `/staging`        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
+| > 100 MB - 100 GB   | `/staging/groups`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 | > 30 GB   | `/staging`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 | > 100 GB | | For larger datasets (100GB+ per job), contact the facilitation team about the best strategy to stage your data |
 
