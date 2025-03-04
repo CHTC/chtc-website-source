@@ -21,17 +21,25 @@ familiar with:**
 1.  Using the command-line to: navigate directories,
     create/edit/copy/move/delete files and directories, and run intended
     programs (aka "executables").
-2.  CHTC's [Intro to Running HTCondor Jobs](helloworld.html)
-3.  CHTC's guide for [Typical File Transfer](file-availability.html)
+2.  CHTC's [Intro to Running HTCondor Jobs](htcondor-job-submission)
+3.  CHTC's guide for [Typical File Transfer](htc-job-file-transfer)
 
 {% capture content %}
-1.  [Policies and Intended Use](#1-policies-and-intended-use)
-2.  [Staging Large Data](#2-staging-large-data)
-3.  [Using Staged Files in a Job](#3-using-staged-files-in-a-job)
-	* [Accessing Large Input Files](#a-accessing-large-input-files)
-	* [Moving Large Output Files](#b-moving-large-output-files)
-4.  [Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
-5.  [Checking your Quota, Data Use, and File Counts](#5-checking-your-quota-data-use-and-file-counts)
+- [1. Policies and Intended Use](#1-policies-and-intended-use)
+   * [A. Intended Use](#a-intended-use)
+   * [B. Access to Large Data Staging](#b-access-to-large-data-staging)
+   * [C. User Data Management Responsibilities](#c-user-data-management-responsibilities)
+   * [D. Data Access Within Jobs](#d-data-access-within-jobs)
+- [2. Staging Large Data](#2-staging-large-data)
+   * [A. Get a Directory](#a-get-a-directory)
+   * [B. Reduce File Counts](#b-reduce-file-counts)
+   * [C. Use the Transfer Server](#c-use-the-transfer-server)
+   * [D. Remove Files After Jobs Complete](#d-remove-files-after-jobs-complete)
+- [3. Using Staged Files in a Job](#3-using-staged-files-in-a-job)
+   * [A. Transferring Large Input Files](#a-transferring-large-input-files)
+   * [B. Transferring Large Output Files](#b-transferring-large-output-files)
+- [4. Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
+- [5. Related Pages](#5-related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -47,13 +55,11 @@ familiar with:**
 
 Our large data staging location is only for input and output files that 
 are individually too large to be managed by our other data movement 
-methods, <a href="https://htcondor.org">HTCondor</a> file transfer or SQUID. This includes individual input files 
+methods, <a href="https://htcondor.org">HTCondor</a> file transfer. This includes individual input files 
 greater than 100MB and individual output files greater than 3-4GB. 
 
 Users are expected to abide by this intended use expectation and follow the 
-instructions for using `/staging` written in this guide (e.g. files placed 
-in `/staging `should NEVER be listed in the submit file, but rather accessed 
-via the job's executable (aka .sh) script).
+instructions for using `/staging` written in this guide.
 
 ## B. Access to Large Data Staging
 
@@ -82,11 +88,11 @@ location (or any CHTC file system) at any time.
 
 ## D. Data Access Within Jobs
 
- Staged large data will 
+Staged large data will 
 be available only within the the CHTC pool, on a subset of our total 
 capacity. 
 
-Staged data are owned by the user, and only the user's own
+Staged data are owned by the user and only the user's own
 jobs can access these files (unless the user specifically modifies unix
 file permissions to make certain files available for other users).
 
@@ -156,100 +162,27 @@ back at a later date. Files can be taken off of `/staging` using similar
 mechanisms as uploaded files (as above). 
 
 # 3. Using Staged Files in a Job
-
-As shown above, the staging directory for large data is `/staging/username`. 
-All interaction with files in this location should occur within your job's 
-main executable.
-
-## A. Accessing Large Input Files
-
-To use large data placed in the `/staging` location, add commands to your 
-job executable that copy input 
-from `/staging` into the working directory of the job. Program should then use 
-files from the working directory, being careful to remove the coiped 
-files from the working
-directory before the completion of the job (so that they're not copied
-back to the submit server as perceived output). 
-
-Example, if executable is a shell script:
+## A. Transferring Large Input Files
+Staged files should be specified in the job submit file using the `osdf:///` or `file:///` syntax,
+depending on the size of the files to be transferred. [See this table for more information](htc-job-file-transfer#transferring-data-to-jobs-with-transfer_input_files).
 
 ```
-#!/bin/bash
-#
-# First, copy the compressed tar file from /staging into the working directory,
-#  and un-tar it to reveal your large input file(s) or directories:
-cp /staging/username/large_input.tar.gz ./
-tar -xzvf large_input.tar.gz
-#
-# Command for myprogram, which will use files from the working directory
-./myprogram large_input.txt myoutput.txt
-#
-# Before the script exits, make sure to remove the file(s) from the working directory
-rm large_input.tar.gz large_input.txt
-#
-# END
+transfer_input_files = osdf:///chtc/staging/username/file1, file:///staging/username/file2, file3 
 ```
-{: .file}
+{:.sub}
 
 
-## B. Moving Large Output Files
+## B. Transferring Large Output Files
 
-If jobs produce large (more than 3-4GB) output files, have 
-your executable write the output file(s) to a location within
-the working directory, and then make sure to move this large file to
-the `/staging` folder, so that it's not transferred back to the home directory, as
-all other "new" files in the working directory will be.
+By default, any new or changed files in the top-level directory are transferred to your working directory on `/home`. If you have large output files, this is undesirable.
 
-Example, if executable is a shell script:
+Large outputs should be transferred to staging using the same file transfer protocols in HTCondor's `transfer_output_remaps` option: 
 
 ```
-#!/bin/bash
-# 
-# Command to save output to the working directory:
-./myprogram myinput.txt output_dir/
-#
-# Tar and mv output to staging, then delete from the job working directory:
-tar -czvf large_output.tar.gz output_dir/ other_large_files.txt
-mv large_output.tar.gz /staging/username/
-rm other_large_files.txt
-#
-# END
+transfer_output_files = file1, file2
+transfer_output_remaps = "file1 = osdf:///chtc/staging/username/file1; file2 = file:///staging/username/file2"
 ```
-{: .file}
-
-## C. Handling Standard Output (if needed)
-
-In some instances, your software may produce very large standard output
-(what would typically be output to the command screen, if you ran the
-command for yourself, instead of having <a href="https://htcondor.org">HTCondor</a> do it). Because such
-standard output from your software will usually be captured by HTCondor
-in the submit file "output" file, this "output" file WILL still be
-transferred by HTCondor back to your home directory on the submit
-server, which may be very bad for you and others, if that captured
-standard output is very large.
-
-In these cases, it is useful to redirect the standard output of commands
-in your executable to a file in the working directory, and then move it
-into `/staging` at the end of the job.
-
-Example, if "`myprogram`" produces very large standard output, and is
-run from a script (bash) executable:
-
-```
-#!/bin/bash
-#
-# script to run myprogram,
-# 
-# redirecting large standard output to a file in the working directory:
-./myprogram myinput.txt myoutput.txt > large_std.out
-# 
-# tar and move large files to staging so they're not copied to the submit server:
-tar -czvf large_stdout.tar.gz large_std.out
-cp large_stdout.tar.gz /staging/username/subdirectory
-rm large_std.out large_stdout.tar.gz
-# END
-```
-{: .file}
+{:.sub}
 
 # 4. Submit Jobs Using Staged Data
 
@@ -260,13 +193,9 @@ In order to properly submit jobs using staged large data, always do the followin
 
 In your submit file: 
 
-- **No large data in the submit file**:  Do NOT list any `/staging` files in any of the submit file
-    lines, including: `executable, log, output, error, transfer_input_files`. Rather, your
-    job's ENTIRE interaction with files in `/staging` needs to occur
-    WITHIN each job's executable, when it runs within the job (as shown [above](#3-using-staged-files-in-a-job))
 - **Request sufficient disk space**: Using `request_disk`, request an amount of disk 
-space that reflects the total of a) input data that each job will copy into
-    the job working directory from `/staging,` and b) any output that
+space that reflects the total of (a) input data that each job will copy into
+    the job working directory from `/staging,` and (b) any output that
     will be created in the job working directory.
 - **Require access to `/staging`**: Include the CHTC specific attribute that requires 
 servers with access to `/staging`
@@ -284,8 +213,7 @@ log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-## Do NOT list the large data files here
-transfer_input_files = myprogram
+transfer_input_files = osdf:///chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)
@@ -295,32 +223,8 @@ Requirements = (Target.HasCHTCStaging == true)
 queue
 ```
 
-> **Note: in no way should files on `/staging` be specified in the submit file, 
-> directly or indirectly!** For example, do not use the `initialdir` option (
-> [Submitting Multiple Jobs in Individual Directories](multiple-job-dirs.html))
-> to specify a directory on `/staging`.
+# 5. Related Pages
 
-# 5. Checking your Quota, Data Use, and File Counts
-
-You can use the command `get_quotas` to see what disk 
-and items quotas are currently set for a given directory path. 
-This command will also let you see how much disk is in use and how many 
-items are present in a directory:
-
-```
-[username@transfer ~]$ get_quotas /staging/username
-```
-{:.term}
-
-Alternatively, the `ncdu` command can also be used to see how many 
-files and directories are contained in a given path:
-
-``` 
-[username@transfer ~]$ ncdu /staging/username
-```
-{:.term}
-
-When `ncdu` has finished running, the output will give you a total file
-count and allow you to navigate between subdirectories for even more
-details. Type `q` when you\'re ready to exit the output viewer. More
-info here: <https://lintut.com/ncdu-check-disk-usage/>
+* [Data Storage Locations on the HTC](htc-job-file-transfer)
+* [Check Disk Quota and Usage](check-quota)
+* [Request a /staging directory or quota change](quota-request)
