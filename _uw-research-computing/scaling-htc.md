@@ -80,6 +80,11 @@ to us, they have two major requirements:
     self-checkpointing for a longer code, we are happy to provide resources 
     and guidance. 
 
+-   **No files in `/staging/groups`**: We are currently unable to transfer files from
+    `/staging/groups` to resources outside of CHTC. If you want to use these
+    files, please transfer them to your individual `/staging` directory first, then use
+    the `osdf:///` file transfer plugin as described in [our guides](file-avail-largedata).
+
 
 <span name="submit"></span>
 

@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: file_avail
-title: Managing Large Data in HTC Jobs
+title: Manage Large Data in HTC Jobs
 alt_title: Use Large Input and Output Files Via Staging
 guide:
     category: Manage data
