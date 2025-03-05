@@ -50,7 +50,7 @@ These commands display information about the execution points - machines that ex
 | `output = <job.out>` | path to file capturing `stdout` screen output | `output = ./log_files/job1.out` | can be merged with `stderr` by denoting the same path in `error = <path>` |
 | `error = <job.err>` | path to file capturing `stderr` screen output | `output = ./log_files/job1.err` | can be merged with `stdout` by denoting the same path in `output = <path>` |
 | `executable = <executable.sh>` | path to the executable script | `executable = helloWorld.py` | the executable script is automatically transferred to the Execution Point (EP) by HTCondor |
-| `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
+| `notification = <Always, Complete, Error, or None>` | notifies by e-mail when certain events occur | | **use carefully:* it can create an large # of inbound emails for multi-job HTCondor clusters |
 {:.command-table}
 
 ## Managing File Transfers in HTCondor
@@ -59,13 +59,10 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `transfer_input_files = ` | lists all execution point slots |
-| `transfer_input_files = ` | lists information about the specified `execution_point` |
-| `log = <job.log>` | lists all attributes of `execution_point` |
-| `out = <job.out>` | lists all attributes of `execution_point` |
-| `error = <job.err>` | lists all attributes of `execution_point` |
-| `executable = <executable.sh>` | lists all attributes of `execution_point` |
-| `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
+| `transfer_input_files = ` | lists all the input files to be transferred to the Execute Point (EP) | `transfer_input_files = /staging/<user>/<dir>` \ `transfer_input_files = <protocol>:///chtc/staging/<user>/<dir>` | comma-separated list various file transfer protocols can be used in `transfer_input_files` including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`|
+| `transfer_output_files = ` | explicitly lists the path to files to be returned to the Access Point (AP) from the Execute Point (EP) | `transfer_output_files = ./output_files/results.txt` | |
+| `transfer_output_remaps = "<path_on_EP> = <new_path_on_AP>` | remaps (redirects or renames) output files explicitly listed to the Access Point (AP) on job completion | `transfer_output_remaps = "./results.txt = /staging/<user>/job1_results.txt` (saves results.txt as `/staging/<user>/job1_results.txt`) | |
+| `when_to_transfer_output = <ON_EXIT, ON_EXIT_OR_EVICT, or ON_SUCCESS>` | causes HTCondor to transfer job outputs based on the job's exit code | |
 {:.command-table}
 
 ## Controlling Where Your Job Runs
@@ -74,13 +71,14 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `request_cpus = <int>` | lists all execution point slots |
-| `request_disk = <quantity>` | lists information about the specified `execution_point` |
-| `request_memory = <quantity>` | lists all attributes of `execution_point` |
-| `request_gpus = <int>` | lists all attributes of `execution_point` |
-| `requirements = <ClassAd Boolean>` | lists all attributes of `execution_point` |
-| `gpus_minimum_capacity = <version>` | lists all attributes of `execution_point` |
-| `cuda_version = <version>` | lists all attributes of `execution_point` |
+| `request_cpus = <int>` | requests number of CPUs (cores)|
+| `request_disk = <quantity>` | requests amount of disk space (Default in KB) | `request_disk = 40GB` | can denote kilobytes using `K` or `KB`, megabytes using `M` or `MB`, gigabytes using `G` or `GB`, or terrabytes using `T` or `TB` |
+| `request_memory = <quantity>` | requests amount of memory for job (Default in KB) | `request_memory = 250GB` | |
+| `request_gpus = <int>` | requests number of GPUs | | if not specified, no GPUs requested |
+| `requirements = <ClassAd Boolean>` | appends additional requirements to the job submission file | `Requirements = (OpSysAndVer == "RedHat9")`| See PAGEHERE for all requirement options
+| `gpus_minimum_capacity = <version>` | minimum GPU Capability value | `gpus_minimum_capability = 8.5` | 
+| `gpus_minimum_runtime = <version>` | minimum GPU runtime (usually CUDA) version | `gpus_minimum_runtime = 9.1` | 
+| `cuda_version = <version>` | specifies version of CUDA to be used | | superceeded by `gpus_minimum_runtime` |
 {:.command-table}
 
 ## Controlling How Your Job Runs
@@ -89,9 +87,8 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `universe = <vanilla, docker, or container>` | lists all execution point slots |
-| `container_image = ` | lists information about the specified `execution_point` |
-| `container_target_dir = </path/to/dir >` | lists all attributes of `execution_point` |
+| `universe = <vanilla or container>` | specifies which HTCondor universe environment to use when running this job | | `universe = vanilla` is the default HTCondor environment \ `universe = container` specifies an environment built for running container images (Docker, Apptainer, and Singularity)|
+| `container_image = <image_file>` | specifies the path to a container image to be used | `container_image = docker://pytorch/pytorch:latest` | can pull image from DockerHub or load `.sif` files directly |
 {:.command-table}
 
 ## Queue Statement Options
@@ -100,10 +97,9 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `queue` | lists all execution point slots |
-| `queue <int>` | lists information about the specified `execution_point` |
-| `queue <var> from <list>` | lists all attributes of `execution_point` |
-| `queue <var1>, <var2> from <list>` | lists all attributes of `execution_point` |
+| `queue` | command line queuing the job to start | | if no other options specified, a single job is queued |
+| `queue <int>` | places zero or more copies of the job into the HTCondor queue | `queue 10` | |
+| `queue <var> from <list>` | places copies of the job in the queue based on the lines in a comma-separated list `<list>` or `<file>` | `queue name from ./list.txt` |
 | `queue <int_expr>, <var2> from <list>` | lists all attributes of `execution_point` |
 | `queue <var1> <var> in [slice] <list>` | lists all attributes of `execution_point` |
 | `queue <var> matching <globbing_string>` | lists all attributes of `execution_point` |
