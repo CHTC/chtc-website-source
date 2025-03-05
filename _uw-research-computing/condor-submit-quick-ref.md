@@ -14,8 +14,11 @@ This page lists common HTCondor commands and options for jobs. Users familiar wi
 {% capture content %}
 - [Introduction](#introduction)
 - [Submit jobs](#submit-jobs)
-- [Monitor jobs](#monitor-jobs)
-- [Machine information](#machine-information)
+- [Basic Submit File Options](#basic-submit-file-options)
+- [Managing File Transfers in HTCondor](#managing-file-transfers-in-htcondor)
+- [Controlling Where Your Job Runs](#controlling-where-your-job-runs)
+- [Controlling How Your Job Runs](#controlling-how-your-job-runs)
+- [Queue Statement Options](#queue-statement-options)
 - [Glossary](#glossary)
 - [Related Pages](#related-pages)
 {% endcapture %}
@@ -29,22 +32,22 @@ This page lists common HTCondor commands and options for jobs. Users familiar wi
 
 ## Submit jobs
 
-You can use these commands to submit, hold, or remove your jobs.
+You can use these commands to submit jobs to HTCondor. 
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `condor_submit` | submits job(s) as specified by `submit_file` | `condor_submit helloWorld.sub` | See [monitor your jobs](condor_q) |
-| `condor_submit -i <submit_file>` | submits an interactive job as specified by `submit_file` | `condor_submit -i helloWorld.sub`| 
-| `condor_submit <submit_file> -append <attribute>` | appends Condor commands to `submit_file` during submission | `condor_submit helloWorld.sub -append "request_disk = 1GB"`| commands are added inplace prior to the `queue` command while leaving the `submit_file` unedited. Can pass `queue` commands as appended, if needed. |
+| `condor_submit` | submits job(s) as specified by `submit_file` | `condor_submit helloWorld.sub` | See [monitor your jobs](condor_q) 
+| `condor_submit -i <submit_file>` | submits an interactive job as specified by `submit_file` | `condor_submit -i helloWorld.sub`
+| `condor_submit <submit_file> -append <attribute>` | appends Condor commands to `submit_file` during submission | `condor_submit helloWorld.sub -append "request_disk = 1GB"`| commands are added inplace prior to the `queue` command while leaving the `submit_file` unedited. Can pass `queue` commands as appended, if needed. 
 {:.command-table}
 
 ## Basic Submit File Options
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands specify the basic submit file options needed to start a job on HTCondor 
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `arguments = "<args>"` | lists arguments to be passed to the executable as part of the command line | `arguments = "hello world` ("hello", "world" are passed as two separate arguments)| arguments are wrapped by quotes(") and space separated |
+| `arguments = "<args>"` | lists arguments to be passed to the executable as part of the command line | `arguments = "hello world` | arguments are wrapped by quotes(") and space separated |
 | `environment = <parameter_list>` | lists environmental variables | `environment = "VARIABLE1=Value1 VAR2='hello world'"` | wrapped by quotes(") and space separated |
 | `log = <job.log>` | denotes the path to the log file | `log = ./log_files/job1.log`| if not provided, no log file is recorded |
 | `output = <job.out>` | path to file capturing `stdout` screen output | `output = ./log_files/job1.out` | can be merged with `stderr` by denoting the same path in `error = <path>` |
@@ -55,11 +58,11 @@ These commands display information about the execution points - machines that ex
 
 ## Managing File Transfers in HTCondor
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands control how and when files are transferred during submission and following job ending 
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `transfer_input_files = ` | lists all the input files to be transferred to the Execute Point (EP) | `transfer_input_files = /staging/<user>/<dir>` \ `transfer_input_files = <protocol>:///chtc/staging/<user>/<dir>` | comma-separated list various file transfer protocols can be used in `transfer_input_files` including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`|
+| `transfer_input_files = ` | lists all the input files to be transferred to the Execute Point (EP) | `transfer_input_files = /staging/<user>/<dir>` <br><br> `transfer_input_files = <protocol>:///chtc/<path>` | comma-separated list various file transfer protocols can be used in `transfer_input_files` including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`|
 | `transfer_output_files = ` | explicitly lists the path to files to be returned to the Access Point (AP) from the Execute Point (EP) | `transfer_output_files = ./output_files/results.txt` | |
 | `transfer_output_remaps = "<path_on_EP> = <new_path_on_AP>` | remaps (redirects or renames) output files explicitly listed to the Access Point (AP) on job completion | `transfer_output_remaps = "./results.txt = /staging/<user>/job1_results.txt` (saves results.txt as `/staging/<user>/job1_results.txt`) | |
 | `when_to_transfer_output = <ON_EXIT, ON_EXIT_OR_EVICT, or ON_SUCCESS>` | causes HTCondor to transfer job outputs based on the job's exit code | |
@@ -67,7 +70,7 @@ These commands display information about the execution points - machines that ex
 
 ## Controlling Where Your Job Runs
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands control where you job, runs on which Execution Points, and what your job requires to match/run
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
@@ -83,26 +86,25 @@ These commands display information about the execution points - machines that ex
 
 ## Controlling How Your Job Runs
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands control how your job environment behaves on the Execution Point (EP)
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `universe = <vanilla or container>` | specifies which HTCondor universe environment to use when running this job | | `universe = vanilla` is the default HTCondor environment \ `universe = container` specifies an environment built for running container images (Docker, Apptainer, and Singularity)|
+| `universe = <vanilla or container>` | specifies which HTCondor universe environment to use when running this job | | `universe = vanilla` is the default HTCondor environment <br> `universe = container` specifies an environment built for running container images (Docker, Apptainer, and Singularity)|
 | `container_image = <image_file>` | specifies the path to a container image to be used | `container_image = docker://pytorch/pytorch:latest` | can pull image from DockerHub or load `.sif` files directly |
 {:.command-table}
 
 ## Queue Statement Options
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands control how many jobs (and what jobs) are queued by HTCondor for execution
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
 | `queue` | command line queuing the job to start | | if no other options specified, a single job is queued |
 | `queue <int>` | places zero or more copies of the job into the HTCondor queue | `queue 10` | |
-| `queue <var> from <list>` | places copies of the job in the queue based on the lines in a comma-separated list `<list>` or `<file>` | `queue name from ./list.txt` |
-| `queue <int_expr>, <var2> from <list>` | lists all attributes of `execution_point` |
-| `queue <var1> <var> in [slice] <list>` | lists all attributes of `execution_point` |
-| `queue <var> matching <globbing_string>` | lists all attributes of `execution_point` |
+| `queue <var> from <list>` | places copies of the job in the queue based on the lines in a comma-separated list `<list>` or `<file>` | `queue name from ./listOfEmployeeNames.txt` | the `<var>` value(s) can be passed as an environment or argument variable |
+| `queue <var> in [slice] <list>` | places jobs in the queue using a python style slice selecting only some of the items in the list of items | `queue name in [5:18] ./listOfEmployeeNames.txt` | 
+| `queue <var> matching <globbing_string>` | places jobs in the queue based on globbing matches of files/directories in a path | `queue sampleID matching ./samples/sampleID_*` | |
 {:.command-table}
 
 ## Glossary
@@ -110,7 +112,6 @@ These commands display information about the execution points - machines that ex
 | Term | Meaning |
 | --- | --- |
 | access point | The machine which you log into to access CHTC's servers. This is the machine you use to prepare files for job submission and submit jobs. |
-| cluster ID | A unique number associated with a single job submission. |
 | error file / standard error | The file in which your job typically prints any errors. |
 | execution point | The machine that executes or runs your job. |
 | held/hold | A job state in which your job has stopped running due to an error. |
