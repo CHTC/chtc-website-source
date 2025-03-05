@@ -9,67 +9,63 @@ guide:
         - hpc
 ---
 
+## Introduction
+This guide shows how to transfer (upload/download) files between a local computer and CHTC's file systems. Two options are presented: the `scp` command line utility, and a file transfer program. Additionally, we present tarballs as a way to transfer multiple files easily.
+
 {% capture content %}
-1.  [Transferring Files](#transfer)
-    -   [On the command line](#transfer-scp)
-    -   [Using an SSH program (Windows/Mac)](#transfer-winscp)
-    -   [Re-using SSH connections](#transfer-many)
-3.  [Creating and Editing Files in CHTC](#files)
+- [Introduction](#introduction)
+- [Before you transfer](#before-you-transfer)
+- [Option 1: Transfer files with the `scp` command line utility](#option-1-transfer-files-with-the-scp-command-line-utility)
+- [Option 2: Transfer files with a file transfer program](#option-2-transfer-files-with-a-file-transfer-program)
+- [Transfer multiple files using tarballs](#transfer-multiple-files-using-tarballs)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-<a name="transfer"></a>
+## Before you transfer
 
-**1. Transferring Files**
-=====================
+To transfer files to and from CHTC, you will need:
+* Your username and hostname information for [logging in](connecting)
+* The location on the file system of the files to be transferred (also referred to as the "path")
+* The location on the file system where you'd like to transfer your files to.
+* Basic skills in [navigating file systems](basic-shell-commands#navigate-directories)
 
-To transfer files to and from CHTC, you will need the same username and
-hostname information for [logging in](#login), as well as understanding
-where your files are and where you would like them to go.
 
-
-<a name="transfer-scp"></a>
-
-A. On the command line
-----------------------------------
+## Option 1: Transfer files with the `scp` command line utility
 
 On Mac, Linux, or modern Windows (10+) systems, you can use the \"Terminal\" application and
 the `scp` command to copy files between your computer and CHTC servers.
 
-**Your computer to CHTC**
+**Upload files from your computer to CHTC**
 
-First, open the \"Terminal\" application and navigate to the directory
-with the files or directories you want to transfer. Then, use this
+First, open the \"Terminal\" application and navigate to the directory with the files or directories you want to transfer using the [`cd` command](basic-shell-commands#navigate-directories). Then, use this
 command to copy these files to CHTC:
 
 ``` 
-$ scp file username@hostname:/home/username
+scp file username@hostname:/home/username
 ```
 {:.term}
 
 If you would like these files to end up in a different directory inside
 your home directory, just add it to the path at the end of the command.
 
-**CHTC to your computer**
+**Download files from CHTC to your computer**
 
 Open the \"Terminal\" application. Do NOT log into CHTC. Instead,
 navigate to where you want the files to go on your computer. Then, use
 this command to copy these files there:
 
 ```
-$ scp username@hostname:/home/username/file ./
+scp username@hostname:/home/username/file ./
 ```
 {:.term}
 
-Again, for many files, it will be easiest to create a compressed tarball
+For transferring many files, it will be easiest to create a compressed tarball
 (.tar.gz file) of your files and transfer that instead of each file
-individually. 
+individually.
 
 
-<a name="transfer-winscp"></a>
-
-B. Using a file transfer program (Windows/Mac)
-----------------------------------------------
+## Option 2: Transfer files with a file transfer program
 
 Windows and Mac users can also use special programs to help them
 transfer files between their computers and CHTC. For Windows, we
@@ -80,60 +76,32 @@ looks like this:
 ![](/images/WinSCPPortable.png)
 
 The left window is a directory on your computer, the right window is
-your home directory in CHTC. To move files between the two, simply drag
-and drop.
+your home directory in CHTC. To move files between the two, simply use your mouse to drag
+and drop the files.
 
-There are other programs besides WinSCP that do this. Another that works
-on Mac and Windows is called [Cyberduck](https://cyberduck.io).
+Another popular file transfer utility available for Mac and Windows is [Cyberduck](https://cyberduck.io). See our [SSH programs](connecting#ssh-programs) table for a list of similar software.
 
-<a name="transfer-many"></a>
 
-C. Transferring Multiple Files
-------------------------------
+## Transfer multiple files using tarballs
 
-If you are transferring many files, it is advantageous to compress them
-into a single compressed file, in order to facilitate transferring them.
-Place all the files you need in a directory, and then either zip it or
-use the \"tar\" command to compress them:
+If you are transferring many files, we recommend compressing them
+into a single file. Move all the files you need into a separate directory, and use the \"tar\" command to compress them:
 
 ``` 
-$ tar czf data_files.tar.gz file_directory/
+tar czf data_files.tar.gz file_directory/
 ```
 {:.term}
 
-To untar or unzip files on the submit server or head nodes, you can use
-either:
+Afterwards, you may transfer the single tarball file as usual.
+
+To untar files, use the tar command again:
 
 ```
-[alice@submit]$ tar xzf data_files.tar.gz
-```
-{:.term}
-
-or
-
-``` 
-[alice@submit]$ unzip data_files.zip
+tar xzf data_files.tar.gz
 ```
 {:.term}
 
-<a name="files"></a>
-
-**2. Creating and Editing Files in CHTC**
-=====================================
-
-Once you have logged in to a CHTC server, you can edit files from the
-command line, by using a command line file editor. Some common editing
-programs are:
-
--   nano
--   vi
--   emacs
-
-`nano` is the most beginner-friendly, and `emacs` is the most advanced.
-[This Software Carpentry
-lesson](https://swcarpentry.github.io/shell-novice/03-create.html) describes
-how to use `nano`, and there are many other resources online with
-instructions for these text editors.
-
-Some of the file transfer programs mentioned [above](#transfer-winscp)
-allow you to edit files on CHTC servers through the interface.
+## Related pages
+* [Log in to CHTC](connecting)
+* [Basic shell commands](basic-shell-commands)
+* [Transfer files between CHTC and ResearchDrive](transfer-data-researchdrive)
