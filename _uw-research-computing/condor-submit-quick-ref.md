@@ -35,7 +35,7 @@ You can use these commands to submit, hold, or remove your jobs.
 | --- | --- | --- | --- |
 | `condor_submit` | submits job(s) as specified by `submit_file` | `condor_submit helloWorld.sub` | See [monitor your jobs](condor_q) |
 | `condor_submit -i <submit_file>` | submits an interactive job as specified by `submit_file` | `condor_submit -i helloWorld.sub`| 
-| `condor_submit <submit_file> -append <attribute>` | appends Condor commands to `submit_file` during submission | `condor_submit helloWorld.sub -append "request_disk = 1GB"`| commands are added inplace prior to the `queue` command while leaving the `submit_file` unedited. Can pass `queue` commands as appended, if needed.  
+| `condor_submit <submit_file> -append <attribute>` | appends Condor commands to `submit_file` during submission | `condor_submit helloWorld.sub -append "request_disk = 1GB"`| commands are added inplace prior to the `queue` command while leaving the `submit_file` unedited. Can pass `queue` commands as appended, if needed. |
 {:.command-table}
 
 ## Basic Submit File Options
@@ -44,12 +44,12 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `arguments = <args>` | lists all execution point slots |
-| `environment = <parameter_list>` | lists information about the specified `execution_point` |
-| `log = <job.log>` | lists all attributes of `execution_point` |
-| `output = <job.out>` | lists all attributes of `execution_point` |
-| `error = <job.err>` | lists all attributes of `execution_point` |
-| `executable = <executable.sh>` | lists all attributes of `execution_point` |
+| `arguments = "<args>"` | lists arguments to be passed to the executable as part of the command line | `arguments = "hello world` ("hello", "world" are passed as two separate arguments)| arguments are wrapped by quotes(") and space separated |
+| `environment = <parameter_list>` | lists environmental variables | `environment = "VARIABLE1=Value1 VAR2='hello world'"` | wrapped by quotes(") and space separated |
+| `log = <job.log>` | denotes the path to the log file | `log = ./log_files/job1.log`| if not provided, no log file is recorded |
+| `output = <job.out>` | path to file capturing `stdout` screen output | `output = ./log_files/job1.out` | can be merged with `stderr` by denoting the same path in `error = <path>` |
+| `error = <job.err>` | path to file capturing `stderr` screen output | `output = ./log_files/job1.err` | can be merged with `stdout` by denoting the same path in `output = <path>` |
+| `executable = <executable.sh>` | path to the executable script | `executable = helloWorld.py` | the executable script is automatically transferred to the Execution Point (EP) by HTCondor |
 | `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
 {:.command-table}
 
@@ -89,7 +89,7 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Example | Notes |
 | --- | --- | --- | --- |
-| `universe = <vanilla, scheduler, local, grid, java, vm, parallel, docker, container>` | lists all execution point slots |
+| `universe = <vanilla, docker, or container>` | lists all execution point slots |
 | `container_image = ` | lists information about the specified `execution_point` |
 | `container_target_dir = </path/to/dir >` | lists all attributes of `execution_point` |
 {:.command-table}
@@ -102,11 +102,11 @@ These commands display information about the execution points - machines that ex
 | --- | --- | --- | --- |
 | `queue` | lists all execution point slots |
 | `queue <int>` | lists information about the specified `execution_point` |
-| `queue ` | lists all attributes of `execution_point` |
-| `out = <job.out>` | lists all attributes of `execution_point` |
-| `error = <job.err>` | lists all attributes of `execution_point` |
-| `executable = <executable.sh>` | lists all attributes of `execution_point` |
-| `notification = <Always, Complete, Error, or None>` | lists all attributes of `execution_point` |
+| `queue <var> from <list>` | lists all attributes of `execution_point` |
+| `queue <var1>, <var2> from <list>` | lists all attributes of `execution_point` |
+| `queue <int_expr>, <var2> from <list>` | lists all attributes of `execution_point` |
+| `queue <var1> <var> in [slice] <list>` | lists all attributes of `execution_point` |
+| `queue <var> matching <globbing_string>` | lists all attributes of `execution_point` |
 {:.command-table}
 
 ## Glossary
