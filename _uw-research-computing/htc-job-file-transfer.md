@@ -1,10 +1,9 @@
 ---
 highlighter: none
 layout: file_avail
-title: Using and transferring data in jobs on the HTC system
+title: Use and transfer data in jobs on the HTC system
 guide:
-    order: 1
-    category: Handling Data in Jobs
+    category: Manage data
     tag:
         - htc
 ---
@@ -46,7 +45,7 @@ In the HTCondor submit file, `transfer_input_files` should always be used to tel
 | ----------- | ----------- | ----------- | ----------- |
 | 0 - 100 MB      | `/home`       | `transfer_input_files = input.txt`       |
 | 100 MB - 30 GB   | `/staging`        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
-| > 100 MB - 100 GB   | `/staging/groups`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
+| 100 MB - 100 GB   | `/staging/groups`        | `transfer_input_files = file:///staging/groups/group_dir/input.txt`        | 
 | > 30 GB   | `/staging`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
 | > 100 GB | | For larger datasets (100GB+ per job), contact the facilitation team about the best strategy to stage your data |
 
@@ -97,6 +96,6 @@ transfer_output_remaps = "output1.txt = file:///staging/NetID/output1.txt; outpu
 Make sure to only include one set of quotation marks that wraps around the information you are feeding to `transfer_output_remaps`. 
 
 ## Related pages
-- [Managing Large Data in HTC Jobs](/uw-research-computing/file-avail-largedata)
+- [Manage Large Data in HTC Jobs](/uw-research-computing/file-avail-largedata)
 - [Transfer files between CHTC and your computer](/uw-research-computing/transfer-files-computer)
 - [Transfer files between CHTC and ResearchDrive](/uw-research-computing/transfer-data-researchdrive)
