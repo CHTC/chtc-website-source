@@ -28,6 +28,8 @@ You are invited to the annual Throughput Computing Week (HTC25) from June 2-6 to
 
 HTC25's Keynote speaker, Dr. Erik Wright, will present on Monday, June 2. Erik Wright's research integrates comparative genomics and experimental evolution to tackle the problem of antibiotic resistance. Wright studies the strategies that naturally antibiotic-producing bacteria have evolved to discourage the build-up of resistance. The goal of this research is to develop new strategies for treating pathogens in the clinic, ultimately turning the tide against increasing antibiotic resistance. Wright relies on the OSPool for much of his work in genomics.
 
+This year, on Tuesday afternoon June 3, will also feature retropsective talks from leaders in the field commemorating the 40th anniversary of HTC and the 20th anniversary of the OSG Consortium. This 40 years of Throughput Computing celebretory event will take place in the Great Hall of the Memorial Union on the campus of the University of Wisconsin - Madison.
+
 View the [HTC25 schedule here](https://agenda.hep.wisc.edu/event/2297/timetable/#all.detailed) (Additional details will be added over the coming weeks.)
 
 
