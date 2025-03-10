@@ -37,7 +37,7 @@ View the [HTC25 schedule here](https://agenda.hep.wisc.edu/event/2297/timetable/
 
 ### Speaking Opportunities
 
-We encourage you to consider giving a talk. Technical presentations at HTC25 are short, typically 20 minutes in length. Applying merely requires a [brief abstract submission here]https://agenda.hep.wisc.edu/event/2297/abstracts/).
+We encourage you to consider giving a talk. Technical presentations at HTC25 are short, typically 20 minutes in length. Applying merely requires a [brief abstract submission here](https://agenda.hep.wisc.edu/event/2297/abstracts/).
 
 ### Visiting Madison
 
