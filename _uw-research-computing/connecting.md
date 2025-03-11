@@ -19,12 +19,12 @@ If you don't have an account, see our [getting started](get-started.html) page.
 {% capture content %}
 - [Introduction](#introduction)
 - [Before you log in](#before-you-log-in)
-- [Hostname / Access point information](#hostname--access-point-information)
 - [Log in](#log-in)
    * [Option 1: Log in with a terminal](#option-1-log-in-with-a-terminal)
    * [Option 2: Log in with PuTTY, an SSH program for Windows](#option-2-log-in-with-putty-an-ssh-program-for-windows)
 - [Log out](#log-out)
 - [SSH programs](#ssh-programs)
+- [Hostname / Access point information](#hostname--access-point-information)
 - [Summary](#summary)
 - [Related pages](#related-pages)
 {% endcapture %}
@@ -37,21 +37,7 @@ After obtaining a CHTC account, you will need the following to log into our CHTC
 * [Duo Multi-factor authentication (MFA)](https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/)
 * [a connection to the campus network or Virtual Private Network (VPN)](https://it.wisc.edu/services/wiscvpn/)
 * a username and password (typically your UW-Madison NetID and password)
-
-## Hostname / Access point information
-
-Please use the access point specified in your welcome email.
-
-  {:.gtable}
-  | High Throughput Computing (HTC) System |
-  | --- |
-  | `ap2001.chtc.wisc.edu` |
-  | `ap2002.chtc.wisc.edu` |
-
-  {:.gtable}
-  | High Performance Computing (HPC) System |
-  | --- |
-  | `spark-login.chtc.wisc.edu` |
+* an [SSH program](#ssh-programs), such as a terminal
 
 
 ## Log in
@@ -62,7 +48,7 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
 ### Option 1: Log in with a terminal
 
-1. Open a terminal window. Enter the following command, where `user` is your username (typically your NetID) and `hostname.chtc.wisc.edu` is your assigned access point in your welcome email.
+1. Open a terminal window. Enter the following command, where `user` is your username (typically your NetID) and `hostname.chtc.wisc.edu` is [your assigned access point](#hostname--access-point-information) in your welcome email.
 
     ``` 
     ssh username@hostname.chtc.wisc.edu
@@ -110,6 +96,22 @@ This is a non-exhaustive list of programs that can be used to log into CHTC serv
 | | [PuTTY](https://www.putty.org/) | SSH client | ✓ | |
 | Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [setup](https://code.visualstudio.com/docs/remote/ssh-tutorial) (ignore steps on creating a virtual machine) |
 | Linux, MacOS, Chrome, and more | [Mosh](https://mosh.org/) | terminal | X | |
+
+## Hostname / Access point information
+
+Please use the access point specified in your welcome email.
+
+  {:.gtable}
+  | High Throughput Computing (HTC) System |
+  | --- |
+  | `ap2001.chtc.wisc.edu` |
+  | `ap2002.chtc.wisc.edu` |
+
+  {:.gtable}
+  | High Performance Computing (HPC) System |
+  | --- |
+  | `spark-login.chtc.wisc.edu` |
+
 
 ## Summary
 
