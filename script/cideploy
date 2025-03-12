@@ -23,7 +23,7 @@ git clone --quiet --branch=$BRANCH git@github.com:$TARGET_REPO built_website > /
 #go into directory and copy data we're interested in to that directory
 mkdir -p built_website
 cd built_website
-rsync -av --delete --include-from=../script/rsync_include_list --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
+rsync -av --delete --include-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_include_list --exclude-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
 # We need this single well-known directory to support OIDC metadata discovery for SciTokens.
 rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
 for issuer in icecube nsdf; do
