@@ -1,4 +1,4 @@
-name: Deploy web pages
+name: Deploy web pages to Harbor
 
 on:
   workflow_run:
