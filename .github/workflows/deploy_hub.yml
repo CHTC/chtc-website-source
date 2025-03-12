@@ -7,6 +7,15 @@ on:
       - completed
 
 jobs:
+
+  check-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for secrets
+        run: |
+          echo "Secrets: ${{ secrets }}"
+    
+
   call-build-image:
     uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
     secrets: inherit
