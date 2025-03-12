@@ -10,8 +10,8 @@ jobs:
   call-build-image:
     uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
     secrets:
-      OSG_HARBOR_ROBOT_PASSWORD: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
-      OSG_HARBOR_ROBOT_USER: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
+      password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
+      username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
     with:
       image: 'hub.opensciencegrid.org/chtc/chtc-website'
       artifact: chtc-website
