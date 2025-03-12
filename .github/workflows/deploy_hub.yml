@@ -7,18 +7,11 @@ on:
       - completed
 
 jobs:
-
-  check-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for secrets
-        run: |
-          echo "Secrets: ${{ toJson(secrets) }}"
-    
-
   call-build-image:
     uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
-    secrets: inherit
+    secrets:
+      OSG_HARBOR_ROBOT_PASSWORD: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
+      OSG_HARBOR_ROBOT_USER: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
     with:
       image: 'hub.opensciencegrid.org/chtc/chtc-website'
       artifact: chtc-website
