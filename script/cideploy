@@ -2,7 +2,7 @@
 set -x
 set -e
 
-: "${BRANCH:=test}"
+: "${BRANCH:=master}"
 : "${TARGET_REPO=CHTC/chtc.github.io.git}"
 JEKYLL_OUTPUT_FOLDER=_site
 
@@ -37,6 +37,6 @@ set -x
 git add -f -A
 git commit -m "$commitmessage"
 if [[ -z $NO_PUSH ]]; then
-    git push -fq origin test > /dev/null
+    git push -fq origin master > /dev/null
 fi
 echo -e "Deploy completed\n"
