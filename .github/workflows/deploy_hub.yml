@@ -1,0 +1,15 @@
+name: Deploy web pages
+
+on:
+  workflow_run:
+    workflows: ["Build web pages"]
+    types:
+      - completed
+
+jobs:
+  call-build-image:
+    uses: UW-Macrostrat/build-push/.github/workflows/build-push.yaml@main
+    secrets: inherit
+    with:
+      image: 'hub.opensciencegrid.org/chtc/chtc-website'
+      artifact: chtc-website

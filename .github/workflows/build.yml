@@ -1,4 +1,4 @@
-name: Build/deploy web pages
+name: Build web pages
 on:
   push:
     branches: [master]
@@ -17,7 +17,6 @@ jobs:
 
       - name: Update Submodules
         run: git submodule update --init --recursive --remote
-
 
       - name: Attach hidden files
         run: |
@@ -51,17 +50,8 @@ jobs:
           cd _site/staff
           ln -s /p/condor/public/html/developers/schedules schedules
 
-      - run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
-          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
-          ./script/cideploy
-        env:
-          #NO_PUSH: 1
-          TARGET_REPO: CHTC/chtc.github.io
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
-        name: Deploy web pages on merge/push
-
-# vim:ft=yaml:sw=2:sts=2
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: chtc-website
+          path: _site

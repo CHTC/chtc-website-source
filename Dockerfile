@@ -1,12 +1,6 @@
-FROM ruby:3
+# Intended context is the root of the ~built~ website
+# If you wish to test locally build with ruby first
 
-# Install dependencies
-RUN apt-get update -y && apt-get upgrade -y
+FROM nginx:alpine
 
-# Install Gems
-COPY Gemfile /tmp/
-RUN bundle install --gemfile=/tmp/Gemfile --jobs 20
-
-WORKDIR /app
-
-ENTRYPOINT ["bundle", "exec"]
+COPY . /usr/share/nginx/html

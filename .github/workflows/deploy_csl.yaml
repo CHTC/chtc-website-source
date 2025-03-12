@@ -1,0 +1,31 @@
+name: Deploy web pages
+
+on:
+  workflow_run:
+    workflows: ["Build web pages"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: chtc-website
+          path: _site
+
+      - run: ls _site
+
+      - run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+          ./script/cideploy
+        env:
+          TARGET_REPO: CHTC/chtc.github.io
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        name: Deploy web pages on merge/push
