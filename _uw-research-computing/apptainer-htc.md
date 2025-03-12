@@ -216,10 +216,6 @@ On the High Throughput system, you can use the following submit file `build.sub`
 universe = vanilla
 log = build.log
 
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = hostname
-
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = image.def
 
