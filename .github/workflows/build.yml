@@ -58,3 +58,4 @@ jobs:
         with:
           name: chtc-website
           path: _site
+          include-hidden-files: true
