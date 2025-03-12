@@ -41,6 +41,6 @@ set -x
 git add -f -A
 git commit -F "$commitmessage"
 if [[ -z $NO_PUSH ]]; then
-    git push -fq origin $BRANCH > /dev/null
+    git push -fq origin test > /dev/null
 fi
 echo -e "Deploy completed\n"

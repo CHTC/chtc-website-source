@@ -21,19 +21,19 @@ jobs:
       - name: Update Submodules
         run: git submodule update --init --recursive --remote
 
-#      - name: Attach hidden files
-#        run: |
-#          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
-#          -H 'Accept: application/vnd.github.v3.raw' \
-#          -o assets/data/college-table.json \
-#          -f \
-#          -L https://api.github.com/repos/CHTC/website-stats/contents/college-table.json
-#
-#          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
-#          -H 'Accept: application/vnd.github.v3.raw' \
-#          -o assets/data/hero-stats.csv \
-#          -f \
-#          -L https://api.github.com/repos/CHTC/website-stats/contents/hero-stats.csv
+      - name: Attach hidden files
+        run: |
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/college-table.json \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/college-table.json
+
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/hero-stats.csv \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/hero-stats.csv
 
       - uses: ruby/setup-ruby@v1
         with:
