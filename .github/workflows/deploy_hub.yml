@@ -8,7 +8,7 @@ on:
 
 jobs:
   call-build-image:
-    uses: UW-Macrostrat/build-push/.github/workflows/build-push.yaml@main
+    uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
     secrets: inherit
     with:
       image: 'hub.opensciencegrid.org/chtc/chtc-website'
