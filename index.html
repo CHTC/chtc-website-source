@@ -21,6 +21,8 @@ js_extension:
 {% include get/fellowships.liquid %}
 <div class="bg-light overflow-hidden">
     <picture>
+        <source srcset="{{ 'images/homepage/TranslationalArrow_Mobile.webp' | relative_url }}" media="(max-width: 768px)">
+        <source srcset="{{ 'images/homepage/TranslationalArrow_Mobile.png' | relative_url }}" media="(max-width: 768px)">
         <source srcset="{{ 'images/homepage/TranslationalArrow.webp' | relative_url }}">
         <source srcset="{{ 'images/homepage/TranslationalArrow.jpg' | relative_url }}">
         <img id="hero-image-ultrawide" src="{{ 'images/homepage/TranslationalArrow.png' | relative_url }}"  alt="CHTC Logo" />

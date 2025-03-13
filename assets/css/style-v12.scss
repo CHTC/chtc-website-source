@@ -147,7 +147,6 @@ html {
 }
 
 #hero-image-ultrawide {
-  height:40vw;
   max-height:350px;
   width: auto;
   max-width: none;
@@ -158,7 +157,7 @@ html {
 // When view is below medium reduce image width
 @media (max-width: 768px) {
   #hero-image-ultrawide {
-    max-height:250px;
+    max-height:450px;
   }
 }
 
