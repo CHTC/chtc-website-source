@@ -147,12 +147,18 @@ html {
 }
 
 #hero-image-ultrawide {
-  height:50vw;
   max-height:350px;
   width: auto;
   max-width: none;
   margin-left: 50%;
   transform: translateX(-50%);
+}
+
+// When view is below medium reduce image width
+@media (max-width: 768px) {
+  #hero-image-ultrawide {
+    max-height:450px;
+  }
 }
 
 .stat-card {
