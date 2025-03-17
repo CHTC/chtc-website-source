@@ -17,22 +17,6 @@ title: The Center for High Throughput Computing Fellows Program
 {{ page.title }}
 </h1>
 
-
-<div class="primary-callout mt-3">
-<h2 class="mt-1">Applications are open!</h2>
-
-<p class="pb-3"><a href="#how-do-you-find-a-project">View open projects below</a></p>
-
-<p>Applications to the CHTC Fellows Program for Summer 2025 are managed through two application groups. Applications for the Spring 2025 Group open December 21 and will close March 15, 2025. Spring 2025 Group interviews will begin in March, 2025. (Applications from the Fall 2024 Group closed on December 20, 2025 and interviews for this Group will begin in January, 2025). 
-    
-To apply, send an email to <a href="mailto:chtc-jobs@g-groups.wisc.edu">chtc-jobs@g-groups.wisc.edu</a> with the following information:</p>
-
-<ul class="mb-2">
-<li>A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.</li>
-<li>A cover letter that describes your interest in the Fellowship Program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project list, you can also mention them here. It is however not required to have a mentor/project finalized to submit an application. Successful applicants will be connected to mentors to select and define their projects in a 2nd step following this application.</li>
-</ul>
-</div>
-
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
