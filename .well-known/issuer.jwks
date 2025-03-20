@@ -88,6 +88,15 @@
             "use": "sig",
             "x": "pFlWJmLNn-dMcmwfzWy-Hf6q-EybZN0SXs0x8HVuTt8=",
             "y": "csu8vZmHXxSKVu5Un2d4Li6ST5g44BtuPhmZPZQi5-Q="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "5df4",
+            "kty": "EC",
+            "use": "sig",
+            "x": "CkRWGitJ6Gpld_K6uFeeNH5vGJC-wlW9xtptBh5UHBE=",
+            "y": "Szovqy5yeZaTTSmn1RLPlvJ1Fd_f4llCnQxztblkvyM="
         }
     ]
 }
