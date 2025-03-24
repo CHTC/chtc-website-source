@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   update:
+    if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
     outputs:
       build: ${{ steps.update_submodules.outputs.build }}
