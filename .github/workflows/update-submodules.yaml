@@ -1,18 +1,28 @@
 name: Update Submodules
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+permissions:
+  actions: read
+  contents: write
 
 jobs:
-
-  Update-Submodules:
+  update:
+    if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
+    outputs:
+      build: ${{ steps.update_submodules.outputs.build }}
     steps:
 
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Pull down submodules
+        id: update_submodules
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
@@ -23,6 +33,15 @@ jobs:
             git add .
             git commit -m "Update Article Submodule"
             git push
+            echo "changes"; 
+            echo "build=true" >> $GITHUB_OUTPUT
           else
             echo "no changes";
+            echo "build=false" >> $GITHUB_OUTPUT
           fi
+
+  build-updated-website:
+    needs: [update]
+    if: ${{ needs.update.outputs.build == 'true' }}
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
