@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build-and-maybe-deploy:
+    if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
