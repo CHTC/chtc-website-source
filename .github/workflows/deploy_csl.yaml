@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   deploy:
+    if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifacts

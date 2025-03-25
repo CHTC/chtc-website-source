@@ -8,6 +8,7 @@ on:
 
 jobs:
   call-build-image:
+    if: ${{ github.repository_owner == 'CHTC' }}
     uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
     secrets:
       password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
