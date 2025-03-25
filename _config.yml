@@ -21,6 +21,7 @@ include:
   - ".gitignore"
   - "icecube/.well-known"
   - "nsdf/.well-known"
+  - "uwdf/researchdrive/.well-known"
 
 markdown_ext : "md,shtml"
 
