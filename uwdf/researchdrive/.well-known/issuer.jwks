@@ -16,6 +16,24 @@
             "kty": "EC",
             "x": "CvP8YOEsvdUJ_j6S-2F6HQpz_FQj7x0XhiFLtLRPCig",
             "y": "0tHTAEAK8KytuYtw7fVIf9L8Y4_N6tpSG8bJ5R9bLc0"
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "6567",
+            "kty": "EC",
+            "use": "sig",
+            "x": "BYQ_5pJVzJQ6RsYJgzlhDT6hL28JFn9IE6QM82Tu43s=",
+            "y": "r9FzFK5dAV5kWbXo6KBt37QyjdSAd0TyvoiXnWLR8wQ="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "fdd3",
+            "kty": "EC",
+            "use": "sig",
+            "x": "g23iAnppXvgbb17KH0q6FX3TLPnU0_LD11mYgVj3AqY=",
+            "y": "uyXdEIr8qpkwaviMMO9AllxMvY1iu3ZdCNVThYjX578="
         }
     ]
 }
