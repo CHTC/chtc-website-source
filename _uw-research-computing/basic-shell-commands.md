@@ -106,6 +106,7 @@ Note: Bracketed items (`<>`) denote where to place your input. *Do not* include 
 
 Below are more resources for learning the basic shell commands and the command line.
 
+* [Cornell Virtual Workshop: An Introduction to Linux](https://cvw.cac.cornell.edu/linux/intro/index)
 * [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lessons
 * [Ubuntu tutorial: The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
 * [Unix/Linux Command Reference cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)
