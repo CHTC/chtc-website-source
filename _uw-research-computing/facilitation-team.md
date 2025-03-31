@@ -7,7 +7,8 @@ title: The Facilitation Team
 ## Meet CHTC's Research Computing Facilitators
 
 <div class="row justify-content-around d-none d-sm-flex">
-    {% assign facilitators = site.data.team | where: "is_facilitator", "1" %}
+    {% include get/team.liquid %}
+    {% assign facilitators = team | where: "is_facilitator", "1" %}
     {% for facilitator in facilitators %}
         <div class="col-auto">
             <figure class="p-3 d-flex flex-column">
