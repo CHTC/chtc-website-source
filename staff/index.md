@@ -8,4 +8,4 @@ layout: markdown-page
 - [Adding News Articles](docs/Adding_News_Articles)
 
 ## Schedule Calendar
-- [Schedules](schedules/schedules.pl)
+- [Schedules](https://research.cs.wisc.edu/htcondor/developers/schedules/schedules.pl)
