@@ -22,7 +22,11 @@ guide:
 {% include /components/directory.html title="Table of Contents" %}
 
 ## Data Storage Locations
+
+<p style="text-align:center"><img src="/images/htc-data-spaces.png" width=300px></p>
+
 The HTC system has two primary locations where users can place their files:
+
 ### /home
 * The default location for files and job submission
 * Efficiently handles many files
@@ -70,7 +74,10 @@ The `osdf:///` file transfer protocol uses a [caching](https://en.wikipedia.org/
 ## Transferring Data Back from Jobs to `/home` or `/staging`
 
 ### Default Behavior for Transferring Output Files
-When a job completes, by default, HTCondor will return **newly created or edited files only in top-level directory** back to your `/home` directory. **Files in subdirectories are *not* transferred.** Ensure that the files you want are in the top-level directory by moving them or [creating tarballs](transfer-files-computer#c-transferring-multiple-files).
+When a job completes, by default, HTCondor will return **newly created or edited files only in top-level directory** back to your `/home` directory. **Files in subdirectories are *not* transferred.** Ensure that the files you want are in the top-level directory by moving them, [creating tarballs](transfer-files-computer#c-transferring-multiple-files), or specifying them in your submit file.
+
+<p style="text-align:center"><img src="/images/htc-output-file.png" width=300px></p>
+<caption>The directory structure of an example job on the execution point. In this example, according to its default behavior, HTCondor will only transfer the newly created "output_file" and will not transfer the subdirectory "output/".</caption>
 
 ### Specify Which Output Files to Transfer with `transfer_output_files` and `transfer_output_remaps`
 If you don't want to transfer all files but only *specific files*, in your HTCondor submit file, use
