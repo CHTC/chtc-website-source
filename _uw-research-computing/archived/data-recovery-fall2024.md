@@ -1,4 +1,5 @@
 ---
+published: false
 highlighter: none
 layout: guide
 title: "CHTC /staging and /projects Next Steps"
