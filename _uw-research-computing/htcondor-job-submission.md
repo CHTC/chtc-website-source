@@ -33,7 +33,7 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 > ### 🎞️ Demo: Submit HTC Jobs using HTCondor
 {:.tip-header}
 
-> You can follow along the job submission tutorial outlined in this guide in video format.
+> You can follow along with the job submission tutorial outlined in this guide in video format.
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 {:.tip}
 
