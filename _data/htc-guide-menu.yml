@@ -1,10 +1,6 @@
 - text: "Get started"
   icon: "bi bi-rocket-takeoff"
   links:
-    - text: "CHTC /staging and /projects next steps"
-      url: "/uw-research-computing/data-recovery-fall2024"
-      icon: ""
-      highlight: true
     - text: "System overview"
       url: "/uw-research-computing/htc-overview"
       icon: ""
