@@ -1,14 +1,6 @@
 - text: "Get started"
   icon: "bi bi-rocket-takeoff"
   links:
-    - text: "HPC system transition to a new Linux Version (CentOS Stream 9)"
-      url: "/uw-research-computing/archived/hpc-el8-to-el9"
-      icon: ""
-      highlight: true
-    - text: "CHTC /staging and /projects next steps"
-      url: "/uw-research-computing/data-recovery-fall2024"
-      icon: ""
-      highlight: true
     - text: "System overview"
       url: "/uw-research-computing/hpc-overview"
       icon: ""
