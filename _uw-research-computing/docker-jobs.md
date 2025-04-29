@@ -39,7 +39,7 @@ ready, circle back to [Use a Docker Container in a Job](#use-a-docker-container-
 ## Use a Docker Container in a Job
 
 Jobs that run inside a Docker container will be almost exactly the same
-as "vanilla" HTCondor jobs. The main change is indicating which Docker 
+as normal HTCondor jobs. The main change is indicating which Docker 
 container to use and an optional "container universe" option: 
 
 ```
@@ -64,11 +64,11 @@ queue
 ```
 
 In the above, change the address of the Docker container image as 
-needed based on the container you are using. More information on finding 
-and making container is [below](). 
+needed based on the container you are using. 
 
-> ### Non Docker Hub Registries
-> 
+> ### 💻 Non Docker Hub Registries
+{:.tip-header}
+
 > If your container is hosted on a Docker registry other than 
 > DockerHub, just add the registry prefix before the container 
 > repository name. For example, for a container hosted in 
@@ -77,6 +77,7 @@ and making container is [below]().
 > ```
 > container_image = docker://quay.io/user/repo:tag
 > ```
+{:.tip}
 
 ## Tips for HTCondor integration
 
