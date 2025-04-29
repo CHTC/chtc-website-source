@@ -46,7 +46,7 @@ image file, usually with the suffix `.sif`. This file can be placed in your `/ho
 * If you have an existing `.sif` file, go straight to [Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs). 
 * If you do not have an existing `.sif` container, you can create one in two ways: 
 	- [Build your own apptainer container](#build-your-own-apptainer-container)
-	- Build an Apptainer container from an existing Docker container
+	- [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 
 	Once you have created the `.sif` file by using one of the above methods
 	ready, circle back to [Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs).
@@ -319,6 +319,8 @@ to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/ser
 ## Related Pages
 
 - [Building an Apptainer Container](apptainer-build)
+- [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 - [Advanced Example](apptainer-htc-advanced-example)
+- [Using Apptainer Containers on HPC](apptainer-hpc.html).
 - [Use Custom Software in Jobs Using Docker](docker-jobs)
 - [Overview: How to Use Software](software-overview-htc)
