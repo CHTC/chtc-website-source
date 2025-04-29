@@ -30,6 +30,13 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
 > Note: You must be logged into a CHTC Access Point for the following example to work.
 
+> ### 🎞️ Demo: Submit HTC Jobs using HTCondor
+{:.tip-header}
+
+> You can follow along the job submission tutorial outlined in this guide in video format.
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{:.tip}
+
 ### Prepare job executable and submit file on an Access Point
 
 1. First, create the executable script you would like HTCondor to run.
