@@ -11,10 +11,19 @@ Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. CHTC currently supports
 running jobs inside [Docker](https://www.docker.com/what-docker)
 containers. This guide describes how to build a Docker image
-that you can use for running jobs in CHTC. For information on using 
-this image for jobs, see our [Docker Jobs guide](docker-jobs.html).
+that you can use for running jobs in CHTC or sharing a common 
+software environment with collaborators. For information on using 
+a Docker container image in jobs, see our [Docker Jobs guide](docker-jobs.html).
 
-# Overview
+{% capture content %}
+- [Overview](#overview)
+- [Step by Step]()
+- [Examples]()
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
+## Overview
 
 **Note that all the steps below should be run on your own computer, not
 in CHTC.**
@@ -29,28 +38,23 @@ called a "Dockerfile". This file has commands that allow you to:
 
 You can then "build" an image from this
 file, test it locally, and push it to DockerHub, where
-<a href="https://htcondor.org">HTCondor</a> can then use the image to build containers to run jobs in. 
+<a href="https://htcondor.org">HTCondor</a> can then use the image to run jobs in. 
 Different versions of the image can be labeled with different version 
 "tags".
 
-This guide has:
+## Step by Step Build Instructions
 
-1.  [Step by Step Instructions](#a-step-by-step-instructions)
-2.  [Examples](#b-examples)
-
-# A. Step by Step Instructions
-
-## 1. Set Up Docker on Your Computer
+### 1. Set Up Docker on Your Computer
 
 {% include install_docker.md %}
 
-## 2. Explore Docker Containers (optional)
+### 2. Explore Docker Containers (optional)
 
 If you have never used Docker before, we recommend exploring a pre-existing container 
 and testing out installation steps interactively before creating a Dockerfile. See the 
 first half of this guide: [Exploring and Testing a Docker Container](docker-test.html)
 
-## 3. Create a Dockerfile
+### 3. Create a Dockerfile
 
 A Dockerfile is a plain text file with keywords that add elements to a 
 Docker image. There are many keywords that can be used in a Dockerfile (documented on
@@ -62,14 +66,14 @@ subset of these keywords following this basic outline:
 - Additions: What needs to be added? Folders? Data? Other software? 
 - Environment: What variables (if any) are set as part of the software installation? 
 
-### Create the file
+#### Create the file
 
 Create a blank text file named `Dockerfile`. If you are planning on making
 multiple images for different parts of your workflow, 
 you should create a separate folder for each 
 new image with the a ``Dockerfile`` inside each of them.
 
-<h3>Choose a base image with <code class="h3">FROM</code></h3>
+<h4>Choose a base image with <code class="h3">FROM</code></h4>
 
 Usually you don't want to start building your image from scratch. 
 Instead you'll want to choose a "base" image to add things to.
@@ -125,7 +129,7 @@ Here are some base images you might find useful to build off of:
 - [Tensorflow](https://hub.docker.com/r/tensorflow/tensorflow)
 - [PyTorch](https://hub.docker.com/r/pytorch/pytorch)
 
-<h3>Install packaged software with <code class="h3">RUN</code></h3>
+<h4>Install packaged software with <code class="h3">RUN</code></h4>
 
 The next step is the most challenging. We need to add commands to the
 Dockerfile to install the desired software. There are a few standard ways to
@@ -196,7 +200,7 @@ RUN install2.r --error rjags
 ```
 {:.file}
 
-<h3>Set up the environment with <code class="h3">ENV</code></h3>
+<h4>Set up the environment with <code class="h3">ENV</code></h4>
 
 Your software might rely on certain environment variables being set correctly.
 
@@ -222,7 +226,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 ```
 {:.file}
 
-## 4. Build, Name, and Tag the Image
+### 4. Build, Name, and Tag the Image
 
 So far we haven't actually created the image -- we've just been
 listing instructions for *how* to build the image in the Dockerfile.
@@ -264,14 +268,14 @@ If you get errors, try to determine what you may need to add or change
 to your Dockerfile and then run the build command again. Debugging a Docker
 build is largely the same as debugging any software installation process.
 
-## 5. Test Locally
+### 5. Test Locally
 
 This page describes how to interact with your new Docker image on your
 own computer, before trying to run a job with it in CHTC:
 
 - [Exploring a Docker Container on Your Computer](docker-test.html)
 
-## 6. Push to DockerHub
+### 6. Push to DockerHub
 
 Once your image has been successfully built and tested, you
 can push it to DockerHub so that it will be available to run jobs in
@@ -316,18 +320,25 @@ It should ask for your DockerHub username and password.
 > It's also a good idea to archive a copy of the Dockerfile used to generate a 
 > container image along with the file archive of the container image itself. 
 
-## 7. Running Jobs
+### 7. Running Jobs
 
 Once your Docker image is on Docker Hub, you can use it to run 
 jobs on CHTC's HTC system. See this guide for more details: 
 
--   [Running Docker Jobs in CHTC](docker-jobs.html)
+-   [Use Custom Software in Jobs Using Docker](docker-jobs.html)
 
-# B. Examples
+## Examples
 
-This section holds various example `Dockerfile` that cover more advanced use cases.
+This section holds various example `Dockerfile` that cover more advanced use cases. 
+There are even more examples in our CHTC Recipes repository: 
 
-## Installing a Custom Python Package from GitHub
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://github.com/CHTC/recipes/tree/main/software">CHTC Recipes</a>
+	</div>
+</div>
+
+### Installing a Custom Python Package from GitHub
 
 Suppose you have a custom Python package hosted on GitHub, but not available 
 on PyPI.
@@ -342,7 +353,7 @@ RUN pip3 install git+https://github.com/<RepositoryOwner>/<RepositoryName>
 where you would replace `<RepositoryOwner>` and `<RepositoryName>` with your
 desired targets.
 
-## QIIME
+### QIIME
 
 This `Dockerfile` installs [QIIME2](https://qiime2.org/) based on
 [these instructions](https://docs.qiime2.org/2017.11/install/native/).
@@ -364,3 +375,8 @@ RUN cd /tmp \
  && conda update conda \
  && conda create -n qiime2-2017.10 --file https://data.qiime2.org/distro/core/qiime2-2017.10-conda-linux-64.txt
 ```
+
+## Related Pages
+
+- [Use Custom Software in Jobs Using Docker](docker-jobs.html)
+- [Explore and Test Docker Containers](docker-test.html)
