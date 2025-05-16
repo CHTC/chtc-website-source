@@ -26,7 +26,7 @@ Chat with us about research computing, bring your computing problem, or simply c
 {% capture subsection %}
 ### Date
 
-June 6, 2025
+June 10
 
 ### Who
 
