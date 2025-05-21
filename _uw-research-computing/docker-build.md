@@ -276,6 +276,8 @@ build is largely the same as debugging any software installation process.
 > ```
 > {:.term}
 >
+> Otherwise, HTCondor may fail to pull or launch the container when it starts
+> the job.
 {:.tip}
 
 ## 5. Test Locally
