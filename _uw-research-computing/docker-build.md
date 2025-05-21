@@ -264,6 +264,20 @@ If you get errors, try to determine what you may need to add or change
 to your Dockerfile and then run the build command again. Debugging a Docker
 build is largely the same as debugging any software installation process.
 
+> #### Building on MacOS / ARM
+{:.tip-header}
+
+> If you are using a MacOS computer, particular with an M# chip which uses 
+> the ARM architecture, you will need to use a special option to make sure
+> the Docker container is compatible with CHTC systems:
+>
+> ```
+> $ docker build --platform linux/amd64 -t username/imagename:tag .
+> ```
+> {:.term}
+>
+{:.tip}
+
 ## 5. Test Locally
 
 This page describes how to interact with your new Docker image on your
