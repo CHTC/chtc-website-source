@@ -260,14 +260,10 @@ Replace `username` with your Docker Hub username and replace
 `imagename` and `tag` with the values of your choice. Note the `.` at the end
 of the command (to indicate "the current directory").
 
-If you get errors, try to determine what you may need to add or change
-to your Dockerfile and then run the build command again. Debugging a Docker
-build is largely the same as debugging any software installation process.
-
-> #### Building on MacOS / ARM
+> ### Building on MacOS / ARM
 {:.tip-header}
 
-> If you are using a MacOS computer, particular with an M# chip which uses 
+> If you are using a MacOS computer, particularly with an M# chip which uses 
 > the ARM architecture, you will need to use a special option to make sure
 > the Docker container is compatible with CHTC systems:
 >
@@ -279,6 +275,10 @@ build is largely the same as debugging any software installation process.
 > Otherwise, HTCondor may fail to pull or launch the container when it starts
 > the job.
 {:.tip}
+
+If you get errors, try to determine what you may need to add or change
+to your Dockerfile and then run the build command again. Debugging a Docker
+build is largely the same as debugging any software installation process.
 
 ## 5. Test Locally
 
