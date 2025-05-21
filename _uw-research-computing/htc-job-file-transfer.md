@@ -74,7 +74,7 @@ The `osdf:///` file transfer protocol uses a [caching](https://en.wikipedia.org/
 ## Transferring Data Back from Jobs to `/home` or `/staging`
 
 ### Default Behavior for Transferring Output Files
-When a job completes, by default, HTCondor will return **newly created or edited files only in top-level directory** back to your `/home` directory. **Files in subdirectories are *not* transferred.** Ensure that the files you want are in the top-level directory by moving them, [creating tarballs](transfer-files-computer#c-transferring-multiple-files), or specifying them in your submit file.
+When a job completes, by default, HTCondor will return **newly created or edited files only in top-level directory** back to your `/home` directory. **Files in subdirectories are *not* transferred.** Ensure that the files you want are in the top-level directory by moving them, [creating tarballs](transfer-files-computer#transfer-multiple-files-using-tarballs), or specifying them in your submit file.
 
 <p style="text-align:center"><img src="/images/htc-output-file.png" width=300px></p>
 <caption>The directory structure of an example job on the execution point. In this example, according to its default behavior, HTCondor will only transfer the newly created "output_file" and will not transfer the subdirectory "output/".</caption>
