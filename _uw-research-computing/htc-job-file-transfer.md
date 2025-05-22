@@ -10,8 +10,6 @@ guide:
 
 {% capture content %}
 - [Data Storage Locations](#data-storage-locations)
-   * [/home](#home)
-   * [/staging](#staging)
 - [Transferring Data to Jobs with `transfer_input_files`](#transferring-data-to-jobs-with-transfer_input_files)
    * [Important Note: File Transfers and Caching with `osdf:///`](#important-note-file-transfers-and-caching-with-osdf)
 - [Transferring Data Back from Jobs to `/home` or `/staging`](#transferring-data-back-from-jobs-to-home-or-staging)
@@ -27,18 +25,22 @@ guide:
 
 The HTC system has two primary locations where users can place their files:
 
-### /home
-* The default location for files and job submission
-* Efficiently handles many files
-* Smaller input files (<100 MB) should be placed here
+|  | **`/home`** |  **`/staging`** |
+| ----------- | ----------- |
+| Purpose | Default file system, handles most files | Stages large files/containers for file transfer into jobs |
+| Job submission   | ✓ | ✕ | 
+| Recommended location for | Many, small files (<1 GB) | Few, large files (>1 GB) | 
+| Default quota (disk) | 40 GB | 100 GB |
+| Default quota (number of items) | none | 1000 items |
 
-### /staging
-* Expandable storage system but cannot efficiently handle many small (few MB or less) files
-* Larger input files (>100 MB) should be placed here, including container images (.sif)
+The data management mechanisms behind `/home` and `/staging` are different and are optimized to handle different file sizes and numbers of files. It's important to place your files in the correct location to improve the efficiency at which your data is handled and maintain the stability of the HTC file systems.
 
-The data management mechanisms behind `/home` and `/staging` are different and are optimized to handle different file sizes and numbers of files. It's important to place your files in the correct location, as it will improve the speed and efficiency at which your data is handled and will help maintain the stability of the HTC filesystem.
-
-> If you need a `/staging` directory, [request one here](quota-request).
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory?</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" style="text-align: center" href="quota-request">Request one here</a>
+	</div>
+</div>
 
 
 ## Transferring Data to Jobs with `transfer_input_files`
