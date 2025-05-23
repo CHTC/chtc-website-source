@@ -128,6 +128,20 @@ output_destination = osdf:///chtc/staging/netid/
 
 Do not use `output_destination` and `transfer_output_remaps` simultaneously.
 
+## Transfer and unpack files with `osdf:///`
+
+The `osdf:///` file transfer plugin is powered by the [Pelican Platform](https://docs.pelicanplatform.org/about-pelican). One useful feature is that the plugin can be configured to unpack files during the transfer step. This can reduce the amount of disk space you need to request (for the compressed file *and* the unpacked file contents) and eliminate an unpacking step in your executable.
+
+To transfer and unpack files, append a `?pack=auto` at the end of the plugin path of the compressed object to be transferred.
+
+```
+transfer_input_files = osdf:///chtc/staging/netid/filename.tar.gz?pack=auto, input1.txt, input2.txt
+```
+
+This feature is only availble for Pelican-based plugins (`osdf://`, `pelican://`) and is not available for `file://` or normal file transfers. This feature is also not recommended for compressed files larger than 30 GB.
+
+Read more about the unpacking files in the [Pelican documentation](https://docs.pelicanplatform.org/getting-data-with-pelican/client#packing-objects-with-the-pack-query).
+
 ## Related pages
 - [Manage Large Data in HTC Jobs](/uw-research-computing/file-avail-largedata)
 - [Transfer files between CHTC and your computer](/uw-research-computing/transfer-files-computer)
