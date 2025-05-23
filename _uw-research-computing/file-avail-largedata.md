@@ -21,21 +21,20 @@ When submitting jobs to the HTC system, large data needs to be stored and handle
 3.  CHTC's guide for [File Transfer](htc-job-file-transfer)
 
 {% capture content %}
-- [1. Policies and Intended Use](#1-policies-and-intended-use)
-   * [A. Intended Use](#a-intended-use)
-   * [B. Access to Large Data Staging](#b-access-to-large-data-staging)
-   * [C. User Data Management Responsibilities](#c-user-data-management-responsibilities)
-   * [D. Data Access Within Jobs](#d-data-access-within-jobs)
-- [2. Staging Large Data](#2-staging-large-data)
-   * [A. Get a Directory](#a-get-a-directory)
-   * [B. Reduce File Counts](#b-reduce-file-counts)
-   * [C. Use the Transfer Server](#c-use-the-transfer-server)
-   * [D. Remove Files After Jobs Complete](#d-remove-files-after-jobs-complete)
-- [3. Using Staged Files in a Job](#3-using-staged-files-in-a-job)
-   * [A. Transferring Large Input Files](#a-transferring-large-input-files)
-   * [B. Transferring Large Output Files](#b-transferring-large-output-files)
-- [4. Submit Jobs Using Staged Data](#4-submit-jobs-using-staged-data)
-- [5. Related Pages](#5-related-pages)
+- [Introduction](#introduction)
+- [Policies and intended use](#policies-and-intended-use)
+   * [Intended use](#intended-use)
+   * [User responsibilities](#user-responsibilities)
+- [Stage large data](#stage-large-data)
+   * [Request a `/staging` directory](#request-a-staging-directory)
+   * [Reduce file counts](#reduce-file-counts)
+   * [Use the transfer server](#use-the-transfer-server)
+   * [Remove files after jobs complete](#remove-files-after-jobs-complete)
+- [Use staged files in a job](#use-staged-files-in-a-job)
+   * [Transfer large input files](#transfer-large-input-files)
+   * [Transfer large output files](#transfer-large-output-files)
+- [Submit jobs using staged data](#submit-jobs-using-staged-data)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -54,7 +53,7 @@ Our large data staging location is ***only*** for input and output files that ar
 Users are expected to abide by this intended use expectation and follow the 
 instructions for using `/staging` written in this guide.
 
-### User Responsibilities
+### User responsibilities
 
 As with all CHTC data spaces, users should: 
 
@@ -145,7 +144,7 @@ In the example above, `file1` and `file2` are transferred to `/staging` via two 
 
 Read more about how to transfer output data, including the `output_destination` option, in our [file transfer guide](htc-job-file-transfer).
 
-## Submit Jobs Using Staged Data
+## Submit jobs using staged data
 
 In order to properly submit jobs using staged large data, always do the following:
 
@@ -184,8 +183,8 @@ Requirements = (Target.HasCHTCStaging == true)
 queue
 ```
 
-## Related Pages
+## Related pages
 
-* [Data Storage Locations on the HTC](htc-job-file-transfer)
+* [Use and transfer data in jobs on the HTC system](htc-job-file-transfer)
 * [Check Disk Quota and Usage](check-quota)
 * [Request a /staging directory or quota change](quota-request)

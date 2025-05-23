@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Directly transfer files between ResearchDrive and your Jobs
+title: Directly transfer files between ResearchDrive and your jobs
 guide:
     category: Manage data
     tag:

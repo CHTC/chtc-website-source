@@ -21,6 +21,7 @@ This guide covers general information on using and transferring data on the HTC 
    * [Specify which output files to transfer with `transfer_output_files`](#specify-which-output-files-to-transfer-with-transfer_output_files)
    * [Transfer files to other locations with `transfer_output_remaps`](#transfer-files-to-other-locations-with-transfer_output_remaps)
    * [Transfer files to other locations with `output_destination`](#transfer-files-to-other-locations-with-output_destination)
+- [Transfer and unpack files with `osdf:///`](#transfer-and-unpack-files-with-osdf)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
