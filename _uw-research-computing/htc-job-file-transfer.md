@@ -75,9 +75,19 @@ Multiple input files and file transfer protocols can be specified and delimited 
 
 transfer_input_files = file1, osdf:///chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
 
+requirements = (HasCHTCStaging == true)
+
 ... other submit file details ...
 ```
 {:.sub}
+
+> ### ⚠️ File transfers referencing `/staging`
+{:.tip-header}
+> If you are transferring files to or from `/staging`, ensure that you include the following requirement:
+> ```
+> requirements = (HasCHTCStaging == true)
+> ```
+{:.tip}
 
 Ensure you are using the correct file transfer protocol for efficiency. Failure to use the right protocol can result in slow file transfers or overloading the system.
 
