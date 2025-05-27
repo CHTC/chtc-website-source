@@ -71,8 +71,8 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm.
--   Thursday afternoon: 3:00 - 4:30 pm.
+-   ~~Tuesday morning: 10:30 am - 12:00 pm~~ (Canceled during the summer season)
+-   Thursday afternoon: 3:00 - 4:30 pm
 
 To drop in, find the videoconference link in either your email or in the 
 login message when you log into a CHTC server. 
