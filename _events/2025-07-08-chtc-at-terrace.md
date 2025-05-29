@@ -26,7 +26,7 @@ Chat with us about research computing, bring your computing problem, or simply c
 {% capture subsection %}
 ### Date
 
-July 8
+July 8, 3 PM - 4:30 PM
 
 ### Who
 
