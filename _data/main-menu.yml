@@ -12,7 +12,7 @@ nav_items:
       - url: /people.html
         name: Staff
       - url: /jobs.html
-        name: Jobs
+        name: Open Positions
   - id: uw-research-computing
     name: Research Computing
     url: /uw-research-computing/index.html
