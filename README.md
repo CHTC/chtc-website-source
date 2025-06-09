@@ -1,6 +1,5 @@
 # CHTC Website
 
-
 Source repository for CHTC website
 
 ![Build Status](https://github.com/CHTC/chtc-website-source/workflows/Build%2Fdeploy%20web%20pages/badge.svg)
