@@ -3,16 +3,16 @@ nav_items:
     name: About
     url: /about.html
     sub_menu:
-      - url: /htc.html
-        name: What is HTC?
       - url: /approach.html
         name: Our Approach
+      - url: /htc.html
+        name: What is HTC? 
       - url: /projects.html
         name: Our Customers
       - url: /people.html
-        name: Our Staff
+        name: Staff
       - url: /jobs.html
-        name: Our Open Positions
+        name: Jobs
   - id: uw-research-computing
     name: Research Computing
     url: /uw-research-computing/index.html
