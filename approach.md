@@ -23,12 +23,12 @@ the practice of Research Computing Facilitation.
 <div class="row">
 <div class="col-auto">
 <div class="rounded py-1">
-<a class="button rounded btn-primary p-2" href="/technologies.html">Technologies</a>
+<a class="button rounded btn-primary p-2" href="/technologies.html">View Technologies</a>
 </div>
 </div>
 <div class="col-auto">
 <div class="rounded py-1">
-<a class="button rounded btn-primary p-2" href="/htc.html">What is HTC?</a>
+<a class="button rounded btn-primary p-2" href="/htc.html">Explore What is HTC?</a>
 </div>
 </div>
 </div>
@@ -46,7 +46,7 @@ request an account!
 <div class="row pb-4">
 <div class="col-auto">
 <div class="rounded py-1">
-<a class="button rounded btn-primary p-2" href="/uw-research-computing/index.html">UW Research Computing Overview</a>
+<a class="button rounded btn-primary p-2" href="/uw-research-computing/index.html">View UW Research Computing Overview</a>
 </div>
 </div>
 <div class="col-auto">
