@@ -12,6 +12,14 @@ guide:
 
 CHTC is launching a pilot program in which users can directly transfer files between ResearchDrive and their jobs. This can remove the additional step of uploading or downloading data to and from CHTC data storage locations.
 
+> ### ⚗️ UWDF/ResearchDrive Pilot Program
+{:.tip-header}
+
+> Currently the UWDF/ResearchDrive feature is in its pilot phase and is not yet widely available to CHTC users. This file transfer feature is still under testing and may have occasional issues or bugs.
+>
+> If you are interested in testing this feature, contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
+{:.tip}
+
 {% capture content %}
 - [Introduction](#introduction)
 - [Overview](#overview)
@@ -23,14 +31,6 @@ CHTC is launching a pilot program in which users can directly transfer files bet
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
-
-> ### ⚗️ UWDF/ResearchDrive Pilot Program
-{:.tip-header}
-
-> Currently the UWDF/ResearchDrive feature is in its pilot phase and is not yet widely available to CHTC users. This file transfer feature is still under testing and may have occasional issues or bugs.
->
-> If you are interested in testing this feature, contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
-{:.tip}
 
 ## Overview
 
@@ -92,7 +92,7 @@ The example above remaps the output files such that only `outputfile1.txt` is pl
 If you want to remap ALL of your outputs to ResearchDrive, instead of `transfer_output_remaps`, use `output_destination`:
 
 ```
-output_destination = pelican://chtc.wisc.edu/researchdrive/<PI Netid>/CHTC/
+output_destination = pelican://chtc.wisc.edu/researchdrive/<PI Netid>/CHTC/<path to subdirectory>
 ```
 
 For more information about transferring output files using HTCondor, [read our guide](/uw-research-computing/htc-job-file-transfer#transfer-output-data-from-jobs).

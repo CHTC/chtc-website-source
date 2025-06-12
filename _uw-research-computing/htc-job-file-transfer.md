@@ -35,7 +35,7 @@ The HTC system has two primary locations where users can place their files:
 |  | **`/home`** |  **`/staging`** |
 | ----------- | ----------- |
 | Purpose | Default file system, handles most files | Stages large files/containers for file transfer into jobs |
-| Job submission   | ✓ | ✕ | 
+| Can you run `condor_submit` here?   | ✓ | ✕ | 
 | Recommended location for | Many, small files (<1 GB) | Few, large files (>1 GB) | 
 | Default quota (disk) | 40 GB | 100 GB |
 | Default quota (number of items) | none | 1000 items |
@@ -81,9 +81,9 @@ requirements = (HasCHTCStaging == true)
 ```
 {:.sub}
 
-> ### ⚠️ File transfers referencing `/staging`
+> ### ⚠️ File transfers with `file:///`
 {:.tip-header}
-> If you are transferring files to or from `/staging`, ensure that you include the following requirement:
+> If you are transferring files with `file:///`, include the following requirement:
 > ```
 > requirements = (HasCHTCStaging == true)
 > ```
