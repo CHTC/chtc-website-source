@@ -74,11 +74,11 @@ In order to stage large data for use on CHTC's HTC system, users must:
 
 ### Request a `/staging` directory
 
-Any one with a CHTC account whose data meets the intended use above can request space in our large data staging area by filling out a quota request form. The default quota is 100 GB / 1000 items; if a larger quota is needed, request more quota. The created directory will exist at this path: `/staging/username`
+Any one with a CHTC account whose data meets the intended use above can request space in our large data staging area by filling out a quota request form. The default quota is 100 GB / 1000 items; if a larger quota is needed, request a higher quota. The created directory will exist at this path: `/staging/username`
 
 We can also create group or shared spaces by request. 
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory or more quota?</p>
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory or higher quota?</p>
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
 		<a class="btn btn-primary" style="text-align: center" href="quota-request">Quota request form</a>

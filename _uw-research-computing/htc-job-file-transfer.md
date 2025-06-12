@@ -110,7 +110,7 @@ When a job completes, by default, HTCondor will only return **newly created or e
 <caption>The directory structure of an example job on the execution point. In this example, according to its default behavior, HTCondor will only transfer the newly created "output_file" and will not transfer the subdirectory "output/".</caption>
 
 ### Specify which output files to transfer with `transfer_output_files`
-If you don't want to transfer all files but only *specific files*, in your HTCondor submit file, use
+If you don't want to transfer all files but only *specific files* or subdirectories, in your HTCondor submit file, use
 ```
 transfer_output_files = output_file, output/output_file2, output/output_file3
 ```
@@ -118,7 +118,7 @@ transfer_output_files = output_file, output/output_file2, output/output_file3
 
 ### Transfer files to other locations with `transfer_output_remaps`
 
-To transfer files back to `/staging`, you will need an additional line in your HTCondor submit file, with each item separated by a semicolon (;):
+To transfer files back to `/staging` or a specific directory in `/home`, you will need an additional line in your HTCondor submit file, with each item separated by a semicolon (;):
 ```
 transfer_output_remaps = "output_file = osdf:///chtc/staging/NetID/output1.txt; output_file2 = /home/netid/outputs/output_file2"
 ```
@@ -151,7 +151,7 @@ transfer_input_files = osdf:///chtc/staging/netid/filename.tar.gz?pack=auto, inp
 
 This feature is only availble for Pelican-based plugins (`osdf://`, `pelican://`) and is not available for `file://` or normal file transfers. This feature is also not recommended for compressed files larger than 30 GB.
 
-Read more about the unpacking files in the [Pelican documentation](https://docs.pelicanplatform.org/getting-data-with-pelican/client#packing-objects-with-the-pack-query).
+Read more about unpacking files in the [Pelican documentation](https://docs.pelicanplatform.org/getting-data-with-pelican/client#packing-objects-with-the-pack-query).
 
 ## Related pages
 - [Manage Large Data in HTC Jobs](/uw-research-computing/file-avail-largedata)
