@@ -4,45 +4,63 @@ layout: guide
 ---
 
 <h2>Which Option is the Best for Your Files?</h2>
-<br>
 <table class="gtable">
     <tr>
-        <th>Input Sizes</th>
-        <th>Output Sizes</th>
-        <th>File Location</th>
+        <th>Input/Output File Size (Per File)<sup>*</sup></th>
+        <th>Recommended File Location</th>
         <th>Syntax for <code>transfer_input_files</code></th>
-        <th>Availability, Security</th>
+        <th>Availability</th>
         <!--<th>Special Considerations</th>-->
     </tr>
 
     <tr>
-        <td>0 - 100 MB per file, up to 500 MB per job</td>
-        <td>0 - 5 GB per job</td>
+        <td>0 - 1 GB</td>
         <td><code>/home</code></td>
         <td>No special syntax</td>
-        <td>CHTC and external pools</td>
+        <td>CHTC, external pools</td>
         <!--<td><font color="red">DO NOT USE HTCondor transfer for files in <code>/staging</code> OR <code>/squid</code></font></td>-->
     </tr>
 
     <tr>
-        <td>100 MB - TBs per job-specific file; repeatedly-used files > 1GB</td>
-        <td>4 GB - TBs per job</td>
+        <td>1 - 30 GB</td>
          <td><code>/staging</code></td>
-        <td><code>osdf:///</code></td>
-        <td>CHTC and external pools</td>
+        <td><code>osdf:///chtc/staging/</code></td>
+        <td>CHTC, external pools<sup>†</sup></td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
     <tr>
-        <td>100 MB - TBs per job-specific file</td>
-        <td>4 GB - TBs per job</td>
-         <td><code>/staging/groups</code></td>
-        <td><code>file:///</code></td>
+        <td>30 - 100 GB</td>
+         <td><code>/staging</code></td>
+        <td><code>file:///staging/</code></td>
         <td>CHTC only</td>
         <!--<td>special submit "Requirements"</td>-->
     </tr>
 
+    <tr>
+        <td>100 GB+</td>
+        <td>Contact CHTC facilitators</td>
+        <td</td>
+        <td></td>
+        <!--<td>special submit "Requirements"</td>-->
+    </tr>
+
+
+    <!--To be added once RD is widely available
+    <tr>
+        <td>Any</td>
+         <td>PI's ResearchDrive</td>
+        <td><code>pelican://chtc.wisc.edu/researchdrive/&lt;pi netid&gt;/CHTC/</code></td>
+        <td>CHTC, external pools<sup>‡</sup></td>
+    </tr>
+    -->
+
 </table>
+<caption>
+    <sup>*</sup> If you are transferring many small files, we recommend <a href="transfer-files-computer#transfer-multiple-files-using-tarballs">compressing them into a single file (.zip, .tar.gz)</a> before transfer. Use the size of the compressed file to determine where to place it.<br>
+    <sup>†</sup> Only files in personal staging directories can be transferred to jobs with the <code>osdf:///</code> protocol. Files in shared directories (i.e. <code>/staging/groups</code>) currently cannot be transferred to jobs with <code>osdf:///</code> and should use <code>file:///</code>.<br>
+    <!--<sup>‡</sup> While available on external pools, file transfer performance may be limited.-->
+</caption>
 
 <!--
 <h2>Best Practices for File Delivery</h2>
