@@ -6,20 +6,14 @@ title: Our Approach
 
 CHTC is a research center at UW - Madison and home to campus computing services. 
 Housed across the Computer Science Department and Morgridge Institute for Research, 
-we are practitioners of "translational computer science." CHTC develops technologies 
-to advance high throughput computing, and then deploys those technologies and provides 
+we are practitioners of [translational computer science](https://doi.org/10.1109/MC.2019.2925650). CHTC develops technologies 
+to advance [high throughput computing](/htc.html), and then deploys those technologies and provides 
 computing capacity to a broad community of researchers, with the goal of continuously 
 responding to researcher feedback and enabling them to advance their work. Our 
 leadership in the [Partnership to Advance Throughput Computing (PATh) Project](https://path-cc.io/) 
 represents this commitment to developing tools and communities around them. 
 
 ![translational-arrow](images/homepage/translational-arrow-noun.png)
-
-<div class="col-auto">
-<div class="rounded py-1">
-<a class="button rounded btn-primary p-2" href="https://doi.org/10.1109/MC.2019.2925650">Read about Translational Computer Science (external)</a>
-</div>
-</div>
 
 <h2>As a Lab</h2>
 
@@ -32,11 +26,6 @@ the practice of Research Computing Facilitation.
 <div class="col-auto">
 <div class="rounded py-1">
 <a class="button rounded btn-primary p-2" href="/technologies.html">View Technologies</a>
-</div>
-</div>
-<div class="col-auto">
-<div class="rounded py-1">
-<a class="button rounded btn-primary p-2" href="/htc.html">What is HTC?</a>
 </div>
 </div>
 </div>
