@@ -13,8 +13,7 @@ This guide provides an introduction to running jobs outside of CHTC: why
 using these resources is beneficial, what resources are available, and
 how to use them.
 
-## Contents
-
+{% capture content %}
 - [Why run on additional capacity outside CHTC?](#why-run-on-additional-capacity-outside-chtc)
 - [Is this capacity for you?](#is-this-capacity-for-you)
 - [External computing capacity accessible from CHTC](#external-computing-capacity-available-from-chtc)
@@ -22,19 +21,19 @@ how to use them.
 	- [Testing jobs outside CHTC](#testing-jobs-outside-chtc)
 - [Things to consider](#things-to-consider)
 - [Related Pages](#related-pages)
-
-<span name="why"></span>
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 ## Why run on additional capacity outside CHTC?
 
 Running on other resources in addition to CHTC has one huge benefit:
-size! UW - Madison groups and the national OSG Consortium make 
-available thousands of computers,
-in addition to what\'s already available in CHTC, including specialized 
+**size!**
+
+In addition to what's available at CHTC, UW-Madison groups and the national OSG Consortium make 
+thousands of computers available for high throughput computing, including specialized 
 hardware resources like GPUs. 
 
-Most CHTC users who run
-on CHTC, campus pools, and the OSPool can get more than 100,000 computer
+Most CHTC users who submit jobs to CHTC, campus pools, and the OSPool can get more than 100,000 computer
 hours (more than 11 years of computing!) in a single day. 
 
 <!--to do: cool graphic or link to story about OSPool user?-->
@@ -47,10 +46,10 @@ the following recommendations to decide if your jobs would be a good fit.
 <table>
 <tr>
   <th>Job Length</th>
-  <td>12-24 hours (per job)</td>
-  <td>Your job can complete in under 10 hours
-    -- either it finishes in that amount of time, or it
-    self-checkpoints at least that frequently. If you would like to implement
+  <td>10-24 hours (per job)</td>
+  <td>Your job should complete in under 10 hours
+    — either it finishes in that amount of time, or it
+    <a href="checkpointing">self-checkpoints</a> at least that frequently. If you would like to implement
     self-checkpointing for a longer code, we are happy to provide resources 
     and guidance. </td>
 </tr>
@@ -63,7 +62,7 @@ the following recommendations to decide if your jobs would be a good fit.
 </tr>
 <tr>
   <th>Software</th>
-  <td>An apptainer container (recommended)</td>
+  <td>An Apptainer container (recommended)</td>
   <td>Almost any software that runs in CHTC will run outside CHTC, but the best 
   scenario is using a container to maintain a consistent software environment.</td>
 </tr>
@@ -85,11 +84,11 @@ other campus pools if they are not fully utilized by their owners.
 
 ### Open Science Pool (OSPool)
 
-As the home for the [PATh project](https://path-cc.io/) CHTC operates a 
+As the home for the [PATh project](https://path-cc.io/), CHTC operates a 
 national high throughput computing pool called the 
 [Open Science Pool](https://osg-htc.org/services/ospool/), composed of 
 computing capacity contributed by campuses, national labs, and other institutions 
-across and beyond the US. CHTC users submitting from a CHTC Access Point can 
+across and beyond the United States. CHTC users submitting from a CHTC Access Point can 
 opt into allowing their jobs to utilize this national pool. 
 
 ## How to use external capacity
@@ -99,8 +98,8 @@ external HTC pools to run jobs, in addition to CHTC, you can add
 the following to your submit file:
 
 {:.gtable}
-  | `want_campus_pools = true` | Also send jobs to other HTCondor Pools on campus.<br>Good for jobs that are less than \~12 hours, on average, or checkpointing jobs. |
-  | `want_ospool = true`  | Also send jobs to the OS Pool. <br> Good for jobs that are less than \~12 hours, on average, or checkpointing jobs. |
+  | `want_campus_pools = true` | Opts into sending jobs to other HTCondor Pools on campus.<br>Good for jobs that are less than \~12 hours, on average, or jobs with checkpointing. |
+  | `want_ospool = true`  | Opts into sending jobs to the OS Pool. <br> Good for jobs that are less than \~12 hours, on average, or jobs with checkpointing |
 
 <span name="testing"></span>
 
@@ -112,7 +111,7 @@ whenever submitting a new type of job beyond CHTC.
 1.  **Run test jobs:** You should run set of test jobs (anywhere from
     10-2000 jobs) outside CHTC before submitting your full workflow. To
     do this, take a job submission that you know runs successfully on
-    CHTC. Then add the following options in the submit file + submit the
+    CHTC. Add the following options in the submit file and submit the
     test jobs:
 
     ``` {.sub}
@@ -140,11 +139,11 @@ whenever submitting a new type of job beyond CHTC.
 ### Containers
 
 Containers are the best way to ensure a consistent software environment for 
-your jobs when running inside and outside CHTC. The OSPool provides the best 
-support for apptainer containers, so this is what we recommend in general. 
+your jobs when running inside and outside CHTC. We generally recommend using
+Apptainer, since the OSPool provides the best support for Apptainer containers.
 
-- **Already using apptainer?** Great! No changes needed. 
-- **Already using docker?** Convert your container to the apptainer format and use 
+- **Already using Apptainer?** Great! No changes needed. 
+- **Already using Docker?** Convert your container to the apptainer format and use 
 staging and and `osdf:///` URL to send it to your jobs. See 
 [this guide](apptainer-build#converting-a-docker-image-to-an-apptainer-container-image) for details. 
 - **Not using containers at all?** [Check out our docs](apptainer-htc) or 
@@ -154,8 +153,8 @@ staging and and `osdf:///` URL to send it to your jobs. See
 
 If you are transferring your data to jobs: 
 
-- from `home`, using normal HTCondor file transfer
-- from `staging`, using an `osdf:///` URL
+- from `/home`, using normal HTCondor file transfer
+- from `/staging`, using an `osdf:///` URL.
 
 You can use capacity outside of CHTC. If you are using a different method to 
 access your files, [contact the facilitation team](get-help) about how you might 
