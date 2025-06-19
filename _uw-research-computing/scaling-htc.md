@@ -154,7 +154,7 @@ staging and and `osdf:///` URL to send it to your jobs. See
 If you are transferring your data to jobs: 
 
 - from `/home`, using normal HTCondor file transfer
-- from `/staging`, using an `osdf:///` URL.
+- from an individual `/staging` directory, using an `osdf:///` URL.
 
 You can use capacity outside of CHTC. If you are using a different method to 
 access your files, [contact the facilitation team](get-help) about how you might 
