@@ -177,7 +177,7 @@ container_image = file:///staging/path/to/my-container.sif
 ```
 {:.sub}
 
-If the `.sif` file is **in a `/staging` directory AND you are using `+WantFlocking` or `+WantGliding`**:
+If the `.sif` file is **in a `/staging` directory AND you are using `want_campus_pools` or `want_ospool`**:
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
