@@ -1,127 +1,78 @@
-{% assign page_tag = page.tag[0] %}
-{% assign data = site.uw-research-computing | where_exp: "x", "x.tag contains page.tag" | sort: "category" %}
-{% assign category_order = "Get started,Submit jobs,Manage data,Software,Workflows,Special use cases,Troubleshooting,External Resources" | split: "," %}
+{% assign htc_menu = site.data.htc-guide-menu %}
+{% assign hpc_menu = site.data.hpc-guide-menu %}
+{% assign active = page.url %}
+
+{% if page.guide.tag contains "htc" and page.guide.tag contains "hpc" %}
+    {% assign show_guide = "HTC guides,HPC guides" | split: ',' %}
+    {% assign collapse_guides = "accordion-header" %}
+{% elsif page.guide.tag contains "htc" %}
+    {% assign show_guide = "HTC guides" %} 
+{% elsif page.guide.tag contains "hpc" %}
+    {% assign show_guide = "HPC guides" %}
+{% endif %}
+
 
     <div id="guide-sidebar">
-        {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
-            {% assign general_pages = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" | where_exp: "x", "x.guide.tag contains 'hpc'" | sort: "category" %}
-
-            {% assign categories = "" | split: "" %}
-            {% for page in general_pages %}
-                {% unless categories contains page.guide.category %}
-                    {%  assign categories = categories | push: page.guide.category %}
-                {% endunless %}
-            {%  endfor %}
-
-            <h6 class="mt-5">General Guides</h6>
+        {% for item in show_guide %}
+            {% if show_guide.first %}
+                    <h6 class="mt-5">{{ item }}</h6>
+            {% else %}
+                    <h6 class="mt-5">{{ item }}</h6>
+            {% endif %}
+            {% if item == "HTC guides" %}
+                {% assign menu = htc_menu %}
+            {% elsif item == "HPC guides" %}
+                {% assign menu = hpc_menu %}
+            {% endif %}
             <div class="accordion accordion-flush">
-                {% for category in category_order %}
-                    {% if categories contains category %}
-                        {% assign pages_in_category = general_pages | where_exp: "x", "x.guide.category == category" |  sort: "guide.order" %}
-
-                        {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="{{ category | slugify }}">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}">
+                {% for categories in menu %}
+                {% assign category = categories.text %}
+                    <div class="accordion-item">
+                            {% assign id = category | append: item %}
+                            <span class="accordion-header mt-0" id="{{ id | slugify }}">
+                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id | slugify }}-collapse" aria-expanded="false" aria-controls="{{ id | slugify }}">
                                     {{ category }}
                                 </button>
                             </span>
-                            <div id="{{ category | slugify }}-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}" data-bs-parent="#guide-sidebar">
-                                {% for page in pages_in_category %}
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
-                                    </div>
+                            <div id="{{ id | slugify }}-collapse" class="accordion-collapse collapse aria-labelledby="{{ id | slugify }}" data-bs-parent="#guide-sidebar">
+                                {% for guide in categories.links %}
+                                    {% if guide.url %}
+                                        <div class="document-link-wrapper bg-light">
+                                            <a class="{% if active == guide.url %}fw-bolder{% endif %}" href="{{ guide.url | relative_url }}">{{ guide.text }}</a>
+                                        </div>
+                                    {% elsif guide.links %}
+                                        <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+                                            <span style = "font-size: .8rem;">
+                                                <i class="bi bi-folder me-2"></i>
+                                                {{ guide.text }}
+                                            </span>
+                                        </div>
+                                        {% for subguide in guide.links %}
+                                            {% if subguide.url %}
+                                                <div class="document-link-wrapper bg-light" style="padding-left: 1.5em;">
+                                                    <a class="{% if active == subguide.url %}fw-bolder{% endif %}" href="{{ subguide.url | relative_url }}">{{ subguide.text }}</a>
+                                                </div>
+                                            {% elsif subguide.links%}
+                                                <div class="document-link-wrapper" style="padding-left: 1.5em; background-color: #d3d3d3;">
+                                                    <span style = "font-size: .8rem;">
+                                                        <i class="bi bi-folder me-2"></i>
+                                                        {{ subguide.text }}
+                                                    </span>
+                                                </div>
+                                                {% for subguide2 in subguide.links %}
+                                                <div class="document-link-wrapper bg-light" style="padding-left: 3em;">
+                                                    <a class="{% if active == subguide2.url %}fw-bolder{% endif %}" href="{{ subguide2.url | relative_url }}">{{ subguide2.text }}</a>
+                                                </div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
-                    {% endif %}
                 {% endfor %}
             </div>
-        {% endif %}
-        {% if page.guide.tag contains 'htc' %}
-            {% assign htc_pages = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'htc'" | sort: "category" %}
-
-            {% assign categories = "" | split: "" %}
-            {% for page in htc_pages %}
-                {% unless categories contains page.guide.category %}
-                    {%  assign categories = categories | push: page.guide.category %}
-                {% endunless %}
-            {%  endfor %}
-
-            <h6 class="mt-5">HTC Guides</h6>
-            <div class="accordion accordion-flush">
-                {% for category in category_order %}
-                    {% if categories contains category %}
-
-                        {% assign pages_in_category = htc_pages | where_exp: "x", "x.guide.category == category" |  sort: "guide.order" %}
-
-                        {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
-                        {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
-                            {% assign active = "" |  split: "" %}
-                        {% endif %}
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="{{ category | slugify }}-htc">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-htc-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}-htc">
-                                    {{ category }}
-                                </button>
-                            </span>
-                            <div id="{{ category | slugify }}-htc-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}-htc" data-bs-parent="#guide-sidebar">
-                                {% for page in pages_in_category %}
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
-        {% if page.guide.tag contains 'hpc' %}
-            {% assign hpc_pages = site.uw-research-computing | where_exp: "x", "x.guide.tag contains 'hpc'" | sort: "category" %}
-
-            {% assign categories = "" | split: "" %}
-            {% for page in hpc_pages %}
-                {% unless categories contains page.guide.category %}
-                    {%  assign categories = categories | push: page.guide.category %}
-                {% endunless %}
-            {%  endfor %}
-
-            <h6 class="mt-5">HPC Guides</h6>
-            <div class="accordion accordion-flush">
-                {% for category in category_order %}
-                    {% if categories contains category %}
-
-                        {% assign pages_in_category = hpc_pages | where_exp: "x", "x.guide.category == category" |  sort: "guide.order" %}
-
-                        {% assign active = pages_in_category | where_exp: "x", "x.url == page.url" %}
-                        {% if page.guide.tag contains 'htc' and page.guide.tag contains 'hpc' %}
-                            {% assign active = "" |  split: "" %}
-                        {% endif %}
-
-                        <div class="accordion-item">
-                            <span class="accordion-header mt-0" id="{{ category | slugify }}-hpc">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category | slugify }}-hpc-collapse" aria-expanded="false" aria-controls="{{ category | slugify }}-hpc">
-                                    {{ category }}
-                                </button>
-                            </span>
-                            <div id="{{ category | slugify }}-hpc-collapse" class="accordion-collapse collapse {% if active.size == 1 %}show {% endif %}" aria-labelledby="{{ category | slugify }}-hpc" data-bs-parent="#guide-sidebar">
-                                {% for page in pages_in_category %}
-
-                                    <div class="document-link-wrapper bg-light">
-                                        <a class="{% if active[0].url == page.url %}fw-bolder{% endif %}" href="{{ page.url | relative_url }}">{{ page.title }}</a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+        {% endfor %}
+    </div>  
 
 
