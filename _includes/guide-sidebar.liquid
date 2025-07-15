@@ -10,39 +10,44 @@
 {% elsif page.guide.tag contains "hpc" %}
     {% assign show_guide = "HPC guides" %}
 {% endif %}
-
-
-    <div id="guide-sidebar">
-        {% for item in show_guide %}
-            {% if show_guide.first %}
-                    <h6 class="mt-5">{{ item }}</h6>
-            {% else %}
-                    <h6 class="mt-5">{{ item }}</h6>
-            {% endif %}
-            {% if item == "HTC guides" %}
-                {% assign menu = htc_menu %}
-            {% elsif item == "HPC guides" %}
-                {% assign menu = hpc_menu %}
-            {% endif %}
-            <div class="accordion accordion-flush">
-                {% for categories in menu %}
-                {% assign category = categories.text %}
-                    <div class="accordion-item">
-                            {% assign id = category | append: item %}
-                            <span class="accordion-header mt-0" id="{{ id | slugify }}">
-                                <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id | slugify }}-collapse" aria-expanded="false" aria-controls="{{ id | slugify }}">
-                                    {{ category }}
-                                </button>
-                            </span>
-                            <div id="{{ id | slugify }}-collapse" class="accordion-collapse collapse" aria-labelledby="{{ id | slugify }}" data-bs-parent="#guide-sidebar">
-                                {% for link in categories.links %}
-                                    {% include components/sidebar-guide-links.liquid %}
-                                {% endfor %}
-                            </div>
+<div id="guide-sidebar">
+    {% for item in show_guide %}
+        {% if show_guide.first %}
+                <h6 class="mt-5">{{ item }}</h6>
+        {% else %}
+                <h6 class="mt-5">{{ item }}</h6>
+        {% endif %}
+        {% if item == "HTC guides" %}
+            {% assign menu = htc_menu %}
+        {% elsif item == "HPC guides" %}
+            {% assign menu = hpc_menu %}
+        {% endif %}
+        <div class="accordion accordion-flush">
+            {% for categories in menu %}
+            {% assign category = categories.text %}
+                <div class="accordion-item">
+                        {% assign id = category | append: item %}
+                        <span class="accordion-header mt-0" id="{{ id | slugify }}">
+                            <button class="accordion-button {% unless active.size == 1 %}collapsed {% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id | slugify }}-collapse" aria-expanded="false" aria-controls="{{ id | slugify }}">
+                                {{ category }}
+                            </button>
+                        </span>
+                        <div id="{{ id | slugify }}-collapse" class="accordion-collapse collapse" aria-labelledby="{{ id | slugify }}" data-bs-parent="#guide-sidebar">
+                            {% for link in categories.links %}
+                                {% include components/sidebar-guide-links.liquid %}
+                            {% endfor %}
                         </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>  
+                    </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+<script>
+  // Set the height of the sidebar to fill the viewport minus the height of the main content area
+  const body = document.querySelector("body");
+  const main = document.getElementById("main")
+  const navHeight = body.clientHeight - main.clientHeight;
+  document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+</script>
 
 
