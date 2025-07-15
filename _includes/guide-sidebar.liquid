@@ -44,10 +44,16 @@
 </div>
 <script>
   // Set the height of the sidebar to fill the viewport minus the height of the main content area
-  const body = document.querySelector("body");
-  const main = document.getElementById("main")
-  const navHeight = body.clientHeight - main.clientHeight;
-  document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+  const updateSidebarHeight = () => {
+    const navHeight = document.getElementById("navbar").clientHeight;
+		console.log(navHeight, window.innerHeight - navHeight);
+    document.getElementById("guide-sidebar").style.height = `${window.innerHeight - navHeight}px`;
+  };
+
+  // Initial call to set the sidebar height
+  updateSidebarHeight();
+  // Add event listener to update the sidebar height on window resize
+  window.addEventListener("resize", updateSidebarHeight);
 </script>
 
 
