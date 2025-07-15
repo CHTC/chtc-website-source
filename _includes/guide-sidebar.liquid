@@ -34,39 +34,9 @@
                                     {{ category }}
                                 </button>
                             </span>
-                            <div id="{{ id | slugify }}-collapse" class="accordion-collapse collapse aria-labelledby="{{ id | slugify }}" data-bs-parent="#guide-sidebar">
-                                {% for guide in categories.links %}
-                                    {% if guide.url %}
-                                        <div class="document-link-wrapper bg-light">
-                                            <a class="{% if active == guide.url %}fw-bolder{% endif %}" href="{{ guide.url | relative_url }}">{{ guide.text }}</a>
-                                        </div>
-                                    {% elsif guide.links %}
-                                        <div class="document-link-wrapper" style="background-color: #d3d3d3;">
-                                            <span style = "font-size: .8rem;">
-                                                <i class="bi bi-folder me-2"></i>
-                                                {{ guide.text }}
-                                            </span>
-                                        </div>
-                                        {% for subguide in guide.links %}
-                                            {% if subguide.url %}
-                                                <div class="document-link-wrapper bg-light" style="padding-left: 1.5em;">
-                                                    <a class="{% if active == subguide.url %}fw-bolder{% endif %}" href="{{ subguide.url | relative_url }}">{{ subguide.text }}</a>
-                                                </div>
-                                            {% elsif subguide.links%}
-                                                <div class="document-link-wrapper" style="padding-left: 1.5em; background-color: #d3d3d3;">
-                                                    <span style = "font-size: .8rem;">
-                                                        <i class="bi bi-folder me-2"></i>
-                                                        {{ subguide.text }}
-                                                    </span>
-                                                </div>
-                                                {% for subguide2 in subguide.links %}
-                                                <div class="document-link-wrapper bg-light" style="padding-left: 3em;">
-                                                    <a class="{% if active == subguide2.url %}fw-bolder{% endif %}" href="{{ subguide2.url | relative_url }}">{{ subguide2.text }}</a>
-                                                </div>
-                                                {% endfor %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
+                            <div id="{{ id | slugify }}-collapse" class="accordion-collapse collapse" aria-labelledby="{{ id | slugify }}" data-bs-parent="#guide-sidebar">
+                                {% for link in categories.links %}
+                                    {% include components/sidebar-guide-links.liquid %}
                                 {% endfor %}
                             </div>
                         </div>
