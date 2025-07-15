@@ -28,7 +28,7 @@ This guide introduces how to build software in a container (our recommended stra
 ## Quickstart
 
 Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
-More information is provided in the [CHTC Recipes Repository](#chtc-recipes-repository) and [Containers](#containers) sections.
+More information is provided in the [CHTC Recipes Repository](https://github.com/CHTC/recipes) and the [Containers](#containers) sections.
 
 <div class="shadow p-3 border rounded">
     <div class="row gx-1">
