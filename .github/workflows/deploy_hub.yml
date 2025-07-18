@@ -1,0 +1,18 @@
+name: Deploy web pages to Harbor
+
+on:
+  workflow_run:
+    workflows: ["Build web pages"]
+    types:
+      - completed
+
+jobs:
+  call-build-image:
+    if: ${{ github.repository_owner == 'CHTC' }}
+    uses: osg-htc/build-push/.github/workflows/build-push.yaml@main
+    secrets:
+      password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
+      username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
+    with:
+      image: 'hub.opensciencegrid.org/chtc/chtc-website'
+      artifact: chtc-website

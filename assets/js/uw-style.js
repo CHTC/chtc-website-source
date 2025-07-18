@@ -55,6 +55,10 @@ uw_utils.ready(function () {
                 uw_utils.toggleBooleanAttr(this, "aria-expanded");
                 uw_utils.toggleBooleanAttr(child_menu, "aria-hidden");
             });
+
+            el.addEventListener("click", function (e) {
+                e.preventDefault();
+            });
         
             parent.addEventListener("mouseleave", function (e) {
                 var relatedTarget = e.relatedTarget || e.toElement;

@@ -1,0 +1,4 @@
+{
+   "issuer":"https://chtc.wisc.edu/uwdf/researchdrive",
+   "jwks_uri":"https://chtc.wisc.edu/uwdf/researchdrive/.well-known/issuer.jwks"
+}

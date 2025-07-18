@@ -1,7 +1,5 @@
 _site
 .jekyll-cache/
-Gemfile.lock
-
 vendor/
 .DS_Store
 

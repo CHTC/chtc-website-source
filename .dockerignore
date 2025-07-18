@@ -1,0 +1,11 @@
+_site
+.jekyll-cache/
+vendor/
+.DS_Store
+
+.idea/
+.vscode/
+.vagrant/
+
+dev_website
+

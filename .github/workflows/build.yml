@@ -1,23 +1,26 @@
-name: Build/deploy web pages
+name: Build web pages
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
-  schedule:
-    - cron: '0 * * * *'
+  workflow_call:
+
+permissions:
+  actions: read
 
 jobs:
   build-and-maybe-deploy:
+    if: ${{ github.repository_owner == 'CHTC' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
+          ref: master
 
       - name: Update Submodules
         run: git submodule update --init --recursive --remote
-
 
       - name: Attach hidden files
         run: |
@@ -35,7 +38,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: 3.4
           bundler-cache: true
 
       - run: |
@@ -51,17 +54,9 @@ jobs:
           cd _site/staff
           ln -s /p/condor/public/html/developers/schedules schedules
 
-      - run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
-          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
-          ./script/cideploy
-        env:
-          #NO_PUSH: 1
-          TARGET_REPO: CHTC/chtc.github.io
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
-        name: Deploy web pages on merge/push
-
-# vim:ft=yaml:sw=2:sts=2
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: chtc-website
+          path: _site
+          include-hidden-files: true

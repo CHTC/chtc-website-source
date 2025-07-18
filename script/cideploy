@@ -8,12 +8,8 @@ JEKYLL_OUTPUT_FOLDER=_site
 
 echo "$GITHUB_EVENT_NAME"
 
-commitmessage=$(mktemp)
+commitmessage="Static commit message - $(date)"
 trap 'rm -f "$commitmessage"' EXIT
-
-git log -1 --pretty=format:"GHA $GITHUB_RUN_NUMBER: \"%s\" by %an [%h] pushed to GitHub Pages
-
-%b" > "$commitmessage"
 
 echo -e "Starting to deploy to Github Pages\n"
 
@@ -23,11 +19,11 @@ if [[ $GITHUB_ACTIONS == true ]]; then
 fi
 
 #using token clone target repository
-git clone --quiet --branch=$BRANCH git@github.com:$TARGET_REPO built_website > /dev/null
+git clone --depth 1 --quiet --branch=$BRANCH git@github.com:$TARGET_REPO built_website > /dev/null
 #go into directory and copy data we're interested in to that directory
 mkdir -p built_website
 cd built_website
-rsync -av --delete --include-from=../script/rsync_include_list --exclude-from=../script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
+rsync -av --delete --include-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_include_list --exclude-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
 # We need this single well-known directory to support OIDC metadata discovery for SciTokens.
 rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
 for issuer in icecube nsdf; do
@@ -39,8 +35,8 @@ touch .nojekyll
 set -x
 #add, commit and push files
 git add -f -A
-git commit -F "$commitmessage"
+git commit -m "$commitmessage"
 if [[ -z $NO_PUSH ]]; then
-    git push -fq origin $BRANCH > /dev/null
+    git push -fq origin master > /dev/null
 fi
 echo -e "Deploy completed\n"

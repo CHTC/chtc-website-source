@@ -147,12 +147,18 @@ html {
 }
 
 #hero-image-ultrawide {
-  height:50vw;
-  max-height:350px;
+  max-height:500px;
   width: auto;
   max-width: none;
   margin-left: 50%;
   transform: translateX(-50%);
+}
+
+// When view is below medium reduce image width
+@media (max-width: 768px) {
+  #hero-image-ultrawide {
+    max-height:450px;
+  }
 }
 
 .stat-card {
@@ -174,7 +180,9 @@ html {
 
 #guide-sidebar {
 
-  top: 1rem;
+  height: 100vh;
+  overflow-y: scroll;
+  top: 0;
   position: sticky;
   line-height: 1rem;
 

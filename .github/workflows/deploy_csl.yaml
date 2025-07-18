@@ -1,0 +1,39 @@
+name: Deploy web pages CSL
+
+on:
+  workflow_run:
+    workflows: ["Build web pages"]
+    types:
+      - completed
+
+permissions:
+  actions: read
+
+jobs:
+  deploy:
+    if: ${{ github.repository_owner == 'CHTC' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: chtc-website
+          path: _site
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - run: ls -la _site
+
+      - run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+          : # Permissions are wiped when the artifact is downloaded, allow execution on this file
+          chmod +x ./_site/script/cideploy
+          ./_site/script/cideploy
+        env:
+          TARGET_REPO: CHTC/chtc.github.io
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        name: Deploy web pages on merge/push

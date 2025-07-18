@@ -4,7 +4,7 @@ Source repository for CHTC website
 
 ![Build Status](https://github.com/CHTC/chtc-website-source/workflows/Build%2Fdeploy%20web%20pages/badge.svg)
 
-## Research Computing Guides Guide
+## Research Computing Guides Guid
 
 [View Research Computing Guides Guide Here](./_uw-research-computing/README.md)
 
@@ -132,3 +132,10 @@ excerpt_separator: &lt;!--more--&gt;
 Software Icon and software are how the guides are connected to the Software Overview page. The 
 excerpt_seperator must be &lt;!--more--&gt; and can be placed anywhere in a document and all text 
 above it will be put in the excerpt.
+
+
+## Production docker 
+
+```shell
+docker run --rm --name chtc-website -d -p 80:80 $(docker build -q .)
+```

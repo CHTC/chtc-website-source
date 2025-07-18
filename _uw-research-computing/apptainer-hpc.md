@@ -151,6 +151,12 @@ Then submit your job to Slurm as usual, as described in our [Submitting and Mana
 
 ### On multiple nodes
 
-We are still in the early stages of deploying containers on the High Performance system.
-A complicating factor is the construction of the `.def` file to deploy MPI on the system to allow for execution across multiple nodes.
-If you are interested in mutli-node execution using containers, contact a facilitator for more information.
+We now have a prototype method for running multi-node jobs using an Apptainer container.
+For instructions on the process, see the recipe in our Recipes repository:
+
+* [Multi-Node Container Jobs on HPC](https://github.com/CHTC/recipes/tree/main/workflows-hpc/multi-node-container)
+
+***Please let us know at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) if you are able to successfully implement this method!***
+
+We welcome feedback about the process and its instructions.
+And of course, feel free to reach out for assistance if you run into any issues.

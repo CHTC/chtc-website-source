@@ -59,7 +59,7 @@ If the `.sif` file is **in a `/staging` directory**:
 container_image = file:///staging/path/to/my-container.sif
 ```
 
-If the `.sif` file is **in a `/staging` directory AND you are using `+WantFlocking` or `+WantGliding`**:
+If the `.sif` file is **in a `/staging` directory AND you are using `want_campus_pools` or `want_ospool`**:
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
@@ -215,10 +215,6 @@ On the High Throughput system, you can use the following submit file `build.sub`
 
 universe = vanilla
 log = build.log
-
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = /usr/bin/hostname
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
 transfer_input_files = image.def
@@ -388,7 +384,7 @@ condor_submit apptainer.sub
 ```
 {:.term}
 
-If you are using `+WantFlocking` or `+WantGliding` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
+If you are using `want_campus_pools` or `want_ospool` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif

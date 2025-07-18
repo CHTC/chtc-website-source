@@ -1,10 +1,6 @@
 - text: "Get started"
   icon: "bi bi-rocket-takeoff"
   links:
-    - text: "CHTC /staging and /projects next steps"
-      url: "/uw-research-computing/data-recovery-fall2024"
-      icon: ""
-      highlight: true
     - text: "System overview"
       url: "/uw-research-computing/htc-overview"
       icon: ""
@@ -58,13 +54,10 @@
 - text: "Manage data"
   icon: "bi bi-file-earmark-text"
   links:
-    - text: "Transfer small input and output"
-      url: "/uw-research-computing/file-availability"
+    - text: "Use and transfer data in jobs on the HTC system "
+      url: "/uw-research-computing/htc-job-file-transfer"
       icon: ""
-    - text: "Transfer large input files via Squid"
-      url: "/uw-research-computing/file-avail-squid"
-      icon: ""
-    - text: "Transfer large input and output files via /staging"
+    - text: "Manage Large Data in HTC Jobs"
       url: "/uw-research-computing/file-avail-largedata"
       icon: ""
     - text: "Check disk quota and usage"

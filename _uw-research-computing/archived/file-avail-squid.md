@@ -2,8 +2,8 @@
 highlighter: none
 layout: file_avail
 title: Transfer Large Input Files Via Squid
+published: false
 guide:
-    category: Manage data
     tag:
         - htc
 ---
