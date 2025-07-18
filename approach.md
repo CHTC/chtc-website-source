@@ -1,70 +1,76 @@
 ---
 highlighter: none
 layout: character_optimized
-title: About Our Approach
+title: Our Approach
 ---
 
-CHTC's specialty is High
-*Throughput* Computing (HTC), which involves breaking up a single large
-computational task into many smaller tasks for the fastest overall
-turnaround. Most of our users find HTC to be invaluable 
-in accelerating their computational work and thus their research. 
-We support thousands of multi-core computers and use the task
-scheduling software called <a href="http://htcondor.org">HTCondor</a>, developed right here in Madison, to
-run thousands of independent jobs on as many total processors as
-possible. These computers, or "machines", are distributed across several 
-collections that we call *pools* (similar to "clusters"). Because machines are
-assigned to individual jobs, many users can be running jobs on a pool at any
-given time, all managed by HTCondor.
+CHTC is a research center at UW - Madison and home to campus computing services. 
+Housed across the Computer Science Department and Morgridge Institute for Research, 
+we are practitioners of [translational computer science](https://doi.org/10.1109/MC.2019.2925650). CHTC develops technologies 
+to advance [high throughput computing](/htc.html), and then deploys those technologies and provides 
+computing capacity to a broad community of researchers, with the goal of continuously 
+responding to researcher feedback and enabling them to advance their work. Our 
+leadership in the [Partnership to Advance Throughput Computing (PATh) Project](https://path-cc.io/) 
+represents this commitment to developing tools and communities around them. 
 
-The diagram below shows some of the largest pools on campus and also
-shows our connection to the US-wide <a href="https://osg-htc.org/about/open_science_pool/">OS Pool</a> where UW computing
-work can "backfill" available computers all over the country. The number
-under each resource name shows an approximate number of computing hours
-available to campus researchers for a typical week in Fall 2013. As
-demonstrated in the diagram, we help users to submit their work not only
-to our CHTC-owned machines, but to improve their throughput even further
-by seamlessly accessing as many available computers as possible, all
-over campus *AND* all over the country.
+![translational-arrow](images/homepage/translational-arrow-noun.png)
 
-The vast majority of the computational work that campus researcher have
-is HTC, though we are happy to support researchers with a variety of
-beyond-the-desktop needs, including tightly-coupled computations (e.g.
-MPI), high-memory work (e.g. metagenomics), and specialized
-hardware like GPUs.
+<h2>As a Lab</h2>
 
-<img alt="chtc-pools" src="{{ '/includes/chtc-pools.png' | relative_url }}" width="500" style = "float:right; margin:20px; margin-right:0;"/>
+CHTC is a laboratory for the development of high throughput 
+computing tools and methodologies, including software products like 
+the <a href="https://htcondor.org">HTCondor Software Suite</a> and the <a href="https://pelicanplatform.org">Pelican Platform</a>, and championing 
+the practice of Research Computing Facilitation. 
 
+<div class="row">
+<div class="col-auto">
+<div class="rounded py-1">
+<a class="button rounded btn-primary p-2" href="/technologies.html">View Technologies</a>
+</div>
+</div>
+</div>
 
-## What kinds of applications run best in the CHTC?
+<h2>As a Service Provider</h2>
 
-"Pleasantly parallel" tasks, where *many* jobs can run independently,
-is what works best in the CHTC, and is what we can offer the greatest
-computational capacity for. 
-Analyzing thousands of images, inferring statistical significance of hundreds of
-thousands of samples, optimizing an electric motor design with millions
-of constraints, aligning genomes, and performing deep linguistic search
-on a 30 TB sample of the internet are a few of the applications that
-campus researchers run every day in the CHTC. If you are not sure if
-your application is a good fit for CHTC resources, [get in
-touch](mailto:chtc@cs.wisc.edu) and we will be happy to help you figure it out.
+As part of our translational computer science mission, CHTC operates computing 
+and facilitation services available to UW - Madison affiliates at no cost. 
+Any researcher at UW - Madison, who has outgrown their 
+current computing capacity (whether that be a laptop, desktop, server, or small cluster) 
+can use CHTC's computing capacity to scale up their research. While our speciality 
+is in HTC, we can support a wide variety of computing workloads - come talk to us or 
+request an account! 
 
-Within a single compute system, we also support GPUs, high-memory
-servers, and specialized hardware owned by individual research groups.
-For tightly-coupled computations (e.g. MPI and similar programmed
-parallelization), our resources include an HPC Cluster, with faster
-inter-node networking.
+<div class="row pb-4">
+<div class="col-auto">
+<div class="rounded py-1">
+<a class="button rounded btn-primary p-2" href="/uw-research-computing/index.html">View UW Research Computing Overview</a>
+</div>
+</div>
+<div class="col-auto">
+<div class="rounded py-1">
+<a class="button rounded btn-primary p-2" href="/uw-research-computing/form.html">Request an Account</a>
+</div>
+</div>
+</div>
 
+CHTC also supports the operation of national computing infrastructure like the 
+<a href="https://osg-htc.org/services/ospool">Open Science Pool</a> and <a href="https://osg-htc.org/services/osdf">Open Science Data Federation</a>.
 
-## How to Get Access
+<h2>As a Center</h2>
 
-While you may be excited at the prospect of harnessing 100,000 compute
-hours a day for your research, the most valuable thing we offer is,
-well, us. We have a small, yet dedicated team of professionals who eat,
-breathe and sleep distributed computing. If you are a UW-Madison Researcher, you can [request an
-account](uw-research-computing/get-started.html), and one of our dedicated Research Computing
-Facilitators will follow up to provide specific recommendations to
-accelerate YOUR science.
+We bring our development activities and our services together under
+one roof in order to facilitate the exchange of information between the users and 
+developers of our technologies. Without feedback on what researchers need to take 
+their work to the next level (or just make computing more accessible), our research 
+won't move forward. Our door (or email) is always open to hear about pain points and 
+suggestions for improvement. 
+
+<div class="rounded py-1">
+<a class="button rounded btn-primary p-2" href="mailto:chtc@cs.wisc.edu">Email us!</a>
+</div>
+
+<aside class="uw-sidebar">
+<button class="uw-button-unstyle uw-side-nav-button"><svg aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#uw-symbol-caret-down"></use></svg> Select a section…</button>
 
 
 <p style="margin-bottom: 120px;"> </p>

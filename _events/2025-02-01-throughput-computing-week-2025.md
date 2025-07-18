@@ -9,8 +9,8 @@ excerpt: |
     Don't miss this opportunity to connect with the High Throughput Computing community.
 
 
-start_date: 2025-06-2
-end_date: 2025-06-6
+start_date: 2025-06-02
+end_date: 2025-06-06
 location: "University of Wisconsin–Madison’s Fluno Center and Online via Zoom"
 image: "/images/events/throughput-2025-banners.png"
 header_image: "images/events/throughput-2025-banners.png"

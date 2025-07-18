@@ -5,11 +5,12 @@
     {% include head.html js=page.js_extension css=page.css_extension head=head %}
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-
-    {% include global_bar.html %}
-    {% include header.html %}
-    {% include navbar/main-navbar.html %}
-    {% include navbar/uw-research-computing-navbar.html %}
+    <div id="navbar">
+        {% include global_bar.html %}
+        {% include header.html %}
+        {% include navbar/main-navbar.html %}
+        {% include navbar/uw-research-computing-navbar.html %}
+    </div>
     <main id="main" style="min-height: 60vh;">
         {{ content }}
     </main>

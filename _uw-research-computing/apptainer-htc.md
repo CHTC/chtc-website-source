@@ -68,7 +68,7 @@ to add it to your HTC job:
 	container_image = file:///staging/path/to/my-container.sif
 	```
 	
-* Option 3: If the `.sif` file is **in a `/staging` directory AND you are using `+WantFlocking` or `+WantGliding`**:
+* Option 3: If the `.sif` file is **in a `/staging` directory AND you are using `want_campus_pools` or `want_ospool`**:
 	
 	```
 	container_image = osdf:///chtc/staging/path/to/my-container.sif
@@ -308,7 +308,7 @@ Therefore, we recommend using
 container_image = file:///staging/path/to/my-container.sif
 ```
 
-If you are using `+WantFlocking` or `+WantGliding` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
+If you are using `want_campus_pools` or `want_ospool` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use: 
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif

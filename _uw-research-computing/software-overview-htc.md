@@ -28,12 +28,9 @@ This guide introduces how to build software in a container (our recommended stra
 ## Start Here
 
 For most CHTC users, we recommend using a container for your software environment. 
-
-A container is a portable, self-contained operating system and can be easily executed on different computers regardless of their operating systems or programs.
+A container is a portable, self-contained operating system and can be easily executed on different computers. When building the container you can choose the operating system you want to use, and can install programs as if you were the owner of the computer.
 
 <p style="text-align:center"><img src="/images/container-analogy-infographic2.png" width=800></p>
-
-When building the container you can choose the operating system you want to use, and can install programs as if you were the owner of the computer.
 
 In general, if you have not used containers before, we recommend using Apptainer 
 containers. 
