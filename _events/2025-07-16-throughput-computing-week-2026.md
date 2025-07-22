@@ -1,6 +1,6 @@
 ---
 short_title: Save the Date for Throughput Computing Week 2026
-title: Save the Date for Throughput Computing Week 2026
+title: Save the Date for Throughput Computing Week 2026: June 9 - 12, 2026
 
 layout: events
 published: true
@@ -18,7 +18,6 @@ header_image: "images/events/throughput-2026-banners.png"
 
 {% capture main %}
 
-**Save the Date for Throughput Computing Week June 9 - 12, 2026.**
 
 You are invited to the annual Throughput Computing Week (HTC26) from June 9-12 to be held in beautiful Madison, Wisconsin. HTC26 brings together researchers, campuses, science collaborations, facilitators, administrators, government representatives, and professionals interested in high-throughput computing to:
 
@@ -56,13 +55,13 @@ For questions about attending, speaking, accommodations, and other concerns plea
 
 Tuesday, June 9 through Friday, June 12, 2026.
 
-Attendees of previous Throughput Computing Weeks should note that this means HTC26 will four full days, starting on Tuesday in 2026.
+Please take note that in 2026 HTC will be four full days, starting on a Tuesday.
 
 ### Registration
 
-Registration is not yet open for this event, but will be required for both In-Person and Remote Attendance. Registration for in-person attendance will cost $125 per day; there is no fee for registration for virtual attendance.
+Registration will open in January 2026 and will be required for both In-Person and Remote Attendance. Registration for in-person attendance will cost $125 per day; there is no fee for registration for virtual attendance.
 
-Expect registration to open in early 2026!
+
 
 ### Website
 
