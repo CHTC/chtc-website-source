@@ -1,12 +1,12 @@
 ---
-short_title: You are Invited to Attend Throughput Computing Week 2026
-title: Join Us at Throughput Computing Week 2026
+short_title: Save the Date for Throughput Computing Week 2026
+title: Save the Date for Throughput Computing Week 2026
 
 layout: events
 published: true
 
 excerpt: |
-    Don't miss this opportunity to connect with the High Throughput Computing community.
+    Mark your calendars for Throughput Computing Week June 9 - 12, 2026.
 
 
 start_date: 2026-06-09
@@ -18,7 +18,7 @@ header_image: "images/events/throughput-2026-banners.png"
 
 {% capture main %}
 
-**Don't miss this opportunity to connect with the High Throughput Computing community.**
+**Save the Date for Throughput Computing Week June 9 - 12, 2026.**
 
 You are invited to the annual Throughput Computing Week (HTC26) from June 9-12 to be held in beautiful Madison, Wisconsin. HTC26 brings together researchers, campuses, science collaborations, facilitators, administrators, government representatives, and professionals interested in high-throughput computing to:
 
@@ -26,9 +26,9 @@ You are invited to the annual Throughput Computing Week (HTC26) from June 9-12 t
 - Be inspired by presentations and conversations with community leaders and contributors sharing common interests
 - Learn about HTC and new developments to advance your science, your collaboration, or your campus
 
-At HTC25, we had over 130 in-person attendees, and more than 80 presentations given by our volunteer speakers.
+At HTC25, we had over 130 in-person attendees and more than 80 presentations.
 
-The event website will be launched in January, so stay tuned for more details.
+The event website will be launched in January 2026, so stay tuned for more details.
 
 ### Connect with CC* Campuses and OSG Staff
 
@@ -36,11 +36,11 @@ The event website will be launched in January, so stay tuned for more details.
 
 ### Speaking Opportunities
 
-We encourage you to consider giving a talk. Technical presentations at HTC26 are short, typically 20 minutes in length. Applying merely requires a brief abstract submission. A link to submit these will go live alongside the event site early next year.
+We encourage you to consider giving a talk. Technical presentations at HTC26 are short, typically 20 minutes in length. Applying merely requires a brief abstract submission. A link to submit these will go live alongside the event site early 2026.
 
 ### Visiting Madison
 
-Madison, Wisconsin is both a beautiful and a popular place to visit in the summer. We have room blocks reserved for HTC26 and encourage you to register and book your hotel room as early as possible. 
+Madison, Wisconsin is both a beautiful and a popular place to visit in the summer. We will have room blocks reserved for HTC26 and encourage you to register and book your hotel room as early as possible. 
 
 
 ### Questions and Resources
@@ -56,7 +56,7 @@ For questions about attending, speaking, accommodations, and other concerns plea
 
 Tuesday, June 9 through Friday, June 12, 2026.
 
-Attendees of previous Throughput Computing Weeks should note that this means HTC26 will be four full days.
+Attendees of previous Throughput Computing Weeks should note that this means HTC26 will four full days, starting on Tuesday in 2026.
 
 ### Registration
 
