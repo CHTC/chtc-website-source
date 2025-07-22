@@ -1,6 +1,6 @@
 ---
 short_title: Save the Date for Throughput Computing Week 2026
-title: Save the Date for Throughput Computing Week 2026: June 9 - 12, 2026
+title: Save the Date for Throughput Computing Week 2026: June 9 thru 12, 2026
 
 layout: events
 published: true
