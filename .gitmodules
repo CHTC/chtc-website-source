@@ -6,4 +6,4 @@
 	url = https://github.com/CHTC/staff-list.git
 [submodule "_events"]
 	path = _events
-	url = https://github.com/CHTC/Events
+	url = https://github.com/CHTC/Events.git
