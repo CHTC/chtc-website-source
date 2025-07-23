@@ -1,0 +1,18 @@
+{% if link.url %}
+    <div class="document-link-wrapper bg-light">
+        <a class="{% if active == link.url %}fw-bolder{% endif %}" href="{{ link.url | relative_url }}#main">{{ link.text }}</a>
+    </div>
+{% elsif link.links %}
+    <div class="document-link-wrapper" style="background-color: #d3d3d3;">
+    <span style="font-size: .8rem;">
+      <i class="bi bi-folder me-2"></i>
+      {{ link.text }}
+    </span>
+    </div>
+    <div class="list-group ps-4 border-start bg-light">
+        {% for link in link.links %}
+            {% assign pad = pad | plus: 1.5 %}
+            {% include components/sidebar-guide-links.liquid %}
+        {% endfor %}
+    </div>
+{% endif %}
