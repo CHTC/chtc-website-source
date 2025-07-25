@@ -12,8 +12,16 @@ Linux containers are a way to build a self-contained environment that
 includes software, libraries, and other tools. This guide shows how to
 explore and test a Docker container on your own computer. 
 
-A. Overview
-============
+{% capture content %}
+- [Overview](#overview)
+- [Set up Docker on your computer]()
+- [Explore Docker containers]()
+- [Simulate a CHTC Docker Job]()
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
+## Overview
 
 **Note that all the steps below should be run on your own computer, not
 in CHTC.**
@@ -31,15 +39,13 @@ If you've explored Docker already or built your own image and you want to test i
 will work successfully in CHTC's HTC system, 
 you can follow the directions in the second section. 
 
-A. Set Up Docker on Your Computer
-=================================
+## Set up Docker on your computer
 
 {% include install_docker.md %}
 
-B. Explore Docker Containers
-============================
+## Explore Docker containers
 
-## 1. Get a Docker Container Image
+### 1. Get a Docker Container Image
 
 We need to have a local copy of the Docker container image in order to
 test it. You can see what container images you already have on your 
@@ -70,7 +76,7 @@ $ docker pull username/image:tag
 If you run `docker image ls` again, you should see the container you downloaded 
 listed. 
 
-## 2. Explore the Container Interactively
+### 2. Explore the Container Interactively
 
 To actually explore a container, run this command: 
 
@@ -100,7 +106,7 @@ self-contained file system, separate from your computer.  Try running commands w
  your own container, try following a few of the installation instructions for the software 
  you want to use and see what happens. 
  
-## 3. Exit the Container
+### 3. Exit the Container
 
 Once you're done exploring, type `exit` to leave the container. 
 
@@ -115,7 +121,7 @@ running container is shut down and removed (although the container image will st
 on your computer, which you can see if you type `docker image ls` again). 
 
 
-# C. Simulate a CHTC Docker Job
+## Simulate a CHTC Docker Job
 
 The directions above were about simply exploring a container. If you want to 
 simulate what happens in a CHTC job more specifically, we'll want to do a few things:
@@ -124,7 +130,7 @@ simulate what happens in a CHTC job more specifically, we'll want to do a few th
 - have a list of commands to run or a script you want to use as the executable. 
 - use some extra options when running the container. 
 
-## 1. Create Working Directory
+### 1. Create Working Directory
 
 For testing, we need a folder on your computer to stand in for the
 working directory that HTCondor creates for running your job. Create a folder
@@ -147,7 +153,7 @@ $ cd %HOMEPATH%\Desktop\folder
 ```
 {:.term}
 
-## 2. Plan What to Run
+### 2. Plan What to Run
 
 Once the container starts, you have a few options for testing your job: 
 
@@ -165,7 +171,7 @@ Once the container starts, you have a few options for testing your job:
     container, you can run this in the container. 
     * Example: Running GROMACS from a container
 
-## 3. Start the Docker Container
+### 3. Start the Docker Container
 
 We'll use a similar `docker run` command to start the Docker container, 
 with a few extra options to better emulate how containers are run in 
@@ -206,7 +212,7 @@ inside.
 > * `-w /scratch`: when the container starts, make `/scratch` the working directory
 
 
-## 4. Test the job
+### 4. Test the job
 
 Your command line prompt should have changed to look like this: 
 
@@ -256,3 +262,7 @@ your Docker job to run on CHTC.
 
 * [Docker Jobs](docker-jobs.html)
 
+## Related Pages
+
+- [Build a Docker Container Image](docker-build.html)
+- [Explore and Test Docker Containers](docker-test.html)
