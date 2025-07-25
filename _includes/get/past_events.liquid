@@ -1,9 +1,9 @@
 {% assign current_time = 'now' | date: '%Y-%m-%d' | date: '%s' | plus: 0 %}
 
+{% assign all_events = site.events | where_exp: "event", "event.publish_on contains site.key" %}
 {% assign past_events = "" | split : "" %}
 
-{% for event in site.events %}
-
+{% for event in all_events %}
     {% assign event_end =  event.end_date | append: "" | date: '%Y-%m-%d' | date: '%s' | plus: 0 %}
 
     {% if event_end < current_time %}

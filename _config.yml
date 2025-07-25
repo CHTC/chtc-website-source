@@ -23,6 +23,9 @@ include:
   - "nsdf/.well-known"
   - "uwdf/researchdrive/.well-known"
 
+exclude:
+  - _events/images
+
 markdown_ext : "md,shtml"
 
 highlighter: none
@@ -41,9 +44,13 @@ defaults:
       layout: news-page
       permalink: :title.html
   - scope:
-      type: events
+      type: events_legacy
     values:
       layout: events
+  - scope:
+      type: events
+    values:
+      layout: events_modern
   - scope:
       type: redirects
     values:
@@ -54,9 +61,12 @@ collections:
   news:
     permalink: /news/:path/
     output: true
+  events_legacy:
+    output: true
+    permalink: /events/:year/:month/:title
   events:
     output: true
-    permalink: /:collection/:year/:month/:title
+    permalink: /events/:year/:month/:day/:title
   redirects:
     output: true
   uw-research-computing:
