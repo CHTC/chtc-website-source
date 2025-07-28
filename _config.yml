@@ -25,6 +25,7 @@ include:
 
 exclude:
   - _events/images
+  - _events/README.md
 
 markdown_ext : "md,shtml"
 
