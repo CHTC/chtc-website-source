@@ -41,14 +41,15 @@ echo | condor_store_cred add-oauth -s scitokens -i -
 <h3 style="color:#c5050c" id="general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle">[General] I used generative AI to create my submit file and the job is stuck on "Idle".</h3>
 
 #### Cause:
-As you are hopefully aware, generative AI (such as Copilot, ChatGPT, etc.) may be inaccurate. 
+Generative AI (such as Copilot, ChatGPT, etc.) may be inaccurate. 
 In our experience, generative AI almost always gets something wrong when it comes to an HTCondor submit file. 
-This is likely due to the facts that HTCondor is 40 years old, is highly configurable, and has a wealth of information online in forums and site-specific documentation.
-As such, submit files created by generative AI are usually not applicable to the specific site the user is on.
+This is because HTCondor has significantly changed since its creation over 40 years ago, and is highly configurable.
+This means that while there is a lot of information online in forums and site-specific documentation, the information is not always relevant to our local HTC system.
+As such, submit files created by generative AI are usually not applicable to our HTC system.
 #### Solution:
 The CHTC website provides documentation - including example submit files - for how to submit jobs on the HTC system. 
 
-* All users are encouraged to learn the basics of job submission here: [chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission](https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission).
+* Learn the basics of job submission here: [chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission](https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission).
 * For submitting jobs requesting GPUs, see our dedicated GPU guide here: [chtc.cs.wisc.edu/uw-research-computing/gpu-jobs](https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs).
 
 <hr width="100%" size="2">
