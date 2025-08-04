@@ -14,6 +14,7 @@ Visit our [Get Help](get-help) page to find more resources for troubleshooting.
 
 {% capture content %}
 1. [[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".](#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available)
+1. [[General] I used generative AI to create my submit file and the job is stuck on "Idle".](#general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle)
 1. [[Containers] When building an Apptainer, "apt" commands in the %post block fail to run.](#containers-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run)
 1. [[Containers] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".](#containers-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error)
 1. [[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor".](#gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting)
@@ -35,6 +36,21 @@ echo | condor_store_cred add-oauth -s scitokens -i -
 ```
 {:.term}
 
+<hr width="100%" size="2">
+
+<h3 style="color:#c5050c" id="general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle">[General] I used generative AI to create my submit file and the job is stuck on "Idle".</h3>
+
+#### Cause:
+Generative AI (such as Copilot, ChatGPT, etc.) may be inaccurate. 
+In our experience, generative AI almost always gets something wrong when it comes to an HTCondor submit file. 
+This is because HTCondor has significantly changed since its creation over 40 years ago, and is highly configurable.
+This means that while there is a lot of information online in forums and site-specific documentation, the information is not always relevant to our local HTC system.
+As such, submit files created by generative AI are usually not applicable to our HTC system.
+#### Solution:
+The CHTC website provides documentation - including example submit files - for how to submit jobs on the HTC system. 
+
+* Learn the basics of job submission here: [chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission](https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission).
+* For submitting jobs requesting GPUs, see our dedicated GPU guide here: [chtc.cs.wisc.edu/uw-research-computing/gpu-jobs](https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs).
 
 <hr width="100%" size="2">
 
