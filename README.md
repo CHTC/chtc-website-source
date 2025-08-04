@@ -69,10 +69,22 @@ To test changes on a publicly viewable development location do the following ste
 
 ## Testing Changes Locally
 
+### Docker
+
 ```shell
 # From website root
 git submodule update --init --recursive --remote
 docker compose up
+```
+
+### Apptainer
+
+Andrew was able to use this command to launch the local preview using Apptainer:
+
+```shell
+apptainer exec -e \
+    docker://ruby:3.4 \
+    /bin/bash -c 'export BUNDLE_CACHE_PATH="$(pwd)/.bundle-app" BUNDLE_APP_CONFIG="$(pwd)/.bundle-app" && mkdir -p $BUNDLE_CACHE_PATH $BUNDLE_APP_CONFIG && bundle config path vendor/bundle && bundler install && bundle exec jekyll serve --watch --config _config.yml -H localhost -P 8013'
 ```
 
 ## Formatting
