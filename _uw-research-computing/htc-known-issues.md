@@ -13,12 +13,15 @@ This page documents some common and known issues encountered on the HTC system. 
 Visit our [Get Help](get-help) page to find more resources for troubleshooting.
 
 {% capture content %}
-1. [[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".](#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available)
-1. [[General] I used generative AI to create my submit file and the job is stuck on "Idle".](#general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle)
-1. [[Containers] When building an Apptainer, "apt" commands in the %post block fail to run.](#containers-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run)
-1. [[Containers] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".](#containers-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error)
-1. [[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor".](#gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting)
-1. [[GPUs] My GPU job has been in the queue for a long period of time and is not starting.](#gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting)
+   * [[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".](#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available)
+   * [[General] My job exits with an "Illegal instructions" error.](#general-my-job-exits-with-an-illegal-instructions-error)
+   * [[General] I used generative AI to create my submit file and the job is stuck on "Idle".](#general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle)
+   * [[Container] When building an Apptainer, "apt" commands in the %post block fail to run.](#container-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run)
+   * [[Container] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".](#container-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error)
+   * [[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor".](#container-my-interactive-apptainer-job-is-failing-with-the-error-message-cant-open-master-pty-bad-file-descriptor)
+   * [[GPU] My GPU job has been in the queue for a long period of time and is not starting.](#gpu-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting)
+   * [[General, Python] My job has an error that mentions `/home/netid/`.](#general-python-my-job-has-an-error-that-mentions-homenetid)
+- [Can't find your issue?](#cant-find-your-issue)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -35,6 +38,21 @@ To work around this issue, run the following command on the access point before 
 echo | condor_store_cred add-oauth -s scitokens -i -
 ```
 {:.term}
+
+<hr width="100%" size="2">
+
+<h3 style="color:#c5050c" id="#general-my-job-exits-with-an-illegal-instructions-error">[General] My job exits with an "Illegal instructions" error.</h3>
+
+#### Cause:
+The instructions for communicating with the processor does not match between software and hardware.
+#### Solution:
+In the submit file, try adding **one** of the following to your requirements line:
+```
+requirements = (has_avx || has_avx2)
+requirements = has_avx2
+requirements = (Microarch > x86-64-v3)
+```
+Then resubmit and check if this resolves the issue.
 
 <hr width="100%" size="2">
 
@@ -91,7 +109,7 @@ docker build --platform linux/amd64 .
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor". </h3>
+<h3 style="color:#c5050c" id="container-my-interactive-apptainer-job-is-failing-with-the-error-message-cant-open-master-pty-bad-file-descriptor">[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor". </h3>
 
 #### Cause:
 Interactive Apptainer jobs are incompatible with CentOS7 machines.
@@ -115,6 +133,21 @@ To your submit file, add the following line and resubmit:
 
 <br>
 <hr width="100%" size="2">
+
+<h3 style="color:#c5050c" id="general-python-my-job-has-an-error-that-mentions-homenetid">[General, Python] My job has an error that mentions `/home/netid/`. </h3>
+
+#### Cause:
+Sometimes programs assume that they can write into the `/home` directory. However, the Execution Point's `/home` directory is not writable.
+#### Solution:
+To your executable (`.sh` script), add the following line and resubmit:
+```
+export HOME=$PWD
+```
+This will change the `HOME` environment variable to the working directory on the Execution Point.
+
+<br>
+<hr width="100%" size="2">
+
 
 ## Can't find your issue?
 Visit our [Get Help](get-help) page.
