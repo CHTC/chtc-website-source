@@ -191,5 +191,4 @@ files and directories are contained in a given path:
 
 When `ncdu` has finished running, the output will give you a total file
 count and allow you to navigate between subdirectories for even more
-details. Type `q` when you\'re ready to exit the output viewer. More
-info here: <https://lintut.com/ncdu-check-disk-usage/>
+details. Type `q` when you\'re ready to exit the output viewer.
