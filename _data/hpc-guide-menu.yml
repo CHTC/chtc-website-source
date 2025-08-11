@@ -27,6 +27,9 @@
 - text: "Manage data"
   icon: "bi bi-file-earmark-text"
   links:
+    - text: "Check disk quota and usage"
+      url: "/uw-research-computing/hpc-check-quota"
+      icon: ""
     - text: "Transfer files to/from CHTC"
       icon: ""
       links:
