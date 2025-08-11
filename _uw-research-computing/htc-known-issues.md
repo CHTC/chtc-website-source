@@ -134,16 +134,19 @@ To your submit file, add the following line and resubmit:
 <br>
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="general-python-my-job-has-an-error-that-mentions-homenetid">[General, Python] My job has an error that mentions `/home/netid/`. </h3>
+<h3 style="color:#c5050c" id="general-python-my-job-has-an-error-that-mentions-homenetid">[General, Python] My job has an error that mentions `/home/netid/` or the root directory `/`. </h3>
 
 #### Cause:
-Sometimes programs assume that they can write into the `/home` directory. However, the Execution Point's `/home` directory is not writable.
+Sometimes programs assume that they can write into the `/home` or root `/` directory. However, these directories are not writeable on the Execution Points.
+
 #### Solution:
 To your executable (`.sh` script), add the following line and resubmit:
 ```
 export HOME=$PWD
 ```
 This will change the `HOME` environment variable to the working directory on the Execution Point.
+
+For any items referencing the root directory `/`, you will need to find where your code or program is referencing the root directory and change it to the current working directory. Please [email us or drop by office hours](get-help) if you need assistance with this.
 
 <br>
 <hr width="100%" size="2">
