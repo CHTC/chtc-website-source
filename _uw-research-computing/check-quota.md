@@ -34,7 +34,7 @@ This guide shows you how to check the amount of disk space and number of files y
 
 Read more about the differences between the `/home` and `/staging` file system in [this guide](htc-job-file-transfer#data-storage-locations).
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory? Need more quota?</p>
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory? Need a higher quota?</p>
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
 		<a class="btn btn-primary" style="text-align: center" href="quota-request">Fill out our quota request form</a>
@@ -162,7 +162,7 @@ When you've reached your quota, you may encounter error messages such as `Disk q
 1. Check your quota with `get_quotas`. At which data location did you reach your quota? Did you reach your disk quota or your items quota?
 1. If possible, remove any files you no longer need from the system.
 1. If you've reached your quota for the **number of files** in `/staging`, we recommend compressing your dataset into zip files or tarballs, because `/staging` is intended for storing few, large files. [Read more about this here.](file-avail-largedata#reduce-file-counts)
-1. If you still need more disk space, [request more quota.](quota-request)
+1. If you still need more disk space, [request a higher quota.](quota-request)
 
 > ### ⚠️ CHTC is not a storage service
 {:.tip-header}
