@@ -146,7 +146,7 @@ export HOME=$PWD
 ```
 This will change the `HOME` environment variable to the working directory on the Execution Point.
 
-For any items referencing the root directory `/`, you will need to find where your code or program is referencing the root directory and change it to the current working directory. Please [email us or drop by office hours](get-help) if you need assistance with this.
+For any items referencing the root directory `/`, try the solution suggested above. If that does not fix the issue, you will need to find where your code or program is referencing the root directory and change it to the current working directory. Please [email us or drop by office hours](get-help) if you need assistance with this.
 
 <br>
 <hr width="100%" size="2">
