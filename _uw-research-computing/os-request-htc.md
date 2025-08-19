@@ -8,85 +8,66 @@ guide:
         - htc
 --- 
 
+## Introduction
 
-By default, CHTC-managed submit servers automatically add a job 
-requirement that requires jobs to run on servers running our primary operating system unless otherwise specified by the user. There are two options to override this
-default: 
+Sometimes, software and packages have dependencies or require libraries only available on certain operating systems. Without these dependencies/libraries, your software won't work, and your jobs won't run. If you know which operating system your software and jobs need, this guide shows you how to request specific operating systems on CHTC systems.
 
-1. [Using a Container (recommended)](#option-1-using-a-container-recommended)
-1. [Requesting a Specific
-Operating System](#option-2-requesting-a-specific-operating-system).
+{% capture content %}
+- [Introduction](#introduction)
+- [Option 1: Use a container (recommended)](#option-1-use-a-container-recommended)
+- [Option 2: Request an operating system version](#option-2-request-an-operating-system-version)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
-## Option 1: Using a Container (Recommended)
+## Option 1: Use a container (recommended)
 
-Using a container to provide a base version of Linux will allow you to 
-run on any nodes in the HTC system, and not limit you to a subset of nodes. 
+We recommend using containers to create your software environment, which includes the operating system. This allows you to run on nearly any node in the HTC system.
 
-After finding a container with the desired version of Linux, just follow our instructions 
-for [Docker](docker-jobs.html) or [Singularity/Apptainer](apptainer-htc.html) jobs. 
+1. Start by reading our [container guide](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc).
+1. Find a trusted, existing container on [Docker Hub](https://hub.docker.com/) or a [recipe](https://github.com/CHTC/recipes) for your software.
+1. Alternatively, start with a base container with the desired Linux operating system, and develop a recipe.
+   
+   Note that the default Linux containers on Docker Hub are often missing commonly installed packages (i.e., vim, wget, git). Our collaborators in OSG Services maintain a few curated containers with a greater selection of installed tools that can be seen here: [Base Linux Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
 
-Note that the default Linux containers on Docker Hub are often missing commonly installed 
-packages. Our collaborators in OSG Services maintain a few curated containers with a 
-greater selection of installed tools that 
-can be seen here: [Base Linux Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
+## Option 2: Request an operating system version
 
-## Option 2: Requesting a Specific Operating System
+You can require a specific operating system version (or versions) for your jobs. This option restricts you to operating systems used by CHTC, and the number of nodes running that operating system.
 
-At any time, you can require a specific operating system 
-version (or versions) for your jobs. This option is more limiting because 
-you are restricted to operating systems used by CHTC, and the number of nodes 
-running that operating system. 
+You can see the current list of machines and their operating system by running the following command and viewing the summary table:
+```
+condor_status -compact
+```
+{:.term}
 
-### Require CentOS Stream 8 (previous default) or CentOS Stream 9
+To request that your jobs run on machines of a certain version, add this line to your submit file:
 
-To request that your jobs run on servers with CentOS 8 **only**, add the
-following line to your submit file:
-
-``` {.sub}
-chtc_want_el8 = true
+```
+requirements = (OpSysMajorVer == 9)
 ```
 
-To request that your jobs run on servers with CentOS 9 **only**, add 
-the following line to your submit file: 
+In this example, we are requesting machines that only use an Enterprise Linux Operating System of Version 9 (EL9). You can modify this statement to request other operating systems or add other lines to your requirements.
 
-``` {.sub}
-chtc_want_el9 = true 
-```
+| Example | Use |
+| --- | --- |
+| `requirements = (OpSysMajorVer == 9) || (OpSysMajorVer == 10)` | Request EL9 *or* EL10 machines |
+| `requirements = (OpSysMajorVer >= 9)` | Request machines with EL9 or greater operating system version (inclusive) |
+| `requirements = (OpSysMajorVer > 9)` | Request machines an operating system greater than EL9 (exclusive) |
 
-> Note that after May 1, 2024, CentOS9 will be the default and CentOS8 will be phased out 
-> by the middle of summer 2024. If you think your code relies on CentOS8, make sure to 
-> see our [transition guide](htc-el8-to-el9-transition.html) or talk to the facilitation 
-> team about a long-term strategy for running your work. 
 
-### Use Both CentOS Stream 8 (previous default) and CentOS Stream 9 (current default)
-
-To request that your jobs run on computers running **either** version of 
-CentOS Linux, add the following requirements line to your submit file:
-
-``` {.sub}
-requirements = (OpSysMajorVer == 8) || (OpSysMajorVer == 9)
-```
-> Note: these requirements are not necessary for jobs that use Docker containers; 
-> these jobs will run on servers with any operating system automatically. 
-
-The advantage of this option is that you may be able to access a
-larger number of computers in CHTC. Note that code compiled on a
-newer version of Linux may not run older versions of Linux. Make
-sure to test your jobs specifically on both CentOS Stream 8 and CentOS Stream 9
-before using the option above.
+Note that code compiled on a newer version of Linux may not run older versions of Linux. Make sure to test your jobs on each operating system before using the option above.
 
 Does your job already have a requirements statement? If so, you can
 add the requirements above to the pre-existing requirements by using
 the characters `&&`. For example, if your jobs already require large
 data staging:
 
-``` {.submit}
+```
 requirements = (Target.HasCHTCStaging == true) 
 ```
 
 You can add the requirements for using both operating system versions like so: 
 
-``` {.sub}
-requirements = (Target.HasCHTCStaging == true) && ((OpSysMajorVer == 8) || (OpSysMajorVer == 9))
+```
+requirements = (Target.HasCHTCStaging == true) && ((OpSysMajorVer == 9) || (OpSysMajorVer == 10))
 ```
 
