@@ -115,7 +115,35 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
 
 **New here?** Start with the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and come anyway—we’ll help you get set up.
 
+### FAQ
+
+<details>
+<summary><strong>Do I need prior command‑line or Linux experience?</strong></summary>
+<p>No. We’ll meet you where you are. Beginners get step‑by‑step guidance and pointers to the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and starter tutorials.</p>
+</details>
+
+<details>
+<summary><strong>I don’t have data yet, is the Café still right for me?</strong></summary>
+<p>Absolutely! Bring your research question. We can help you plan workflows, set up environments, and practice on example datasets.</p>
+</details>
+
+<details>
+<summary><strong>I missed the first session, can I still join?</strong></summary>
+<p>Yes. We'll work with you to catch up. While it is best to join the Café early in the semester, the Café is designed to be accessible throughout the semester.</p>
+</details>
+
+<details>
+<summary><strong>Will I get 1‑on‑1 help?</strong></summary>
+<p>Yes. Each session includes a dedicated project co-working time and check‑ins with the facilitators. For deeper dives, we may have you <a href="https://go.wisc.edu/schedule-chtc">book a 1‑on‑1 consult</a> or visit <a href="/uw-research-computing/get-help.html#office-hours">Office Hours</a>.</p>
+</details>
+
+<details>
+<summary><strong>What should I bring?</strong></summary>
+<p>Your laptop, project notes, and (if available) small test inputs or scripts. We can help stage larger data and set up containers. <br><b>Don't have a project or data yet?</b><br>You should still come and bring your computational ideas, our facilitators will be able to help you get started and familiarized with the system for when you are ready to submit your research analysis workflows.</p>
+</details>
+
 If have any questions or have ideas for topics, <a href="/uw-research-computing/get-help.html#help-via-email">reach out</a> and mention “Bioinformatics Café.”
+
 
 {% endcapture %}
 {% include /components/markdown-container.html %}
