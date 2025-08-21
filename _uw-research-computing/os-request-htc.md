@@ -21,13 +21,13 @@ Sometimes, software and packages have dependencies or require libraries only ava
 
 ## Option 1: Use a container (recommended)
 
-We recommend using containers to create your software environment, which includes the operating system. This allows you to run on nearly any node in the HTC system.
+We recommend using containers to create your software environment, which includes the operating system. **This allows you to run on nearly any node in the HTC system!**
 
 1. Start by reading our [container guide](https://chtc.cs.wisc.edu/uw-research-computing/software-overview-htc).
 1. Find a trusted, existing container on [Docker Hub](https://hub.docker.com/) or a [recipe](https://github.com/CHTC/recipes) for your software.
 1. Alternatively, start with a base container with the desired Linux operating system, and develop a recipe.
    
-   Note that the default Linux containers on Docker Hub are often missing commonly installed packages (i.e., vim, wget, git). Our collaborators in OSG Services maintain a few curated containers with a greater selection of installed tools that can be seen here: [Base Linux Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
+Note that the default Linux containers on Docker Hub are often missing commonly installed packages (i.e., vim, wget, git). Our collaborators in OSG Services maintain a few curated containers with a greater selection of installed tools that can be seen here: [Base Linux Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
 
 ## Option 2: Request an operating system version
 
