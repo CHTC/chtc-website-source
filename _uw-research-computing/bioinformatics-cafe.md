@@ -10,11 +10,12 @@ title: Bioinformatics Café @ CHTC
 
 ## Connect and find resources with the Bioinformatics community
 
-Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life‑science researchers using CHTC. Come for a short tutorial, stay to co‑work on your analyses with Facilitator support, and meet peers solving similar problems. Bring a laptop, a dataset, and your questions.
+Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life‑science researchers using CHTC resources. Come for a short tutorial, stay to co‑work on your analyses with Facilitator support, and meet peers solving similar problems. Bring a laptop, a dataset, and your questions.
 
-> Whether you’re brand new to high‑throughput computing or a seasoned CHTC user, the Café is your place to share knowledge, troubleshoot together, and learn approaches that make your research run more efficiently.
+> Whether you’re brand new to high‑throughput computing or a seasoned CHTC user, the Café is your place to share knowledge, troubleshoot together, and learn best practices for using computing resources for your research.
 
-The Café blends quick, practical lessons (read mapping, assembly at scale, microbiome workflows) with time to make real progress on your project. **New to CHTC?** You’ll gain step-by-step guidance, introductions to core tools, and a supportive environment to build your skills. **Experienced?** You’ll find opportunities to refine workflows, exchange advanced tips, and contribute your expertise to strengthen the community.
+- **New to CHTC?** Learn about research computing with step-by-step guidance, introductions to core tools, and a supportive environment to build your skills.
+- **Are you an experienced user?** Find opportunities to refine workflows, exchange advanced tips, and contribute your expertise to the community.
 
 {% endcapture %}
 {% include /components/markdown-container.html %}
@@ -25,16 +26,16 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
         <div class="col-sm-3 mw-1000">
             <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
                 <div class="uw-card-content">
-                    <img src="{{ '/uw-research-computing/guide-icons/noun_open book_1179297.png' | relative_url }}" alt="Book icon" style="max-height: 200px">
+                    <img src="{{ '/uw-research-computing/guide-icons/noun_open book_1179297.png' | relative_url }}" alt="Book icon" style="max-height: 200px; width: auto;">
                     <div class="uw-card-copy">
                         <h2 class="uw-mini-bar">Resources</h2>
                         <p>Get oriented and level up fast:</p>
                         <ul>
-                          <li><a href="/uw-research-computing/htc-roadmap">HTC Roadmap: how CHTC works</a></li>
+                          <li><a href="/uw-research-computing/htc-roadmap">Roadmap to getting started on CHTC</a></li>
                           <li><a href="/uw-research-computing/transfer-files-computer">Moving data to/from CHTC</a></li>
                           <li><a href="/uw-research-computing/software-overview-htc#quickstart">Containers & reproducible software</a></li>
-                          <li><a href="/uw-research-computing/tutorials#Bioinformatics">CHTC Bioinformatics Tutorials</a></li>
-                          <li><a href="https://github.com/CHTC/recipes/tree/main/software">Cafe GitHub Repository</a></li>
+                          <!--<li><a href="/uw-research-computing/tutorials#Bioinformatics">CHTC Bioinformatics Tutorials</a></li>-->
+                          <!--<li><a href="https://github.com/CHTC/recipes/tree/main/software">Café GitHub Repository</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -43,14 +44,14 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
         <div class="col-sm-3 mw-1000">
             <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
                 <div class="uw-card-content">
-                    <img src="{{ '/uw-research-computing/guide-icons/noun_people_1188645.png' | relative_url }}" alt="People icon" style="max-height: 200px">
+                    <img src="{{ '/uw-research-computing/guide-icons/noun_people_1188645.png' | relative_url }}" alt="People icon" style="max-height: 200px; width: auto;">
                     <div class="uw-card-copy">
                         <h2 class="uw-mini-bar">Community</h2>
                         <p>Join our community and stay in the loop:</p>
                         <ul>
-                          <li><a href="/uw-research-computing/get-help.html#office-hours">CHTC Office Hours</a></li>
-                          <li><a href="https://go.wisc.edu/schedule-chtc">Request a 1-on-1 consult</a></li>
                           <li><a href="https://community.chtc.wisc.edu">Join the Community Discourse</a></li>
+                          <li><a href="/uw-research-computing/get-help.html#office-hours">CHTC Office Hours</a></li>
+                          <li><a href="https://go.wisc.edu/schedule-chtc">Schedule a 1-on-1 consultation</a></li>
                           <li><a href="/events">Event calendar</a></li>
                           <!-- Optional: add Slack/Teams or mailing list when ready -->
                         </ul>
@@ -61,7 +62,7 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
         <div class="col-sm-3 mw-1000">
             <div class="h-100 uw-card d-flex flex-direction-column mb-auto">
                 <div class="uw-card-content">
-                    <img src="{{ '/uw-research-computing/guide-icons/calendar-text.svg' | relative_url }}" alt="Calendar icon" style="max-height: 200px">
+                    <img src="{{ '/uw-research-computing/guide-icons/calendar-text.svg' | relative_url }}" alt="Calendar icon" style="max-height: 200px; width: auto;">
                     <div class="uw-card-copy">
                         <h2 class="uw-mini-bar">Upcoming events</h2>
                         {% include get/future_events.liquid %}
@@ -79,19 +80,18 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
 
 {% capture content %}
 
-## Get Involved
+<h2 class="uw-mini-bar">Get Involved</h2>
 
-
-<div class="row">
+<div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
     <h3>When & Where (Fall 2025)</h3>
     <p>Second Wednesday of each month</p>
     <ul>
-      <li><strong>Time:</strong> 2:30–4:30 PM CT</li>
+      <li><strong>Time:</strong> 2:30–4:30 PM CST</li>
       <li><strong>Location:</strong> Discovery Building, <strong>Orchard View Room (Rm. 3820)</strong> (posted on the <a href="/events">events page</a>)</li>
       <li><strong>Dates:</strong>
         <ul>
-          <li>Wed, September 10, 2025</li>
+          <li><a href="/events/2025/09/10/Bioinformatics-Cafe">Wed, September 10, 2025</a></li>
           <li>Wed, October 8, 2025</li>
           <li>Wed, November 12, 2025</li>
           <li>Wed, December 10, 2025</li>
@@ -99,7 +99,7 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
       </li>
     </ul>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" style="border-left: 5px solid #c5050c;">
     <h3>Format</h3>
     <ol>
       <li><strong>Mini‑tutorial:</strong> topics include intro to advanced computing, high‑throughput read mapping, genome assembly at scale, and microbiome analysis.</li>
@@ -115,11 +115,19 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
 
 **New here?** Start with the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and come anyway—we’ll help you get set up.
 
-### FAQ
+**Keep the conversation going online** on our Community Discourse! Share your resources or ask questions on our forum.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://community.chtc.wisc.edu">Join the Community Discourse</a>
+	</div>
+</div>
+
+<h2 class="uw-mini-bar">FAQ</h2>
 
 <details>
-<summary><strong>Do I need prior command‑line or Linux experience?</strong></summary>
-<p>No. We’ll meet you where you are. Beginners get step‑by‑step guidance and pointers to the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and starter tutorials.</p>
+<summary><strong>Do I need prior command line or Linux experience?</strong></summary>
+<p>No. We’ll meet you where you are! We offer step‑by‑step guidance. Some good places to start are the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and starter tutorials.</p>
 </details>
 
 <details>
@@ -133,16 +141,17 @@ The Café blends quick, practical lessons (read mapping, assembly at scale, micr
 </details>
 
 <details>
-<summary><strong>Will I get 1‑on‑1 help?</strong></summary>
-<p>Yes. Each session includes a dedicated project co-working time and check‑ins with the facilitators. For deeper dives, we may have you <a href="https://go.wisc.edu/schedule-chtc">book a 1‑on‑1 consult</a> or visit <a href="/uw-research-computing/get-help.html#office-hours">Office Hours</a>.</p>
+<summary><strong>Can I get 1‑on‑1 help?</strong></summary>
+<p>Yes. Each session includes a dedicated project co-working time and check‑ins with the facilitators. For more in-depth help, we may have you <a href="https://go.wisc.edu/schedule-chtc">book a 1‑on‑1 consultation</a> or visit <a href="/uw-research-computing/get-help.html#office-hours">Office Hours</a>.</p>
 </details>
 
 <details>
 <summary><strong>What should I bring?</strong></summary>
-<p>Your laptop, project notes, and (if available) small test inputs or scripts. We can help stage larger data and set up containers. <br><b>Don't have a project or data yet?</b><br>You should still come and bring your computational ideas, our facilitators will be able to help you get started and familiarized with the system for when you are ready to submit your research analysis workflows.</p>
+<p>Bring your laptop, project notes, and (if available) small test inputs or scripts. We can help stage larger data and set up containers.</p><p><b>Don't have a project or data yet?</b><br>You should still come and bring your computational ideas, our facilitators will be able to help you get started and familiarized with the system for when you are ready to submit your research analysis workflows.</p>
 </details>
 
-If have any questions or have ideas for topics, <a href="/uw-research-computing/get-help.html#help-via-email">reach out</a> and mention “Bioinformatics Café.”
+<br>
+If have any questions or have ideas for topics, [reach out](get-help.html#help-via-email) and mention “Bioinformatics Café.”
 
 
 {% endcapture %}
