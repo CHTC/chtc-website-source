@@ -40,3 +40,87 @@
   hardware_generation: 9.0
   gpu_memory: 80GB
   owner: campus
+- number_of_servers: 2
+  names: ahlquist0001 - ahlquist0002
+  gpus_per_server: 2
+  gpu_type: Tesla P100-PCIE-16GB
+  hardware_generation: 6.0
+  gpu_memory: 16GB
+  owner: group
+- number_of_servers: 1
+  names: tekin0000
+  gpus_per_server: 4
+  gpu_type: NVIDIA GeForce GTX 1080 Ti
+  hardware_generation: 6.1
+  gpu_memory: 10GB
+  owner: group
+ - number_of_servers: 1
+  names: dmorgan2001
+  gpus_per_server: 1
+  gpu_type: NVIDIA GeForce RTX 2080 Ti
+  hardware_generation: 7.5
+  gpu_memory: 11GB
+  owner: group
+ - number_of_servers: 2
+  names: gitter2001 - gitter2002
+  gpus_per_server: 4
+  gpu_type: NVIDIA GeForce RTX 2080 Ti
+  hardware_generation: 7.5
+  gpu_memory: 11GB
+  owner: group
+- number_of_servers: 1
+  names: ahlquist0000
+  gpus_per_server: 8
+  gpu_type: NVIDIA GeForce RTX 2080 Ti
+  hardware_generation: 7.5
+  gpu_memory: 11GB
+  owner: group
+- number_of_servers: 
+  names: coba2000, mcdanielgpu4000, oconnorgpu2000
+  gpus_per_server: 4
+  gpu_type: NVIDIA A100-SXM4-40GB
+  hardware_generation: 8.0
+  gpu_memory: 40GB
+  owner: group
+- number_of_servers: 1
+  names: mcdanielgpu4001
+  gpus_per_server: 8
+  gpu_type: NVIDIA A100-SXM4-40GB
+  hardware_generation: 8.0
+  gpu_memory: 40GB
+  owner: group
+- number_of_servers: 1
+  names: cxiaogpu4000
+  gpus_per_server: 8
+  gpu_type: NVIDIA A100-SXM4-80GB
+  hardware_generation: 8.0
+  gpu_memory: 80GB
+  owner: group
+- number_of_servers: 1
+  names: gitter2003
+  gpus_per_server: 8
+  gpu_type: NVIDIA A30
+  hardware_generation: 8.0
+  gpu_memory: 24GB
+  owner: group
+- number_of_servers: 1
+  names: xhuanggpu4000
+  gpus_per_server: 8
+  gpu_type: NVIDIA A40
+  hardware_generation: 8.6
+  gpu_memory: 45GB
+  owner: group
+- number_of_servers: 6
+  names: dsigpu4000, dsigpu4001, dsigpu4002, jcaicedogpu0000, jcaicedogpu0001, xhuanggpu4001
+  gpus_per_server: 10
+  gpu_type: NVIDIA L40
+  hardware_generation: 8.9
+  gpu_memory: 45GB
+  owner: group
+- number_of_servers: 2
+  names: blengerichgpu4000, jcaicedogpu0002
+  gpus_per_server: 8
+  gpu_type: NVIDIA L40S
+  hardware_generation: 8.9
+  gpu_memory: 45GB
+  owner: group
