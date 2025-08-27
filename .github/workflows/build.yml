@@ -55,9 +55,22 @@ jobs:
           cd _site/staff
           ln -s /p/condor/public/html/developers/schedules schedules
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+          ./script/cideploy
+        env:
+          #NO_PUSH: 1
+          TARGET_REPO: CHTC/chtc.github.io
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        name: Deploy web pages on merge/push
+
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          name: chtc-website
           path: _site
-          include-hidden-files: true
+          retention-days: 90
