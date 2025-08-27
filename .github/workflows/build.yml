@@ -49,7 +49,16 @@ jobs:
       - uses: CannonLock/search_index_build@master
         with:
           parameter_file_path: .search-bar.json
-      # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
+
+      # Deploy for kubernetes to pick up
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          path: _site
+          retention-days: 90
+
+      # Deploy for CSL to pick up
       - name: Add the schedule file symlink
         run: |
           cd _site/staff
@@ -67,10 +76,3 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
         name: Deploy web pages on merge/push
-
-      - name: Upload static files as artifact
-        id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
-        with:
-          path: _site
-          retention-days: 90
