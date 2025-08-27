@@ -29,6 +29,8 @@ nav_items:
     name: Other Resources
     url: /uw-research-computing/other-resources.html
     sub_menu:
+      - url: /uw-research-computing/bioinformatics-cafe
+        name: Bioinformatics Cafe
       - url: /uw-research-computing/gpu-lab.html
         name: CHTC GPU Lab
       - url: "https://htcondor.org/manual/"
