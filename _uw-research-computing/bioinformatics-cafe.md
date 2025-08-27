@@ -49,7 +49,7 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
                         <h2 class="uw-mini-bar">Community</h2>
                         <p>Join our community and stay in the loop:</p>
                         <ul>
-                          <!--<li><a href="https://community.chtc.wisc.edu">Join the Community Discourse</a></li>-->
+                          <li><a href="https://forms.gle/zMTZtgxGdxyGui2Q8">Join the mailing list!</a></li>                        <!--<li><a href="https://community.chtc.wisc.edu">Join the Community Discourse</a></li>-->
                           <li><a href="/uw-research-computing/get-help.html#office-hours">CHTC Office Hours</a></li>
                           <li><a href="https://go.wisc.edu/schedule-chtc">Schedule a 1-on-1 consultation</a></li>
                           <li><a href="/events">Event calendar</a></li>
