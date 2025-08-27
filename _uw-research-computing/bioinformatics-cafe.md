@@ -49,7 +49,7 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
                         <h2 class="uw-mini-bar">Community</h2>
                         <p>Join our community and stay in the loop:</p>
                         <ul>
-                          <li><a href="https://community.chtc.wisc.edu">Join the Community Discourse</a></li>
+                          <!--<li><a href="https://community.chtc.wisc.edu">Join the Community Discourse</a></li>-->
                           <li><a href="/uw-research-computing/get-help.html#office-hours">CHTC Office Hours</a></li>
                           <li><a href="https://go.wisc.edu/schedule-chtc">Schedule a 1-on-1 consultation</a></li>
                           <li><a href="/events">Event calendar</a></li>
@@ -91,10 +91,10 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
       <li><strong>Location:</strong> Discovery Building, <strong>Orchard View Room (Rm. 3820)</strong> (posted on the <a href="/events">events page</a>)</li>
       <li><strong>Dates:</strong>
         <ul>
-          <li><a href="/events/2025/09/10/Bioinformatics-Cafe">Wed, September 10, 2025</a></li>
-          <li>Wed, October 8, 2025</li>
-          <li>Wed, November 12, 2025</li>
-          <li>Wed, December 10, 2025</li>
+          <li><a href="/events/2025/09/10/Bioinformatics-Cafe">Wed, September 10, 2025<br>Getting Started with CHTC</a></li>
+          <li>Wed, October 8, 2025<br>Genomics using CHTC</li>
+          <li>Wed, November 12, 2025<br>Microbiome Analysis on CHTC</li>
+          <li>Wed, December 10, 2025<br>TBD</li>
         </ul>
       </li>
     </ul>
@@ -115,13 +115,16 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
 
 **New here?** Start with the <a href="/uw-research-computing/htc-roadmap">HTC Roadmap</a> and come anyway—we’ll help you get set up.
 
+<!--
 **Keep the conversation going online** on our Community Discourse! Share your resources or ask questions on our forum.
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
-		<a class="btn btn-primary" href="https://community.chtc.wisc.edu">Join the Community Discourse</a>
+		<a class="btn btn-primary" href="">Join the Community Discourse - Coming Soon</a>
 	</div>
 </div>
+-->
+
 
 <h2 class="uw-mini-bar">FAQ</h2>
 
