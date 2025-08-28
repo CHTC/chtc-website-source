@@ -26,6 +26,8 @@ include:
 exclude:
   - _events/images
   - _events/README.md
+  - _presentations/images
+  - _presentations/README.md
 
 markdown_ext : "md,shtml"
 
@@ -56,6 +58,10 @@ defaults:
       type: redirects
     values:
       layout: redirect
+  - scope:
+      type: presentations
+    values:
+      layout: presentations
 
 
 collections:
@@ -73,6 +79,9 @@ collections:
   uw-research-computing:
     permalink: /uw-research-computing/:path
     output: true
+  presentations:
+    output: true
+    permalink: /presentations/:year/:month/:day/:title
 
 sass:
   style: compressed

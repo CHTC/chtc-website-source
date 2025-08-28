@@ -322,3 +322,36 @@ h5:hover .header-link,
 h6:hover .header-link {
   display: inline;
 }
+
+.presentation-description {
+  color: $text-muted;
+  position: relative;
+}
+
+.presentation-description > p {
+  margin-bottom: 0;
+}
+
+.presentation-description.collapsed {
+  max-height: 7.5rem;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+
+.presentation-description.collapsed > .gradient-overlay {
+  // must be collapsed to show gradient
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.2em;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba($white, 0), rgba($white, 0.95) 80%);
+}
+
+.presentation-description:not(.collapsed) > .gradient-overlay {
+  // not collapsed, hide gradient
+  display: none;
+}
