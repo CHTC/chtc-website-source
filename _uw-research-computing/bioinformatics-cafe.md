@@ -70,7 +70,7 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
                         {% for event in biocafe_events limit:2 %}
                           {% include event/event-card.html %}
                         {% endfor %}
-                        <p><a href="/events">See all events</a></p>
+                        <p><a href="/events.html">See all events</a></p>
                     </div>
                 </div>
             </div>
