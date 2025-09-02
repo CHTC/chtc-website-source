@@ -56,12 +56,6 @@ container_image = path/to/my-container.sif
 If the `.sif` file is **in a `/staging` directory**:
 
 ```
-container_image = file:///staging/path/to/my-container.sif
-```
-
-If the `.sif` file is **in a `/staging` directory AND you are using `want_campus_pools` or `want_ospool`**:
-
-```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
 ```
 
@@ -347,7 +341,7 @@ although we generally don't recommend this, since `.sif` files are large and sho
 Therefore, we recommend using
 
 ```
-container_image = file:///staging/path/to/my-container.sif
+container_image = osdf:///chtc/staging/path/to/my-container.sif
 ```
 
 The full submit file otherwise looks like normal, for example:
@@ -356,7 +350,7 @@ The full submit file otherwise looks like normal, for example:
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-container_image = file:///staging/path/to/my-container.sif
+container_image = osdf:///chtc/staging/path/to/my-container.sif
 
 executable = myExecutable.sh
 
@@ -384,13 +378,6 @@ condor_submit apptainer.sub
 ```
 {:.term}
 
-If you are using `want_campus_pools` or `want_ospool` as described in our [Scale Beyond Local HTC Capacity](scale-htc.html) guide, then you should instead use
-
-```
-container_image = osdf:///chtc/staging/path/to/my-container.sif
-```
-
-to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/services/osdf.html) to compute capacity beyond CHTC.
 
 [Jump back to Quickstart](#quickstart-use-submit)
 
