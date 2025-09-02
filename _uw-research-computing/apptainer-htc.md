@@ -53,7 +53,7 @@ If the `.sif` file is **in a `/home` directory**:
 container_image = path/to/my-container.sif
 ```
 
-If the `.sif` file is **in a `/staging` directory AND you are using `want_campus_pools` or `want_ospool`**:
+If the `.sif` file is **in a `/staging` directory**:
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif
