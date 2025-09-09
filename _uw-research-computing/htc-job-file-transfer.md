@@ -42,13 +42,6 @@ The HTC system has two primary locations where users can place their files:
 
 The data management mechanisms behind `/home` and `/staging` are different and are optimized to handle different file sizes and numbers of files. It's important to place your files in the correct location to improve the efficiency at which your data is handled and maintain the stability of the HTC file systems.
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory?</p>
-<div class="d-flex mb-3">
-	<div class="p-3 m-auto">
-		<a class="btn btn-primary" style="text-align: center" href="quota-request">Request one here</a>
-	</div>
-</div>
-
 
 ## Transfer input data to jobs with `transfer_input_files`
 
@@ -57,8 +50,8 @@ To transfer files to jobs, we must specify these files with `transfer_input_file
 | Input File Size (Per File)* | File Location |  Submit File Syntax to Transfer to Jobs |
 | ----------- | ----------- | ----------- | ----------- |
 | 0 - 1 GB | `/home`       | `transfer_input_files = input.txt`       |
-| 1 - 30 GB  | `/staging`        | `transfer_input_files = osdf:///chtc/staging/NetID/input.txt`        | 
-| 30 - 100 GB     | `/staging`        | `transfer_input_files = file:///staging/NetID/input.txt`        | 
+| 1 - 30 GB  | `/staging`        | `transfer_input_files = osdf:///chtc/staging/u/username/input.txt`        | 
+| 30 - 100 GB     | `/staging`        | `transfer_input_files = file:///staging/u/username/input.txt`        | 
 | 1 - 100 GB | `/staging/groups`<sup>†</sup>        | `transfer_input_files = file:///staging/groups/group_dir/input.txt`        | 
 | 100 GB+ | | Contact the facilitation team about the best strategy to stage your data |
 
@@ -73,7 +66,7 @@ Multiple input files and file transfer protocols can be specified and delimited 
 ```
 # My job submit file
 
-transfer_input_files = file1, osdf:///chtc/staging/username/file2, file:///staging/username/file3, dir1, dir2/
+transfer_input_files = file1, osdf:///chtc/staging/u/username/file2, file:///staging/u/username/file3, dir1, dir2/
 
 requirements = (HasCHTCStaging == true)
 
@@ -120,7 +113,7 @@ transfer_output_files = output_file, output/output_file2, output/output_file3
 
 To transfer files back to `/staging` or a specific directory in `/home`, you will need an additional line in your HTCondor submit file, with each item separated by a semicolon (;):
 ```
-transfer_output_remaps = "output_file = osdf:///chtc/staging/NetID/output1.txt; output_file2 = /home/netid/outputs/output_file2"
+transfer_output_remaps = "output_file = osdf:///chtc/staging/u/username/output1.txt; output_file2 = /home/u/username/outputs/output_file2"
 ```
 {:.sub}
 
@@ -133,7 +126,7 @@ Make sure to only include one set of quotation marks that wraps around the infor
 If you want to transfer *all* files to a specific destination, use `output_destination`:
 
 ```
-output_destination = osdf:///chtc/staging/netid/
+output_destination = osdf:///chtc/staging/u/username/
 ```
 {:.sub}
 
@@ -146,7 +139,7 @@ The `osdf:///` file transfer plugin is powered by the [Pelican Platform](https:/
 To transfer and unpack files, append a `?pack=auto` at the end of the plugin path of the compressed object to be transferred.
 
 ```
-transfer_input_files = osdf:///chtc/staging/netid/filename.tar.gz?pack=auto, input1.txt, input2.txt
+transfer_input_files = osdf:///chtc/staging/u/username/filename.tar.gz?pack=auto, input1.txt, input2.txt
 ```
 
 This feature is only availble for Pelican-based plugins (`osdf://`, `pelican://`) and is not available for `file://` or normal file transfers. This feature is also not recommended for compressed files larger than 30 GB.
