@@ -84,7 +84,7 @@ transfer_output_files = outputfile1.txt, outputfile2.txt, outputfile3.txt
 You can use `transfer_output_remaps` to place files in different locations:
 
 ```
-transfer_output_remaps = "outputfile1.txt = pelican://chtc.wisc.edu/researchdrive/<PI NetID>/CHTC/outputfile1.txt; outputfile2.txt = osdf:///chtc/staging/<NetID>/outputfile2.txt"
+transfer_output_remaps = "outputfile1.txt = pelican://chtc.wisc.edu/researchdrive/<PI NetID>/CHTC/outputfile1.txt; outputfile2.txt = osdf:///chtc/staging/u/username/outputfile2.txt"
 ```
 
 The example above remaps the output files such that only `outputfile1.txt` is placed in ResearchDrive, `outputfile2.txt` is placed in `/staging`, and `outputfile3.txt` is placed in the submit directory on `/home`.
