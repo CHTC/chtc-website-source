@@ -3,6 +3,10 @@ layout: default
 title: Open projects for CHTC Fellows
 ---
 
+{% assign current_date = 'now' | date: "%Y-%m-%d" %}
+{% assign application_open_date = '2025-11-03' %}
+{% assign application_is_open = not current_date >= application_open_date %}
+
 <figure>
     <img class="w-100 d-block d-lg-none" style="object-fit: cover; max-height: 400px;" src="{{ '/images/chtc-internship-banner.jpg' | relative_url }}"
          alt="Collage photos of current and previous CHTC interns."/>
@@ -15,47 +19,60 @@ title: Open projects for CHTC Fellows
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-lg-8">
             {% include page-title.html title="page.title" %}
+            
+            {% if application_is_open %}
+                <p>
+                    This page lists software development, infrastructure services, and research facilitation
+                    projects for CHTC Fellow applicants to consider.
+                </p>
+            {% endif %}
+
             <p>
-                This page lists software development, infrastructure services, and research facilitation
-                projects for CHTC Fellow applicants to consider.
+                Applications for the Summer 2026 CHTC Fellows Program will open on <strong>November 3, 2025</strong>. Descriptions of the 2026 projects will also be posted at that time.
             </p>
 
 
             <p>
-                Updated January 15th, 2025
+                Updated September 15th, 2025
             </p>
 
 
-            {% include /get/fellowships.liquid %}
-            {% assign software = fellowships | where: "type", "Software Development" %}
-            {% assign infrastructure = fellowships | where: "type", "Infrastructure Services" %}
-            {% assign research = fellowships | where: "type", "Research Facilitation" %}
+            {% if application_is_open %}
+                <div class="alert alert-info" role="alert">
+                    Applications for the Summer 2026 CHTC Fellows Program are now open!
+                </div>
 
-            <h2 id="software-development">Software Development</h2>
-            {% if software.size == 0 %}
-                <p>No software development projects are currently available.</p>
+                {% include /get/fellowships.liquid %}
+                {% assign software = fellowships | where: "type", "Software Development" %}
+                {% assign infrastructure = fellowships | where: "type", "Infrastructure Services" %}
+                {% assign research = fellowships | where: "type", "Research Facilitation" %}
+
+                <h2 id="software-development">Software Development</h2>
+                {% if software.size == 0 %}
+                    <p>No software development projects are currently available.</p>
+                {% endif %}
+                {% for fellowship in software %}
+                    {% include /components/fellowship-card.html %}
+                {% endfor %}
+
+                <h2 id="infrastructure-services">Infrastructure Services</h2>
+                {% if infrastructure.size == 0 %}
+                    <p>No software development projects are currently available.</p>
+                {% endif %}
+                {% for fellowship in infrastructure %}
+                    {% include /components/fellowship-card.html %}
+                {% endfor %}
+
+                <h2 id="research-facilitation">Research Facilitation</h2>
+                {% if research.size == 0 %}
+                    <p>No software development projects are currently available.</p>
+                {% endif %}
+                {% for fellowship in research %}
+                    {% include /components/fellowship-card.html %}
+                {% endfor %}
             {% endif %}
-            {% for fellowship in software %}
-                {% include /components/fellowship-card.html %}
-            {% endfor %}
-
-            <h2 id="infrastructure-services">Infrastructure Services</h2>
-            {% if infrastructure.size == 0 %}
-                <p>No software development projects are currently available.</p>
-            {% endif %}
-            {% for fellowship in infrastructure %}
-                {% include /components/fellowship-card.html %}
-            {% endfor %}
-
-            <h2 id="research-facilitation">Research Facilitation</h2>
-            {% if research.size == 0 %}
-                <p>No software development projects are currently available.</p>
-            {% endif %}
-            {% for fellowship in research %}
-                {% include /components/fellowship-card.html %}
-            {% endfor %}
-
         </div>
+        {% if application_is_open %}
         <div class="d-none d-lg-block col-12 col-lg-4">
             <div class="sticky-top mt-5">
                 <div class="pt-5">
@@ -72,6 +89,7 @@ title: Open projects for CHTC Fellows
                 </div>
             </div>
         </div>
+        {% endif %}
         <p class="text-center">Questions: <a href="mailto:chtc-jobs@g-groups.wisc.edu ">chtc-jobs@g-groups.wisc.edu </a></p>
     </div>
 </div>
