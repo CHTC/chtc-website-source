@@ -105,7 +105,6 @@ External funding support for the CHTC Fellows Program is provided by the Nationa
 
 ## Other Scientific Fellowships
 
--   [**SciAuth Student Fellows**](https://sciauth.org/fellows/){:target="_blank"}
 -   [**IRIS-HEP Fellows Program**](https://iris-hep.org/fellows.html){:target="_blank"}
 
 </div>
