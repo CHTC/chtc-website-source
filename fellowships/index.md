@@ -73,9 +73,8 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 -  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
--   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).  
--   In order to ensure the safety of the workplace, proof of COVID-19 vaccination is required unless an exemption is granted for medical, disability or religious reasons. 
--   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2025 (HTC25) in Madison during the Fellowship is required. HTC25 will be held June 2 - 6, 2025.
+-   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).   
+-   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2026 (HTC26) in Madison during the Fellowship is required. HTC26 will be held June 9 - 12, 2026.
 
 
 ## Developing a project 
