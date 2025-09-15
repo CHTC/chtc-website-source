@@ -91,7 +91,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   **By 16 March, 2025** - Deadline for submission of proposals and final selection of Fall 2025 applicants for Fellows Program for summer 2026. (Proposals will be reviewed on a rolling basis.)
 -   **May-August 2026** - Fellows work on projects.
 
-## The timeline for spring 2025 applicants for the 2025 Fellows Program:
+## The timeline for spring 2026 applicants for the 2026 Fellows Program:
 
 -   **Friday, 13 March 2026** - Deadline for Spring applications for Summer 2026. 
 -   **Friday, 3 April, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
