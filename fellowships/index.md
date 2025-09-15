@@ -21,6 +21,8 @@ The CHTC Fellows Program trains students in the development and use of cyberinfr
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
+**Applications for the Summer 2026 CHTC Fellows Program will open on November 3, 2025 here. Descriptions of the 2026 projects will also be posted at that time.**
+
 ## Featured Fellow
 {% include get/team.liquid %}
 {% assign member = team | where_exp: "staff", "staff contains 'fellowship'" | sort: "name" | sample %}
@@ -62,7 +64,7 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort. 
 
 ## Duration of Fellowship and Total Stipend
--  The Fellowship Program lasts for 11 weeks during Summer 2025, running from May 19 to August 8.
+-  The upcoming Fellowship Program will last for approximately 11 weeks during Summer 2026.
 -  The Program provides $650/week stipend. 
 -  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
 
@@ -83,20 +85,20 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 -   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline. Based on that, we will make a final fellows selection.
 -   During the Fellowship, you will work with your mentor and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
 
-## The timeline for fall/winter 2024 applicants for the 2025 Fellows Program:
+## The timeline for fall/winter 2025 applicants for the 2026 Fellows Program:
 
--   **Friday, 20 December, 2024** - Deadline for fall/winter applications for Summer 2025. 
--   **Friday, 7 February, 2025** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
--   **By 15 March, 2025** - Deadline for submission of proposals and final selection of Fall 2024 applicants for Fellows Program for summer 2025. (Proposals will be reviewed on a rolling basis.)
--   **May-August 2025** - Fellows work on projects.
+-   **Friday, 19 December, 2025** - Deadline for fall/winter applications for Summer 2026. 
+-   **Friday, 6 February, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this will involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
+-   **By 16 March, 2025** - Deadline for submission of proposals and final selection of Fall 2025 applicants for Fellows Program for summer 2026. (Proposals will be reviewed on a rolling basis.)
+-   **May-August 2026** - Fellows work on projects.
 
 ## The timeline for spring 2025 applicants for the 2025 Fellows Program:
 
-- **Saturday, 15 March 2025** - Deadline for Spring applications for Summer 2025. 
--   **Friday, 4 April, 2025** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
--   **Tuesday, 15 April, 2025** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
--   **By 18 April, 2025** - Final selection of Spring 2025 applicants for Fellows Program for summer 2025
--   **May-August 2025** - Fellows work on projects.
+-   **Friday, 13 March 2026** - Deadline for Spring applications for Summer 2026. 
+-   **Friday, 3 April, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
+-   **Wednesday, 15 April, 2026** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
+-   **By 20 April, 2026** - Final selection of Spring 2026 applicants for Fellows Program for summer 2026
+-   **May-August 2026** - Fellows work on projects.
 
 ## Funding
 
