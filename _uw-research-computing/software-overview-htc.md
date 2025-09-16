@@ -18,8 +18,8 @@ This guide introduces how to build software in a container (our recommended stra
 
 - [Start here](#start-here)
 - [What approach should I use?](#what-approach-should-i-use)
-- [Containers](#container-overview)
-- [Other Paths](#other-paths)
+- [Quickstart by software type](#quickstart-by-software-type)
+- [Container Overview](#container-overview)
 - [Related pages](#related-pages)
 
 {% endcapture %}
@@ -41,11 +41,10 @@ containers.
 	</div>
 </div>
 
-
 * For more guidance in whether jumping right into Apptainer is best for you: 
  [What approach should I use?](#what-approach-should-i-use)
+* For more specific guidance about *your* software, see: [Quickstart by software type](#quickstart-by-software-type)
 * To learn more about containers in general see: [Containers](#container-overview)
-* If you think containers might not be for you, see: [Other Paths](#other-paths)
 
 ## What approach should I use? 
 
@@ -54,8 +53,12 @@ We recommend using containers for jobs in CHTC for a number of reasons, detailed
 
 There are two container implementations we support, Docker and Apptainer. 
 
-- [Use Custom Software in Jobs Using Apptainer](apptainer-htc)
-- [Use Custom Software in Jobs Using Docker](docker-jobs)
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="docker-jobs.html">Use Docker in Jobs</a>
+		<a class="btn btn-primary" href="apptainer-htc.html">Use Apptainer in Jobs</a>
+	</div>
+</div>
 
 We recommend using Apptainer as a first choice because you can build the container 
 on our servers and it has some features that allow it to be used on a greater variety 
@@ -66,12 +69,42 @@ circumstances. Here is a list of things to consider when deciding which path to 
 
 * If your software has an existing Docker or Apptainer/Singularity implementation, use that. 
 * If you or your group have an existing Docker container, use Docker. 
-* If you already know how to use Docker or Singularity, use whichever you are familiar with. 
+* If you already know how to use Docker or Apptainer/Singularity, use whichever you are familiar with. 
 * If you want to create a container that can run both on CHTC and your own computer, use Docker. 
-* If you want to create a container that you and collaborators can use on your own computers and CHTC, use Docker
+* If you want to create a container that you and collaborators can use on your own computers and CHTC, use Docker.
 * If you want to keep your container more private, use Apptainer. 
 
+In certain cases, it is reasonable to use a non-container option for software installation, especially when using a package manager like `conda`. 
+
 If you are not sure what to choose, talk to the facilitation team! That's why we're here. 
+
+## Quickstart by software type
+
+Containers are not the only options for software installation on CHTC. 
+
+Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
+
+<div class="shadow p-3 border rounded">
+    <div class="row gx-1">
+        {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
+        {% for page in pages %}
+            <div class="col col-6 col-md-2">
+               <button class="btn btn-guide mb-lg-0 d-flex flex-column {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')">
+                  <img class="img-btn-guide mx-auto" src="{{ page.software_icon }}" alt="{{ page.title }}">
+                  <span class="mx-auto">{{ page.software }}</span>
+               </button>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="card-body side-divider" style="display: block;">
+        {% for page in pages %}
+            <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
+                {{ page.excerpt | markdownify }}
+                <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 ## Container overview
 
@@ -187,33 +220,6 @@ On the HTC system, you can provide the name of your Apptainer file in your submi
 and HTCondor will use a copy of it to create the software environment for executing your job.
 You can use Apptainer to build the container image file on CHTC servers, so there is no need to install the container software on your own computer.
 
-## Other Paths
-
-Containers are not the only options for software installation on CHTC. 
-
-Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
-
-<div class="shadow p-3 border rounded">
-    <div class="row gx-1">
-        {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
-        {% for page in pages %}
-            <div class="col col-6 col-md-2">
-               <button class="btn btn-guide mb-lg-0 d-flex flex-column {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')">
-                  <img class="img-btn-guide mx-auto" src="{{ page.software_icon }}" alt="{{ page.title }}">
-                  <span class="mx-auto">{{ page.software }}</span>
-               </button>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="card-body side-divider" style="display: block;">
-        {% for page in pages %}
-            <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
-                {{ page.excerpt | markdownify }}
-                <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 
 
 ## Related Pages

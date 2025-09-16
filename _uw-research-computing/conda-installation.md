@@ -14,19 +14,19 @@ published: true
 
 ## Quickstart: Conda
 
-### Option A (recommended)
+### Option A - Container (recommended)
 
 Build a container with Conda packages installed inside:
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs) / [Docker](docker-build)
 2. [Example container recipes for Conda](https://github.com/CHTC/recipes/tree/main/software/Conda)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
-### Option B
+### Option B - "Packed" Conda Env
 
 Create your own portable copy of your Conda packages:
 
-1. Follow the instructions in [our guide](conda-installation.html#option-b-create-your-own-portable-copy)
+1. Follow the instructions in [our guide](conda-installation.html#option-b-packed-conda-env)
 
 > This approach may be sensitive to the operating system of the execution point. 
 > We recommend building a container instead, but are keeping these instructions as a backup.

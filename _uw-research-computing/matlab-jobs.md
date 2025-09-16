@@ -15,9 +15,9 @@ published: true
 
 Build a container with Matlab & toolboxes installed inside:
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs)
 2. [Example container recipes for Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container)
 
 > **Note**: Because Matlab is a licensed software, you **must** add the following line to your submit file:
 > 

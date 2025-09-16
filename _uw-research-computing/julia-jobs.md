@@ -13,15 +13,15 @@ published: true
 
 ## Quickstart: Julia
 
-### Option A (recommended)
+### Option A - Container (recommended)
 
-Build a container with Julia & packages installed inside:
+Build (or find) a container with Julia & packages installed inside:
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs) / [Docker](docker-build)
 2. [Example container recipes for Julia](https://github.com/CHTC/recipes/tree/main/software/Julia)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
-### Option B
+### Option B - Portable Binary
 
 Use a portable copy of Julia and create your own portable copy of your Julia packages:
 

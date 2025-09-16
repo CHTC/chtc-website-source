@@ -13,15 +13,15 @@ published: true
 
 ## Quickstart: Python
 
-### Option A (recommended)
+### Option A - Own Container (recommended)
 
 Build a container with Python & packages installed inside:
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs) / [Docker](docker-build)
 2. [Example container recipes for Python](https://github.com/CHTC/recipes/tree/main/software/Python/)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
-#### Option B
+#### Option B - Existing Container
 
 Use an existing container with a base installation of Python:
 
@@ -29,7 +29,7 @@ Use an existing container with a base installation of Python:
    [OSG Base Containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#base)
    or
    [DockerHub Python Containers](https://hub.docker.com/_/python).
-2. [Use the container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+2. Use the container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
 <!--more-->
 
