@@ -17,8 +17,8 @@ This guide introduces how to build software in a container (our recommended stra
 {% capture content %}
 
 - [Start here](#start-here)
-- [What approach should I use?](#what-approach-should-i-use)
 - [Quickstart by software type](#quickstart-by-software-type)
+- [What approach should I use?](#what-approach-should-i-use)
 - [Container Overview](#container-overview)
 - [Related pages](#related-pages)
 
@@ -41,10 +41,36 @@ containers.
 	</div>
 </div>
 
+* For more specific guidance about *your* software, see: [Quickstart by software type](#quickstart-by-software-type)
 * For more guidance in whether jumping right into Apptainer is best for you: 
  [What approach should I use?](#what-approach-should-i-use)
-* For more specific guidance about *your* software, see: [Quickstart by software type](#quickstart-by-software-type)
 * To learn more about containers in general see: [Containers](#container-overview)
+
+## Quickstart by software type
+
+Click the link in the table below to jump to the instructions for the language/program/software that you want to use, and then click on "More Information."
+
+<div class="shadow p-3 border rounded">
+    <div class="row gx-1">
+        {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
+        {% for page in pages %}
+            <div class="col col-6 col-md-2">
+               <button class="btn btn-guide mb-lg-0 d-flex flex-column {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')">
+                  <img class="img-btn-guide mx-auto" src="{{ page.software_icon }}" alt="{{ page.title }}">
+                  <span class="mx-auto">{{ page.software }}</span>
+               </button>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="card-body side-divider" style="display: block;">
+        {% for page in pages %}
+            <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
+                {{ page.excerpt | markdownify }}
+                <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 ## What approach should I use? 
 
@@ -78,40 +104,13 @@ In certain cases, it is reasonable to use a non-container option for software in
 
 If you are not sure what to choose, talk to the facilitation team! That's why we're here. 
 
-## Quickstart by software type
-
-Containers are not the only options for software installation on CHTC. 
-
-Click the link in the table below to jump to the instructions for the language/program/software that you want to use.
-
-<div class="shadow p-3 border rounded">
-    <div class="row gx-1">
-        {% assign pages = site.uw-research-computing | where_exp: "x", "x.software_icon.size > 0" %}
-        {% for page in pages %}
-            <div class="col col-6 col-md-2">
-               <button class="btn btn-guide mb-lg-0 d-flex flex-column {% if forloop.first %}btn-guide-highlighted{% endif %}" href="#quickstart" onclick="showExcerpt('{{ page.title | slugify }}', 'side-divider')">
-                  <img class="img-btn-guide mx-auto" src="{{ page.software_icon }}" alt="{{ page.title }}">
-                  <span class="mx-auto">{{ page.software }}</span>
-               </button>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="card-body side-divider" style="display: block;">
-        {% for page in pages %}
-            <div class="excerpt" id="{{ page.title | slugify }}" style="display: {% if forloop.first %}block{% else %}none{% endif %};">
-                {{ page.excerpt | markdownify }}
-                <a href="{{ page.url }}" style="font-weight: bold; text-decoration: underline;">More Information</a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 
 ## Container overview
 
 In this section, we provide a brief introduction into what containers are, 
 why we recommend them, and a big picture view of how to use them on our High Throughput system.
 
-### What is a Container?
+### What is a container?
 
 *"A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another."* 
 -- [Docker](https://www.docker.com/resources/what-container/)
@@ -181,7 +180,7 @@ These guides talk about how to do the above steps for either Apptainer or Docker
 > The software installation process only occurs when the container is actually being built.
 > Once the container has been built, no changes can be made to the container when being used (on CHTC systems).
 
-### Recipes
+### Container build recipes
 
 If you need to create your own build file, CHTC provides many specific examples 
 in our "Recipes" repository on Github: 
@@ -189,7 +188,7 @@ in our "Recipes" repository on Github:
 
 Links to specific recipes are used in the [Software](#software) section for certain softwares and coding languages.
 
-### Container Technologies
+### Container technologies
 
 There are two container technologies supported by CHTC: [Docker](https://www.docker.com/) and [Apptainer](https://apptainer.org/).
 Here we briefly discuss the advantages of each.
