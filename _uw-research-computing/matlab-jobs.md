@@ -13,11 +13,20 @@ published: true
 
 ## Quickstart: Matlab
 
-Build a container with Matlab & toolboxes installed inside:
+Build a container with Matlab & toolboxes installed inside. 
+Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+`.def` or `Dockerfile`, respectively. 
+
+
+### Useful links
 
 1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs)
-2. [Example container recipes for Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab)
-3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container)
+2. Tips and tricks, container recipes: [Example container recipes for Matlab](https://github.com/CHTC/recipes/tree/main/software/Matlab)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
+
+### Needed submit file option
 
 > **Note**: Because Matlab is a licensed software, you **must** add the following line to your submit file:
 > 
