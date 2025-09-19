@@ -7,18 +7,15 @@ guide:
         - htc
 ---
 
-Linux containers are a way to build a self-contained environment that
-includes software, libraries, and other tools. CHTC currently supports
-running jobs inside [Docker](https://www.docker.com/what-docker)
-containers. This guide describes how to build a Docker image
+This guide describes how to build a Docker image
 that you can use for running jobs in CHTC or sharing a common 
 software environment with collaborators. For information on using 
 a Docker container image in jobs, see our [Docker Jobs guide](docker-jobs.html).
 
 {% capture content %}
 - [Overview](#overview)
-- [Step by Step]()
-- [Examples]()
+- [Step by Step Build Instructions](#step-by-step-build-instructions)
+- [Examples]($examples)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}

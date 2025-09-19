@@ -14,9 +14,9 @@ explore and test a Docker container on your own computer.
 
 {% capture content %}
 - [Overview](#overview)
-- [Set up Docker on your computer]()
-- [Explore Docker containers]()
-- [Simulate a CHTC Docker Job]()
+- [Set up Docker on your computer](#set-up-docker-on-your-computer)
+- [Explore Docker containers](#explore-docker-containers)
+- [Simulate a CHTC docker job](#simulate-a-chtc-docker-job)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -28,8 +28,8 @@ in CHTC.**
 
 This guide has two sections: 
 
-* [Explore Docker Containers](#b-explore-docker-containers)
-* [Simulate a CHTC Docker Job](#c-simulate-a-chtc-docker-job)
+* [Explore Docker containers](#explore-docker-containers)
+* [Simulate a CHTC docker job](#simulate-a-chtc-docker-job)
 
 If you've never used Docker before, and/or are getting ready to build your own 
 container image, we recommend starting with the first part of the 
@@ -264,5 +264,5 @@ your Docker job to run on CHTC.
 
 ## Related Pages
 
+- [Use Custom Software in Jobs Using Docker](docker-jobs.html)
 - [Build a Docker Container Image](docker-build.html)
-- [Explore and Test Docker Containers](docker-test.html)

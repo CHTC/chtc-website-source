@@ -15,6 +15,11 @@ submit jobs that use Docker containers.
 
 {% capture content %}
 - [Start Here](#start-here)
+- [Use a Docker Container in a Job](#use-a-docker-container-in-a-job)
+- [Tips for HTCondor integration](#tips-for-htcondor-integration)
+- [Find an existing Docker container image](#find-an-existing-docker-container-image)
+- [Build your own Docker container image](#build-your-own-docker-container-image)
+- [Testing Docker containers](#testing-docker-containers)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -31,8 +36,8 @@ inside, go straight to [Use a Docker Container in a Job](#use-a-docker-container
 and [Tips for HTCondor integration](#tips-for-HTCondor-integration)
 
 If you do not have an existing Docker container you can: 
-* Find one: [Find an existing Docker container image](#find-an-existing-docker-container-image)
-* Create one: [Create a Docker Container Image](#create-a-docker-container-image). 
+* **Find one:** [Find an existing Docker container image](#find-an-existing-docker-container-image)
+* **Create one:** [Create a Docker Container Image](#create-a-docker-container-image). 
 Once you have a container image 
 ready, circle back to [Use a Docker Container in a Job](#use-a-docker-container-in-a-job). 
 
@@ -88,14 +93,17 @@ Docker commands yourself.
 Other pieces of the job (your executable and input files) should be just
 like a non-Docker job submission. 
 
+<!--
 TODO: 
 - transfer executable? 
+- NON root
 - tag versions
+--> 
 
-Similarly, we recommend using container tags. Importantly, whenever you make a significant change
+We recommend using container tags. Importantly, whenever you make a significant change
 to your container, you will want to use a new tag name to ensure that your jobs are getting an
 updated version of the container, and not an 'old' version that has been cached by DockerHub 
-or CHTC.
+or CHTC. 
 
 ## Find an existing Docker container image
 
@@ -128,12 +136,12 @@ If you want to test your jobs or container, you have two options:
 * We have a guide on exploring and testing Docker containers on your own computer here: 
     * [Exploring and Testing Docker Containers](docker-test.html)
 * You can test a container interactively in CHTC by using a normal Docker job submit file and using the 
-interactive flag with `condor_submit`: 
-    ```
-    [alice@ap]$ condor_submit -i docker.sub
-    ```
-    {: .cmd}
-    This should start a session inside the indicated Docker container and connect you to it using ssh. Type `exit` to end the interactive job. *Note*: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on `staging`, you can transfer the files there instead; if you have questions about this, please contact a facilitator. 
+	interactive flag with `condor_submit`: 
+	```
+	[alice@ap]$ condor_submit -i docker.sub
+	```
+	{:.term}
+	This should start a session inside the indicated Docker container and connect you to it using ssh. Type `exit` to end the interactive job. *Note*: Files generated during your interactive job with Docker will not be transfered back to the submit node.  If you have a directory on `staging`, you can transfer the files there instead; if you have questions about this, please contact a facilitator. 
 
 ## Related Pages
 
