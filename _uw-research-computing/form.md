@@ -11,7 +11,7 @@ title: Request a CHTC Account
 <ol>
 <li> <b>Fill out the account request form.</b> Tell us about the computing work you want to do to the best of your knowledge.</li>
 <li>You will receive an automated email from <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> within a few hours of completing the form.</li>
-<li><b>Wait 2-3 business days</b> for a follow-up from CHTC Facailitation Staff. Contact us if you don't hear from us after 3 business days.
+<li><b>Wait 2-3 business days</b> for a follow-up from CHTC Facailitation Staff. Contact us at <a href="mailto:chtc@cs.wisc.edu">chtc@cs.wisc.edu</a> if you don't hear from us after 3 business days.
 	<ul>
 	<li><b>If you are part of a new research group</b>, we will first schedule a meeting with you to understand your computational needs before creating your account.</li>
 	<li><b>If you are part of an existing research group</b>, we will create a new account. We don't require a meeting, but highly recommend meeting with us, especially if you are new to research computing!</li>
