@@ -25,7 +25,7 @@ This page contains quick references for basic shell commands and links to more d
 ## Learn about the command line
 ### Why should you learn about the command line?
 
-If you haven't used the command line before, it might seem challenging to get started. However, we strongly recommend learning more about the command line for multiple reasons:
+If you haven't used the command line before, it may be challenging to get started. However, we strongly recommend learning more about the command line for multiple reasons:
 
 * You only need to know **a few basic commands** to submit jobs.
 * With practice, using the command line is **significantly faster and much more powerful** than using a point-and-click graphic interface.
@@ -104,7 +104,7 @@ Note: Bracketed items (`<>`) denote where to place your input. *Do not* include 
 
 ## Related pages
 
-Below are more resources for learning the basic shell commands and the command line.
+Browse these resources for learning basic shell commands and the command line.
 
 * [Cornell Virtual Workshop: An Introduction to Linux](https://cvw.cac.cornell.edu/linux/intro/index)
 * [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/)
