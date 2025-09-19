@@ -223,8 +223,6 @@ For an existing container, you can inspect the help text with the command `appta
 
 ## Creating a definition file
 
-TODO: add a reference to the recipes repo
-
 Here is general process for creating your own definition file for building your custom container:
 
 1. **Consult your software's documentation** 
@@ -244,6 +242,15 @@ Here is general process for creating your own definition file for building your 
 
 Remember that the `.def` file contains the *instructions* for creating your container and is not itself the container. 
 To use the software defined within the `.def` file, you will need to first "build" the container and create the `.sif` file, as described in the following sections.
+
+> ### 📝 Reference: CHTC's "Recipes" Repository
+{:.tip-header}
+
+> To see multiple examples of Apptainer definition files for different
+> softwares, check out the software section of CHTC's "recipes" repository: 
+> * [CHTC software recipes](https://github.com/CHTC/recipes/tree/main/software)
+{:.tip}
+
 
 ## The Apptainer container image
 
@@ -383,5 +390,5 @@ Usage: units [options] ['from-unit' 'to-unit']
 * [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html)
 * [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 * [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html)
-* [Using Apptainer Containers on HPC](apptainer-hpc.html).
+* [Using Apptainer Containers on HPC](apptainer-hpc.html)
 

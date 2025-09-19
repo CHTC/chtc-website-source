@@ -16,9 +16,6 @@ submit jobs that use Apptainer containers.
 
 HTCondor supports the use of Apptainer (formerly known as Singularity) container environments for jobs on the High Throughput Computing system. 
 
-Similar to Docker containers, Apptainer environments allow users to prepare portable software and computing environments that can be sent to many jobs. 
-This means your jobs will run in a more consistent environment that is easily reproducible by others. 
-
 Container jobs are able to take advantage of more of CHTC's High Throughput resources because the operating system where the job is running does not need to match the operating system where the container was built.
 
 {% capture content %}
@@ -45,13 +42,13 @@ image file, usually with the suffix `.sif`.
 **If you have an existing `.sif` file**, go straight to [Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs). 
 
 **If you do not have an existing `.sif` container**, you can create one in two ways: 
-- [Build your own apptainer container](#build-your-own-apptainer-container)
-- [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
+- _If you have no container to start from:_ [Build your own Apptainer container](#build-your-own-apptainer-container)
+- _If you have an existing Docker container image_: [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 
 Once you have created the `.sif` file by using one of the above methods
 ready, circle back to [Use an Apptainer Container in HTC Jobs](#use-an-apptainer-container-in-htc-jobs).
 
-**For more details about using Apptainer**, see [Suggestions for testing](#suggestions-for-testing) and [More details about HTCondor and Apptainer](#more-details-about-htcondor-and-apptainer). 
+For more details about using Apptainer, see [Suggestions for testing](#suggestions-for-testing) and [More details about HTCondor and Apptainer](#more-details-about-htcondor-and-apptainer). 
 
 ## Use an Apptainer Container in HTC Jobs
 
@@ -117,9 +114,9 @@ TBD: graphic
 1. **(Optional): Test the container.** Once the image (`.sif` file) is created, it is important to test it to make sure you have all software, packages, and libraries installed correctly.
 1. **Move the container to a persistent location.** We recommend placing the image file into your `/staging` folder
 
-### Create a Definition File
+### Create a definition file
 
-To create your own container using Apptainer, you will need to create a definition (`.def`) file. CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes). 
+To create your own container using Apptainer, you will need to create a definition (`.def`) file. CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes/tree/main/software). 
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
@@ -139,7 +136,7 @@ the definition file `image.def`.
 > [The Apptainer Definition File](apptainer-build.html#the-apptainer-definition-file)
 {:.tip}
 
-### Start an Interactive Build Job
+### Start an interactive build job
 
 Building a container can be a computationally intense process, so 
 we require that you build containers while in an interactive build job.
@@ -332,7 +329,7 @@ to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/ser
 
 - [Building an Apptainer Container](apptainer-build)
 - [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
-- [Advanced Example](apptainer-htc-advanced-example)
+- [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example)
 - [Using Apptainer Containers on HPC](apptainer-hpc.html)
 - [Use Custom Software in Jobs Using Docker](docker-jobs)
 - [Overview: How to Use Software](software-overview-htc)
