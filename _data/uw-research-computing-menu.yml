@@ -9,8 +9,6 @@ nav_items:
     name: How To's
     url: /uw-research-computing/how-tos.html
     sub_menu:
-      - url: /uw-research-computing/account-details.html
-        name: Get an Account
       - url: /uw-research-computing/user-expectations.html
         name: User Expectations
       - url: /uw-research-computing/htc/guides.html
