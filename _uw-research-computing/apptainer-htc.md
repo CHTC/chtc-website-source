@@ -138,7 +138,7 @@ exit
 Once you are satisfied that your container is built correctly, copy your `.sif` file to your staging directory.
 
 ```
-mv my-container.sif /staging/$USER
+mv my-container.sif /staging/u/username
 ```
 {:.term}
 
@@ -314,7 +314,7 @@ Since Apptainer `.sif` files are routinely more than 1GB in size, we recommend t
 It is usually easiest to move the container file directly to staging while still in the interactive build job:
 
 ```
-mv my-container.sif /staging/$USER
+mv my-container.sif /staging/u/username
 ```
 {:.term}
 
