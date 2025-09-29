@@ -3,13 +3,31 @@
   links:
   - text: HTC Guides
     url: http://localhost:4000/uw-research-computing/htc/guides.html
+    icon: "bi bi-book"
+    description: |
+      Step-by-step instructions for using HTC resources. Includes guides for
+      getting started, job submission, and using specific software.
   - text: HPC Guides
     url: http://localhost:4000/uw-research-computing/hpc/guides.html
-# - name: Independent Learning with Courses
-#   links:
-#   - text: Intro to HTC
-#     url: https://google.com
-#   - text: Course 2
-#     url: https://google.com
-#   - text: Course 3
-#     url: /user-portal/
+    icon: "bi bi-book"
+    description: |
+      Step-by-step instructions for using HPC resources. Includes guides for
+      getting started, job submission, and using specific software.
+- name: Independent Learning with Courses
+  links:
+  - text: Intro to HTC
+    url: https://google.com
+    icon: "bi bi-book"
+    description: |
+      A self-paced course through Canvas that introduces the basics of
+      high-throughput computing.
+  - text: Course 2
+    url: https://google.com
+    icon: "bi bi-book"
+    description: |
+      Course 2 description
+  - text: Course 3
+    url: /user-portal/
+    icon: "bi bi-book"
+    description: |
+      Course 3 description
