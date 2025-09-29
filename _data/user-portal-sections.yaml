@@ -1,0 +1,15 @@
+- name: Guides
+  large: true
+  links:
+  - text: HTC Guides
+    url: http://localhost:4000/uw-research-computing/htc/guides.html
+  - text: HPC Guides
+    url: http://localhost:4000/uw-research-computing/hpc/guides.html
+# - name: Independent Learning with Courses
+#   links:
+#   - text: Intro to HTC
+#     url: https://google.com
+#   - text: Course 2
+#     url: https://google.com
+#   - text: Course 3
+#     url: /user-portal/

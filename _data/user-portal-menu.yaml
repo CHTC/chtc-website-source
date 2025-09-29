@@ -1,0 +1,20 @@
+- name: Support
+  links:
+    - text: Get Help
+      url: /uw-research-computing/get-help.html
+    - text: System Status
+      url: https://status.chtc.wisc.edu/
+    - text: Request account/quota
+      url: /uw-research-computing/form.html
+- name: Events
+  links:
+    - text: Calendar
+      url: /uw-research-computing/get-help.html#chtc-events-and-office-hours-calendar
+    - text: Bioinformatics Cafe
+      url: /uw-research-computing/bioinformatics-cafe
+- name: About and information
+  links:
+    - text: About
+      url: /about
+    - text: Cite us
+      url: /uw-research-computing/cite-chtc
