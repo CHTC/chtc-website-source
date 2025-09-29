@@ -14,15 +14,21 @@ title: CHTC User portal
                             {{ section.name }}
                         </h2>
                     </div>
-                    <div class="row text-center text-dark">
+                    <div class="row text-dark">
                         {% for link in section.links %}
                             {% if section.large %}
-                            <div class="col-6 py-3" style="height: 12em;">
+                            <div class="col-6 py-3">
                             {% else %}
-                            <div class="col-4 py-3" style="height: 8em;">
+                            <div class="col-4 py-3">
                             {% endif %}
-                                <a href="{{ link.url }}" class="btn w-100 h-100 py-4 border rounded-3 d-flex align-items-center justify-content-center">
-                                    {{ link.text }}
+                                <a href="{{ link.url }}" class="btn w-100 h-100 py-4 border rounded-3">
+                                    <i class="{{ link.icon }}"></i>
+                                    <span style="font-size: 1.25rem;">
+                                        {{ link.text }}
+                                    </span>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem; text-align: left;">
+                                        {{ link.description }}
+                                    </p>
                                 </a>
                             </div>
                         {% endfor %}
