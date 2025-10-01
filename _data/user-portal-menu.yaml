@@ -4,12 +4,14 @@
       url: /uw-research-computing/get-help.html
     - text: System Status
       url: https://status.chtc.wisc.edu/
-    - text: Request account/quota
-      url: /uw-research-computing/form.html
+    - text: Request an account
+      url: /uw-research-computing/form
+    - text: Request a quota change
+      url: /uw-research-computing/quota-request
 - name: Events
   links:
-    - text: Calendar
-      url: /uw-research-computing/get-help.html#chtc-events-and-office-hours-calendar
+    - text: Events and Training
+      url: /events.html
     - text: Bioinformatics Cafe
       url: /uw-research-computing/bioinformatics-cafe
 - name: About and information
