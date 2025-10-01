@@ -5,14 +5,12 @@
     url: http://localhost:4000/uw-research-computing/htc/guides.html
     icon: "bi bi-book"
     description: |
-      Step-by-step instructions for using HTC resources. Includes guides for
-      getting started, job submission, and using specific software.
+      Guides for the High Throughput Computing (HTC) system.
   - text: HPC Guides
     url: http://localhost:4000/uw-research-computing/hpc/guides.html
     icon: "bi bi-book"
     description: |
-      Step-by-step instructions for using HPC resources. Includes guides for
-      getting started, job submission, and using specific software.
+      Guides for the High Performance Computing (HPC) system.
 - name: Independent Learning with Courses
   links:
   - text: Intro to HTC
