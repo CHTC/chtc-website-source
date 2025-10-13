@@ -1,11 +1,20 @@
 title: Systems Administrator Intern
 text: |
-  The Research Computing group at the Morgridge Institute for Research partners with a broad range of scientists to provide computing services for the Institute, the UW-Madison campus as part of the Center for High Throughput Computing, and the nation. We are seeking students looking to work less than 30 hours per week starting May or June 2025 to assist our systems administrators and to gain valuable training and education on state-of-the-art hardware, complex systems and leading technologies. This position offers high value learning opportunities in a collaborative, flexible and supportive working environment. The is an excellent career building position for candidates interested in learning a diverse set of technologies.  CHTC manages over 500 Linux servers and network devices, providing services such as Kubernetes, distributed file systems, batch systems, and databases.
-  
-  The administrator assistant will help with the provisioning and management of hardware and OS infrastructure; on-the-job training will be provided on industry-standard tools for these activities.  Work is normally performed during typical office hours in the office in the Discovery Building.
+  The Center for High Throughput Computing (CHTC) partners with a broad range of scientists to 
+  provide computing services for the UW-Madison campus and the nation. We are seeking
+  students looking to work between 10 and 15 hours per week as mutually agreed upon, starting
+  January 2026 to assist our systems administrators and to gain valuable training and education
+  on state-of-the-art hardware, complex systems and leading technologies. This position offers
+  high value learning opportunities in a collaborative, flexible and supportive working
+  environment. The is an excellent career building position for candidates interested in learning a
+  diverse set of technologies.  CHTC manages over 500 Linux servers and network devices,
+  providing services such as Kubernetes, distributed file systems, batch systems, and databases.
+  The administrator assistant will help with the provisioning and management of hardware and
+  OS infrastructure; on-the-job training will be provided on industry-standard tools for these
+  activities.  Work is normally performed during typical office hours in the office in Morgridge Hall.
 button:
-  text: Learn More and Apply Now!
-  href: https://morgridge.org/job-posting/systems-administrator-intern/
+  text: Coming Soon
+  href: /jobs.html
 type: Internship
-institution: Morgridge Institute for Research
-close_date: 0
+institution: Center for High Throughput Computing
+close_date: 1763055841

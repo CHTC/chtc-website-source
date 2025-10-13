@@ -1,11 +1,17 @@
 title: Systems Integration Intern
 text: |
-  The Research Computing group at the Morgridge Institute for Research partners with a broad range of scientists to provide computing services for the Institute, the UW-Madison campus as part of the Center for High Throughput Computing, and the nation. We are seeking students looking to work less than 30 hours per week starting June or September 2025 to assist our systems administrators and to gain valuable training and education on state-of-the-art hardware, complex systems and leading technologies. This position offers high value learning opportunities in a collaborative, flexible and supportive working environment. The is an excellent career building position for candidates interested in learning a diverse set of technologies. The CHTC manages over 1,000 Linux servers, maintains services for the national cyberinfrastructure, and distributes a software stack for global research communities.
-
-  The Systems Integration Intern will assist with improvements to our software development pipelines (e.g. Continuous Integration) and high-throughput computing usage reporting. During this internship, students will learn software development best practices and about industry standard technologies, such as Docker, ElasticSearch, and GitHub Actions. Work is normally performed on-site during normal business hours in the Discovery Building.
+  The Research Computing group at the Morgridge Institute for Research partners with a broad range of scientists to provide computing services for the Institute, the UW-Madison campus as part of the Center for High Throughput Computing, and the nation.
+  
+  A common theme the group faces is figuring out how get the tools researchers already use to work with high throughput computing systems like the HTCondor Software Suite (HTCSS) and the Pelican Platform.
+  
+  One piece of software we’ve identified as having the potential for high impact is the Snakemake workflow management tool.  Snakemake is a Python package that lets users define Directed Acyclic Graph (DAG) workflows “via an easy to read, adaptable, [and] powerful specification language on top of Python,” and a growing number of researchers have asked about using HTCondor as the computational backend for their established Snakemake pipelines.
+  
+  We are seeking a student looking to work in-person between 10 and 20 per week, as mutually agreed upon, to assist in turning our proof-of-concept Snakemake+HTCondor integrations into a polished, well-documented tool that researchers from all backgrounds can pick up and use off the shelf.
+  
+  The student intern will become an expert in Snakemake and HTCondor workflow management, and they’ll use this expertise to identify and polish any rough edges that exist between it and the HTCondor Software Suite and the Pelican Platform. They’ll also work closely with stakeholders to write clear documentation and provide easy-to-understand examples.
 button:
   text: Learn More and Apply Now!
   href: https://morgridge.org/job-posting/systems-integration-intern-student-position/
 type: Internship
 institution: Morgridge Institute for Research
-close_date: 0
+close_date: 1763055841
