@@ -79,7 +79,13 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
    The terminal will pause for 3 minutes, as specified by `sleep 180` in our script. Cancel the pause time by pressing `CTRL + C`. Now we've successfully run the script locally!
 
-   However, to run it on CHTC, we will use our HTCondor submit file to run the `hello-world.sh` executable and to automatically pass different arguments to our script. 
+   However, to run it on CHTC, we will use our HTCondor submit file to run the `hello-world.sh` executable and to automatically pass different arguments to our script.
+
+   > ### ⚠️ Do not test your full workload directly on the Access Points!
+   {:.tip-header}
+
+   > Simple scripts, such as this example, which use few compute resources, are safe to test, but **any script or executable that requires computing power or excessive memory should be tested inside of a job.**
+   {:.tip}
 
 3. Prepare your HTCondor submit file, which you will use to tell HTCondor what job to run and how to run it.
    Copy the text below, and paste it into file called `hello-world.sub`.
