@@ -27,6 +27,8 @@ nav_items:
     name: Other Resources
     url: /uw-research-computing/other-resources.html
     sub_menu:
+      - url: "https://community.chtc.wisc.edu/"
+        name: CHTC Community Forum
       - url: /uw-research-computing/bioinformatics-cafe
         name: Bioinformatics Cafe
       - url: /uw-research-computing/gpu-lab.html
