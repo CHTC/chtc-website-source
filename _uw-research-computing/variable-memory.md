@@ -24,11 +24,13 @@ If your job has ever gone on hold for exceeding memory use, you've probably solv
 
 ## Why you should care about memory usage
 
-* **Over-requesting memory** may cause your jobs to **wait in idle** for longer than needed, since HTCondor needs to find and allocate these larger resource requests for your jobs. Additionally, CHTC's HTC system is a shared resource, so we encourage you to be a good citizen and only request the resources you need for your jobs.
+Because CHTC is a shared resource, correctly requesting the resources that you require for your jobs to function ensures that both you and other users have a good experience on the system.
 
-* **Under-requesting memory** may cause your jobs to **go on hold** when they do exceed the memory allocated to your job.
+* **Over-requesting memory** may cause your jobs to **wait in idle** for longer than needed, since HTCondor needs to find and allocate these larger resource requests for your jobs. And resources unused by your job could be used for others' jobs.
 
-> But what if a fraction of your jobs needs more memory than the rest of the list of jobs? How can you get the throughput you need without over-requesting memory?
+* **Under-requesting memory** may cause your jobs to **go on hold** when they do exceed the memory allocated to your job. Whatever work by your job will be lost but the computing time will still affect your priority.
+
+But what if only a **fraction** of your jobs needs more memory than the rest of the list of jobs? How can you get the throughput you need without over-requesting memory?
 
 ## Use `retry_request_memory`
 
@@ -59,7 +61,7 @@ retry_request_memory = RequestMemory*4
 When using expressions:
 
 * We recommend *only* multiplying by integers.
-* Addition expressions and floating point numbers are not recommended.
+* Expressions using addition operators or floating point numbers are not recommended.
 
 ## Related pages
 
