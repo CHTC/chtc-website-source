@@ -20,7 +20,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-If your job has ever gone on hold for exceeding memory use, you've probably solved it by increasing your `request_memory` attribute in your submit file. You might even always over-request memory, just to be on the safe side. But have you ever checked your HTCondor `.log` file to see how much memory you actually used?
+If your job has ever gone on hold for exceeding memory use, you've probably solved it by increasing your `request_memory` attribute in your submit file. You might even always over-request memory, just to be on the safe side.
 
 ## Why you should care about memory usage
 
