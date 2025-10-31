@@ -4,6 +4,16 @@ summary: |
   Transform how researchers deploy machine learning models for science at scale! Many scientists are able to prototype and test ML models on a small scale, but hit a wall when trying to move beyond their laptop to process full datasets: millions of satellite images, thousands of genomic samples, or massive text corpora. This fellowship tackles one of the most critical bottlenecks in computational research: bridging the gap between proof-of-concept and production-scale ML inference on high-throughput computing systems.
 As a fellow, you'll start by exploring the landscape: working directly with researchers across domains to discover their inference workflows, identify the most effective tools and frameworks, and uncover common scaling patterns. You'll then translate these insights into practical resources to simplify access to HTC infrastructure.
 
+The ideal candidate will have: 
+  - Strong technical writing skills
+  - Experience with Python and ML frameworks (PyTorch, TensorFlow, or scikit-learn)
+  - Bonus: Familiarity with batch computing, containers, or ML deployment workflows
+
+What You'll Do:
+ - **Discover and document:** Collaborate with close CHTC collaborators in computer vision, genomics, NLP, and other fields to identify target use cases, optimal inference frameworks, and recurring challenges
+ - **Build an inference engine pattern library:** Create a comprehensive collection of reusable submit file templates, data staging strategies, and best-practice patterns for common scenarios (model comparison, parameter sweeps, batch processing)
+ - **Develop end-to-end tutorials:** Create complete, domain-specific guides demonstrating the full journey from laptop to HTC-scale inference. 
+
 
   #### Project Objectives:
 
