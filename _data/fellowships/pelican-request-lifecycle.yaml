@@ -1,0 +1,29 @@
+title: Description Distributed Tracing and Log Aggregation for Pelican Request Lifecycle
+type: Software Development
+sort: 0
+summary: |
+  In a distributed system with multiple services communicating with one another, a key challenge is correlating logging information from different services that handle a single job or client request. This project aims to design and implement a method for aggregating all logs generated during a client request by introducing a unique identifier that acts as a foreign key to link every log entry together. This focused approach will ensure administrators can precisely trace the path of a request through the system, identifying the services involved and pinpointing the exact location of errors or performance-related events recorded in the logs. 
+    
+  The primary objective of this project is to implement a system for auto-aggregation and tracing of request data across [Pelican’s](https://pelicanplatform.org/) distributed architecture. The goal is to move beyond siloed log files to ensure a complete picture of job execution is available for administrators. The core solution involves determining how to aggregate the logging data as well as creating a unique identifier that is generated and propagated throughout the system, acting as a foreign key to link every log entry together. The fellow will be responsible for defining the tracing methodology, augmenting the request ID throughout the application layers, and making critical adjustments in the Pelican code. The fellow will develop client tooling to utilize this trace ID for diagnostics and will learn to inject diagnostic information back into the result ad for retrospective analysis via HTCondor.
+  
+  Questions the fellow will have to answer in the course of the project: How do we define the foreign key when one pelican command could translate to multiple transfers or jobs? How best can we aggregate the logs into a searchable system? How can the system handle the continuously growing size of the logs?
+  
+  By the end of the fellowship, the fellow will acquire a comprehensive understanding of distributed data systems and gain hands-on experience designing and implementing a tracing system for log correlation. They will be responsible for defining the auto-aggregation and tracing methodology using this unique identifier, and for augmenting the request ID through all layers of the Pelican code. This work will include adjusting selective places in the Pelican code and developing client tooling to utilize the trace ID. Additionally, the fellow will solidify their practical skills in Python and Go programming.
+  
+  #### Project Objectives:
+    
+  The project's specific objectives are broken down to reflect both the high-level design and the necessary low-level implementation: 
+       
+  - Implement UUID-based Tracing: Establish the methodology for UUID generation/propagation and use it as a foreign key for log correlation across all services. 
+  - Augment Service Logs: Adjust selective places in the Pelican code to ensure the UUID is consistently captured. 
+  - Develop Client Tooling: Create tools that run on the client or service hosts to leverage the UUID for direct log retrieval and diagnostics. 
+  - System Integration: Create a system for client-side request tracking that leverages the aggregated data.
+  
+  #### Prerequisite skills or education that would be good for the Fellow to have to work on the project:
+      
+  - Python and Golang (required)
+  - Linux/CLI (required)
+  - HTTP development (preferred)
+  - Distributed Computing (preferred)
+  - Git/GitHub/GitHub Actions (preferred)
+  - Docker/Kubernetes (preferred)
