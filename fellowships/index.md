@@ -67,6 +67,14 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort. 
 
+## Applying
+
+To apply, send an email to <chtc-fellows@wisc.edu> with the following information:
+
+A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
+
+A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you should mention them. Successful applicants will be connected to mentors to select and define their projects following this application
+
 ## Duration of Fellowship and Total Stipend
 -  The upcoming Fellowship Program will last for approximately 11 weeks during Summer 2026.
 -  The Program provides $650/week stipend. 
