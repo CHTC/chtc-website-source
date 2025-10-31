@@ -8,97 +8,72 @@ guide:
         - htc
 ---
 
+## Introduction
 
-This guide describes when and how to run jobs that use licensed software in
-CHTC's high throughput compute (HTC) system.
+This guide describes how to run jobs that use licensed software in CHTC's high throughput computing (HTC) system.
 
-**To best understand the below information, users should already have an
-understanding of:**
+{% capture content %}
+- [Introduction](#introduction)
+- [Policies](#policies)
+- [How to use licensed software](#how-to-use-licensed-software)
+- [Licensed software on the HTC system](#licensed-software-on-the-htc-system)
+- [Modules](#modules)
+- [Submit file requirements](#submit-file-requirements)
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
--   Using the command line to: navigate within directories,
-    create/copy/move/delete files and directories, and run their
-    intended programs (aka \"executables\").
--   [The CHTC\'s Intro to Running HTCondor Jobs](helloworld.html)
+## Policies
 
-Overview
-========
+Users install and manage their own software installations via [containers](software-overview-htc) or [portable installations](inter-submit). CHTC's research computing facilitators are available to [help](get-help) through this process.
 
-Once you know that you need to use a licensed software program on our
-HTC system, you will need to do the following:
+Some software programs require paid licenses, which may require additional support. *Installation of licensed programs is by request to and at the discretion of CHTC staff.*
 
--   [View Licensed Software in the HTC System](#access)
--   [Submit Jobs Using Software Modules](#submission)
-    1.  [Create a script that loads the correct software
-        module.](#script)
-    2.  [Make sure your submit file has certain key
-        requirements](#submit)
+**We recommend using a free or open-source software alternative whenever possible**, as some software licenses restrict the amount of computing that can contribute to your research.
 
+Jobs using licensed software are incompatible with external capacity like the OSPool or campus pools.
 
-<span name="policies"/>
+## How to use licensed software
 
-A. CHTC\'s Licensed Software Policies on the HTC System
-=======================================================
+1. **Find your [licensed software](#licensed-software-on-the-htc-system)** in the table. For most cases, you will need to [request access]((mailto:chtc@cs.wisc.edu)) to the licensed software.
+2. **[Build a container](software-overview-htc#containers) or [use the module system](#modules)** to prepare your software and scripts, depending on your licensed software.
+3. **Modify your submit file.**
+    * Add the right [`concurrency_limits`](#submit-file-requirements) to your submit file.
+    * Add `requirements = (HasChtcSoftware == true)`.
 
-Our typical practice for software support in CHTC is for users to
-install and manage their own software installations. We have multiple
-guides to help users with [common software
-programs](howto_overview.html) and additional support is always
-available through [CHTC\'s research computing
-facilitators](get-help.html).
+## Licensed software on the HTC system
 
-However, certain software programs require paid licenses which can make
-it challenging for individual users to install the software and use the
-licenses correctly. As such, we provide support for software
-installation and use on our high throughput system. Installation of
-licensed programs is by request to and at the discretion of CHTC staff.
+| Software        | Limit name             | Pool limit    | Use via | Allowed users |
+| --------------- | ---------------------- | -------- | -------------- |------ |
+| ABAQUS          | `ABAQUS`                 | 50       | module         | Must belong to an approved research group. |
+| ANSYS           | `ANSYS_RESEARCH`        | 20       | module         | Must belong to an approved research group. |
+| COMSOL (Physics) | `COMSOL_PHYSICS`        | 2        | module         | Must belong to the Physics department. |
+| Gurobi          | `GUROBI`                 | 4096     | [container](https://github.com/CHTC/recipes/tree/main/software/Gurobi) | [Contact CHTC.](get-help) |
+| Lumerical       | `LUMERICAL`              | 3        | [container](https://optics.ansys.com/hc/en-us/articles/12325704816659-Dockerfile-support)         | Must belong to an approved research group. |
+| MATLAB          | `MATLAB`                 | 10000    | [container](https://github.com/CHTC/recipes/tree/main/software/Matlab) | Must use our MATLAB container recipes. Does not need approval. |
 
-We always recommend using a free or open-source software alternative
-whenever possible, as certain software licenses restrict the amount of
-computing that can contribute to your research.
+> If you need access to these licensed software, contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
 
-<span name="access"/>
+| Unsupported licensed software | Notes |
+| --- |
+| Gaussian | Requires third-party assistance. |
+| Mathematica | Incompatible. |
+| VASP | Requires third-party assistance. HPC system recommended. |
 
-B. Viewing Licensed Software on the HTC System
-==============================================
+## Modules
 
-Software with paid licenses that has been installed on the high
-throughput (HTC) system is accessible through software \"modules\",
-which are tools to access and activate a software installation. To see
-which software programs are available on the HTC system, run the
-following command on an HTC submit server:
+### See available modules
+
+For licensed software accessible through the module system, you can see the available modules and versions of the software by running this command on the Access Point.
 
 ``` 
 [alice@submit]$ module avail
 ```
 {:.term}
 
-> Note: you should never run a program directly on the submit server.
-> Jobs that use licensed software/modules should always be submitted as
-> HTCondor jobs as [described below](#submission).
+### Use and load modules in your executable script
 
-Note that not all software modules are available to all CHTC users. Some
-programs like `ansys` have a campus or shared license which makes them
-available to all CHTC users. Other software, like `lumerical` and
-`abaqus`, is licensed to a specific group and is only available to
-members of that group. 
-
-<span name="submission"/>
-
-C. Submitting Jobs Using Licensed Software Modules
-==================================================
-
-The following sections describe how to create a bash script executable
-and HTCondor submit file to run jobs that use software accessible via
-the modules.
-
-<span name="script"/>
-
-**1. Script For Running Jobs with Modules**
----------------------------------------
-
-To run a job that uses a licensed software installation on the HTC
-system, you need to write a script that loads the software module and
-then runs the program, like so:
+For jobs that use licensed software in modules, load the module in your executable script. Below is an example.
 
 ``` 
 #!/bin/bash
@@ -106,111 +81,70 @@ then runs the program, like so:
 # Commands to enable modules, and then load an appropriate software module
 export PATH
 . /etc/profile.d/modules.sh
-module load software
-
-# For Lumerical (the license requires a home directory)
-export HOME=$_CONDOR_SCRATCH_DIR
+module load <software>
 
 # Command to run your software from the command line
 cmd -options input.file
 ```
 {:.file}
 
-Replace `software` with the name of the software module you want to use,
+Replace `<software>` with the name of the software module you want to use,
 found via the `module avail` command described [above](#access). Replace
 the final command with the syntax to run your software, with the
 appropriate options.
 
-For example, to run a Comsol job, the script might look like this:
+For example, to run a COMSOL job, the script might look like this:
 
 ``` 
 #!/bin/bash
 
 export PATH
 . /etc/profile.d/modules.sh
-module load COMSOL/5.4
+module load COMSOL
 
 comsol batch -inputfile test.mph -outputfile test-results.mph
 ```
 {:.file}
 
-<span name="submit"/>
+## Submit file requirements
 
-**2. Submit File Requirements**
----------------------------
+When using licensed software managed by CHTC you must add the following to your submit file.
 
-There are several important requirements to consider when writing a
-submit file for jobs that use our licensed software modules. They are
-shown in the sample submit file below and include:
+-   **Require CHTC Software**. This ensures that your job will run on machines that have access to CHTC software modules and licenses.
 
--   **Require access to the modules.** To ensure that your job will have
-    access to CHTC software modules you must include the following in
-    your submit file.
-
-    ``` {.sub}
+    ```
     requirements = (HasChtcSoftware == true)
     ```
 
--   **Add a concurrency limit.** For software with limited licenses, we have 
-    implemented concurrency limits, which control the number of jobs running 
-    at once in the HTC system. If your software is in the table below, use 
-    the concurrency limit name in your submit file like this:
-    
-    `concurrency_limits = LIMIT_NAME:num_of_licenses_used`
-    
-    | Software        | Limit Name             | Limit    | 
-    | --------------- | ---------------------- | -------- | 
-    | ABAQUS          | ABAQUS                 | 50       |
-    | ANSYS           | ANSYS_RESEARCH         | 20       |
-    | COMSOL (Physics) | COMSOL_PHYSICS        | 2        |
-    | Lumerical       | LUMERICAL              | 3        | 
+-   **Add a concurrency limit.** This "checks out" a license for your job. If the maximum number of licenses are checked out, your job will stay in idle until a license is available. This prevents job errors stemming from unavailable licenses. To your submit file, add:
 
-    So if you were planning to run a job that used one ANSYS license, you would 
-    use: 
+    ```
+    concurrency_limits = LIMIT_NAME:num_of_licenses_used
+    ```
+    
+    See the [table above](#licensed-software-on-the-htc-system) for `LIMIT_NAME`.
+
+    For example, to run a job that uses one ANSYS license, use: 
     
     ```
     concurrency_limits = ANSYS_RESEARCH:1
     ```
+
+    > ### How many licenses should I specify in `concurrency_limits`?
+    {:.tip-header}
+    > For most jobs, you will only need to check out **one** license.
+    > 
+    > However, some workflows and software check out multiple licenses for different processes (such as using the R bindings for Gurobi). Please be aware of your job's behavior, and specify the correct number of licenses to the best of your ability.
+    {:.tip}
 
 -   **Request accurate CPUs and memory.** Run at least one test job and
     look at the log file produced by HTCondor to determine how much
     memory and disk space your jobs actually use. We recommend
     requesting the smallest number of CPUs where your job will finish in
     1-2 days.
--   **The script you wrote above (shown as `run_job.sh` below) should be
-    your submit file \"executable\"**, and any input files should be
-    listed in **transfer\_input\_files**.
 
-A sample submit file is given below:
+## Related pages
 
-``` {.sub}
-# software.sub
-# A sample submit file for running a single job using software modules
-
-universe = vanilla
-log = job_$(Cluster).log
-output = job_$(Cluster).out
-error = job_$(Cluster).err
-
-# the executable should be the script you wrote above
-executable = run_job.sh
-# arguments = (if you want to pass any to the shell script)
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files = (this should be a comma separate list of input files if needed)
-
-# Requirement for accessing new set of software modules
-requirements = ( HasChtcSoftware == true ) 
-
-# If required, add the concurrency limit for your software and uncomment
-# concurrency_limits = LIMIT_NAME:num_of_licenses_used
-
-request_cpus = 1
-request_memory = 2GB
-request_disk = 2GB
-
-queue
-```
-
-After the submit file is complete, you can submit your jobs using
-`condor_submit`.
+* [Software overview](software-overview-htc)
+* [Recipes](https://github.com/CHTC/recipes)
+* [Get help](get-help)
