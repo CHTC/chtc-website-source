@@ -17,11 +17,13 @@ title: The Center for High Throughput Computing Fellows Program
 {{ page.title }}
 </h1>
 
+**Applications for the Summer 2026 CHTC Fellows Program are now open. Two additional 2026 Fellows projects will be posted by November 15th.** The final deadline for applications is March 1, 2026 (midnight CT). 
+
+
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
-**Applications for the Summer 2026 CHTC Fellows Program will open on November 3, 2025 here. Descriptions of the 2026 projects will also be posted at that time.**
 
 ## Featured Fellow
 {% include get/team.liquid %}
