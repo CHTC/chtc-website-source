@@ -1,0 +1,43 @@
+title: Scaling ML Inference from Laptop to High-Throughput Computing
+type: Software Development
+summary: |
+  Transform how researchers deploy machine learning models for science at scale! Many scientists are able to prototype and test ML models on a small scale, but hit a wall when trying to move beyond their laptop to process full datasets: millions of satellite images, thousands of genomic samples, or massive text corpora. This fellowship tackles one of the most critical bottlenecks in computational research: bridging the gap between proof-of-concept and production-scale ML inference on high-throughput computing systems.
+As a fellow, you'll start by exploring the landscape: working directly with researchers across domains to discover their inference workflows, identify the most effective tools and frameworks, and uncover common scaling patterns. You'll then translate these insights into practical resources to simplify access to HTC infrastructure.
+
+
+  #### Project Objectives:
+
+  -   **Through user feedback and conversations with CHTC collaborators, identify targets for high-throughput inference guides:** As inference-driven scientific research grows, work with the CHTC user base (including close collaborators in computer vision on satellite or microscopy imagery, geological image classification, genomics variant calling, or NLP text mining) to understand the inference task and identify the most appropriate inference framework (such as NVIDIA’s Triton inference server).
+  -   **Design a set of experiments to measure inference performance, focusing on overall throughput, resource utilization, efficiency, and scalability. 
+  -   **Create end-to-end tutorial workflows:** Develop at least two complete, domain-specific tutorials that demonstrate the full path from laptop-scale to HTC-scale inference, with emphasis on submit file patterns, data staging strategies, and common troubleshooting scenarios
+ -    **Develop submit file templates and pattern library:** Build a collection of well-documented, modular submit file templates for common inference scenarios (single model/many data chunks, model comparison, parameter sweeps) that researchers can adapt rather than write from scratch
+
+
+  #### Prerequisite skills or education:
+
+  -   Strong technical writing and documentation skills, required
+  -   Experience with Python and machine learning frameworks (PyTorch, TensorFlow, or scikit-learn), required
+  -   Prior experience with batch computing systems or distributed computing concepts, preferred
+  -   Familiarity with containerization (Docker/Apptainer), preferred
+  -   Experience with ML model deployment or inference workflows, preferred
+  -   Background in a research domain that uses ML inference at scale, preferred
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
