@@ -10,16 +10,16 @@ summary: |
     - Bonus: Familiarity with batch computing, containers, or ML deployment workflows
   
   What You'll Do:
-   - **Discover and document:** Collaborate with close CHTC collaborators in computer vision, genomics, NLP, and other fields to identify target use cases, optimal inference frameworks, and recurring challenges
-   - **Build an inference engine pattern library:** Create a comprehensive collection of reusable submit file templates, data staging strategies, and best-practice patterns for common scenarios (model comparison, parameter sweeps, batch processing)
+   - **Discover and document:** Collaborate with close CHTC collaborators in computer vision, genomics, NLP, and other fields to identify target use cases, optimal inference frameworks, and recurring challenges.
+   - **Build an inference engine pattern library:** Create a comprehensive collection of reusable submit file templates, data staging strategies, and best-practice patterns for common scenarios (model comparison, parameter sweeps, batch processing).
    - **Develop end-to-end tutorials:** Create complete, domain-specific guides demonstrating the full journey from laptop to HTC-scale inference. 
   
   #### Project Objectives:
 
   -   **Through user feedback and conversations with CHTC collaborators, identify targets for high-throughput inference guides:** As inference-driven scientific research grows, work with the CHTC user base (including close collaborators in computer vision on satellite or microscopy imagery, geological image classification, genomics variant calling, or NLP text mining) to understand the inference task and identify the most appropriate inference framework (such as NVIDIA’s Triton inference server).
   -   **Design a set of experiments:** measuring inference performance, focusing on overall throughput, resource utilization, efficiency, and scalability. 
-  -   **Create end-to-end tutorial workflows:** Develop at least two complete, domain-specific tutorials that demonstrate the full path from laptop-scale to HTC-scale inference, with emphasis on submit file patterns, data staging strategies, and common troubleshooting scenarios
-  -   **Develop submit file templates and pattern library:** Build a collection of well-documented, modular submit file templates for common inference scenarios (single model/many data chunks, model comparison, parameter sweeps) that researchers can adapt rather than write from scratch
+  -   **Create end-to-end tutorial workflows:** Develop at least two complete, domain-specific tutorials that demonstrate the full path from laptop-scale to HTC-scale inference, with emphasis on submit file patterns, data staging strategies, and common troubleshooting scenarios.
+  -   **Develop submit file templates and pattern library:** Build a collection of well-documented, modular submit file templates for common inference scenarios (single model/many data chunks, model comparison, parameter sweeps) that researchers can adapt rather than write from scratch.
 
 
   #### Prerequisite skills or education:
