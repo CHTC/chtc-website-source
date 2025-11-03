@@ -69,7 +69,7 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 ## Applying
 
-To apply, send an email to <chtc-fellows@wisc.edu> with the following information:
+To apply, send an email to <chtc-fellows@g-groups.wisc.edu> with the following information:
 
 A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 
