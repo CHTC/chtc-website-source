@@ -18,7 +18,7 @@ title: The Center for High Throughput Computing Fellows Program
 </h1>
 
 <div class="alert alert-info" role="alert">
-<strong>Applications for the Summer 2026 CHTC Fellows Program are now open. Two additional 2026 Fellows projects will be posted by November 15th.</strong> 
+<strong>Applications for the Summer 2026 CHTC Fellows Program are now open. One additional 2026 Fellows project will be posted by November 15th.</strong> 
 </div>
 
 
