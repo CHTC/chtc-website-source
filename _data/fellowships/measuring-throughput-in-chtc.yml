@@ -8,7 +8,7 @@ summary: |
     - Develop a synthetic workload generation tool that uses job parameters to automatically generate test HTC workloads.
     - Identify a list of 5-6 core metrics for measuring HTC workload performance in collaboration with the Facilitation team.
     - Develop a tool that extracts these core metrics using HTCondor log files or other command line tools.
-    - Use the above tools end-to-end, to generate a test workload and measusre its outcomes
+    - Use the above tools end-to-end, to generate a test workload and measusre its outcomes.
 
   #### Prerequisite skills or education that would be good for the Fellow to have to work on the project:
     
