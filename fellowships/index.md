@@ -18,7 +18,7 @@ title: The Center for High Throughput Computing Fellows Program
 </h1>
 
 <div class="alert alert-info" role="alert">
-<strong>Applications for the Summer 2026 CHTC Fellows Program are now open. One additional 2026 Fellows project will be posted by November 15th.</strong> 
+<strong>Applications for the Summer 2026 CHTC Fellows Program are now open. Additional 2026 Fellows projects may be posted during November.</strong> 
 </div>
 
 
@@ -73,10 +73,10 @@ To apply, send an email to <chtc-fellows@g-groups.wisc.edu> with the following i
 
 A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 
-A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project which interests you from the project lists above, you should mention them. Successful applicants will be connected to mentors to select and define their projects following this application
+A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project(s) which interests you from the project lists above, you should mention them. Successful applicants will be connected to mentors to flesh out their projects following this application and interview process. 
 
 ## Duration of Fellowship and Total Stipend
--  The upcoming Fellowship Program will last for approximately 11 weeks during Summer 2026.
+-  The upcoming Fellowship Program will last from May 18 to August 7, 2026. During the Program, 5 days are allocated as personal days (with no stipend provided for those days) for the Fellows to use at their discretion, except for the required participation in Throughput Computing Week 2026 (HTC26).
 -  The Program provides $650/week stipend. 
 -  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
 
