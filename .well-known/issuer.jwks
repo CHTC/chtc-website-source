@@ -7,7 +7,7 @@
             "kty": "EC",
             "x": "EuVScVN_ss_xIJsjuhVkqaosWYutNPjCOgSfQC10a3U",
             "y": "rOTf6d8UdZx-MPTdsyb6OxNl1duUQ8Vne2wBXr8GsMQ"
-        }
+        },
         {
             "alg": "ES256",
             "crv": "P-256",
