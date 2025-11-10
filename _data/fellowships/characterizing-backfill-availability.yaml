@@ -8,8 +8,6 @@ summary: |
   To begin addressing the problem of characterizing the lifetimes of backfill glideins, the fellow will conduct a study of the lifetimes of backfill workers (in this case, glideins that don't actually run any HTCondor jobs) running in a Kubernetes cluster with simulated higher priority ("foreground") workloads. The fellow will develop a scheduling toolset to generate parameterizable synthetic foreground workloads in the Kubernetes cluster. A monitoring toolset will then be developed to observe the lifecycles of backfill workers running alongside varied foreground workloads. Statistical analysis will be applied to data gathered by the monitoring tool to characterize the expected lifetimes of backfill workers based on the parameters of the foreground workload.
   
   #### Project Objectives:
-    
-  The fellow will: 
        
   - Survey the set of variables that define a typical Kubernetes workload, such as memory, cpu usage, duration, and replica count.
   - Design an algorithm for scheduling parameterizable Kubernetes workloads based on the selected variables.  
