@@ -124,9 +124,12 @@ For example, if using an `ubuntu` based container, then you should be able to us
 
 ```
 %post
+    chmod 777 /tmp
     apt update -y
     apt install -y gcc make wget
 ```
+
+> The `chmod 777 /tmp` is a specific workaround for building containers on the HTC system. Do not use this line if you are using Apptainer to build containers on a different system.
 
 Note that we have used the `-y` option for `apt` to pre-emptively agree to update `apt` and to install the `gcc`, `make`, and `wget` packages. 
 Otherwise, the `apt` command will prompt you to confirm the executions via the command line. 
