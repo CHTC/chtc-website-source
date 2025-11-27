@@ -1,0 +1,57 @@
+---
+layout: default
+title: CHTC User portal
+---
+
+<div class="container-xl mb-4">
+    <h1 class="uw-mini-bar mt-5 mb-4">User Portal</h1>
+    <div class="row">
+        <div class="col-xl-8 col-lg-12 mb-4">
+            {% for section in site.data.user-portal-sections %}
+            <div class="card mb-4 border-0">
+                    <div class="card-header bg-primary">
+                        <h2 class="m-0 text-light">
+                            {{ section.name }}
+                        </h2>
+                    </div>
+                    <div class="row text-dark">
+                        {% for link in section.links %}
+                            {% if section.large %}
+                            <div class="col-6 py-3">
+                            {% else %}
+                            <div class="col-4 py-3">
+                            {% endif %}
+                                <a href="{{ link.url }}" class="btn w-100 h-100 py-4 border rounded-3">
+                                    <i class="{{ link.icon }}"></i>
+                                    <span style="font-size: 1.25rem;">
+                                        {{ link.text }}
+                                    </span>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem; text-align: left;">
+                                        {{ link.description }}
+                                    </p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-xl-4 d-none d-xl-block">
+            <div class="list-group">
+                {% for section in site.data.user-portal-menu %}
+                    <div class="mb-4">
+                        <div class="d-flex" style="font-size: 1.25rem; font-weight: 500;">
+                            <div class="mb-0">{{ section.name }}</div>
+                        </div>
+                        {% for link in section.links %}
+                            <a href={{link.url}} class="list-group-item list-group-item-action d-flex border">
+                                {{ link.text }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
