@@ -54,10 +54,13 @@ We recommend using `sbatch` to submit jobs (see above) instead of `salloc`. See 
 
 ## Monitor jobs
 
-| Command | Use | Notes |
-| --- | --- | --- |
-| `squeue -u <username>` | displays status of your submitted jobs by username | |
-| `squeue -p <partition>` | displays status of your submitted jobs by partition | |
+Use these commands to monitor your submitted jobs.
+
+| Command | Use |
+| --- | --- |
+| `squeue --me` | displays status of your submitted jobs |
+| `squeue -u <username>` | displays status of your submitted jobs by username |
+| `squeue -p <partition>` | displays status of your submitted jobs by partition |
 | `seff <job_ID>` | view job performance |
 
 ### View job information with `sacct`
@@ -75,7 +78,9 @@ These commands display information about the execution points - machines that ex
 
 | Command | Use | Notes |
 | --- | --- | --- |
-| `condor_status` | lists all execution point slots |
+| `sinfo` | displays information about nodes |
+| `sinfo -n <node>` | displays information about specified node | Example: `sinfo -n spark-a006` |
+| `sinfo -p <partition>` | displays information about specified partition | Example: `sinfo -p pre` |
 {:.command-table}
 
 ## Glossary
