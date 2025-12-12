@@ -29,7 +29,7 @@ submit jobs that use Docker containers.
 To run a job using a Docker container, you will need access to a Docker container
 image that has been built and placed onto the
 [DockerHub](https://hub.docker.com/) website or another Docker registry service 
-like [https://quay.io/] or a GitLab registry. 
+like [https://quay.io/](https://quay.io/) or a GitLab registry. 
 
 If you have an existing Docker container with your software installed 
 inside, go straight to [Use a Docker Container in a Job](#use-a-docker-container-in-a-job) 

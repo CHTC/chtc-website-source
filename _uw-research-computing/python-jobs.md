@@ -13,7 +13,7 @@ published: true
 
 ## Quickstart: Python
 
-### Option A - Own Container (recommended)
+### Option A - Your Container (recommended)
 
 Build a container with Python & packages installed inside. Start by reviewing 
 the container build instructions for either Apptainer or Docker. Then, when 

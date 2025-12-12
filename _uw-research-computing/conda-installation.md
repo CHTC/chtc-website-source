@@ -31,7 +31,7 @@ following the build instructions, use the example recipes for either a
 
 Create your own portable copy of your Conda packages:
 
-> This approach may be sensitive to the operating system of the execution point. 
+> This approach is sensitive to the operating system of the execution point. 
 > We recommend building a container instead, but are keeping these instructions as a backup.
 
 <!--more-->

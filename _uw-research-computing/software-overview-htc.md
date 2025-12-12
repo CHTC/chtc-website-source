@@ -159,7 +159,13 @@ There are typically two ways of doing so:
 1. Find an existing container 
 1. Build your own container image
 
-If building your own container, the process will include: 
+#### Find an existing container image
+
+TBD: guidance on finding useful, trusted container images online.
+
+#### Build your own container image
+
+To build your own container, the process will include: 
 
 1. Writing a build file, called either a `Dockerfile` or definition (`.def`) file.
 	* Consult your software's documentation

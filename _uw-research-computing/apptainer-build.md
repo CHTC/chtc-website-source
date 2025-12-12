@@ -10,7 +10,7 @@ guide:
 --- 
 
 This guide describes the general process for creating an Apptainer container. 
-Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. For a more step-by-step description of 
+Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. **Use this guide as a reference to help customize the contents of your container.** For a step-by-step tutorial of 
 how to build a container, see [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html).
 
 {% capture content %}
@@ -129,7 +129,7 @@ For example, if using an `ubuntu` based container, then you should be able to us
     apt install -y gcc make wget
 ```
 
-> The `chmod 777 /tmp` is a specific workaround for building containers on the HTC system. Do not use this line if you are using Apptainer to build containers on a different system.
+> The `chmod 777 /tmp` is a specific workaround for building containers on the HTC system at CHTC. **Do not use this** line if you are using Apptainer to build containers **on a different system**.
 
 Note that we have used the `-y` option for `apt` to pre-emptively agree to update `apt` and to install the `gcc`, `make`, and `wget` packages. 
 Otherwise, the `apt` command will prompt you to confirm the executions via the command line. 
