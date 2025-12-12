@@ -36,6 +36,7 @@ Create your own portable copy of your Conda packages:
 
 <!--more-->
 
+<!--
 ## More information
 
 The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
@@ -46,6 +47,7 @@ you should see the instructions specifically for setting up [Python or R](softwa
 When building or using a Miniconda container, you do not need to create or activate a conda environment.
 For the build process, you skip directly to the `conda install` commands you want to run.
 Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+-->
 
 ### Executable
 

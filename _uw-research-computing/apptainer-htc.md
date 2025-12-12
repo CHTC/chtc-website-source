@@ -331,5 +331,5 @@ to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/ser
 - [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 - [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example)
 - [Using Apptainer Containers on HPC](apptainer-hpc.html)
-- [Use Custom Software in Jobs Using Docker](docker-jobs)
+- [Running HTC Jobs Using Docker Containers](docker-jobs)
 - [Overview: How to Use Software](software-overview-htc)

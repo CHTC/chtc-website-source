@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Use Custom Software in Jobs Using Docker
+title: Running HTC Jobs Using Docker Containers
 alt_title: Use Software Installed in a Docker Container
 guide:
     category: Software

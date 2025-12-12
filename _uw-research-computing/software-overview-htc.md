@@ -161,7 +161,15 @@ There are typically two ways of doing so:
 
 #### Find an existing container image
 
-TBD: guidance on finding useful, trusted container images online.
+These tips from 
+[Software Carpentry's Docker materials](https://carpentries-incubator.github.io/docker-introduction/docker-hub.html) 
+are a good starting point for choosing useful, trusted container images online. 
+
+> These are some indicators that a container image on Docker Hub is consistently maintained, functional and secure:
+> * The container image is updated regularly.
+> * The container image associated with a well established company, community, or other group that is well-known.
+> * There is a Dockerfile or other listing of what has been installed to the container image.
+> * The container image page has documentation on how to use the container image.
 
 #### Build your own container image
 
@@ -179,7 +187,7 @@ template for doing so
 
 These guides talk about how to do the above steps for either Apptainer or Docker. 
 - [Use Custom Software in Jobs Using Apptainer](apptainer-htc)
-- [Use Custom Software in Jobs Using Docker](docker-jobs)
+- [Running HTC Jobs Using Docker Containers](docker-jobs)
 
 > A common question is whether the software installation process is repeated each time a container is used. 
 > The answer is "no". 
@@ -230,5 +238,5 @@ You can use Apptainer to build the container image file on CHTC servers, so ther
 ## Related Pages
 
 - [Use Custom Software in Jobs Using Apptainer](apptainer-htc)
-- [Use Custom Software in Jobs Using Docker](docker-jobs)
+- [Running HTC Jobs Using Docker Containers](docker-jobs)
 - [Using Apptainer Containers on HPC](apptainer-hpc.html)

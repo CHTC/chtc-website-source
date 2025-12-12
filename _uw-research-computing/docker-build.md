@@ -338,7 +338,7 @@ It should ask for your DockerHub username and password.
 Once your Docker image is on Docker Hub, you can use it to run 
 jobs on CHTC's HTC system. See this guide for more details: 
 
--   [Use Custom Software in Jobs Using Docker](docker-jobs.html)
+-   [Running HTC Jobs Using Docker Containers](docker-jobs.html)
 
 ## Examples
 
@@ -391,5 +391,5 @@ RUN cd /tmp \
 
 ## Related Pages
 
-- [Use Custom Software in Jobs Using Docker](docker-jobs.html)
+- [Running HTC Jobs Using Docker Containers](docker-jobs.html)
 - [Explore and Test Docker Containers](docker-test.html)
