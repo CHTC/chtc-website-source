@@ -53,9 +53,9 @@ This will print a table with your `/home` and `/staging` quotas. An example outp
 
 ```
 [user@ap2002 ~]$ get_quotas
-Path            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
-/home/user      16.0711        40              8039        N/A
-/staging/user   13.4731        100             12          1000
+Path              Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/home/username        16.0711        40              8039        N/A
+/staging/u/username   13.4731        100             12          1000
 ```
 {:.term}
 
@@ -119,10 +119,10 @@ _____________________________________________________________________
  == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
 
 Filesystem quota report (last updated 10:33 AM)
-Storage               Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
-------------------  -----------  ------------  -----------  --------------  -----------
-/home/user                29.38            40           94               0        73.46
-/staging/user             50.23          1000          110           10000         5.02
+Storage                     Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
+------------------        -----------  ------------  -----------  --------------  -----------
+/home/username                  29.38            40           94               0        73.46
+/staging/u/username             50.23          1000          110           10000         5.02
 ```
 {:.term}
 
