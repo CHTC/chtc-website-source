@@ -106,7 +106,7 @@ More details about how HTCondor integrates with Apptainer are in [More details a
 If you need to build your own Apptainer container (`.sif` file), the
 process looks like this: 
 
-TBD: graphic
+<!-- TBD: graphic -->
 
 1. **Create a definition file.** The definition file describes a starting software environment in the first two lines and then what to add to it. 
 1. **Start an interactive job for building.** We require that you build containers while in an interactive build job.
@@ -141,16 +141,38 @@ the definition file `image.def`.
 Building a container can be a computationally intense process, so 
 we require that you build containers while in an interactive build job.
 
-On the High Throughput system, you can run the following commands to start an 
+<!-- On the High Throughput system, you can run the following commands to start an 
 interactive job that includes your definition file: 
 
 ```
 chtc-submit-apptainer-build -build image.def
 condor_submit -i apptainer-build.sub
 ```
-{:.term}
+{:.term} -->
+
+Create a file that looks like this (called `apptainer-build.sub` below): 
+
+```
+log = $(job_name).log
+
+transfer_input_files = image.def
+
++IsBuildJob = True
+
+request_cpus = 8
+request_memory = 16GB
+request_disk = 30GB
+
+queue
+```
 
 Note that this submit file assumes you have a definition file named `image.def` in the same directory as the submit file.
+
+To start the interactive job, run: 
+```
+condor_submit -i apptainer-build.sub
+```
+{:.term} 
 
 ### Build your container
 
