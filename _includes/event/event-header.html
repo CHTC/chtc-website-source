@@ -20,11 +20,11 @@
     </div>
     <div class="row">
         <div class="col-12 image-container">
-            <img src="{{ page.header_image | relative_url }}"/>
+            <img alt="{{ page.banner.alt }}" src="{{ page.banner.path | relative_url }}"/>
         </div>
         <div class="col-12">
             <div class="bg-light p-1">
-                <small class="text-muted">{{ page.header_credit }}</small>
+                <small class="text-muted">{{ page.banner.credit }}</small>
             </div>
         </div>
     </div>

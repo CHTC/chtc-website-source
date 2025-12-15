@@ -35,6 +35,7 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
 > You can follow along with the job submission tutorial outlined in this guide in video format.
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+> You may notice that the example in the video is slightly different—it uses `executable` and `arguments` in the submit file instead of `shell`. This is reflects an older submit convention, however, either case still works!
 {:.tip}
 
 ### Prepare job executable and submit file on an Access Point
@@ -55,8 +56,36 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
    sleep 180
    ```
 
-   This script would be run locally on our terminal by typing `hello-world.sh <FirstArgument>`.
-   However, to run it on CHTC, we will use our HTCondor submit file to run the `hello-world.sh` executable and to automatically pass different arguments to our script. 
+   Let's test this script locally. First, let's add *executable* permissions to the script with the `chmod` command, which allows us to execute the code.
+
+   ```
+   chmod +x hello-world.sh
+   ```
+   {:.term}
+
+   Test the code by typing the following line:
+   ```
+   ./hello-world.sh 0
+   ```
+   {:.term}
+
+   You should see a message printed to the terminal, like so:
+
+   ```
+   [alice@ap2002 hello-world]$ ./hello-world.sh 0
+   Hello CHTC from Job 0 running on alice@ap2002
+   ```
+   {:.term}
+
+   The terminal will pause for 3 minutes, as specified by `sleep 180` in our script. Cancel the pause time by pressing `CTRL + C`. Now we've successfully run the script locally!
+
+   However, to run it on CHTC, we will use our HTCondor submit file to run the `hello-world.sh` executable and to automatically pass different arguments to our script.
+
+   > ### ⚠️ Do not test your full workload directly on the Access Points!
+   {:.tip-header}
+
+   > Simple scripts, such as this example, which use few compute resources, are safe to test, but **any script or executable that requires computing power or excessive memory should be tested inside of a job.**
+   {:.tip}
 
 3. Prepare your HTCondor submit file, which you will use to tell HTCondor what job to run and how to run it.
    Copy the text below, and paste it into file called `hello-world.sub`.
@@ -64,41 +93,39 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
    ```
    # hello-world.sub
-   # My HTCondor submit file
    
    # Specify your executable (single binary or a script that runs several
    #  commands) and arguments to be passed to jobs. 
    #  $(Process) will be a integer number for each job, starting with "0"
    #  and increasing for the relevant number of jobs.
-   executable = hello-world.sh
-   arguments = $(Process)
+   shell = ./hello-world.sh $(Process)
    		
-   # Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
+   # Specify the name of the log, standard error, and standard output (or
+   # "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
    #  queue number assigned to this set of jobs at the time of submission.
    log = hello-world_$(Cluster)_$(Process).log
    error = hello-world_$(Cluster)_$(Process).err
    output = hello-world_$(Cluster)_$(Process).out
    
-   # This line *would* be used if there were any other files
-   # needed for the executable to use.
-   # transfer_input_files = file1,/absolute/pathto/file2,etc
+   # Transfer our executable script
+   transfer_input_files = hello-world.sh
    
-   # Tell HTCondor requirements (e.g., operating system) your job needs, 
-   # what amount of compute resources each job will need on the computer where it runs.
+   # Requirements (e.g., operating system) your job needs, what amount of
+   # compute resources each job will need on the computer where it runs.
    request_cpus = 1
    request_memory = 1GB
    request_disk = 5GB
    
-   # Tell HTCondor to run 3 instances of our job:
+   # Run 3 instances of our job:
    queue 3
    ```
    {:.sub}
    
-   By using the "$1" variable in our hello-world.sh executable, we are telling HTCondor to fetch the value of the argument in the first position in the submit file and to insert it in location of "$1" in our executable file.
+   By using the "`$1`" variable in our hello-world.sh executable, we are telling HTCondor to fetch the value of the argument in the first position in the submit file and to insert it in location of "$1" in our executable file.
    
-   Therefore, when HTCondor runs this executable, it will pass the $(Process) value for each job and hello-world.sh will insert that value for "$1" in hello-world.sh.
+   Therefore, when HTCondor runs this executable, it will pass the `$(Process)` value for each job and hello-world.sh will insert that value for "$1" in hello-world.sh.
    
-   More information on special variables like "$1", "$2", and "$@" can be found [here](https://swcarpentry.github.io/shell-novice/06-script.html).
+   More information on special variables like "`$1"`, "`$2`", and "`$@`" can be found [here](https://swcarpentry.github.io/shell-novice/06-script.html).
 		
 5. Now, submit your job to HTCondor’s queue using `condor_submit`:
 	
@@ -191,7 +218,7 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
 ## Important Workflow Elements
 
-**A. Removing Jobs** 
+### Removing Jobs
 
 To remove a specific job, use `condor_rm <JobID, ClusterID, Username>`. 
 Example:
@@ -201,13 +228,11 @@ Example:
 ```
 {:.term}
 
-**B. Importance of Testing & Resource Optimization** 
+### Test and Optimize Resources
 
-1. **Examine Job Success** Within the log file, you can see information about the completion of each job, including a system error code (as seen in "return value 0").
-   You can use this code, as well as information in your ".err" file and other output files, to determine what issues your job(s) may have had, if any.
+1. **Examine Job Success**. Within the log file, you can see information about the completion of each job, including a system error code (as seen in "return value 0"). You can use this code, as well as information in your ".err" file and other output files, to determine what issues your job(s) may have had, if any.
 
-2. **Improve Efficiency** Researchers with input and output files greater than 1GB, should store them in their `/staging` directory instead of `/home` to improve file transfer efficiency.
-   See our data transfer guides to learn more. 
+2. **Improve Efficiency**. Researchers with input and output files greater than 1GB, should store them in their `/staging` directory instead of `/home` to improve file transfer efficiency. See our [data transfer guides](htc-job-file-transfer) to learn more. 
 
 3. **Get the Right Resource Requests**
    Be sure to always add or modify the following lines in your submit files, as appropriate, and after running a few tests.
@@ -237,4 +262,37 @@ Example:
    To learn more about why a job as gone on hold, use `condor_q -hold`.
    When you request too much, your jobs may not match to as many available "slots" as they could otherwise, and your overall throughput will suffer.
 
-## You have the basics, now you are ready to run your OWN jobs!
+## Use `shell` or `executable`/`arguments` in your submit file
+
+You can either use `shell` or `executable` and `arguments` in your submit file to specify how to run your jobs.
+
+### Option 1: Submit with `shell`
+
+You can use `shell` to specify the whole command you want to run.
+
+```
+shell = ./hello-world.sh $(Process)
+transfer_input_files = hello-world.sh
+```
+
+When using `shell`, consider:
+
+* **Do you need to transfer your executable?** You may need to add your executable script (i.e., `hello-world.sh`) in the `transfer_input_files` line, as HTCondor does not have the ability to autodetect scripts to be transferred.
+* If you are using `./` to execute your code, as in the example above, **ensure your shell script has executable permissions** with the `chmod +x <script>` command.
+* Alternatively, **you may use a shell like `bash` to execute your code**, (i.e., `shell = bash hello-world.sh 0`). When you use this option, you do not have to give your shell script executable permissions.
+* **Keep your `shell` script simple**; quoting and special characters may throw errors. If you need complex scripting, we recommend writing a wrapper script.
+
+### Option 2: `executable` and `arguments`
+
+In this convention, you break your command into two parts—the executable and the arguments.
+
+```
+executable = hello-world.sh
+arguments = $(Process)
+```
+
+When using this option:
+
+* **HTCondor will transfer your executable by default.** You do not need to list your executable in `transfer_input_files`.
+* You do not have to add a `./` or `/bin/bash` to the beginning of your `executable` line.
+* You do not have to give your `executable` script executable permissions.

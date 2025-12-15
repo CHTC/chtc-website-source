@@ -12,9 +12,9 @@ js_extension:
 {% include get/jobs.liquid %}
 {% if jobs.size > 0 %}
 <div class="bg-primary py-2">
-    <div class="container-xxl">
-        <span class="text-white">Register Now for Throughput Computing 2025: June 2 - 6</a>
-        <a class="btn btn-light px-1 ms-2 py-0" href="https://agenda.hep.wisc.edu/event/2297/">Register Online</a>
+    <div class="container-xxl d-flex justify-content-center">
+        <span class="text-white">2026 Fellowship applications are now open!</a>
+        <a class="btn btn-light px-1 ms-2 py-0" href="/fellowships/">Apply Now</a>
     </div>
 </div>
 {% endif %}
@@ -70,7 +70,7 @@ js_extension:
                 </p>
 
             </div>
-            {% include get/future_events.html %}
+            {% include get/future_events.liquid %}
             {% if future_events.size > 0 %}
                 <div class="col-12 col-lg-4">
                     <div class="rounded bg-light px-3 py-1">

@@ -8,75 +8,138 @@ guide:
         - htc
 ---
 
-The following commands will allow you to monitor the amount of disk
-space you are using in your home directory on the access point and to determine the
-amount of disk space you have been allotted (your quota). 
+## Introduction
 
-The default quota allotment in your `/home` directory is 20 GB with a hard
-limit of 30 GB (at which point you cannot write more files).
+This guide shows you how to check the amount of disk space and number of files you are using on the Access Point in your `/home` and `/staging` directories. You can also check your limit on your disk space and number of files (i.e., your "quota"). This guide will help you manage your disk space and give tips on what do when you've reached your quota.
 
-**Note: The CHTC access points are not backed up, so you should
-copy completed jobs to a secure location as soon as a batch completes,
-and then delete them on the submit node in order to make room for future
-jobs.** Disk space provided is intended for *active* calculations only, not permanent storage.
-If you need more disk space to run a single batch or concurrent
-batches of jobs, please contact us ([Get Help!](get-help.html)). We have multiple ways of dealing with large disk space requirements to make things easier for you.
+{% capture content %}
+- [Introduction](#introduction)
+- [Default quotas](#default-quotas)
+- [Check your quota](#check-your-quota)
+- [Other ways to check your quota](#other-ways-to-check-your-quota)
+- [Check the size of a directory and its contents](#check-the-size-of-a-directory-and-its-contents)
+- [What to do when you've reached your quota](#what-to-do-when-youve-reached-your-quota)
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
-If you wish to change your quotas, please see [Request a Quota Change](quota-request).
+## Default quotas
 
-**1. Checking Your `/home` Quota and Usage**
--------------------------------------
+| Data location | **`/home`** |  **`/staging`** |
+| ----------- | ----------- |
+| Default quota (disk) | 40 GB | 100 GB |
+| Default quota (number of items) | none | 1000 items |
+| Purpose | Default file system, handles most files | Stages large files/containers for file transfer into jobs |
+| Recommended location for | Many, small files (<1 GB) | Few, large files (>1 GB) | 
+
+Read more about the differences between the `/home` and `/staging` file system in [this guide](htc-job-file-transfer#data-storage-locations).
+
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory? Need a higher quota?</p>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" style="text-align: center" href="quota-request">Fill out our quota request form</a>
+	</div>
+</div>
+
+## Check your quota
+
+For the most up-to-date information about your quota, use the `get_quotas` command on the Access Point.
+```
+get_quotas
+```
+{:.term}
+
+This will print a table with your `/home` and `/staging` quotas. An example output is shown below.
+
+```
+[user@ap2002 ~]$ get_quotas
+Path            Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/home/user      16.0711        40              8039        N/A
+/staging/user   13.4731        100             12          1000
+```
+{:.term}
+
+To print the quota for any path in `/staging`, `/software`, and `/projects` that you have access to, (i.e., a group directory), use the `-p` option:
+
+```
+get_quotas -p <path to directory>
+```
+{:.term}
+
+An example output of the `get_quotas` command with the `-p` option is shown below:
+
+```
+[user@ap2002 ~]$ get_quotas -p /staging/groups/example_group
+Path                           Disk_Used(GB)  Disk_Limit(GB)  Files_Used  File_Limit
+/staging/groups/example_group  0.000433144    100             3           1000
+```
+{:.term}
+
+## Other ways to check your quota
+
+### Option 1: Check your `/home` quota with `quota -vs`
 
 From any directory location within your `/home` directory, use the command
 `quota -vs`. See the example below:
 
 ``` 
-[alice@submit]$ quota -vs
-Disk quotas for user alice (uid 20384): 
+[user@ap2002 ~]$ quota -vs
+Disk quotas for user user (uid 20384): 
      Filesystem   space   quota   limit   grace   files   quota   limit   grace
-      /dev/sdb1  12690M  20480M  30720M            161k       0       0        
+       /dev/md9  16457M  40960M  51200M            8039       0       0      
 ```
 {:.term}
 
 The output will list your total data usage under `space`, your soft
 `quota`, and your hard `limit` at which point your jobs will no longer
-be allowed to save data. Each value is given in 1-kilobyte
-blocks, so you can divide each number by 1024 to get megabytes (MB), and
-again for gigabytes (GB). (It also lists information for number of `files`, but
-we don't typically allocate disk space in `/home` by file count.)
+be allowed to save data. It also lists information for number of `files`, but
+there is no quota for number of files in `/home`.
 
-**2. Checking Your `/staging` Quota and Usage**
-------------------------------------------------
-Users may have a `/staging` directory, meant for staging large files and data intended for
-job submission. See our [Managing Large Data in HTC Jobs](file-avail-largedata) guide for
-more information.
+### Option 2: Check your Message of the Day (MOTD)
 
-To check your `/staging` quota, use the command `get_quotas /staging/username`.
+Your quota is also printed upon the first time you log on to the Access Point that day. See below for an example:
 
 ```
-[alice@submit]$ get_quotas /staging/alice
-Path            Quota(GB)  Items  Disk_Usage(GB)  Items_Usage
-/staging/alice  20         5      3.18969         5
+_____________________________________________________________________
+ #####  #     # #######  #####  Issues?  Email chtc@cs.wisc.edu
+#     # #     #    #    #     # Unauthorized use prohibited by:
+#       #     #    #    #       WI Statutes: s. 947.0125
+#       #######    #    #       U.S. Code: 18 USC 1030
+#       #     #    #    #       U.S. Code: 18 USC 2510-2522
+#     # #     #    #    #     # U.S. Code: 18 USC 2701-2712
+ #####  #     #    #     #####  U.S. Code: 18 USC § 1831
+For off campus ssh access use https://www.doit.wisc.edu/network/vpn/
+_____________________________________________________________________
+
+         Online office hours are available twice a week:
+            Tuesdays, 10:30am - 12pm (Central time)
+            Thursdays, 3:00 - 4:30pm (Central time)
+
+     IMPORTANT: CHTC does NOT back up any user data. Remember to back up your data regularly!
+ == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
+
+Filesystem quota report (last updated 10:33 AM)
+Storage               Used (GB)    Limit (GB)    Files (#)    File Cap (#)    Quota (%)
+------------------  -----------  ------------  -----------  --------------  -----------
+/home/user                29.38            40           94               0        73.46
+/staging/user             50.23          1000          110           10000         5.02
 ```
 {:.term}
 
-Your `/staging` directory has a disk and item quota. In the example above, the disk quota is
-20 GB, and the items quota is 5 items. The current usage is printed in the following columns;
-in the example, the user has used 3.19 GB and 5 items.
+However, we recommend [using the `get_quotas` command](#check-your-quota) for the most up-to-date information.
 
-To request a quota increase, [fill out our quota request form](quota-request).
+## Check the size of a directory and its contents
 
-**3. Checking the Size of Directories and Contents**
-------------------------------------------------
+If you want to check the size of specific directories and their contents, you can do this with the `du` command.
 
-Move to the directory you'd like to check and type `du` . After several
+Move to the directory you'd like to check and type `du`. After several
 moments (longer if the contents of your directory are large), the command
 will add up the sizes of directory contents and output the total size of
-each contained directory in units of kilobytes with the total size of
+each contained directory in units of kilobytes (KB) with the total size of
 that directory listed last. See the example below:
 
 ``` 
-[alice@submit]$ du ./
+[user@ap2002 ~]$ du ./
 4096    ./dir/subdir/file.txt
 4096    ./dir/subdir
 7140    ./dir
@@ -84,20 +147,32 @@ that directory listed last. See the example below:
 ```
 {:.term}
 
-As for quota usage above, you can divide each value by 1024 to get
-megabytes, and again for gigabytes.
+You can divide each value by 1024 to get megabytes, and again for gigabytes. Below are extra options for the `du` command.
 
-Using `du` with the `-h` or `--human-readable` flags will display the
-same values with only two significant digits and a K, M, or G to denote
-the byte units. The `-s` or `--summarize` flags will total up the size
-of the current directory without listing the size of directory contents
-. You can also specify which directory you\'d like to query, without
-moving to it, by adding the relative filepath after the flags. See the
-below example from the `home` directory which contains the directory
-`dir`:
+| Command | Usage |
+| --- | --- |
+| `du -h` or `du --human-readable` | Prints disk usage in a human-readable format.<br>(K, M, G denote kilo-, mega-, and gigabytes, respectively.)
+| `du -s` or `du --summarize` | Prints total disk usage of the directory without printing its contents. |
+| `du <path/to/directory>` | Prints disk usage of the specified directory. |
 
-``` 
-[alice@submit]$ du -sh dir
-7.1K    dir
-```
-{:.term}
+## What to do when you've reached your quota
+
+When you've reached your quota, you may encounter error messages such as `Disk quota exceeded`. When you encounter the error message, we recommend the following steps:
+
+1. Check your quota with `get_quotas`. At which data location did you reach your quota? Did you reach your disk quota or your items quota?
+1. If possible, remove any files you no longer need from the system.
+1. If you've reached your quota for the **number of files** in `/staging`, we recommend compressing your dataset into zip files or tarballs, because `/staging` is intended for storing few, large files. [Read more about this here.](file-avail-largedata#reduce-file-counts)
+1. If you still need more disk space, [request a higher quota.](quota-request)
+
+> ### ⚠️ CHTC is not a storage service
+{:.tip-header}
+
+> CHTC data locations are intended for temporarily storing files used in **active calculations only**. Once you are done with the files, please remove them from the system to clear disk space.<br><br>
+> **We do not back up any of the data you place on our system. It is your responsibility to back up your own files.**
+{:.tip}
+
+## Related pages
+
+* [Use and transfer data in jobs on the HTC system](htc-job-file-transfer)
+* [Manage large data in `/staging`](file-avail-largedata)
+* [Request a Quota Change](quota-request)

@@ -71,7 +71,7 @@ We will use this information to give you more effective responses and solutions.
 
 For users who already have accounts, we have drop-in office hours, online, during the following times:
 
--   ~~Tuesday morning: 10:30 am - 12:00 pm~~ (Canceled during the summer season)
+-   Tuesday morning: 10:30 am - 12:00 pm
 -   Thursday afternoon: 3:00 - 4:30 pm
 
 To drop in, find the videoconference link in either your email or in the 
@@ -114,6 +114,16 @@ ongoing issues will be communicated via the status page.
 We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
+
+## Ask the Community
+
+Do you have a question specific to your software or domain? Ask for help or share your knowledge with the CHTC Community! We have a Discourse forum for users to ask questions and connect with each other.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://community.chtc.wisc.edu/">CHTC Community Forum</a>
+	</div>
+</div>
 
 ## More About Us
 
