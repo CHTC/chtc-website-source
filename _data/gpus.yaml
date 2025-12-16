@@ -19,8 +19,8 @@
   hardware_generation: 8.0
   gpu_memory: 40GB
   owner: campus
-- number_of_servers: 9
-  names: gpu2003 - gpu2011
+- number_of_servers: 8
+  names: gpu2003 - gpu2010
   gpus_per_server: 4
   gpu_type: NVIDIA A100-SXM4-80GB
   hardware_generation: 8.0
