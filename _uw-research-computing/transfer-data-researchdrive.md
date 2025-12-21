@@ -8,19 +8,26 @@ guide:
         - hpc
 ---
 
-UW Madison provides a shared data storage for research called [ResearchDrive](https://it.wisc.edu/services/researchdrive/). It 
-is possible to transfer files directly between ResearchDrive and CHTC's systems. The 
-instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you 
-would like to know more. 
+## Introduction
+This guide shows how to transfer (upload/download) files between CHTC's file systems and [ResearchDrive](https://it.wisc.edu/services/researchdrive/), a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more. 
 
-## A. Pre-Requisites
+{% capture content %}
+- [Introduction](#introduction)
+- [Before you transfer](#before-you-transfer)
+- [Transferring Files](#transferring-files)
+- [Transferring a Batch of Files](#transferring-a-batch-of-files)
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
-In order to follow the steps in this guide, you need access to a ResearchDrive share, either as PI or member of your PI's group, as well as a CHTC account. In what follows, 
+## Before you transfer
+
+In order to follow the steps in this guide, you need access to a **ResearchDrive share**, either as PI or member of your PI's group, as well as a **CHTC account**. In what follows, 
 we assume that you are transferring files to and from our HTC system, but you can 
 use the same process to transfer files to and from the HPC cluster if you first log 
 in to one of the HPC login nodes. 
 
-## B. Transferring Files
+## Transferring Files
 
 To transfer data between ResearchDrive and CHTC, do the following: 
 
@@ -136,3 +143,6 @@ your PI:
     ```
     {:.term}
 
+## Related pages
+* [Log in to CHTC](connecting)
+* [Transfer files between CHTC and your Computer](transfer-files-computer)
