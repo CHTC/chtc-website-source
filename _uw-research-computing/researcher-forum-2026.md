@@ -30,6 +30,16 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 | 3:50 - 4:30 | Poster session + refreshments |
 | 4:30 - 4:35 | Closing remarks |
 
+## Register for the event!
+
+**Please register by February 3, 2026**, so we can ensure a proper headcount for refreshments and print your name tags.
+
+<div class="d-flex mb-3">
+<div class="p-3 m-auto">
+    <a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_0xHBAiOPxqtVSSy">Register now!</a>
+</div>
+</div>
+
 {% endcapture %}
 {% include /components/markdown-container.html %}
 
