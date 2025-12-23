@@ -174,16 +174,13 @@ Altogether, a sample submit file may look something like this:
 ``` {.sub}
 ### Example submit file for a single staging-dependent job
 
-universe = vanilla
-
 # Files for the below lines will all be somewhere within /home/username,
-# and not within /staging/username
+# and not within /staging/u/username
 log = run_myprogram.log
 executable = run_Trinity.sh
 output = $(Cluster).out
 error = $(Cluster).err
 transfer_input_files = trinityrnaseq-2.0.1.tar.gz
-should_transfer_files = YES
 
 # Require execute servers that have large data staging
 Requirements = (Target.HasCHTCStaging == true)
@@ -236,7 +233,7 @@ Altogether, a sample script may look something like this (perhaps called
 #!/bin/bash
 # Copy input data from /staging to the present directory of the job
 # and un-tar/un-zip them.  
-cp /staging/username/reads.tar.gz ./
+cp /staging/u/username/reads.tar.gz ./
 tar -xzvf reads.tar.gz
 rm reads.tar.gz
 
@@ -255,7 +252,7 @@ Trinity --seqType fq --left reads_1.fq \
 # Trinity will write output to the working directory by default, 
 # so when the job finishes, it needs to be moved back to /staging
 tar -czvf trinity_out_dir.tar.gz trinity_out_dir
-cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/username/
+cp trinity_out_dir.tar.gz trinity_stdout.txt /staging/u/username/
 rm reads_*.fq trinity_out_dir.tar.gz trinity_stdout.txt
 
 ### END
