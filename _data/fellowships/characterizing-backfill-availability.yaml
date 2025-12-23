@@ -1,0 +1,25 @@
+title: Characterizing Backfill Availability in Kubernetes
+type: Infrastructure Services
+sort: 0
+summary: |
+
+  HTCondor can take advantage of the unused capacity ("backfill") of shared compute resources, such as those in a Kubernetes cluster, by provisioning HTCondor worker nodes ("glideins") on the unused capacity. As the lowest priority workload running on a cluster at any given time, glideins running on backfill resources may be evicted (i.e. killed) at any time for nearly any reason. An HTCondor job running on a glidein when that glidein is evicted will lose some or all of its progress and must be rescheduled and restarted, so ideally glideins should only accept jobs if they are unlikely to be evicted for a long enough time for jobs to finish and/or checkpoint their progress. By characterizing the lifecycles of glideins running on backfill resources (e.g. in a Kubernetes cluster), we may be able to improve glidein scheduling decisions and increase job throughput.
+    
+  To begin addressing the problem of characterizing the lifetimes of backfill glideins, the fellow will conduct a study of the lifetimes of backfill workers (in this case, glideins that don't actually run any HTCondor jobs) running in a Kubernetes cluster with simulated higher priority ("foreground") workloads. The fellow will develop a scheduling toolset to generate parameterizable synthetic foreground workloads in the Kubernetes cluster. A monitoring toolset will then be developed to observe the lifecycles of backfill workers running alongside varied foreground workloads. Statistical analysis will be applied to data gathered by the monitoring tool to characterize the expected lifetimes of backfill workers based on the parameters of the foreground workload.
+  
+  #### Project Objectives:
+       
+  - Survey the set of variables that define a typical Kubernetes workload, such as memory, cpu usage, duration, and replica count.
+  - Design an algorithm for scheduling parameterizable Kubernetes workloads based on the selected variables.  
+  - Implement a Kubernetes operator that automatically generates synthetic Kubernetes workloads using the designed algorithm.
+  - Design a method for collecting data on the lifetime of backfill Kubernetes workloads based on existing Kubernetes monitoring tools.
+  - Deploy both the workload generation operator and backfill monitoring tool to a Kubernetes cluster.
+  - Gather data on backfill workload lifecycles under varied foreground workload generation configurations.
+  - Prepare an analysis of gathered data. 
+  
+  #### Prerequisite skills or education that would be good for the Fellow to have to work on the project:
+      
+  - Familiarity with Unix and Python, required
+  - Familiarity with HTCondor, Kubernetes, and/or Go, preferred
+
+ 

@@ -13,19 +13,19 @@ This page documents some common and known issues encountered on the HTC system. 
 Visit our [Get Help](get-help) page to find more resources for troubleshooting.
 
 {% capture content %}
-   * [[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".](#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available)
+   <!--* [[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".](#general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available)-->
    * [[General] My job exits with an "Illegal instructions" error.](#general-my-job-exits-with-an-illegal-instructions-error)
    * [[General] I used generative AI to create my submit file and the job is stuck on "Idle".](#general-i-used-generative-ai-to-create-my-submit-file-and-the-job-is-stuck-on-idle)
    * [[Container] When building an Apptainer, "apt" commands in the %post block fail to run.](#container-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run)
-   * [[Container] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".](#container-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error)
+   * [[Container] After submitting a job with a Docker container, it goes on hold with a message like, "Cannot pull image user/repo:tag".](#container-after-submitting-a-job-with-a-docker-container-it-goes-on-hold-with-a-message-like-cannot-pull-image-userrepotag)
    * [[Container] My interactive Apptainer job is failing with the error message, "Can't open master pty Bad file descriptor".](#container-my-interactive-apptainer-job-is-failing-with-the-error-message-cant-open-master-pty-bad-file-descriptor)
    * [[GPU] My GPU job has been in the queue for a long period of time and is not starting.](#gpu-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting)
-   * [[General, Python] My job has an error that mentions `/home/netid/`.](#general-python-my-job-has-an-error-that-mentions-homenetid)
+   * [[General, Python] My job has an error that mentions `/home/netid/` or the root directory `/`.](#general-python-my-job-has-an-error-that-mentions-homenetid)
 - [Can't find your issue?](#cant-find-your-issue)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-
+<!-- Removing since this seems to be fixed
 <hr width="100%" size="2">
 
 <h3 style="color:#c5050c" id="general-when-submitting-a-job-it-doesnt-run-goes-on-hold-and-shows-the-error-job-credentials-are-not-available">[General] When submitting a job, it doesn't run / goes on hold and shows the error "Job credentials are not available".</h3>
@@ -38,10 +38,10 @@ To work around this issue, run the following command on the access point before 
 echo | condor_store_cred add-oauth -s scitokens -i -
 ```
 {:.term}
-
+-->
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="#general-my-job-exits-with-an-illegal-instructions-error">[General] My job exits with an "Illegal instructions" error.</h3>
+<h3 style="color:#c5050c" id="general-my-job-exits-with-an-illegal-instructions-error">[General] My job exits with an "Illegal instructions" error.</h3>
 
 #### Cause:
 The instructions for communicating with the processor does not match between software and hardware.
@@ -72,7 +72,7 @@ The CHTC website provides documentation - including example submit files - for h
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="containers-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run">[Container] When building an Apptainer, "apt" commands in the %post block fail to run.</h3>
+<h3 style="color:#c5050c" id="container-when-building-an-apptainer-apt-commands-in-the-post-block-fail-to-run">[Container] When building an Apptainer, "apt" commands in the %post block fail to run.</h3>
 
 #### Example error message:
 ```
@@ -96,7 +96,7 @@ We also recommend using the `-y` option to prevent installation from hanging due
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="containers-when-attempting-to-run-a-docker-container-it-fails-with-the-error-message-fatal-tini-7-exec-myexecutablesh-failed-exec-format-error">[Container] When attempting to run a Docker container, it fails with the error message "[FATAL tini (7)] exec ./myExecutable.sh failed: Exec format error".</h3>
+<h3 style="color:#c5050c" id="container-after-submitting-a-job-with-a-docker-container-it-goes-on-hold-with-a-message-like-cannot-pull-image-userrepotag">[Container] After submitting a job with a Docker container, it goes on hold with a message like, "Cannot pull image user/repo:tag".</h3>
 
 #### Cause:
 The Docker container is likely built on an Apple computer using an ARM processor, which is incompatible with Linux machines.
@@ -121,7 +121,7 @@ requirements = (OpSysMajorVer > 7)
 
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="gpus-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
+<h3 style="color:#c5050c" id="gpu-my-gpu-job-has-been-in-the-queue-for-a-long-period-of-time-and-is-not-starting">[GPU] My GPU job has been in the queue for a long period of time and is not starting. </h3>
 
 #### Cause:
 To use our shared use GPU machines, you must opt into the GPU Lab.
@@ -134,7 +134,7 @@ To your submit file, add the following line and resubmit:
 <br>
 <hr width="100%" size="2">
 
-<h3 style="color:#c5050c" id="general-python-my-job-has-an-error-that-mentions-homenetid">[General, Python] My job has an error that mentions `/home/netid/` or the root directory `/`. </h3>
+<h3 style="color:#c5050c" id="general-python-my-job-has-an-error-that-mentions-homenetid">[General, Python] My job has an error that mentions <code>/home/netid/</code> or the root directory <code>/</code>. </h3>
 
 #### Cause:
 Sometimes programs assume that they can write into the `/home` or root `/` directory. However, these directories are not writeable on the Execution Points.

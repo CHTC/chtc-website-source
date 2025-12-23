@@ -1,4 +1,19 @@
 nav_items:
+  - id: uw-research-computing
+    name: Research Computing
+    url: /uw-research-computing/index.html
+  - id: technologies
+    name: Technologies
+    url: /technologies.html
+  - id: community
+    name: Community
+    sub_menu:
+      - name: News
+        url: /news.html
+      - name: Events
+        url: /events.html
+      - name: Presentations
+        url: /presentations.html
   - id: about
     name: About
     url: /about.html
@@ -13,19 +28,6 @@ nav_items:
         name: Staff
       - url: /jobs.html
         name: Open Positions
-  - id: uw-research-computing
-    name: Research Computing
-    url: /uw-research-computing/index.html
-  - id: technologies
-    name: Technologies
-    url: /technologies.html
-  - id: research
-    name: Research
-    url: /research.html
-  - id: news
-    name: News
-    url: /news.html
-  - url: /events.html
-    name: Events
-    id: events
+      - name: Research
+        url: /research.html
 

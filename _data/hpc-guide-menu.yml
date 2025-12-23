@@ -49,6 +49,9 @@
     - text: "Overview and Policies"
       url: "/uw-research-computing/hpc-software"
       icon: ""
+    - text: "Create and manage custom modules"
+      url: "/uw-research-computing/hpc-custom-modules"
+      icon: ""
     - text: "Spack"
       icon: ""
       links:
@@ -58,7 +61,7 @@
         - text: "Install software"
           url: "/uw-research-computing/hpc-spack-install"
           icon: ""
-        - text: "Create custom modules"
+        - text: "Create custom Spack modules"
           url: "/uw-research-computing/hpc-spack-modules"
           icon: ""
         - text: "Recreate Spack installs on a new operating system"

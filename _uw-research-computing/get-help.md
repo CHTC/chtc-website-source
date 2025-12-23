@@ -115,6 +115,16 @@ We are happy to arrange meetings outside of designated Office Hours, per
 your preference. Simply email us at the address above, and we will set
 up a time to meet!
 
+## Ask the Community
+
+Do you have a question specific to your software or domain? Ask for help or share your knowledge with the CHTC Community! We have a Discourse forum for users to ask questions and connect with each other.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://community.chtc.wisc.edu/">CHTC Community Forum</a>
+	</div>
+</div>
+
 ## More About Us
 
 Support at CHTC is provided by the whole team, and lead by the Research 

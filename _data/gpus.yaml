@@ -5,8 +5,8 @@
   hardware_generation: 6.0
   gpu_memory: 16GB
   owner: campus
-- number_of_servers: 4
-  names: gpulab2000 - gpulab2003
+- number_of_servers: 1
+  names: gpulab2003
   gpus_per_server: 8
   gpu_type: NVIDIA GeForce RTX 2080 Ti
   hardware_generation: 7.5
@@ -19,8 +19,8 @@
   hardware_generation: 8.0
   gpu_memory: 40GB
   owner: campus
-- number_of_servers: 9
-  names: gpu2003 - gpu2011
+- number_of_servers: 8
+  names: gpu2003 - gpu2010
   gpus_per_server: 4
   gpu_type: NVIDIA A100-SXM4-80GB
   hardware_generation: 8.0
@@ -33,10 +33,24 @@
   hardware_generation: 8.9
   gpu_memory: 45GB
   owner: campus
+- number of servers: 2
+  names: gpu4005 - gpu4006
+  gpus_per_server: 8
+  gpu_type: NVIDIA L40S
+  hardware_generation: 8.9
+  gpu_memory: 45GB
+  owner: campus
 - number_of_servers: 1
   names: gpu4003
   gpus_per_server: 8
   gpu_type: NVIDIA H100 80GB HBM3
   hardware_generation: 9.0
   gpu_memory: 80GB
+  owner: campus
+- number_of_servers: 2
+  names: gpu4004, hsharma-chtcgpu4000
+  gpus_per_server: 8
+  gpu_type: NVIDIA H200
+  hardware_generation: 9.0
+  gpu_memory: 141GB
   owner: campus

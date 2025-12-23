@@ -1,8 +1,8 @@
 ---
 highlighter: none
 layout: guide
-title: Basic shell commands
-alt_title: Basic shell commands
+title: "Quick reference: Basic shell commands"
+alt_title: "Quick reference: Basic shell commands"
 guide:
     category: Get started
     tag:
@@ -12,12 +12,12 @@ guide:
 
 ## Introduction
 
-This page contains quick references for basic shell commands and links to more detailed resources. Users need to know basic shell commands to navigate directories and modify files for use on CHTC systems. Users can reference this page to gain familiarity or refresh their knowledge of shell commands.
+This page contains quick references for basic shell commands and links to more detailed resources. You should learn basic shell commands to navigate directories and modify files on CHTC systems. Reference this page to learn or refresh your knowledge of shell commands.
 
 {% capture content %}
 - [Introduction](#introduction)
 - [Learn about the command line](#learn-about-the-command-line)
-- [Quick reference: basic shell commands](#quick-reference-basic-shell-commands)
+- [Quick reference: Basic shell commands](#quick-reference-basic-shell-commands)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -25,11 +25,11 @@ This page contains quick references for basic shell commands and links to more d
 ## Learn about the command line
 ### Why should you learn about the command line?
 
-If you haven't used the command line before, it might seem like a big challenge to get started. However, we strongly recommend learning more about the command line for multiple reasons:
+If you haven't used the command line before, it may be challenging to get started. However, we strongly recommend learning more about the command line for multiple reasons:
 
-* Only a few basic commands are needed to successfully submit jobs on CHTC.
-* With practice, typing on the command line is significantly faster and much more powerful than using a point-and-click graphic interface.
-* Command line skills are useful for more than just large-scale computing.
+* You only need to know **a few basic commands** to submit jobs.
+* With practice, using the command line is **significantly faster and much more powerful** than using a point-and-click graphic interface.
+* Command line skills are useful for more than just large-scale computing!
 
 > ### For beginning users: Get started with the command line
 {:.tip-header}
@@ -44,7 +44,7 @@ If you haven't used the command line before, it might seem like a big challenge 
 {:.tip}
 
 
-## Quick reference: basic shell commands
+## Quick reference: Basic shell commands
 Note: Bracketed items (`<>`) denote where to place your input. *Do not* include the brackets in your command.
 
 ### Navigate directories
@@ -104,9 +104,9 @@ Note: Bracketed items (`<>`) denote where to place your input. *Do not* include 
 
 ## Related pages
 
-Below are more resources for learning the basic shell commands and the command line.
+Browse these resources for learning basic shell commands and the command line.
 
 * [Cornell Virtual Workshop: An Introduction to Linux](https://cvw.cac.cornell.edu/linux/intro/index)
-* [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/) lessons
+* [Software Carpentry Unix Shell](http://swcarpentry.github.io/shell-novice/)
 * [Ubuntu tutorial: The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
 * [Unix/Linux Command Reference cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)

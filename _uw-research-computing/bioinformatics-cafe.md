@@ -92,9 +92,9 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
       <li><strong>Dates:</strong>
         <ul>
           <li><a href="/events/2025/09/10/Bioinformatics-Cafe">Wed, September 10, 2025<br>Getting Started with CHTC</a></li>
-          <li>Wed, October 8, 2025<br>Genomics using CHTC</li>
-          <li>Wed, November 12, 2025<br>Microbiome Analysis on CHTC</li>
-          <li>Wed, December 10, 2025<br>TBD</li>
+          <li><a href="/events/2025/10/08/Bioinformatics-Cafe">Wed, October 8, 2025<br>Genomics using CHTC</a></li>
+          <li><a href="/events/2025/11/12/Bioinformatics-Cafe">Wed, November 12, 2025<br>Microbiome Analysis on CHTC</a></li>
+          <li><a href="/events/2025/12/10/Bioinformatics-Cafe">Wed, December 10, 2025<br>TBD</a></li>
         </ul>
       </li>
     </ul>
