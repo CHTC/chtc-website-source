@@ -38,7 +38,7 @@ All HPC users can access CHTC Open OnDemand. Open OnDemand is currently not avai
 
 ## Features
 
-<p style="text-align:center"><img src="/images/ood-features.png" style="border: 1px solid #000"></p>
+<p style="text-align:center"><img src="/images/uw-research-computing/ood-features.png" style="border: 1px solid #000"></p>
 <caption>Screenshots of OnDemand features. From left to right: file browser, shell, text editor, job composer.</caption><br>
 
 * **File browser**. Upload, download, view, and edit files right in your browser. Only text-based files may be edited.
