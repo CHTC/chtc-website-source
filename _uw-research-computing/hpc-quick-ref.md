@@ -16,8 +16,9 @@ This page lists common Slurm commands and options for jobs. Users familiar with 
 - [Submit jobs](#submit-jobs)
 - [Monitor jobs](#monitor-jobs)
 - [Machine information](#machine-information)
-- [Glossary](#glossary)
-- [Related Pages](#related-pages)
+- [Modules](#modules)
+- [Check quotas](#check-quotas)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
@@ -74,7 +75,7 @@ Use these commands to monitor your submitted jobs.
 
 ## Machine information
 
-These commands display information about the execution points - machines that execute/run jobs.
+These commands display information about the machines that execute jobs.
 
 | Command | Use | Notes |
 | --- | --- | --- |
@@ -83,12 +84,27 @@ These commands display information about the execution points - machines that ex
 | `sinfo -p <partition>` | displays information about specified partition | Example: `sinfo -p pre` |
 {:.command-table}
 
-## Glossary
+## Modules
 
-| Term | Meaning |
-| --- | --- |
-| access point | The machine which you log into to access CHTC's servers. This is the machine you use to prepare files for job submission and submit jobs. |
+These commands access software in the module system. Read [this guide](hpc-software#2-using-pre-installed-software-in-modules) for more information.
 
-## Related Pages
+| Command | Use |
+| --- | --- | --- |
+| `module avail` | displays available software modules |
+| `module spider <keyword>` | searches for `<keyword>` in available modules |
+| `module load <module>` | loads `<module>` |
+| `module unload <module>` | unloads `<module>` |
+| `module list` | shows all currently loaded modules |
+| `module purge` | unloads all modules |
+{:.command-table}
+
+## Check quotas
+
+| Command | Use |
+| --- | --- | --- |
+| `get_quotas` | shows your `/home` and `/scratch` disk and files quota |
+| `get_quotas -p <path>` | shows the disk and files quota for a specified path, such as a group directory |
+
+## Related pages
 
 * [Slurm documentation](https://slurm.schedmd.com/)
