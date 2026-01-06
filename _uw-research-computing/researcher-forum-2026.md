@@ -40,11 +40,6 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 </div>
 </div>
 
-{% endcapture %}
-{% include /components/markdown-container.html %}
-
-{% capture content %}
-
 <h2 class="uw-mini-bar">Call for posters</h2>
 
 <div class="row" style="padding: 0 0 2em;">
