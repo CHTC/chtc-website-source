@@ -6,6 +6,10 @@ title: CHTC Researcher Forum 2026
 
 {% capture content %}
 
+<img src="/images/HTC23-osg-services-cropped.jpg">
+
+We invite all CHTC users and the UW-Madison research computing community to join us at the 2<sup>nd</sup> CHTC Researcher Forum on **February 17**!
+
 <div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
     <h3 style="text-align:center">Register in advance by Feb. 3!</h3>
@@ -25,8 +29,6 @@ title: CHTC Researcher Forum 2026
   </div>
 </div>
 
-**We invite all CHTC users and the UW-Madison research computing community to join us at the 2<sup>nd</sup> CHTC Researcher Forum this February!**
-
 The CHTC Researcher Forum is an annual event to connect CHTC users, announce new and exciting updates, and hear from our users. You'll hear about what we're working on, how other users are leveraging compute resources, and have the opportunity to share your feedback and your research!
 
 All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the research computing community are invited to attend.
@@ -42,12 +44,11 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 | Time | Event |
 | -- | -- |
 | 2:00 - 2:10 | Welcome |
-| 2:10 - 2:55 | CHTC updates + questions |
-| 2:55 - 3:20 | Guided discussion / feedback |
-| 3:20 - 3:30 | Short break |
-| 3:30 - 3:50 | Keynote speaker |
-| 3:50 - 4:30 | Poster session + refreshments |
-| 4:30 - 4:35 | Closing remarks |
+| 2:10 - 3:00 | CHTC updates + questions |
+| 3:00 - 3:15 | Short break |
+| 3:15 - 3:45 | Keynote speaker |
+| 3:45 - 4:25 | Poster session + refreshments |
+| 4:25 - 4:30 | Closing remarks |
 
 ## Register for the event!
 
