@@ -72,6 +72,7 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_bs9CNb6UYMgxINg">Apply here</a>
 	</div>
     </div>
+    <p>Applications are due <b>Friday, January 23.</b></p>
   </div>
   <div class="col-md-6" style="border-left: 5px solid #c5050c;">
     <h3>Criteria</h3>
