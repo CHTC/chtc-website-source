@@ -6,6 +6,25 @@ title: CHTC Researcher Forum 2026
 
 {% capture content %}
 
+<div class="row" style="padding: 0 0 2em;">
+  <div class="col-md-6">
+    <h3 style="text-align:center">Register in advance by Feb. 3!</h3>
+    <div class="d-flex mb-3">
+      <div class="p-3 m-auto">
+        <a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_0xHBAiOPxqtVSSy">Register here</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6" style="border-left: 5px solid #c5050c;">
+    <h3 style="text-align:center">Present a poster! (info <a href="#call-for-posters">below</a>)</h3>
+    <div class="d-flex mb-3">
+      <div class="p-3 m-auto">
+        <a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_bs9CNb6UYMgxINg">Apply here</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 **We invite all CHTC users and the UW-Madison research computing community to join us at the 2<sup>nd</sup> CHTC Researcher Forum this February!**
 
 The CHTC Researcher Forum is an annual event to connect CHTC users, announce new and exciting updates, and hear from our users. You'll hear about what we're working on, how other users are leveraging compute resources, and have the opportunity to share your feedback and your research!
