@@ -60,7 +60,7 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 </div>
 </div>
 
-<h2 class="uw-mini-bar">Call for posters</h2>
+<h2 class="uw-mini-bar" id="call-for-posters">Call for posters</h2>
 
 <div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
