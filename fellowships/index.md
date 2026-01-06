@@ -18,7 +18,7 @@ title: The Center for High Throughput Computing Fellows Program
 </h1>
 
 <div class="alert alert-info" role="alert">
-<strong>Applications for the Summer 2026 CHTC Fellows Program are open, but winter applications are closing soon on December 19!</strong> 
+<strong>Applications for the Summer 2026 CHTC Fellows Program are open, and spring applications will closing on Feb 23rd!</strong> 
 </div>
 
 
@@ -105,7 +105,7 @@ A cover letter that describes your interest in the internship program. For examp
 
 ## The timeline for spring 2026 applicants for the 2026 Fellows Program:
 
--   **Friday, 13 March, 2026** - Deadline for Spring applications for Summer 2026. 
+-   **Friday, 23 February, 2026** - Deadline for Spring applications for Summer 2026. 
 -   **Friday, 3 April, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
 -   **Wednesday, 15 April, 2026** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
 -   **By 20 April, 2026** - Final selection of Spring 2026 applicants for Fellows Program for summer 2026
