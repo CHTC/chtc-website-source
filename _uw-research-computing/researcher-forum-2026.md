@@ -73,6 +73,7 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 	</div>
     </div>
     <p>Applications are due <b>Friday, January 23.</b></p>
+    <p>We will notify you by <b>Tuesday, January 27</b> if your poster has been accepted.</p>
   </div>
   <div class="col-md-6" style="border-left: 5px solid #c5050c;">
     <h3>Criteria</h3>
