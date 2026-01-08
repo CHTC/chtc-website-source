@@ -26,6 +26,15 @@
     - text: "Reviewing job information using SLURM"
       url: "/uw-research-computing/hpc-job-monitoring"
       icon: ""
+    - text: "Open OnDemand"
+      icon: ""
+      links:
+        - text: "Overview"
+          url: "/uw-research-computing/ood"
+          icon: ""
+        - text: "Job Composer"
+          url: "/uw-research-computing/ood-job-composer"
+          icon: ""
 
 - text: "Manage data"
   icon: "bi bi-file-earmark-text"
