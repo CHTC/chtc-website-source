@@ -37,6 +37,8 @@ You will need the **path to a directory** containing:
 * Your job submission script
 * Other supporting files
 
+Upload all your files **before** using the Job Composer.
+
 For example, the path `/scratch/netid/ase` points to a directory with the submit script `submit-N2Cu.sh` and a Python script used in the job, `N2Cu.py`.
 ```
 /scratch/netid/ase
