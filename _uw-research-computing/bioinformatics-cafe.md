@@ -84,17 +84,17 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
 
 <div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
-    <h3>When & Where (Fall 2025)</h3>
+    <h3>When & Where (Spring 2026)</h3>
     <p>Second Wednesday of each month</p>
     <ul>
       <li><strong>Time:</strong> 2:30–4:30 PM CST</li>
-      <li><strong>Location:</strong> Discovery Building, <strong>Orchard View Room (Rm. 3820)</strong> (posted on the <a href="/events">events page</a>)</li>
+      <li><strong>Location:</strong> Morgridge Hall, <strong>Room 3610</strong> (posted on the <a href="/events">events page</a>)</li>
       <li><strong>Dates:</strong>
         <ul>
-          <li><a href="/events/2025/09/10/Bioinformatics-Cafe">Wed, September 10, 2025<br>Getting Started with CHTC</a></li>
-          <li><a href="/events/2025/10/08/Bioinformatics-Cafe">Wed, October 8, 2025<br>Genomics using CHTC</a></li>
-          <li><a href="/events/2025/11/12/Bioinformatics-Cafe">Wed, November 12, 2025<br>Microbiome Analysis on CHTC</a></li>
-          <li><a href="/events/2025/12/10/Bioinformatics-Cafe">Wed, December 10, 2025<br>TBD</a></li>
+          <li><a href="/events/2026/01/21/Bioinformatics-Cafe">Wed, January 21, 2026<br>Co-working Only Session - Meet with an RCF 1-on-1</a></li>
+          <li><a href="/events/2026/02/11/AlphaFold3-on-CHTC">Wed, February 11, 2026<br>Running AlphaFold3 on CHTC</a></li>
+          <li><a href="/events/2026/03/11/Bioinformatics-Cafe">Wed, March 11, 2026<br>Installing Bioinformatics Software with Conda and Containers</a></li>
+          <li><a href="/events/2026/04/08/Bioinformatics-Cafe">Wed, April 08, 2026<br>Genome Assembly using High Memory Nodes</a></li>
         </ul>
       </li>
     </ul>
