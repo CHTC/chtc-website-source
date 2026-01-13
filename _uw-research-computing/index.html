@@ -7,6 +7,20 @@ js_extension:
     type: module
 ---
 
+{% if site.time | date: "%s" < 1771372799 %}
+<div class="bg-primary text-white text-center py-2">
+    <div class="container d-flex justify-content-center">
+        <a href="https://chtc.cs.wisc.edu/uw-research-computing/researcher-forum-2026"
+           class="my-auto text-white text-decoration-none fw-semibold"
+           role="button"
+           aria-label="CHTC Researcher Forum 2026">
+            <b>Join us and share your work at the <u>CHTC Researcher Forum</u> on Feb 17!</b>
+        </a>
+        <i class="ms-2 bi bi-calendar-date fs-4" aria-hidden="true"></i>
+    </div>
+</div>
+{% endif %}
+
 <!-- Banner image with text -->
 <div class="position-relative text-center">
 	<img src="../images/Emile_Working.jpg" alt="Emile working in the server room" class="img-fluid w-100" style="max-height: 500px; object-fit: cover;">
@@ -85,7 +99,7 @@ js_extension:
 </div>
 
 <!-- Call to action button -->
-<div class="d-flex my-4 bg-light">
+<div class="d-flex my-4">
 	<div class="p-3 m-auto">
 		<a class="btn btn-primary btn-lg fs-4" href="{{ '/uw-research-computing/form.html' | relative_url }}">Request Account</a>
 	</div>
