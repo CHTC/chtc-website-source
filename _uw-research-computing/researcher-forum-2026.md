@@ -46,9 +46,21 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 | 2:00 - 2:10 | Welcome |
 | 2:10 - 3:00 | CHTC updates + questions |
 | 3:00 - 3:15 | Short break |
-| 3:15 - 3:45 | Keynote speaker |
+| 3:15 - 3:45 | Keynote speaker: Dr. Ariana Negreiro |
 | 3:45 - 4:25 | Poster session + refreshments |
 | 4:25 - 4:30 | Closing remarks |
+
+<div class="row" style="padding: 0 0 2em; margin-top: 4em">
+  <div style="flex: 0 0 auto; width: 30%">
+    <img src="/images/ariana-negreiro.jpg">
+  </div>
+  <div style="flex: 0 0 auto; width: 70%">
+    <h2>Keynote Speaker</h2>
+    <h3>Dr. Ariana Negreiro</h3>
+    <p>Data Engineering and Coordination Specialist at Zinpro</p>
+    <p>Negreiro created automated pipelines to process over 200 TBs of image data during her PhD in Joao Dorea's research group. This allowed her to develop computer vision systems for monitoring dairy cattle growth.</p>
+  </div>
+</div>
 
 ## Register for the event!
 
