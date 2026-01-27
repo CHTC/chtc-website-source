@@ -83,7 +83,7 @@ A cover letter that describes your interest in the internship program. For examp
  
 ## Eligibility 
 
--  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
+-  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US for the duration of the fellowship, or, if graduating in May of 2026, have accepted an offer for a graduate program starting in the fall of 2026.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).   
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2026 (HTC26) in Madison during the Fellowship is required. HTC26 will be held June 9 - 12, 2026.
