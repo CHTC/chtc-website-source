@@ -9,6 +9,7 @@ guide:
         - hpc
 --- 
 
+## Introduction
 This guide describes the general process for creating an Apptainer container. 
 Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. **Use this guide as a reference to help customize the contents of your container.** For a step-by-step tutorial of 
 how to build a container, see [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html).
@@ -104,7 +105,7 @@ The syntax for use is
 ```
 
 where `file_on_host` is in the same directory as the `.def` definition file, and where `file_in_container` will be copied to the container's root (`/`) by default.
-You can instead provide absolute paths to the files on the host or in the container, or both.
+Alternatively, you can provide absolute paths to the files on the host, in the container, or both.
 For example:
 
 ```
@@ -131,9 +132,9 @@ For example, if using an `ubuntu` based container, then you should be able to us
 
 > The `chmod 777 /tmp` is a specific workaround for building containers on the HTC system at CHTC. **Do not use this** line if you are using Apptainer to build containers **on a different system**.
 
-Note that we have used the `-y` option for `apt` to pre-emptively agree to update `apt` and to install the `gcc`, `make`, and `wget` packages. 
+**Note** that we have used the `-y` option for `apt` to pre-emptively agree to update `apt` and to install the `gcc`, `make`, and `wget` packages. 
 Otherwise, the `apt` command will prompt you to confirm the executions via the command line. 
-But since the Apptainer build process is executed non-interactively, you will be unable to enter a response via the command line, and the commands will eventually time out and the build fail.
+But since the Apptainer build process is executed non-interactively, you will be unable to enter a response via the command line, resulting in the commands eventually timing out and the build failing.
 
 Once you install the dependencies you need using the operating system's package manager, you can use those packages to obtain and install your desired program. 
 For example, the following commands will install the [GNU Units](https://www.gnu.org/software/units/) command `units`.
@@ -150,7 +151,7 @@ For example, the following commands will install the [GNU Units](https://www.gnu
 ```
 
 If using the default installation procedure, your program should be installed in and detectable by the operating system.
-If not, you may need to manually environment variables to recognize your program.
+If not, you may need to manually set the environment variables to recognize your program.
 
 ### Environment section
 
@@ -236,14 +237,14 @@ Here is general process for creating your own definition file for building your 
 2. **Choose a base container** 
 
    The base container should at minimum use an operating system compatible with your software. 
-   Ideally the container you choose also has many of the prerequisite libraries/programs already installed.
+   Ideally, the container you choose also has many of the prerequisite libraries/programs already installed.
 
 3. **Customize your definition file**
 
    In addition to examples in this guide, see our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide for an example of how to customize
    a definition file for your software. 
 
-Remember that the `.def` file contains the *instructions* for creating your container and is not itself the container. 
+Remember that the `.def` file contains the *instructions* for creating your container and is **not** itself the container. 
 To use the software defined within the `.def` file, you will need to first "build" the container and create the `.sif` file, as described in the following sections.
 
 > ### 📝 Reference: CHTC's "Recipes" Repository
@@ -273,7 +274,7 @@ apptainer build my-container.sif my-container.def
 ```
 {:.term}
 
-Here the syntax is to provide the name of the `.sif` file that you want to create and then provide the name of the existing `.def` definition file.
+Make sure to provide the name of the `.sif` file that you want to create and then provide the name of the existing `.def` definition file.
 
 > **Don't run the `apptainer build` command on the login server!** 
 > Building the container image can be an intensive process and can consume the resources of the login server.
@@ -331,20 +332,26 @@ Usage: units [options] ['from-unit' 'to-unit']
 ## Special Considerations for Building Your Container
 
 <!-- I would like to turn this into a drop-down section. Not sure if that is implemented in CHTC webpages yet. -->
+<!-- Not sure if this will work but I tried the dropdown functionality -- Aaryan-->
 
-* **Non-interactive**
+<details>
+<summary><b>Non-interactive</b></summary>
 
   Because the container build is a non-interactive process, all commands within the `.def` file must be able to execute without user intervention.
 
-* **Be prepared to troubleshoot**
+</details>
+<details>
+<summary><b>Be prepared to troubleshoot</b></summary>
 
   A consequence of the non-interactive build is that when something goes wrong, the build process will fail without creating a `.sif` file.
   That in turn means that when the build is restarted, it does so from completely from scratch.
 
   *It is rare to correctly write your `.def` file such that the container builds successfully on your first try!* 
   Do not be discouraged - examine the build messages to determine what went wrong and use the information to correct your `.def` file, then try again.
+</details>
 
-* **Multi-stage build**
+<details>
+<summary><b>Multi-stage build</b></summary>
 
   It is possible to have a multi-stage build.
   In this scenario, you have two `.def` files.
@@ -355,14 +362,19 @@ Usage: units [options] ['from-unit' 'to-unit']
   Bootstrap: localimage
   From: path/to/first.sif
   ```
+</details>
 
-* **`.sif` files can be large**
+<details>
+<summary><b>`.sif` files can be large</b></summary>
   
   If you are installing a lot of programs, the final `.sif` image can be large, on the order of 10s of gigabytes. 
   Keep that in mind when requesting disk space.
   On the High Throughput system, we encourage you to place your container image on the `/staging` system.
 
-* **Files cannot be created or modified after the container has been built**
+</details>
+
+<details>
+<summary><b>Files cannot be created or modified after the container has been built</b></summary>
   
   While you can read and execute any file within the container, you will not be able to create or modify files in the container once it has been built.
   The exception is if the location is "mounted" into the container, which means that there is a corresponding location on the host system where the files will be stored.
@@ -370,7 +382,10 @@ Usage: units [options] ['from-unit' 'to-unit']
 
   This behavior is intentional as otherwise it would be possible for users to modify files on the host machine's operating system, which would be a signicant security, operations, and privacy risk.
 
-* **Manually set a HOME directory**
+</details>
+
+<details>
+<summary><b>Manually set a HOME directory</b></summary>
 
   Some programs create `.cache` directories and may attempt to do so in the user's "HOME" directory.
   When executing in a container, however, the user typically does NOT have a "HOME" directory.
@@ -387,6 +402,7 @@ Usage: units [options] ['from-unit' 'to-unit']
 
   If this does not address the issue, examine the error messages and consult the program documentation for how configure the program to use an alternate location for cache or temporary directories.
 
+</details>
 
 ## Related Pages
 
