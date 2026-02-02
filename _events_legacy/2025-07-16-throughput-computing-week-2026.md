@@ -55,7 +55,7 @@ For questions about attending, speaking, accommodations, and other concerns plea
 
 Tuesday, June 9 through Friday, June 12, 2026.
 
-Please take note that in 2026 HTC will be four full days, starting on a Tuesday.
+Please take note that in 2026 HTC will be four days, starting on a Tuesday.
 
 ### Registration
 
