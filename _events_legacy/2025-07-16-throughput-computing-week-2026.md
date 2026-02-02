@@ -27,7 +27,7 @@ You are invited to the annual Throughput Computing Week (HTC26) from June 9-12 t
 
 At HTC25, we had over 130 in-person attendees and more than 80 presentations.
 
-The event website will be launched in January 2026, so stay tuned for more details.
+The event website will be launched in February 2026, so stay tuned for more details.
 
 ### Connect with CC* Campuses and OSG Staff
 
@@ -59,7 +59,7 @@ Please take note that in 2026 HTC will be four full days, starting on a Tuesday.
 
 ### Registration
 
-Registration will open in January 2026 and will be required for both In-Person and Remote Attendance. Registration for in-person attendance will cost $125 per day; there is no fee for registration for virtual attendance.
+Registration will open in February 2026 and will be required for both In-Person and Remote Attendance. Registration for in-person attendance will cost $125 per day; there is no fee for registration for virtual attendance.
 
 
 
