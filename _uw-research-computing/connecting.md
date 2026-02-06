@@ -93,7 +93,7 @@ This is a non-exhaustive list of programs that can be used to log into CHTC serv
 | | [Terminal (Windows Subshell for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) | terminal | ✓ | recommended for users familiar with the Unix shell |
 | | [MobaXTerm](https://mobaxterm.mobatek.net/) | terminal, SSH client, file-transfer utility | ✓ | |
 | | [WinSCP](https://winscp.net/eng/index.php) | file-transfer utility | ✓ |
-| | [PuTTY](https://www.putty.org/) | SSH client | ✓ | |
+| | [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | SSH client | ✓ | |
 | Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [setup](https://code.visualstudio.com/docs/remote/ssh-tutorial) (ignore steps on creating a virtual machine) |
 | Linux, MacOS, Chrome, and more | [Mosh](https://mosh.org/) | terminal | X | |
 
