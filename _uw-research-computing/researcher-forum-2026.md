@@ -12,7 +12,7 @@ We invite all CHTC users and the UW-Madison research computing community to join
 
 <div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
-    <h3 style="text-align:center">Register in advance by Feb. 3!</h3>
+    <h3 style="text-align:center">Register in advance!</h3>
     <div class="d-flex mb-3">
       <div class="p-3 m-auto">
         <a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_0xHBAiOPxqtVSSy">Register here</a>
@@ -64,7 +64,7 @@ All CHTC users (undergraduate, graduate, postdoc, staff, PI) and those in the re
 
 ## Register for the event!
 
-**Please register by February 3, 2026**, so we can ensure a proper headcount for refreshments and print your name tags.
+**Please register by February 13, 2026**, so we can ensure a proper headcount for refreshments and print your name tags.
 
 <div class="d-flex mb-3">
 <div class="p-3 m-auto">
