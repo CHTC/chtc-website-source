@@ -1,8 +1,7 @@
 title: Measuring Throughput in CHTC
 type: Research Facilitation
 summary: |
-     NOTE: This Project is no longer available for Winter/Spring 2026 Fellows applicants. 
-     
+     NOTE: This Project is no longer available. A possible match between a Fall applicant and the project is in progress. 
      CHTC’s High Throughput Computing (HTC) system supports hundreds of users and thousands of jobs each day. It is optimized for workloads or sets of jobs, where many jobs can run in parallel as computational capacity becomes available. This project aims to better understand the impact of workload size and requirements on overall throughput through empirical measurement of workloads in CHTC. A key component of the project will be developing tools to a) submit sample workloads and b) gather metrics about their performance. Once these tools are developed, they can be used to run experiments with different workload types.  
   
   #### Project Objectives:
