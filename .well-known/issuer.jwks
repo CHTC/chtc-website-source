@@ -123,6 +123,14 @@
             "use": "sig",
             "x": "xTp95sZvcDKhK_WCfiE-nAMNzfcJBHtxKtcR7jaap18=",
             "y": "4tCsOKFZOxzUJC_felMyLgji5ddABiXiG3rVnSSJ1dI="
+        },
+        {
+            "alg": "ES256",
+            "crv": "P-256",
+            "kid": "yonYRxtIP8OUhup6Cx34fiZThKnJEjSjWPKE0j8ayK8",
+            "kty": "EC",
+            "x": "AlKcQqExnDORxFRPLE_AMsgf3C4RWuYGKJu2BRq62NQ",
+            "y": "eMPbloSFPrEJE1aqLeQGlsMjdjLU_8T1qLCP0PeH8-A"
         }
     ]
 }
