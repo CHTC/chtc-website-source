@@ -48,6 +48,7 @@ Jobs using licensed software are incompatible with external capacity like the OS
 | ABAQUS          | `ABAQUS`                 | 50       | module         | Must belong to an approved research group. |
 | ANSYS           | `ANSYS_RESEARCH`        | 20       | module         | Must belong to an approved research group. |
 | COMSOL (Physics) | `COMSOL_PHYSICS`        | 2        | module         | Must belong to the Physics department. |
+| CST           | `CST`        |        | [container](cst)         | Must belong to an approved research group. |
 | Gurobi          | `GUROBI`                 | 4096     | [container](https://github.com/CHTC/recipes/tree/main/software/Gurobi) | [Contact CHTC.](get-help) |
 | Lumerical       | `LUMERICAL`              | 3        | [container](https://optics.ansys.com/hc/en-us/articles/12325704816659-Dockerfile-support)         | Must belong to an approved research group. |
 | MATLAB          | `MATLAB`                 | 10000    | [container](https://github.com/CHTC/recipes/tree/main/software/Matlab) | Must use our MATLAB container recipes. Does not need approval. |
