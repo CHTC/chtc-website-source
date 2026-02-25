@@ -16,6 +16,7 @@ This guide describes how to run jobs that use CST 2025 on CHTC's high throughput
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Running CST](#running-cst)
+- [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
