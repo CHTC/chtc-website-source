@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Use Licensed Software
+title: Use CST
 guide:
     category: Software
     tag:
