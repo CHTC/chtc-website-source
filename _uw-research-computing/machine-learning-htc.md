@@ -150,7 +150,7 @@ Read our data transfer guides:
   | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
   | Long  | 7 days | up to 4 GPUs in use | 
 
-If you need longer runtimes, consider implementing [checkpointing](checkpointing) into your jobs.
+If you need longer runtimes, contact CHTC staff [get-help](get-help) and/or consider implementing [checkpointing](checkpointing) into your jobs.
 
 ### Test your workflow
 
