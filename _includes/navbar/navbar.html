@@ -6,6 +6,17 @@
                 <div class="uw-header-crest">
                     <a href="{{ '/' | relative_url }}"><img class="uw-crest-svg py-2" src="{{'/images/logos/CHTC_Logo_Full_Color.svg' | relative_url}}" alt="Link to CHTC Home Page"></a>
                 </div>
+                <div class="border-start border-primary border-2 align-self-stretch my-2">
+
+                </div>
+                <div class="d-none d-lg-flex align-items-center gap-1 ps-2">
+                    <a href="https://cdis.wisc.edu/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ '/images/logos/UW_Crest.svg' | relative_url }}" height="40" width="35" class="uw-logo-svg" alt="Link to UW-Madison Home Page">
+                    </a>
+                    <a href="https://morgridge.org" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ '/images/logos/Morgridge_Logo.svg' | relative_url }}" height="40" width="65" class="uw-logo-svg" alt="Link to Morgridge Home Page">
+                    </a>
+                </div>
                 {% for nav_item in nav_items %}
                     {% include navbar/nav-item.html%}
                 {% endfor %}
@@ -17,14 +28,6 @@
                         </div>
                     </div>
                 </li>
-                <div class="d-none d-lg-flex align-items-center gap-1 ms-2">
-                    <a href="https://cdis.wisc.edu/" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ '/images/logos/UW_Crest.svg' | relative_url }}" height="40" width="30" class="uw-logo-svg" alt="Link to UW-Madison Home Page">
-                    </a>
-                    <a href="https://morgridge.org" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ '/images/logos/Morgridge_Logo.svg' | relative_url }}" height="40" width="50" class="uw-logo-svg" alt="Link to Morgridge Home Page">
-                    </a>
-                </div>
             </ul>
         </nav>
     </div>
