@@ -145,7 +145,6 @@ Software Icon and software are how the guides are connected to the Software Over
 excerpt_seperator must be &lt;!--more--&gt; and can be placed anywhere in a document and all text 
 above it will be put in the excerpt.
 
-
 ## Production docker 
 
 ```shell
