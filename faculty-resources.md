@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: character_optimized
-title: Resources for Faculty and Staff
+title: Resources for Faculty and PIs
 ---
 
 If you are a current/prospective UW - Madison faculty member or PI and want to partner with CHTC, 
@@ -43,7 +43,7 @@ that we can lay the groundwork that will allow new faculty to hit the ground run
 ### Resources
 
 * [Set up a meeting between CHTC and potential faculty](mailto:chtc-faculty-recruiting@g-groups.wisc.edu) 
-* [One-pager: summary of CHTC services](to-do) (Only available via UW - Madison NetID)
+* [One-pager: CHTC for Department Chairs](https://drive.google.com/file/d/1ynyIZY09UPKQsw9k2oS12kvKKzGeOUfF/view?usp=drive_link) (Only available via UW - Madison NetID)
 
 ## For prospective or incoming faculty
 
@@ -54,8 +54,6 @@ at CHTC or elsewhere to succeed in your work at UW - Madison.
 ### Resources
 
 * [Meet with us about your startup proposal or computing needs](mailto:chtc-faculty-support@g-groups.wisc.edu)
-* [One-pager: summary of CHTC services](to-do) (Only available via UW - Madison NetID)
-* [One-pager: getting started at CHTC](to-do) (Only available via UW - Madison NetID)
 * [Request an account](https://chtc.cs.wisc.edu/uw-research-computing/form.html)
 
 ## For current faculty
@@ -72,7 +70,6 @@ plan to address any issues.
 ### Resources
 
 * [Contact us (for new or existing groups!)](mailto:chtc-faculty-support@g-groups.wisc.edu)
-* [One-pager: getting started at CHTC](to-do) (Only available via UW - Madison NetID)
 * [Request an account](https://chtc.cs.wisc.edu/uw-research-computing/form.html)
 * [Request ResearchDrive integration](coming-soon)
 * [Contact us about purchasing hardware](mailto:chtc-purchasing@g-groups.wisc.edu)

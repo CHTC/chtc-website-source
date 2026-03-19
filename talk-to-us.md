@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: character_optimized
-title: Talk to us
+title: Talk to Us
 ---
 
 As part of CHTC's [translational computer science](approach) mission, we 
