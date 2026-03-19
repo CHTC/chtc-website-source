@@ -1,7 +1,11 @@
 nav_items:
   - id: uw-research-computing
     name: Research Computing
-    url: /uw-research-computing/index.html
+    sub_menu:
+      - name: Research Computing Services
+        url: /uw-research-computing/index.html
+      - name: Resources for Faculty
+        url: /faculty-resources.html
   - id: technologies
     name: Technologies
     url: /technologies.html
@@ -18,6 +22,8 @@ nav_items:
     name: About
     url: /about.html
     sub_menu:
+      - url: /talk-to-us.html
+        name: Talk To Us
       - url: /approach.html
         name: Our Approach
       - url: /htc.html
