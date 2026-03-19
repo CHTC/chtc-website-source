@@ -28,7 +28,7 @@ on [this page](talk-to-us).
 
 <p style="margin-bottom: 60px;"> </p>
 
-![](/images/cole-jaime-chat.jpg)
+![](/images/danny-talking.jpg)
 
 ## For faculty hiring committees
 
@@ -53,7 +53,7 @@ at CHTC or elsewhere to succeed in your work at UW - Madison.
 
 ### Resources
 
-* [Meet with us about your startup proposal or computing needs](mailto:chtc-faculty-support@g-groups.wisc.edu)
+* [Meet with us about your startup proposal or computing needs](mailto:chtc-faculty-recruiting@g-groups.wisc.edu)
 * [Request an account](https://chtc.cs.wisc.edu/uw-research-computing/form.html)
 
 ## For current faculty
@@ -69,7 +69,7 @@ plan to address any issues.
 
 ### Resources
 
-* [Contact us (for new or existing groups!)](mailto:chtc-faculty-support@g-groups.wisc.edu)
+* [Contact us (for new or existing groups!)](mailto:chtc-facilitation@g-groups.wisc.edu)
 * [Request an account](https://chtc.cs.wisc.edu/uw-research-computing/form.html)
 * [Request ResearchDrive integration](coming-soon)
 * [Contact us about purchasing hardware](mailto:chtc-purchasing@g-groups.wisc.edu)

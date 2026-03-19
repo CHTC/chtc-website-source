@@ -18,7 +18,7 @@ CHTC-related feedback or questions about how to work with us and our services.
         <p>Are you a UW - Madison PI with questions about CHTC? We want to hear from you! Contact us 
 if you want to learn more about our services, or have a conversation about any roadblocks 
 or issues your group is experiencing. </p>
-        <a class="btn btn-primary" href="mailto:chtc-faculty-support@g-groups.wisc.edu">Contact us</a>
+        <a class="btn btn-primary" href="mailto:chtc-facilitation@g-groups.wisc.edu">Contact us</a>
         <p></p>
         <p>If you are organizing faculty recruitment, or are a prospective faculty 
 member, reach out to discuss computing needs and startup options.</p>
