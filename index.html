@@ -9,15 +9,13 @@ js_extension:
     type: module
 ---
 
-{% include get/jobs.liquid %}
-{% if jobs.size > 0 %}
+
 <div class="bg-primary py-2">
-    <div class="container-xxl">
-        <span class="text-white">CHTC is hiring, view the new position on the jobs page and apply now!</a>
-        <a class="btn btn-light px-1 ms-2 py-0" href="/jobs.html#full-time-positions">View Job Posting</a>
+    <div class="container-xxl d-flex justify-content-center">
+        <span class="text-white">Join Throughput Computing Week 2026 June 9 -12</span>
+        <a class="btn btn-light px-1 ms-2 py-0" href="https://agenda.hep.wisc.edu/event/2432/">Register Now</a>
     </div>
 </div>
-{% endif %}
 {% include get/fellowships.liquid %}
 <div class="bg-light overflow-hidden">
     <picture>
@@ -160,18 +158,17 @@ or across the world.
             Projects and Partners.
         </h3>
         {% include sub-title-desc-img-card.html
-        class=" mb-5 mt-4 "
-        title="OSG"
-        href="https://osg-htc.org"
+        class=" mb-5"
+        title="Morgridge Institute for Research"
+        href="https://morgridge.org/"
         desc="
-        The OSG is a consortium of research collaborations, campuses, national laboratories and software
-        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
-        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
-        for the national science and engineering community and CHTC has been a major force in OSG since its inception
-        in 2005.
+        The Morgridge Institute for Research is a private, biomedical research institute
+        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
+        partner with CHTC, investing in the vision of HTC and its ability to advance basic
+        research.
         "
-        img_src="images/logos/OSG-logo.svg"
-        img_alt="OSG Logo"
+        img_src="images/logos/Morgridge_Logo.svg"
+        img_alt="Morgridge Logo"
         %}
         {% include sub-title-desc-img-card.html
         title="PATh"
@@ -189,17 +186,18 @@ or across the world.
         img_style="max-width: 12rem;"
         %}
         {% include sub-title-desc-img-card.html
-        class=" mb-5"
-        title="Morgridge Institute for Research"
-        href="https://morgridge.org/"
+        class=" mb-5 mt-4 "
+        title="OSG"
+        href="https://osg-htc.org"
         desc="
-        The Morgridge Institute for Research is a private, biomedical research institute
-        located on the UW-Madison campus.  Morgridge’s Research Computing Theme is a unique
-        partner with CHTC, investing in the vision of HTC and its ability to advance basic
-        research.
+        The OSG is a consortium of research collaborations, campuses, national laboratories and software
+        providers dedicated to the advancement of all of open science via the practice of distributed High Throughput
+        Computing (dHTC), and the advancement of its state of the art. The OSG operates a fabric of dHTC services
+        for the national science and engineering community and CHTC has been a major force in OSG since its inception
+        in 2005.
         "
-        img_src="images/logos/Morgridge_Logo.svg"
-        img_alt="Morgridge Logo"
+        img_src="images/logos/OSG-logo.svg"
+        img_alt="OSG Logo"
         %}
         <div class="row gx-2 justify-content-center">
 

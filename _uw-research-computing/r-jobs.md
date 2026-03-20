@@ -13,15 +13,20 @@ published: true
 
 ## Quickstart: R
 
-#### Option A (recommended)
+### Option A - Your Container (recommended) 
 
-Build a container with R & packages installed inside:
+Build a container with R & packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+`.def` or `Dockerfile`, respectively. 
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
-2. [Example container recipes for R](https://github.com/CHTC/recipes/tree/main/software/R/)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
 
-#### Option B
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs) / [Docker](docker-build)
+2. Tips and tricks, container recipes: [Example container recipes for R](https://github.com/CHTC/recipes/tree/main/software/R/)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
+
+
+### Option B - Existing Container
 
 Use an existing container with a base installation of R:
 
@@ -29,7 +34,7 @@ Use an existing container with a base installation of R:
    [OSG R containers](https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/#:~:text=R%20(opensciencegrid/osgvo%2Dr))
    or 
    [Rocker R containers](https://rocker-project.org/images/).
-2. [Use the container in your HTC jobs](#use-an-existing-container)
+2. Use the container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
 <!--more-->
 

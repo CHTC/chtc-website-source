@@ -10,30 +10,15 @@ guide:
 --- 
 
 This guide describes the general process for creating an Apptainer container. 
-Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. 
+Specifically, we discuss the components of the "definition file" and how that file is used to construct or "build" the container itself. **Use this guide as a reference to help customize the contents of your container.** For a step-by-step tutorial of 
+how to build a container, see [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html).
 
-For instructions on using and building Apptainer containers
-
-* on the High Throughput system: [Using Apptainer Containers](apptainer-htc.html).
-* on the High Performance system: [Using Apptainer Containers on HPC](apptainer-hpc.html).
 {% capture content %}
 
-[The Apptainer Definition File](#the-apptainer-definition-file)
-
-* [Header section](#header-section)
-* [Files section](#files-section)
-* [Post section](#post-section)
-* [Environment section](#environment-section)
-* [Labels section](#labels-section)
-* [Help section](#help-section)
-
-[The Apptainer Container Image](#the-apptainer-container-image)
-
-* [Building the container](#building-the-container)
-* [Converting a Docker image to an Apptainer container image](#converting-a-docker-image-to-an-apptainer-container-image)
-* [Testing the container interactively](#testing-the-container-interactively)
-
-[Special Considerations for Building Your Container](#special-considerations-for-building-your-container)
+* [The Apptainer definition file](#the-apptainer-definition-file)
+* [Creating a definition file](#creating-a-definition-file)
+* [The Apptainer container image](#the-apptainer-container-image)
+* [Special considerations for building your container](#special-considerations-for-building-your-container)
 
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -139,9 +124,12 @@ For example, if using an `ubuntu` based container, then you should be able to us
 
 ```
 %post
+    chmod 777 /tmp
     apt update -y
     apt install -y gcc make wget
 ```
+
+> The `chmod 777 /tmp` is a specific workaround for building containers on the HTC system at CHTC. **Do not use this** line if you are using Apptainer to build containers **on a different system**.
 
 Note that we have used the `-y` option for `apt` to pre-emptively agree to update `apt` and to install the `gcc`, `make`, and `wget` packages. 
 Otherwise, the `apt` command will prompt you to confirm the executions via the command line. 
@@ -236,7 +224,38 @@ For example,
 
 For an existing container, you can inspect the help text with the command `apptainer run-help my-container.sif`.
 
-## The Apptainer Container Image
+## Creating a definition file
+
+Here is general process for creating your own definition file for building your custom container:
+
+1. **Consult your software's documentation** 
+   
+   Determine the requirements for installing the software you want to use.
+   In particular you are looking for (a) the operating systems it is compatible with and (b) the prerequisite libraries or packages.
+
+2. **Choose a base container** 
+
+   The base container should at minimum use an operating system compatible with your software. 
+   Ideally the container you choose also has many of the prerequisite libraries/programs already installed.
+
+3. **Customize your definition file**
+
+   In addition to examples in this guide, see our [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html) guide for an example of how to customize
+   a definition file for your software. 
+
+Remember that the `.def` file contains the *instructions* for creating your container and is not itself the container. 
+To use the software defined within the `.def` file, you will need to first "build" the container and create the `.sif` file, as described in the following sections.
+
+> ### 📝 Reference: CHTC's "Recipes" Repository
+{:.tip-header}
+
+> To see multiple examples of Apptainer definition files for different
+> softwares, check out the software section of CHTC's "recipes" repository: 
+> * [CHTC software recipes](https://github.com/CHTC/recipes/tree/main/software)
+{:.tip}
+
+
+## The Apptainer container image
 
 The actual container image, which can be executed by Apptainer as a stand-alone operating system, is stored in a `.sif` file.\* 
 The instructions for constructing the `.sif` file are provided by the `.def` definition file, as described above.
@@ -367,3 +386,12 @@ Usage: units [options] ['from-unit' 'to-unit']
   {:.term}
 
   If this does not address the issue, examine the error messages and consult the program documentation for how configure the program to use an alternate location for cache or temporary directories.
+
+
+## Related Pages
+
+* [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html)
+* [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
+* [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html)
+* [Using Apptainer Containers on HPC](apptainer-hpc.html)
+

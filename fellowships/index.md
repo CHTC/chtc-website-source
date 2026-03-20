@@ -17,11 +17,15 @@ title: The Center for High Throughput Computing Fellows Program
 {{ page.title }}
 </h1>
 
+<div class="alert alert-info" role="alert">
+<strong>Applications for the Summer 2026 CHTC Fellows Program are now closed. Application for the Summer 2027 Fellows Program will open in November 2026.</strong> 
+</div>
+
+
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
 The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, operating complex service environments, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
-**Applications for the Summer 2026 CHTC Fellows Program will open on November 3, 2025 here. Descriptions of the 2026 projects will also be posted at that time.**
 
 ## Featured Fellow
 {% include get/team.liquid %}
@@ -63,15 +67,23 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 Fellows work with a mentor to develop a project relevant to one of the areas listed. Fellows will receive a stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort. 
 
+## Applying
+
+To apply, send an email to <chtc-fellows@g-groups.wisc.edu> with the following information:
+
+A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
+
+A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. If you already have a potential project(s) which interests you from the project lists above, you should mention them. Successful applicants will be connected to mentors to flesh out their projects following this application and interview process. 
+
 ## Duration of Fellowship and Total Stipend
--  The upcoming Fellowship Program will last for approximately 11 weeks during Summer 2026.
+-  The upcoming Fellowship Program will last from May 18 to August 7, 2026. During the Program, 5 days are allocated as personal days (with no stipend provided for those days) for the Fellows to use at their discretion, except for the required participation in Throughput Computing Week 2026 (HTC26).
 -  The Program provides $650/week stipend. 
 -  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
 
  
 ## Eligibility 
 
--  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US.
+-  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US for the duration of the fellowship, or, if graduating in May of 2026, have accepted an offer for a graduate program starting in the fall of 2026.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).   
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2026 (HTC26) in Madison during the Fellowship is required. HTC26 will be held June 9 - 12, 2026.
@@ -88,12 +100,12 @@ Fellows work with a mentor to develop a project relevant to one of the areas lis
 
 -   **Friday, 19 December, 2025** - Deadline for fall/winter applications for Summer 2026. 
 -   **Friday, 6 February, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this will involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
--   **By 16 March, 2025** - Deadline for submission of proposals and final selection of Fall 2025 applicants for Fellows Program for summer 2026. (Proposals will be reviewed on a rolling basis.)
+-   **By 16 March, 2026** - Deadline for submission of proposals and final selection of Fall 2025 applicants for Fellows Program for summer 2026. (Proposals will be reviewed on a rolling basis.)
 -   **May-August 2026** - Fellows work on projects.
 
 ## The timeline for spring 2026 applicants for the 2026 Fellows Program:
 
--   **Friday, 13 March, 2026** - Deadline for Spring applications for Summer 2026. 
+-   **Monday, 23 February, 2026** - Deadline for Spring applications for Summer 2026. 
 -   **Friday, 3 April, 2026** - End of selection period for applications. Those selected will be matched to work with mentors on developing a proposal - this may involve a short interview and other follow-up. (Interviews for selected applicants will occur on a rolling basis.)
 -   **Wednesday, 15 April, 2026** - Deadline for submission of proposals. (Proposals will be reviewed on a rolling basis.)
 -   **By 20 April, 2026** - Final selection of Spring 2026 applicants for Fellows Program for summer 2026
