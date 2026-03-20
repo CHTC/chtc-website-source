@@ -47,9 +47,12 @@ that we can lay the groundwork that will allow new faculty to hit the ground run
 
 ## For prospective or incoming faculty
 
-To get started at CHTC, we recommend scheduling a consultation with our staff. 
-As above, the sooner you talk to us, the sooner we can connect you with resources 
-at CHTC or elsewhere to succeed in your work at UW - Madison. 
+For prospective faculty who are negotiating a start up package and want to discuss computing 
+options at CHTC, please contact us using the email address below. For incoming faculty 
+who have committed to UW - Madison, we recommend reaching out for a meeting to discuss
+your needs and outline a plan for implementation and onboarding your group. Even if you 
+met with us in the negotiation stage, it is helpful to have a follow up meeting after 
+hiring to confirm details. 
 
 ### Resources
 
@@ -60,7 +63,8 @@ at CHTC or elsewhere to succeed in your work at UW - Madison.
 
 If your group is new to CHTC, we recommend scheduling a meeting with us, and having your 
 group members join. After this meeting, we can create accounts on our systems 
-and provide next steps for getting started. 
+and provide next steps for getting started. You can initiate this meeting either by 
+using the email address below or requesting an account. 
 
 If your group is currently using CHTC, we want to partner with you in improving your 
 CHTC experience. The best way to do this is to contact us; we'll set up a meeting or call to 
@@ -71,7 +75,6 @@ plan to address any issues.
 
 * [Contact us (for new or existing groups!)](mailto:chtc-facilitation@g-groups.wisc.edu)
 * [Request an account](https://chtc.cs.wisc.edu/uw-research-computing/form.html)
-* [Request ResearchDrive integration](coming-soon)
 * [Contact us about purchasing hardware](mailto:chtc-purchasing@g-groups.wisc.edu)
 * [Cite CHTC](https://chtc.cs.wisc.edu/uw-research-computing/cite-chtc)
 
