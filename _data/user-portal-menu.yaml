@@ -2,6 +2,8 @@
   links:
     - text: Get Help
       url: /uw-research-computing/get-help.html
+    - text: Community Forum
+      url: https://community.chtc.wisc.edu/
     - text: System Status
       url: https://status.chtc.wisc.edu/
     - text: Request an account
@@ -12,7 +14,7 @@
   links:
     - text: Events and Training
       url: /events.html
-    - text: Bioinformatics Cafe
+    - text: Bioinformatics Café
       url: /uw-research-computing/bioinformatics-cafe
 - name: About and information
   links:
