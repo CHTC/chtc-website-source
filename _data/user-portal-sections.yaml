@@ -1,0 +1,48 @@
+- name: Guides
+  large: true
+  links:
+  - text: HTC Guides
+    url: htc/guides.html
+    icon: "bi bi-book"
+    description: |
+      Guides for the High Throughput Computing (HTC) system.
+  - text: HPC Guides
+    url: hpc/guides.html
+    icon: "bi bi-book"
+    description: |
+      Guides for the High Performance Computing (HPC) system.
+- name: Featured learning resources
+  links:
+  - text: Learn How to Deploy R Calculations
+    url: https://github.com/chtc/tutorial-rstudio-to-chtc
+    icon: "bi bi-github"
+    description: |
+       A step-by-step example of transitioning from running R calculations
+       on your computer using RStudio, to running many such calculations
+       on a HTC system.
+  - text: Predict Protein Structures with Alphafold3
+    url: https://github.com/CHTC/tutorial-CHTC-AF3
+    icon: "bi bi-github"
+    description: |
+      AlphaFold3 (AF3) predicts atomic-resolution biomolecular structures
+      for proteins, nucleic acids, and complexes.
+  - text: Build a Conda-based Container for Bioinformatics
+    url: https://github.com/CHTC/biocafe-containers
+    icon: "bi bi-github"
+    description: |
+      This tutorial covers the basics of how to use containers to deploy software.
+      While this example is bioinformatics-flavored, the concepts can be applied
+      to any software stack.
+- name: Interactive computing
+  large: true
+  links:
+  - text: OpenOnDemand
+    url: https://ondemand.chtc.wisc.edu
+    icon: "bi bi-box-arrow-up-right"
+    description: |
+      Web-based interface to the HPC system.
+  - text: BadgerCompute
+    url: https://badgercompute.wisc.edu
+    icon: "bi bi-box-arrow-up-right"
+    description: |
+      Jupyter-based interactive computing.
