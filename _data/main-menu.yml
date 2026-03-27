@@ -6,6 +6,8 @@ nav_items:
         url: /uw-research-computing/index.html
       - name: Resources for Faculty
         url: /faculty-resources.html
+      - name: User Portal
+        url: /uw-research-computing/user-portal
   - id: technologies
     name: Technologies
     url: /technologies.html
