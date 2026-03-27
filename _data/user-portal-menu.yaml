@@ -20,5 +20,7 @@
   links:
     - text: About
       url: /about
+    - text: User expectations
+      url: /uw-research-computing/user-expectations
     - text: Cite us
       url: /uw-research-computing/cite-chtc
