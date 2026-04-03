@@ -75,8 +75,9 @@ the capacity of the GPU Lab to run their work.
   | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
   | Long  | 7 days | up to 4 GPUs in use | 
 
-There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
-jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
+### Interactive GPU jobs
+There are a certain number of slots in the GPU Lab reserved for interactive use.
+Learn more about [interactive GPU jobs](htc-interactive-gpu-jobs).
 
 ## 2. Other Capacity
 
@@ -376,3 +377,7 @@ our [Docker guide](docker-jobs.html) for how to use Docker in CHTC.
 Currently we recommend using 
 ["nvidia/cuda" containers with a tag beginning with "12.1.1-devel"](https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=12.1.1-devel)
 for best integration with our system.
+
+# Related Pages
+- [Interactive GPU Jobs](htc-interactive-gpu-jobs)
+- [Machine learning jobs](machine-learning-htc)
