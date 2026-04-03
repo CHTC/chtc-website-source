@@ -55,7 +55,7 @@ To use this feature, we will need to integrate your PI's ResearchDrive with CHTC
 
 ## Transfer input files from ResearchDrive to jobs
 
-Any file you place in the "CHTC" directory in the top-level directory of your PI's ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory, including any symlinks pointing to files outside of this directory.
+Any file you place in the "CHTC" directory in the top-level directory of your PI's ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory, including any symlinks pointing to files outside of this directory. Because the integration allows many CHTC jobs to read/write into the ResearchDrive, this limits the scope of any accidental actions or bugs.
 
 To transfer input files from ResearchDrive to your jobs, specify input files with the `pelican://` plugin:
 
@@ -105,6 +105,6 @@ For more information about transferring output files using HTCondor, [read our g
 
 ## Related pages
 - [Research Storage (ResearchDrive)](https://it.wisc.edu/services/researchdrive/)
-- [Use and transfer data in jobs on the HTC system](/uw-research-computing/htc-job-file-transfer)
-- [Manage large data in HTC jobs](/uw-research-computing/file-avail-largedata)
-- [Transfer files between CHTC and ResearchDrive](/uw-research-computing/transfer-data-researchdrive)
+- [Use and transfer data in jobs on the HTC system](htc-job-file-transfer)
+- [Manage large data in HTC jobs](file-avail-largedata)
+- [Transfer files between CHTC and ResearchDrive](transfer-data-researchdrive)

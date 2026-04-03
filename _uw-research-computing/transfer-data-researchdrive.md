@@ -9,25 +9,24 @@ guide:
 ---
 
 ## Introduction
-This guide shows how to transfer (upload/download) files between CHTC's file systems and [ResearchDrive](https://it.wisc.edu/services/researchdrive/), a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC; contact us if you would like to know more. 
+This guide shows how to transfer (upload/download) files between CHTC's file systems and [ResearchDrive](https://it.wisc.edu/services/researchdrive/), a shared data storage service for research at UW Madison. The instructions in this guide may also work for accessing other data services on campus from CHTC that interface with the `smbclient` tool. For UWDF/ResearchDrive integration, [see this page](htc-uwdf-researchdrive).
 
 {% capture content %}
 - [Introduction](#introduction)
 - [Before you transfer](#before-you-transfer)
-- [Transfer Files](#transfer-files)
-- [Transfer a Batch of Files](#transfer-a-batch-of-files)
+- [Transfer files](#transfer-files)
+- [Transfer a batch of files](#transfer-a-batch-of-files)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
 ## Before you transfer
 
-In order to follow the steps in this guide, you need access to a **ResearchDrive share**, either as PI or member of your PI's group, as well as a **CHTC account**. In what follows, 
-we assume that you are transferring files to and from our HTC system, but you can 
-use the same process to transfer files to and from the HPC cluster if you first log 
-in to one of the HPC login nodes. 
+You will need:
+* Access to your PI's ResearchDrive
+* A CHTC account
 
-## Transfer Files
+## Transfer files
 
 To transfer data between ResearchDrive and CHTC, do the following: 
 
@@ -76,7 +75,7 @@ like to get or put files.
 
 6. **Finish:** Once you are done moving files, you can type `exit` to leave the connection to ResearchDrive. 
 
-## Transfer a Batch of Files
+## Transfer a batch of files
 
 The steps described above work well for transferring a single file, or tar archive of 
 many files, at a time and is best for transferring a few files in a session. However, 
@@ -116,3 +115,4 @@ then use either `mget` or `mput` for your file transfer.
 ## Related pages
 * [Log in to CHTC](connecting)
 * [Transfer files between CHTC and your Computer](transfer-files-computer)
+* [Directly transfer files between ResearchDrive and your jobs](htc-uwdf-researchdrive)
