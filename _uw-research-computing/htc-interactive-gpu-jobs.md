@@ -63,5 +63,6 @@ If you have access to researcher-owned GPU machines, you may submit interactive 
 
 ## Related pages
 - [Use GPUs](gpu-jobs)
+- [Monitor your jobs](htc-monitor-jobs)
 - [Machine learning jobs](machine-learning-htc)
 - [Interactive computing with BadgerCompute](https://badgercompute.wisc.edu)
