@@ -65,7 +65,7 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
 
 ### Option 2: Log in with an SSH program
 
-Each [SSH program](#ssh-programs) has a different procedure, but generally, you'll need to configure it with your **username** and your **hostname**.
+Each [SSH program](#ssh-programs) in the table below has a different procedure, but generally, you'll need to configure it with your **username** and your **hostname**.
 
 ## Log out
 
