@@ -27,20 +27,22 @@ CHTC's HTC system is primarily meant for submitting batches of large workloads. 
 ## Availablility
 ### Shared GPUs
 
-Interactive jobs on CHTC's shared GPU machines are limited to the following resources:
+We have *dedicated* slots for interactive jobs on CHTC's shared GPU machines:
 
 | Number of slots | GPU model | Number of GPUs per slot | GPU Memory |
 | --- | --- | --- |
 | 4 | NVIDIA GeForce RTX 2080 Ti | 1 | 10.6 GB |
 | 1 | NVIDIA A100 | 1 | 39.5 GB |
 
-**Interactive GPU jobs have a maximum runtime of 4 hours.**
+The slots in the table above *only* run interactive GPU jobs. Interactive GPU jobs can still run on other slots on shared GPU machines, depending on availability upon submission.
 
-Users will **only** be able to run `condor_ssh_to_job` on interactive GPU jobs. This function is disabled for noninteractive GPU jobs.
+**All interactive GPU jobs have a maximum runtime of 4 hours and are limited to 1 GPU.** Interactive multi-GPU jobs are not permitted on CHTC's shared GPU machines.
+
+You will not be able to run `condor_ssh_to_job` on noninteractive GPU jobs.
 
 ### Researcher-owned GPUs
 
-Users with access to researcher-owned GPU machines may submit interactive jobs within those machines' resource limits.
+If you have access to researcher-owned GPU machines, you may submit interactive jobs within those machines' resource limits. `condor_ssh_to_job` is permitted on these machines.
 
 ## Submit an interactive GPU job
 
