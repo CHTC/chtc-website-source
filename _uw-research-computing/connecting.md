@@ -21,11 +21,10 @@ If you don't have an account, see our [getting started](get-started.html) page.
 - [Before you log in](#before-you-log-in)
 - [Log in](#log-in)
    * [Option 1: Log in with a terminal](#option-1-log-in-with-a-terminal)
-   * [Option 2: Log in with PuTTY, an SSH program for Windows](#option-2-log-in-with-putty-an-ssh-program-for-windows)
+   * [Option 2: Log in with an SSH program](#option-2-log-in-with-an-ssh-program)
 - [Log out](#log-out)
 - [SSH programs](#ssh-programs)
-- [Hostname / Access point information](#hostname--access-point-information)
-- [Summary](#summary)
+- [Hostname / Access point information](#hostname-access-point-information)
 - [Related pages](#related-pages)
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
@@ -64,17 +63,9 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/J-wxsrQ3v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {:.tip}
 
-### Option 2: Log in with PuTTY, an SSH program for Windows
+### Option 2: Log in with an SSH program
 
-There are multiple programs to connect to remote servers for Windows. We recommend "PuTTy", which can be downloaded [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-
-1. To log in, run the PuTTy executable (`putty.exe`). The PuTTY Configuration options will load in a new window.
-
-    ![The PuTTY Configuration window](/images/putty-7.jpeg)
-
-2. Fill in the hostname with the [hostname for your access point](#hostname). Use Port 22 and the "SSH" connection type — these are usually the defaults.
-
-3. After clicking "Open", you will be prompted to fill in your username and password, then to authenticate with Duo. 
+Each [SSH program](#ssh-programs) in the table below has a different procedure, but generally, you'll need to configure it with your **username** and your **hostname**.
 
 ## Log out
 
@@ -111,16 +102,6 @@ Please use the access point specified in your welcome email.
   | High Performance Computing (HPC) System |
   | --- |
   | `spark-login.chtc.wisc.edu` |
-
-
-## Summary
-
-From this guide, users should know:
-* the information and connections necessary to log in
-* hostname of their access point
-* how to log in to their CHTC access point
-* how to log out of their access point
-* programs they can use to log in to CHTC
 
 ## Related pages
 
