@@ -10,15 +10,7 @@ guide:
 
 ## Introduction
 
-CHTC is launching a pilot program in which users can directly transfer files between ResearchDrive and their jobs. This can remove the additional step of uploading or downloading data to and from CHTC data storage locations.
-
-> ### ⚗️ UWDF/ResearchDrive Pilot Program
-{:.tip-header}
-
-> Currently the UWDF/ResearchDrive feature is in its pilot phase and is not yet widely available to CHTC users. This file transfer feature is still under testing and may have occasional issues or bugs.
->
-> If you are interested in testing this feature, contact us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).
-{:.tip}
+CHTC has partnered with [ResearchDrive](https://it.wisc.edu/services/researchdrive/) to offer a feature where users can directly transfer files between ResearchDrive and their jobs. This can remove the additional step of uploading or downloading data to and from CHTC data storage locations.
 
 {% capture content %}
 - [Introduction](#introduction)
@@ -34,9 +26,9 @@ CHTC is launching a pilot program in which users can directly transfer files bet
 
 ## Overview
 
-Users can transfer files directly between [ResearchDrive](https://it.wisc.edu/services/researchdrive/) and their jobs by using the UW Data Federation (UWDF) and the [Pelican Platform](https://docs.pelicanplatform.org/about-pelican) (which also powers the `osdf:///` file transfer plugin). This integration can remove the additional step of uploading or downloading data to and from CHTC data storage locations, saving time and disk space.
+Users can transfer files directly between [ResearchDrive](https://it.wisc.edu/services/researchdrive/) and their jobs by using the UW Data Federation (UWDF) and the [Pelican Platform](https://docs.pelicanplatform.org/about-pelican) (which also powers the `osdf:///` file transfer plugin). This integration removes the additional step of uploading or downloading data to and from CHTC data storage locations, saving time and disk space.
 
-In this way, ResearchDrive behaves as a "staging" location for data to be used in jobs.
+ResearchDrive behaves as a "staging" location for data to be used in jobs.
 
 <p style="text-align:center"><img src="/images/uwdf-researchdrive-diagram.png" width=800px alt="A diagram illustrating data transfer between CHTC data spaces, ResearchDrive, and Execution Points (where jobs are run)."></p>
 <caption>
@@ -59,11 +51,11 @@ This feature is ideal for researchers who:
 
 ## Enable CHTC integration for your PI's ResearchDrive
 
-To use this feature, we will need to integrate your PI's ResearchDrive with CHTC systems. The PI should send an email to us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) giving permission for this integration, as well as a list of CHTC users who are allowed to use this integration. Once we have this permission, we will complete the integration process within 3-5 business days. You will be notified when this integration is ready to use.
+To use this feature, we will need to integrate your PI's ResearchDrive with CHTC systems. The PI should send an email to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) giving permission for this integration. Once we have this permission, we will complete the integration process within 3-5 business days. The PI will be notified when this integration is ready to use.
 
 ## Transfer input files from ResearchDrive to jobs
 
-Any file you place in the "CHTC" directory in the top-level directory of your PI's ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory.
+Any file you place in the "CHTC" directory in the top-level directory of your PI's ResearchDrive is accessible to your CHTC jobs. Your jobs are unable to access any data outside of this directory, including any symlinks pointing to files outside of this directory. Because the integration allows many CHTC jobs to read/write into the ResearchDrive, this limits the scope of any accidental actions or bugs.
 
 To transfer input files from ResearchDrive to your jobs, specify input files with the `pelican://` plugin:
 
@@ -112,6 +104,7 @@ For more information about transferring output files using HTCondor, [read our g
 {:.tip}
 
 ## Related pages
-- [Use and transfer data in jobs on the HTC system](/uw-research-computing/htc-job-file-transfer)
-- [Manage large data in HTC jobs](/uw-research-computing/file-avail-largedata)
-- [Transfer files between CHTC and ResearchDrive](/uw-research-computing/transfer-data-researchdrive)
+- [Research Storage (ResearchDrive)](https://it.wisc.edu/services/researchdrive/)
+- [Use and transfer data in jobs on the HTC system](htc-job-file-transfer)
+- [Manage large data in HTC jobs](file-avail-largedata)
+- [Transfer files between CHTC and ResearchDrive](transfer-data-researchdrive)
