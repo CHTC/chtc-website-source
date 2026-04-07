@@ -36,6 +36,12 @@ jobs:
           -o assets/data/hero-stats.csv \
           -f \
           -L https://api.github.com/repos/CHTC/website-stats/contents/hero-stats.csv
+          
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/chtc-data-summary.json \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/website-data/chtc-data-summary.json
 
       - uses: ruby/setup-ruby@v1
         with:
