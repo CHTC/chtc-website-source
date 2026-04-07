@@ -21,11 +21,35 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
+> ### 📢 Interactive GPU policy starting April 13, 2026
+{:.tip-header}
+
+> `condor_ssh_to_job` will be unavailable for jobs running on CHTC’s shared GPU machines.
+> 
+> #### What’s staying the same
+> 
+> If your group has owned or prioritized access to GPUs, you will still be able to run both interactive jobs or connect to running jobs using `condor_ssh_to_job`. 
+> 
+> #### Why we are making the change
+> 
+> Some users have been abusing the `condor_ssh_to_job` functionality by submitting long-running sleep jobs, then connecting periodically to run interactive commands while leaving the GPU unused for long periods of time (or worse, simulating work on the GPU that is not productive). This hoarding of resources is not in the spirit of our commitment to fair share access to computing, and so we are removing this functionality from our shared use GPUs. 
+> 
+> #### What you can do
+> 
+> * You can run interactive jobs on general use GPUs. [See our documentation.](htc-interactive-gpu-jobs).
+> * Check-in on the output of your jobs while they are running by using `condor_tail`. [See our documentation](htc-monitor-jobs).
+> 
+> If you have questions or comments specifically about this change in policy, please fill out our [feedback form](https://docs.google.com/forms/d/e/1FAIpQLSe9yJNyuZcI9j8m4VR8JbZf6Zj3hO4wNbkydd6he2vEtwYJNQ/viewform?usp=preview).
+{:.tip}
+
+{% capture content %}
 - [Available CHTC GPUs](#a-available-chtc-gpus)
 - [Submit jobs using GPUs in CHTC](#b-submit-jobs-using-gpus-in-chtc)
 - [GPU capacity beyond the CHTC GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab)
 - [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
 - [Prepare software using GPUs](#e-prepare-software-using-gpus)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 # A. Available CHTC GPUs
 
