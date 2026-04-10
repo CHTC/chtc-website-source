@@ -64,9 +64,9 @@ We have *dedicated* slots for interactive jobs on CHTC's shared GPU machines:
 | 4 | NVIDIA GeForce RTX 2080 Ti | 1 | 10.6 GB |
 | 1 | NVIDIA A100 | 1 | 39.5 GB |
 
-The slots in the table above *only* run interactive GPU jobs. Interactive GPU jobs can still run on other slots on shared GPU machines, depending on availability upon submission.
+The slots in the table above *only* run interactive GPU jobs. Interactive GPU jobs can still run on other slots on shared GPU machines (including backfill slots), depending on availability upon submission.
 
-**All interactive GPU jobs have a maximum runtime of 4 hours and are limited to 1 GPU.** Interactive multi-GPU jobs are not permitted on CHTC's shared GPU machines.
+**All interactive GPU jobs have a maximum runtime of 4 hours.**
 
 You will not be able to run `condor_ssh_to_job` on noninteractive GPU jobs.
 
