@@ -75,10 +75,14 @@ If you have access to researcher-owned GPU machines, you may submit interactive 
    condor_submit -i <submit_file>
    ```
    {:.term}
-1. When your job starts, you will see your prompt change, for example:
+1. When your job starts, you will see a welcome message and your prompt will change, for example:
 
    ```
-   [netid@gpulab2001 ~]$
+   Waiting for job to start...
+   Welcome to slot1_1@gpulab2001.chtc.wisc.edu!
+   == NOTICE: THIS NODE IS ON PUPPET ENVIRONMENT "puppet8" ==
+
+   [netid@gpulab2001 scratch]$
    ```
    {:.term}
 1. When you are done with your interactive session, type `exit` to return back to the Access Point.
