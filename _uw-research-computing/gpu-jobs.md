@@ -201,7 +201,7 @@ at chtc@cs.wisc.edu if you believe you need to use this option.
 
 A  sample submit file is shown below. There are also example submit files and 
 job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
-in CHTC's Github organization. 
+in CHTC's Github organization. This submit file is also suitable for [interactive GPU jobs](htc-interactive-gpu-jobs).
 
 ```
 # gpu-lab.sub
