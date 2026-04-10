@@ -67,7 +67,7 @@ Additional options are available for the `condor_q` command. See the table below
 | `condor_q` | displays status of your submitted jobs; jobs are batched by default |
 | `condor_q -nobatch` | displays status of your submitted jobs without the batched view |
 | `condor_q <job_ID>` | displays status of the job(s) associated with `job_ID` |
-| `condor_q -l <job_ID>` | lists all attributes of the job(s) associated with `job_ID` | |
+| `condor_q -l <job_ID>` | lists all attributes of the job(s) associated with `job_ID` | This will generate a lot of output; don't use for more than one job at a time! |
 | `condor_q -hold <job_ID>` | displays the hold reason for job(s) associated with `job_ID` |
 | `condor_q -better-analyze <job_ID>` | displays *simulated* results of the matching process associated with the job | This is a *starting point* for troubleshooting jobs sitting in the idle state. |
 | `condor_q -run` | displays your running jobs |
