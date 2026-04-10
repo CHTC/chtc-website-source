@@ -28,11 +28,11 @@ For a real-time view of your jobs' status, run the `condor_watch_q` tool. For ex
 
 ```
 [netid@ap2002 ~]$ condor_watch_q
-BATCH                  IDLE  INPUT  RUN  DONE  TOTAL  JOB_IDS
-catdog_train_4839429     -      -    1     -      1   4839429.0               [========================================]
-catdog_infer_4839838     1      6    -     3     10   4839838.1 ... 4839838.9 [---->>>>>>>>>>>>>>>>>>>>>>>>############]
+BATCH    IDLE  INPUT  RUN  DONE  TOTAL  JOB_IDS
+4839429    -      -    1     -      1   4839429.0               [====================]
+4839838    1      6    -     3     10   4839838.1 ... 4839838.9 [-->>>>>>>>>>>>######]
 
-Total Progress: [------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>=======#####################]
+Total Progress: [----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>=====###################]
 
 Total: 11 jobs; 3 completed, 1 idle, 7 running
 
