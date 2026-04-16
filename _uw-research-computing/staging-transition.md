@@ -15,7 +15,7 @@ guide:
 
 ## Transition to a new `/staging` directory structure
 
-Starting Thursday, January 8, we are transitioning to a new directory structure for personal staging directories. **This affects all users on the HTC system**.
+Starting Monday, May 4, we are transitioning to a new directory structure for personal staging directories. **This affects all users on the HTC system**.
 
 Personal staging directories will now be located in **alphabetized subdirectories** based on the first letter of your NetID. For example:
 
@@ -31,17 +31,17 @@ Group `/staging` directories are not affected and will remain in the `/staging/g
 
 CHTC will:
 
-1. Copy your files to your new `/staging` directory.
+1. Move your files and quota limits to your new `/staging` directory.
 2. Create a [symlink](https://en.wikipedia.org/wiki/Symbolic_link) at your previous `/staging` directory path that points to the new `/staging` directory path.
 
 ## Timeline
 
-* **January 8, 2025**. Transition begins. Users may begin using their new `/staging` directory.
-* **February 17, 2025**. Transition ends. Symlinks at previous `/staging` directory paths will be deleted.
+* **May 4, 2025**. Transition begins. Users may begin using their new `/staging` directory.
+* **June 4, 2025**. Transition ends. Symlinks at previous `/staging` directory paths will be deleted.
 
 ## What you should do
 
-If you have an existing `/staging` directory, **between January 8 and February 17**, please review all your files that reference your `/staging` directory. This may include but is not limited to:
+If you have an existing `/staging` directory, **between May 4 and June 4**, please review all your files that reference your `/staging` directory. This may include but is not limited to:
 
 * HTCondor submit files
 * Executables and scripts
@@ -62,9 +62,25 @@ to:
 container_image = osdf:///chtc/staging/n/netid/my-container.sif
 ```
 
+> ### Use the environment variable `STAGING`
+{:.tip-header}
+> We have set the environment variable `STAGING` to refer to your personal staging directory. For example:
+> ```
+> [netid@ap2001] echo $STAGING
+> /staging/n/netid
+> ```
+> {:.term}
+> 
+> You may use this environment variable in your submit file:
+> ```
+> container_image = osdf:///chtc$ENV(STAGING)/my-container.sif
+> ```
+> HTCondor will replace `$ENV(STAGING)` with the path to your personal staging directory (i.e., `/staging/n/netid`). [See HTCondor docs](https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html#function-macros-in-the-submit-description-file) for more details about the `$ENV()` macro.
+{:.tip}
+
 ## Why we are transitioning
 
-Our `/staging` directories are backed by the Ceph File System, which has [slower performance when it must load very large directories](https://docs.ceph.com/en/reef/cephfs/app-best-practices/#very-large-directories). To mitigate large loads on the file system, we are sorting users personal `/staging` directories into alphabetized subdirectories. 
+Our `/staging` directories are backed by the Ceph File System, which has [slower performance when it must load very large directories](https://docs.ceph.com/en/reef/cephfs/app-best-practices/#very-large-directories). To mitigate large loads on the file system, we are sorting users personal staging directories into alphabetized subdirectories. 
 
 ## Get support
 
