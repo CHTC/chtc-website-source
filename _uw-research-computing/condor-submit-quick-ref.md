@@ -75,7 +75,7 @@ Visit our [file transfer guide](htc-job-file-transfer) for more details.
 | `gpus_minimum_capability = <version>`    | sets minimum GPU capability               | **Example:** <br>`gpus_minimum_capability = 8.5`                                                                                                                                         |
 | `gpus_maximum_capability = <version>`    | sets maximum GPU capability                | **Example:** <br>`gpus_maximum_capability = 9.0`                                                                                                                                         |
 | `gpus_minimum_memory = <quantity>` | requests minimum GPU VRAM memory (Default in MB)                 | **Example:** <br>`gpus_minimum_memory = 3200`                                                                                                                                            |
-| `requirements = <ClassAd Boolean>`       | sets job execution constraints                                       | See [ClassAd reference](https://htcondor.readthedocs.io/en/latest/classad-attributes/job-classad-attributes.html). <br><br> **Example:** <br>`requirements = (OpSysAndVer == "RedHat9")` |
+| `requirements = <ClassAd Boolean>`       | Specify job requirements to restrict jobs to certain execution points  | See [ClassAd reference](https://htcondor.readthedocs.io/en/lts/classad-attributes/machine-classad-attributes.html). <br><br> **Example:** <br>`requirements = (TARGET. HasCHTCStaging == true)` |
 
 {:.command-table}
 
