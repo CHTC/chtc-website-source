@@ -46,12 +46,14 @@ See [job submission basics](htcondor-job-submission)
 
 | Option                           | Use | Notes and Examples                                                                                                                                 |
 |----------------------------------| --- |----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `executable = <executable.sh>`   | path to the executable script or binary | The executable is automatically transferred to the Execution Point (EP) by HTCondor. <br><br> **Example:** <br>`executable = helloWorld.py` |
-| `arguments = "<args>"`           | lists arguments to be passed to the executable as part of the command line | Arguments are wrapped by quotes (") and space separated. Embed spaces using single quotes.<br><br> **Example:** <br>`arguments = "--print 'hello world'"`   |
+| `executable = <<script_or_binary>`   | path to the executable script or binary | The executable is automatically transferred to the Execution Point (EP) by HTCondor. <br><br> **Example:** <br>`executable = helloWorld.py` |
+| `arguments = "<args>"`           | lists arguments to be passed to the executable as part of the command line | Arguments are space separated. To embed spaces in an argument using single quotes.<br><br> **Example:** <br>`arguments = "--print 'hello world'"`   |
 | `log = <job.log>`                | denotes the path to the log file | We recommend always specifying `log` to help with troubleshooting. If `log` is not provided, no log file is written. <br><br> **Example:** <br>`log = log_files/job1.log` |
 | `output = <job.out>`             | denotes the path to the file capturing `stdout` screen output | Can be merged with `stderr` by denoting the same path in `error = <path>`. <br><br> **Example:** <br>`output = log_files/job1.out` |
 | `error = <job.err>`              | denotes the path to file capturing `stderr` screen output | **Example:** <br>`error = log_files/job1.err`  |
 {:.command-table}
+
+_Note: If log, error, or output is not defined, troubleshooting held jobs **will** be signifantly more difficult._
 
 ## Transfer files
 
@@ -59,7 +61,7 @@ Visit our [file transfer guide](htc-job-file-transfer) for more details.
 
 | Option                                                     | Use | Notes and Examples                                                                                                                                                                                                                                                             |
 |------------------------------------------------------------| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `transfer_input_files = <file1>, <file2>`                                  | lists all the input files to be transferred to the Execute Point (EP) | Comma-separated list. Various file transfer protocols can be used including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`. <br><br> **Examples:** <br> `transfer_input_files = osdf:///chtc/staging/...`                                                                 |
+| `transfer_input_files = <file1>, <file2>`                                  | lists all the input files to be transferred to the Execution Point (EP) | Comma-separated list. Various file transfer protocols can be used including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`. <br><br> **Examples:** <br> `transfer_input_files = osdf:///chtc/staging/...`                                                                 |
 | `transfer_output_files = <file1>, <file2>`                                 | explicitly lists the path to files on the EP to be returned to the working directory on the AP. | If this is not specified, HTCondor will only transfer new and changed **files** in the top-level directory of the Execution Point. Subdirectories are not transferred. <br><br> **Example:**<br>`transfer_output_files = results.txt`|
 | `transfer_output_remaps = "<file>=<new_path>; <file2>=<new_path>"` | remaps output files to a specified path. Can be used for renaming files. | Delimited by semicolons. Can be used in conjunction with various file transfer protocols. <br><br> **Example:** <br>`transfer_output_remaps = "results.txt=osdf:///chtc/staging/<user>/job1_results.txt"` |
 {:.command-table}
@@ -116,11 +118,13 @@ See our [multiple jobs guide](multiple-jobs#variables).
 
 These options are best for short (<8hr) or checkpointable jobs. Expands matching opportunities across campus. Read more about [scaling beyond local capacity](scaling-htc). **Do not include `HasCHTCStaging` in the requirements**.
 
-| Option | Use |
+| Option | Use | Notes and Examples |
 | --- | --- | --- |
-| `want_campus_pools = true` | Allows jobs to run on other HTCondor pools on campus (e.g., UW Grid) |
-| `want_ospool = true`       | Allows jobs to match to the national Open Science Pool (OSPool)      |
+| `want_campus_pools = true` | Allows jobs to run on other HTCondor pools on campus                 | [Scale beyond CHTC's capacity using UW's shared compute capacity](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc#main)|
+| `want_ospool = true`       | Allows jobs to match to the national Open Science Pool (OSPool)      | [Scale beyond CHTC's capacity using the Open Science Pool](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc#main) | 
 {:.command-table}
+
+_Note: While scaling up, we recommend reaching out to the [Research Computing Facilitation team](chtc@cs.wisc.edu) for more information about running jobs using the Campus or Open Science Pool._
 
 ## Glossary
 
