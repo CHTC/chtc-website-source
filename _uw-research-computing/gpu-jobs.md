@@ -21,11 +21,43 @@ For researchers who have problems that are well-suited to GPU
 processing, it is possible to run jobs that use GPUs in CHTC. Read on to
 determine:
 
+> ### 📢 Interactive GPU policy starting April 22, 2026
+{:.tip-header}
+
+> `condor_ssh_to_job` will be unavailable for jobs running on CHTC’s shared GPU machines.
+> 
+> <details>
+> <summary>What’s staying the same</summary>
+> <ul>
+> <li>If your group has owned or prioritized access to GPUs, you can still to connect to running jobs on said GPUs using <code>condor_ssh_to_job</code>.</li>
+> <li>All users can still submit interactive GPU jobs using the <code>condor_submit -i command</code>.</li>
+> </ul>
+> </details> 
+>
+> <details>
+> <summary>Why we are making the change</summary>
+> <ul><li>Some users have been using the <code>condor_ssh_to_job</code> functionality to submit long-running sleep jobs, then connect periodically to run interactive commands while leaving the GPU unused for long periods of time. This usage pattern by others limits YOUR throughput, particularly for high-end GPUs, so we are removing this functionality from our shared use GPUs. </li></ul>
+> </details>
+> 
+> <details>
+> <summary>What you can do</summary>
+> <ul>
+> <li>You can <a href="htc-interactive-gpu-jobs">run interactive jobs on general use GPUs</a>.</li>
+> <li>Check-in on the output of your jobs while they are running by using <code>condor_tail</code>. <a href="htc-monitor-jobs">See our documentation</a>.</li>
+> </ul>
+> </details>
+>
+> If you have questions or comments specifically about this change in policy, please fill out our [feedback form](https://docs.google.com/forms/d/e/1FAIpQLSe9yJNyuZcI9j8m4VR8JbZf6Zj3hO4wNbkydd6he2vEtwYJNQ/viewform?usp=preview).
+{:.tip}
+
+{% capture content %}
 - [Available CHTC GPUs](#a-available-chtc-gpus)
 - [Submit jobs using GPUs in CHTC](#b-submit-jobs-using-gpus-in-chtc)
 - [GPU capacity beyond the CHTC GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab)
 - [Using condor_status to explore GPUs](#d-using-condor_status-to-explore-chtc-gpus)
 - [Prepare software using GPUs](#e-prepare-software-using-gpus)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 # A. Available CHTC GPUs
 
@@ -75,8 +107,9 @@ the capacity of the GPU Lab to run their work.
   | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |  
   | Long  | 7 days | up to 4 GPUs in use | 
 
-There are a certain number of slots in the GPU Lab reserved for interactive use. Interactive 
-jobs that use GPU Lab servers are restricted to using a single GPU and a 4 hour runtime. 
+### Interactive GPU jobs
+There are a certain number of slots in the GPU Lab reserved for interactive use.
+Learn more about [interactive GPU jobs](htc-interactive-gpu-jobs).
 
 ## 2. Other Capacity
 
@@ -168,7 +201,7 @@ at chtc@cs.wisc.edu if you believe you need to use this option.
 
 A  sample submit file is shown below. There are also example submit files and 
 job scripts in this [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) 
-in CHTC's Github organization. 
+in CHTC's Github organization. This submit file is also suitable for [interactive GPU jobs](htc-interactive-gpu-jobs).
 
 ```
 # gpu-lab.sub
@@ -376,3 +409,7 @@ our [Docker guide](docker-jobs.html) for how to use Docker in CHTC.
 Currently we recommend using 
 ["nvidia/cuda" containers with a tag beginning with "12.1.1-devel"](https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=12.1.1-devel)
 for best integration with our system.
+
+# Related Pages
+- [Interactive GPU Jobs](htc-interactive-gpu-jobs)
+- [Machine learning jobs](machine-learning-htc)
