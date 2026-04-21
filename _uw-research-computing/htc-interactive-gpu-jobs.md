@@ -14,7 +14,7 @@ This guide shows you how to run interactive GPU jobs on CHTC's High Throughput C
 
 CHTC's HTC system is primarily meant for submitting batches of large workloads. However, a few resources are set aside for testing and troubleshooting GPU jobs interactively.
 
-> ### 📢 Interactive GPU policy starting April 13, 2026
+> ### 📢 Interactive GPU policy starting April 22, 2026
 {:.tip-header}
 
 > `condor_ssh_to_job` will be unavailable for jobs running on CHTC’s shared GPU machines.
@@ -29,7 +29,7 @@ CHTC's HTC system is primarily meant for submitting batches of large workloads. 
 >
 > <details>
 > <summary>Why we are making the change</summary>
-> <ul><li>Some users have been abusing the <code>condor_ssh_to_job</code> functionality by submitting long-running sleep jobs, then connecting periodically to run interactive commands while leaving the GPU unused for long periods of time (or worse, simulating work on the GPU that is not productive). This hoarding of resources is not in the spirit of our commitment to fair share access to computing, and so we are removing this functionality from our shared use GPUs.</li></ul>
+> <ul><li>Some users have been using the <code>condor_ssh_to_job</code> functionality to submit long-running sleep jobs, then connect periodically to run interactive commands while leaving the GPU unused for long periods of time. This usage pattern by others limits YOUR throughput, particularly for high-end GPUs, so we are removing this functionality from our shared use GPUs. </li></ul>
 > </details>
 > 
 > <details>
