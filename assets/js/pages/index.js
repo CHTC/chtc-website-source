@@ -215,8 +215,7 @@ const StatisticRow = () => {
 
     if(data){
         return(
-            h("div", {className: "row"}, ...[
-                h(StatisticCard, {label: "Facilitator Interactions", value: data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0), className: "col-6 col-md-3"}, ),
+            h("div", {className: "row justify-content-center"}, ...[
                 h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "HTC Core Years", value: data.reduce((p, c) => {return p + c['HTCYears']}, 0), className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "HPC Core Years", value: data.reduce((p, c) => {return p + c['HPCYears']}, 0), className: "col-6 col-md-3"}, ),
@@ -258,7 +257,6 @@ const CollegeTable = (props) => {
                 h("th", {className: "text-end"}, "Projects Supported"),
                 h("th", {className: "text-end"}, "HTC Core Years"),
                 h("th", {className: "text-end"}, "HPC Core Years"),
-                h("th", {className: "text-end"}, "Facilitator Interactions")
             ),
             h("tbody", {},
                 ...data.map(v => {
@@ -268,7 +266,6 @@ const CollegeTable = (props) => {
                             h(CollegeTD, {className: "text-end"}, v["NumProj"]),
                             h(CollegeTD, {className: "text-end"}, v["HTCYears"]),
                             h(CollegeTD, {className: "text-end"}, v["HPCYears"]),
-                            h(CollegeTD, {className: "text-end"}, v["CHTC Interactions"]),
                         )
                     )
                 }),
@@ -277,7 +274,6 @@ const CollegeTable = (props) => {
                     h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['NumProj']}, 0).toLocaleString()),
                     h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HTCYears']}, 0).toLocaleString()),
                     h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['HPCYears']}, 0).toLocaleString()),
-                    h("td", {className: "text-end"}, data.reduce((p, c) => {return p + c['CHTC Interactions']}, 0).toLocaleString()),
                 )
             )
         )
