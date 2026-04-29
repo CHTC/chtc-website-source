@@ -7,7 +7,12 @@ guide:
     category: Basics and Policies
 ---
 
-## 
+> ### 🚧 Work in Progress
+{:.tip-header}
+> This guide is a first draft of recommendations for using agentic AI on 
+> CHTC. We will update as we gather user feedback and experiences. Contact 
+> us at chtc@cs.wisc.edu with any suggestions.  
+{:.tip}
 
 Agentic AI tools can be useful for editing scripts, explaining errors, generating submit files, and troubleshooting workflows. However, these tools can also create excessive temporary files, run commands automatically, repeatedly query shared services, or start long-running processes. Use them carefully on the Access Point.
 
