@@ -78,6 +78,10 @@ but their use should be minimized when possible. If you have questions about thi
 please contact the facilitation team. CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy
 
+> ### Using LLM agents on login nodes / access points
+> 
+> See [this page](agent-recommendations) for recommendations on how to best use LLM agents on CHTC. 
+
 **Avoid unsupervised scripts on the login nodes.** Automating tasks via tools like 
 `cron`, `watch`, or using a workflow manager (not including HTCondor's DAGMan) on the login node is not allowed without prior 
 discussion with the facilitation or infrastructure team. 
