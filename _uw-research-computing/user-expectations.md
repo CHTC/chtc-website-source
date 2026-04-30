@@ -27,6 +27,13 @@ notice being shared will be immediately disabled and a meeting with the PI
 For more information on the process for obtaining an account, see our 
 [How to Request an Account](account-details.html) guide.
 
+**Users of CHTC agree to follow cybersecurity policies** to ensure the security of CHTC servers.
+This includes
+
+* instructions detailed in our [Security Policies](security) guide,
+* [Universities of Wisconsin cybersecurity policies](https://www.wisconsin.edu/regents/policies/acceptable-use-of-information-technology-resources/),
+* any applicable local, state, or federal laws.
+
 ## Data Policies
 
 **CHTC data locations are not backed up**, and users should
