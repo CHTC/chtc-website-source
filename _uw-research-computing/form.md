@@ -21,7 +21,7 @@ title: Request a CHTC Account
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
-		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_8f6nTgaaVhefdmS">Request a CHTC Account</a>
+		<a class="btn btn-primary" href="https://wwwapps.chtc.wisc.edu/forms/user-applications/create/">Request a CHTC Account</a>
 	</div>
 </div>
 
@@ -31,10 +31,18 @@ title: Request a CHTC Account
 
 To apply for a CHTC account, you must:
 
-1. Be a **UW-Madison affiliate** (faculty, staff, graduate, undergraduate, or approved [external collaborator](#external-collaborators)).
-1. Use CHTC resources *only* for **research** or **approved courses**.
-1. Have a **faculty sponsor**. This is typically the Principal Investigator (PI) of your research group or your course instructor.
+1. Be a **UW-Madison affiliate** with an active NetID (faculty, staff, graduate, undergraduate, or approved [external collaborator](#external-collaborators)).
+2. Use CHTC resources *only* for **research** or **approved courses**.
+3. Have a **faculty sponsor**. This is typically the Principal Investigator (PI) of your research group or your course instructor.
 
+> ### Don't have a NetID yet? Follow our External Collaborators section below!
+{:.tip-header}
+
+<blockquote class="tip">
+
+If you don't yet have a NetID, you can follow the instructions below to in the #external-collaborators section to request a NetID. Once your NetID is ready, you'll be able to fill out the [Account Request Form](https://wwwapps.chtc.wisc.edu/forms/user-applications/create/)!
+
+</blockquote>
 
 ## External collaborators
 
@@ -45,6 +53,8 @@ UW-Madison faculty members can sponsor accounts for external collaborators (incl
 3. Length of time to sponsor the account (up to 1 year, can be renewed)
 4. City/country of residence of external collaborator
 5. Institution of external collaborator
+
+Once your NetID has been created, you'll be able to fill out the [Account Request Form](https://wwwapps.chtc.wisc.edu/forms/user-applications/create/). 
 
 ## Use CHTC for a course
 
