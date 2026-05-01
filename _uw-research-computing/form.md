@@ -21,7 +21,7 @@ title: Request a CHTC Account
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
-		<a class="btn btn-primary" href="https://wwwapps.chtc.wisc.edu/forms/user-applications/create/">Request a CHTC Account</a>
+		<a class="btn btn-primary" href="https://userapp.chtc.wisc.edu/forms/user-applications/create/">Request a CHTC Account</a>
 	</div>
 </div>
 
@@ -40,7 +40,7 @@ To apply for a CHTC account, you must:
 
 <blockquote class="tip">
 
-If you don't yet have a NetID, you can follow the instructions below to in the #external-collaborators section to request a NetID. Once your NetID is ready, you'll be able to fill out the [Account Request Form](https://wwwapps.chtc.wisc.edu/forms/user-applications/create/)!
+If you don't yet have a NetID, you can follow the instructions below to in the #external-collaborators section to request a NetID. Once your NetID is ready, you'll be able to fill out the [Account Request Form](https://userapp.chtc.wisc.edu/forms/user-applications/create/)!
 
 </blockquote>
 
@@ -54,7 +54,7 @@ UW-Madison faculty members can sponsor accounts for external collaborators (incl
 4. City/country of residence of external collaborator
 5. Institution of external collaborator
 
-Once your NetID has been created, you'll be able to fill out the [Account Request Form](https://wwwapps.chtc.wisc.edu/forms/user-applications/create/). 
+Once your NetID has been created, you'll be able to fill out the [Account Request Form](https://userapp.chtc.wisc.edu/forms/user-applications/create/). 
 
 ## Use CHTC for a course
 
