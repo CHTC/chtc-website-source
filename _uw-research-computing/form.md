@@ -35,24 +35,21 @@ To apply for a CHTC account, you must:
 2. Use CHTC resources *only* for **research** or **approved courses**.
 3. Have a **faculty sponsor**. This is typically the Principal Investigator (PI) of your research group or your course instructor.
 
-> ### Don't have a NetID yet? Follow our External Collaborators section below!
+> ### Don't have a NetID yet?
 {:.tip-header}
-
-<blockquote class="tip">
-
-If you don't yet have a NetID, you can follow the instructions below to in the #external-collaborators section to request a NetID. Once your NetID is ready, you'll be able to fill out the [Account Request Form](https://userapp.chtc.wisc.edu/forms/user-applications/create/)!
-
-</blockquote>
+> If you don't have a NetID, your faculty sponsor should follow the instructions below in the [External Collaborators](#external-collaborators) section. We will review the request and send you an invitation to create a NetID. Once your NetID is ready, fill out the [Account Request Form](https://userapp.chtc.wisc.edu/forms/user-applications/create/)!
+{:.tip}
 
 ## External collaborators
 
 UW-Madison faculty members can sponsor accounts for external collaborators (including graduating students). Faculty members must email us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) with the following information:
 
 1. Name of external collaborator
-2. Reason for (continued) access to CHTC resources.
-3. Length of time to sponsor the account (up to 1 year, can be renewed)
-4. City/country of residence of external collaborator
-5. Institution of external collaborator
+1. Email of external collaborator
+1. Reason for (continued) access to CHTC resources.
+1. Length of time to sponsor the account (up to 1 year, can be renewed)
+1. City/country of residence of external collaborator
+1. Institution of external collaborator
 
 Once your NetID has been created, you'll be able to fill out the [Account Request Form](https://userapp.chtc.wisc.edu/forms/user-applications/create/). 
 
