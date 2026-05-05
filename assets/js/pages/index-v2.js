@@ -204,18 +204,29 @@ let getCollegeData = async () => {
     return await response.json()
 }
 
+let getFacilitatorData = async () => {
+    let response = await fetch("{{ '/assets/data/interaction-count.json' | relative_url }}")
+    return await response.json()
+}
+
 const StatisticRow = () => {
 
     const [data, setData] = useState([]);
+    const [facilitatorData, setFacilitatorData] = useState(null);
+
     useEffect(() => {
         getCollegeData().then(d => {
             setData(d)
+        })
+        getFacilitatorData().then(d => {
+            setFacilitatorData(d)
         })
     }, [])
 
     if(data){
         return(
             h("div", {className: "row justify-content-center"}, ...[
+                h(StatisticCard, {label: "Facilitator Interactions", value: facilitatorData ? facilitatorData['InteractionCount'] : 0, className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "Projects Supported", value: data.reduce((p, c) => {return p + c['NumProj']}, 0), className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "HTC Core Years", value: data.reduce((p, c) => {return p + c['HTCYears']}, 0), className: "col-6 col-md-3"}, ),
                 h(StatisticCard, {label: "HPC Core Years", value: data.reduce((p, c) => {return p + c['HPCYears']}, 0), className: "col-6 col-md-3"}, ),
