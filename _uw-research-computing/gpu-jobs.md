@@ -129,14 +129,6 @@ with the usual requests for CPUs, memory, and disk).
 request_gpus = 1
 	```
 	{: .sub}
-
-- **Request the CHTC GPU Lab**: To use CHTC's shared use GPUs, you need to opt-in to the GPU Lab. To 
-do so, add the
-following line to your submit file:
-	```
-+WantGPULab = true
-	```
-	{: .sub}
  
 - **Indicate Job Type**: We have categorized three "types"
 of GPU jobs, characterized in the table [above](#special-gpu-lab-policies).  Indicate which job type you would 
