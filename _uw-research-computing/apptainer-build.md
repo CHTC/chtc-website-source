@@ -337,39 +337,37 @@ Usage: units [options] ['from-unit' 'to-unit']
 <details>
 <summary><b>Non-interactive</b></summary>
 
-  Because the container build is a non-interactive process, all commands within the `.def` file must be able to execute without user intervention.
+  Because the container build is a non-interactive process, all commands within the <code>.def</code> file must be able to execute without user intervention.
 
 </details>
 <details>
 <summary><b>Be prepared to troubleshoot</b></summary>
 
-  A consequence of the non-interactive build is that when something goes wrong, the build process will fail without creating a `.sif` file.
+  A consequence of the non-interactive build is that when something goes wrong, the build process will fail without creating a <code>.sif</code> file.
   That in turn means that when the build is restarted, it does so from completely from scratch.
 
-  *It is rare to correctly write your `.def` file such that the container builds successfully on your first try!* 
-  Do not be discouraged - examine the build messages to determine what went wrong and use the information to correct your `.def` file, then try again.
+  <em>It is rare to correctly write your <code>.def</code> file such that the container builds successfully on your first try!</em> 
+  Do not be discouraged - examine the build messages to determine what went wrong and use the information to correct your <code>.def</code> file, then try again.
 </details>
 
 <details>
 <summary><b>Multi-stage build</b></summary>
 
   It is possible to have a multi-stage build.
-  In this scenario, you have two `.def` files.
-  You use the first one to construct an intermediary `.sif` file, which you can then use as the base for the second `.def` file.
-  In the second `.def` file, you can specify
+  In this scenario, you have two <code>.def</code> files.
+  You use the first one to construct an intermediary <code>.sif</code> file, which you can then use as the base for the second <code>.def</code> file.
+  In the second <code>.def</code> file, you can specify
 
-  ```
-  Bootstrap: localimage
-  From: path/to/first.sif
-  ```
+  <pre class="term"><code>Bootstrap: localimage
+From: path/to/first.sif</code></pre>
 </details>
 
 <details>
-<summary><b>`.sif` files can be large</b></summary>
+<summary><b><code>.sif</code> files can be large</b></summary>
   
-  If you are installing a lot of programs, the final `.sif` image can be large, on the order of 10s of gigabytes. 
+  If you are installing a lot of programs, the final <code>.sif</code> image can be large, on the order of 10s of gigabytes. 
   Keep that in mind when requesting disk space.
-  On the High Throughput system, we encourage you to place your container image on the `/staging` system.
+  On the High Throughput system, we encourage you to place your container image on the <code>/staging</code> system.
 
 </details>
 
@@ -387,18 +385,15 @@ Usage: units [options] ['from-unit' 'to-unit']
 <details>
 <summary><b>Manually set a HOME directory</b></summary>
 
-  Some programs create `.cache` directories and may attempt to do so in the user's "HOME" directory.
+  Some programs create <code>.cache</code> directories and may attempt to do so in the user's "HOME" directory.
   When executing in a container, however, the user typically does NOT have a "HOME" directory.
-  In this case, some programs default to creating the directory in the root `/` directory.
+  In this case, some programs default to creating the directory in the root <code>/</code> directory.
   This will not work for reasons in the previous item.
 
-  One workaround may be to manually set the `HOME` environment variable after the container has started. 
+  One workaround may be to manually set the <code>HOME</code> environment variable after the container has started. 
   On CHTC systems, the following should address this issue:
 
-  ```
-  export HOME=$(pwd)
-  ```
-  {:.term}
+  <pre class="term"><code>export HOME=$(pwd)</code></pre>
 
   If this does not address the issue, examine the error messages and consult the program documentation for how configure the program to use an alternate location for cache or temporary directories.
 
