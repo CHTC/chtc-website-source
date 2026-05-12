@@ -1,40 +1,22 @@
 ---
 highlighter: none
 layout: guide
-title: Hello Containers: Practice Building Apptainer Images on CHTC
+title: Practice Building Apptainer Containers on CHTC
 guide:
     category: Software
     tag:
         - htc
 ---
 
-
-# Hello Containers with Apptainer on CHTC
-
-Research workflows depend on software stacks that can be difficult to install consistently across systems. Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC, including how to write a definition file, submit an interactive build job, build and test a `.sif` image, store it in `/staging`, and use it in an HTCondor submit file. It also includes simple worked examples showing two common installation patterns: adding software with Conda and installing system packages with `apt-get`. By packaging software into an Apptainer image, you can create a controlled environment that is easier to test, share, and reuse in future jobs. On CHTC, containers are especially helpful when your workflow requires packages that are not already available, when you want to avoid repeatedly reinstalling software, or when you need a more reproducible setup for scaling jobs. 
-
-**Goal:** Build container images that include the software you need, and run jobs on the CHTC High Throughput Computing system using those images. 
+Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages. 
 
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 - [Before you start](#before-you-start)
-   * [Minimal Submit File Snippet](#minimal-submit-file-snippet)
-- [How Containers Are Built on CHTC](#how-containers-are-built-on-chtc)
+- [Overview](#overview)
 - [Example A — **Conda Install (`numpy` and `pandas`)**](#example-a--conda-install-numpy-and-pandas)
-   * [Write the container definition file: `conda-np-pd.def`](#write-the-container-definition-file-conda-np-pddef)
-   * [Create the container build job](#create-the-container-build-job)
-   * [Build the Apptainer container: `conda-np-pd.sif`](#build-the-apptainer-container-conda-np-pdsif)
-   * [Test the container within the build session](#test-the-container-within-the-build-session)
-   * [Store your apptainer container in `/staging`: ](#store-your-apptainer-container-in-staging)
 - [Example B — **Install via `apt-get`**](#example-b--install-via-apt-get)
-   * [Write the container definition file: `apt-cowsay.def`](#write-the-container-definition-file-apt-cowsaydef)
-   * [Create the container build job](#create-the-container-build-job-1)
-   * [Build the Apptainer container: `apt-cowsay.sif`](#build-the-apptainer-container-apt-cowsaysif)
-   * [Test the container within the build session](#test-the-container-within-the-build-session-1)
-   * [Store your apptainer container in `/staging`: ](#store-your-apptainer-container-in-staging-1)
 - [Running Jobs Using These Containers](#running-jobs-using-these-containers)
-   * [Example `run.sh`](#example-runsh)
-   * [Example `run.sub`](#example-runsub)
 - [Common Tips & Best Practices](#common-tips--best-practices)
 - [Related Pages](#related-pages)
 
@@ -43,17 +25,15 @@ Research workflows depend on software stacks that can be difficult to install co
 ## Before you start
 
 Before getting started, you'll need to make sure you have the following:
-- [x] A CHTC account on `ap2001` or `ap2002`
+- [x] A CHTC account on `ap2001` or `ap2002` or another HTC node. 
 - [x] A `/staging` directory with at least 10 GB of free space
-- [x] Unix text editing experience with `vim` or `nano`
+
+## Overview
 
 * Apptainer containers are self-contained images (`.sif` files) you can run in CHTC jobs. 
 * You *must* build them in an interactive build job on CHTC, *not* on the login node. 
-* Once built, put the `.sif` file in your `/staging` folder and reference it in your HTCondor submit file.
-
-### Minimal Submit File Snippet
-
-This is the submit file that tells HTCondor to use your container. 
+* Once built, put the `.sif` file in your `/staging` folder and reference it in your HTCondor submit file. 
+* The submit file below shows how to use your built container in a job. 
 
 ```text
 container_image = osdf:///chtc/staging/path/to/my-container.sif
@@ -70,11 +50,7 @@ request_disk = 8GB
 queue
 ```
 
-HTCondor will automatically transfer and use the container defined by `container_image`. 
-
-## How Containers Are Built on CHTC
-
-Containers should be built on a dedicated _Build Node_ on CHTC. We can target our interactive build jobs to a build node by following the steps below. 
+### Steps to build containers
 
 To build a container:
 
@@ -85,8 +61,9 @@ To build a container:
 5. **Test the image locally in the interactive build session.** 
 6. **Move the `.sif` to `/staging/your-user`.** 
 
+We will go through these six steps for each example below. 
 
-## Example A — **Conda Install (`numpy` and `pandas`)**
+## Example A — **Conda install (`numpy` and `pandas`)**
 
 This example shows how to include Python and a conda-installed package in your container.
 
@@ -158,7 +135,7 @@ exit
 mv conda-np-pd.sif /staging/$USER/conda-np-pd.sif
 ```
 
-> ### ⚠️ Containers Should Always Be Stored in `/staging`
+> ### ⚠️ containers should always be stored in `/staging`
 {:.tip-header}
 
 > Containers are large and often reused files. Storing them in your `/staging` directory avoids repeated transfers from your home directory, saving time and resources when running jobs.
@@ -239,13 +216,13 @@ exit
 mv apt-cowsay.sif /staging/$USER
 ```
 
-> ### ⚠️ Containers Should Always Be Stored in `/staging`
+> ### ⚠️ Containers should always be stored in `/staging`
 {:.tip-header}
 
 > Containers are large and often reused files. Storing them in your `/staging` directory avoids repeated transfers from your home directory, saving time and resources when running jobs.
 {:.tip}
 
-## Running Jobs Using These Containers
+## Running jobs using these containers
 
 Once built, your HTCondor job `run.sh` can simply invoke the installed tools:
 
@@ -284,13 +261,14 @@ queue
 > For more information about these protocols, see the [CHTC - Manage large data in /staging](https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata#main).
 {:.tip}
 
-## Common Tips & Best Practices
+## Common tips & best practices
 
 * **Always place the `.sif` in `/staging`** to leverage CHTC’s storage and avoid unnecessary transfers.
 * **Request enough disk space** in your submit file to transfer the container.
 * Use the existing [**CHTC Recipes repo**](https://github.com/CHTC/recipes/tree/main/software) as templates for common installations.
 
-## Related Pages
+## Related pages
+
 * [Building an apptainer Container](https://chtc.cs.wisc.edu/uw-research-computing/apptainer-build)
 * [Using Apptainer Containers on CHTC](https://chtc.cs.wisc.edu/uw-research-computing/apptainer-htc)
 * [CHTC Software Container Recipe Repo](https://github.com/CHTC/recipes/tree/main/software)
