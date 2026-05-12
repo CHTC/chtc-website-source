@@ -53,7 +53,7 @@ When emailing us for assistance in troubleshooting an issue, please provide as m
 
 Drop-in office hours are online during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm
+-   Tuesday morning: 10:30 am - 12:00 pm (**CANCELED** from May 11 through September 2) 
 -   Thursday afternoon: 3:00 - 4:30 pm
 
 Please sign in before joining the Zoom room. You can find the Zoom link in a Facilitator's email signature or in the login message when you log into a CHTC server.
