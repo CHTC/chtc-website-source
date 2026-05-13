@@ -5,12 +5,13 @@ nav_items:
   - id: get-started
     name: Get Started
     url: /uw-research-computing/form.html
+  - id: user-portal
+    name: User Portal
+    url: /uw-research-computing/user-portal
   - id: menu-how-tos
     name: How To's
     url: /uw-research-computing/how-tos.html
     sub_menu:
-      - url: /uw-research-computing/account-details.html
-        name: Get an Account
       - url: /uw-research-computing/user-expectations.html
         name: User Expectations
       - url: /uw-research-computing/htc/guides.html
@@ -22,13 +23,14 @@ nav_items:
   - id: get-help
     name: Get Help
     url: /uw-research-computing/get-help.html
-  - id: status-page
-    name: System Status
-    url: https://status.chtc.wisc.edu/
   - id: menu-other-resources
     name: Other Resources
     url: /uw-research-computing/other-resources.html
     sub_menu:
+      - url: "https://community.chtc.wisc.edu/"
+        name: CHTC Community Forum
+      - url: /uw-research-computing/bioinformatics-cafe
+        name: Bioinformatics Cafe
       - url: /uw-research-computing/gpu-lab.html
         name: CHTC GPU Lab
       - url: "https://htcondor.org/manual/"

@@ -98,7 +98,8 @@ Ensure you are using the correct file transfer protocol for efficiency. Failure 
 >
 > The caching mechanism enables faster transfers for frequently used files/containers. However, older versions of frequently modified files may be transferred instead of the latest version.
 >
-> **If you are changing the contents of the input files frequently, you should rename the file or change its path to ensure the new version is transferred.**
+> **If you change the contents of the input file, then you should rename the file or change its path to ensure the new version is transferred.**
+> Failing to do so may result in the old version, or worse, a corrupted version.
 {:.tip}
 
 ## Transfer output data from jobs

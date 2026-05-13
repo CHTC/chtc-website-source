@@ -136,10 +136,13 @@ For execution on a **single node**, we recommend adding the following commands t
 export TMPDIR=/scratch/$USER/apptainer_tmp/${SLURM_JOB_ID}
 mkdir -p $TMPDIR
 
-srun apptainer exec -e \
+srun  --mpi=pmix --export=NONE \
+    /usr/bin/apptainer exec \
     --bind /home/$USER \
     --bind /scratch/$USER \
     --bind $TMPDIR \
+    --bind $PWD \
+    -W $PWD \
     my-container.sif my-job-script.sh
 
 rm -rf $TMPDIR

@@ -14,25 +14,29 @@ published: true
 
 ## Quickstart: Conda
 
-### Option A (recommended)
+### Option A - Container (recommended)
 
-Build a container with Conda packages installed inside:
+Build a container with Conda packages installed inside. Start by reviewing 
+the container build instructions for either Apptainer or Docker. Then, when 
+following the build instructions, use the example recipes for either a 
+`.def` or `Dockerfile`, respectively. 
 
-1. [How to build your own container](software-overview-htc.html#build-your-own-container)
-2. [Example container recipes for Conda](https://github.com/CHTC/recipes/tree/main/software/Conda)
-3. [Use your container in your HTC jobs](software-overview-htc.html#use-an-existing-container)
+1. How to build your own container: [Apptainer](apptainer-htc#use-an-apptainer-container-in-htc-jobs) / [Docker](docker-build)
+2. Tips and tricks, container recipes: [Example container recipes for Conda](https://github.com/CHTC/recipes/tree/main/software/Conda)
+3. Use your container in your HTC jobs: [Apptainer](software-overview-htc.html#use-an-existing-container) / [Docker](docker-jobs.html#use-a-docker-container-in-a-job)
 
-### Option B
+<!-- replace this eventually with conda walkthrough --> 
+
+### Option B - "Packed" Conda Env
 
 Create your own portable copy of your Conda packages:
 
-1. Follow the instructions in [our guide](conda-installation.html#option-b-create-your-own-portable-copy)
-
-> This approach may be sensitive to the operating system of the execution point. 
+> This approach is sensitive to the operating system of the execution point. 
 > We recommend building a container instead, but are keeping these instructions as a backup.
 
 <!--more-->
 
+<!--
 ## More information
 
 The above instructions are intended for if you have package(s) that need to be installed using `conda install`. 
@@ -43,6 +47,7 @@ you should see the instructions specifically for setting up [Python or R](softwa
 When building or using a Miniconda container, you do not need to create or activate a conda environment.
 For the build process, you skip directly to the `conda install` commands you want to run.
 Similarly, when executing a script in a Miniconda container, the packages are loaded when the container starts.
+-->
 
 ### Executable
 

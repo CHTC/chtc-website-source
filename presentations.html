@@ -1,0 +1,95 @@
+---
+layout: default
+title: Presentations
+js_extension:
+-   src: "/assets/js/pages/presentations-list.js"
+    loading: defer
+    type: module
+---
+
+{% include get/presentations.liquid %}
+
+<div class="pt-3 container-xxl">
+    <h1 class="uw-mini-bar mb-4">Presentations</h1>
+
+    <div class="dropdown row-flex flex-column mb-3">
+        <button id="button-filter-event" class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Event
+        </button>
+        <ul class="dropdown-menu">
+            {% for event in all_presentation_events %}
+            <li class="mb-0"><a class="button-filter-event-dropdown dropdown-item" href="#" data-event-selector="{{event}}">{{event}}</a></li>
+            {% endfor %}
+
+            <!-- <li><a class="button-filter-event-dropdown dropdown-item" href="#" data-event-selector="Other">Other</a></li> -->
+        </ul>
+
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Keywords
+        </button>
+        <ul class="dropdown-menu p-3" onclick="event.stopPropagation();">
+            {% for keyword in all_presentation_keywords %}
+            <li class="mb-0">
+                <div class="form-check">
+                    <input class="form-check-input mt-2" type="checkbox" value="{{keyword}}" id="keyword-select-{{keyword}}" data-keyword-selector="{{keyword}}">
+                    <label class="form-check-label fw-normal" style="font-weight: 400;" for="keyword-select-{{keyword}}">
+                    {{keyword}}
+                    </label>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <button class="btn btn-outline-secondary" id="button-clear-filters" style="display: none;">Clear Filters</button>
+    </div>
+
+    <div class="row mt-3 mx-auto">
+        {% for presentation in presentations %}
+        <div class="presentation-card col-12 col-md-6 mb-3" data-event="{{ presentation.event }}" data-keywords="{{ presentation.keywords | join: ',' }}">
+            <div class="news news-summary">
+                <div class="article-content">
+                    {% if presentation.youtube_video_id %}
+                        {% assign presentation_image_path = "https://img.youtube.com/vi/" | append: presentation.youtube_video_id | append: "/hqdefault.jpg" %}
+                        {% assign presentation_image_alt = presentation.title | append: " presentation thumbnail" %}
+                    {% elsif presentation.image %}
+                        {% assign presentation_image_path = presentation.image.path | relative_url %}
+                        {% assign presentation_image_alt = presentation.image.alt %}
+                    {% endif %}
+                    <a href="{{ presentation.url | relative_url }}" class="d-block">
+                        <img class="w-100 image-card-cap rounded mb-3" style="aspect-ratio:3.5; object-fit: cover;" src="{{ presentation_image_path }}" alt="{{ presentation_image_alt }}">
+                    </a>
+                    <h2 class="article-title mt-0 mb-0">
+                        <a href="{{ presentation.url | relative_url }}">{{ presentation.title }}</a>
+                    </h2>
+
+                    <h4 class="text-muted mt-0">
+                        {{ presentation.presenter }}
+                        {% if presentation.event %}
+                            at {{ presentation.event }}
+                        {% endif %}
+                    </h4>
+
+                    <div class="mb-3">
+                    {% for tag in presentation.keywords %}
+                        <span class="tag-badge badge">{{ tag }}</span>
+                    {% endfor %}
+                    </div>
+
+                    <div class="presentation-description collapsed">
+                        {{ presentation.description | markdownify }}
+
+                        <div class="gradient-overlay"></div>
+                    </div>
+
+                    {% assign date = presentation.date | date: "%B %e, %Y" %}
+                    <small class="text-muted mb-0" style="flex-grow: 0; flex-shrink: 0;">{{ date }}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="no-presentations-found" class="col-12" style="display: none;">
+        <p class="text-muted">No presentations found.</p>
+    </div>
+</div>

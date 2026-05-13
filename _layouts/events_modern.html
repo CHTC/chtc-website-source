@@ -1,0 +1,29 @@
+---
+layout: container
+---
+
+<div class="event">
+    {% include event/event-header.html %}
+
+    <div class="row event pt-3">
+        <div class="main col-12 col-md-8 order-1 order-md-1" markdown="1">
+            {{ content }}
+        </div>
+
+        {% if page.sidebar %}
+        <div class="subsection col-12 col-md-4 order-2 order-md-2">
+            <div class="ms-md-4  bg-light p-3">
+                {{ page.sidebar | markdownify }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if page.endblock %}
+    <div class="row">
+        <div class="col-12">
+            {{ page.endblock | markdownify }}
+        </div>
+    </div>
+    {% endif %}
+</div>

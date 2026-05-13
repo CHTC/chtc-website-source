@@ -79,7 +79,11 @@ function SearchBar(id, index_path, metadata_path) {
             if(!index){
                 index = await fetch(this.index_path).then(data => data.json())
                 this.idx = lunr.Index.load(index)
-                sessionStorage.setItem("main_index", JSON.stringify(index))
+                try {
+                    sessionStorage.setItem("main_index", JSON.stringify(index))
+                } catch (e) {
+                    console.warn("Could not cache search index: ", e)
+                }
             } else {
                 this.idx = lunr.Index.load(index)
             }

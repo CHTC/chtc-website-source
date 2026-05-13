@@ -6,14 +6,14 @@ title: Events
     <div class="row justify-content-center">
         <div class="col mw-1000 pb-5">
             <div class="row mb-3">
-                {% include get/future_events.html %}
+                {% include get/future_events.liquid %}
                 {% for event in future_events %}
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         {% include event/event-card.html %}
                     </div>
                 {% endfor %}
             </div>
-            {% include get/past_events.html %}
+            {% include get/past_events.liquid %}
             {% if past_events.size > 0 %}
                 <h1 class="text-muted">Past Events</h1>
                 <div class="row">

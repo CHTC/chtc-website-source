@@ -1,0 +1,26 @@
+- name: Support
+  links:
+    - text: Get Help
+      url: /uw-research-computing/get-help.html
+    - text: Community Forum
+      url: https://community.chtc.wisc.edu/
+    - text: System Status
+      url: https://status.chtc.wisc.edu/
+    - text: Request an account
+      url: /uw-research-computing/form
+    - text: Request a quota change
+      url: /uw-research-computing/quota-request
+- name: Events
+  links:
+    - text: Events and Training
+      url: /events.html
+    - text: Bioinformatics Café
+      url: /uw-research-computing/bioinformatics-cafe
+- name: About and information
+  links:
+    - text: About
+      url: /about
+    - text: User expectations
+      url: /uw-research-computing/user-expectations
+    - text: Cite us
+      url: /uw-research-computing/cite-chtc

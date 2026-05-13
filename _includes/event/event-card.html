@@ -4,7 +4,7 @@
     <div>
         {% if event.image %}
             <a href="{{ event.url }}">
-                <img alt="" class="rounded w-100" src="{{ event.image | relative_url }}" style="max-height: 200px; object-fit: cover;">
+                <img alt="{{ event.image.alt }}"  class="rounded w-100" src="{{ event.image.path | relative_url }}" style="max-height: 200px; object-fit: cover;">
             </a>
         {% endif %}
     </div>
@@ -23,8 +23,5 @@
                 {{ date }}
             </h4>
         {% endif %}
-        <h4 class="fw-normal mt-3">
-            {{ event.location }}
-        </h4>
     </div>
 </div>

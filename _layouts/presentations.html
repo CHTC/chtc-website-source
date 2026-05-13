@@ -1,0 +1,55 @@
+---
+layout: default
+js_extension:
+- src: /assets/js/pages/presentations-list.js
+  defer: true
+---
+
+{% assign date = page.date | date: "%B %e, %Y" %}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-9 col-xl-8 fs-5">
+        <div class="event-header pt-4">
+            <div class="row my-3">
+                <h1>{{ page.title }}</h1>
+            </div>
+
+            {% if page.youtube_video_id %}
+            <div class="row">
+                <div class="flex justify-content-center" style="display: flex;">
+                    <iframe
+                        src="https://www.youtube.com/embed/{{ page.youtube_video_id }}"
+                        width="720"
+                        height="480"
+                        frameborder="0"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="mb-3 d-flex flex-row justify-content-between">
+                <h4 class="text-muted">
+                    {{ page.presenter }} {% if page.event %} at {{ page.event }}{% endif %}
+                </h4>
+                <h4 class="text-muted">{{ date }}</h4>
+            </div>
+
+            {{ page.description | markdownify }}
+
+            <div>
+            {% for tag in page.keywords %}
+                <span class="tag-badge badge">{{ tag }}</span>
+            {% endfor %}
+            </div>
+
+
+            <h4 class="h4 mt-3 mb-0">Associated Links</h2>
+            <ul>
+                {% for link in page.links %}
+                <li><a href="{{ link.value }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

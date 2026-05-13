@@ -1,19 +1,22 @@
 title: Research Software Engineer
 text: |
-  The Research Software Engineer (RSE) will work to bring modern software engineering techniques and approaches
-  to research projects at the institute as part of long-running engagements and collaborations between scientists.
+  The Research Software Engineer (RSE) will work to bring modern software engineering techniques and approaches to 
+  research projects at the institute as part of long-running engagements and collaborations between scientists. At 
+  Morgridge, the RSE will sit at the nexus of exciting research, large-scale computing, and national cyberinfrastructure
+  projects. Whether it’s using agentic AI to enhance a codebase, making data transfers more robust, or making workloads
+  run more effectively across thousands of cores, the RSE will have a diversity of challenges and help advance 
+  Morgridge’s goals of Fearless Science. The initial projects will focus on development of the Pelican Platform, 
+  which is used for a distributed data delivery and transfer system across the US.
   
-  At Morgridge, the RSE will sit at the nexus of exciting research, large-scale computing, and national
-  cyberinfrastructure projects. Whether its bringing a codebase up to production quality, designing
-  programmatic interfaces, or making workloads run more effectively across thousands of cores, the
-  RSE will have a diversity of challenges and help advance Morgridge’s goals of Fearless Science. 
-  
-  Potential projects will be diverse, including facilitating machine learning projects, developing 
-  tools for global distributed data management, and enabling large-scale protein simulation; 
-  projects will be tailored based on the candidate.
+  The position will work in the Morgridge Research Computing theme and with the Center for High Throughput 
+  Computing (CHTC) at the UW-Madison; these groups are led by PIs who lead cyberinfrastructure projects such 
+  as the Partnership to Advance Throughput Computing (PATh), a major NSF investment in the vision that high 
+  throughput computing can make an outsized impact on science, and the Pelican Platform. Combined, the teams have 
+  about 25 staff members, operate 25,000 computing cores and over 300 GPUs, and interacts with over 100 external 
+  universities – ensuring there are always interesting challenges in distributed systems.
 button:
   href: https://morgridge.org/job-posting/research-software-engineer/
   text: View Posting
 type: Full Time
 institution: Morgridge Institute for Research
-close_date: 1 # Closed
+close_date: 999999999999999 # Open

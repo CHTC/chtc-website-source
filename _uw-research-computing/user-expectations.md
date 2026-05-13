@@ -27,6 +27,13 @@ notice being shared will be immediately disabled and a meeting with the PI
 For more information on the process for obtaining an account, see our 
 [How to Request an Account](account-details.html) guide.
 
+**Users of CHTC agree to follow cybersecurity policies** to ensure the security of CHTC servers.
+This includes
+
+* instructions detailed in our [Security Policies](security) guide,
+* [Universities of Wisconsin cybersecurity policies](https://www.wisconsin.edu/regents/policies/acceptable-use-of-information-technology-resources/),
+* any applicable local, state, or federal laws.
+
 ## Data Policies
 
 **CHTC data locations are not backed up**, and users should
@@ -77,6 +84,10 @@ etc.) that run within a few minutes on the submit server are okay,
 but their use should be minimized when possible. If you have questions about this, 
 please contact the facilitation team. CHTC staff reserve the right to kill any long-running or problematic processes on the 
 head nodes and/or disable user accounts that violate this policy
+
+> ### Using LLM agents on login nodes / access points
+> 
+> See [this page](agent-recommendations) for recommendations on how to best use LLM agents on CHTC. 
 
 **Avoid unsupervised scripts on the login nodes.** Automating tasks via tools like 
 `cron`, `watch`, or using a workflow manager (not including HTCondor's DAGMan) on the login node is not allowed without prior 

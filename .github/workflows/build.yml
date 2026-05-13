@@ -5,6 +5,7 @@ on:
   pull_request:
     branches: [master]
   workflow_call:
+  workflow_dispatch:
 
 permissions:
   actions: read
@@ -35,6 +36,18 @@ jobs:
           -o assets/data/hero-stats.csv \
           -f \
           -L https://api.github.com/repos/CHTC/website-stats/contents/hero-stats.csv
+          
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/chtc-data-summary.json \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/website-data/chtc-data-summary.json
+          
+          curl -H 'Authorization: token ${{ secrets.WEBSITE_STATS_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -o assets/data/interaction-count.json \
+          -f \
+          -L https://api.github.com/repos/CHTC/website-stats/contents/website-data/interaction-count.json
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -48,15 +61,30 @@ jobs:
       - uses: CannonLock/search_index_build@master
         with:
           parameter_file_path: .search-bar.json
-      # SSH key recipe from https://www.webfactory.de/blog/use-ssh-key-for-private-repositories-in-github-actions
+
+      # Deploy for kubernetes to pick up
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          path: _site
+          retention-days: 90
+
+      # Deploy for CSL to pick up
       - name: Add the schedule file symlink
         run: |
           cd _site/staff
           ln -s /p/condor/public/html/developers/schedules schedules
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: chtc-website
-          path: _site
-          include-hidden-files: true
+      - run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+          ./script/cideploy
+        env:
+          #NO_PUSH: 1
+          TARGET_REPO: CHTC/chtc.github.io
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        name: Deploy web pages on merge/push
