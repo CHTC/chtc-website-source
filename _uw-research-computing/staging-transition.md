@@ -70,7 +70,7 @@ container_image = osdf:///chtc/staging/n/netid/my-container.sif
 
 > ### Use the environment variable `STAGING`
 {:.tip-header}
-> We have set the environment variable `STAGING` to refer to your personal staging directory. For example:
+> We have set the environment variable `STAGING` on the Access Points to refer to your personal staging directory. For example:
 > ```
 > [netid@ap2001] echo $STAGING
 > /staging/n/netid
@@ -82,6 +82,11 @@ container_image = osdf:///chtc/staging/n/netid/my-container.sif
 > container_image = osdf:///chtc$ENV(STAGING)/my-container.sif
 > ```
 > HTCondor will replace `$ENV(STAGING)` with the path to your personal staging directory (i.e., `/staging/n/netid`). [See HTCondor docs](https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html#function-macros-in-the-submit-description-file) for more details about the `$ENV()` macro.
+> 
+> If you want to refer to your staging directory using the `$STAGING` environment variable **in your jobs**, add this to your submit file:
+> ```
+> environment = "STAGING=$ENV(STAGING)"
+> ```
 {:.tip}
 
 ## Why we are transitioning
