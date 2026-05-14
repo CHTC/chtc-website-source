@@ -16,7 +16,7 @@
     - text: "Quick reference: HTCondor commands"
       url: "/uw-research-computing/htcondor-quick-ref"
       icon: "bi bi-book"
-    - text: "Quick reference: HTCondor Submit commands"
+    - text: "Quick reference: HTCondor submit file options"
       url: "/uw-research-computing/condor-submit-quick-ref"
       icon: "bi bi-book"
 

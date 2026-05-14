@@ -1,7 +1,7 @@
 ---
 layout: guide
-title: "Quick reference: HTCondor Submission commands"
-alt_title: "Quick reference: HTCondor Submission commands"
+title: "Quick reference: HTCondor submit file options"
+alt_title: "Quick reference: HTCondor submit file options"
 guide:
     category: Get started
     tag: htc
@@ -9,7 +9,7 @@ guide:
 
 ## Introduction
 
-This page lists common HTCondor commands and options for jobs. Users familiar with HTCondor and job submission on CHTC's High Throughput Computing (HTC) system can use this page as a quick reference. For users who are just starting out, we suggest reading our linked guides to understand the full context of each command or option.
+This page lists common HTCondor submit file options for jobs. Use this page as a quick reference. For users who are just starting out, read our linked guides to understand the full context of each command or option.
 
 {% capture content %}
 - [Introduction](#introduction)
@@ -34,7 +34,7 @@ This page lists common HTCondor commands and options for jobs. Users familiar wi
 
 ## Commands to submit jobs
 
-See [job submission basics](htcondor-job-submission)
+See [job submission basics](htcondor-job-submission).
 
 | Command | Use | Notes and Examples                                                                                                                                                                                                                        |
 | --- | --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,16 +44,20 @@ See [job submission basics](htcondor-job-submission)
 
 ## Basic submit file options
 
+See [job submission basics](htcondor-job-submission).
+
 | Option                           | Use | Notes and Examples                                                                                                                                 |
 |----------------------------------| --- |----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `executable = <<script_or_binary>`   | path to the executable script or binary | The executable is automatically transferred to the Execution Point (EP) by HTCondor. <br><br> **Example:** <br>`executable = helloWorld.py` |
+| `executable = <script_or_binary>`   | Path to the executable script or binary. Cannot be used with `shell`. | The executable is automatically transferred to the Execution Point (EP) by HTCondor. <br><br> **Example:** <br>`executable = helloWorld.py` |
 | `arguments = "<args>"`           | lists arguments to be passed to the executable as part of the command line | Arguments are space separated. To embed spaces in an argument using single quotes.<br><br> **Example:** <br>`arguments = "--print 'hello world'"`   |
+| `shell = <command>`   | The command and arguments to execute. Cannot be used with `executable`.  | You may need to transfer your executable script in `transfer_input_files` <br><br> **Example:** <br>`shell = python3 code.py` |
 | `log = <job.log>`                | denotes the path to the log file | We recommend always specifying `log` to help with troubleshooting. If `log` is not provided, no log file is written. <br><br> **Example:** <br>`log = log_files/job1.log` |
 | `output = <job.out>`             | denotes the path to the file capturing `stdout` screen output | Can be merged with `stderr` by denoting the same path in `error = <path>`. <br><br> **Example:** <br>`output = log_files/job1.out` |
 | `error = <job.err>`              | denotes the path to file capturing `stderr` screen output | **Example:** <br>`error = log_files/job1.err`  |
+| `batch_name = <name>` | optional user-defined name for the job | Defaults to the job ID if not specified <br><br>**Example:** <br>`batch_name = train_$(Cluster)_$(Process)`  |
 {:.command-table}
 
-_Note: If log, error, or output is not defined, troubleshooting held jobs **will** be signifantly more difficult._
+_Note: If log, error, or output is not defined, troubleshooting jobs **will** be significantly more difficult._
 
 ## Transfer files
 
@@ -61,7 +65,7 @@ Visit our [file transfer guide](htc-job-file-transfer) for more details.
 
 | Option                                                     | Use | Notes and Examples                                                                                                                                                                                                                                                             |
 |------------------------------------------------------------| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `transfer_input_files = <file1>, <file2>`                                  | lists all the input files to be transferred to the Execution Point (EP) | Comma-separated list. Various file transfer protocols can be used including `file:///`, `osdf:///`, `pelican:///`, and `s3:///`. <br><br> **Examples:** <br> `transfer_input_files = osdf:///chtc/staging/...`                                                                 |
+| `transfer_input_files = <file1>, <file2>`                                  | lists all the input files to be transferred to the Execution Point (EP) | Comma-separated list. Various file transfer protocols can be used including `file:///`, `osdf:///`, and `pelican:///`. <br><br> **Examples:** <br> `transfer_input_files = osdf:///chtc/staging/...`                                                                 |
 | `transfer_output_files = <file1>, <file2>`                                 | explicitly lists the path to files on the EP to be returned to the working directory on the AP. | If this is not specified, HTCondor will only transfer new and changed **files** in the top-level directory of the Execution Point. Subdirectories are not transferred. <br><br> **Example:**<br>`transfer_output_files = results.txt`|
 | `transfer_output_remaps = "<file>=<new_path>; <file2>=<new_path>"` | remaps output files to a specified path. Can be used for renaming files. | Delimited by semicolons. Can be used in conjunction with various file transfer protocols. <br><br> **Example:** <br>`transfer_output_remaps = "results.txt=osdf:///chtc/staging/<user>/job1_results.txt"` |
 {:.command-table}
@@ -77,7 +81,7 @@ Visit our [file transfer guide](htc-job-file-transfer) for more details.
 | `gpus_minimum_capability = <version>`    | sets minimum GPU capability               | **Example:** <br>`gpus_minimum_capability = 8.5`                                                                                                                                         |
 | `gpus_maximum_capability = <version>`    | sets maximum GPU capability                | **Example:** <br>`gpus_maximum_capability = 9.0`                                                                                                                                         |
 | `gpus_minimum_memory = <quantity>` | requests minimum GPU VRAM memory (Default in MB)                 | **Example:** <br>`gpus_minimum_memory = 3200`                                                                                                                                            |
-| `requirements = <ClassAd Boolean>`       | Specify job requirements to restrict jobs to certain execution points  | See [ClassAd reference](https://htcondor.readthedocs.io/en/lts/classad-attributes/machine-classad-attributes.html). <br><br> **Example:** <br>`requirements = (TARGET. HasCHTCStaging == true)` |
+| `requirements = <ClassAd Boolean>`       | Specify job requirements to restrict jobs to certain execution points  | **Example:** <br>`requirements = (HasCHTCStaging == true)` |
 
 {:.command-table}
 
@@ -95,14 +99,14 @@ _Note: For more information on using containers in your jobs, please visit our [
 
 ## Submit multiple jobs
 
-See our [multiple jobs guide](multiple-jobs#variables).
+See our [multiple jobs guide](multiple-jobs).
 
 | Option                                   | Use | Notes and Examples                                                                                                                         |
 |------------------------------------------| --- |--------------------------------------------------------------------------------------------------------------------------------------------|
 | `queue`                                  | submits a single job | If no other options specified, submits one job.                                                                                             |
-| `queue <int>`                            | submits multiple copies of the job | **Example:** <br>`queue 10`                                                                                                                |
-| `queue <var> from <file>`                | submits jobs using values from a file | The `<var>` value(s) can be used elsewhere in the submit file.<br><br> **Example:** <br>`queue name from listOfEmployeeNames.txt` |
-| `queue <var1>,<var2> from <file>`        | submits jobs using multiple vars from file | **Example:** <br>`queue first, last from listOfEmployeeNames.txt`                                                                        |
+| `queue <N>`                            | submits `<N>` number jobs | **Example:** <br>`queue 10`                                                                                                                |
+| `queue <var> from <list>`                | submits jobs using variables from a list | The `<var>` value(s) can be used elsewhere in the submit file using `$(var)` syntax. <br><br> **Example:** <br>`queue name from listOfEmployeeNames.txt` |
+| `queue <var1>,<var2> from <list>`        | submits jobs using multiple variables from a list | **Example:** <br>`queue first, last from listOfEmployeeNames.txt`                                                                        |
 | `queue <var> in [slice] <list>`          | submits jobs using Python-style slicing | **Example:** <br>`queue name in [5:18] listOfEmployeeNames.txt`                                                                          |
 | `queue <var> matching <globbing_string>` | submits jobs from file pattern matches | **Example:** <br>`queue sampleID matching samples/sampleID_*`                                                                            |
 {:.command-table}
@@ -116,7 +120,7 @@ See our [multiple jobs guide](multiple-jobs#variables).
 
 ## Scale beyond local capacity
 
-These options are best for short (<8hr) or checkpointable jobs. Expands matching opportunities across campus. Read more about [scaling beyond local capacity](scaling-htc). **Do not include `HasCHTCStaging` in the requirements**.
+These options are best for short (<8hr) or checkpointable jobs. Expands matching opportunities across campus. Read more about [scaling beyond local capacity](scaling-htc). **If you are using these options, do not include `HasCHTCStaging` in the requirements**.
 
 | Option | Use | Notes and Examples |
 | --- | --- | --- |
