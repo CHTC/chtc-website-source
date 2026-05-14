@@ -163,9 +163,9 @@ Each of the disk space values are given in megabytes (MB), which can be converte
 
 ### Check `/staging` Quota and Usage
 
-To see your `/staging` quota and usage, use the `get_quotas <NetID>` command. For example, 
+To see your `/staging` quota and usage, use the `get_quotas` command. For example, 
 ```
-[NetID@ap2001 ~]$ get_quotas /staging/NetID
+[NetID@ap2001 ~]$ get_quotas
 ```
 {:.term}
 
@@ -178,8 +178,8 @@ Alternatively, the `ncdu` command can also be used to see how many
 files and directories are contained in a given path:
 
 ``` 
-[NetID@ap2001 ~]$ ncdu /home/NetID
-[NetID@ap2001 ~]$ ncdu /staging/NetID
+[NetID@ap2001 ~]$ ncdu /home/username
+[NetID@ap2001 ~]$ ncdu /staging/u/username
 ```
 {:.term}
 

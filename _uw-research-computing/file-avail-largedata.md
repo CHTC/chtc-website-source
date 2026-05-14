@@ -26,7 +26,7 @@ When submitting jobs to the HTC system, large data needs to be stored and handle
    * [Intended use](#intended-use)
    * [User responsibilities](#user-responsibilities)
 - [Stage large data](#stage-large-data)
-   * [Request a `/staging` directory](#request-a-staging-directory)
+   * [Your personal `/staging` directory](#your-personal-staging-directory)
    * [Reduce file counts](#reduce-file-counts)
    * [Use the transfer server](#use-the-transfer-server)
    * [Remove files after jobs complete](#remove-files-after-jobs-complete)
@@ -67,18 +67,24 @@ CHTC staff reserve the right to remove data from our large data staging location
 
 In order to stage large data for use on CHTC's HTC system, users must: 
 
-1. **Request a `/staging` directory**: Use our quota request form.
 1. **Reduce file counts**: Combine and compress files that are used together.
 1. **Transfer files to the HTC system via the transfer server**: Upload your data via our dedicated file transfer server.
 1. **Remove files after jobs complete**: Our data staging space is quota-controlled and not backed up. 
 
-### Request a `/staging` directory
+### Your personal `/staging` directory
 
-Any one with a CHTC account whose data meets the intended use above can request space in our large data staging area by filling out a quota request form. The default quota is 100 GB / 1000 items; if a larger quota is needed, request a higher quota. The created directory will exist at this path: `/staging/username`
+Each user should have a personal `/staging` directory. The created directory will exist in an alphabetized subdirectory based on the **first letter** of your NetID. For example:
+
+| NetID | Path to your personal `/staging` directory |
+| --- | --- |
+| `alice` | `/staging/a/alice` |
+| `bucky` | `/staging/b/bucky` |
 
 We can also create group or shared spaces by request. 
 
-<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a <code>/staging</code> directory or higher quota?</p>
+The default quota is 100 GB / 1000 items; if a larger quota is needed, request a higher quota.
+
+<p style="text-align: center; margin-bottom: 0; font-weight: bold;">Need a group <code>/staging</code> directory or higher quota?</p>
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
 		<a class="btn btn-primary" style="text-align: center" href="quota-request">Quota request form</a>
@@ -88,7 +94,7 @@ We can also create group or shared spaces by request.
 
 ### Reduce file counts
 
-The file system backing our `/staging`space is optimized to handle small numbers of large files. If your job requires many small files, we recommend placing these files in the `/home` directory or compressing multiple files into a single zip file or tarball. See [this table](htc-job-file-transfer#data-storage-locations) for more information on the differences between `/staging` and `/home`. 
+The file system backing our `/staging` space is optimized to handle small numbers of large files. If your job requires many small files, we recommend placing these files in the `/home` directory or compressing multiple files into a single zip file or tarball. See [this table](htc-job-file-transfer#data-storage-locations) for more information on the differences between `/staging` and `/home`. 
 
 Data placed in our large data `/staging` location should be stored in as few files as possible (ideally, one file per job), and will be used by a job only after being copied from `/staging` into the job working directory. Similarly, large output should first be written to the job's working directory then compressed in to a single file before being copied to `/staging` at the end of the job. 
 
@@ -105,7 +111,7 @@ Uploading or downloading data to `/staging` should only be performed via CHTC's 
 
 For example, you can use `scp` to transfer files into your `/staging` directory:
 ```
-$ scp large.file netid@transfer.chtc.wisc.edu:/staging/netid/ 
+$ scp large.file username@transfer.chtc.wisc.edu:/staging/u/username/ 
 ```
 {:.term}
 
@@ -123,7 +129,7 @@ Staged files should be specified in the job submit file using the `osdf:///` or 
 depending on the size of the files to be transferred. [See this table for more information](htc-job-file-transfer#transfer-input-data-to-jobs-with-transfer_input_files).
 
 ```
-transfer_input_files = osdf:///chtc/staging/username/file1, file:///staging/username/file2, file3 
+transfer_input_files = osdf:///chtc/staging/u/username/file1, file:///staging/u/username/file2, file3 
 ```
 {:.sub}
 
@@ -136,7 +142,7 @@ Large outputs should be transferred to staging using the same file transfer prot
 
 ```
 transfer_output_files = file1, file2, file3
-transfer_output_remaps = "file1 = osdf:///chtc/staging/username/file1; file2 = file:///staging/username/file2"
+transfer_output_remaps = "file1 = osdf:///chtc/staging/u/username/file1; file2 = file:///staging/u/username/file2"
 ```
 {:.sub}
 
@@ -166,14 +172,14 @@ within the user's `/home` directory:
 ``` {.sub}
 ### Example submit file for a single job that stages large data
 # Files for the below lines MUST all be somewhere within /home/username,
-# and not within /staging/username
+# and not within /staging/u/username
 
 executable = run_myprogram.sh
 log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-transfer_input_files = osdf:///chtc/staging/username/myprogram, file:///staging/username/largedata.tar.gz
+transfer_input_files = osdf:///chtc/staging/u/username/myprogram, file:///staging/u/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)

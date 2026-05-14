@@ -1,0 +1,98 @@
+---
+highlighter: none
+layout: guide
+title: "Staging directory transition"
+guide:
+    category: General
+    tag:
+        - htc
+--- 
+
+
+<p style="text-align:center"><img src="/images/staging-transition.svg" alt="Illustration of the `/staging` directory structure transition. On the left hand panel, the `/staging` directories has the subdirectories `alice`, `alison`, `bucky`, and `cathy`. An arrow points to the right hand panel, which has the `/staging` directory with the subdirectories `a`, `b`, and `c`. Subdirectories `alice` and `alison` are in the `a` subdirectory, `bucky` in the `b` subdirectory, and `cathy` in the `c` subdirectory." width=500px></p>
+<p style="text-align:center"><caption>Illustration of the <code>/staging</code> directory structure transition.</caption></p>
+
+
+## Transition to a new `/staging` directory structure
+
+Starting May 15, we are transitioning to a new directory structure for personal staging directories. **This affects all users on the HTC system**. Plan to adjust your workflows by June 15. See [What you should do](#what-you-should-do) for details.
+
+Personal staging directories will now be located in **alphabetized subdirectories** based on the first letter of your NetID. For example:
+
+
+| Previous `/staging` directory path | New `/staging` directory path |
+| --- | --- |
+| `/staging/netid` | `/staging/n/netid` |
+| `/staging/bucky` | `/staging/b/bucky` |
+
+Group `/staging` directories are not affected and will remain in the `/staging/groups` subdirectory.
+
+## Transition process
+
+CHTC will:
+
+1. Move your files and quota limits to your new `/staging` directory.
+2. Create a [symlink](https://en.wikipedia.org/wiki/Symbolic_link) at your previous `/staging` directory path that points to the new `/staging` directory path.
+
+## Timeline
+
+* **Before May 15**.
+   - Use `/staging/netid` in your jobs.
+* **Between May 15 - June 15**.
+    - Data is available at a new path (`/staging/n/netid`).
+    - [Start transitioning jobs](#what-you-should-do) to use this new path.
+* **After June 15**. 
+    - You must use `/staging/n/netid` in jobs.
+    - Symlinks at previous `/staging` directory paths will be deleted.
+
+## What you should do
+
+If you have an existing `/staging` directory, **between May 15 and June 15**, please review all your files that reference your `/staging` directory. This may include but is not limited to:
+
+* HTCondor submit files
+* Executables and scripts
+* Environment variables
+* DAGMan files
+
+Please change any reference to your personal `/staging` directory to the new path.
+
+For example, in an HTCondor submit file, change:
+
+```
+container_image = osdf:///chtc/staging/netid/my-container.sif
+```
+
+to:
+
+```
+container_image = osdf:///chtc/staging/n/netid/my-container.sif
+```
+
+> ### Use the environment variable `STAGING`
+{:.tip-header}
+> We have set the environment variable `STAGING` on the Access Points to refer to your personal staging directory. For example:
+> ```
+> [netid@ap2001] echo $STAGING
+> /staging/n/netid
+> ```
+> {:.term}
+> 
+> You may use this environment variable in your submit file:
+> ```
+> container_image = osdf:///chtc$ENV(STAGING)/my-container.sif
+> ```
+> HTCondor will replace `$ENV(STAGING)` with the path to your personal staging directory (i.e., `/staging/n/netid`). [See HTCondor docs](https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html#function-macros-in-the-submit-description-file) for more details about the `$ENV()` macro.
+> 
+> If you want to refer to your staging directory using the `$STAGING` environment variable **in your jobs**, add this to your submit file:
+> ```
+> environment = "STAGING=$ENV(STAGING)"
+> ```
+{:.tip}
+
+## Why we are transitioning
+
+Our `/staging` directories are backed by the Ceph File System, which has [slower performance when it must load very large directories](https://docs.ceph.com/en/reef/cephfs/app-best-practices/#very-large-directories). To mitigate large loads on the file system, we are sorting users personal staging directories into alphabetized subdirectories. 
+
+## Get support
+
+If you have questions or concerns, please email us at [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu).

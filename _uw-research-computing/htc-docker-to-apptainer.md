@@ -78,7 +78,7 @@ INFO:    Build complete: container.sif
 Because container images are generally large, we require users to move these images into their staging directories. While you are still in your interactive job, move the image to your staging directory.
 
 ```
-mv container.sif /staging/username/
+mv container.sif /staging/u/username/
 ```
 {:.term}
 
