@@ -51,7 +51,13 @@ This feature is ideal for researchers who:
 
 ## Enable CHTC integration for your PI's ResearchDrive
 
-To use this feature, we will need to integrate your PI's ResearchDrive with CHTC systems. The PI should send an email to [chtc@cs.wisc.edu](mailto:chtc@cs.wisc.edu) giving permission for this integration. Once we have this permission, we will complete the integration process within 3-5 business days. The PI will be notified when this integration is ready to use.
+To use this feature, we will need to integrate your PI's ResearchDrive with CHTC systems. **Only PIs should request integration via the form below.** If you are a not a PI, ask your PI to fill out this form.
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_8CeVvtkmNYFVFqu">Faculty request for ResearchDrive integration</a>
+	</div>
+</div>
 
 ## Transfer input files from ResearchDrive to jobs
 
