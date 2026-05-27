@@ -20,7 +20,6 @@ include:
   - ".htaccess"
   - ".gitignore"
   - "icecube/.well-known"
-  - "nsdf/.well-known"
   - "uwdf/researchdrive/.well-known"
 
 exclude:

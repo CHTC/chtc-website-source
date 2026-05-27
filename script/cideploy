@@ -26,7 +26,7 @@ cd built_website
 rsync -av --delete --include-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_include_list --exclude-from=../$JEKYLL_OUTPUT_FOLDER/script/rsync_exclude_list "../$JEKYLL_OUTPUT_FOLDER/" .
 # We need this single well-known directory to support OIDC metadata discovery for SciTokens.
 rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/.well-known .
-for issuer in icecube nsdf; do
+for issuer in icecube; do
   mkdir -p ./$issuer
   rsync -av --delete ../$JEKYLL_OUTPUT_FOLDER/$issuer/.well-known ./$issuer
 done
