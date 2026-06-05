@@ -36,10 +36,17 @@ To transfer files to and from CHTC, you will need:
 On Mac, Linux, or modern Windows (10+) systems, you can use the \"Terminal\" application and
 the `scp` command to copy files between your computer and CHTC servers.
 
-**Upload files from your computer to CHTC**
+### Upload files from your computer to CHTC
 
-First, open the \"Terminal\" application and navigate to the directory with the files or directories you want to transfer using the [`cd` command](basic-shell-commands#navigate-directories). Then, use this
-command to copy these files to CHTC:
+First, open the "Terminal" application and navigate to the directory with the files or directories you want to transfer using the `cd` command or opening it from your computer's file browser.
+
+> ### 🎞️ Demo: Open a folder on the terminal from File Explorer
+{:.tip-header}
+> Right-click the folder background and select "Open in Terminal". Similar methods are available on [MacOS](https://support.apple.com/guide/terminal/open-new-terminal-windows-and-tabs-trmlb20c7888/mac) and Linux computers.
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/FIkTC46fMbo?si=KOHXBOp2YKsSflIm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{:.tip}
+
+Then, use this command to copy these files to CHTC:
 
 ``` 
 scp file username@hostname:/home/username
@@ -49,9 +56,14 @@ scp file username@hostname:/home/username
 If you would like these files to end up in a different directory inside
 your home directory, just add it to the path at the end of the command.
 
-**Download files from CHTC to your computer**
+> ### 🎞️ Demo: Upload a file to CHTC with the scp command
+{:.tip-header}
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/YCs40UW6rSo?si=aaXDrh4ERy4EJBn_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{:.tip}
 
-Open the \"Terminal\" application. Do NOT log into CHTC. Instead,
+### Download files from CHTC to your computer
+
+Open the "Terminal" application on your computer. Do NOT log into CHTC. Instead,
 navigate to where you want the files to go on your computer. Then, use
 this command to copy these files there:
 
@@ -60,14 +72,17 @@ scp username@hostname:/home/username/file ./
 ```
 {:.term}
 
-For transferring many files, it will be easiest to create a compressed tarball
-(.tar.gz file) of your files and transfer that instead of each file
-individually.
+> ### 🎞️ Demo: Download a file from CHTC with the scp command
+{:.tip-header}
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ri1w1f7u2g?si=wNIu6WXZe8I3t7Dm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{:.tip}
+
+For transferring many files, it will be easiest to [create a compressed tarball (.tar.gz file)](#transfer-multiple-files-using-tarballs) of your files and transfer that instead of each file individually.
 
 
 ## Option 2: Transfer files with a file transfer program
 
-Windows and Mac users can also use special programs to help them
+Users can download programs with a graphical user interface to help them
 transfer files between their computers and CHTC. For Windows, we
 recommend [WinSCP](https://winscp.net/eng/download.php). It requires the
 same information as Putty (hostname, username), and once it\'s set up,
@@ -84,7 +99,7 @@ Another popular file transfer utility available for Mac and Windows is [Cyberduc
 
 ## Transfer multiple files using tarballs
 
-If you are transferring many files, we recommend compressing them
+If you are transferring many files and/or large data, we recommend compressing them
 into a single file. Move all the files you need into a separate directory, and use the \"tar\" command to compress them:
 
 ``` 
@@ -100,6 +115,11 @@ To untar files, use the tar command again:
 tar xzf data_files.tar.gz
 ```
 {:.term}
+
+> ### 🎞️ Demo: Tar and upload multiple files to CHTC
+{:.tip-header}
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/2s29VCayOEE?si=tTqf-hegZXWchryd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{:.tip}
 
 ## Related pages
 * [Log in to CHTC](connecting)
