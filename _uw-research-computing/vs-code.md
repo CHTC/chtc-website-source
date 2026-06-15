@@ -1,29 +1,37 @@
 ---
 highlighter: none
 layout: guide
-title: Connect to CHTC using VS Code
+title: Connect to CHTC with VS Code
 guide:
-    category: Troubleshooting
+    category: Get started
     tag:
         - hpc
         - htc
 ---
-
-# Connect to CHTC using VS Code
 
 VS Code and similar "IDE" programs make it easy to develop and manage coding projects.
 This familiar interface can also make it easier to login and interact with CHTC.
 
 This guide explains how to connect to CHTC using VS Code, best practices for using the interface, and how to troubleshoot issues.
 
-## Table of contents
+{% capture content %}
+- [Requirements](#requirements)
+- [Initial set-up](#initial-set-up)
+- [Connect again](#connect-again)
+- [Use VS Code on CHTC](#use-vs-code-on-chtc)
+- [Troubleshooting](#troubleshooting)
+- [Other IDEs](#other-ides)
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 ## Requirements
 
 * VS Code or similar IDE installed on your local computer
-* Login access to a CHTC access point (requires a [CHTC account](form.md))
+* Login access to the HTC or HPC system (requires a [CHTC account](form.md))
+* How to use VS Code's "command palette"
 
-#### Confirm access
+> ### Confirm access
 {:.tip-header}
 
 > Before starting, make sure that you can login to CHTC "normally" via a plain terminal, as described in our [Log in to CHTC guide](connecting.md).
@@ -31,99 +39,254 @@ This guide explains how to connect to CHTC using VS Code, best practices for usi
 
 ## Initial set-up
 
-## Connecting again
+1. Install the "Remote-SSH" extension
+2. Add access point as a new SSH host
+3. Login
+4. Login with the file viewer
 
-## Extensions
+### Install the Remote-SSH extension
 
-## AI integration
+Open VS Code and navigate to the "Extensions" menu.
+(Click on the "View" menu and select "Extensions", or use the `Ctrl`+`Shift`+`X` shortcut.)
 
-## Troubleshooting
+Search for the "Remote - SSH" extension, it will likely be the first extension listed. 
+**The publisher should be "Microsoft".**
+Install this extension.
 
-| Intervention | Notes |
-------------------------
-| **Confirm regular login access** | If you can't login with a plain terminal, you won't be able to using VS Code |
-| **"Kill VS Code Server on Host"** | Attempts to login and automatically shut-down VS Code on the remote server |
-| **"Uninstall VS Code Server from Host"** | Attempts to login, shut-down, and uninstall VS Code on the remote server | 
-| **Manual clean-up** | You login with a plain terminal to shut-down and uninstall VS Code from the remote server |
-| **Ask for help** | If nothing else works, ask a facilitator for help! | 
+### Add access point as a new SSH host
 
-The most common issue is not being able to login. 
+Use the "Command Palette" to search for the "Remote-SSH: Add New SSH Host" command.
 
-## Adapting to other IDE programs
+You will be prompted to enter your SSH command.
+Enter the same command that you would normally use to login to your access point.
 
-
-
-## 1. Install VS Code
-
-Go to the VS Code website and download the version appropriate for your own computer: https://code.visualstudio.com/. Follow the instructions there for how to install VS Code on your own computer. During the installation process, you may be asked to choose how to configure VS Code; the default options will suffice but you can change them as you see fit. When you open VS Code, you will be greeted with a welcome message and short guide on how to set up and use VS Code. 
-
-> If you have already downloaded VS Code for your computer, we recommend that you update VS Code to the most current version.
-
-## 2. Install the "Remote SSH" Extension
-
-Navigate to the "Extensions" menu. (You should be able to find it by going to the "View" menu and select "Extensions".)
-
-Search for the "Remote - SSH" extension, it will likely be the first extension listed. The publisher should be "Microsoft". Install this extension.
-
-Next, you need to adjust one of the settings for the extension. Go to the Settings menu and search for "Remote.SSH: Show Login Terminal". Check the box to enable "Always reveal the SSH login terminal". **This setting is required to in order to authenticate with Duo after entering your password!**
-
-## 3. Set up the Connection to the Access Point
-
-Use the "Command Palette" to search for the "Remote-SSH: Add New SSH Host" command. (Go to the "View" menu and select "Command Palette".) You'll be prompted to enter the SSH command. Enter the same command that you would normally use to login to your access point, e.g.
+For example, if your NetID is `bbadger` and you are logging into `ap2002`, you would use
 
 ```
-ssh yourNetID@submit###.chtc.wisc.edu
+ssh bbadger@ap2002.chtc.wisc.edu
 ```
 {:.term}
 
-You will then be prompted to choose an SSH configuration file that you wish to update. Several default options will be provided for you; select the location you wish to save the SSH settings. 
+You will then be prompted to choose an SSH configuration file that you wish to update.
+Several options will be provided for you; select the location you wish to save the SSH settings. 
 
-> If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings. Go to the settings menu and search for "Remote.SSH: Config File", then enter the desired absolute path in the text box. Then repeat the above instructions and this location will be the only available choice.
+> If you want to save the settings to a different location, then you will need to specify that location in the VS Code settings.
+> Go to the settings menu and search for "Remote.SSH: Config File", then enter the desired absolute path in the text box.
+> Then repeat the above instructions and this location will be the only available choice.
 
-## 4. Connecting VS Code to the Access Point for the First Time
+### Login
 
-Use the command palette and search for the "Remote-SSH: Connect to Host" command. You will prompted with a list of your known SSH hosts as well as options to add a new host or configure them. Choose your access point from the list and select "Connect in Current Window" option to initiate the connection. The first time that you have connected to the access point while using VS Code, you will be prompted to confirm the authenticity of the SSH key; enter "yes" to confirm and proceed. 
+After adding the access point as a host, VS Code will automatically log you in.
 
-After selecting the "Remote-SSH: Connect to Host" command, you will be prompted to enter your password and Duo authenticate as usual. Once authenticated, this terminal prompt remain open but you will not be able to use it for running commands (this is the "install" process that manages VS Code's connection to the server). Instead, you should open a new terminal to run commands. 
+1. VS Code will ask you to confirm the authenticity of the host; enter "yes" to confirm and proceed.
+   (Contact the facilitation team if you want to verify the authenticity.)
+2. You'll be prompted for a password - enter your NetID password.
+3. You'll be prompted to complete DUO authentication; either (a) enter `1` to receive a push notification to your DUO app, or (b) enter the current sequence from your app or fob.
 
-> You may be prompted to install a newer version of `git` or other software; dismiss these prompts as you do not have permissions to modify the software installed on the access point.	
+The rest of the process should be automatic, as VS Code sets things up in your personal directory to work with VS Code.
 
-## 5. Viewing Files on the Access Point
+You are successful in the first login if there are no error messages.
+You should also see "SSH: server_name" in the very bottom left corner of the window.
 
-Once you have connected to the access point via VS Code, you will need to login a second time to see your files. Open the "Explorer" toolbar (it should be listed under the "View" menu). Click the "Open Folder" button, which will prompt you to provide the path; hit the enter key to accept the default value (your home directory on the access point). You will then be prompted to login again, after which you will be able to see and manipulate your files on the access point in VS Code's file explorer toolbar. 
+### Login with the file viewer
 
-## 6. Install the HTCondor VS Code Extension
+To see your files on the access point via VS Code, you will need to login a second time.
 
-Log in to your access point. Then open the Extensions toolbar and search for "Htcondor", published by htcondor, and install the extension. 
+Open the "Explorer" toolbar and click the "Open Folder" button.
+A pop-up interface will prompt you to provide a path; just hit the enter key to accept the default value (your home directory).
 
-This extension is under active development. Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates. Create a file that ends with `.sub` and test it out!
+You will be prompted to login again - do so.
+The window will refresh, after which you should be able to see your home directory in the file explorer.
 
-## Best Practices
+## Connect again
 
-The process(es) that VS Code runs on the access point when it is connected can be more intensive than a "regular" SSH connection. Therefore, if you have multiple separate VS Code connections to the access point, you may slow down the server. We recommend that you only have one VS Code connection to the access point at a time, i.e., do not log in to the access point using VS Code unless you have closed the previous session. 
+> This assumes that you've already completed the initial set-up on the current device!
+
+1. "Open Recent"
+
+or
+
+1. "Connect to Host"
+2. Login with file viewer
+
+### Open recent
+
+If the connection to CHTC was a recent session, you should be able to find it in the "Open Recent" menu.
+
+You can find the "Open Recent" menu 
+
+* on the VS Code start-up page, 
+* under "File > Open Recent",
+* searching for "File: Open Recent" in the command palette, or
+* using the keyboard shortcut `Ctrl`+`R`. 
+
+### Connect to host
+
+If the connection to CHTC is not in your recents list, you can also find it in the "Connect to Host" menu.
+
+You can find the "Connect to Host" menu
+
+* clicking the "><" icon in the very bottom left corner of the window, or
+* searching for "Remote-SSH: Connect to Host" in the command palette.
+
+You can select or search for the access point from this menu.
+If you don't see the access point in the menu, you probably need to follow the instructions in [Initial set-up](#initial-set-up) again.
+
+Once you've connected to your access point, open the "Explorer" toolbar and click the "Open Folder" button.
+Hit the enter key to accept the default value (your home directory) or navigate to only have access to a sub-directory.
+
+## Use VS Code on CHTC
+
+VS Code is connected to the **access point**. 
+
+To run calculations, you will still need to submit a job!
+
+> ### ⚠️ Intensive work
+{:.tip-header}
+
+> Do not run intensive commands or scripts via the VS Code connection to CHTC.
+> (This includes anything your AI Agent may run!)
+{:.tip}
+
+### Find and edit files
+
+If you've set up the file viewer ("explorer"), then you can find and edit files that are on the access point just like you would with VS Code and the files on your computer.
+
+### Submit jobs
+
+Regardless of whether you are using HTCondor or Slurm, you will still need to submit jobs via the terminal.
+
+To access the built-in terminal with VS Code, 
+
+* go to "Terminal" and click "New Terminal",
+* use the `Ctrl`+`\`` keyboard shortcut, or
+* right-click a file or directory and select "Open in integrated terminal". 
+
+This will open a terminal in your VS Code window.
+
+In this terminal window, you can run the usual HTCondor or Slurm commands for submitting jobs and interacting with the system as usual.
+Remember to `cd` into the correct directory first!
+
+> ### ⚠️ Interactive jobs
+{:.tip-header}
+
+> When you submit an interactive job via the terminal, **only that terminal** is connected to the interactive job.
+> The rest of the VS Code interface (including new terminals) are still connected to the access point!
+{:.tip}
+
+### Extensions
+
+If there are extensions you want to use in the remote session, you may need to install them again through the "Extensions" toolbar.
+
+Avoid installing extensions that use a lot of computing power (e.g., that cause your computer to run more slowly), as this will cause the login server to run more slowly as well.
+
+### HTCondor VS Code Extension
+
+HTCondor provides a VS Code extension.
+
+You can find the extension by searching for "Htcondor", **published by htcondor**.
+
+Current features include syntax highlighting for submit files, documentation tooltips on hover over submit commands, and submit file templates.
+Create a file that ends with `.sub` and test it out!
+
+This extension is not fully developed. 
+Contact the facilitation team if you have feedback about the extension.
+
+### AI integration
+
+VS Code supports integration with AI Agents.
+
+You are not discouraged from using said Agents, but you should be sure to supervise them responsibly.
+**You are ultimately responsible for anything your AI Agent does on the access point!**
+
+For more guidance on working with AI Agents on the access point, see our guide here: 
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://chtc.cs.wisc.edu/uw-research-computing/agent-recommendations">AI Agents on CHTC</a>
+	</div>
+</div>
 
 ## Troubleshooting
 
-When you connect to the access point, VS Code installs a "remote server" on the access point, allowing you to use VS Code to write and manipulate files directly. This will occur every time you connect to the submit server using VS Code, but VS Code should be able to find its previous installation. Sometimes, however, this process may not work correctly. If you are having issues connecting to the access point using VS Code, but are able to login via SSH as usual, then there are a couple steps that you can try.
+The most common issue is not being able to login. 
 
-1. *Kill the VS Code process on the access point*: Use the command palette and search for the command "Remote-SSH: Kill VS Code Server on Host" and select the server that you are having issues connecting to. You will be prompted to log in (in order to send the kill command) but you will not connect to the access point. If this doesn't fix the issue, continue to the next step.
+| Intervention | Notes |
+| ------------ | ----- |
+| Confirm regular login access | If you can't login with a plain terminal, you won't be able to using VS Code |
+| "Kill VS Code Server on Host" | Built-in command that attempts to login and automatically shut-down VS Code on the remote server |
+| "Uninstall VS Code Server from Host" | Built-in command that attempts to login, shut-down, and uninstall VS Code on the remote server | 
+| Manual clean-up | You login with a plain terminal to shut-down and uninstall VS Code from the remote server |
+| Ask for help | If nothing else works, ask a facilitator for help! | 
 
-2. *Remove the VS Code remote server from the access point*: Use the command palette and search for the command "Remote-SSH: Uninstall VS Code Server from Host". You will be prompted to log in (in order to send the uninstall command) but you will not connect to the access point. If this doesn't fix the issue, continue to the next step.
+When you connect to the access point, VS Code installs a "remote server" on the access point, allowing you to use VS Code to write and manipulate files directly.
+Most issues occur when there is a problem connecting to or restarting this remote server. 
 
-3. *Manually kill and remove VS Code remote server on the access point*: This process does not use VS Code. Log in to the access point using SSH as you would normally do when not using VS Code. Then, run the following command:
+### "Kill VS Code Server on Host"
 
-   ```
-   kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk '{print $2}')
-   ```
-   {:.term}
+In VS Code, use the command palette and search for the command `Remote-SSH: Kill VS Code Server on Host` and select the server that you are having issues connecting to.
+You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again.
 
-   If there are VS Code processes running on the server, this command will find only yours and then kill them. If you don't have any VS Code processes running on the server, then you may get the help text for the `kill` command.
+This command can only work if you are able to login to the access point with a plain terminal.
 
-   Next, remove the VS Code directory from your home directory:
+### "Uninstall VS Code Server from Host"
 
-   ```
-   rm -rf ~/.vscode-server
-   ```
-   {:.term}
+In VS Code, use the command palette and search for the command `Remote-SSH: Uninstall VS Code Server from Host` and select the server that you are having issues connecting to.
+You will be prompted to log in to the access point and VS Code will automatically run the necessary commands before logging out again.
 
-   At this point, VS Code should have been completely removed from you account on the access point, and you should be able to repeat the steps in this guide to setup and connect again. 
+This can only work if you are able to login to the access point with a plain terminal.
+
+The next time you login with VS Code, it should automatically set up what it needs to work.
+
+### Manual clean-up
+
+VS Code isn't always able to clean-up after itself like it should, in which case a manual clean-up may fix the problem. 
+
+Log in to the access point using a plain terminal.
+Then, run the following command:
+
+```
+kill -9 $(ps aux | grep VS Code-server | grep $USER | grep -v grep | awk '{print $2}')
+```
+{:.term}
+
+This command looks for left-over processes from your VS Code on the server and then removes ("kill") them.
+(If you don't have any VS Code processes running on the server, then you may get the help text for the `kill` command.)
+
+Next, remove the VS Code directory from your home directory:
+
+```
+rm -rf ~/.vscode-server
+```
+{:.term}
+
+This removes the items that VS Code automatically uploaded to set up the remote server, which may be responsible for causing problems.
+The next time you try to connect with VS Code, it should automatically set up what it needs to work.
+
+### Lots of files
+
+If you have a lot of files in your directory on the access point, then VS Code may struggle to list and scan those files for the file viewer.
+
+If this is causing you problems, here are some things to try:
+
+* Reduce the number of files on the server.
+* Open a specific directory in the file viewer, instead of the default home directory. ("Connect to host" then "Open Folder" and select a sub-directory in the dialog.)
+* Configure VS Code to ignore the directories that contain a lot of files. 
+
+## Other IDEs
+
+If the program you want to use is a derivative of VS Code (e.g., Google's Antigravity), then the Remote SSH extension is likely already built-in.
+The instructions in this guide should map nearly perfectly to that program.
+
+Other IDE programs usually include an equivalent feature. 
+There should be instructions in the program's documentation about the process.
+Look for "remote server" or "ssh" or the like. 
+The overall process should be similar.
+
+The facilitation team may be able to help you figure out the process, but keep in mind that we do not explicitly support these tools.
+
+## Related pages
+
+* [Log in to CHTC](connecting.md)
+* [Transfer Files between CHTC and your Computer](transfer-files-computer.md)
+* [VS Code Remote SSH manual](https://code.visualstudio.com/docs/remote/ssh)

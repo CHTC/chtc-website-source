@@ -19,6 +19,9 @@
     - text: "Quick reference: HTCondor submit file options"
       url: "/uw-research-computing/condor-submit-quick-ref"
       icon: "bi bi-book"
+    - text: "Connect to CHTC with VS Code"
+      url: "/uw-research-computing/vs-code"
+      icon: ""
 
 - text: "Submit jobs"
   icon: "bi bi-send"
