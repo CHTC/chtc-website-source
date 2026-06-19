@@ -56,6 +56,9 @@ scp file username@hostname:/home/username
 If you would like these files to end up in a different directory inside
 your home directory, just add it to the path at the end of the command.
 
+<p style="text-align:center"><img src="/images/scp01.png" width=800px alt="The scp command explained. The first argument is the source, and the second argument is the destination."></p>
+<caption>Diagram of the scp command. Replace the source with the name of your file, and destination with where you'd like the file to be copied.</caption>
+
 > ### 🎞️ Demo: Upload a file to CHTC with the scp command
 {:.tip-header}
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/YCs40UW6rSo?si=aaXDrh4ERy4EJBn_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -103,16 +106,19 @@ If you are transferring many files and/or large data, we recommend compressing t
 into a single file. Move all the files you need into a separate directory, and use the \"tar\" command to compress them:
 
 ``` 
-tar czf data_files.tar.gz file_directory/
+tar -czf data_files.tar.gz file_directory/
 ```
 {:.term}
+
+<p style="text-align:center"><img src="/images/tar01.png" width=800px alt="The tar compression command explained. The first argument is the tarball to be created, and the second argument is the directory or list of files to be compressed."></p>
+<caption>Diagram of the tar compression command. The first argument (blue) is the name of the tar.gz to be created, and the second argument (green) is the directory of files to be compressed.</caption><br>
 
 Afterwards, you may transfer the single tarball file as usual.
 
 To untar files, use the tar command again:
 
 ```
-tar xzf data_files.tar.gz
+tar -xzf data_files.tar.gz
 ```
 {:.term}
 
