@@ -1,7 +1,7 @@
 ---
 highlighter: none
 layout: guide
-title: Transfer Files between CHTC and your Computer
+title: Transfer files between CHTC and your computer
 guide:
     category: Manage data
     tag:
