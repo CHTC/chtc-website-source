@@ -1,5 +1,5 @@
 ---
 layout: redirect
-redirect_url: /uw-research-computing/multiple-jobs#4b-submitting-multiple-jobs-in-different-directories-with-queue-directory-matching-
+redirect_url: /uw-research-computing/multiple-jobs#option-3-organize-jobs-into-individual-directories
 permalink: /uw-research-computing/multiple-job-dirs
 ---
