@@ -42,7 +42,7 @@ High Throughput Computing systems specialize in running tens to millions small, 
       <td>1 - 4 CPUs/job</td>
       <td>30+ CPUs/job</td>
       </tr>
-      <td>Computers work together?</td>
+      <td>Multiple computers work together on one task?</td>
       <td>X</td>
       <td>✓</td>
       <tr>
