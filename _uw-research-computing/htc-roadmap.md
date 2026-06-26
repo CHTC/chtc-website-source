@@ -3,59 +3,104 @@ highlighter: none
 layout: guide
 title: Roadmap to getting started
 guide:
-    category: Get started
-    tag:
-        - htc
+  category: Get started
+  tag:
+    - htc
 ---
 
-<style>
+### Step One: Introduction to the High Throughput Computing Strategy
 
-</style>
+Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called jobs. These jobs run on execution points, which are the computers that perform the work.
 
-#### Step One
+<p style="text-align:center"><img src="/images/roadmap-workflow-overview.png" alt="The process of submitting a job including the access point, job queue, and execution points." width=900px></p>
 
-<details>
-<summary>Introduction to the High Throughput Computing Strategy</summary>
-<br>
-Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called "jobs" to run on execution points. 
-<br>
-   <br>
-High Throughput Computing systems specialize in running many small, independent jobs (< ~20 CPUs/job). On the other hand, High Performance Computing systems speicalize in running a few, very large jobs that run on more than one node (~30+ CPUs/job).
-<br>
-   <br>
-It is best to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs (i.e., those requesting smaller amounts of CPU, memory, and disk resources per job) are easier to find a slot to run on. This means that users will notice they will have jobs start quicker and will have more running simultaneously It is almost always beneficial to break up your analysis pipeline into smaller pieces to take advantage of getting more jobs up and running, quicker. 
-<br>
-   <br>
-Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many compute resources as possible. 
-<br>
-   <br>
+**Terminology:**
+
+- The **Access Point** is where you log in and stage your data, executables/scripts, and software to use in jobs. 
+- **HTCondor** is a job scheduling software that will run your jobs out on the execution points. 
+- The **Execution Points** are the set of resources your job runs on.
+
+High Throughput Computing systems specialize in running tens to millions small, independent jobs. On the other hand, High Performance Computing systems specialize in running a few, very large jobs that use multiple computers working together on the same problem.
+
+<table class="comparison-table">
+   <thead>
+      <tr>
+      <th></th>
+      <th>HTC (High Throughput Computing)</th>
+      <th>HPC (High Performance Computing)</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <tr>
+      <td>Best for...</td>
+      <td>Running several independent jobs</td>
+      <td>Running one very large job</td>
+      </tr>
+      <tr>
+      <td>Typical size</td>
+      <td>1 - 4 CPUs/job</td>
+      <td>30+ CPUs/job</td>
+      </tr>
+      <td>Multiple computers work together on one task?</td>
+      <td>X</td>
+      <td>✓</td>
+      <tr>
+      <td>Examples</td>
+      <td>Simulations, image processing, and machine learning workflows</td>
+      <td>Climate modeling, fluid dynamics, and large optimizations</td>
+      </tr>
+   </tbody>
+</table>
+
+It is important to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs that request fewer resources (CPU, memory, and disk) are generally easier to find a slot to run on, so they start more quickly, and you can have many of them running at the same time.
+
+> ### 💡 Run smaller jobs when possible!
+{:.tip-header}
+
+> Rather than submitting **one large job**, consider splitting your workflow into **multiple smaller, independent jobs whenever possible**. This often leads to faster scheduling and more efficient use of HTC resources.
+> <p style="text-align:center"><img src="/images/roadmap-split-workflows.png" alt="On the left, there is a complete puzzle representing one large job. On the right, those same puzzle pieces are seperated representing multiple small jobs." width=600px></p>
+{:.tip}
+
+Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many compute resources as possible.
+
 More detailed information regarding CHTC's HTC system can be found in the <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview">HTC Overview Guide</a>.
-</details>
-
 
 #### Step Two
 
 <details>
 <summary>Log on to an HTCondor HTC Access Point</summary>
 <br>
-Once your request for an account has been approved by a Research Computing Facilitator, you will be emailed your login information.
+Before you can submit jobs, you need access to a CHTC account. If you have not requested an account yet, start by filling out the <a href="https://chtc.cs.wisc.edu/uw-research-computing/form.html">📋 CHTC account request form</a>.
 <br>
-   <br>
-For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in to your HTC access point (also called a "submit server").  
 <br>
-See how to <a href="connecting">Log In to CHTC Resources</a>.
+Once you receive your login information by email, you are ready to begin!
+<br>
+<br>
+To use CHTC, you first log in to an access point. An access point, also called a submit server, is the computer you connect to before your jobs run. It is where you prepare your files, write your submit instructions, and send your jobs to HTCondor.
+<br>
+<br>
+For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in.
+<br>
+<br>
+See how to <a href="connecting">💻 Log In to CHTC Resources</a>.
 <br>
 </details>
-
 
 #### Step Three
 
 <details>
 <summary>Understand the Basics of Submitting HTCondor Jobs</summary>
 <br>
-Computational work is run on the the High Throughput Computing system's execution machines by submitting tasks as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works. The following guide is a short step-by-step tutorial on how to submit basic HTCondor jobs: <a href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>. <b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
+Computational work is run on the the High Throughput Computing system's execution machines by submitting tasks as “jobs” to the HTCondor job scheduler. Before submitting your own computational work, it is necessary to understand how HTCondor job submission works.
+<br>
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://chtc.cs.wisc.edu/uw-research-computing/htcondor-job-submission">Practice: Submit HTC Jobs using HTCondor</a>
+	</div>
+</div>
+<b>It is highly recommended that every user follow this short tutorial as these are the steps you will need to know to complete your own analyses.</b>
 </details>
-
 
 #### Step Four
 
@@ -65,7 +110,6 @@ Computational work is run on the the High Throughput Computing system's executio
 After following this tutorial, we <b>highly recommend</b> users review the <a href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs">Easily Submit Multiple Jobs</a> guide to learn how you can configure HTCondor to automatically pass files or parameters to different jobs, return output to specific directories, and other easily automated organizational behaviors. 
 <br>
 </details>
-
 
 #### Step Five
 
@@ -89,7 +133,6 @@ CHTC's infrastructure team has provided a limited collection of software as modu
    <br>
 The HTC system contains several machines designed for users to use when building their software. These machines have access to common compilers (e.g., gcc) that are necessary to install many software packages. To learn how to submit an interactive job to log into these machines to build your software, see <a href="https://chtc.cs.wisc.edu/uw-research-computing/inter-submit">Compiling or Testing Code with an Interactive Job</a>.  
 </details>
-
 
 #### Step Six
 
@@ -118,8 +161,6 @@ When uploading data to the HTC system, users need to choose a location to store 
    <br>
    </details>
 
-
-
 #### Step Seven
 
 <details>
@@ -136,8 +177,8 @@ Things to look for:
    </ul>
 </details>
 
-
 #### Step Eight
+
 <details>
    <summary>Submit Your Workflow</summary>
 <br>
@@ -145,6 +186,7 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
 </details>
 
 #### Step Nine
+
 <details>
    <summary>Access Additional Compute Capacity</summary>
    <br>
@@ -155,6 +197,7 @@ Once your jobs succeed and you have confirmed your quota is sufficient to store 
 </details>
 
 #### Step Ten
+
 <details>
    <summary>Move Your Data off CHTC</summary>
    <br>
