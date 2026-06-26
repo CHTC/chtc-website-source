@@ -16,7 +16,7 @@ Like nearly all large-scale compute systems, users of both CHTC's High Throughpu
 
 **Terminology:**
 
-- **Access point** is where you login and stage your data, executables/scripts, and software to use in jobs. 
+- The **Access Point** is where you log in and stage your data, executables/scripts, and software to use in jobs. 
 - **HTCondor** is a job scheduling software that will run your jobs out on the execution points. 
 - The **Execution Points** is the set of resources your job runs on. It is composed of servers, as well as other technologies, that compose the cpus, memory, and disk space that will run the computations of your jobs. 
 
