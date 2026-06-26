@@ -53,7 +53,7 @@ High Throughput Computing systems specialize in running several small, independe
    </tbody>
 </table>
 
-It is important to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs that request fewer resources (CPU, memory, and disk) are generally easier to find a slot to run on.
+It is important to keep this distinction in mind when setting up your jobs. On the HTC system, smaller jobs that request fewer resources (CPU, memory, and disk) are generally easier to find a slot to run on, so they start more quickly, and you can have many of them running at the same time.
 
 > ### 💡 Run smaller jobs when possible!
 {:.tip-header}
