@@ -20,7 +20,7 @@ Like nearly all large-scale compute systems, users of both CHTC's High Throughpu
 - **HTCondor** is a job scheduling software that will run your jobs out on the execution points. 
 - The **Execution Points** are the set of resources your job runs on.
 
-High Throughput Computing systems specialize in running several small, independent jobs. On the other hand, High Performance Computing systems specialize in running a few, very large jobs that use multiple computers working together.
+High Throughput Computing systems specialize in running tens to millions small, independent jobs. On the other hand, High Performance Computing systems specialize in running a few, very large jobs that use multiple computers working together on the same problem.
 
 <table class="comparison-table">
    <thead>
