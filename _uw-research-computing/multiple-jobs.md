@@ -19,6 +19,7 @@ This guide shows you how to write a submit file to submit multiple jobs. This op
 - [Option 1: Submit N number of jobs with `queue <N>`](#option-1-submit-n-number-of-jobs-with-queue-n)
 - [Option 2: Submit multiple jobs that iterate over variables with `queue <variable> from <list>`](#option-2-submit-multiple-jobs-that-iterate-over-variables-with-queue-variable-from-list)
     * [Use multiple variables for each job](#use-multiple-variables-for-each-job)
+    * [Transfer varying number of files per job](#transfer-varying-number-of-files-per-job)
 - [Option 3: Organize jobs into individual directories](#option-3-organize-jobs-into-individual-directories)
    * [Example: Submit multiple jobs in different directories with `queue <variable> from <list>` ](#example-submit-multiple-jobs-in-different-directories-with-queue-variable-from-list)
    * [Example: Submit multiple jobs in different directories with `queue <variable> matching <pattern>` ](#example-submit-multiple-jobs-in-different-directories-with-queue-variable-matching-pattern)
@@ -165,7 +166,7 @@ nebraska.data, 2005
 wisconsin.data, 2000
 wisconsin.data, 2015
 ```
-{:.term}
+{:.file}
 
 Modify the `queue` statement to define two variables named `state` and `year`:
 
@@ -185,6 +186,56 @@ transfer_input_files = $(state)
 queue state, year from parameters.txt
 ```
 {: .sub}
+
+## Transfer varying number of files per job
+
+This is example is useful when you need to transfer a different number of files for each job.
+
+### Example: `queue start, end, files from parameters.txt`
+
+Let's say you need to transfer multiple state data files per job, but the number of these files will vary. List the files you need to transfer at the very end of each row of `parameters.txt`.
+
+```
+1995, 2000, illinois.data
+1995, 2000, illinois.data, nebraska.data
+1995, 2000, illinois.data, wisconsin.data
+1995, 2000, illinois.data, nebraska.data, wisconsin.data
+```
+
+Modify the `queue` statement to define three variables named `start`, `end`, and `files`:
+
+```
+queue start, end, files from parameters.txt
+```
+
+`$(start)` and `$(end)` will take on the first two values in the list, while `$(files)` will take on the value of the **entire line after** the second value.
+
+See the below table for the values each variable is assigned over the different jobs in the submission. Note how `$(files)` now is a comma-delimited list of files.
+
+| Job `$(Process)` | `$(start)` | `$(end)` | `$(files)` |
+| --- | --- | --- | --- |
+| 0 | 1995 | 2000 | illinois.data |
+| 1 | 1995 | 2000 | illinois.data, nebraska.data |
+| 2 | 1995 | 2000 | illinois.data, wisconsin.data |
+| 3 | 1995 | 2000 | illinois.data, nebraska.data, wisconsin.data |
+
+You can then use `$(files)` in the submit file to transfer a list of files:
+
+```
+executable = compare_states
+arguments = $(start) $(end) --file-type ".data"
+transfer_input_files = $(files)
+
+... remaining submit details ...
+
+queue start, end, files from parameters.txt
+```
+{: .sub}
+
+> ### ⚠️ You should only define one list of values that varies in length
+{:.tip-header}
+> Due to the way HTCondor parses the lists (i.e., `parameters.txt`), **you should only have one list of values that varies in length for each job submission**. This list of variables must always be at the end of the list file.
+{:.tip}
 
 ## Option 3: Organize jobs into individual directories
 
