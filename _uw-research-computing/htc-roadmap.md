@@ -22,7 +22,7 @@ guide:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-### Step One: Introduction to the High Throughput Computing Strategy
+## Step One: Introduction to the High Throughput Computing Strategy
 
 Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called jobs. These jobs run on execution points, which are the computers that perform the work.
 
@@ -80,7 +80,7 @@ Unlike the High Performance System, CHTC staff do not limit the number of jobs a
 
 More detailed information regarding CHTC's HTC system can be found in the <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview">⚙️ HTC Overview Guide</a>.
 
-### Step Two: Set Up Your Account
+## Step Two: Set Up Your Account
 
 Before you can submit jobs, you need access to a CHTC account. If you have not requested an account yet, start by filling out the <a href="https://chtc.cs.wisc.edu/uw-research-computing/form.html">📋 CHTC account request form</a>.
 
@@ -96,7 +96,7 @@ See how to <a href="connecting">💻 Log In to CHTC Resources</a>.
 
 After you know how to log in, the next step is to learn how to **submit jobs**.
 
-### Step Three: Submit Your First Job
+## Step Three: Submit Your First Job
 
 When you use CHTC for your own project, you are asking the computing system to run work for you. That work might be one script, one analysis, or many repeated tasks that use different input files.
 
@@ -130,7 +130,7 @@ The following guide demonstrates different examples on how to run multiple jobs 
 	</div>
 </div>
 
-### Step Four: Install Software
+## Step Four: Install Software
 
 Our <a href="htc/guides#software">software</a> guides contain information about how to install and use software on the HTC system.
 
@@ -168,7 +168,7 @@ Available modules include software used in several research areas, such as COMSO
 
 To learn how to use these software in your jobs, see the <a href="htc-modules">💡 Use Software Available in Modules</a> guide and the <a href="licensed-software">👾 Use Licensed Software</a> guide.
 
-### Step Five: Access Your Data
+## Step Five: Access Your Data
 
 When you start using the HTC system, you will usually need to upload your data files to CHTC. This allows your jobs to use the files while they run.
 
@@ -189,7 +189,7 @@ When uploading data to the HTC system, users need to choose a location to store 
 
 <p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
 
-### Step Six: Run Test Jobs
+## Step Six: Run Test Jobs
 
 Once your data, software, code, and HTCondor submit file are ready, we recommend you submit a few test jobs before running your full workflow.
 
@@ -223,7 +223,7 @@ Fix any issues before submitting more jobs. This helps prevent the same problem 
 
 If you are not sure what went wrong or need help troubleshooting, contact the <a href="get-help">💬 CHTC Facilitation team</a> for assistance.
 
-### Step Seven: Access More Compute Capacity
+## Step Seven: Access More Compute Capacity
 
 After your test jobs run successfully, you may be ready to run more jobs or use GPUs. If your workflow needs more compute capacity than CHTC can provide locally, you may be able to access additional CPUs or GPUs outside of CHTC.
 
@@ -239,7 +239,7 @@ To use this additional capacity, your jobs may run on hardware that CHTC does no
 
 To learn how to use these additional CPUs or GPUs, visit <a href="scaling-htc">📈 Scale Beyond Local HTC Capacity</a>.
 
-### Step Eight: Move Your Data Off CHTC
+## Step Eight: Move Your Data Off CHTC
 
 > ### 📢 CHTC storage is not permanent!
 {:.tip-header}
