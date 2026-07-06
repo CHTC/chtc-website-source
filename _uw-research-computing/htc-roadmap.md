@@ -8,6 +8,20 @@ guide:
     - htc
 ---
 
+<p style="text-align:center"><img src="/images/roadmap-steps.png" alt="Path showing the eight steps to get started with CHTC." width=1000px></p>
+
+{% capture content %}
+- [Step One: Introduction to the High Throughput Computing Strategy](#step-one-introduction-to-the-high-throughput-computing-strategy)
+- [Step Two: Set Up Your Account](#step-two-set-up-your-account)
+- [Step Three: Submit Your First Job](#step-three-submit-your-first-job)
+- [Step Four: Install Software](#step-four-install-software)
+- [Step Five: Access Your Data](#step-five-access-your-data)
+- [Step Six: Run Test Jobs](#step-six-run-test-jobs)
+- [Step Seven: Access More Compute Capacity](#step-seven-access-more-compute-capacity)
+- [Step Eight: Move Your Data Off CHTC](#step-eight-move-your-data-off-chtc)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
+
 ### Step One: Introduction to the High Throughput Computing Strategy
 
 Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called jobs. These jobs run on execution points, which are the computers that perform the work.
@@ -66,7 +80,7 @@ Unlike the High Performance System, CHTC staff do not limit the number of jobs a
 
 More detailed information regarding CHTC's HTC system can be found in the <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc-overview">⚙️ HTC Overview Guide</a>.
 
-### Step Two: Set Up Your Account and Submit Your First Job
+### Step Two: Set Up Your Account
 
 Before you can submit jobs, you need access to a CHTC account. If you have not requested an account yet, start by filling out the <a href="https://chtc.cs.wisc.edu/uw-research-computing/form.html">📋 CHTC account request form</a>.
 
@@ -82,13 +96,15 @@ See how to <a href="connecting">💻 Log In to CHTC Resources</a>.
 
 After you know how to log in, the next step is to learn how to **submit jobs**.
 
+### Step Three: Submit Your First Job
+
 When you use CHTC for your own project, you are asking the computing system to run work for you. That work might be one script, one analysis, or many repeated tasks that use different input files.
 
 Each task you submit to the system is called a **job**.
 
 A job is the full set of instructions and files needed to run a piece of work. This can include the **command or script, input files, software, and instructions for where to save output files, error messages, or log files**.
 
-<p style="text-align:center"><img src="/images/roadmap-job-components.png" alt="Components of a job including software environment, command or script, input/output files, standard output/error, resource requirement" width=900px></p>
+<p style="text-align:center"><img src="/images/roadmap-job-components.png" alt="Components of a job including software environment, command or script, input/output files, standard output/error, resource requirement." width=900px></p>
 
 Jobs are submitted to **HTCondor**, the system that manages where and when jobs run. **HTCondor is a job scheduler**.
 
@@ -114,7 +130,7 @@ The following guide demonstrates different examples on how to run multiple jobs 
 	</div>
 </div>
 
-### Step Three: Install Software
+### Step Four: Install Software
 
 Our <a href="htc/guides#software">software</a> guides contain information about how to install and use software on the HTC system.
 
@@ -124,7 +140,7 @@ For most users, we recommend using a **container.**
 
 A **software container** packages your software with the operating system, tools, and settings it needs to run into a portable object. When your job runs, it launches inside of the container with the software environment that you've set up. This ensures that your jobs can run on almost any machine, no matter which operating system or libraries the machines have installed, because your container has the tools your jobs need.
 
-<p style="text-align:center"><img src="/images/roadmap-containers.png" alt="Icons for $PATH, libraries, software, code are packaged into a box representing a container" width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-containers.png" alt="Icons for $PATH, libraries, software, code are packaged into a box representing a container." width=800px></p>
 
 <p style="text-align:center"><em>Containers keep everything together so it is easier to move and run!</em></p>
 
@@ -152,7 +168,7 @@ Available modules include software used in several research areas, such as COMSO
 
 To learn how to use these software in your jobs, see the <a href="htc-modules">💡 Use Software Available in Modules</a> guide and the <a href="licensed-software">👾 Use Licensed Software</a> guide.
 
-### Step Four: Access your Data
+### Step Five: Access Your Data
 
 When you start using the HTC system, you will usually need to upload your data files to CHTC. This allows your jobs to use the files while they run.
 
@@ -163,7 +179,7 @@ The best way to move your data depends on where your files are stored and how yo
 - <a href="globus">Using Globus to Transfer Files to and from CHTC</a>
 - <a href="github-remote-access">Remotely Access a Private GitHub Repository</a>
 
-<p style="text-align:center"><img src="/images/roadmap-transfer-data.png" alt="Data can move to CHTC from your computer, ResearchDrive, GitHub, or Globus using different transfer tools, then be saved in /home or /staging" width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-transfer-data.png" alt="Data can move to CHTC from your computer, ResearchDrive, GitHub, or Globus using different transfer tools, then be saved in /home or /staging." width=800px></p>
 
 **Choose a Location to Stage your Data**
 
@@ -171,9 +187,9 @@ When uploading data to the HTC system, users need to choose a location to store 
 
 <code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="htc-job-file-transfer">📁 HTC Data guide</a> . 
 
-<p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files" width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
 
-### Step Five: Run Test Jobs
+### Step Six: Run Test Jobs
 
 Once your data, software, code, and HTCondor submit file are ready, we recommend you submit a few test jobs before running your full workflow.
 
@@ -183,7 +199,7 @@ Start with **one test job** first. After it finishes, check the files HTCondor c
 
 HTCondor creates several files that can help you review what happened when your test job ran:
 
-<p style="text-align:center"><img src="/images/roadmap-output-files.png" alt="Icons and descriptions for .log, .out, and .err files" width=600px></p>
+<p style="text-align:center"><img src="/images/roadmap-output-files.png" alt="Icons and descriptions for .log, .out, and .err files." width=600px></p>
 
 - The <code>.log</code> file shows information about how the job ran and resources used.
 - The <code>.out</code> file shows the text your code printed while it was running.
@@ -207,7 +223,7 @@ Fix any issues before submitting more jobs. This helps prevent the same problem 
 
 If you are not sure what went wrong or need help troubleshooting, contact the <a href="get-help">💬 CHTC Facilitation team</a> for assistance.
 
-### Step Six: Access More Compute Capacity
+### Step Seven: Access More Compute Capacity
 
 After your test jobs run successfully, you may be ready to run more jobs or use GPUs. If your workflow needs more compute capacity than CHTC can provide locally, you may be able to access additional CPUs or GPUs outside of CHTC.
 
@@ -223,7 +239,7 @@ To use this additional capacity, your jobs may run on hardware that CHTC does no
 
 To learn how to use these additional CPUs or GPUs, visit <a href="scaling-htc">📈 Scale Beyond Local HTC Capacity</a>.
 
-### Step Seven: Move Your Data off CHTC
+### Step Eight: Move Your Data Off CHTC
 
 > ### 📢 CHTC storage is not permanent!
 {:.tip-header}
@@ -240,7 +256,7 @@ Because of this, you should always keep copies of important scripts and input fi
 - ResearchDrive
 - Another backed up storage system
 
-<p style="text-align:center"><img src="/images/roadmap-data-lifecycle.png" alt="Diagram for a data lifecycle including upload data, run analysis, generate results, download and archive results, remove data from CHTC, and make space for the next project" width=500px></p>
+<p style="text-align:center"><img src="/images/roadmap-data-lifecycle.png" alt="Diagram for a data lifecycle including upload data, run analysis, generate results, download and archive results, remove data from CHTC, and make space for the next project." width=500px></p>
 
 <p style="text-align:center"><em>This lifecycle shows how data should move through CHTC.</em></p>
 
