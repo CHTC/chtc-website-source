@@ -20,7 +20,7 @@ Like nearly all large-scale compute systems, users of both CHTC's High Throughpu
 - **HTCondor** is a job scheduling software that will run your jobs out on the execution points. 
 - The **Execution Points** are the set of resources your job runs on.
 
-High Throughput Computing systems specialize in running tens to millions small, independent jobs. On the other hand, High Performance Computing systems specialize in running a few, very large jobs that use multiple computers working together on the same problem.
+High Throughput Computing systems specialize in running tens to millions of small, independent jobs. On the other hand, High Performance Computing systems specialize in running a few, very large jobs that use multiple computers working together on the same problem.
 
 <table class="comparison-table">
    <thead>
@@ -46,7 +46,7 @@ High Throughput Computing systems specialize in running tens to millions small, 
       <td>X</td>
       <td>✓</td>
       <tr>
-      <td>Examples</td>
+      <td>Example tasks</td>
       <td>Simulations, image processing, and machine learning workflows</td>
       <td>Climate modeling, fluid dynamics, and large optimizations</td>
       </tr>
@@ -106,7 +106,7 @@ Practicing with a simple HTCondor job first can help you feel more prepared befo
 
 Once you are comfortable with these basic steps, you can learn how to use HTCondor to run many jobs at once.
 
-The tutorial below shows how to run many jobs from one submit file, use different input files or settings for each job, and save output files in specific directories.
+The following guide demonstrates different examples on how to run multiple jobs from one submit file, use different input files or settings for each job, and save output files in specific directories.
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
@@ -116,26 +116,26 @@ The tutorial below shows how to run many jobs from one submit file, use differen
 
 ### Step Three: Install Software
 
-Our <a href="https://chtc.cs.wisc.edu/uw-research-computing/htc/guides.html">Software Solutions</a> guides contain information about how to install and use software on the HTC system.
+Our <a href="htc/guides#software">software</a> guides contain information about how to install and use software on the HTC system.
 
-Before choosing how to install your software, it helps to understand the main options available on CHTC. One common option is to use a **container.**
+For most users, we recommend using a **container.**
 
 **Software Containers**
 
-A **software container** packages your software with the tools and settings it needs to run. Some containers even include their own operating system. This helps your job run in more places on CHTC or the OSPool.
+A **software container** packages your software with the operating system, tools, and settings it needs to run into a portable object. When your job runs, it launches inside of the container with the software environment that you've set up. This ensures that your jobs can run on almost any machine, no matter which operating system or libraries the machines have installed, because your container has the tools your jobs need.
 
 <p style="text-align:center"><img src="/images/roadmap-containers.png" alt="Icons for $PATH, libraries, software, code are packaged into a box representing a container" width=800px></p>
 
 <p style="text-align:center"><em>Containers keep everything together so it is easier to move and run!</em></p>
 
-In general, we recommend using a **container** if your software:
+Containers are great for researchers whose software stack:
 
-- Needs a specific version of R or Python
-- Can be installed with <code>conda</code>
-- Relies on several other tools or packages (dependencies)
-- Already has a pre-existing container
+- Uses Python, R, Julia, and MATLAB
+- Uses conda
+- Rely on several other tools or packages (dependencies)
+- Have pre-existing containers (such as on [Docker Hub](hub.docker.com/)
 
-Using a container can make your work more portable and easier to run consistently. Learn more through the guide below that explains how to build, test, and use software containers.
+Using a container makes your work more portable and easier to run consistently. Learn more through the guide below that explains how to build, test, and use software containers.
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
@@ -143,25 +143,18 @@ Using a container can make your work more portable and easier to run consistentl
 	</div>
 </div>
 
-Containers are a good option for many workflows, but they are not the only way to use software on CHTC. Some software is already installed on CHTC and can be used through **modules**.
 
 **Pre-installed Software in Modules**
 
-CHTC provides a limited set of pre-installed software called modules. You can load these modules and use them in your jobs.
+CHTC provides a limited set of pre-installed software in modules. You can load these modules and use them in your jobs.
 
 Available modules include software used in several research areas, such as COMSOL, ANSYS, ABAQUS, GUROBI, and others.
 
-To learn how to use this software in your jobs, see the <a href="htc-modules">💡 Use Software Available in Modules</a> guide and the <a href="licensed-software">👾 Use Licensed Software</a> guide.
+To learn how to use these software in your jobs, see the <a href="htc-modules">💡 Use Software Available in Modules</a> guide and the <a href="licensed-software">👾 Use Licensed Software</a> guide.
 
 ### Step Four: Access your Data
 
 When you start using the HTC system, you will usually need to upload your data files to CHTC. This allows your jobs to use the files while they run.
-
-If you do not want to upload your data to CHTC, you may be able to set up your HTCondor jobs to transfer files in other ways. For example, your jobs can:
-
-- Pull or push files using <code>s3</code> file transfer
-- Download files using standard Unix commands, such as <code>wget</code>
-- Use other file transfer methods
 
 The best way to move your data depends on where your files are stored and how your workflow is set up. The guides below explain how to transfer files from several common locations:
 
@@ -176,7 +169,7 @@ The best way to move your data depends on where your files are stored and how yo
 
 When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: <code>/home</code> and <code>/staging</code>. 
 
-<code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="guides">📁 HTC Data guides</a> . 
+<code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="htc-job-file-transfer">📁 HTC Data guide</a> . 
 
 <p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files" width=800px></p>
 
@@ -199,14 +192,14 @@ HTCondor creates several files that can help you review what happened when your 
 After your test jobs finish, we recommend you check for:
 
 - Jobs that were placed on hold. You can view hold messages with <code>condor_q jobID -hold</code>.
-- Expected output files.
-- The size and number of output files. This helps you make sure files are being saved in the correct location and that your quota is large enough for your output data when you submit more jobs.
+- Expected output files - are they in the right location, and do they show the expected output?
+- The size and number of output files. This helps you make sure that your quota is large enough for your output data when you submit more jobs.
 
-If your first test job works as expected, run a small batch next, such as 5 to 10 jobs. This gives you a chance to test your workflow at a slightly larger scale before submitting everything.
+If your first test job works as expected, scale up your test by running a small batch next, such as 5 to 10 jobs. This gives you a chance to test your workflow at a slightly larger scale and ensure your pipeline works before submitting everything.
 
-When the small batch finishes, review the output files and check your available storage space, also called your **quota**. This will help you estimate whether you have enough space for the files your full workflow will create.
+When the small batch finishes, review the output files and [check your available storage space](check-quota), also called your **quota**. This will help you estimate whether you have enough space for the files your full workflow will create.
 
-If the test jobs finish successfully and your quota is large enough, you are ready to submit your full workflow!
+> If the test jobs finish successfully and your quota is large enough, you are ready to submit your full workflow!
 
 If your test jobs **do not** run successfully, do not submit your full workflow yet. First, check your <code>.log</code>, <code>.out</code>, and <code>.err</code> files to understand what happened. You should also check whether your jobs were placed on hold by using <code>condor_q jobID -hold</code>.
 
