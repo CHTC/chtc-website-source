@@ -170,7 +170,19 @@ To learn how to use these software in your jobs, see the <a href="htc-modules">�
 
 ## Step Five: Access Your Data
 
-When you start using the HTC system, you will usually need to upload your data files to CHTC. This allows your jobs to use the files while they run.
+**Choose a Location to Stage your Data**
+
+When using the HTC system, you will usually need to upload your data files so your jobs can access them while they run. Before transferring files, you should decide where to store your data on CHTC.
+
+There are two primary storage locations: <code>/home</code> and <code>/staging</code>.
+
+<code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="htc-job-file-transfer">📁 HTC Data guide</a> . 
+
+<p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
+
+**Transfer your Files to CHTC**
+
+After choosing where your data should go, the next step is to transfer your files to CHTC.
 
 The best way to move your data depends on where your files are stored and how your workflow is set up. The guides below explain how to transfer files from several common locations:
 
@@ -180,14 +192,6 @@ The best way to move your data depends on where your files are stored and how yo
 - <a href="github-remote-access">Remotely Access a Private GitHub Repository</a>
 
 <p style="text-align:center"><img src="/images/roadmap-transfer-data.png" alt="Data can move to CHTC from your computer, ResearchDrive, GitHub, or Globus using different transfer tools, then be saved in /home or /staging." width=800px></p>
-
-**Choose a Location to Stage your Data**
-
-When uploading data to the HTC system, users need to choose a location to store that data on our system. There are two primary locations: <code>/home</code> and <code>/staging</code>. 
-
-<code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="htc-job-file-transfer">📁 HTC Data guide</a> . 
-
-<p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
 
 ## Step Six: Run Test Jobs
 
