@@ -8,7 +8,11 @@ guide:
     - htc
 ---
 
-<p style="text-align:center"><img src="/images/roadmap-steps.png" alt="Path showing the eight steps to get started with CHTC." width=1000px></p>
+This roadmap shows the main steps for getting started on CHTC's HTC system. Use this page as a starting point, review key concepts, and find links to more detailed guides.
+
+Whether you are preparing to use CHTC for the first time or reviewing a specific part of the process, this page can help you find the right next step.
+
+<p style="text-align:center"><img src="/images/roadmap-steps.png" alt="Path showing the eight steps to get started with CHTC." width=800px></p>
 
 {% capture content %}
 - [Step One: Introduction to the High Throughput Computing Strategy](#step-one-introduction-to-the-high-throughput-computing-strategy)
