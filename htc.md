@@ -4,41 +4,47 @@ layout: character_optimized
 title: What is High Throughput Computing?
 ---
 
-For many experimental scientists, scientific progress and quality  of
-research are strongly linked to computing throughput. In other words,
-most scientists are concerned with how many floating point operations 
-per month or per year they can extract from their computing
-environment  rather than the number of such operations the
-environment can provide  them per second or minute. Floating point
-operations per second (FLOPS)  has been the yardstick used by most
-High Performance Computing (HPC) efforts to evaluate their systems. 
-Little attention has been devoted  by the computing community to
-environments that can deliver large amounts  of processing capacity
-over long periods of time.  We refer to such  environments as High
-Throughput Computing (HTC) environments.
+In computing, **throughput** is a measure of the number of computing tasks a system can complete over time. 
 
-For more than a decade, the HTCondor team at the Computer Sciences 
-Department at the University of Wisconsin-Madison has been developing and
-evaluating mechanisms and policies that support HTC on large collections
-of distributively owned heterogeneous computing resources. We first introduced the 
-distinction between High Performance Computing (HPC) and High Throughput Computing 
-(HTC) in a
-[seminar](https://web.archive.org/web/20000229050436/http://cesdis.gsfc.nasa.gov/admin/cesdis.seminars/71196.html) at the NASA Goddard Flight Center
-in July of 1996 and a month later 
-at the European Laboratory for Particle Physics (CERN). In June of 1997 HPCWire
-published an [interview](https://htcondor.org/doc/HPCwire.1) on High Throughput Computing.
+**High Throughput Computing (HTC)** is an approach to computing that focuses on completing as much work as possible by focusing on running multiple independent tasks in parallel across available computers.
 
-The key to HTC is effective management and exploitation of all
-available  computing resources. Since the computing needs of most
-scientists can be  satisfied these days by commodity CPUs and memory,
-high efficiency is  not playing a major role in a HTC environment.
-The main challenge a  typical HTC environment faces is how to
-maximize the amount of resources  accessible to its customers. 
-Distributed ownership of computing resources  is the major obstacle
-such an environment has to overcome in order to  expand the pool of
-resources it can draw from.  Recent trends in the  cost/performance
-ratio of computer hardware have placed the control  (ownership) over
-powerful computing resources in the hands of individuals  and small
-groups. These distributed owners will be willing to include  their
-resources in a HTC environment only after they 
-are convinced that  their needs will be addressed and their rights protected.
+### What kinds of work are good for HTC?
+
+A workload is often a good fit for HTC if it can be divided into multiple independent tasks. Tasks that do not rely on one another can run efficiently across available computing resources.
+
+<table>
+  <thead>
+    <tr>
+      <th>Workload Examples</th>
+      <th>Why HTC?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🧬 Genomics</td>
+      <td>Samples can be analyzed independently.</td>
+    </tr>
+    <tr>
+      <td>🖼️ Image Processing</td>
+      <td>Each image can be processed separately.</td>
+    </tr>
+    <tr>
+      <td>🤖 Machine Learning</td>
+      <td>Training runs or model settings can be tested at the same time.</td>
+    </tr>
+    <tr>
+      <td>🔬 Parameter Sweeps</td>
+      <td>Each set of parameters can run as its own job.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Where did HTC come from?
+
+The concept of **High Throughput Computing (HTC)** was developed by researchers at the University of Wisconsin-Madison in the 1990s.
+
+At the time, much of the computing community focused on High Performance Computing (HPC) and measuring how quickly a computer could perform calculations using a metric called *floating point operations per second (FLOPS)*.
+
+Researchers recognized that some scientists cared less about the number operations the environment can provide them per second or minute and more about how many operations can be completed per month or per year. This idea led to the development of High Throughput Computing (HTC).
+
+In 1996, researchers first explained the difference between High Throughput Computing (HTC) and High Performance Computing (HPC) during a <a href="https://web.archive.org/web/20000229050436/http://cesdis.gsfc.nasa.gov/admin/cesdis.seminars/71196.html">seminar</a> at NASA's Goddard Space Flight Center and CERN. In 1997, HPCWire published an <a href="https://www.hpcwire.com/1997/06/27/high-throughput-computing-an-interview-with-miron-livny">interview</a> on High Throughput Computing. Today, the Center for High Throughput Computing (CHTC) and HTCondor continue to build on these ideas and help researchers around the world accomplish more scientific work.
