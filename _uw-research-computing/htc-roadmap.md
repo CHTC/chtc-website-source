@@ -12,7 +12,7 @@ This roadmap shows the main steps for getting started on CHTC's HTC system. Use 
 
 Whether you are preparing to use CHTC for the first time or reviewing a specific part of the process, this page can help you find the right next step.
 
-<p style="text-align:center"><img src="/images/roadmap-steps.png" alt="Path showing the eight steps to get started with CHTC." width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-steps.jpg" alt="Path showing the eight steps to get started with CHTC." width=850px></p>
 
 {% capture content %}
 - [Step One: Introduction to the High Throughput Computing Strategy](#step-one-introduction-to-the-high-throughput-computing-strategy)
@@ -30,7 +30,7 @@ Whether you are preparing to use CHTC for the first time or reviewing a specific
 
 Like nearly all large-scale compute systems, users of both CHTC's High Throughput and High Performance systems prepare their computational work and submit them as tasks called jobs. These jobs run on execution points, which are the computers that perform the work.
 
-<p style="text-align:center"><img src="/images/roadmap-workflow.png" alt="The process of submitting a job including the access point, job queue, and execution points." width=900px></p>
+<p style="text-align:center"><img src="/images/roadmap-workflow.jpg" alt="The process of submitting a job including the access point, job queue, and execution points." width=900px></p>
 
 **Terminology:**
 
@@ -77,7 +77,7 @@ It is important to keep this distinction in mind when setting up your jobs. On t
 {:.tip-header}
 
 > Rather than submitting **one large job**, consider splitting your workflow into **multiple smaller, independent jobs whenever possible**. This often leads to faster scheduling and more efficient use of HTC resources.
-> <p style="text-align:center"><img src="/images/roadmap-split-workflows.png" alt="On the left, there is a complete puzzle representing one large job. On the right, those same puzzle pieces are seperated representing multiple small jobs." width=500px></p>
+> <p style="text-align:center"><img src="/images/roadmap-split-workflows.jpg" alt="On the left, there is a complete puzzle representing one large job. On the right, those same puzzle pieces are seperated representing multiple small jobs." width=500px></p>
 {:.tip}
 
 Unlike the High Performance System, CHTC staff do not limit the number of jobs a user can have running in parallel, thus it is to your advantage to strategize your workflow to take advantage of as many compute resources as possible.
@@ -92,7 +92,7 @@ Before you can submit jobs, you need access to a CHTC account. If you have not r
 
 To use CHTC, you first log in to an **access point**. An access point, also called a submit server, is the computer you connect to before your jobs run. It is where you prepare your files, write your submit instructions, and send your jobs to HTCondor.
 
-<p style="text-align:center"><img src="/images/roadmap-path-to-access-point.png" alt="Steps to access point" width=750px></p>
+<p style="text-align:center"><img src="/images/roadmap-path-to-access-point.jpg" alt="Steps to access point" width=750px></p>
 
 For security purposes, every CHTC user is required to be connected to either a University of Wisconsin internet network or campus VPN and to use two-factor authentication when logging in.
 
@@ -108,7 +108,7 @@ Each task you submit to the system is called a **job**.
 
 A job is the full set of instructions and files needed to run a piece of work. This can include the **command or script, input files, software, and instructions for where to save output files, error messages, or log files**.
 
-<p style="text-align:center"><img src="/images/roadmap-job-components.png" alt="Components of a job including software environment, command or script, input/output files, standard output/error, resource requirement." width=900px></p>
+<p style="text-align:center"><img src="/images/roadmap-job-components.jpg" alt="Components of a job including software environment, command or script, input/output files, standard output/error, resource requirement." width=900px></p>
 
 Jobs are submitted to **HTCondor**, the system that manages where and when jobs run. **HTCondor is a job scheduler**.
 
@@ -144,7 +144,7 @@ For most users, we recommend using a **container.**
 
 A **software container** packages your software with the operating system, tools, and settings it needs to run into a portable object. When your job runs, it launches inside of the container with the software environment that you've set up. This ensures that your jobs can run on almost any machine, no matter which operating system or libraries the machines have installed, because your container has the tools your jobs need.
 
-<p style="text-align:center"><img src="/images/roadmap-containers.png" alt="Icons for $PATH, libraries, software, code are packaged into a box representing a container." width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-containers.jpg" alt="Icons for $PATH, libraries, software, code are packaged into a box representing a container." width=800px></p>
 
 <p style="text-align:center"><em>Containers keep everything together so it is easier to move and run!</em></p>
 
@@ -182,7 +182,7 @@ There are two primary storage locations: <code>/home</code> and <code>/staging</
 
 <code>/home</code> is more efficient at handling "small" files, while <code>/staging</code> is more efficient at handling "large" files. For more information on what is considered "small" and "large" data files and to learn how to use files stored in these locations for jobs, visit our <a href="htc-job-file-transfer">📁 HTC Data guide</a> . 
 
-<p style="text-align:center"><img src="/images/roadmap-upload-data.png" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-upload-data.jpg" alt="Data from your computer, GitHub, Globus, ResearchDrive, or other sources is uploaded to CHTC, then stored in /home for smaller files or /staging for larger files." width=800px></p>
 
 **Transfer your Files to CHTC**
 
@@ -195,7 +195,7 @@ The best way to move your data depends on where your files are stored and how yo
 - <a href="globus">Using Globus to Transfer Files to and from CHTC</a>
 - <a href="github-remote-access">Remotely Access a Private GitHub Repository</a>
 
-<p style="text-align:center"><img src="/images/roadmap-transfer-data.png" alt="Data can move to CHTC from your computer, ResearchDrive, GitHub, or Globus using different transfer tools, then be saved in /home or /staging." width=800px></p>
+<p style="text-align:center"><img src="/images/roadmap-transfer-data.jpg" alt="Data can move to CHTC from your computer, ResearchDrive, GitHub, or Globus using different transfer tools, then be saved in /home or /staging." width=800px></p>
 
 ## Step Six: Run Test Jobs
 
@@ -207,7 +207,7 @@ Start with **one test job** first. After it finishes, check the files HTCondor c
 
 HTCondor creates several files that can help you review what happened when your test job ran:
 
-<p style="text-align:center"><img src="/images/roadmap-output-files.png" alt="Icons and descriptions for .log, .out, and .err files." width=600px></p>
+<p style="text-align:center"><img src="/images/roadmap-output-files.jpg" alt="Icons and descriptions for .log, .out, and .err files." width=600px></p>
 
 - The <code>.log</code> file shows information about how the job ran and resources used.
 - The <code>.out</code> file shows the text your code printed while it was running.
@@ -264,7 +264,7 @@ Because of this, you should always keep copies of important scripts and input fi
 - ResearchDrive
 - Another backed up storage system
 
-<p style="text-align:center"><img src="/images/roadmap-data-lifecycle.png" alt="Diagram for a data lifecycle including upload data, run analysis, generate results, download and archive results, remove data from CHTC, and make space for the next project." width=500px></p>
+<p style="text-align:center"><img src="/images/roadmap-data-lifecycle.jpg" alt="Diagram for a data lifecycle including upload data, run analysis, generate results, download and archive results, remove data from CHTC, and make space for the next project." width=500px></p>
 
 <p style="text-align:center"><em>This lifecycle shows how data should move through CHTC.</em></p>
 
