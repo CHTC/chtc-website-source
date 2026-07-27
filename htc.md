@@ -8,7 +8,7 @@ In computing, **throughput** is a measure of the number of computing tasks a sys
 
 **High Throughput Computing (HTC)** is an approach to computing that focuses on completing as much work as possible by running **multiple independent tasks** in across **multiple computers** as they become available.
 
-### What kinds of computational works well with the HTC approach?
+### What kinds of computations work well with the HTC approach?
 
 A workload is often a good fit for HTC if it can be divided into multiple independent tasks. Tasks that do not rely on one another can run efficiently across available computing resources.
 
