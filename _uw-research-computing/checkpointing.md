@@ -9,6 +9,8 @@ guide:
         - htc
 ---
 
+## Introduction
+
 Some jobs may take many hours or even days to finish. If one of these jobs is interrupted or reaches a runtime limit, it could **lose all of its progress** and need to start over.
 
 Checkpointing lets the job save its progress along the way, so it can **continue from a saved point** instead of restarting from the beginning.
@@ -21,6 +23,7 @@ On the HTC system, this is especially useful for jobs that might exceed the **72
 This page explains how it works, whether your project is a good fit, and how to set it up.
 
 {% capture content %}
+- [Introduction](#introduction)
 - [Try this example: Counting Fibonacci numbers](#try-this-example-counting-fibonacci-numbers)
 - [How does checkpointing work?](#how-does-checkpointing-work)
 - [Is my project a good fit for checkpointing?](#is-my-project-a-good-fit-for-checkpointing)
