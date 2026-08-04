@@ -9,85 +9,332 @@ guide:
         - htc
 ---
 
+## Introduction
 
-# What is Checkpointing?
+Some jobs may take many hours or even days to finish. If one of these jobs is interrupted or reaches a runtime limit, it could **lose all of its progress** and need to start over.
 
-Checkpointing is a technique that provides fault tolerance for a user’s analysis. It consists of saving snapshots of a job’s progress so the job can be restarted without losing its progress and having to restart from the beginning. We highly encourage checkpointing as a solution for jobs that will exceed the 72 hour maximum default runtime on the HTC system. 
+Checkpointing lets the job save its progress along the way, so it can **continue from a saved point** instead of restarting from the beginning.
 
-This section is about jobs capable of periodically saving checkpoint information, and how to make HTCondor store that information safely, in case it’s needed to continue the job on another machine or at a later time.
+<p style="text-align:center"><img src="/images/checkpointing-exit-driven.jpg" alt="The process and steps of exit-driven checkpointing" width=950px>
+</p>
 
-There are two types of checkpointing: exit driven and eviction driven. In a vast majority of cases, **exit driven checkpointing** is preferred over eviction driven checkpointing. Therefore, this guide will focus on how to utilize exit driven checkpointing for your analysis. 
+On the HTC system, this is especially useful for jobs that might exceed the **72-hour default runtime limit** or are running on shared or backfill resources (e.g. [`want_campus_pools` or `want_ospool`](scaling-htc.html), [`+is_resumable`](gpu-jobs)), where a job may be evicted before it finishes. 
 
-Note that not all software, programs, or code are capable of creating checkpoint files and knowing how to resume from them. Consult the manual for your software or program to determine if it supports checkpointing features. Some manuals will refer this ability as "checkpoint" features, as the ability to "resume" mid-analysis if a job is interrupted, or as "checkpoint/restart" capabilities. Contact a Research Computing Facilitator if you would like help determining if your software, program, or code is able to checkpoint. 
+This page explains how it works, whether your project is a good fit, and how to set it up.
 
+{% capture content %}
+- [Introduction](#introduction)
+- [Try this example: Counting Fibonacci numbers](#try-this-example-counting-fibonacci-numbers)
+- [How does checkpointing work?](#how-does-checkpointing-work)
+- [Is my project a good fit for checkpointing?](#is-my-project-a-good-fit-for-checkpointing)
+- [How do I set it up?](#how-do-i-set-it-up)
+   * [Make sure your executable script can checkpoint](#make-sure-your-executable-script-can-checkpoint)
+   * [Changes to the submit file](#changes-to-the-submit-file)
+- [Write a time-based wrapper script](#write-a-time-based-wrapper-script)
+   * [Create a wrapper script](#create-a-wrapper-script)
+   * [Changes to the submit file](#changes-to-the-submit-file-1)
+- [How do I check the progress of my checkpointing job(s)?](#how-do-i-check-the-progress-of-my-checkpointing-jobs)
+   * [Run a test by evicting your job](#run-a-test-by-evicting-your-job)
+- [Related pages](#related-pages)
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
-# Why Checkpoint? 
+## Try this example: Counting Fibonacci numbers
 
-Checkpointing allows a job to automatically resume from approximately where it left off instead of having to start over if interrupted. This behavior is advantageous for jobs limited by a maximum runtime policy (72 hours on the HTC system). It is also advantageous for jobs submitted to backfill resources with no runtime guarantee (e.g. for [`want_campus_pools` or `want_ospool` jobs](https://chtc.cs.wisc.edu/uw-research-computing/scaling-htc.html)) where the compute resources may also be more prone to hardware or networking failures.
+The example below walks you through the checkpointing process step-by-step. It shows how a program saves its progress, exits, and resumes from a checkpoint so you can apply the same ideas to your own project.
 
-For example, checkpointing jobs that are limited by a runtime policy can enable HTCondor to exit a job and automatically requeue it to avoid hitting the maximum runtime limit. By using checkpointing, jobs circumvent hitting the maximum runtime limit and can run for extended periods of time until the completion of the analysis. This behavior avoids costly setbacks that may be caused by losing results mid-way through an analysis due to hitting a runtime limit. 
+This example uses a Python script that calculates Fibonacci numbers over 10 iterations. It creates a checkpoint after every two completed iterations.
 
-# Process of Exit Driven Checkpointing
+### Step 1: Download script
 
-Using exit driven checkpointing, a job is specified to time out after a user-specified amount of time with an exit code value of 85 (more on this below). Upon hitting this time limit, HTCondor transfers any checkpoint files listed in the submit file attribute `transfer_checkpoint_files` to a directory called `/spool`. This directory acts as a storage location for these files in case the job is interrupted. HTCondor then knows that jobs with exit code `85` should be automatically requeued, and will transfer the checkpoint files in `/spool` to your job's working directory prior to restarting your executable.
+Log in to your CHTC account through the terminal and download the example script:
 
-The process of exit driven checkpointing relies heavily on the use of exit codes to determine the next appropriate steps for HTCondor to take with a job. In general, exit codes are used to report system responses, such as when an analysis is running, encountered an error, or successfully completes. HTCondor recognizes exit code `85` as checkpointing jobs and therefore will know to handle these jobs differently than non-checkpoiting jobs.
+```
+wget https://chtc.cs.wisc.edu/uw-research-computing/files/fibonacci.py
+```
+{:.term}
 
+Confirm that the file was downloaded:
 
-# Requirements for Exit Driven Checkpointing
+```
+ls
+```
+{:.term}
 
-Requirements for your code or software: 
+You should see:
 
-- *Checkpoint*: The software, program, or code you are using must be able to generate checkpoint files (i.e. snapshots of the progress made thus far) and know how to resume from them. 
-- *Resume*: This means your code must be able to recognize checkpoint files and know to resume from them instead of the original input data when the code is restarted. 
-- *Exit*: Jobs should exit with an exit code value of `85` after successfully creating checkpoint files. Additionally, jobs need to be able to exit with a non-`85` value if they encounter an error or write the writing the final outputs.
+```
+fibonacci.py
+```
+{:.term}
 
-**In some cases, these requirements can be achieved by using a wrapper script.** This means that your executable may be a script, rather than the code that is writing the checkpoint. An example wrapper script that enables some of these behaviors is below. 
+### Step 2: Make the script executable
 
-Contact a Research Computing Facilitator for help determining if your job is capable of using checkpointing.  
+Before you can run the script directly, give it permission to execute:
 
+```
+chmod +x fibonacci.py
+```
+{:.term}
 
-# Changes to the Submit File
+### Step 3: Create a submit file
 
-Several modifications to the submit file are needed to enable HTCondor's checkpointing feature. 
+Create a submit file named `fibonacci.sub`. This example uses `nano` but you can use any text editor you prefer.
 
-- The line `checkpoint_exit_code = 85` must be added. HTCondor recognizes code `85` as a checkpoint job. This means HTCondor knows to end a job with this code but to then to requeue it repeatedly until the analysis completes. 
-- The value of `when_to_transfer_output` should be set to `ON_EXIT`. 
-- The name of the checkpoint files or directories to be transferred to `/spool` should be specified using `transfer_checkpoint_files`.
+```
+nano fibonacci.sub
+```
+{:.term}
 
-**Optional** 
-In some cases, it is necessary to write a wrapper script to tell a job when to timeout and exit. In cases such as this, the executable will need to be changed to the name of that wrapper script. An example of a wrapper script that enables a job to checkout and exit with the proper exit codes can be found below. 
-
-An example submit file for an exit driven checkpointing job looks like: 
+Add the following contents:
 
 ```
 # exit-driven-example.submit
 
-executable                  = exit-driven.sh
-arguments                   = argument1 argument2
+executable = fibonacci.py
+arguments = 10
 
-checkpoint_exit_code        = 85
-transfer_checkpoint_files   = my_output.txt, temp_dir, temp_file.txt
-+is_resumable = true
+checkpoint_exit_code = 85
+transfer_checkpoint_files = fibonacci.checkpoint
 
-should_transfer_files       = yes
-when_to_transfer_output     = ON_EXIT
+output = fibonacci.out
+error = fibonacci.err
+log  = fibonacci.log
 
-output                      = example.out
-error                       = example.err
-log                         = example.log
+requests_cpus = 1
+request_disk = 2GB
+request_memory = 2GB 
 
-cpu                         = 1
-request_disk                = 2 GB
-request_memory              = 2 GB 
-
-queue 1
+queue
 ```
 
+Save the file and exit the text editor. (In `nano`, use `CTRL`+`X` to quit. You will be prompted to save the file before exiting.)
 
-# Example Wrapper Script for Checkpointing Job
+From the **submit file** above, you may have noticed a few additional lines beyond those used for a standard job:
 
-As previously described, it may be necessary to use a wrapper script to tell your job when and how to exit as it checkpoints. An example of a wrapper script that tells a job to exit every 4 hours looks like: 
+- `checkpoint_exit_code = 85` tells HTCondor that the program saved a checkpoint and should be placed back in the queue. Exit code `85` is used for all exit-driven checkpointing jobs.
+- `transfer_checkpoint_files = fibonacci.checkpoint` identifies the file that will contain the job’s saved progress. Replace `fibonacci.checkpoint` with the name of the checkpoint file(s) created by your program.
+
+### Step 4: Submit the job
+
+Submit the job to HTCondor:
+
+```
+condor_submit fibonacci.sub
+```
+{:.term}
+
+The command will return a job ID that you can use to monitor the job.
+
+### Step 5: Check the job status
+
+Use the following command to check whether the job is idle, running, or complete:
+
+```
+condor_watch_q
+```
+{:.term}
+
+After each checkpoint, the job may briefly return to the idle state before HTCondor starts it again.
+
+### Step 6: Monitor the job
+
+You may follow the HTCondor log while the job runs:
+
+```
+tail -n 100 -f fibonacci.log
+```
+{:.term}
+
+The log records when HTCondor transfers files, starts the job, receives a checkpoint, and restarts the job.
+
+You can also follow the program's output:
+
+```
+tail -f fibonacci.out
+```
+{:.term}
+
+Press `Ctrl+C` to stop following a file. This does not stop the job.
+
+### Step 7: Review the results
+
+After the job finishes, list the files in the directory:
+
+```
+ls
+```
+{:.term}
+
+You should see files similar to:
+
+```text
+fibonacci.checkpoint
+fibonacci.err
+fibonacci.log
+fibonacci.out
+fibonacci.py
+fibonacci.result
+fibonacci.sub
+```
+
+View the final result:
+
+```
+cat fibonacci.result
+```
+{:.term}
+
+You should see:
+
+```
+The Fibonacci number after 10 iterations is 89
+```
+
+You can also review:
+
+- `fibonacci.out` for iteration and checkpoint messages
+- `fibonacci.err` for errors
+- `fibonacci.log` for HTCondor events
+- `fibonacci.checkpoint` for the most recently saved progress
+
+### How does the script create checkpoints?
+
+When using **checkpointing** for your own project, your program must include the logic needed to save and resume its work.
+
+The **Fibonacci example** works because `fibonacci.py` checks for an existing checkpoint file when it starts, loads the saved values, updates the checkpoint file after every two iterations, and exits with code 85 so HTCondor knows to run it again.
+
+The following parts of `fibonacci.py` control how the script saves and resumes its progress:
+
+```
+CHECKPOINT_FILENAME = 'fibonacci.checkpoint'
+
+# Number of seconds to sleep between iterations so the job is visible in the queue
+SLEEP_SECONDS = 30
+
+# Number of outer loop iterations to complete before self-checkpointing
+CHECKPOINT_FREQUENCY = 2
+```
+
+- `CHECKPOINT_FILENAME` sets the name of the file used to save progress.
+- `CHECKPOINT_FREQUENCY` tells the script to create a checkpoint after every two completed iterations. The 30-second pause makes the short calculation behave more like a longer-running job.
+
+
+**Write a check to see if we're starting from scratch or from a checkpoint**
+
+```
+# Figure out where to start from
+completed_iterations = 0
+n_minus_2 = 0
+n_minus_1 = 1
+try:
+    f = open(CHECKPOINT_FILENAME, 'r')
+    completed_iterations = int(f.readline().rstrip())
+    n_minus_2 = int(f.readline().rstrip())
+    n_minus_1 = int(f.readline().rstrip())
+    f.close()
+except IOError:
+    pass
+```
+
+The script first sets the values used when starting from the beginning. It then checks for an existing checkpoint file. If the file exists, the script reads the number of completed iterations and the two Fibonacci values needed to continue. If the file does not exist, the script keeps the starting values and begins with the first iteration.
+
+```
+    # Possibly checkpoint here
+    if (completed_iterations < total_iterations) and (completed_iterations % CHECKPOINT_FREQUENCY == 0):
+        print('{}: Checkpointing'.format(timestring()))
+        try:
+            f = open(CHECKPOINT_FILENAME, 'w')
+            f.write("{}\n{}\n{}\n".format(completed_iterations, n_minus_2, n_minus_1))
+            f.close()
+        except IOError:
+            print('Could not write checkpoint: {}'.format(IOError.strerror))
+            sys.exit(2)
+        sys.exit(85)
+```
+
+After every two iterations, the script checks whether more work remains. It then writes the number of completed iterations and the two most recent Fibonacci values to `fibonacci.checkpoint`. After saving the file, the script exits with code `85`, which tells HTCondor to preserve the checkpoint and place the job back in the queue.
+
+For your own project, you will need to decide what information must be saved, how often checkpoints should be created, and how your program will read the saved information when it starts again.
+
+## How does checkpointing work?
+
+At CHTC, we recommend **exit-driven checkpointing**. With this method, the program saves its progress whenever it reaches the checkpoints defined in the script.
+
+<p style="text-align:center"><img src="/images/checkpointing-exit-driven.jpg" alt="The process and steps of exit driven checkpointing" width=950px></p>
+
+1. After submitting the job(s) successfully, it runs until it reaches a checkpoint.
+1. The job exits on purpose with checkpoint exit code `85`.
+1. HTCondor recognizes code `85` and saves the checkpoint files in a protected directory called `/spool`.
+1. HTCondor places the job back in the queue to wait for another execution resource.
+1. When the job starts again, HTCondor transfers the checkpoint files from `/spool` back to the job.
+1. The program reads the checkpoint files and continues from the saved point.
+1. This process repeats until the job finishes and exits normally with code `0`.
+
+## Is my project a good fit for checkpointing?
+
+Not every project can use **checkpointing**. Your software, program, or code must be able to save its progress while it runs and know how to resume from that saved progress later.
+
+To check whether your project supports checkpointing, look at the manual or documentation for your software. Some tools may call this feature "*checkpointing*," "*resume*," "*restart*," or "*checkpoint/restart*."
+
+If you are not sure, contact a <a href="https://chtc.cs.wisc.edu/uw-research-computing/get-help.html">👨‍💻 Research Computing Facilitator</a> for help deciding whether your software, program, or code can use checkpointing. 
+
+## How do I set it up?
+
+Checkpointing requires changes to both your **executable script** and your **HTCondor submit file**. Your executable script must be able to save its progress, read the saved files when it starts again, and continue from the saved point.
+
+### Make sure your executable script can checkpoint
+
+Before updating the submit file, confirm that your executable script can:
+
+- Save its progress to one or more checkpoint files.
+- Read existing checkpoint files when it starts.
+- Continue from the saved progress.
+- Exit with code `85` after creating a checkpoint.
+- Exit normally when all work is complete.
+
+### Changes to the submit file
+
+Checkpointing requires a few additional settings beyond those used for a standard job:
+
+- `checkpoint_exit_code = 85` tells HTCondor that the program saved a checkpoint and should be placed back in the queue.
+- `transfer_checkpoint_files` lists the checkpoint files or directories that HTCondor must preserve between runs.
+
+The submit file may look like this:
+
+```
+# exit-driven-example.sub
+
+executable = my_program
+arguments = argument1 argument2
+
+checkpoint_exit_code = 85
+transfer_checkpoint_files = my_output.txt, temp_dir, temp_file.txt
+
+output = example.out
+error = example.err
+log = example.log
+
+request_cpus = 1
+request_disk = 2GB
+request_memory = 2GB
+
+queue
+```
+
+Replace the example values with the executable, arguments, checkpoint files, output filenames, and resource requests used by your project.
+
+## Write a time-based wrapper script
+
+A wrapper script can be useful when your program creates checkpoint files but **does not** stop on its own after saving them.
+
+The wrapper limits how long the program runs and returns the checkpoint exit code when that time limit is reached.
+
+The wrapper **does not** create checkpoint files. Your program must save its progress while it runs, and it must be able to resume from those files later. Choose a time limit that gives the program enough time to create a complete and usable checkpoint.
+
+### Create a wrapper script
+
+Below is an example of a wrapper script that allows the program to run for **up to four hours**:
 
 ```
 #!/bin/bash
@@ -103,54 +350,122 @@ fi
 exit $timeout_exit_status
 ```
 
-Let’s take a moment to understand what each section of this wrapper script is doing: 
+The following line sets the program’s time limit:
 
 ```
-#!/bin/bash
+timeout 4h do_science arg1 arg2
+```
 
-timeout 4h do_science argument1 argument2
-# The `timeout` command will stop the job after 4 hours (4h). 
-# This number can be increased or decreased depending on how frequent your code/software/program 
-# is creating checkpoint files and how long it takes to create/resume from these files. 
-# Replace `do_science argument1 argument2` with the execution command and arguments for your job.
+This line has three main parts:
 
+- `timeout` runs a command for a limited amount of time.
+- `4h` sets the time limit to four hours.
+- `do_science arg1 arg2` represents the program and its arguments.
+
+Replace `do_science arg1 arg2` with the command and arguments used to run your program.
+
+You can also change the four-hour limit based on how often your program creates checkpoint files and how long it takes to save or resume its work. We recommend setting the timeout between **one and five hours**, with a maximum of **10 hours**.
+
+The **four-hour limit** can be adjusted based on how often your program creates checkpoint files and how long it takes to save or resume its progress.
+
+If the timeout is **less than one hour**, the job may spend too much time stopping, transferring files, and restarting. If the timeout is **longer than 10 hours**, the job may have fewer opportunities to run on [other campus resources or the OSPool](scaling-htc.html).
+
+The following line saves the exit code returned by the timeout command:
+
+```
 timeout_exit_status=$?
-# Uses the bash notation of `$?` to call the exit value of the last executed command 
-# and to save it in a variable called `timeout_exit_status`. 
+```
 
+The Bash variable `$?` contains the exit code returned by the previous command. This line saves that code in a variable named `timeout_exit_status`.
 
+The following section checks whether the time limit was reached:
 
+```
 if [ $timeout_exit_status -eq 124 ]; then
     exit 85
 fi
-
-exit $timeout_exit_status
-
-# Programs typically have an exit code of `124` while they are actively running. 
-# The portion above replaces exit code `124` with code `85`. HTCondor recognizes 
-# code `85` and knows to end a job with this code once the time specified by `timeout`
-# has been reached. Upon exiting, HTCondor saves the files from jobs with exit code `85` 
-# in the temporary directory within `/spool`.  Once the files have been transferred,
-# HTCondor automatically requeues that job and fetches the files found in `/spool`. 
-# If an exit code of `124` is not observed (for example if the program is done running 
-# or has encountered an error), HTCondor will end the job and will not automaticlally requeue it.
-
 ```
 
-The ideal timeout frequency for a job is every 1-5 hours with a maximum of 10 hours. For jobs that checkpoint and timeout in under an hour, it is possible that a job may spend more time with checkpointing procedures than moving forward with the analysis. After 10 hours, jobs that checkpoint and timeout are less able to take advantage of [submitting jobs outside of CHTC](scaling-htc.html) to run on other campus resources or on the OSPool. 
+The timeout command returns exit code `124` when the four-hour limit is reached. The wrapper changes code `124` to checkpoint exit code `85`.
 
+When HTCondor receives code `85`, it preserves the files listed in `transfer_checkpoint_files` and places the job back in the queue.
 
-# Checking the Progress of Checkpointing Jobs
+The final line handles all other exit codes:
+
+```
+exit $timeout_exit_status
+```
+
+If the program finishes before the time limit or exits with an error, the wrapper returns the program’s original exit code. This prevents HTCondor from treating a completed or failed job as a checkpoint.
+
+When the job starts again, HTCondor returns the saved checkpoint files so `do_science` can resume from its most recent saved point.
+
+### Changes to the submit file
+
+When using a wrapper, set the wrapper script as the **executable** in your submit file. Because the program command and arguments are already included in this wrapper, you **do not** need an arguments line.
+
+```
+# exit-driven-example.sub
+
+executable = my_wrapper.sh
+
+checkpoint_exit_code = 85
+transfer_checkpoint_files = my_output.txt, temp_dir, temp_file.txt
+
+output = example.out
+error = example.err
+log = example.log
+
+request_cpus = 1
+request_disk = 2GB
+request_memory = 2GB 
+
+queue
+```
+
+Replace the example values with the files, commands, and resource requests used by your project. This includes the executable, program arguments, checkpoint files, output filenames, and requested computing resources.
+
+## How do I check the progress of my checkpointing job(s)?
 
 Always test a single checkpointing job before scaling up to identify odd or unintentional behaviors in your analysis. 
 
 To determine if your job is successfully creating and saving checkpoint files, you can investigate checkpoint files once they have been transferred to `/spool`.
 
-You can explore the checkpointed files in `/spool` by navigating to `/var/lib/condor/spool`. The directories in this folder are the last four digits of a job's cluster ID with leading zeros removed. Sub folders are labeled with the process ID for each job. For example, to investigate the checkpoint files for `17870068.220`, the files in `/spool` would be found in folder `68` in a subdirectory called `220`.
+1. Navigate to `/var/lib/condor/spool`.
 
-It is also possible to intentionally evict a running job and have it rematch to an execute server to test if your code is successfully resuming from checkpoint files or not. To test this, use `condor_vacate_job <JobID>`. This command will evict your job intentionally and have it return to "Idle" state in the queue. This job will begin running once it rematches to an execute server, allowing you to test if your job is correctly resuming from checkpoint files or incorrectly starting over with the analysis.  
+    ```
+    [user@ap2002 ~]$ cd /var/lib/condor/spool
+    [user@ap2002 spool]$ ls -p
+    1084/  2340/  3913/  549/   7633/  7683/  7694/  800/   checkpoint-cleanup/  schedd_daemon_history
+    1572/  2369/  3914/  550/   7676/  7684/  7695/  8353/  epoch_history        schedd_daemon_history.20260728T215929
+    1968/  2406/  4138/  586/   7677/  7685/  7696/  8455/  history              spool_version
+    2018/  2544/  4251/  6069/  7678/  7686/  7697/  8510/  library.db
+    2325/  2829/  4253/  6130/  7679/  7687/  7698/  8566/  library.db-shm
+    2327/  2997/  4624/  6854/  7680/  7688/  7699/  9019/  library.db-wal
+    2336/  3231/  538/   7550/  7681/  7689/  7700/  9463/  local_univ_execute/
+    2338/  3610/  546/   7591/  7682/  7693/  7701/  9592/  lost+found/
+    ```
+    {:.term}
 
+    The directories in this folder are the **last four digits of a job's cluster ID** with leading zeros removed. **Sub folders are labeled with the process ID for each job**.
+    
+1. To investigate the checkpoint files, look at your job's ID and navigate to the correct directory. 
+    
+    For example, for `17870068.220`, navigate to the directory `68` in a subdirectory called `220`.
 
-# More Information
+    ```
+    [user@ap2002 spool]$ cd 68
+    [user@ap2002 68]$ cd 220
+    ```
+    {:.term}
 
-More information on checkpointing HTCondor jobs can be found in HTCondor’s manual: https://htcondor.readthedocs.io/en/latest/users-manual/self-checkpointing-applications.html This documentation contains additional features available to checkpointing jobs, as well as additional examples such as a python checkpointing job. 
+### Run a test by evicting your job
+
+It is also possible to intentionally evict a running job and have it rematch to an execute server to test if your code is successfully resuming from checkpoint files or not.
+
+1. To test this, use `condor_vacate_job <JobID>`. This command will evict your job intentionally and have it return to "Idle" state in the queue.
+1. This job will begin running once it rematches to an execute server, allowing you to test if your job is correctly resuming from checkpoint files or incorrectly starting over with the analysis.  
+
+## Related pages
+
+For more information about checkpointing HTCondor jobs, see HTCondor's manual [Self-Checkpointing Applications](https://htcondor.readthedocs.io/en/latest/users-manual/self-checkpointing-applications.html).
