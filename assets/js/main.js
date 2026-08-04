@@ -62,3 +62,16 @@ function fillBadgeColors() {
 }
 
 fillBadgeColors();
+
+/**
+ * Track when users expand or collapse <details> elements in Matomo.
+ */
+document.addEventListener('toggle', function(e) {
+    if (!(e.target instanceof HTMLDetailsElement)) return;
+
+    const summary = e.target.querySelector('summary');
+    const label = (summary ? summary.textContent.trim() : 'No Summary') + ' | ' + window.location.pathname;
+
+    window._paq = window._paq || [];
+    window._paq.push(['trackEvent', 'Details', e.target.open ? 'Open' : 'Close', label]);
+}, true);
