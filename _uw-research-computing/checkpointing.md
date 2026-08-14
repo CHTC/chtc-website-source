@@ -27,10 +27,10 @@ This page explains how it works, whether your project is a good fit, and how to 
 - [Try this example: Counting Fibonacci numbers](#try-this-example-counting-fibonacci-numbers)
 - [How does checkpointing work?](#how-does-checkpointing-work)
 - [Is my project a good fit for checkpointing?](#is-my-project-a-good-fit-for-checkpointing)
-- [How do I set it up?](#how-do-i-set-it-up)
+- [Option 1: How do I set it up?](#how-do-i-set-it-up)
    * [Make sure your executable script can checkpoint](#make-sure-your-executable-script-can-checkpoint)
    * [Changes to the submit file](#changes-to-the-submit-file)
-- [Write a time-based wrapper script](#write-a-time-based-wrapper-script)
+- [Option 2: Write a time-based wrapper script](#write-a-time-based-wrapper-script)
    * [Create a wrapper script](#create-a-wrapper-script)
    * [Changes to the submit file](#changes-to-the-submit-file-1)
 - [How do I check the progress of my checkpointing job(s)?](#how-do-i-check-the-progress-of-my-checkpointing-jobs)
@@ -300,6 +300,10 @@ Checkpointing requires a few additional settings beyond those used for a standar
 - `checkpoint_exit_code = 85` tells HTCondor that the program saved a checkpoint and should be placed back in the queue.
 - `transfer_checkpoint_files` lists the checkpoint files or directories that HTCondor must preserve between runs.
 
+If your job is shorter than **4–6 hours**, or can checkpoint at least that frequently, you can also make it eligible for additional backfill resources by adding: `+is_resumable = true`
+
+`+is_resumable` tells HTCondor that your job can be interrupted and later resume from a saved checkpoint. This setting is optional and is not required for checkpointing.
+
 The submit file may look like this:
 
 ```
@@ -315,7 +319,7 @@ output = example.out
 error = example.err
 log = example.log
 
-request_cpus = 1
+request_cpu = 1
 request_disk = 2GB
 request_memory = 2GB
 
@@ -364,11 +368,11 @@ This line has three main parts:
 
 Replace `do_science arg1 arg2` with the command and arguments used to run your program.
 
-You can also change the four-hour limit based on how often your program creates checkpoint files and how long it takes to save or resume its work. We recommend setting the timeout between **one and five hours**, with a maximum of **10 hours**.
+You can also change the **four-hour limit** based on how often your program creates checkpoint files and how long it takes to save or resume its work. We recommend setting the timeout between **one and five hours**, with a maximum of **ten hours**.
 
-The **four-hour limit** can be adjusted based on how often your program creates checkpoint files and how long it takes to save or resume its progress.
+Shorter timeouts give the job more opportunities to save progress and move between resources, while longer timeouts reduce the overhead of repeatedly stopping, transferring files, and restarting.
 
-If the timeout is **less than one hour**, the job may spend too much time stopping, transferring files, and restarting. If the timeout is **longer than 10 hours**, the job may have fewer opportunities to run on [other campus resources or the OSPool](scaling-htc.html).
+If the timeout is **less than one hour**, the job may spend too much time stopping, transferring files, and restarting. If the timeout is **longer than ten hours**, the job may have fewer opportunities to run on [other campus resources or the OSPool](scaling-htc.html).
 
 The following line saves the exit code returned by the timeout command:
 
@@ -416,7 +420,7 @@ output = example.out
 error = example.err
 log = example.log
 
-request_cpus = 1
+request_cpu = 1
 request_disk = 2GB
 request_memory = 2GB 
 
