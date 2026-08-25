@@ -75,3 +75,23 @@ document.addEventListener('toggle', function(e) {
     window._paq = window._paq || [];
     window._paq.push(['trackEvent', 'Details', e.target.open ? 'Open' : 'Close', label]);
 }, true);
+
+/**
+ * Track clicks on elements marked up with data-track-action in Matomo. Matomo's
+ * automatic link tracking only covers outlinks and downloads, so internal links
+ * and mailto: links need an explicit event.
+ *
+ *   <a href="..." data-track-category="Facilitation" data-track-action="Meeting Request">
+ */
+document.addEventListener('click', function(e) {
+    if (!(e.target instanceof Element)) return;
+
+    const element = e.target.closest('[data-track-action]');
+    if (!element) return;
+
+    const category = element.dataset.trackCategory || 'Link';
+    const name = (element.dataset.trackName || element.textContent.trim()) + ' | ' + window.location.pathname;
+
+    window._paq = window._paq || [];
+    window._paq.push(['trackEvent', category, element.dataset.trackAction, name]);
+}, true);

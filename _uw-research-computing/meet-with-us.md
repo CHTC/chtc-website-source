@@ -16,7 +16,9 @@ You do <b>not</b> need a CHTC account, or even a specific plan, to meet with us.
 
 <div class="d-flex mb-3">
 	<div class="p-3 m-auto">
-		<a class="btn btn-primary" href="mailto:chtc-facilitation@g-groups.wisc.edu?subject=Meeting%20request%3A%20exploring%20CHTC%20computing%20services&amp;">Request a meeting</a>
+		<a class="btn btn-primary" href="mailto:chtc-facilitation@g-groups.wisc.edu?subject=Meeting%20request%3A%20exploring%20CHTC%20computing%20services&amp;"
+		   data-track-category="Facilitation" data-track-action="Meeting Request"
+		   data-track-name="Meet With Us Page">Request a meeting</a>
 	</div>
 </div>
 
