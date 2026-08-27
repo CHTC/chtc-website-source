@@ -15,7 +15,7 @@ guide:
 
 ## Transition to a new `/staging` directory structure
 
-Starting May 15, we are transitioning to a new directory structure for personal staging directories. **This affects all users on the HTC system**. Plan to adjust your workflows by August 28th. See [What you should do](#what-you-should-do) for details.
+Starting May 15, we are transitioning to a new directory structure for personal staging directories. **This affects all users on the HTC system**. Plan to adjust your workflows by August 31st. See [What you should do](#what-you-should-do) for details.
 
 Personal staging directories will now be located in **alphabetized subdirectories** based on the first letter of your NetID. For example:
 
@@ -38,16 +38,16 @@ CHTC will:
 
 * **Before May 15**.
    - Use `/staging/netid` in your jobs.
-* **Between May 15 - August 28**.
+* **Between May 15 - August 31**.
     - Data is available at a new path (`/staging/n/netid`).
     - [Start transitioning jobs](#what-you-should-do) to use this new path.
-* **After August 28**. 
+* **After August 31**. 
     - You must use `/staging/n/netid` in jobs.
     - Symlinks at previous `/staging` directory paths will be deleted.
 
 ## What you should do
 
-If you have an existing `/staging` directory, **between May 15 and August 28**, please review all your files that reference your `/staging` directory. This may include but is not limited to:
+If you have an existing `/staging` directory, **between May 15 and August 31**, please review all your files that reference your `/staging` directory. This may include but is not limited to:
 
 * HTCondor submit files
 * Executables and scripts
