@@ -368,3 +368,306 @@ h6:hover .header-link {
   text-decoration: none;
   color: inherit;
 }
+
+// Learning materials page (/learning-materials.html)
+#learning-materials {
+
+  .lm-intro {
+    max-width: 60rem;
+  }
+
+  // -- Sidebar tag selector --
+  .lm-sidebar {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    background-color: #fffcfc;
+    padding: 0.75rem;
+    @include media-breakpoint-up(lg) {
+      position: sticky;
+      top: 1rem;
+      max-height: calc(100vh - 2rem);
+      overflow-y: auto;
+    }
+  }
+
+  .lm-sidebar-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lm-clear-tags {
+    text-decoration: none;
+    color: $primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .lm-tag-list li + li {
+    margin-top: 0.15rem;
+  }
+
+  .lm-tag-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0.25rem 0.35rem;
+    border-radius: 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 400;
+    cursor: pointer;
+    &:hover {
+      background-color: #f9e6e7;
+    }
+    .form-check-input {
+      margin: 0;
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+    .lm-tag-name {
+      flex: 1 1 auto;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .lm-tag-count {
+    flex: 0 0 auto;
+    min-width: 1.6rem;
+    text-align: center;
+    padding: 0 0.3rem;
+    border-radius: 1rem;
+    background-color: #eceeef;
+    color: #495057;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  // -- Filter and sort toolbar --
+  .lm-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lm-search {
+    position: relative;
+    flex: 1 1 18rem;
+    .form-control {
+      padding-left: 2.1rem;
+    }
+  }
+
+  .lm-search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+  }
+
+  .lm-sort {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 1 auto;
+    .form-label {
+      white-space: nowrap;
+      font-weight: 400;
+      color: #495057;
+    }
+    .form-select {
+      width: auto;
+    }
+  }
+
+  .lm-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .lm-active-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .lm-active-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid $primary;
+    background-color: #f9e6e7;
+    color: #7a0307;
+    border-radius: 1rem;
+    padding: 0.05rem 0.6rem;
+    font-size: 0.75rem;
+    i {
+      font-size: 0.6rem;
+    }
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  // -- Cards --
+  .lm-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    background-color: $white;
+    padding: 1rem;
+    transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    &:hover {
+      border-color: #999;
+      box-shadow: 0 0.35rem 0.75rem rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Featured materials: gold trim and a star in the top right corner.
+  .lm-card-featured {
+    border-color: #c9a227;
+    background-color: #fffdf4;
+    box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35);
+    &:hover {
+      border-color: #a9861a;
+      box-shadow: 0 0.35rem 0.75rem rgba(139, 105, 20, 0.2);
+    }
+    .lm-tag-badge {
+      border-color: #e4d5a1;
+      background-color: #fbf5e2;
+    }
+    .lm-card-footer {
+      border-top-color: rgba(201, 162, 39, 0.4);
+    }
+  }
+
+  // Floated so the badge only shortens the first line of the title.
+  .lm-featured-label {
+    float: right;
+    margin: 0.1rem 0 0.15rem 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid #e3cf83;
+    border-radius: 1rem;
+    background-color: #fbf3d8;
+    color: #8a6a06;
+    font-size: 0.65rem;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+    i {
+      font-size: 0.7rem;
+      color: #d9a406;
+    }
+  }
+
+  .lm-card-head {
+    display: flex;
+    align-items: start;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lm-card-icon {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #212529;
+  }
+
+  .lm-card-icon-img {
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+  }
+
+  .lm-card-title {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    a {
+      color: #212529;
+      text-decoration: none;
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .lm-card-description {
+    font-size: 0.85rem;
+    color: #495057;
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .lm-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  .lm-tag-badge {
+    border: 1px solid #d5d5d5;
+    background-color: #f1f1f1;
+    color: #495057;
+    border-radius: 1rem;
+    padding: 0.05rem 0.55rem;
+    font-size: 0.7rem;
+    &:hover {
+      border-color: $primary;
+      color: #7a0307;
+    }
+    &.active {
+      border-color: $primary;
+      background-color: #f9e6e7;
+      color: #7a0307;
+    }
+  }
+
+  .lm-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 0.75rem;
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.7rem;
+    color: #6c757d;
+  }
+
+  .lm-card-host {
+    overflow-wrap: anywhere;
+  }
+
+  .lm-no-results {
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: #495057;
+  }
+}

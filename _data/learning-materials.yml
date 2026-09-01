@@ -1,0 +1,186 @@
+# Learning materials shown on /learning-materials.html
+#
+# text:         Title of the material (required)
+# url:          Link to the repository or guide (required)
+# icon:         Either a Bootstrap Icons class ("bi bi-github") or a path/URL to
+#               an image to use as the icon ("/images/logos/rstudio.png")
+# description:  Short summary, rendered as markdown
+# tags:         List of tags; these populate the sidebar tag selector
+# last updated: YYYY-MM-DD, used by the default "Recently updated" sort
+# featured:     true to highlight the material and pin it to the top of the
+#               default listing (the pin is dropped once a visitor sorts)
+
+- text: Build a Conda-based Container for Bioinformatics
+  url: https://github.com/CHTC/biocafe-containers
+  icon: "bi bi-github"
+  description: |
+    This tutorial covers the basics of how to use containers to deploy software.
+    While this example is bioinformatics-flavored, the concepts can be applied
+    to any software stack.
+  tags:
+    - conda
+    - HTC
+    - bioinformatics
+    - CHTC-created
+    - container
+  last updated: 2026-05-11
+
+- text: Learn How to Deploy R Calculations
+  url: https://github.com/chtc/tutorial-rstudio-to-chtc
+  icon: "bi bi-github"
+  description: |
+    A step-by-step example of transitioning from running R calculations
+    on your computer using RStudio, to running many such calculations
+    on a HTC system.
+  tags:
+    - R
+    - CHTC-created
+    - beginner-friendly
+    - HTC
+  last updated: 2026-04-02
+
+- text: Predict Protein Structures with Alphafold3
+  url: https://github.com/CHTC/tutorial-CHTC-AF3
+  icon: "bi bi-github"
+  description: |
+    AlphaFold3 (AF3) predicts atomic-resolution biomolecular structures
+    for proteins, nucleic acids, and complexes.
+  tags:
+    - bioinformatics
+    - CHTC-created
+    - HTC
+    - GPU
+  last updated: 2026-06-24
+
+- text: Machine Learning on GPUs with PyTorch
+  url: https://github.com/CHTC/tutorial-pytorch-gpu
+  icon: "bi bi-github"
+  description: |
+    Train and evaluate a PyTorch model on GPU capacity, including how to
+    request GPUs, check for CUDA availability, and checkpoint long-running
+    training jobs.
+  tags:
+    - machine-learning
+    - GPU
+    - python
+    - CHTC-created
+    - HTC
+  last updated: 2026-07-15
+
+- text: Package Python Environments for Distributed Jobs
+  url: https://github.com/CHTC/tutorial-python-environments
+  icon: "bi bi-github"
+  description: |
+    Compare the ways of bringing a Python environment along with your jobs,
+    from `conda-pack` tarballs to purpose-built Apptainer containers.
+  tags:
+    - python
+    - conda
+    - container
+    - beginner-friendly
+    - CHTC-created
+    - HTC
+  last updated: 2026-08-19
+
+- text: Run MPI Simulations on the HPC Cluster
+  url: https://github.com/CHTC/tutorial-hpc-mpi
+  icon: "bi bi-github"
+  description: |
+    An introduction to compiling and running multi-node MPI codes with SLURM,
+    including how to scale up gradually and measure parallel efficiency.
+  tags:
+    - HPC
+    - MPI
+    - CHTC-created
+  last updated: 2026-03-08
+
+- text: Introduction to High Throughput Computing
+  url: https://github.com/OSGConsortium/osg-school-materials
+  icon: "bi bi-github"
+  description: |
+    Lessons and exercises from OSG School covering the ideas behind
+    high throughput computing and the mechanics of submitting your first
+    workloads.
+  featured: true
+  tags:
+    - HTC
+    - beginner-friendly
+    - workshop
+  last updated: 2026-02-20
+
+- text: Manage Multi-Step Workflows with DAGMan
+  url: https://github.com/CHTC/tutorial-dagman
+  icon: "bi bi-github"
+  description: |
+    Chain jobs together into a workflow so that pre-processing, analysis, and
+    aggregation steps run in the right order and recover from failures.
+  featured: true
+  tags:
+    - workflows
+    - HTC
+    - CHTC-created
+  last updated: 2026-01-27
+
+- text: Analyze Large Datasets with Dask
+  url: https://github.com/CHTC/tutorial-dask
+  icon: "bi bi-github"
+  description: |
+    Scale pandas-style analysis beyond a single machine, and learn when a
+    Dask cluster is the right tool versus many independent HTC jobs.
+  tags:
+    - python
+    - data-analysis
+    - HTC
+  last updated: 2025-11-06
+
+- text: Get Started with HTC in Ten Jobs
+  url: https://github.com/CHTC/tutorial-first-jobs
+  icon: "bi bi-github"
+  featured: true
+  description: |
+    The place to start if you have never submitted a job before: ten small
+    exercises that build up from a single "hello world" job to a batch of
+    hundreds.
+  tags:
+    - HTC
+    - beginner-friendly
+    - CHTC-created
+    - workshop
+  last updated: 2025-12-15
+
+- text: Run MATLAB Jobs Without a License Server
+  url: https://github.com/CHTC/tutorial-matlab-compiler
+  icon: "/images/Matlab_Logo.png"
+  description: |
+    Compile MATLAB code into a standalone executable so that your jobs can run
+    anywhere in the pool, without needing to check out a license.
+  tags:
+    - MATLAB
+    - HTC
+    - CHTC-created
+  last updated: 2026-07-02
+
+- text: Checkpoint Long-Running Jobs
+  url: https://github.com/CHTC/tutorial-self-checkpointing
+  icon: "bi bi-github"
+  description: |
+    Break a multi-day computation into restartable pieces so it survives
+    interruptions and makes steady progress on opportunistic capacity.
+  tags:
+    - HTC
+    - workflows
+    - CHTC-created
+  last updated: 2026-06-05
+
+- text: Move Large Datasets In and Out of CHTC
+  url: https://github.com/CHTC/tutorial-data-transfer
+  icon: "bi bi-github"
+  description: |
+    Choose between HTCondor file transfer, staging space, and Globus for the
+    inputs and outputs your jobs produce, with examples of each.
+  tags:
+    - data-transfer
+    - HTC
+    - beginner-friendly
+    - CHTC-created
+  last updated: 2026-05-28

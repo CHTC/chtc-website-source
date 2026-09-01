@@ -1,0 +1,154 @@
+---
+layout: default
+title: Learning Materials
+description: A collection of tutorials, workshops, and example repositories for learning high throughput and high performance computing.
+js_extension:
+-   src: "/assets/js/pages/learning-materials.js"
+    loading: defer
+    type: module
+---
+
+{% assign by_date = site.data.learning-materials | sort: "last updated" | reverse %}
+{% assign featured_materials = by_date | where: "featured", true %}
+{% assign other_materials = by_date | where_exp: "material", "material.featured != true" %}
+{% comment %} Featured materials lead the default listing; JS drops the pin once a visitor sorts. {% endcomment %}
+{% assign materials = featured_materials | concat: other_materials %}
+{% assign all_tags = materials | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
+
+<div class="container-xxl pt-3" id="learning-materials">
+    {% include page-title.html title=page.title %}
+
+    <p class="lm-intro">
+        Tutorials, workshop materials, and example repositories for learning how to run
+        your research computing work at scale. Filter by topic using the tags, or search
+        for a keyword.
+    </p>
+
+    <div class="row">
+
+        <!-- Sidebar: tag selector -->
+        <div class="col-12 col-lg-3">
+            <button class="btn btn-outline-primary w-100 mb-3 d-lg-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#lm-tag-panel"
+                    aria-expanded="false" aria-controls="lm-tag-panel">
+                Browse by tag
+            </button>
+
+            <div class="collapse d-lg-block" id="lm-tag-panel">
+                <div class="lm-sidebar mb-4">
+                    <div class="lm-sidebar-header">
+                        <h2 class="h6 mb-0">Tags</h2>
+                        <button type="button" class="btn btn-link btn-sm p-0 lm-clear-tags" id="lm-clear-tags" hidden>
+                            Clear
+                        </button>
+                    </div>
+
+                    <ul class="lm-tag-list list-unstyled mb-0">
+                        {% for tag in all_tags %}
+                        {% assign tagged = materials | where_exp: "material", "material.tags contains tag" %}
+                        <li>
+                            <label class="lm-tag-option" for="lm-tag-{{ tag | slugify }}">
+                                <input class="form-check-input" type="checkbox"
+                                       id="lm-tag-{{ tag | slugify }}"
+                                       value="{{ tag }}"
+                                       data-lm-tag="{{ tag }}">
+                                <span class="lm-tag-name">{{ tag }}</span>
+                                <span class="lm-tag-count" aria-label="{{ tagged.size }} {% if tagged.size == 1 %}guide{% else %}guides{% endif %}">{{ tagged.size }}</span>
+                            </label>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards, with filter + sort controls -->
+        <div class="col-12 col-lg-9">
+
+            <div class="lm-toolbar">
+                <div class="lm-search">
+                    <label class="visually-hidden" for="lm-search-input">Search learning materials</label>
+                    <i class="bi bi-search lm-search-icon" aria-hidden="true"></i>
+                    <input type="search" class="form-control" id="lm-search-input"
+                           placeholder="Search titles, descriptions, and tags" autocomplete="off">
+                </div>
+
+                <div class="lm-sort">
+                    <label class="form-label mb-0" for="lm-sort-select">Sort by</label>
+                    <select class="form-select" id="lm-sort-select">
+                        <option value="updated-desc" selected>Recently updated</option>
+                        <option value="updated-asc">Least recently updated</option>
+                        <option value="title-asc">Title (A&ndash;Z)</option>
+                        <option value="title-desc">Title (Z&ndash;A)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="lm-status">
+                <p class="mb-0 text-muted" id="lm-count" aria-live="polite">
+                    Showing {{ materials.size }} of {{ materials.size }} guides
+                </p>
+                <div id="lm-active-tags" class="lm-active-tags"></div>
+            </div>
+
+            <div class="row" id="lm-grid">
+                {% for material in materials %}
+
+                {% assign updated = material.last_updated | default: material["last updated"] %}
+                {% assign icon = material.icon | default: "bi bi-github" %}
+                {% assign tag_string = material.tags | join: " " %}
+
+                <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
+                     data-tags="{{ material.tags | join: '|' }}"
+                     data-featured="{% if material.featured %}true{% else %}false{% endif %}"
+                     data-updated="{% if updated %}{{ updated | date: '%Y-%m-%d' }}{% endif %}"
+                     data-title="{{ material.text | escape }}"
+                     data-search="{{ material.text | append: ' ' | append: material.description | append: ' ' | append: tag_string | normalize_whitespace | escape }}">
+                    <div class="lm-card{% if material.featured %} lm-card-featured{% endif %}">
+                        <div class="lm-card-head">
+                            {% if icon contains "bi " %}
+                            <i class="{{ icon }} lm-card-icon" aria-hidden="true"></i>
+                            {% elsif icon contains "//" %}
+                            <img class="lm-card-icon-img" src="{{ icon }}" alt="">
+                            {% else %}
+                            <img class="lm-card-icon-img" src="{{ icon | relative_url }}" alt="">
+                            {% endif %}
+                            <h3 class="lm-card-title">
+                                {% if material.featured %}
+                                <span class="lm-featured-label">
+                                    <i class="bi bi-star-fill" aria-hidden="true"></i>Featured
+                                </span>
+                                {% endif %}
+                                <a href="{{ material.url }}">{{ material.text }}</a>
+                            </h3>
+                        </div>
+
+                        <div class="lm-card-description">
+                            {{ material.description | markdownify }}
+                        </div>
+
+                        <div class="lm-card-tags">
+                            {% for tag in material.tags %}
+                            <button type="button" class="lm-tag-badge" data-lm-tag-toggle="{{ tag }}">{{ tag }}</button>
+                            {% endfor %}
+                        </div>
+
+                        <div class="lm-card-footer">
+                            <span class="lm-card-host">{{ material.url | remove: "https://" | remove: "http://" | remove_first: "www." }}</span>
+                            {% if updated %}
+                            <span class="lm-card-updated">Updated {{ updated | date: "%b %-d, %Y" }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div id="lm-no-results" class="lm-no-results" hidden>
+                <p class="mb-2"><strong>No learning materials match your filters.</strong></p>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="lm-reset-all">Clear all filters</button>
+            </div>
+
+        </div>
+    </div>
+</div>
