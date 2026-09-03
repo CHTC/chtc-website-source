@@ -88,7 +88,7 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
     <p>Third Thursday of each month</p>
     <ul>
       <li><strong>Time:</strong> 3:00–4:30 PM CST</li>
-      <li><strong>Location:</strong> Morgridge Hall, <strong>Room 3661</strong></li>
+      <li><strong>Location:</strong> Morgridge Hall, <strong>Room 6631</strong></li>
       <li><strong>Dates:</strong>
         <ul>
           <li>September 17, 2026</li>

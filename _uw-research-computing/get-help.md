@@ -73,7 +73,7 @@ Please sign in before joining the Zoom room. You can find the Zoom link in a Fac
 For CHTC users working in biology, we have a dedicated drop-in and co-working session for 
 you each month - Bioinformatics Cafe!  
 
-- Third Thursdays, 3:00 - 4:30pm
+- Third Thursdays, 3:00 - 4:30 pm
 - Morgridge Hall, 6631
 
 More information here: 
