@@ -11,7 +11,8 @@ title: Get Help
   	<h2>Reach out to the Facilitation Team</h2>
 	<ul>
 	<li style="margin-bottom:0.25rem"><a href="#email-support">Email support</a></li>
-	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a></li>
+	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a>
+	<li style="margin-bottom:0.25rem"><a href="#bioinformatics-cafe">Bioinformatics Cafe</a></li>
 	<li style="margin-bottom:0.25rem"><a href="#make-an-appointment">Make an appointment</a></li>
 	</ul>
   </div>
@@ -51,10 +52,13 @@ When emailing us for assistance in troubleshooting an issue, please provide as m
 ## Office Hours
 {:.uw-mini-bar}
 
-Drop-in office hours are online during the following times:
+Drop-in office hours are available during the following times:
 
--   Tuesday morning: 10:30 am - 12:00 pm (**CANCELED** from May 11 through September 2) 
+-   Tuesday morning: 10:30 am - 12:00 pm
+	- Online via Zoom
 -   Thursday afternoon: 3:00 - 4:30 pm
+	- In person at Morgridge Hall 6631 (1st Thursdays)
+	- Online via Zoom (2nd, 4th, 5th Thursdays)
 
 Please sign in before joining the Zoom room. You can find the Zoom link in a Facilitator's email signature or in the login message when you log into a CHTC server.
 
@@ -63,6 +67,23 @@ Please sign in before joining the Zoom room. You can find the Zoom link in a Fac
 		<a class="btn btn-primary" href="sign-in.html">Sign-in for office hours</a>
 	</div>
 </div>
+
+### Bioinformatics Cafe
+
+For CHTC users working in biology, we have a dedicated drop-in and co-working session for 
+you each month - Bioinformatics Cafe!  
+
+- Third Thursdays, 3:00 - 4:30 pm
+- Morgridge Hall, 6631
+
+More information here: 
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="bioinformatics-cafe.html">Bioinformatics Cafe</a>
+	</div>
+</div>
+
 
 ### CHTC Events and Office Hours Calendar
 <iframe id="open-web-calendar" 

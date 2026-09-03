@@ -84,17 +84,17 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
 
 <div class="row" style="padding: 0 0 2em;">
   <div class="col-md-6">
-    <h3>When & Where (Spring 2026)</h3>
-    <p>Second Wednesday of each month</p>
+    <h3>When & Where (Fall 2026)</h3>
+    <p>Third Thursday of each month</p>
     <ul>
-      <li><strong>Time:</strong> 2:30–4:30 PM CST</li>
-      <li><strong>Location:</strong> Morgridge Hall, <strong>Room 3610</strong> (posted on the <a href="/events">events page</a>)</li>
+      <li><strong>Time:</strong> 3:00–4:30 PM CST</li>
+      <li><strong>Location:</strong> Morgridge Hall, <strong>Room 6631</strong></li>
       <li><strong>Dates:</strong>
         <ul>
-          <li><a href="/events/2026/01/21/Bioinformatics-Cafe">Wed, January 21, 2026<br>Co-working Only Session - Meet with an RCF 1-on-1</a></li>
-          <li><a href="/events/2026/02/11/AlphaFold3-on-CHTC">Wed, February 11, 2026<br>Running AlphaFold3 on CHTC</a></li>
-          <li><a href="/events/2026/03/11/Bioinformatics-Cafe">Wed, March 11, 2026<br>Installing Bioinformatics Software with Conda and Containers</a></li>
-          <li><a href="/events/2026/04/08/Bioinformatics-Cafe">Wed, April 08, 2026<br>Genome Assembly using High Memory Nodes</a></li>
+          <li>September 17, 2026</li>
+          <li>October 15, 2026</li>
+          <li>November 19, 2026</li>
+          <li>December 17, 2026</li>
         </ul>
       </li>
     </ul>
@@ -102,10 +102,9 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
   <div class="col-md-6" style="border-left: 5px solid #c5050c;">
     <h3>Format</h3>
     <ol>
-      <li><strong>Mini‑tutorial:</strong> topics include intro to advanced computing, high‑throughput read mapping, genome assembly at scale, and microbiome analysis.</li>
+      <li><strong>Topic of the month</strong> Short presentation or hands-on example covering a bioinformatics topic or tool. </li>
       <li><strong>Project clinic:</strong> quick 1‑on‑1 check‑ins to set goals and unblock your next steps.</li>
       <li><strong>Co‑working:</strong> with Facilitators and fellow bioinformaticians on hand for troubleshooting.</li>
-      <li><strong>Show & tell:</strong> optional lightning talks where participants share progress, tools, or workflows.</li>
       <li><strong>Peer networking:</strong> informal time to connect with other researchers, exchange ideas, and form collaborations.</li>
     </ol>
   </div>
@@ -140,7 +139,7 @@ Welcome to the **Bioinformatics Café**—a monthly, hands‑on meetup for life�
 
 <details>
 <summary><strong>I missed the first session, can I still join?</strong></summary>
-<p>Yes. We'll work with you to catch up. While it is best to join the Café early in the semester, the Café is designed to be accessible throughout the semester.</p>
+<p>Yes. We'll work with you to catch up. The Café is designed to be accessible throughout the semester.</p>
 </details>
 
 <details>
