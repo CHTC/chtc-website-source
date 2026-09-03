@@ -11,7 +11,8 @@ title: Get Help
   	<h2>Reach out to the Facilitation Team</h2>
 	<ul>
 	<li style="margin-bottom:0.25rem"><a href="#email-support">Email support</a></li>
-	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a></li>
+	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a>
+	<li style="margin-bottom:0.25rem"><a href="#bioinformatics-cafe">Bioinformatics Cafe</a></li>
 	<li style="margin-bottom:0.25rem"><a href="#make-an-appointment">Make an appointment</a></li>
 	</ul>
   </div>
@@ -66,6 +67,23 @@ Please sign in before joining the Zoom room. You can find the Zoom link in a Fac
 		<a class="btn btn-primary" href="sign-in.html">Sign-in for office hours</a>
 	</div>
 </div>
+
+### Bioinformatics Cafe
+
+For CHTC users working in biology, we have a dedicated drop-in and co-working session for 
+you each month - Bioinformatics Cafe!  
+
+- Third Thursdays, 3:00 - 4:30pm
+- Morgridge Hall, 6631
+
+More information here: 
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="bioinformatics-cafe.html">Bioinformatics Cafe</a>
+	</div>
+</div>
+
 
 ### CHTC Events and Office Hours Calendar
 <iframe id="open-web-calendar" 
