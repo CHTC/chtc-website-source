@@ -11,7 +11,7 @@ title: Get Help
   	<h2>Reach out to the Facilitation Team</h2>
 	<ul>
 	<li style="margin-bottom:0.25rem"><a href="#email-support">Email support</a></li>
-	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a>
+	<li style="margin-bottom:0.25rem"><a href="#office-hours">Virtual office hours</a></li>
 	<li style="margin-bottom:0.25rem"><a href="#bioinformatics-cafe">Bioinformatics Cafe</a></li>
 	<li style="margin-bottom:0.25rem"><a href="#make-an-appointment">Make an appointment</a></li>
 	</ul>
