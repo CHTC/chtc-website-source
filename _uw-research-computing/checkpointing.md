@@ -319,7 +319,7 @@ output = example.out
 error = example.err
 log = example.log
 
-request_cpu = 1
+request_cpus = 1
 request_disk = 2GB
 request_memory = 2GB
 
@@ -420,7 +420,7 @@ output = example.out
 error = example.err
 log = example.log
 
-request_cpu = 1
+request_cpus = 1
 request_disk = 2GB
 request_memory = 2GB 
 
