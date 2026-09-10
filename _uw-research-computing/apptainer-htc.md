@@ -242,13 +242,28 @@ Since Apptainer `.sif` files are routinely more than 1GB in size, we recommend t
 It is usually easiest to move the container file directly to staging while still in the interactive build job:
 
 ```
-mv my-container.sif /staging/$USER
+mv my-container.sif <replace with your staging directory>
 ```
 {:.term}
 
-If you do not have a `/staging` directory, you can skip this step and the `.sif` file will be automatically transferred back to the login server when you exit the interactive job.
+> ### 💡 Your path to your staging directory
+{:.tip-header}
 
-We encourage you to request a `/staging` directory, especially if you plan on running many jobs using this container.
+> Your path to your staging directory is unique! It should have the following format:
+> ```
+> /staging/<first letter of your NetID>/<NetID>
+> ```
+> For example, if your NetID is `bbadger`, your path to your staging directory is:
+> ```
+> /staging/b/bbadger
+> ```
+> And you should move your container, like so:
+> ```
+> mv my-container.sif /staging/b/bbadger
+> ```
+> {:.term}
+{:.tip}
+
 See our [Managing Large Data in Jobs](file-avail-largedata.html) guide for more information on using staging.
 
 At this point, you can use the container in jobs, as described [above](#use-an-apptainer-container-in-htc-jobs). 
