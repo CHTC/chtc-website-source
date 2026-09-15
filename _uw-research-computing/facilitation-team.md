@@ -8,7 +8,7 @@ title: The Facilitation Team
 
 <div class="row justify-content-around d-none d-sm-flex">
     {% include get/team.liquid %}
-    {% assign facilitators = team | where: "is_facilitator", "1" %}
+    {% assign facilitators = team | where: "is_facilitator", "1" | sort: "weight" %}
     {% for facilitator in facilitators %}
         <div class="col-auto">
             <figure class="p-3 d-flex flex-column">
