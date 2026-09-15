@@ -568,22 +568,46 @@ h6:hover .header-link {
     }
   }
 
+  // Gold star straddling the top right corner, out of the document flow so it
+  // never displaces the title. Sits above the card's stretched link so it receives hover.
   .lm-featured-label {
+    position: absolute;
+    top: -0.55rem;
+    right: -0.55rem;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.1rem 0.5rem;
+    height: 1.5rem;
+    padding: 0 0.4rem;
     border: 1px solid #e3cf83;
     border-radius: 1rem;
     background-color: #fbf3d8;
     color: #8a6a06;
     font-size: 0.65rem;
     font-weight: 600;
-    line-height: 1.5;
+    line-height: 1;
     white-space: nowrap;
+    cursor: default;
+    transition: padding 0.2s ease-in-out;
     i {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: #d9a406;
+    }
+    .lm-featured-text {
+      display: inline-block;
+      max-width: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-width 0.2s ease-in-out, opacity 0.15s ease-in-out, margin 0.2s ease-in-out;
+    }
+    &:hover,
+    &:focus-visible {
+      padding-right: 0.55rem;
+      .lm-featured-text {
+        max-width: 5rem;
+        margin-left: 0.3rem;
+        opacity: 1;
+      }
     }
   }
 
