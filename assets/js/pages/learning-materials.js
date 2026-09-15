@@ -1,9 +1,13 @@
 /**
- * Learning materials page: tag filtering (sidebar), keyword search, and sorting.
+ * Learning materials page: tag filtering (sidebar), keyword search, sorting,
+ * and pagination.
  *
- * All materials are rendered by Jekyll and filtered/sorted client side, so the
- * page still works without JavaScript (default order is "recently updated").
+ * All materials are rendered by Jekyll and filtered/sorted/paged client side,
+ * so the page still works without JavaScript (default order is "recently
+ * updated" with every material listed) and search engines see the full list.
  */
+const PAGE_SIZE = 12;
+
 class LearningMaterialsBrowser {
 
     constructor(root) {
@@ -18,9 +22,11 @@ class LearningMaterialsBrowser {
         this.clearTagsButton = root.querySelector("#lm-clear-tags");
         this.resetButton = root.querySelector("#lm-reset-all");
         this.noResults = root.querySelector("#lm-no-results");
+        this.pagination = root.querySelector("#lm-pagination");
 
         this.selectedTags = new Set();
         this.searchTerm = "";
+        this.page = 1;
         // Featured materials lead the list until the visitor picks a sort order.
         this.featuredFirst = true;
 
@@ -51,11 +57,13 @@ class LearningMaterialsBrowser {
 
         this.searchInput.addEventListener("input", () => {
             this.searchTerm = this.searchInput.value.trim().toLowerCase();
+            this.page = 1;
             this.apply();
         });
 
         this.sortSelect.addEventListener("change", () => {
             this.featuredFirst = false;
+            this.page = 1;
             this.apply();
         });
         this.clearTagsButton.addEventListener("click", () => this.clearTags());
@@ -75,12 +83,14 @@ class LearningMaterialsBrowser {
             checkbox.checked = this.selectedTags.has(checkbox.dataset.lmTag);
         });
 
+        this.page = 1;
         this.apply();
     }
 
     clearTags() {
         this.selectedTags.clear();
         this.tagCheckboxes.forEach((checkbox) => { checkbox.checked = false; });
+        this.page = 1;
         this.apply();
     }
 
@@ -89,7 +99,15 @@ class LearningMaterialsBrowser {
         this.tagCheckboxes.forEach((checkbox) => { checkbox.checked = false; });
         this.searchTerm = "";
         this.searchInput.value = "";
+        this.page = 1;
         this.apply();
+    }
+
+    goToPage(page) {
+        this.page = page;
+        this.apply();
+        // The pager sits below the grid, so bring the top of the results back into view.
+        this.countText.scrollIntoView({ block: "start", behavior: "smooth" });
     }
 
     matches(card) {
@@ -154,28 +172,137 @@ class LearningMaterialsBrowser {
         this.clearTagsButton.hidden = this.selectedTags.size === 0;
     }
 
-    apply() {
-        const visible = [];
-        const hidden = [];
-        this.cards.forEach((card) => {
-            (this.matches(card) ? visible : hidden).push(card);
+    /**
+     * Which page numbers to show as buttons: first, last, and a window around
+     * the current page. `null` marks a gap that renders as an ellipsis.
+     */
+    pageNumbers(pageCount) {
+        if (pageCount <= 7) {
+            return Array.from({ length: pageCount }, (_, i) => i + 1);
+        }
+
+        const pages = new Set([1, pageCount]);
+        for (let p = this.page - 1; p <= this.page + 1; p++) {
+            if (p >= 1 && p <= pageCount) pages.add(p);
+        }
+
+        const sorted = Array.from(pages).sort((a, b) => a - b);
+        const withGaps = [];
+        sorted.forEach((p, i) => {
+            if (i > 0 && p - sorted[i - 1] > 1) withGaps.push(null);
+            withGaps.push(p);
+        });
+        return withGaps;
+    }
+
+    renderPagination(pageCount, matchCount) {
+        this.pagination.innerHTML = "";
+        this.pagination.hidden = pageCount <= 1;
+        if (pageCount <= 1) return;
+
+        const list = document.createElement("ul");
+        list.className = "pagination pagination-sm justify-content-center flex-wrap";
+
+        const addItem = ({ label, html, page, disabled = false, active = false, ellipsis = false }) => {
+            const item = document.createElement("li");
+            item.className = "page-item";
+            if (disabled) item.classList.add("disabled");
+            if (active) item.classList.add("active");
+
+            if (ellipsis) {
+                const span = document.createElement("span");
+                span.className = "page-link";
+                span.textContent = "\u2026";
+                item.classList.add("disabled");
+                item.appendChild(span);
+            } else {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "page-link";
+                if (html) {
+                    button.innerHTML = html;
+                } else {
+                    button.textContent = String(page);
+                }
+                if (label) button.setAttribute("aria-label", label);
+                if (active) button.setAttribute("aria-current", "page");
+                if (disabled) button.disabled = true;
+                button.addEventListener("click", () => this.goToPage(page));
+                item.appendChild(button);
+            }
+
+            list.appendChild(item);
+        };
+
+        addItem({
+            label: "Previous page",
+            html: '<i class="bi bi-chevron-left" aria-hidden="true"></i>',
+            page: this.page - 1,
+            disabled: this.page === 1,
         });
 
-        hidden.forEach((card) => { card.hidden = true; });
-        visible.forEach((card) => { card.hidden = false; });
+        this.pageNumbers(pageCount).forEach((p) => {
+            if (p === null) {
+                addItem({ ellipsis: true });
+            } else {
+                addItem({ label: `Page ${p}`, page: p, active: p === this.page });
+            }
+        });
 
-        // Re-order the visible cards; hidden ones are parked at the end.
-        this.sortCards(visible).forEach((card) => this.grid.appendChild(card));
+        addItem({
+            label: "Next page",
+            html: '<i class="bi bi-chevron-right" aria-hidden="true"></i>',
+            page: this.page + 1,
+            disabled: this.page === pageCount,
+        });
+
+        const summary = document.createElement("p");
+        summary.className = "lm-pagination-summary mb-0";
+        summary.textContent = `Page ${this.page} of ${pageCount} (${matchCount} guides)`;
+
+        this.pagination.appendChild(list);
+        this.pagination.appendChild(summary);
+    }
+
+    apply() {
+        const matching = [];
+        const hidden = [];
+        this.cards.forEach((card) => {
+            (this.matches(card) ? matching : hidden).push(card);
+        });
+
+        this.sortCards(matching);
+
+        // Clamp the page in case a filter change shrank the result set.
+        const pageCount = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+        this.page = Math.min(Math.max(1, this.page), pageCount);
+        const start = (this.page - 1) * PAGE_SIZE;
+        const end = Math.min(start + PAGE_SIZE, matching.length);
+
+        matching.forEach((card, index) => {
+            card.hidden = index < start || index >= end;
+        });
+        hidden.forEach((card) => { card.hidden = true; });
+
+        // Re-order the matching cards; non-matching ones are parked at the end.
+        matching.forEach((card) => this.grid.appendChild(card));
         hidden.forEach((card) => this.grid.appendChild(card));
 
         this.root.querySelectorAll("[data-lm-tag-toggle]").forEach((badge) => {
             badge.classList.toggle("active", this.selectedTags.has(badge.dataset.lmTagToggle));
         });
 
-        this.countText.textContent =
-            `Showing ${visible.length} of ${this.cards.length} guides`;
-        this.noResults.hidden = visible.length > 0;
+        if (matching.length <= PAGE_SIZE) {
+            this.countText.textContent = `Showing ${matching.length} of ${this.cards.length} guides`;
+        } else {
+            const filtered = this.selectedTags.size > 0 || this.searchTerm !== "";
+            const noun = filtered ? "matching guides" : "guides";
+            this.countText.textContent =
+                `Showing ${start + 1}\u2013${end} of ${matching.length} ${noun}`;
+        }
+        this.noResults.hidden = matching.length > 0;
 
+        this.renderPagination(pageCount, matching.length);
         this.renderActiveTags();
     }
 }

@@ -37,13 +37,13 @@ js_extension:
             <div class="collapse d-lg-block" id="lm-tag-panel">
                 <div class="lm-sidebar mb-4">
                     <div class="lm-sidebar-header">
-                        <h2 class="h6 mb-0">Tags</h2>
+                        <h2 class="h6 mb-0 mt-0">Tags</h2>
                         <button type="button" class="btn btn-link btn-sm p-0 lm-clear-tags" id="lm-clear-tags" hidden>
                             Clear
                         </button>
                     </div>
 
-                    <ul class="lm-tag-list list-unstyled mb-0">
+                    <ul class="lm-tag-list list-unstyled mb-0 ms-0">
                         {% for tag in all_tags %}
                         {% assign tagged = materials | where_exp: "material", "material.tags contains tag" %}
                         <li>
@@ -106,20 +106,8 @@ js_extension:
                      data-search="{{ material.text | append: ' ' | append: material.description | append: ' ' | append: tag_string | normalize_whitespace | escape }}">
                     <div class="lm-card{% if material.featured %} lm-card-featured{% endif %}">
                         <div class="lm-card-head">
-                            {% if icon contains "bi " %}
-                            <i class="{{ icon }} lm-card-icon" aria-hidden="true"></i>
-                            {% elsif icon contains "//" %}
-                            <img class="lm-card-icon-img" src="{{ icon }}" alt="">
-                            {% else %}
-                            <img class="lm-card-icon-img" src="{{ icon | relative_url }}" alt="">
-                            {% endif %}
                             <h3 class="lm-card-title">
-                                {% if material.featured %}
-                                <span class="lm-featured-label">
-                                    <i class="bi bi-star-fill" aria-hidden="true"></i>Featured
-                                </span>
-                                {% endif %}
-                                <a href="{{ material.url }}">{{ material.text }}</a>
+                                <a class="stretched-link" href="{{ material.url }}">{{ material.text }}</a>
                             </h3>
                         </div>
 
@@ -134,10 +122,25 @@ js_extension:
                         </div>
 
                         <div class="lm-card-footer">
-                            <span class="lm-card-host">{{ material.url | remove: "https://" | remove: "http://" | remove_first: "www." }}</span>
-                            {% if updated %}
-                            <span class="lm-card-updated">Updated {{ updated | date: "%b %-d, %Y" }}</span>
-                            {% endif %}
+                            <span class="lm-card-source">
+                                {% if icon contains "bi " %}
+                                <i class="{{ icon }} lm-card-icon" aria-hidden="true"></i>
+                                {% elsif icon contains "//" %}
+                                <img class="lm-card-icon-img" src="{{ icon }}" alt="">
+                                {% else %}
+                                <img class="lm-card-icon-img" src="{{ icon | relative_url }}" alt="">
+                                {% endif %}
+                            </span>
+                            <span class="lm-card-meta">
+                                {% if material.featured %}
+                                <span class="lm-featured-label">
+                                    <i class="bi bi-star-fill" aria-hidden="true"></i>Featured
+                                </span>
+                                {% endif %}
+                                {% if updated %}
+                                <span class="lm-card-updated">Updated {{ updated | date: "%b %-d, %Y" }}</span>
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -148,6 +151,12 @@ js_extension:
                 <p class="mb-2"><strong>No learning materials match your filters.</strong></p>
                 <button type="button" class="btn btn-outline-primary btn-sm" id="lm-reset-all">Clear all filters</button>
             </div>
+
+            {% comment %}
+            Every material is in the HTML above so search engines and no-JS visitors see the
+            full list; learning-materials.js pages the grid 10 at a time and fills this in.
+            {% endcomment %}
+            <nav id="lm-pagination" class="lm-pagination" aria-label="Learning materials pages" hidden></nav>
 
         </div>
     </div>

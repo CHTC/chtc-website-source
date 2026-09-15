@@ -407,8 +407,11 @@ h6:hover .header-link {
     }
   }
 
-  .lm-tag-list li + li {
-    margin-top: 0.15rem;
+  // The UW theme gives every li a 1.5rem bottom margin; keep the tag list compact.
+  .lm-tag-list li {
+    margin: 0;
+    font-size: inherit;
+    line-height: 1.3;
   }
 
   .lm-tag-option {
@@ -417,7 +420,7 @@ h6:hover .header-link {
     gap: 0.5rem;
     width: 100%;
     margin-bottom: 0;
-    padding: 0.25rem 0.35rem;
+    padding: 0.1rem 0.35rem;
     border-radius: 0.2rem;
     font-size: 0.85rem;
     font-weight: 400;
@@ -460,7 +463,9 @@ h6:hover .header-link {
   .lm-search {
     position: relative;
     flex: 1 1 18rem;
+    min-width: 0;
     .form-control {
+      width: 100%;
       padding-left: 2.1rem;
     }
   }
@@ -534,13 +539,18 @@ h6:hover .header-link {
     background-color: $white;
     padding: 1rem;
     transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    // The title link is a .stretched-link, so the whole card is clickable.
     &:hover {
       border-color: #999;
       box-shadow: 0 0.35rem 0.75rem rgba(0, 0, 0, 0.1);
+      .lm-card-title a {
+        color: $primary;
+        text-decoration: underline;
+      }
     }
   }
 
-  // Featured materials: gold trim and a star in the top right corner.
+  // Featured materials: gold trim and a starred label in the footer.
   .lm-card-featured {
     border-color: #c9a227;
     background-color: #fffdf4;
@@ -558,10 +568,7 @@ h6:hover .header-link {
     }
   }
 
-  // Floated so the badge only shortens the first line of the title.
   .lm-featured-label {
-    float: right;
-    margin: 0.1rem 0 0.15rem 0.5rem;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -581,21 +588,18 @@ h6:hover .header-link {
   }
 
   .lm-card-head {
-    display: flex;
-    align-items: start;
-    gap: 0.6rem;
     margin-bottom: 0.5rem;
   }
 
   .lm-card-icon {
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 0.9rem;
+    line-height: 1;
     color: #212529;
   }
 
   .lm-card-icon-img {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1rem;
+    height: 1rem;
     object-fit: contain;
   }
 
@@ -614,9 +618,13 @@ h6:hover .header-link {
   }
 
   .lm-card-description {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
     color: #495057;
+    // Override the UW theme's global paragraph size so the card size applies.
     p {
+      font-size: inherit;
+      line-height: inherit;
       margin-bottom: 0.5rem;
     }
   }
@@ -629,7 +637,10 @@ h6:hover .header-link {
     padding-top: 0.5rem;
   }
 
+  // Raised above the card's stretched link so the tags stay clickable.
   .lm-tag-badge {
+    position: relative;
+    z-index: 2;
     border: 1px solid #d5d5d5;
     background-color: #f1f1f1;
     color: #495057;
@@ -650,6 +661,7 @@ h6:hover .header-link {
   .lm-card-footer {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     gap: 0.25rem 0.75rem;
     margin-top: 0.6rem;
@@ -659,8 +671,44 @@ h6:hover .header-link {
     color: #6c757d;
   }
 
-  .lm-card-host {
-    overflow-wrap: anywhere;
+  // Source icon (GitHub etc.) and host on the left; featured label and date on the right.
+  .lm-card-source,
+  .lm-card-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .lm-card-meta {
+    margin-left: auto;
+  }
+
+
+  // -- Pagination (rendered by JS; all cards are in the HTML for no-JS visitors and SEO) --
+  .lm-pagination {
+    margin-top: 0.5rem;
+    .pagination {
+      margin-bottom: 0.5rem;
+    }
+    .page-link {
+      color: $primary;
+      &:hover {
+        background-color: #f9e6e7;
+        color: #7a0307;
+      }
+    }
+    .page-item.active .page-link {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+    }
+  }
+
+  .lm-pagination-summary {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6c757d;
   }
 
   .lm-no-results {
