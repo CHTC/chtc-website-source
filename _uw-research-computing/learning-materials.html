@@ -105,6 +105,11 @@ js_extension:
                      data-title="{{ material.text | escape }}"
                      data-search="{{ material.text | append: ' ' | append: material.description | append: ' ' | append: tag_string | normalize_whitespace | escape }}">
                     <div class="lm-card{% if material.featured %} lm-card-featured{% endif %}">
+                        {% if material.featured %}
+                        <span class="lm-featured-label" title="Featured">
+                            <i class="bi bi-star-fill" aria-hidden="true"></i><span class="lm-featured-text">Featured</span>
+                        </span>
+                        {% endif %}
                         <div class="lm-card-head">
                             <h3 class="lm-card-title">
                                 <a class="stretched-link" href="{{ material.url }}">{{ material.text }}</a>
@@ -132,11 +137,6 @@ js_extension:
                                 {% endif %}
                             </span>
                             <span class="lm-card-meta">
-                                {% if material.featured %}
-                                <span class="lm-featured-label">
-                                    <i class="bi bi-star-fill" aria-hidden="true"></i>Featured
-                                </span>
-                                {% endif %}
                                 {% if updated %}
                                 <span class="lm-card-updated">Updated {{ updated | date: "%b %-d, %Y" }}</span>
                                 {% endif %}
