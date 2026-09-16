@@ -107,6 +107,15 @@ process looks like this:
 1. **(Optional): Test the container.** Once the image (`.sif` file) is created, it is important to test it to make sure you have all software, packages, and libraries installed correctly.
 1. **Move the container to a persistent location.** We recommend placing the image file into your `/staging` folder.
 
+You can follow a step by step example of building a container here: 
+
+<div class="d-flex mb-3">
+	<div class="p-3 m-auto">
+		<a class="btn btn-primary" href="https://chtc.cs.wisc.edu/uw-research-computing/hello-containers">Practice: Building Apptainer Containers on CHTC</a>
+	</div>
+</div>
+
+
 ### Create a definition file
 
 To create your own container using Apptainer, you will need to create a definition (`.def`) file. CHTC provides example definition files in the `software` folder of our [Recipes GitHub repository](https://github.com/CHTC/recipes/tree/main/software). 
@@ -359,6 +368,7 @@ to enable transferring of the `.sif` file via the [OSDF](https://osg-htc.org/ser
 
 - [Building an Apptainer Container](apptainer-build)
 - [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
+- [Practice Building Apptainer Containers on CHTC](hello-containers)
 - [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example)
 - [Using Apptainer Containers on HPC](apptainer-hpc.html)
 - [Running HTC Jobs Using Docker Containers](docker-jobs)
