@@ -108,6 +108,9 @@
               icon: "bi bi-book"
               links:
                 - text: "Practice: Build a container"
+                  url: "/uw-research-computing/hello-containers"
+                  icon: "bi bi-clipboard-check"
+                - text: "Practice: Advanced container example"
                   url: "/uw-research-computing/apptainer-htc-advanced-example"
                   icon: "bi bi-clipboard-check"
             - text: "Convert Docker images to Apptainer/Singularity images"
