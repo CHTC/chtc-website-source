@@ -57,7 +57,7 @@ Drop-in office hours are available during the following times:
 -   Tuesday morning: 10:30 am - 12:00 pm
 	- Online via Zoom
 -   Thursday afternoon: 3:00 - 4:30 pm
-	- In person at Morgridge Hall 6631 (1st Thursdays)
+	- In person at Morgridge Hall, Room 5621 (1st Thursdays)
 	- Online via Zoom (2nd, 4th, 5th Thursdays)
 
 Please sign in before joining the Zoom room. You can find the Zoom link in a Facilitator's email signature or in the login message when you log into a CHTC server.
@@ -74,7 +74,7 @@ For CHTC users working in biology, we have a dedicated drop-in and co-working se
 you each month - Bioinformatics Cafe!  
 
 - Third Thursdays, 3:00 - 4:30 pm
-- Morgridge Hall, 6631
+- Morgridge Hall, Room 5621
 
 More information here: 
 
