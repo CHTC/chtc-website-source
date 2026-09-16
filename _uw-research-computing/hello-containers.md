@@ -10,7 +10,7 @@ guide:
 
 Container images are one of the most useful ways to make HTC workflows portable and reproducible on CHTC. This guide walks through the basics of building Apptainer containers on CHTC with two examples - a conda environment and installing Linux system packages. 
 
-<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+{% capture content %}
 
 - [Before you start](#before-you-start)
 - [Overview](#overview)
@@ -20,7 +20,8 @@ Container images are one of the most useful ways to make HTC workflows portable 
 - [Common Tips & Best Practices](#common-tips--best-practices)
 - [Related Pages](#related-pages)
 
-<!-- TOC end -->
+{% endcapture %}
+{% include /components/directory.html title="Table of Contents" %}
 
 ## Before you start
 
@@ -30,68 +31,45 @@ Before getting started, you'll need to make sure you have the following:
 
 ## Overview
 
-* Apptainer containers are self-contained images (`.sif` files) you can run in CHTC jobs. 
-* You *must* build them in an interactive build job on CHTC, *not* on the login node. 
-* Once built, put the `.sif` file in your `/staging` folder and reference it in your HTCondor submit file. 
-* The submit file below shows how to use your built container in a job. 
-
-```text
-container_image = osdf:///chtc/staging/path/to/my-container.sif
-
-executable = run.sh
-log = job.log
-error = job.err
-output = job.out
-
-request_cpus = 2
-request_memory = 4GB
-request_disk = 8GB
-
-queue
-```
-
-### Steps to build containers
-
 To build a container:
 
-1. **Write a definition file (`.def`):** describes base image and install steps. 
-2. **Write a build job submit file:** that includes `+IsBuildJob = true`. 
-3. **Submit an interactive build job:** use HTCondor with `condor_submit -i build.sub`. 
-4. **Run `apptainer build` inside the interactive job.** 
-5. **Test the image locally in the interactive build session.** 
-6. **Move the `.sif` to `/staging/your-user`.** 
+1. Write a definition file (`.def`).
+2. Write a build job submit file. 
+3. Submit an interactive build job. 
+4. Run `apptainer build` inside the interactive job to generate a `.sif` container image file. 
+5. Test the container locally in the interactive build session.
+6. Move the `.sif` file to your staging folder. 
+7. Use the image in your job. 
 
-We will go through these six steps for each example below. 
+We will go through these seven steps for each example below. 
 
 ## Example A — **Conda install (`numpy` and `pandas`)**
 
 This example shows how to include Python and a conda-installed package in your container.
 
-### Write the container definition file: `conda-np-pd.def`
+### Step 1: Write the container definition file: `conda-np-pd.def`
 
-For this example, we will create a container that includes `numpy` and `pandas` installed via `conda`. We will start from the [**CHTC Recipes repo**](https://github.com/CHTC/recipes/tree/main/) example for [conda base](https://github.com/CHTC/recipes/tree/main/software/Conda/base-conda) installations. You can find the [template definition file in the recipes repo](https://github.com/CHTC/recipes/blob/main/software/Conda/base-conda/base-conda.def). 
+For this example, we will create a container that includes `numpy` and `pandas` installed 
+via `conda`. We will start from the [**CHTC Recipes repo**](https://github.com/CHTC/recipes/tree/main/) example for [conda base](https://github.com/CHTC/recipes/tree/main/software/Conda/base-conda) installations. You can find the [template definition file in the recipes repo](https://github.com/CHTC/recipes/blob/main/software/Conda/base-conda/base-conda.def). 
+This starts from a miniforge base and installs `numpy` and `pandas` into the `base` conda environment.
 
-Create an apptainer definition file called `conda-np-pd.def`:
+Create an apptainer definition file called `conda-env.def`:
 ```text
 Bootstrap: docker
-From: continuumio/miniconda3
+From: condaforge/miniforge3:latest
 
 %post
     conda install -y -c conda-forge numpy pandas
 ```
 
-✔ This starts from a miniconda base and installs `numpy` and `pandas` into the `base` conda environment.
-✔ The packages are ready to use as soon as the container starts up.
-
-
-### Create the container build job
+### Steps 2-3: Create the container build job
 
 Create an apptainer build job submit file (`build-conda.sub`):
 
 ```text
 log = build-conda.log
 
-transfer_input_files = conda-np-pd.def
+transfer_input_files = conda-env.def
 
 +IsBuildJob = True
 
@@ -108,16 +86,16 @@ Submit the build job as an interactive session:
 condor_submit -i build-conda.sub
 ```
 
-### Build the Apptainer container: `conda-np-pd.sif`
+### Step 4: Build the Apptainer container: `conda-np-pd.sif`
 
 Once interactive shell starts, build the apptainer container using the `apptainer build` command:
 
 ```bash
-apptainer build conda-np-pd.sif conda-np-pd.def
+apptainer build conda-np-pd.sif conda-env.def
 ```
 
 
-### Test the container within the build session
+### Step 5: Test the container within the build session
 
 Test your newly build apptainer container using the `apptainer shell` command:
 
@@ -126,27 +104,35 @@ apptainer shell conda-np-pd.sif
 python -c "import numpy; import pandas;"
 ```
 
-### Store your apptainer container in `/staging`: 
-
-Exit out of the apptainer shell and move to staging:
+Type `exit` to leave the running container: 
 
 ```bash
 exit
-mv conda-np-pd.sif /staging/$USER/conda-np-pd.sif
 ```
 
-> ### ⚠️ containers should always be stored in `/staging`
-{:.tip-header}
+### Step 6: Store your apptainer container in `/staging`: 
 
-> Containers are large and often reused files. Storing them in your `/staging` directory avoids repeated transfers from your home directory, saving time and resources when running jobs.
-{:.tip}
+Move the `.sif` file to your staging folder. Replace `b/bbadger` with your username!!
 
+```bash
+mv conda-np-pd.sif /staging/b/bbadger/
+```
+
+Type exit again to leave the interactive job. 
+
+```bash
+exit
+```
+
+### Step 7: Run a job
+
+See [Running Jobs Using These Containers](#running-jobs-using-these-containers)
 
 ## Example B — **Install via `apt-get`**
 
 This example shows installing system packages *directly* inside the container using `apt-get`.
 
-###  Write the container definition file: `apt-cowsay.def`
+### Step 1: Write the container definition file: `apt-cowsay.def`
 
 For this example, we will create a container that includes `cowsay` installed via the ubuntu `apt-get` package manager. We will start with an existing `Ubuntu 22.04` [Docker Hub container](https://hub.docker.com/layers/library/ubuntu/22.04/images/sha256-14be402d3f1eeeb5e7da73d3260322c68e7b51c88388f53e88eb21d6450bd520). We will specify this base image using the `Bootstrap: docker` and `From: ubuntu:22.04` definition file syntax.
 
@@ -162,10 +148,10 @@ From: ubuntu:22.04
 
 ```
 
-✔ Base image is `ubuntu:22.04` and system packages install at build time.
+Base image is `ubuntu:22.04` and system packages install at build time.
 
 
-### Create the container build job
+### Steps 2-3: Create the container build job
 
 Create an apptainer build job submit file (`build-apt.sub`):
 
@@ -189,7 +175,7 @@ Submit the build job as an interactive session:
 condor_submit -i build-apt.sub
 ```
 
-### Build the Apptainer container: `apt-cowsay.sif`
+### Step 4: Build the Apptainer container: `apt-cowsay.sif`
 
 Once interactive shell starts, build the apptainer container using the `apptainer build` command:
 
@@ -198,7 +184,7 @@ apptainer build apt-cowsay.sif apt-cowsay.def
 ```
 
 
-### Test the container within the build session
+### Step 5: Test the container within the build session
 
 Test your newly build apptainer container using the `apptainer shell` command:
 
@@ -207,20 +193,30 @@ apptainer shell apt-cowsay.sif
 cowsay "Hello from apt!"
 ```
 
-### Store your apptainer container in `/staging`: 
-
-Exit out of the apptainer shell and move to staging:
+Type `exit` to leave the running container: 
 
 ```bash
 exit
-mv apt-cowsay.sif /staging/$USER
 ```
 
-> ### ⚠️ Containers should always be stored in `/staging`
-{:.tip-header}
+### Step 6: Store your apptainer container in `/staging`: 
 
-> Containers are large and often reused files. Storing them in your `/staging` directory avoids repeated transfers from your home directory, saving time and resources when running jobs.
-{:.tip}
+Move to the `.sif` file to your staging folder. Replace `b/bbadger` with your username!!
+
+
+```bash
+mv apt-cowsay.sif /staging/b/bbadger
+```
+
+Type exit again to leave the interactive job. 
+
+```bash
+exit
+```
+
+### Step 7: Run a job
+
+See [Running Jobs Using These Containers](#running-jobs-using-these-containers)
 
 ## Running jobs using these containers
 

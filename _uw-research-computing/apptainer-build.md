@@ -401,6 +401,7 @@ From: path/to/first.sif</code></pre>
 
 ## Related Pages
 
+* [Practice Building Apptainer Containers on CHTC](hello-containers)
 * [Advanced Apptainer Example - SUMO](apptainer-htc-advanced-example.html)
 * [Convert Docker Images to Apptainer Images](htc-docker-to-apptainer.html)
 * [Use Custom Software in Jobs Using Apptainer](apptainer-htc.html)
