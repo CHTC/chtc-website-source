@@ -95,7 +95,11 @@ More information here:
 
 ## Make an appointment
 
-We are happy to arrange meetings outside of designated office hours. Simply [email us](mailto:chtc@cs.wisc.edu), and we will set up a time to meet!
+Due to the amount of new user applications this semester, we are reserving consultations for groups that are 
+brand new to CHTC. All other groups/users can come to office hours or email us for support. 
+
+If you cannot attend office hours 
+and feel a meeting would be beneficial, email us and we will let you know the likely wait time for a consultation.
 <br><br>
 
 ## Check System Status
