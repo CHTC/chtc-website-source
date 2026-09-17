@@ -23,7 +23,7 @@
     - bioinformatics
     - CHTC-created
     - container
-  last updated: 2026-05-11
+  last updated: 2026-03-10
 
 - text: Learn How to Deploy R Calculations
   url: https://github.com/chtc/tutorial-rstudio-to-chtc
@@ -37,7 +37,7 @@
     - CHTC-created
     - beginner-friendly
     - HTC
-  last updated: 2026-04-02
+  last updated: 2026-03-23
 
 - text: Predict Protein Structures with Alphafold3
   url: https://github.com/CHTC/tutorial-CHTC-AF3
@@ -50,137 +50,68 @@
     - CHTC-created
     - HTC
     - GPU
-  last updated: 2026-06-24
+  last updated: 2026-09-11
 
-- text: Machine Learning on GPUs with PyTorch
-  url: https://github.com/CHTC/tutorial-pytorch-gpu
+- text: Cat-Dog Classifier: Run a PyTorch workflow on the HTC system
+  url: https://github.com/CHTC/tutorial-pytorch-catdog
   icon: "bi bi-github"
   description: |
-    Train and evaluate a PyTorch model on GPU capacity, including how to
-    request GPUs, check for CUDA availability, and checkpoint long-running
-    training jobs.
+    Learn how to run PyTorch training and inference workflows with this
+    cat-dog image classifier. Contains example container recipes that
+    you can use as a starting point for your own ML workflows.
   tags:
-    - machine-learning
+    - CHTC-created
+    - HTC
     - GPU
-    - python
-    - CHTC-created
-    - HTC
-  last updated: 2026-07-15
+    - machine learning and AI
+    - Python
+  last updated: 2026-03-25
 
-- text: Package Python Environments for Distributed Jobs
-  url: https://github.com/CHTC/tutorial-python-environments
+- text: Genome Assembly using Nanopore Reads on CHTC
+  url: https://github.com/CHTC/tutorial-CHTC-Genome-Assembly
   icon: "bi bi-github"
   description: |
-    Compare the ways of bringing a Python environment along with your jobs,
-    from `conda-pack` tarballs to purpose-built Apptainer containers.
+    A genome assembly workflow for Oxford Nanopore long reads using hifiasm
+    on CHTC's High Throughput Computing infrastructure.
   tags:
-    - python
-    - conda
-    - container
-    - beginner-friendly
     - CHTC-created
     - HTC
-  last updated: 2026-08-19
+    - bioinformatics
+  last updated: 2026-04-08
 
-- text: Run MPI Simulations on the HPC Cluster
-  url: https://github.com/CHTC/tutorial-hpc-mpi
+- text: Using ResearchDrive with CHTC
+  url: https://github.com/CHTC/tutorial-researchdrive
   icon: "bi bi-github"
   description: |
-    An introduction to compiling and running multi-node MPI codes with SLURM,
-    including how to scale up gradually and measure parallel efficiency.
+    Learn how to use the computing power of CHTC with the data you keep in ResearchDrive.
   tags:
+    - CHTC-created
+    - HTC
     - HPC
-    - MPI
-    - CHTC-created
-  last updated: 2026-03-08
+    - data
+  last updated: 2026-04-07
 
-- text: Introduction to High Throughput Computing
-  url: https://github.com/OSGConsortium/osg-school-materials
+- text: Analyzing Multiple Sequence Files with fastqc
+  url: https://github.com/CHTC/tutorial-fastqc
   icon: "bi bi-github"
   description: |
-    Lessons and exercises from OSG School covering the ideas behind
-    high throughput computing and the mechanics of submitting your first
-    workloads.
-  featured: true
+    How to run a set of jobs using different input files, with bioinformatics as the
+    example domain. This process can be applied to any other workflow that processes individual data files.
   tags:
+    - CHTC-created
     - HTC
+    - bioinformatics
     - beginner-friendly
-    - workshop
-  last updated: 2026-02-20
+  last updated: 2024-10-02
 
-- text: Manage Multi-Step Workflows with DAGMan
-  url: https://github.com/CHTC/tutorial-dagman
+- text: Automating Job Submission with HTCondor's DAGMan
+  url: https://github.com/CHTC/tutorial-dagman-intro
   icon: "bi bi-github"
   description: |
-    Chain jobs together into a workflow so that pre-processing, analysis, and
-    aggregation steps run in the right order and recover from failures.
-  featured: true
+    HTCondor's Directed Acyclic Graph Manager (DAGMan) utility enables you to automate the submission of
+    your HTCondor jobs. This tutorial guides you through how to use DAGMan to submit two HTCondor jobs.
   tags:
-    - workflows
-    - HTC
     - CHTC-created
-  last updated: 2026-01-27
-
-- text: Analyze Large Datasets with Dask
-  url: https://github.com/CHTC/tutorial-dask
-  icon: "bi bi-github"
-  description: |
-    Scale pandas-style analysis beyond a single machine, and learn when a
-    Dask cluster is the right tool versus many independent HTC jobs.
-  tags:
-    - python
-    - data-analysis
     - HTC
-  last updated: 2025-11-06
-
-- text: Get Started with HTC in Ten Jobs
-  url: https://github.com/CHTC/tutorial-first-jobs
-  icon: "bi bi-github"
-  featured: true
-  description: |
-    The place to start if you have never submitted a job before: ten small
-    exercises that build up from a single "hello world" job to a batch of
-    hundreds.
-  tags:
-    - HTC
-    - beginner-friendly
-    - CHTC-created
-    - workshop
-  last updated: 2025-12-15
-
-- text: Run MATLAB Jobs Without a License Server
-  url: https://github.com/CHTC/tutorial-matlab-compiler
-  icon: "/images/Matlab_Logo.png"
-  description: |
-    Compile MATLAB code into a standalone executable so that your jobs can run
-    anywhere in the pool, without needing to check out a license.
-  tags:
-    - MATLAB
-    - HTC
-    - CHTC-created
-  last updated: 2026-07-02
-
-- text: Checkpoint Long-Running Jobs
-  url: https://github.com/CHTC/tutorial-self-checkpointing
-  icon: "bi bi-github"
-  description: |
-    Break a multi-day computation into restartable pieces so it survives
-    interruptions and makes steady progress on opportunistic capacity.
-  tags:
-    - HTC
-    - workflows
-    - CHTC-created
-  last updated: 2026-06-05
-
-- text: Move Large Datasets In and Out of CHTC
-  url: https://github.com/CHTC/tutorial-data-transfer
-  icon: "bi bi-github"
-  description: |
-    Choose between HTCondor file transfer, staging space, and Globus for the
-    inputs and outputs your jobs produce, with examples of each.
-  tags:
-    - data-transfer
-    - HTC
-    - beginner-friendly
-    - CHTC-created
-  last updated: 2026-05-28
+    - workflow managers
+  last updated: 2024-09-18
