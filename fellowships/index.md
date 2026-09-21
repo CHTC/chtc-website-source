@@ -24,7 +24,7 @@ title: The Center for High Throughput Computing Fellows Program
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
 
-The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, optimizing the HTCondor high throughput computing system for AI and ML workflows, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
+The Program aims to provide opportunities for undergraduate and graduate students to connect with mentors within the community. Projects opportunities for students include collaboratively developing software for high throughput computing and cyberinfrastructure, optimizing the HTCondor high throughput computing application for AI and ML workflows, and facilitating the use of large-scale computational services. It provides students with insight into how scientists use research computing as a tool to advance their research.
 
 ## How it Works
 
