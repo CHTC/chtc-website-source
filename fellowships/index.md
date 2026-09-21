@@ -30,7 +30,7 @@ The Program aims to provide opportunities for undergraduate and graduate student
 
 Applicants can apply for a CHTC Fellowship for Summer 2027 beginning in mid-September 2026. Interviews will begin November 2026. Following a successful interview, Fellows candidates will be matched with a potential fellows project to consider based upon their interests and qualifications. With the help of mentor(s), the Fellows candidate will have the opportunity to flesh out and develop a project proposal for investigation and execution during the summer. 
 
-During the summer, the Fellows will work on their project on the guidance of their mentor(s) and with the support of the CHTC team. The Fellows will also collaborate with their Fellows cohort and have educational and social activities during the program. 
+During the summer, the Fellows will work on their project under the guidance of their mentor(s) and with the support of the CHTC team. The Fellows will also collaborate with their Fellows cohort and engage in educational and social activities during the program. 
 
 Fellows will receive a stipend for participating in the Program, during their fellowship. In-person participation at CHTC is required to maximize interaction with mentors and others in the cohort. 
 
@@ -40,7 +40,7 @@ To apply, send an email to <chtc-fellows@g-groups.wisc.edu> with the following i
 
 A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 
-A cover letter that describes your interest in the internship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. Successful applicants will be connected to mentors to flesh out their projects following this application and interview process. 
+A cover letter that describes your interest in the fellowship program. For example, you may wish to expand on 3 or 4 topics from the following list: your background, your skills, and strengths; what software, computing or scientific topics appeal to you; previous research experience, if any; what you may want to pursue as a future career; and what benefits you would like to gain from this program. 
 
 The CHTC Fellows Program aims to be inclusive of students at all levels of experience and skill sets; a willingness to learn and interest in science is prioritized over past accomplishments.
 
@@ -60,8 +60,8 @@ The CHTC Fellows Program aims to be inclusive of students at all levels of exper
 
 ## Developing a project 
 
--   With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline for the summer. 
--   During the Fellowship, you will work with your mentor and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
+-   Successful applicants will be connected to mentors to flesh out their projects following the application and interview process. With the help of the mentor, the students will develop and submit a short 2-page project proposal and timeline for the summer. 
+-   During the Fellowship, you will work with your mentors and other collaborators. You will also make a short presentation about your project to other Fellows and Mentors as you start your Fellowship, another midway through the project to show your progress and a final presentation about your results at the very end.
 
 
 ## Featured Fellow
@@ -102,9 +102,7 @@ Are you comfortable with programming skills acquired from coursework or dedicate
 
 External funding support for the CHTC Fellows Program is provided by the National Science Foundation through Cooperative Agreement [OAC-2030508](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2030508) and Grants [OAC-2030508](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2331480) and [0AC-2609485](https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2609485). Support for this program is also provided by UW-Madison and the Morgridge Institute for Research.
 
-## Other Scientific Fellowships
 
--   [**IRIS-HEP Fellows Program**](https://iris-hep.org/fellows.html){:target="_blank"}
 
 </div>
 </div>
