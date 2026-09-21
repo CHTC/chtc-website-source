@@ -74,7 +74,7 @@ The CHTC Fellows Program aims to be inclusive of students at all levels of exper
 
 ### Possible Projects?
 
-Following the interview, successful applicants will be paired with potential mentors based upon their interests to develop their project proposal. Project submissions are due prior to the start of the summer.
+Following the interview, successful applicants will be matched with a potential project based upon their interests and skill sets. The applicant will then work with CHTC Fellows' mentors to develop their project proposal. Project submissions are due prior to the start of the summer program.
 
 For Summer 2027, Fellows projects (likely 4) will primarily be focused on software development. Projects have been available in the following areas in the past:
 
