@@ -1,0 +1,117 @@
+# Learning materials shown on /learning-materials.html
+#
+# text:         Title of the material (required)
+# url:          Link to the repository or guide (required)
+# icon:         Either a Bootstrap Icons class ("bi bi-github") or a path/URL to
+#               an image to use as the icon ("/images/logos/rstudio.png")
+# description:  Short summary, rendered as markdown
+# tags:         List of tags; these populate the sidebar tag selector
+# last updated: YYYY-MM-DD, used by the default "Recently updated" sort
+# featured:     true to highlight the material and pin it to the top of the
+#               default listing (the pin is dropped once a visitor sorts)
+
+- text: Build a Conda-based Container for Bioinformatics
+  url: https://github.com/CHTC/biocafe-containers
+  icon: "bi bi-github"
+  description: |
+    This tutorial covers the basics of how to use containers to deploy software.
+    While this example is bioinformatics-flavored, the concepts can be applied
+    to any software stack.
+  tags:
+    - conda
+    - HTC
+    - bioinformatics
+    - CHTC-created
+    - container
+  last updated: 2026-03-10
+
+- text: Learn How to Deploy R Calculations
+  url: https://github.com/chtc/tutorial-rstudio-to-chtc
+  icon: "bi bi-github"
+  description: |
+    A step-by-step example of transitioning from running R calculations
+    on your computer using RStudio, to running many such calculations
+    on a HTC system.
+  tags:
+    - R
+    - CHTC-created
+    - beginner-friendly
+    - HTC
+  last updated: 2026-03-23
+
+- text: Predict Protein Structures with Alphafold3
+  url: https://github.com/CHTC/tutorial-CHTC-AF3
+  icon: "bi bi-github"
+  description: |
+    AlphaFold3 (AF3) predicts atomic-resolution biomolecular structures
+    for proteins, nucleic acids, and complexes.
+  tags:
+    - bioinformatics
+    - CHTC-created
+    - HTC
+    - GPU
+  last updated: 2026-09-11
+
+- text: Cat-Dog Classifier: Run a PyTorch workflow on the HTC system
+  url: https://github.com/CHTC/tutorial-pytorch-catdog
+  icon: "bi bi-github"
+  description: |
+    Learn how to run PyTorch training and inference workflows with this
+    cat-dog image classifier. Contains example container recipes that
+    you can use as a starting point for your own ML workflows.
+  tags:
+    - CHTC-created
+    - HTC
+    - GPU
+    - machine learning and AI
+    - Python
+  last updated: 2026-03-25
+
+- text: Genome Assembly using Nanopore Reads on CHTC
+  url: https://github.com/CHTC/tutorial-CHTC-Genome-Assembly
+  icon: "bi bi-github"
+  description: |
+    A genome assembly workflow for Oxford Nanopore long reads using hifiasm
+    on CHTC's High Throughput Computing infrastructure.
+  tags:
+    - CHTC-created
+    - HTC
+    - bioinformatics
+  last updated: 2026-04-08
+
+- text: Using ResearchDrive with CHTC
+  url: https://github.com/CHTC/tutorial-researchdrive
+  icon: "bi bi-github"
+  description: |
+    Learn how to use the computing power of CHTC with the data you keep in ResearchDrive.
+  tags:
+    - CHTC-created
+    - HTC
+    - HPC
+    - data
+  last updated: 2026-04-07
+
+- text: Analyzing Multiple Sequence Files with fastqc
+  url: https://github.com/CHTC/tutorial-fastqc
+  icon: "bi bi-github"
+  description: |
+    How to run a set of jobs using different input files, with bioinformatics as the
+    example domain. This process can be applied to any other workflow that processes individual data files.
+  tags:
+    - CHTC-created
+    - HTC
+    - bioinformatics
+    - beginner-friendly
+  last updated: 2024-10-02
+
+- text: Automating Job Submission with HTCondor's DAGMan
+  url: https://github.com/CHTC/tutorial-dagman-intro
+  icon: "bi bi-github"
+  description: |
+    HTCondor's Directed Acyclic Graph Manager (DAGMan) utility enables you to automate the submission of
+    your HTCondor jobs. This tutorial guides you through how to use DAGMan to submit two HTCondor jobs.
+  tags:
+    - CHTC-created
+    - HTC
+    - workflow managers
+  last updated: 2024-09-18
