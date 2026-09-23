@@ -52,7 +52,7 @@
     - GPU
   last updated: 2026-09-11
 
-- text: Cat-Dog Classifier: Run a PyTorch workflow on the HTC system
+- text: "Cat-Dog Classifier: Run a PyTorch workflow on the HTC system"
   url: https://github.com/CHTC/tutorial-pytorch-catdog
   icon: "bi bi-github"
   description: |
