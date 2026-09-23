@@ -1,4 +1,6 @@
-# Learning materials shown on /learning-materials.html
+# Learning materials shown on /uw-research-computing/learning-materials.html.
+# Entries marked `featured: true` also appear on the User Portal
+# (/uw-research-computing/user-portal.html) under "Featured learning resources".
 #
 # text:         Title of the material (required)
 # url:          Link to the repository or guide (required)
@@ -6,9 +8,9 @@
 #               an image to use as the icon ("/images/logos/rstudio.png")
 # description:  Short summary, rendered as markdown
 # tags:         List of tags; these populate the sidebar tag selector
-# last updated: YYYY-MM-DD, used by the default "Recently updated" sort
-# featured:     true to highlight the material and pin it to the top of the
-#               default listing (the pin is dropped once a visitor sorts)
+# last updated: YYYY-MM-DD, used by the "Recently updated" sorts
+# featured:     true to highlight the material, list it first under the default
+#               "Featured first" sort, and show it on the User Portal
 
 - text: Build a Conda-based Container for Bioinformatics
   url: https://github.com/CHTC/biocafe-containers
@@ -24,6 +26,7 @@
     - CHTC-created
     - container
   last updated: 2026-03-10
+  featured: true
 
 - text: Learn How to Deploy R Calculations
   url: https://github.com/chtc/tutorial-rstudio-to-chtc
@@ -38,6 +41,7 @@
     - beginner-friendly
     - HTC
   last updated: 2026-03-23
+  featured: true
 
 - text: Predict Protein Structures with Alphafold3
   url: https://github.com/CHTC/tutorial-CHTC-AF3
@@ -51,6 +55,7 @@
     - HTC
     - GPU
   last updated: 2026-09-11
+  featured: true
 
 - text: "Cat-Dog Classifier: Run a PyTorch workflow on the HTC system"
   url: https://github.com/CHTC/tutorial-pytorch-catdog

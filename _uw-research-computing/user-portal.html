@@ -8,6 +8,25 @@ title: CHTC User portal
     <div class="row">
         <div class="col-xl-8 col-lg-12 mb-4">
             {% for section in site.data.user-portal-sections %}
+
+            {% comment %}
+            A section either lists its links inline in user-portal-sections.yaml or, with
+            `source: learning-materials`, pulls the featured entries from learning-materials.yml
+            (most recently updated first, capped by `limit`). If nothing is featured, the most
+            recently updated materials are shown instead so the section is never empty.
+            {% endcomment %}
+            {% assign links = section.links %}
+            {% assign limit = section.limit | default: 3 %}
+            {% if section.source == "learning-materials" %}
+                {% assign by_date = site.data.learning-materials | sort: "last updated" | reverse %}
+                {% assign links = by_date | where: "featured", true %}
+                {% if links.size == 0 %}
+                    {% assign links = by_date %}
+                {% endif %}
+            {% else %}
+                {% assign limit = links.size %}
+            {% endif %}
+
             <div class="card mb-4 border-0">
                     <div class="card-header bg-primary">
                         <h2 class="m-0 text-light">
@@ -15,14 +34,21 @@ title: CHTC User portal
                         </h2>
                     </div>
                     <div class="row g-3 text-dark">
-                        {% for link in section.links %}
+                        {% for link in links limit: limit %}
+                            {% assign icon = link.icon | default: "bi bi-link-45deg" %}
                             {% if section.large %}
                             <div class="col-6 pt-3">
                             {% else %}
                             <div class="col-4 pt-3">
                             {% endif %}
                                 <a href="{{ link.url }}" class="portal-card btn w-100 h-100 p-4 border rounded-3 d-flex flex-column align-items-start">
-                                    <i class="{{ link.icon }} mb-2" style="font-size: 1.5rem;"></i>
+                                    {% if icon contains "bi " %}
+                                    <i class="{{ icon }} mb-2" style="font-size: 1.5rem;"></i>
+                                    {% elsif icon contains "//" %}
+                                    <img class="mb-2" src="{{ icon }}" alt="" style="height: 1.5rem;">
+                                    {% else %}
+                                    <img class="mb-2" src="{{ icon | relative_url }}" alt="" style="height: 1.5rem;">
+                                    {% endif %}
                                     <span class="fw-bold" style="font-size: 1.25rem;">
                                         {{ link.text }}
                                     </span>
@@ -33,6 +59,13 @@ title: CHTC User portal
                             </div>
                         {% endfor %}
                     </div>
+                    {% if section.more %}
+                    <div class="pt-3">
+                        <a href="{{ section.more.url }}" class="btn btn-outline-primary">
+                            {{ section.more.text }} <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    {% endif %}
             </div>
             {% endfor %}
         </div>
