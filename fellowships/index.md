@@ -54,7 +54,7 @@ The CHTC Fellows Program aims to be inclusive of students at all levels of exper
 
 -  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US for the duration of the fellowship, or, if graduating in May of 2026, have accepted an offer for a graduate program starting in the fall of 2027.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
--   U.S. citizenship is not required to participate. However, F-1 students will need to apply for Curricular Practical Training (CPT) and per CPT requirements enroll in an associated 1-credit course (at their own expense).   
+-   F-1 students, due to revised guidance, will likely not be able to meet Curricular Practical Training (CPT) requirements necessary for participation. See the [Federal Immigration Update](https://iss.wisc.edu/federal-immigration-curricular-practical-training-cpt-update-8-25-26/)
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2027 (HTC27) in Madison during the Fellowship is required. HTC27 will be held June 8 - 1, 2027.
 
 
