@@ -45,14 +45,14 @@ A cover letter that describes your interest in the fellowship program. For examp
 The CHTC Fellows Program aims to be inclusive of students at all levels of experience and skill sets; a willingness to learn and interest in science is prioritized over past accomplishments.
 
 ## Duration of Fellowship and Total Stipend
--  The upcoming Fellowship Program will last from May 17 to August 6, 2026. During the Program, 5 days are allocated as personal days (with no stipend provided for those days) for the Fellows to use at their discretion, except for the required participation in Throughput Computing Week 2027 (HTC27).
+-  The upcoming Fellowship Program will last from May 17 to August 6, 2027. During the Program, 5 days are allocated as personal days (with no stipend provided for those days) for the Fellows to use at their discretion, except for the required participation in Throughput Computing Week 2027 (HTC27).
 -  The Program provides $680/week stipend. 
 -  It is expected that a Fellow working on a  project is available full time during the fellowship period and will not have another significant activity (such as classes, another trainee position or a job) in the same time period.
 
  
 ## Eligibility 
 
--  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US for the duration of the fellowship, or, if graduating in May of 2026, have accepted an offer for a graduate program starting in the fall of 2027.
+-  You must be enrolled in an undergraduate or graduate program at an accredited University or College within the US for the duration of the fellowship, or, if graduating in May of 2027, have accepted an offer for a graduate program starting in the fall of 2027.
 -   You must have completed at least 1 academic year by the start of the Fellowship.
 -   F-1 students will be able to participate provided they have an Optional Practical Training (OPT) work authorization. (Due to revised guidance, F-1 students will likely not be able to meet Curricular Practical Training (CPT) requirements.) See the [Federal Immigration Update](https://iss.wisc.edu/federal-immigration-curricular-practical-training-cpt-update-8-25-26/)
 -   In-person participation sponsored by the CHTC Fellows Program in Throughput Computing Week 2027 (HTC27) in Madison during the Fellowship is required. HTC27 will be held June 8 - 11, 2027.
