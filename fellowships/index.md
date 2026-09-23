@@ -71,33 +71,6 @@ The CHTC Fellows Program aims to be inclusive of students at all levels of exper
 
 [View all fellows](/fellowships/fellows)
 
-
-### Possible Projects?
-
-Following the interview, successful applicants will be matched with a potential project based upon their interests and skill sets. The applicant will then work with CHTC Fellows' mentors to develop their project proposal. Project submissions are due prior to the start of the summer program.
-
-For Summer 2027, Fellows projects (likely 4) will primarily be focused on software development. Projects have been available in the following areas in the past:
-
-
-<div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Research Facilitation](/fellowships/list#research-facilitation)
-
-Are you interested in and comfortable with collaborative problem-solving, documentation and training, and community building? Are you looking for opportunities to learn about technologies, collaborate with teammates, and develop skills to communicate about technical concepts to a general audience?
-</div>
-
-<div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Infrastructure Services](/fellowships/list#infrastructure-services)
-
-Are you interested in state of the art hardware, complex systems and leading technologies? Are you interested in expanding your skills by learning about these diverse technologies, including Linux servers, networking, Kubernetes, distributed file systems, batch systems, and databases?
-</div>
-
-<div class="rounded px-4 py-1 mb-3 shadow" markdown="1">
-### [Software Development](/fellowships/list#software-development)
-
-Are you comfortable with programming skills acquired from coursework or dedicated training activities? Are you interested in building on those skills to gain experience in a project in support of scientific research?
-</div>
-
-
 ## Funding
 
 External funding support for the CHTC Fellows Program is provided by the National Science Foundation through Cooperative Agreement [OAC-2030508](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2030508) and Grants [OAC-2030508](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2331480) and [0AC-2609485](https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2609485). Support for this program is also provided by UW-Madison and the Morgridge Institute for Research.
