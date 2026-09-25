@@ -11,14 +11,14 @@ title: CHTC User portal
 
             {% comment %}
             A section either lists its links inline in user-portal-sections.yaml or, with
-            `source: learning-materials`, pulls the featured entries from learning-materials.yml
+            `source: learning-resources`, pulls the featured entries from learning-resources.yml
             (most recently updated first, capped by `limit`). If nothing is featured, the most
-            recently updated materials are shown instead so the section is never empty.
+            recently updated resources are shown instead so the section is never empty.
             {% endcomment %}
             {% assign links = section.links %}
             {% assign limit = section.limit | default: 3 %}
-            {% if section.source == "learning-materials" %}
-                {% assign by_date = site.data.learning-materials | sort: "last updated" | reverse %}
+            {% if section.source == "learning-resources" %}
+                {% assign by_date = site.data.learning-resources | sort: "last updated" | reverse %}
                 {% assign links = by_date | where: "featured", true %}
                 {% if links.size == 0 %}
                     {% assign links = by_date %}

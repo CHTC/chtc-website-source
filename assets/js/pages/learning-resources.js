@@ -1,14 +1,14 @@
 /**
- * Learning materials page: tag filtering (sidebar), keyword search, sorting,
+ * Learning resources page: tag filtering (sidebar), keyword search, sorting,
  * and pagination.
  *
- * All materials are rendered by Jekyll and filtered/sorted/paged client side,
+ * All resources are rendered by Jekyll and filtered/sorted/paged client side,
  * so the page still works without JavaScript (default order is "featured
- * first" with every material listed) and search engines see the full list.
+ * first" with every resource listed) and search engines see the full list.
  */
 const PAGE_SIZE = 12;
 
-class LearningMaterialsBrowser {
+class LearningResourcesBrowser {
 
     constructor(root) {
         this.root = root;
@@ -125,7 +125,7 @@ class LearningMaterialsBrowser {
     sortCards(cards) {
         const mode = this.sortSelect.value;
         const byTitle = (a, b) => a.lmTitle.localeCompare(b.lmTitle);
-        // Undated materials sort last, whichever direction the dates run.
+        // Undated resources sort last, whichever direction the dates run.
         const byDate = (a, b) => {
             if (a.lmUpdated === b.lmUpdated) return byTitle(a, b);
             if (!a.lmUpdated) return 1;
@@ -134,7 +134,7 @@ class LearningMaterialsBrowser {
         };
 
         const byDateDesc = (a, b) => byDate(b, a);
-        // Featured materials first, then everything else, each most recently updated first.
+        // Featured resources first, then everything else, each most recently updated first.
         const byFeatured = (a, b) => {
             if (a.lmFeatured !== b.lmFeatured) return a.lmFeatured ? -1 : 1;
             return byDateDesc(a, b);
@@ -305,8 +305,8 @@ class LearningMaterialsBrowser {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("learning-materials");
+    const root = document.getElementById("learning-resources");
     if (root) {
-        new LearningMaterialsBrowser(root).initialize();
+        new LearningResourcesBrowser(root).initialize();
     }
 });
