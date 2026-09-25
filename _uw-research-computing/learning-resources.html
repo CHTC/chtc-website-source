@@ -1,27 +1,28 @@
 ---
 layout: default
-title: Learning Materials
+title: Learning Resources
 description: A collection of tutorials, workshops, and example repositories for learning high throughput and high performance computing.
 js_extension:
--   src: "/assets/js/pages/learning-materials.js"
+-   src: "/assets/js/pages/learning-resources.js"
     loading: defer
     type: module
 ---
 
-{% assign by_date = site.data.learning-materials | sort: "last updated" | reverse %}
-{% assign featured_materials = by_date | where: "featured", true %}
-{% assign other_materials = by_date | where_exp: "material", "material.featured != true" %}
-{% comment %} Default order matches the "Featured first" sort option: featured materials, then the rest, each most recently updated first. {% endcomment %}
-{% assign materials = featured_materials | concat: other_materials %}
-{% assign all_tags = materials | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
+{% assign by_date = site.data.learning-resources | sort: "last updated" | reverse %}
+{% assign featured_resources = by_date | where: "featured", true %}
+{% assign other_resources = by_date | where_exp: "resource", "resource.featured != true" %}
+{% comment %} Default order matches the "Featured first" sort option: featured resources, then the rest, each most recently updated first. {% endcomment %}
+{% assign resources = featured_resources | concat: other_resources %}
+{% assign all_tags = resources | map: "tags" | join: "," | split: "," | uniq | sort_natural %}
 
-<div class="container-xxl pt-3" id="learning-materials">
+<div class="container-xxl pt-3" id="learning-resources">
     {% include page-title.html title=page.title %}
 
     <p class="lm-intro">
-        Tutorials, workshop materials, and example repositories for learning how to run
-        your research computing work at scale. Filter by topic using the tags (a guide
-        must have every selected tag), or search for a keyword.
+        Tutorials, workshop resources, and examples for learning how to run
+        your research computing work at scale. Filter by topic using the tags or search for a keyword.
+
+        Have a resource to contribute? <a href="https://uwmadison.co1.qualtrics.com/jfe/form/SV_42AO08VKRLP6lVA">Fill out our contribution form.</a>
     </p>
 
     <div class="row">
@@ -45,7 +46,7 @@ js_extension:
 
                     <ul class="lm-tag-list list-unstyled mb-0 ms-0">
                         {% for tag in all_tags %}
-                        {% assign tagged = materials | where_exp: "material", "material.tags contains tag" %}
+                        {% assign tagged = resources | where_exp: "resource", "resource.tags contains tag" %}
                         <li>
                             <label class="lm-tag-option" for="lm-tag-{{ tag | slugify }}">
                                 <input class="form-check-input" type="checkbox"
@@ -67,7 +68,7 @@ js_extension:
 
             <div class="lm-toolbar">
                 <div class="lm-search">
-                    <label class="visually-hidden" for="lm-search-input">Search learning materials</label>
+                    <label class="visually-hidden" for="lm-search-input">Search learning resources</label>
                     <i class="bi bi-search lm-search-icon" aria-hidden="true"></i>
                     <input type="search" class="form-control" id="lm-search-input"
                            placeholder="Search titles, descriptions, and tags" autocomplete="off">
@@ -87,42 +88,42 @@ js_extension:
 
             <div class="lm-status">
                 <p class="mb-0 text-muted" id="lm-count" aria-live="polite">
-                    Showing {{ materials.size }} of {{ materials.size }} guides
+                    Showing {{ resources.size }} of {{ resources.size }} guides
                 </p>
                 <div id="lm-active-tags" class="lm-active-tags"></div>
             </div>
 
             <div class="row" id="lm-grid">
-                {% for material in materials %}
+                {% for resource in resources %}
 
-                {% assign updated = material.last_updated | default: material["last updated"] %}
-                {% assign icon = material.icon | default: "bi bi-github" %}
-                {% assign tag_string = material.tags | join: " " %}
+                {% assign updated = resource.last_updated | default: resource["last updated"] %}
+                {% assign icon = resource.icon | default: "bi bi-github" %}
+                {% assign tag_string = resource.tags | join: " " %}
 
                 <div class="col-12 col-md-6 col-xl-4 mb-4 lm-card-col"
-                     data-tags="{{ material.tags | join: '|' }}"
-                     data-featured="{% if material.featured %}true{% else %}false{% endif %}"
+                     data-tags="{{ resource.tags | join: '|' }}"
+                     data-featured="{% if resource.featured %}true{% else %}false{% endif %}"
                      data-updated="{% if updated %}{{ updated | date: '%Y-%m-%d' }}{% endif %}"
-                     data-title="{{ material.text | escape }}"
-                     data-search="{{ material.text | append: ' ' | append: material.description | append: ' ' | append: tag_string | normalize_whitespace | escape }}">
-                    <div class="lm-card{% if material.featured %} lm-card-featured{% endif %}">
-                        {% if material.featured %}
+                     data-title="{{ resource.text | escape }}"
+                     data-search="{{ resource.text | append: ' ' | append: resource.description | append: ' ' | append: tag_string | normalize_whitespace | escape }}">
+                    <div class="lm-card{% if resource.featured %} lm-card-featured{% endif %}">
+                        {% if resource.featured %}
                         <span class="lm-featured-label" title="Featured">
                             <i class="bi bi-star-fill" aria-hidden="true"></i><span class="lm-featured-text">Featured</span>
                         </span>
                         {% endif %}
                         <div class="lm-card-head">
                             <h3 class="lm-card-title">
-                                <a class="stretched-link" href="{{ material.url }}">{{ material.text }}</a>
+                                <a class="stretched-link" href="{{ resource.url }}">{{ resource.text }}</a>
                             </h3>
                         </div>
 
                         <div class="lm-card-description">
-                            {{ material.description | markdownify }}
+                            {{ resource.description | markdownify }}
                         </div>
 
                         <div class="lm-card-tags">
-                            {% for tag in material.tags %}
+                            {% for tag in resource.tags %}
                             <button type="button" class="lm-tag-badge" data-lm-tag-toggle="{{ tag }}">{{ tag }}</button>
                             {% endfor %}
                         </div>
@@ -149,15 +150,15 @@ js_extension:
             </div>
 
             <div id="lm-no-results" class="lm-no-results" hidden>
-                <p class="mb-2"><strong>No learning materials match your filters.</strong></p>
+                <p class="mb-2"><strong>No learning resources match your filters.</strong></p>
                 <button type="button" class="btn btn-outline-primary btn-sm" id="lm-reset-all">Clear all filters</button>
             </div>
 
             {% comment %}
-            Every material is in the HTML above so search engines and no-JS visitors see the
-            full list; learning-materials.js pages the grid 10 at a time and fills this in.
+            Every resource is in the HTML above so search engines and no-JS visitors see the
+            full list; learning-resources.js pages the grid 10 at a time and fills this in.
             {% endcomment %}
-            <nav id="lm-pagination" class="lm-pagination" aria-label="Learning materials pages" hidden></nav>
+            <nav id="lm-pagination" class="lm-pagination" aria-label="Learning resources pages" hidden></nav>
 
         </div>
     </div>
