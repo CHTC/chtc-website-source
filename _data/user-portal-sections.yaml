@@ -12,13 +12,13 @@
     description: |
       Guides for the High Performance Computing (HPC) system.
 - name: Featured learning resources
-  # Cards come from _data/learning-materials.yml: entries marked `featured: true`,
+  # Cards come from _data/learning-resources.yml: entries marked `featured: true`,
   # most recently updated first. `limit` caps how many are shown (default 3).
-  source: learning-materials
+  source: learning-resources
   limit: 3
   more:
     text: See all learning resources
-    url: /uw-research-computing/learning-materials.html
+    url: /uw-research-computing/learning-resources.html
 - name: Interactive computing
   large: true
   links:
