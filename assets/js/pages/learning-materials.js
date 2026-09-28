@@ -1,14 +1,14 @@
 /**
- * Learning resources page: tag filtering (sidebar), keyword search, sorting,
+ * Learning materials page: tag filtering (sidebar), keyword search, sorting,
  * and pagination.
  *
- * All resources are rendered by Jekyll and filtered/sorted/paged client side,
- * so the page still works without JavaScript (default order is "featured
- * first" with every resource listed) and search engines see the full list.
+ * All materials are rendered by Jekyll and filtered/sorted/paged client side,
+ * so the page still works without JavaScript (default order is "recently
+ * updated" with every material listed) and search engines see the full list.
  */
 const PAGE_SIZE = 12;
 
-class LearningResourcesBrowser {
+class LearningMaterialsBrowser {
 
     constructor(root) {
         this.root = root;
@@ -27,6 +27,8 @@ class LearningResourcesBrowser {
         this.selectedTags = new Set();
         this.searchTerm = "";
         this.page = 1;
+        // Featured materials lead the list until the visitor picks a sort order.
+        this.featuredFirst = true;
 
         // Cache the values we filter and sort on.
         this.cards.forEach((card) => {
@@ -60,6 +62,7 @@ class LearningResourcesBrowser {
         });
 
         this.sortSelect.addEventListener("change", () => {
+            this.featuredFirst = false;
             this.page = 1;
             this.apply();
         });
@@ -108,11 +111,10 @@ class LearningResourcesBrowser {
     }
 
     matches(card) {
-        // Selected tags narrow the results: a card must carry every one of them.
+        // A card matches if it carries at least one of the selected tags.
         if (this.selectedTags.size > 0) {
-            const tags = new Set(card.lmTags);
-            const hasAllTags = Array.from(this.selectedTags).every((tag) => tags.has(tag));
-            if (!hasAllTags) return false;
+            const hasTag = card.lmTags.some((tag) => this.selectedTags.has(tag));
+            if (!hasTag) return false;
         }
 
         if (this.searchTerm && !card.lmSearch.includes(this.searchTerm)) {
@@ -124,8 +126,9 @@ class LearningResourcesBrowser {
 
     sortCards(cards) {
         const mode = this.sortSelect.value;
+        const featuredFirst = this.featuredFirst;
         const byTitle = (a, b) => a.lmTitle.localeCompare(b.lmTitle);
-        // Undated resources sort last, whichever direction the dates run.
+        // Undated materials sort last, whichever direction the dates run.
         const byDate = (a, b) => {
             if (a.lmUpdated === b.lmUpdated) return byTitle(a, b);
             if (!a.lmUpdated) return 1;
@@ -133,21 +136,21 @@ class LearningResourcesBrowser {
             return a.lmUpdated < b.lmUpdated ? -1 : 1;
         };
 
-        const byDateDesc = (a, b) => byDate(b, a);
-        // Featured resources first, then everything else, each most recently updated first.
-        const byFeatured = (a, b) => {
-            if (a.lmFeatured !== b.lmFeatured) return a.lmFeatured ? -1 : 1;
-            return byDateDesc(a, b);
-        };
-
         let compare;
         switch (mode) {
-            case "updated-desc": compare = byDateDesc; break;
             case "updated-asc": compare = byDate; break;
             case "title-asc": compare = byTitle; break;
             case "title-desc": compare = (a, b) => byTitle(b, a); break;
-            case "featured":
-            default: compare = byFeatured; break;
+            case "updated-desc":
+            default: compare = (a, b) => byDate(b, a); break;
+        }
+
+        if (featuredFirst) {
+            const withinGroup = compare;
+            compare = (a, b) => {
+                if (a.lmFeatured !== b.lmFeatured) return a.lmFeatured ? -1 : 1;
+                return withinGroup(a, b);
+            };
         }
 
         return cards.sort(compare);
@@ -305,8 +308,8 @@ class LearningResourcesBrowser {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("learning-resources");
+    const root = document.getElementById("learning-materials");
     if (root) {
-        new LearningResourcesBrowser(root).initialize();
+        new LearningMaterialsBrowser(root).initialize();
     }
 });
