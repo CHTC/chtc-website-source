@@ -8,7 +8,9 @@ guide:
         - htc
 ---
 
-HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to [Expanse@SDSC](https://www.sdsc.edu/systems/expanse/), and launching GPU execution points through Slurm.
+HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through the steps to create an annex, transfer its setup files, and launch GPU execution points on an external cluster. 
+
+> **Under development:** This guide and the HTCondor Annex workflow are actively being developed. Commands and configuration details may change. Please contact the CHTC facilitation team before getting started.
 
 {% capture content %}
 
@@ -22,28 +24,44 @@ HTCondor Annex lets you use resources from an external HPC allocation to run job
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-> **Under development:** This guide and the HTCondor Annex workflow are actively being developed. Commands and configuration details may change. Please contact the CHTC facilitation team before getting started.
+In this guide, you will set up an HTCondor Annex to make resources on 
+[Expanse](https://www.sdsc.edu/systems/expanse/index.html)
+available to jobs submitted from your CHTC Access Point. 
 
-Use an HTCondor Annex to make resources from your Expanse allocation available to jobs submitted from your CHTC Access Point. This example creates an annex named `my_annex` using a Slurm array of 24 jobs, each requesting one GPU, one CPU, and 32 GB of memory.
+**Prerequisites**
 
-You will need accounts on both systems and an Expanse allocation. Replace `<netid>`, `<username>`, and `<project>` with your own information. Use the same annex name throughout.
+- An account on a CHTC Access Point (ap2001, ap2002)
+- An account on Expanse
+- An Expanse allocation
+{:.uw-list-tight}
+
+In what follows, replace `<netid>`, `<username>`, and `<project>` with your own information. This example creates an annex named `my_annex` using a Slurm array of 24 jobs, each requesting one GPU, one CPU, and 32 GB of memory. Use the same annex name throughout.
+
+> ### ❓ Does Annex work on other clusters? 
+{:.tip-header} 
+
+> Yes! In this example we are using a single cluster (Expanse), but the Annex 
+> can be used on other external clusters as well. Talk to the Facilitation team 
+> if you would like to use an Annex on a different system. 
+{:.tip}
 
 ## 1. Log in to your Access Point
 
-```bash
+```
 ssh <netid>@ap2001.chtc.wisc.edu
 ```
+{:.term}
 
 ## 2. Prepare and submit your HTCondor jobs
 
 Add these lines to your submit file (for example, `hello.sub`), along with your executable, resource requests, and other job settings:
 
-```condor
+```
 MY.TargetAnnexName = "my_annex"
 MY.WantFlocking = true
 ```
 
-> ### 💡 Want to **Only** use your Annexed Capacity?
+> ### 💡 Want to *only* use your Annexed Capacity?
 {:.tip-header}
 
 > If you would like your job to **only** run on your annexed capacity (and not Open Capacity), add the following to your requirements' line:
@@ -55,23 +73,28 @@ MY.WantFlocking = true
 
 Submit your jobs:
 
-```bash
+```
 condor_submit hello.sub
 ```
+{:.term}
 
 ## 3. Create and transfer the annex
 
 On the Access Point, create the annex and copy its tarball to your Expanse home directory:
 
-```bash
+```
 htcondor annex create my_annex
 ```
-This will generate a tarball with your annex setup and required files. Transfer it to the HPC cluster you'd like to annex from (for example, `expanse`):
-```bash
+{:.term}
+
+This will generate a tarball with your annex setup and required files. Transfer it to the HPC cluster you'd like to annex from (in this example, Expanse):
+
+```
 scp annex-my_annex.tar <username>@login.expanse.sdsc.edu:~/
 ```
+{:.term}
 
-## 4. Set up the annex on Expanse
+## 4. Set up the annex on the remote cluster
 
 Log in and extract the tarball:
 
@@ -79,16 +102,24 @@ Log in and extract the tarball:
 ssh <username>@login.expanse.sdsc.edu
 tar -xvf annex-my_annex.tar
 ```
+{:.term}
 
-From the directory containing the extracted annex scripts, run:
+Change to the directory containing the extracted annex scripts and run the 
+annex setup script. 
 
 ```bash
+cd annex-my_annex
 ./annex-setup.sh
 ```
+{:.term}
 
 ## 5. Configure the Slurm job
 
-Edit `hpc.slurm` to use your Expanse project account and desired wall time. The example below requests one hour; adjust the array size and resource requests to suit your allocation and workload.
+Edit `hpc.slurm` to use your Expanse project account and desired wall time. You should 
+only need to change the `#SBATCH` variables; the commands below the `#SBATCH` variables 
+should remain unchanged. 
+
+The example below requests one hour; adjust the array size and resource requests to suit your allocation and workload.
 
 ```bash
 #!/bin/bash
@@ -140,7 +171,22 @@ From the directory containing the annex scripts, submit the Slurm job:
 ```bash
 sbatch hpc.slurm
 ```
+{:.term}
 
 As Slurm starts the array tasks, they launch HTCondor execution points for your annex. Your queued HTCondor jobs can then match these resources when their requirements are satisfied. Actual concurrency depends on resource availability and Slurm limits.
 
 > **Single-user requirement:** The user who submits HTCondor jobs to the annex must also be the user who creates it. Support for one user creating an annex that multiple users can use is under development; this documentation will be updated when it is available.
+
+## 7. Monitor and shut down the annex
+
+You can monitor the annex in two ways: 
+
+1. From the Expanse login node, you can view if the job array is running (using `squeue`) 
+and look at the SLURM error and output files. 
+1. From the CHTC Access Point, you can run the following command
+	```
+	htcondor annex status
+	```
+	{:.term}
+
+If you want to stop the annex at any point (before it reaches its timeout), remove the job array submitted on Expanse. 
