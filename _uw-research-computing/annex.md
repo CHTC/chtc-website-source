@@ -30,11 +30,10 @@ available to jobs submitted from your CHTC Access Point.
 
 **Prerequisites**
 
-<ul>
-<li style="margin-top: 1px;">An account on a CHTC Access Point (ap2001, ap2002)</li>
-<li style="margin-top: 1px;">An account on Expanse</li>
-<li style="margin-top: 1px;">An Expanse allocation</li>
-</ul>
+- An account on a CHTC Access Point (ap2001, ap2002)
+- An account on Expanse
+- An Expanse allocation
+{:.uw-list-tight}
 
 In what follows, replace `<netid>`, `<username>`, and `<project>` with your own information. This example creates an annex named `my_annex` using a Slurm array of 24 jobs, each requesting one GPU, one CPU, and 32 GB of memory. Use the same annex name throughout.
 
