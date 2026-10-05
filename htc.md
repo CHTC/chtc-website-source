@@ -6,7 +6,7 @@ title: What is High Throughput Computing?
 
 In computing, **throughput** is a measure of the number of computing tasks a system can complete over time. 
 
-**High Throughput Computing (HTC)** is an approach to computing that focuses on completing as much work as possible, integrated over weeks or months.  Rather than focusing on making an individual task faster, throughput computing tries to run as many **independent tasks** as possible across **multiple computers** as they become available.
+**High Throughput Computing (HTC)** is an approach to computing that focuses on completing as much work as possible, integrated over weeks or months, by running **independent tasks** across **multiple computers** as they become available. 
 
 <p style="text-align:center">
   <img src="/images/htc-workflow.gif" alt="Animation showing independent computing tasks being distributed across multiple available computers." width=600px>
@@ -63,7 +63,7 @@ In 1996, researchers first explained the difference between High Throughput Comp
 
 ### Ongoing work at CHTC
 
-Today, the [Center for High Throughput Computing (CHTC)](https://chtc.cs.wisc.edu/) continues to build on the principles of High Throughput Computing and help researchers around the world accomplish more scientific work. CHTC is the home of the [HTCondor Software Suite](https://htcondor.org/) and [Pelican Platform](https://pelicanplatform.org/), two technologies that support HTC on large collections of distributively owned heterogeneous computing resources. CHTC was also the original home of the term Research Computing Facilitation, a methodology developed to support end-users of computing approaches like HTC. 
+Today, the [Center for High Throughput Computing (CHTC)](https://chtc.cs.wisc.edu/) continues to build on the principles of High Throughput Computing and help researchers around the world accomplish more scientific work. CHTC is the home of the [HTCondor Software Suite](https://htcondor.org/) and [Pelican Platform](https://pelicanplatform.org/), two technologies that support HTC on large collections of heterogeneous computing resources that are distributed in both location and ownership. CHTC was also the original home of the term Research Computing Facilitation, a methodology developed to support end-users of computing approaches like HTC. 
 
 * Learn more about our technologies: [Our Technologies](technologies)
 * See CHTC's research in HTC: [Our Research](research)
