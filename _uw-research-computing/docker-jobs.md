@@ -54,8 +54,8 @@ container to use and an optional "container universe" option:
 container_image = docker://user/repo:tag
 universe = container
 
-executable = myExecutable.sh
-transfer_input_files = other_job_files
+shell = ./myExecutable.sh
+transfer_input_files = myExecutable.sh, other_job_files
 
 log = job.log
 error = job.err

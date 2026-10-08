@@ -174,12 +174,12 @@ within the user's `/home` directory:
 # Files for the below lines MUST all be somewhere within /home/username,
 # and not within /staging/u/username
 
-executable = run_myprogram.sh
+shell = ./run_myprogram.sh
 log = myprogram.log
 output = $(Cluster).out
 error = $(Cluster).err
 
-transfer_input_files = osdf:///chtc/staging/u/username/myprogram, file:///staging/u/username/largedata.tar.gz
+transfer_input_files = run_myprogram.sh, osdf:///chtc/staging/u/username/myprogram, file:///staging/u/username/largedata.tar.gz
 
 # IMPORTANT! Require execute servers that can access /staging
 Requirements = (Target.HasCHTCStaging == true)

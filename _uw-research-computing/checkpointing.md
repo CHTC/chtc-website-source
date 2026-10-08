@@ -91,8 +91,9 @@ Add the following contents:
 ```
 # exit-driven-example.submit
 
-executable = fibonacci.py
-arguments = 10
+shell = ./fibonacci.py 10
+
+transfer_input_files = fibonacci.py
 
 checkpoint_exit_code = 85
 transfer_checkpoint_files = fibonacci.checkpoint
@@ -309,8 +310,9 @@ The submit file may look like this:
 ```
 # exit-driven-example.sub
 
-executable = my_program
-arguments = argument1 argument2
+shell = ./my_program argument1 argument2
+
+transfer_input_files = my_program
 
 checkpoint_exit_code = 85
 transfer_checkpoint_files = my_output.txt, temp_dir, temp_file.txt
@@ -411,7 +413,9 @@ When using a wrapper, set the wrapper script as the **executable** in your submi
 ```
 # exit-driven-example.sub
 
-executable = my_wrapper.sh
+shell = ./my_wrapper.sh
+
+transfer_input_files = my_wrapper.sh
 
 checkpoint_exit_code = 85
 transfer_checkpoint_files = my_output.txt, temp_dir, temp_file.txt

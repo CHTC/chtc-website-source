@@ -111,8 +111,7 @@ Now that we know how to run our script and what to expect, let’s translate thi
 
 	# Specify your executable and your arguments
 	# Usage: least_squares.py [CSV] [Country] [Year, optional]
-	executable = least_squares.py
-	arguments = gapminder-life-expectancy.csv $(country)
+	shell = ./least_squares.py gapminder-life-expectancy.csv $(country)
 
 	# Specify the log, standard error, and standard output (or screen output) files
 	log = $(country).log
@@ -120,7 +119,7 @@ Now that we know how to run our script and what to expect, let’s translate thi
 	output = $(country).out
 
 	# We need to also transfer the csv file for the calculation
-	transfer_input_files = gapminder-life-expectancy.csv
+	transfer_input_files = least_squares.py, gapminder-life-expectancy.csv
 
 	# Requirements for our calculation
 	request_cpus = 1
@@ -206,8 +205,7 @@ In this exercise, we will obtain data for multiple countries between the years 2
 
 	# Specify your executable and your arguments
 	# Usage: ./least_squares_range.sh [CSV] [Country] [Start Year] [End Year]
-	executable = least_squares_range.sh
-	arguments = gapminder-life-expectancy.csv $(country) 2024 2033
+	shell = ./least_squares_range.sh gapminder-life-expectancy.csv $(country) 2024 2033
 
 	# Specify the log, standard error, and standard output (or screen output) files
 	log = $(country)_24_33.log
@@ -215,7 +213,7 @@ In this exercise, we will obtain data for multiple countries between the years 2
 	output = $(country)_24_33.out
 
 	# We need to also transfer the csv file for the calculation
-	transfer_input_files = gapminder-life-expectancy.csv, least_squares.py
+	transfer_input_files = least_squares_range.sh, gapminder-life-expectancy.csv, least_squares.py
 
 	# Requirements for our calculation
 	request_cpus = 1

@@ -130,9 +130,8 @@ to be used by that job. For the first job, `$(state)` will be `illinois.data`, f
 second job `$(state)` will be `nebraska.data`, and so on. For example:
 
 ```
-executable = compare_states
-arguments = $(state)
-transfer_input_files = $(state)
+shell = ./compare_states $(state)
+transfer_input_files = compare_states, $(state)
 
 ... remaining submit details ...
 
@@ -177,9 +176,8 @@ queue state, year from parameters.txt
 The variables `$(state)` and `$(year)` can be used in the submit file:
 
 ```
-executable = compare_states
-arguments = $(state) $(year)
-transfer_input_files = $(state)
+shell = ./compare_states $(state) $(year)
+transfer_input_files = compare_states, $(state)
 
 ... remaining submit details ...
 
@@ -222,9 +220,8 @@ See the below table for the values each variable is assigned over the different 
 You can then use `$(files)` in the submit file to transfer a list of files:
 
 ```
-executable = compare_states
-arguments = $(start) $(end) --file-type ".data"
-transfer_input_files = $(files)
+shell = ./compare_states  $(start) $(end) --file-type ".data"
+transfer_input_files = compare_states, $(files)
 
 ... remaining submit details ...
 
@@ -273,8 +270,8 @@ wisconsin
 Then we modify our submit file and add the `initialdir` attribute:
 ```
 initialdir = $(state_dir)
-executable = compare_states
-transfer_input_files = input.data
+shell = ./compare_states
+transfer_input_files = compare_states, input.data
 
 ... remaining submit details ...
 
@@ -324,8 +321,8 @@ We can use `queue <variable> matching <pattern>` and `initialdir` to submit mult
 
 ```
 initialdir = $(state_dir)
-executable = compare_states
-transfer_input_files = input.data
+shell = ./compare_states
+transfer_input_files = compare_states, input.data
 
 ... remaining submit details ...
 

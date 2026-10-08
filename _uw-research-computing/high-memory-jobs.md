@@ -177,10 +177,10 @@ Altogether, a sample submit file may look something like this:
 # Files for the below lines will all be somewhere within /home/username,
 # and not within /staging/u/username
 log = run_myprogram.log
-executable = run_Trinity.sh
+shell = ./run_Trinity.sh
 output = $(Cluster).out
 error = $(Cluster).err
-transfer_input_files = trinityrnaseq-2.0.1.tar.gz
+transfer_input_files = run_Trinity.sh, trinityrnaseq-2.0.1.tar.gz
 
 # Require execute servers that have large data staging
 Requirements = (Target.HasCHTCStaging == true)

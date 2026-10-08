@@ -73,10 +73,10 @@ The full submit file otherwise looks like normal, for example:
 # Provide HTCondor with the name of your .sif file and
 container_image = osdf:///chtc/staging/path/to/my-container.sif
 
-executable = myExecutable.sh
+shell = ./myExecutable.sh
 
 # Include other files that need to be transferred here.
-# transfer_input_files = other_job_files
+transfer_input_files = myExecutable.sh, other_job_files
 
 log = job.log
 error = job.err
@@ -315,7 +315,7 @@ HTCondor job interactively.
 From the user's perspective, a container job is practically identical to a regular job.
 The main difference is that instead of running on the execute point's default operation system, the job is run inside the container. 
 
-When you submit a job to HTCondor using a submit file with `container_image` set, HTCondor automatically handles the process of obtaining and running the container. You do not need to include any `apptainer` commands in your `executable` file. The process looks roughly like
+When you submit a job to HTCondor using a submit file with `container_image` set, HTCondor automatically handles the process of obtaining and running the container. You do not need to include any `apptainer` commands in your `executable` file or `shell` script. The process looks roughly like
 
 - Claim machine that satisifies submit file requirements
 - Pull (or transfer) the container image

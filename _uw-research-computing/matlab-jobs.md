@@ -65,11 +65,11 @@ When using the Matlab container, we recommend the following process for executin
 
    Note that in the script, the `.m` extension has been dropped from the file name (uses `"my-script"` instead of `"my-script.m"`).
 
-3. In your submit file, set the `.sh` script as the executable and list the `.m` file to be transferred:
+3. In your submit file, set the `.sh` script as the shell command and list the `.m` file to be transferred:
 
    ```
-   executable = run-matlab.sh
-   transfer_input_files = my-script.m
+   shell = ./run-matlab.sh
+   transfer_input_files = run-matlab.sh, my-script.m
    ```
    {:.sub}
 

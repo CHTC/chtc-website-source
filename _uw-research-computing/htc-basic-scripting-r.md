@@ -77,7 +77,8 @@ Now that we've understood how arguments work in R and how to write simple wrappe
 data = data.csv
 
 # Specify the executable & arguments
-executable = wrapper.sh
-arguments = $(data)
+shell = ./wrapper.sh $(data)
+
+transfer_input_files = wrapper.sh, $(data)
 ```
 <!--more-->

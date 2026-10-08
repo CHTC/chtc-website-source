@@ -299,17 +299,14 @@ A sample submit file for multi-core jobs is given below:
 ``` {.sub}
 # multicore.sub
 # A sample submit file for running a single multicore (8 cores) job
-executable = run_mpi.sh
-# arguments = (if you want to pass any to the shell script)
+shell = ./run_mpi.sh <arguments>
 
 ## Specify the name of HTCondor's log, standard error, and standard out files
 log = mc_$(Cluster).log
 output = mc_$(Cluster).out
 error = mc_$(Cluster).err
 
-# Tell HTCondor how to handle input files
-should_transfer_files = YES
-transfer_input_files = (this should be a comma separate list of input files if needed)
+transfer_input_files = run_mpi.sh
 
 # Requirement for accessing new set of modules
 requirements = ( HasChtcSoftware == true ) 

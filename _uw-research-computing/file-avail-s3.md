@@ -224,8 +224,8 @@ CHTC's S3 storage (`s3dev.chtc.wisc.edu`):
 
 ```
 ...
-executable = my_script.sh
-transfer_input_files = s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
+shell = ./my_script.sh
+transfer_input_files = my_script.sh, s3://s3dev.chtc.wisc.edu/my-bucket/large-input.file
 arguments = large-input.file
 ...
 ```

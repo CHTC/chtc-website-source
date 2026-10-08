@@ -205,13 +205,9 @@ error = job_$(Cluster)_$(Process).err
 output = job_$(Cluster)_$(Process).out
 
 # Fill in with whatever executable you're using
-executable = run_gpu_job.sh
-#arguments = 
+shell = ./run_gpu_job.sh
 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-# Uncomment and add input files that are in /home
-# transfer_input_files = 
+transfer_input_files = run_gpu_job.sh
 
 # Uncomment and add custom requirements
 # requirements = 

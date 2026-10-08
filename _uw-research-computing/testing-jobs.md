@@ -107,14 +107,9 @@ To request an interactive job:
     with one change. Don\'t include an executable line; instead, list
     your executable file in the `transfer_input_files` line.
 
-        # sample submit file
-        universe = vanilla
         log = interactive.log
 
-        # executable = # delete or comment out
-        should_transfer_files = YES
-        when_to_transfer_output = ON_EXIT
-        transfer_input_files = data_file,myprogram
+        transfer_input_files = data, myprogram
 
         request_cpus = 1
         request_memory = 1GB

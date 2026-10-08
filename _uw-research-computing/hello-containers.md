@@ -235,7 +235,9 @@ cowsay "CHTC says hi"
 ```text
 container_image = osdf:///chtc/staging/path/to/my-container.sif
 
-executable = run.sh
+shell = ./run.sh
+transfer_input_files = run.sh
+
 log = job.log
 error = job.err
 output = job.out

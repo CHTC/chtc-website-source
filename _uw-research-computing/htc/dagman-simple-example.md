@@ -94,12 +94,13 @@ We have explicitly told HTCondor to transfer back this file by using the `transf
 ```
 # A.sub
 
-executable = A.sh
+shell = ./A.sh
 
 log = A.log
 output = A.out
 error = A.err
 
+transfer_input_files = A.sh
 transfer_output_files = output.txt
 
 request_cpus = 1
@@ -131,12 +132,13 @@ Thus we have finally defined the "edge" that connects nodes `A` and `B`: the use
 ```
 # B.sub
 
-executable = B.sh
+shell = ./B.sh
 
 log = B.log
 output = B.out
 error = B.err
 
+transfer_input_files = B.sh
 transfer_input_files = output.txt
 
 request_cpus = 1

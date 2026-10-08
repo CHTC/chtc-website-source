@@ -129,9 +129,7 @@ Using a text editor, create the following file, which can be named `build.sub`
 universe = vanilla
 log = julia-build.log
 
-# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
-# If you do not have an existing executable, use a generic linux command like hostname as shown below.
-executable = /usr/bin/hostname
+# In the latest version of HTCondor on CHTC, interactive jobs do not require an executable.
 
 # have job transfer a copy of precompiled Julia software
 # be sure to match the name of the version 
@@ -344,17 +342,13 @@ can be found in our hello world example page at [Run Your First CHTC Jobs](hello
 ``` {.sub}
 # julia-job.sub
 
-universe = vanilla
-
 log = job_$(Cluster).log
 error = job_$(Cluster)_$(Process).err
 output = job_$(Cluster)_$(Process).out
 
-executable = julia-job.sh
+shell = ./julia-job.sh
 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files = julia-#.#.#-linux-x86_64.tar.gz, script.jl
+transfer_input_files = julia-job.sh, julia-#.#.#-linux-x86_64.tar.gz, script.jl
 
 request_cpus = 1
 request_memory = 2GB
