@@ -35,7 +35,6 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
 
 > You can follow along with the job submission tutorial outlined in this guide in video format.
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/d5siupeu2kE?si=32FUkZyceV9ROfb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-> You may notice that the example in the video is slightly different—it uses `executable` and `arguments` in the submit file instead of `shell`. This is reflects an older submit convention, however, either case still works!
 {:.tip}
 
 ### Prepare job executable and submit file on an Access Point
@@ -98,7 +97,8 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
    #  commands) and arguments to be passed to jobs. 
    #  $(Process) will be a integer number for each job, starting with "0"
    #  and increasing for the relevant number of jobs.
-   shell = ./hello-world.sh $(Process)
+   executable = hello-world.sh
+   arguments = $(Process)
    		
    # Specify the name of the log, standard error, and standard output (or
    # "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
@@ -107,8 +107,8 @@ We are going to run the traditional 'hello world' program with a CHTC twist. In 
    error = hello-world_$(Cluster)_$(Process).err
    output = hello-world_$(Cluster)_$(Process).out
    
-   # Transfer our executable script
-   transfer_input_files = hello-world.sh
+   # Our executable is transferred automatically
+   # transfer_input_files = < other input files you'd need goes here >
    
    # Requirements (e.g., operating system) your job needs, what amount of
    # compute resources each job will need on the computer where it runs.
@@ -266,7 +266,22 @@ Example:
 
 You can either use `shell` or `executable` and `arguments` in your submit file to specify how to run your jobs.
 
-### Option 1: Submit with `shell`
+### Option 1: `executable` and `arguments`
+
+In this convention, you break your command into two parts—the executable and the arguments.
+
+```
+executable = hello-world.sh
+arguments = $(Process)
+```
+
+When using this option:
+
+* **HTCondor will transfer your executable by default.** You do not need to list your executable in `transfer_input_files`.
+* You do not have to add a `./` or `/bin/bash` to the beginning of your `executable` line.
+* You do not have to give your `executable` script executable permissions.
+
+### Option 2: Submit with `shell`
 
 You can use `shell` to specify the whole command you want to run.
 
@@ -281,18 +296,3 @@ When using `shell`, consider:
 * If you are using `./` to execute your code, as in the example above, **ensure your shell script has executable permissions** with the `chmod +x <script>` command.
 * Alternatively, **you may use a shell like `bash` to execute your code**, (i.e., `shell = bash hello-world.sh 0`). When you use this option, you do not have to give your shell script executable permissions.
 * **Keep your `shell` script simple**; quoting and special characters may throw errors. If you need complex scripting, we recommend writing a wrapper script.
-
-### Option 2: `executable` and `arguments`
-
-In this convention, you break your command into two parts—the executable and the arguments.
-
-```
-executable = hello-world.sh
-arguments = $(Process)
-```
-
-When using this option:
-
-* **HTCondor will transfer your executable by default.** You do not need to list your executable in `transfer_input_files`.
-* You do not have to add a `./` or `/bin/bash` to the beginning of your `executable` line.
-* You do not have to give your `executable` script executable permissions.
