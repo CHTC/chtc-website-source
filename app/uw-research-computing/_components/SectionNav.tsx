@@ -67,7 +67,7 @@ const navButtonSx = (active: boolean) => ({
 });
 
 /**
- * The UW Research Computing sub-navigation from the legacy
+ * The Campus Computing sub-navigation from the legacy
  * `_includes/navbar/uw-research-computing-navbar.html`, fed by
  * `_data/uw-research-computing-menu.yml`. Sits under the global header on
  * every page of the section.
@@ -86,7 +86,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
   return (
     <Box
       component='nav'
-      aria-label='UW Research Computing'
+      aria-label='Campus Computing'
       sx={{ bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}
     >
       <Container maxWidth='lg'>
@@ -106,7 +106,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
               '&:hover': { color: 'primary.main' },
             }}
           >
-            UW Research Computing
+            Campus Computing
           </Link>
           {items.map((item) =>
             item.children?.length ? (
@@ -129,7 +129,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
               aria-current={atHome ? 'page' : undefined}
               sx={{ fontWeight: 700, color: atHome ? 'primary.main' : 'text.primary', py: 1, flexGrow: 1 }}
             >
-              UW Research Computing
+              Campus Computing
             </Link>
             <IconButton
               onClick={() => setMobileOpen((o) => !o)}

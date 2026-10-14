@@ -26,7 +26,7 @@ export default function Page() {
         }}
       >
         <Typography variant='h5' component='h2' gutterBottom>
-          UW Research Computing
+          Campus Computing
         </Typography>
         <Typography paragraph sx={{ lineHeight: 1.7 }}>
           CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison campus; this
@@ -34,7 +34,7 @@ export default function Page() {
           Wisconsin in support of the Wisconsin Idea.
         </Typography>
         <Button href='/uw-research-computing/' variant='contained'>
-          UW Research Computing
+          Campus Computing
         </Button>
       </Box>
     </ContentPage>

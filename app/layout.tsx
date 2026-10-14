@@ -43,9 +43,9 @@ export const metadata: Metadata = {
 /** Mirrors the legacy `_data/main-menu.yml`. */
 const pages: NavigationItem[] = [
 	{
-		label: 'Research Computing',
+		label: 'Campus Computing',
 		children: [
-			{ label: 'Research Computing Services', path: '/uw-research-computing' },
+			{ label: 'Campus Computing Services', path: '/uw-research-computing' },
 			{ label: 'Resources for Faculty', path: '/faculty-resources' },
 			{ label: 'User Portal', path: '/uw-research-computing/user-portal' },
 		],

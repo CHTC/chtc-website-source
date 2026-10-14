@@ -7,7 +7,7 @@ import { Footer as UWFooter } from '@chtc/web-components';
  */
 const MENU = [
   {
-    label: 'Research Computing',
+    label: 'Campus Computing',
     items: [
       { label: 'Services', href: '/uw-research-computing/' },
       { label: 'Get Started', href: '/uw-research-computing/form/' },

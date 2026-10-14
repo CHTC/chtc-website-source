@@ -20,7 +20,7 @@ import PageTitle from './_components/PageTitle';
 import { SECTION } from './_lib/docs';
 
 export const metadata = listingMetadata(
-  'UW Research Computing',
+  'Campus Computing',
   "Your home for research computing at UW-Madison: CHTC's High Throughput Computing system and High Performance Computing cluster, with consulting, training and support at no cost.",
   `${SECTION}/`
 );
@@ -168,7 +168,7 @@ export default async function Page() {
           >
             Your Home for
             <br />
-            Research Computing
+            Campus Computing
           </Typography>
         </Box>
       </Box>

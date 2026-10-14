@@ -212,8 +212,15 @@ export default async function Home() {
 
       <UsageStats />
 
-      {/* Technologies and services */}
-      <Container maxWidth='lg' sx={{ pb: { xs: 4, md: 6 } }}>
+      {/* Technologies and methodologies */}
+      <Container maxWidth='lg' sx={{ pt: { xs: 4, md: 6 }, pb: { xs: 4, md: 6 } }}>
+        <Typography
+          variant='h4'
+          component='h2'
+          sx={{ textAlign: 'center', mb: { xs: 1, md: 2 } }}
+        >
+          Technologies and Methodologies
+        </Typography>
         <FeatureRow
           title='HTCSS'
           image={{ src: '/images/logos/CondorAlpha.png', width: 384, height: 327, alt: 'Hand drawn image of a Condor' }}
@@ -245,12 +252,35 @@ export default async function Home() {
           </FeatureText>
         </FeatureRow>
         <FeatureRow
+          title='Research Facilitation'
+          href='/research-facilitation/'
+          image={{
+            src: '/images/20240308_facilitators_morgridge.jpg',
+            width: 3600,
+            height: 1335,
+            alt: 'CHTC research computing facilitators at the Morgridge Institute',
+          }}
+          imageFirst
+          imageMaxWidth={320}
+        >
+          <FeatureText>
+            CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
+            their goals. The Research Facilitation approach emphasizes teaching users skills and
+            methodologies to manage &amp; automate workloads on resources like those at CHTC, the
+            campus, or across the world.
+          </FeatureText>
+        </FeatureRow>
+      </Container>
+
+      {/* Services */}
+      <Container maxWidth='lg' sx={{ pb: { xs: 4, md: 6 } }}>
+        <FeatureRow
           title='Services'
           image={{ src: '/images/microscope.svg', width: 291, height: 406, alt: 'Microscope' }}
           imageMaxWidth={200}
         >
           <Typography variant='h6' component='h3' sx={{ mb: 1 }}>
-            <Link href='/uw-research-computing/'>UW Research Computing</Link>
+            <Link href='/uw-research-computing/'>Campus Computing</Link>
           </Typography>
           <FeatureText>
             CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison campus; this
@@ -258,15 +288,6 @@ export default async function Home() {
             Wisconsin in support of the Wisconsin Idea. Researchers can place their workloads on
             an access point at CHTC and utilize the resources at CHTC, across the campus, and
             across the nation.
-          </FeatureText>
-          <Typography variant='h6' component='h3' sx={{ mt: 3, mb: 1 }}>
-            <Link href='/research-facilitation/'>Research Facilitation</Link>
-          </Typography>
-          <FeatureText>
-            CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-            their goals. The Research Facilitation approach emphasizes teaching users skills and
-            methodologies to manage &amp; automate workloads on resources like those at CHTC, the
-            campus, or across the world.
           </FeatureText>
         </FeatureRow>
       </Container>
