@@ -1,0 +1,322 @@
+[
+  {
+    "source": "/events/2022/11/extended-office-hours.html",
+    "destination": "/events/2022/11/01/extended-office-hours/",
+    "text": "CHTC Extended (In-Person) Office Hours"
+  },
+  {
+    "source": "/events/2022/11/gpu-ml-demo.html",
+    "destination": "/events/2022/11/03/gpu-ml-demo/",
+    "text": "GPU/Machine Learning Demo"
+  },
+  {
+    "source": "/events/2023/01/data-center-tours.html",
+    "destination": "/events/2023/01/10/data-center-tours/",
+    "text": "Server Room Tours"
+  },
+  {
+    "source": "/events/2023/01/hpc-cluster-faq.html",
+    "destination": "/events/2023/01/10/hpc-cluster-faq/",
+    "text": "HPC cluster FAQ January 19th and 24th"
+  },
+  {
+    "source": "/events/2023/02/research-bazaar.html",
+    "destination": "/events/2023/02/08/research-bazaar/",
+    "text": "Research Bazaar"
+  },
+  {
+    "source": "/events/2023/07/throughput-computing-2023.html",
+    "destination": "/events/2023/07/10/throughput-computing-2023/",
+    "text": "Throughput Computing 2023"
+  },
+  {
+    "source": "/events/2023/10/information-session.html",
+    "destination": "/events/2023/10/04/information-session/",
+    "text": "CHTC Information Session"
+  },
+  {
+    "source": "/events/2023/11/intro-workshop.html",
+    "destination": "/events/2023/11/08/intro-workshop/",
+    "text": "Workshop: Hands-on Introduction to Using CHTC Systems"
+  },
+  {
+    "source": "/events/2024/01/throughput-computing-2024.html",
+    "destination": "/events/2024/01/11/throughput-computing-2024/",
+    "text": "Join Us at Throughput Computing 2024, July 8 - 12"
+  },
+  {
+    "source": "/events/2024/03/osg-school-2024.html",
+    "destination": "/events/2024/03/29/osg-school-2024/",
+    "text": "OSG School 2024"
+  },
+  {
+    "source": "/events/2024/04/euro-htc.html",
+    "destination": "/events/2024/09/24/euro-htcondor/",
+    "text": "Registration is open for the European HTCondor Workshop, September 24-27"
+  },
+  {
+    "source": "/events/2024/09/information-session.html",
+    "destination": "/events/2024/09/18/information-session/",
+    "text": "CHTC Information Session - September"
+  },
+  {
+    "source": "/events/2024/10/information-session.html",
+    "destination": "/events/2024/10/11/information-session/",
+    "text": "CHTC Information Session - October"
+  },
+  {
+    "source": "/events/2024/11/information-session.html",
+    "destination": "/events/2024/11/05/information-session/",
+    "text": "CHTC Information Session - November"
+  },
+  {
+    "source": "/events/2024/12/information-session.html",
+    "destination": "/events/2024/12/04/information-session/",
+    "text": "CHTC Information Session - December"
+  },
+  {
+    "source": "/events/2024/12/movie.html",
+    "destination": "/events/2024/12/05/movie/",
+    "text": "WUD Film x Data Science Institute Presents: The Thinking Game (2024), [CHTC will be tabling]"
+  },
+  {
+    "source": "/events/2025/01/information-session.html",
+    "destination": "/events/2025/01/14/information-session/",
+    "text": "CHTC Information Session - January"
+  },
+  {
+    "source": "/events/2025/02/throughput-computing-week-2025.html",
+    "destination": "/events/2025/06/02/throughput-computing-week/",
+    "text": "Join Us at Throughput Computing Week 2025"
+  },
+  {
+    "source": "/events/2025/02/containers.html",
+    "destination": "/events/2025/02/11/containers/",
+    "text": "Workshop: Building and Using Containers for Large-scale Computing"
+  },
+  {
+    "source": "/events/2025/02/researcher-forum.html",
+    "destination": "/events/2025/02/26/researcher-forum/",
+    "text": "CHTC Researcher Forum 2025"
+  },
+  {
+    "source": "/events/2025/03/grad-student-open-house.html",
+    "destination": "/events/2025/03/07/grad-student-open-house/",
+    "text": "Open House for Prospective Graduate Students"
+  },
+  {
+    "source": "/events/2025/03/information-session.html",
+    "destination": "/events/2025/03/11/information-session/",
+    "text": "CHTC Information Session - March"
+  },
+  {
+    "source": "/events/2025/04/getting-started-htc.html",
+    "destination": "/events/2025/04/08/getting-started-htc/",
+    "text": "Workshop: Getting Started with High Throughput Computing"
+  },
+  {
+    "source": "/events/2025/06/chtc-at-terrace.html",
+    "destination": "/events/2025/06/10/chtc-at-terrace/",
+    "text": "CHTC at the Terrace"
+  },
+  {
+    "source": "/events/2025/06/osg-school-2025.html",
+    "destination": "/events/2025/06/23/osg-user-school-2025/",
+    "text": "OSG User School 2025, June 23-27"
+  },
+  {
+    "source": "/events/2025/07/chtc-at-terrace.html",
+    "destination": "/events/2025/07/08/chtc-at-terrace/",
+    "text": "CHTC at the Terrace"
+  },
+  {
+    "source": "/events/2025/07/throughput-computing-week-2026.html",
+    "destination": "/events/2026/06/09/throughput-computing-week/",
+    "text": "Registration Open for Throughput Computing Week 2026"
+  },
+  {
+    "source": "/events/2025/08/chtc-at-terrace.html",
+    "destination": "/events/2025/08/12/chtc-at-terrace/",
+    "text": "CHTC at the Terrace"
+  },
+  {
+    "source": "/events/2026/10/OSG-User-School-2023.html",
+    "destination": "/events/2023/08/07/osg-user-school-2023/",
+    "text": "OSG User School 2023, Aug. 7–11"
+  },
+  {
+    "source": "/events/2021/07/26/TrustedCI-Webinar.html",
+    "destination": "https://osg-htc.org/events/2021/07/26/TrustedCI-Webinar/",
+    "text": "Trusted CI Webinar"
+  },
+  {
+    "source": "/events/2021/08/02/osg-virtual-school.html",
+    "destination": "https://osg-htc.org/events/2021/08/02/osg-virtual-school/",
+    "text": "OSG Virtual School 2021"
+  },
+  {
+    "source": "/events/2021/09/14/NSF-CCstar-PI-Workshop.html",
+    "destination": "https://osg-htc.org/events/2021/09/14/NSF-CCstar-PI-Workshop/",
+    "text": "NSF CC Star PI Workshop"
+  },
+  {
+    "source": "/events/2021/09/20/htcondor-week-europe.html",
+    "destination": "https://osg-htc.org/events/2021/09/20/htcondor-week-europe/",
+    "text": "European HTCondor Workshop Sept 20 - 24"
+  },
+  {
+    "source": "/events/2021/10/14/token-transition-workshop.html",
+    "destination": "https://osg-htc.org/events/2021/10/14/token-transition-workshop/",
+    "text": "Token Transition Workshop"
+  },
+  {
+    "source": "/events/2021/10/18/NSF-Cybersecurity-Summit-Workshop.html",
+    "destination": "https://osg-htc.org/events/2021/10/18/NSF-Cybersecurity-Summit-Workshop/",
+    "text": "2021 NSF Cybersecurity Summit Workshop on Token-Based Authentication and Authorization"
+  },
+  {
+    "source": "/events/2022/01/25/site-admin-workshop.html",
+    "destination": "/events/",
+    "text": "Events"
+  },
+  {
+    "source": "/events/2022/03/14/osg-all-hands-meeting.html",
+    "destination": "https://osg-htc.org/events/2022/03/14/osg-all-hands-meeting/",
+    "text": "OSG All-Hands Meeting 2022"
+  },
+  {
+    "source": "/events/2022/03/15/site-admin-workshop-2.html",
+    "destination": "https://osg-htc.org/events/2022/03/15/site-admin-workshop-2/",
+    "text": "Register Now for OSG's Site Admin Office Hours"
+  },
+  {
+    "source": "/events/2022/05/23/htcondor-week.html",
+    "destination": "https://osg-htc.org/events/2022/05/23/htcondor-week/",
+    "text": "HTCondor Week 2022, May 23-26"
+  },
+  {
+    "source": "/events/2022/07/25/osg-user-school-2022.html",
+    "destination": "https://osg-htc.org/events/2022/07/25/osg-user-school-2022/",
+    "text": "OSG User School 2022, July 25-29"
+  },
+  {
+    "source": "/events/2022/10/18/osg-user-training.html",
+    "destination": "https://osg-htc.org/events/2022/10/18/osg-user-training/",
+    "text": "OSG User Training"
+  },
+  {
+    "source": "/events/2022/11/01/osg-user-training.html",
+    "destination": "https://osg-htc.org/events/2022/11/01/osg-user-training/",
+    "text": "OSG User Training"
+  },
+  {
+    "source": "/events/2023/04/18/workflows-with-pegasus.html",
+    "destination": "https://osg-htc.org/events/2023/04/18/workflows-with-pegasus/",
+    "text": "OSG User Training: Workflows with Pegasus"
+  },
+  {
+    "source": "/events/2024/09/17/ospool-basics.html",
+    "destination": "https://osg-htc.org/events/2024/09/17/ospool-basics/",
+    "text": "Join Us For Fall Training - OSPool Basics"
+  },
+  {
+    "source": "/events/2024/10/15/pegasus-workflows.html",
+    "destination": "https://osg-htc.org/events/2024/10/15/pegasus-workflows/",
+    "text": "Join Us For Fall Training - Workflows with Pegasus"
+  },
+  {
+    "source": "/events/2024/11/13/pelican-origin.html",
+    "destination": "https://osg-htc.org/events/2024/11/13/pelican-origin/",
+    "text": "Learn How to Share Data in the OSDF"
+  },
+  {
+    "source": "/events/2024/11/19/dagman.html",
+    "destination": "https://osg-htc.org/events/2024/11/19/dagman/",
+    "text": "Join Us For Fall Training - DAGMan: HTCondor's Workflow Manager"
+  },
+  {
+    "source": "/events/2025/02/18/building-containers.html",
+    "destination": "https://osg-htc.org/events/2025/02/18/building-containers/",
+    "text": "OSPool User Training - Building and Using Containers on the OSPool"
+  },
+  {
+    "source": "/events/2025/03/18/gpus-in-the-ospool.html",
+    "destination": "https://osg-htc.org/events/2025/03/18/gpus-in-the-ospool/",
+    "text": "OSPool User Training - GPUs in the OSPool"
+  },
+  {
+    "source": "/events/2025/04/15/use-your-data-anywhere.html",
+    "destination": "https://osg-htc.org/events/2025/04/15/use-your-data-anywhere/",
+    "text": "OSPool User Training - Use Your Data Anywhere"
+  },
+  {
+    "source": "/events/2025/05/20/high-throughput-bioinformatics.html",
+    "destination": "https://osg-htc.org/events/2025/05/20/high-throughput-bioinformatics/",
+    "text": "OSPool User Training - Adapting Workflows for High Throughput Bioinformatics"
+  },
+  {
+    "source": "/events/2025/09/16/jupyter.html",
+    "destination": "https://osg-htc.org/events/2025/09/16/jupyter/",
+    "text": "OSPool User Training - Get Started on the OSPool with Jupyter Hub"
+  },
+  {
+    "source": "/events/2025/10/21/ospool-basics.html",
+    "destination": "https://osg-htc.org/events/2025/10/21/ospool-basics/",
+    "text": "OSPool User Training - OSPool Basics: Scaling Your Research with High Throughput Computing"
+  },
+  {
+    "source": "/events/2025/10/22/htc-workshop-copy.html",
+    "destination": "/events/2025/10/22/htc-workshop%20copy/",
+    "text": "Getting Started with High Throughput Computing"
+  },
+  {
+    "source": "/events/2025/11/18/python-ospool.html",
+    "destination": "https://osg-htc.org/events/2025/11/18/python-ospool/",
+    "text": "OSPool User Training - Deploying Python Programs on the OSPool"
+  },
+  {
+    "source": "/events/2025/12/16/hardware-ospool.html",
+    "destination": "https://osg-htc.org/events/2025/12/16/hardware-ospool/",
+    "text": "OSPool User Training - Choosing the Right Hardware on the OSG OSPool: ARM64, x86_64 microarchs, and GPUs"
+  },
+  {
+    "source": "/events/2026/02/10/Getting-Started-with-the-OSPool.html",
+    "destination": "https://osg-htc.org/events/2026/02/10/Getting-Started-with-the-OSPool/",
+    "text": "OSPool User Training - Getting Started with the OSPool (New User Training)"
+  },
+  {
+    "source": "/events/2026/03/17/Using-Containerized-Software-on-the-OSPool.html",
+    "destination": "https://osg-htc.org/events/2026/03/17/Using-Containerized-Software-on-the-OSPool/",
+    "text": "OSPool User Training - Using Containerized Software on the OSPool"
+  },
+  {
+    "source": "/events/2026/04/21/Pytorch-on-the-OSPool.html",
+    "destination": "https://osg-htc.org/events/2026/04/21/Pytorch-on-the-OSPool/",
+    "text": "OSPool User Training - Pytorch on the OSPool"
+  },
+  {
+    "source": "/events/2026/05/19/DAGMan-HTCondor's-Workflow-Manager.html",
+    "destination": "https://osg-htc.org/events/2026/05/19/DAGMan-HTCondor's-Workflow-Manager/",
+    "text": "OSPool User Training - DAGMan: HTCondor's Workflow Manager"
+  },
+  {
+    "source": "/events/2026/09/15/Getting-Started-OSPool.html",
+    "destination": "https://osg-htc.org/events/2026/09/15/Getting-Started-OSPool/",
+    "text": "OSPool User Training - Getting Started on the OSPool: Convert your Data Analysis into Jobs"
+  },
+  {
+    "source": "/events/2026/10/20/Pytorch-on-the-OSPool.html",
+    "destination": "https://osg-htc.org/events/2026/10/20/Pytorch-on-the-OSPool/",
+    "text": "OSPool User Training - Pytorch on the OSPool"
+  },
+  {
+    "source": "/events/2026/11/17/Checkpointing.html",
+    "destination": "https://osg-htc.org/events/2026/11/17/Checkpointing/",
+    "text": "OSPool User Training - Keep it Running: How to Checkpoint your OSPool Jobs"
+  },
+  {
+    "source": "/events/2026/12/15/Alphafold3.html",
+    "destination": "https://osg-htc.org/events/2026/12/15/Alphafold3/",
+    "text": "OSPool User Training - High-Throughput Predicting Protein Structures with AlphaFold3 on the OSPool"
+  }
+]

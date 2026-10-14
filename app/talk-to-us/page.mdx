@@ -1,0 +1,55 @@
+import { Box, Button, Grid, Paper, Typography } from '@mui/material';
+import Figure from '@/components/Figure';
+import { listingMetadata } from '@/utils/metadata';
+
+export const metadata = listingMetadata(
+  'Talk to Us',
+  'Questions, suggestions or complaints about CHTC? How UW-Madison faculty and CHTC users can reach the CHTC team.',
+  '/talk-to-us/'
+);
+
+# Talk to Us
+
+As part of CHTC's [translational computer science](/approach/) mission, we
+welcome questions, suggestions, and complaints! Please reach out to us with any
+CHTC-related feedback or questions about how to work with us and our services.
+
+<Figure
+  src='/images/brian-ken-chat.jpg'
+  alt='Two CHTC staff members in conversation'
+  width={1800}
+  height={1200}
+/>
+
+<Grid container spacing={3} sx={{ mb: 4 }}>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Paper variant='outlined' sx={{ p: 3, height: '100%', borderTop: 4, borderTopColor: 'primary.main' }}>
+      <Typography variant='h5' component='h2' gutterBottom>For faculty</Typography>
+      <Typography paragraph sx={{ lineHeight: 1.7 }}>
+        Are you a UW - Madison PI with questions about CHTC? We want to hear from you! Contact us
+        if you want to learn more about our services, or have a conversation about any roadblocks
+        or issues your group is experiencing.
+      </Typography>
+      <Button href='mailto:chtc-facilitation@g-groups.wisc.edu' variant='contained' sx={{ mb: 3 }}>Contact us</Button>
+      <Typography paragraph sx={{ lineHeight: 1.7 }}>
+        If you are organizing faculty recruitment, or are a prospective faculty
+        member, reach out to discuss computing needs and startup options.
+      </Typography>
+      <Button href='mailto:chtc-faculty-recruiting@g-groups.wisc.edu' variant='contained'>Schedule a consultation</Button>
+    </Paper>
+  </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Paper variant='outlined' sx={{ p: 3, height: '100%', borderTop: 4, borderTopColor: 'primary.main' }}>
+      <Typography variant='h5' component='h2' gutterBottom>For users</Typography>
+      <Typography paragraph sx={{ lineHeight: 1.7 }}>
+        If you are a CHTC user and have technical questions about getting started -
+        submitting jobs, installing software, troubleshooting, and more - contact the facilitation team via
+        email or the other options listed on their get help page.
+      </Typography>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+        <Button href='mailto:chtc@cs.wisc.edu' variant='contained'>Email our support address</Button>
+        <Button href='/uw-research-computing/get-help/' variant='contained'>Get help</Button>
+      </Box>
+    </Paper>
+  </Grid>
+</Grid>

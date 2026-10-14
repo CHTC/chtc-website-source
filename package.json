@@ -1,38 +1,54 @@
 {
-  "name": "badger-hub-website",
+  "name": "chtc-website",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.5.0",
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "node scripts/reset-remote-images.mjs",
     "build": "next build",
-    "postbuild": "next-image-export-optimizer && next-sitemap",
+    "postbuild": "node scripts/validate-remote-images.mjs && next-image-export-optimizer && next-sitemap && tsx scripts/generate-redirects.mjs",
     "start": "next start",
-    "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "lint": "eslint .",
+    "analyze": "ANALYZE=true next build",
+    "compare:migration": "tsx scripts/compare-migration.mjs"
   },
   "dependencies": {
-    "@chtc/web-components": "^1.0.20",
+    "@chtc/web-components": "^2.0.10",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
     "@mui/material-nextjs": "^7.3.7",
     "@next/bundle-analyzer": "^15.5.10",
+    "@next/mdx": "^16.1.5",
     "@socialgouv/matomo-next": "^1.11.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^5.4.3",
     "next": "^16.1.5",
     "next-image-export-optimizer": "^1.20.1",
     "next-sitemap": "^4.2.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-markdown": "^9.0.1",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "swr": "^2.3.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20.19.30",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "eslint-config-next": "15.4.6",
+    "tsx": "^4.22.4",
     "typescript": "^5.9.3"
   }
 }

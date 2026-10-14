@@ -1,0 +1,990 @@
+
+
+
+
+
+
+
+
+
+
+
+		  CONDOR TECHNICAL SUMMARY
+
+
+		       _A_l_l_a_n _B_r_i_c_k_e_r
+		      _M_i_c_h_a_e_l _L_i_t_z_k_o_w
+			    _a_n_d
+			_M_i_r_o_n _L_i_v_n_y
+
+		Computer Sciences Department
+	     University	of Wisconsin - Madison
+    allan@chorus.fr, mike@cs.wisc.edu, miron@cs.wisc.edu
+
+
+
+
+
+			  _A_b_s_t_r_a_c_t
+
+
+     Condor is a software package for executing	long running
+"batch"	 type  jobs on workstations which would	otherwise be
+idle.  Major features of Condor	are automatic  location	 and
+allocation of idle machines, and checkpointing and migration
+of processes.  All of these features  are  achieved  without
+any  modifications  to	the  UNIX  kernel whatsoever.  Also,
+users of Condor	do not need to change their source  programs
+to run with Condor, although such programs must	be specially
+linked.	 The features of Condor	for both users and  worksta-
+tion  owners along with	the limitations	on the kinds of	jobs
+which may be executed by Condor	are described.	The  mechan-
+isms behind our	implementations	of checkpointing and process
+migration are discussed	in detail.   Finally,  the  software
+which  detects idle machines and allocates those machines to
+Condor users is	described along	with the techniques used  to
+configure  that	software to meet the demands of	a particular
+computing site or workstation owner.
+
+_1.  _I_n_t_r_o_d_u_c_t_i_o_n _t_o _t_h_e	_P_r_o_b_l_e_m
+
+	A common  computing  environment  consists  of	many
+   workstations	 connected  together  by  a high speed local
+   area	network.  These	workstations  have  grown  in  power
+   over	 the  years,  and if viewed as an aggregate they can
+   represent a significant computing resource.	 However  in
+   many	 cases even though these workstations are owned	by a
+   single organization,	they are dedicated to the  exclusive
+   use of individuals.
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+	In examining the usage patterns	of the workstations,
+   we  find  it	 useful	to identify three "typical" types of
+   users.  "Type 1" users are  individuals  who	 mostly	 use
+   their  workstations	for  sending  and  receiving mail or
+   preparing papers.  Theoreticians and	administrative	peo-
+   ple	often  fall  into  this	 category.  We identify	many
+   software development	people as  "type  2"  users.   These
+   people  are	frequently  involved  in the debugging cycle
+   where they edit software, compile, then run	it  possibly
+   using some kind of debugger.	 This cycle is repeated	many
+   times during	a typical working day.	Type 2	users  some-
+   times  have too much	computing capacity on their worksta-
+   tions such as when editing, but then	during the  compila-
+   tion	 and  debugging	phases they could often	use more CPU
+   power.  Finally there are "type 3" users.  These are	peo-
+   ple	who  frequently	 do large numbers of simulations, or
+   combinatoric	searches.  These  people  are  almost  never
+   happy  with	just  a	workstation, because it	really isn't
+   powerful enough to meet their needs.	  Another  point  is
+   that	 most  type  1 and type	2 users	leave their machines
+   completely idle when	they are not working, while  type  3
+   users often keep their machines busy	24 hours a day.
+
+	_C_o_n_d_o_r is an attempt to	make use of the	idle  cycles
+   from	 type 1	and 2 users to help satisfy the	needs of the
+   type	3 users.  The _c_o_n_d_o_r software monitors the  activity
+   on  all  the	participating workstations in the local	net-
+   work.  Those	machines which are determined  to  be  idle,
+   are	placed	into  a	 resource  pool	or "processor bank".
+   Machines are	then allocated from the	bank for the  execu-
+   tion	 of jobs belonging to the type 3 users.	 The bank is
+   a dynamic entity; workstations enter	the bank  when	they
+   become idle,	and leave again	when they get busy.
+
+_2.  _D_e_s_i_g_n _F_e_a_t_u_r_e_s
+
+    (1)	  No special programming is required to	use  condor.
+	  Condor is able to  run  normal  UNIX[1]  programs,
+	  only	requiring  the user to relink, not recompile
+	  them or change any code.
+
+    (2)	  The local execution environment is  preserved	 for
+	  remotely  executing  processes.  Users do not	have
+	  to worry about moving	data files to remote  works-
+	  tations before executing programs there.
+
+    (3)	  The condor software is  responsible  for  locating
+	  and allocating idle workstations.  Condor users do
+____________________
+
+   [1]UNIX is a	trademark of AT&T.
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   2222
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+	  not have to search for idle machines,	nor are	they
+	  restricted  to using machines	only during a static
+	  portion of the day.
+
+    (4)	  "Owners" of workstations  have  complete  priority
+	  over	their  own machines.  Workstation owners are
+	  generally happy to let somebody  else	 compute  on
+	  their	 machines  while they are out, but they	want
+	  their	machines back promptly upon  returning,	 and
+	  they	don't want to have to take special action to
+	  regain control.   Condor  handles  this  automati-
+	  cally.
+
+    (5)	  Users	of condor may be  assured  that	 their	jobs
+	  will eventually complete.  If	a user submits a job
+	  to condor which runs on somebody  else's  worksta-
+	  tion,	 but the job is	not finished when the works-
+	  tation owner returns,	the job	will be	checkpointed
+	  and  restarted  as  soon  as	possible  on another
+	  machine.
+
+    (6)	  Measures have	 been  taken  to  assure  owners  of
+	  workstations	that  their  filesystems will not be
+	  touched by remotely executing	jobs.
+
+    (7)	  Condor does its work completely outside  the	ker-
+	  nel,	and  is	compatible with	Berkeley 4.2 and 4.3
+	  UNIX kernels and many	of their  derivatives.	 You
+	  do  not  have	 to run	a custom operating system to
+	  get the benefits of condor.
+
+_3.  _L_i_m_i_t_a_t_i_o_n_s
+
+    (1)	  Only single process jobs are supported, i.e.	 the
+	  fork(2), exec(2), and	similar	calls are not imple-
+	  mented.
+
+    (2)	  Signals and signal  handlers	are  not  supported,
+	  i.e.	 the signal(3),	sigvec(2), and kill(2) calls
+	  are not implemented.
+
+    (3)	  Interprocess communication  (IPC)  calls  are	 not
+	  supported,  i.e.  the	socket(2), send(2), recv(2),
+	  and similar calls are	not implemented.
+
+    (4)	  All file operations must be idempotent - read-only
+	  and  write-only  file	accesses work correctly, but
+	  programs which both read and write the  same	file
+	  may not.
+
+    (5)	  Each condor  job  has	 an  associated	 "checkpoint
+	  file"	 which	is  approximately  the	size  of the
+	  address space	of the process.	 Disk space _m_u_s_t  be
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   3333
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+	  available to store the checkpoint file _b_o_t_h on the
+	  _s_u_b_m_i_t_t_i_n_g and _e_x_e_c_u_t_i_n_g machines.
+
+    (6)	  Condor  does	a  significant	amount	of  work  to
+	  prevent  security  hazards, but some loopholes are
+	  known	to exist.  One problem is that	condor	user
+	  jobs	are supposed to	do only	remote system calls,
+	  but this is impossible to  guarantee.	  User	pro-
+	  grams	 are  limited to running as an ordinary	user
+	  on the executing machine, but	a sufficiently mali-
+	  cious	 and  clever user could	still cause problems
+	  by doing  local  system  calls  on  the  executing
+	  machine.
+
+    (7)	  A different security problem exists for owners  of
+	  condor  jobs who necessarily give remotely running
+	  processes access to their own	file system.
+
+_4.  _O_v_e_r_v_i_e_w _o_f	_C_o_n_d_o_r _S_o_f_t_w_a_r_e
+
+	In some	circumstances condor user programs may util-
+   ize	"remote	system calls" to access	files on the machine
+   from	which they  were  submitted.   In  other  situations
+   files  on  the submitting machine are accessed more effi-
+   ciently by use of NFS.  In either case the  user  program
+   is provided with the	illusion that it is operating in the
+   environment of the submitting machine.  Programs  written
+   for	operation  in the local	environment are	converted to
+   using remote	file access simply by relinking	with a	spe-
+   cial	 library.   The	 remote	 file  access mechanisms are
+   described in	Section	5.
+
+	Condor user programs are constructed in	such  a	 way
+   that	 they  can  be	checkpointed  and restarted at will.
+   This	assures	users that their jobs will complete, even if
+   they	 are interrupted during	execution by the return	of a
+   hosting  workstation's  owner.   Checkpointing  is	also
+   implemented	by  linking  with  the special library.	 The
+   checkpointing mechanism is described	more fully  in	Sec-
+   tion	6.
+
+	Condor includes	control	software consisting of three
+   daemons  which run on each member of	the condor pool, and
+   two other daemons which run on a  single  machine  called
+   the _c_e_n_t_r_a_l _m_a_n_a_g_e_r.	 This software automatically locates
+   and releases	"target	machines" and manages the  queue  of
+   jobs	 waiting for condor resources.	The control software
+   is described	in Section 7.
+
+_5.  _R_e_m_o_t_e _F_i_l_e	_A_c_c_e_s_s
+
+	Condor programs	executing on  a	 remote	 workstation
+   may	access files on	the submitting workstation in one of
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   4444
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+   two ways.  The preferred mechanism is  direct  access  to
+   the	file  via  NFS,	 but  this is only possible if those
+   files appear	to be in the  filesystem  of  the  executing
+   machine,  i.e.  they	are either physically located on the
+   executing machine, or are mounted there via NFS.  If	 the
+   desired  file  does	not  appear in the filesystem of the
+   executing workstation,  condor  provides  called  "remote
+   system  calls"  which allows	access to most of the normal
+   system calls	available on the submitting machine, includ-
+   ing	those that access files.  In either case, the remote
+   access is completely	transparent  to	 the  user  program,
+   i.e.	 it  simply  executes  such  system calls as open(),
+   close(), read(), and	write().  The  condor  library	pro-
+   vides the remote access below the system call level.
+
+	To better understand how the  condor  remote  system
+   calls  work,	it is appropriate to quickly review how	nor-
+   mal UNIX system calls work.	 Figure	 1  illustrates	 the
+   normal  UNIX	 system	call mechanism.	 The user program is
+   linked with a standard library called  the  "C  library".
+   This	is true	even for programs written in languages other
+   than	C.  The	C library contains routines, often  referred
+   to  as "system call stubs", which cause the actual system
+   calls to happen.  What the stubs really do  is  push	 the
+   system  call	 number,  and system call arguments onto the
+   stack, then execute an instruction which causes a trap to
+   the	kernel.	  When the kernel trap handler is called, it
+   reads the system call number	and arguments, and  performs
+   the	system call on behalf of the user program.  The	trap
+   handler will	then place the system call return value	in a
+
+  __________________________
+|fig_1.idraw		   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|			   |
+|__________________________|
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   5555
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+   well	known register or registers, and return	 control  to
+   the	user program.  The system call stub then returns the
+   result to the  calling  process,  completing	 the  system
+   call.
+
+	Figure 2 illustrates how  this	mechanism  has	been
+   altered  by	condor	to  implement  remote  system calls.
+   Whenever condor is executing	a user program remotely,  it
+   also	runs a "shadow"	program	on the initiating host.	 The
+   _s_h_a_d_o_w acts an agent	for the	remotely  executing  program
+   in  doing  system calls.  Condor user programs are linked
+   with	a special version of the  C  library.	The  special
+   version  contains  all  of  the functions provided by the
+   normal C library, but the system  call  stubs  have	been
+   changed  to	accomplish  remote system calls.  The remote
+   system call stubs package up	the system call	 number	 and
+   arguments  and send them to the _s_h_a_d_o_w using	the network.
+   The _s_h_a_d_o_w, which is	linked with the	 normal	 C  library,
+   then	 executes  the system call on behalf of	the remotely
+   running job in the normal way.  The _s_h_a_d_o_w then  packages
+   up  the results of the system call and sends	them back to
+   the system call stub	in the	special	 C  library  on	 the
+   remote machine.  The	remote system call stub	then returns
+   its result to the calling procedure which is	unaware	that
+   the	call  was  done	 remotely rather than locally.	Note
+   that	the _s_h_a_d_o_w runs	with its UID set to the	owner of the
+   remotely  running  job so that it has the correct permis-
+   sions into the local	file system.
+
+	In many	cases, it is more efficient to access  files
+   using  NFS rather than via the remote system	call mechan-
+   ism.	 This is generally the case when the desired file is
+
+  __________________________________________________
+|fig_2.idraw					   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|__________________________________________________|
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   6666
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+
+  __________________________________________________
+|fig_3.idraw					   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|__________________________________________________|
+
+   not physically located on the  submitting  machine,	e.g.
+   the	file  actually	resides	 on a fileserver.  In such a
+   situation data transferred to  or  from  the	 file  would
+   require  two	 trips	over the network, one via NFS to the
+   shadow, and another via remote system call to the  condor
+   user	 program.   The	 open()	 system	call provided in the
+   condor version of the C  library  can  detect  such	cir-
+   cumstances,	and  will  open	 files	via  NFS rather	than
+   remote system calls when this is  possible.	 The  condor
+   open()  routine does	this by	sending	the desired pathname
+   to the shadow program on  the  submitting  machine  along
+   with	 a translation request.	 The shadow replies with the
+   name	of the host where the file physically resides  along
+   with	 a pathname for	the file which is appropriate on the
+   host	where the file actually	resides.  The open() routine
+   then	examines the mount table on the	executing machine to
+   determine whether the file is accessible via	NFS and	what
+   pathname  it	 is  known by.	This pathanme translation is
+   repeated whenever the user job moves	from  one  execution
+   machine  to	another.   Note	 that condor does not assume
+   that	all files are available	from all machines, nor	that
+   every  machine  will	mount filesystems in such a way	that
+   the same pathnames refer  to	 the  same  physical  files.
+   Figure  3  illustrates  a situation where the condor	user
+   program opens a file	which is known as "/u2/john" on	 the
+   submitting  machine,	 but  the  same	 file  is  known  as
+   "/usr1/john"	on the executing machine.
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   7777
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+_6.  _C_h_e_c_k_p_o_i_n_t_i_n_g
+
+	To checkpoint a	UNIX process, several things must be
+   preserved.	The text, data,	stack, and register contents
+   are needed, as well as information about what  files	 are
+   open,  where	 they are seek'd to, and what mode they	were
+   opened in.  The data, and stack are available in  a	core
+   file, while the text	is available in	the original execut-
+   able.  Condor gathers  the  information  about  currently
+   open	 files	through	 the special C library.	 In condor's
+   special C library  the  system  call	 stubs	for  "open",
+   "close", and	"dup" not only do those	things remotely, but
+   they	also record which files	are opened in what mode, and
+   which file descriptors correspond to	which files.
+
+	Condor causes a	running	job to checkpoint by sending
+   it  a signal.  When the program is linked, a	special	ver-
+   sion	of "crt0" is included which sets up CKPT()  as	that
+   signal  handler.   When  CKPT() is called, it updates the
+   table of open files by seeking each one  to	the  current
+   location   and  recording  the  file	 position.   Next  a
+   setjmp(3) is	executed to save key register contents in  a
+   global  data	area, then the process sends itself a signal
+   which results in a core dump.  The condor  software	then
+
+  _______________________________________
+|fig_4.idraw				|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|					|
+|_______________________________________|
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   8888
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+   combines the	original executable file, and the core	file
+   to  produce	a "checkpoint" file, (figure 4).  The check-
+   point file is itself	executable.
+
+	When the checkpoint file  is  restarted,  it  starts
+   from	 the  crt0  code  just like any	UNIX executable, but
+   again this code is special, and it will set up  the	res-
+   tart()  routine as a	signal handler with a special signal
+   stack, then send itself that	signal.	 When  restart()  is
+   called,  it	will operate in	the temporary stack area and
+   read	the saved stack	in from	the checkpoint file,  reopen
+   and reposition all files from the saved file	state infor-
+   mation, and execute a longjmp(3) back  to  CKPT().	When
+   the	restart	 routine returns, it does so with respect to
+   the restored	stack, and CKPT()  returns  to	the  routine
+   which  was  active  at the time of the checkpoint signal,
+   not crt0.  To the user code,	checkpointing looks  exactly
+   like	 a  signal handler was called, and restarting from a
+   checkpoint looks like a return from that signal handler.
+
+_7.  _C_o_n_t_r_o_l _S_o_f_t_w_a_r_e
+
+	Each machine in	the condor pool	 runs  two  daemons,
+   the _s_c_h_e_d_d and the _s_t_a_r_t_d.  In addition, one	machine	runs
+   two other daemons called the	_c_o_l_l_e_c_t_o_r and  the  _n_e_g_o_t_i_a_-
+   _t_o_r.	 While the _c_o_l_l_e_c_t_o_r and the _n_e_g_o_t_i_a_t_o_r	are separate
+   processes, they work	closely	together, and  for  purposes
+   of  this discussion can be considered one logical process
+   called the _c_e_n_t_r_a_l _m_a_n_a_g_e_r.	The _c_e_n_t_r_a_l _m_a_n_a_g_e_r has	 the
+   job	of  keeping  track  of	which machines are idle, and
+   allocating those machines to	other  machines	 which	have
+   condor jobs to run.	On each	machine	the _s_c_h_e_d_d maintains
+   a queue of condor jobs, and negotiates with	the  _c_e_n_t_r_a_l
+   _m_a_n_a_g_e_r  to	get  permission	 to run	those jobs on remote
+   machines.  The _s_t_a_r_t_d determines whether its	 machine  is
+   idle,  and  also is responsible for starting	and managing
+   foreign jobs	which it may be	hosting.  On  machines	run-
+   ning	 the  X	window system, an additional daemon the	_k_b_d_d
+   will	periodically inform the	_s_t_a_r_t_d of the  keyboard	 and
+   mouse  "idle	time".	Periodically the _s_t_a_r_t_d	will examine
+   its machine,	and update the _c_e_n_t_r_a_l _m_a_n_a_g_e_r on its degree
+   of "idleness".  Also	periodically the _s_c_h_e_d_d	will examine
+   its job queue and update the	_c_e_n_t_r_a_l	_m_a_n_a_g_e_r	on how	many
+   jobs	 it  wants  to run and how many	jobs it	is currently
+   running.  Figure 5 illustrates the situation	when no	con-
+   dor jobs are	running.
+
+	At some	point the _c_e_n_t_r_a_l  _m_a_n_a_g_e_r  may	 learn	that
+   _m_a_c_h_i_n_e  _b is idle, and decide that _m_a_c_h_i_n_e _c should	exe-
+   cute	one of its jobs	remotely on _m_a_c_h_i_n_e _b.	The  _c_e_n_t_r_a_l
+   _m_a_n_a_g_e_r  will  then	contact	 the _s_c_h_e_d_d on _m_a_c_h_i_n_e _c and
+   give	it "permission"	to run a  job  on  _m_a_c_h_i_n_e  _b.	 The
+   _s_c_h_e_d_d on _m_a_c_h_i_n_e _c will then select	a job from its queue
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				   9999
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+
+  __________________________________________________
+|fig_5.idraw					   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|__________________________________________________|
+
+   and spawn off a _s_h_a_d_o_w process to  run  it.	 The  _s_h_a_d_o_w
+   will	 then  contact	the  _s_t_a_r_t_d on _m_a_c_h_i_n_e _b and tell it
+   that	it would like to run a job.   If  the  situation  on
+   _m_a_c_h_i_n_e  _b  hasn't  changed	since the last update to the
+   _c_e_n_t_r_a_l _m_a_n_a_g_e_r, _m_a_c_h_i_n_e _b will still be idle,  and	will
+   respond  with an OK.	 The _s_t_a_r_t_d on _m_a_c_h_i_n_e _b then spawns
+   a process called the	_s_t_a_r_t_e_r.  It's the _s_t_a_r_t_e_r'_s job  to
+   start and manage the	remotely running job (figure 6).
+
+  __________________________________________________
+|fig_6.idraw					   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|__________________________________________________|
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11110000
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+	The _s_h_a_d_o_w on _m_a_c_h_i_n_e _c	will transfer the checkpoint
+   file	 to the	_s_t_a_r_t_e_r	on _m_a_c_h_i_n_e _b.  The _s_t_a_r_t_e_r then	sets
+   a timer and spawns off  the	remotely  running  job	from
+   _m_a_c_h_i_n_e  _c (figure 7).  The _s_h_a_d_o_w on _m_a_c_h_i_n_e _c will	han-
+   dle all system calls	for the	 job.	When  the  _s_t_a_r_t_e_r'_s
+   timer expires it will send the user job a checkpoint	sig-
+   nal,	causing	it to save its file state  and	stack,	then
+   dump	 core.	The _s_t_a_r_t_e_r then builds	a new version of the
+   checkpoint file which is stored temporarily on _m_a_c_h_i_n_e _b.
+   The	_s_t_a_r_t_e_r	 restarts  the	job  from the new checkpoint
+   file, and the cycle of execute and checkpoint  continues.
+   At some point, either the job will finish, or _m_a_c_h_i_n_e _b'_s
+   user	will return.  If the job finishes, the	job's  owner
+   is notified by mail,	and the	_s_t_a_r_t_e_r	and _s_h_a_d_o_w clean up.
+   If _m_a_c_h_i_n_e _b	becomes	busy, the _s_t_a_r_t_d on _m_a_c_h_i_n_e  _b	will
+   detect  that	 either	 by noting recent activity on one of
+   the tty or pty's, or	by the rising  load  average.	When
+   the	_s_t_a_r_t_d	on  _m_a_c_h_i_n_e _b detects this activity, it	will
+   send	a "suspend" signal to the _s_t_a_r_t_e_r, and	the  _s_t_a_r_t_e_r
+   will	 temporarily  suspend the user job.  This is because
+   frequently the owners of machines are active	for  only  a
+   few	seconds,  then become idle again.  This	would be the
+   case	if the owner were just checking	to see if there	were
+   new	mail  for  example.  If	_m_a_c_h_i_n_e	_b remains busy for a
+   period of about 5 minutes, the _s_t_a_r_t_d there will  send  a
+   "vacate"  signal to the _s_t_a_r_t_e_r.  In	this case, the _s_t_a_r_-
+   _t_e_r will abort the user job and return the latest  check-
+   point  file	to  the	_s_h_a_d_o_w on _m_a_c_h_i_n_e _c.  If the job had
+   not run long	enough on _m_a_c_h_i_n_e _b to reach  a	 checkpoint,
+   the job is just aborted, and	will be	restarted later	from
+   the most recent checkpoint on _m_a_c_h_i_n_e _c.  Notice that the
+   _s_t_a_r_t_e_r  checkpoints	 the  condor  user  job	periodically
+   rather than waiting until the remote	workstation's  owner
+   wants  it  back.   Checkpointing,  and in particular	core
+   dumping, is an I/O  intensive  activity  which  we  avoid
+   doing when the hosting workstation's	owner is active.
+
+_8.  _C_o_n_t_r_o_l _E_x_p_r_e_s_s_i_o_n_s
+
+	The condor control software is driven by  a  set  of
+   powerful  "control  expressions".   These expressions are
+   read	 from  the  file  "~condor/condor_config"  on	each
+   machine  at	run  time.   It	is often convenient for	many
+   machines of the same	type to	share common control expres-
+   sions,  and	this  may  be done through a fileserver.  To
+   allow flexibility for control of individual machines, the
+   file	  "~condor/condor_config.local"	  is  provided,	 and
+   expressions defined	there  take  precedence	 over  those
+   defined  in	condor_config.	 Following are examples	of a
+   few of the more important condor control expressions	with
+   explanations.    See	  condor_config(5)  for	 a  detailed
+   description of all the control expressions.
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11111111
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+
+  __________________________________________________
+|fig_7.idraw					   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|						   |
+|__________________________________________________|
+
+   _8._1.	 _S_t_a_r_t_i_n_g _F_o_r_e_i_g_n _J_o_b_s
+
+	   This	set of expressions is used by the _s_t_a_r_t_d  to
+      determine	 when to allow a foreign job to	begin execu-
+      tion.
+
+	  BackgroundLoad  = 0.3
+	  StartIdleTime	  = 15 * $(MINUTE)
+	  CPU_Idle	  = LoadAvg <= $(BackgroundLoad)
+	  START		  : $(CPU_Idle)	&& KeyboardIdle	> $(StartIdleTime)
+
+
+      This example of the START	expression specifies that to
+      begin execution of a foreign job the load	average	must
+      be less than 0.3,	and there must have been no keyboard
+      activity during the past 15 minutes.
+
+      Other  expressions  are  used  to	 determine  when  to
+      suspend, resume, and abort foreign jobs.
+
+   _8._2.	 _P_r_i_o_r_i_t_i_z_i_n_g _J_o_b_s
+
+	   The _s_c_h_e_d_d must prioritize its own jobs and nego-
+      tiate  with  the	_c_e_n_t_r_a_l	_m_a_n_a_g_e_r	to get permission to
+      run them.	 It uses  a  control  expression  to  assign
+      priorities to its	local jobs.
+
+	  PRIO	      :	(UserPrio * 10)	+ $(Expanded) -	(QDate / 1000000000.0)
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11112222
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+      "UserPrio" is a number defined by	the jobs owner in  a
+      similar spirit to	the UNIX "nice"	command.  "Expanded"
+      will be 1	if the job has already completed some execu-
+      tion,  and  0  otherwise.	  This	is  an issue because
+      expanded jobs require more disk space than  unexpanded
+      ones.   "QDate" is the UNIX time when the	job was	sub-
+      mitted.  The constants are chosen	so  that  "UserPrio"
+      will  be	the  major criteria, "Expanded"	will be	less
+      important, and "QDate" will be the minor	criteria  in
+      determining job priority.	 "UserPrio", "Expanded", and
+      "QDate" are variables known to  the  _s_c_h_e_d_d  which  it
+      determines  for  each  job  before  applying  the	PRIO
+      expression.
+
+   _8._3.	 _P_r_i_o_r_i_t_i_z_i_n_g _M_a_c_h_i_n_e_s
+
+	   The _c_e_n_t_r_a_l _m_a_n_a_g_e_r does not	keep track of  indi-
+      vidual  jobs on the member machines.  Instead it keeps
+      track of how many	jobs a machine wants to	run, and how
+      many it is running at any	particular time.  This keeps
+      the information that must	be transmitted	between	 the
+      _s_c_h_e_d_d and the _c_e_n_t_r_a_l _m_a_n_a_g_e_r to	a minimum.  The	_c_e_n_-
+      _t_r_a_l _m_a_n_a_g_e_r has the job of prioritizing the  machines
+      which want to run	jobs, then it can give permission to
+      the _s_c_h_e_d_d on high priority machines and let them	make
+      their own	decision about what jobs to run.
+
+	  UPDATE_PRIO :	Prio + Users - Running
+
+
+      Periodically  the	 _c_e_n_t_r_a_l  _m_a_n_a_g_e_r  will	 apply	this
+      expression  to  all  of the machines in the pool.	 The
+      priority of each machine will be	incremented  by	 the
+      number  of  individual  users on that machine who	have
+      jobs in the queue, and decremented by  the  number  of
+      jobs  that  machine  is  already	executing  remotely.
+      Machines which are running lots of jobs will  tend  to
+      have  low	 priorities, and machines which	have jobs to
+      run, but can't run them, will accumulate high  priori-
+      ties.
+
+_9.  _A_c_k_n_o_w_l_e_d_g_m_e_n_t_s
+
+	This project is	based on the idea  of  a  "processor
+   bank",  which was introduced	by Maurice Wilkes in connec-
+   tion	with his work on the Cambridge Ring.[2]
+
+____________________
+
+   [2]Wilkes, M. V., Invited Keynote  Address,	10th  Annual
+International Symposium	on Computer Architecture, June 1983.
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11113333
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+	We would like to thank Don Neuhengen and Tom  Virgi-
+   lio	for  their pioneering work on the remote system	call
+   implementation; Matt	Mutka and Miron	Livny for first	con-
+   vincing  us	that a general checkpointing mechanism could
+   be practical	and for	ideas on how to	 distribute  control
+   and	prioritize  the	 jobs;	and  David Dewitt and Marvin
+   Solomon  for	 their	continued   guidance   and   support
+   throughout this project.
+
+	This research was supported by the National  Science
+   Foundation under grants MCS81-05904 and DCR-8512862,	by a
+   Digital Equipment Corporation  External  Research  Grant,
+   and	by  an	International  Business	 Machines Department
+   Grant.  Porting to the SGI 4D Workstation was  funded  by
+   NRL/SFA.
+
+_1_0.  _C_o_p_y_r_i_g_h_t _I_n_f_o_r_m_a_t_i_o_n
+
+   Copyright 1986, 1987, 1988, 1989, 1990, 1991	by the	Con-
+   dor Design Team
+
+   Permission to use,  copy,  modify,  and  distribute	this
+   software  and  its  documentation  for  any	purpose	 and
+   without fee is hereby granted, provided  that  the  above
+   copyright  notice appear in all copies and that both	that
+   copyright notice and	this  permission  notice  appear  in
+   supporting  documentation,  and  that  the  name  of	 the
+   University of Wisconsin not be  used	 in  advertising  or
+   publicity  pertaining  to  distribution  of	the software
+   without specific, written prior permission.	The  Univer-
+   sity	 of  Wisconsin	and  the  Condor Design	team make no
+   representations about the suitability  of  this  software
+   for	any purpose.  It is provided "as is" without express
+   or implied warranty.
+
+   THE UNIVERSITY OF WISCONSIN AND THE	CONDOR	DESIGN	TEAM
+   DISCLAIM  ALL  WARRANTIES  WITH  REGARD TO THIS SOFTWARE,
+   INCLUDING ALL IMPLIED WARRANTIES OF	MERCHANTABILITY	 AND
+   FITNESS. IN NO EVENT	SHALL THE UNIVERSITY OF	WISCONSIN OR
+   THE	CONDOR	DESIGN	TEAM  BE  LIABLE  FOR  ANY  SPECIAL,
+   INDIRECT  OR	CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSO-
+   EVER	RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
+   IN  AN  ACTION  OF CONTRACT,	NEGLIGENCE OR OTHER TORTIOUS
+   ACTION, ARISING OUT OF OR IN	CONNECTION WITH	THE  USE  OR
+   PERFORMANCE OF THIS SOFTWARE.
+
+   Authors:  Allan Bricker, Michael J. Litzkow,	and others.
+	     University	 of  Wisconsin,	 Computer   Sciences
+   Dept.
+
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11114444
+
+
+
+
+
+
+
+VVVVeeeerrrrssssiiiioooonnnn	4444....1111bbbb					     1111////22228888////99992222
+
+
+_1_1.  _B_i_b_l_i_o_g_r_a_p_h_y
+
+    (1)	  Mutka, M. and	Livny, M.  "Profiling  Workstations'
+	  Available    Capacity	  For	Remote	 Execution".
+	  _P_r_o_c_e_e_d_i_n_g_s _o_f _P_e_r_f_o_r_m_a_n_c_e-_8_7, _T_h_e _1_2_t_h _I_F_I_P	_W._G.
+	  _7._3  _I_n_t_e_r_n_a_t_i_o_n_a_l  _S_y_m_p_o_s_i_u_m	 _o_n _C_o_m_p_u_t_e_r _P_e_r_f_o_r_-
+	  _m_a_n_c_e	 _M_o_d_e_l_i_n_g,   _M_e_a_s_u_r_e_m_e_n_t   _a_n_d	 _E_v_a_l_u_a_t_i_o_n.
+	  Brussels, Belgium, December 1987.
+
+    (2)	  Litzkow, M.  "Remote Unix - Turning Idle  Worksta-
+	  tions	 Into  Cycle  Servers".	  _P_r_o_c_e_e_d_i_n_g_s _o_f _t_h_e
+	  _S_u_m_m_e_r _1_9_8_7 _U_s_e_n_i_x _C_o_n_f_e_r_e_n_c_e.  Phoenix,  Arizona.
+	  June 1987
+
+    (3)	  Mutka, M.  _S_h_a_r_i_n_g _i_n	_a _P_r_i_v_a_t_e_l_y  _O_w_n_e_d  _W_o_r_k_s_t_a_-
+	  _t_i_o_n	 _E_n_v_i_r_o_n_m_e_n_t.	 Ph.D.	Th.,  University  of
+	  Wisconsin, May 1988.
+
+    (4)	  Litzkow, M., Livny, M. and Mutka, M.	"Condor	-  A
+	  Hunter  of Idle Workstations".  _P_r_o_c_e_e_d_i_n_g_s _o_f _t_h_e
+	  _8_t_h _I_n_t_e_r_n_a_t_i_o_n_a_l _C_o_n_f_e_r_e_n_c_e _o_n  _D_i_s_t_r_i_b_u_t_e_d	_C_o_m_-
+	  _p_u_t_i_n_g _S_y_s_t_e_m_s.  San Jose, Calif.  June 1988
+
+    (5)	  Bricker, A. and Litzkow M.   "Condor	Installation
+	  Guide".  May 1989
+
+    (6)	  Bricker, A. and Litzkow, M.	Unix  manual  pages:
+	  condor_intro(1),	condor(1),	condor_q(1),
+	  condor_rm(1),	condor_status(1), condor_summary(1),
+	  condor_config(5),	 condor_control(8),	 and
+	  condor_master(8).  January 1991
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CCCCOOOONNNNDDDDOOOORRRR TTTTEEEECCCCHHHHNNNNIIIICCCCAAAALLLL SSSSUUUUMMMMMMMMAAAARRRRYYYY				  11115555
+
+
+

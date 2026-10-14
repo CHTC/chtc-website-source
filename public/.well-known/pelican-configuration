@@ -1,0 +1,5 @@
+{
+  "director_endpoint": "https://uwdf-director.chtc.wisc.edu",
+  "namespace_registration_endpoint": "https://uwdf-registry.chtc.wisc.edu",
+  "jwks_uri": "https://chtc.cs.wisc.edu/uwdf/public_signing_key.jwks"
+}

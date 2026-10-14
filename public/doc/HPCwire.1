@@ -1,0 +1,168 @@
+HIGH THROUGHPUT COMPUTING: AN INTERVIEW WITH MIRON LIVNY             06.27.97
+by Alan Beck, editor in chief                                         HPCwire
+=============================================================================
+
+  This month, NCSA's (National Center for Supercomputing Applications)
+Advanced Computing Group (ACG) will begin testing Condor, a software system
+developed at the University of Wisconsin that promises to expand computing
+capabilities through efficient capture of cycles on idle machines. The
+software, operating within an HTC (High Throughput Computing) rather than a
+traditional HPC (High Performance Computing) paradigm, organizes machines
+into clusters, called pools, or collections of clusters called flocks, that
+can exchange resources. Condor then hunts for idle workstations to run jobs.
+When the owner resumes computing, Condor migrates the job to another machine.
+
+  To learn more about recent Condor developments, HPCwire interviewed Miron
+Livny, professor of Computer Science, University of Wisconsin at Madison and
+principal investigator for the Condor Project. Following are selected
+excerpts from that discussion.
+
+---
+
+  HPCwire: Please provide a brief background on the Condor Project and your
+role in it.
+
+  LIVNY: "The Condor project has been underway for about 10 years now; I'm
+currently head of the effort to further develop the software, implement and
+deploy it. We are now also closely tied with NCSA.
+
+  "The underlying idea revolves around the contrast between compute power
+which is owned and that which can be accessed. When we started about 15 years
+ago, this gap was relatively small. For example, when I joined the department
+we had two 780s, and I had accounts on both. These were one MIP machines.
+Today, I have a 200 MIP machine on my desk -- and we have 400 machines like
+this in the department, although I don't have accounts on them. So for me to
+access all these resources I need additional software. The main obstacle this
+software faces is the problem of distributed ownership. We were the first to
+identify and significantly address this critical issue."
+
+  HPCwire: How?
+
+  LIVNY: "The first step is to discuss with the owner of a resource who,
+when, and how that resource can be used by others. Once the owners are happy,
+we can move on and deal with the more technical aspects of the system.
+
+  HPCwire: How does the Condor project differ from conventional approaches to
+distributed resources?
+
+  LIVNY: "The Condor project is referred to as High Throughput Computing
+(HTC) rather than the traditional High Performance Computing (HPC). HPC deals
+with floating-point operations per second, and I like to portray HTC as
+floating-point operations per year. We believe there are many scientists and
+engineers who are interested in the question: 'What can I accomplish
+(computationally) in two to six months?' HTC serves a vital role for this
+group of researchers.
+
+  "HPC brings enormous amounts of computing power to bear over relatively
+short periods of time. HTC employs large amounts of computing power for very
+lengthy periods. This is important simply because throughput is the primary
+limiting factor in many scientific and engineering efforts. For example, if
+you must manufacture a chip, you have a window of about three months to run
+as many simulations as you can before bringing the product to market.
+Essentially, this is an HTC problem. If you have a high-energy physicist who
+is reconstructing events and enriching them with Monte Carlo data, the
+project has a year or two to complete, but the more computational resources
+that can be brought to bear in that time, the greater will be the statistical
+significance attained. This too is an application basically limited by
+throughput rather than response time."
+
+  HPCwire: What criteria determine whether HPC or HTC is more appropriate?
+
+  LIVNY: "HPC must be used for decision-support (person-in-the-loop) or
+applications under sharp time-constraint, such as weather modeling. However,
+those doing sensitivity analyses, parametric studies or simulations to
+establish statistical confidence need HTC. We use HTC for neural-network
+training, Monte Carlo statistics, and a very wide variety of simulations,
+including computer hardware, scheduling policies, and communication
+protocols, annealing, even combustion-engine simulations, where 100 or even
+1000 jobs are submitted to explore the entire parameter space."
+
+  HPCwire: Given the rapidly growing power of workstations, do you feel HTC
+will be able to increasingly address HPC-type problems?
+
+  LIVNY: "Yes, and we already see it happening. For example, our campus has
+cancelled a surplus cycle account at SDSC (San Diego Supercomputer Center),
+because we were able to fulfill the needs of everyone at the graduate school
+who requested HPC resources. If someone just needs two to five months of CPU-
+time, we can easily provide it. Only those who require a huge amount of
+tightly-coupled memory must go to the HPC end."
+
+  HPCwire: Please detail the work you're doing with NCSA.
+
+  LIVNY: "We play a dual role with respect to NCSA. On one hand, we're a
+regional partner, with over 500 workstations here on campus. These will
+provide a source of cycles to NCSA and a testbed for scientists who would
+like to see how well their applications work in an HTC environment. On the
+other hand, we're also an enabling technology, where our experience in
+building and maintaining Condor will contribute to the construction of the
+National Technology Grid. Thus, we hope we can soon move from a campus-wide
+to a nation-wide HTC system."
+
+  HPCwire: How can our readers experiment with Condor?
+
+  LIVNY: "The software is freely available and can be downloaded from our
+Website at http://www.cs.wisc.edu/condor  There are also pointers at the NCSA
+homepages."
+
+  HPCwire: Do you also foresee Condor moving into a commercial context?
+
+  LIVNY: "IBM's LoadLeveler, which runs on SP, is already a commercial
+offspring of Condor. We're currently moving in the direction of NT, and I
+believe there will be a significant commercial implication there. We are now
+talking with several commercial entities interested in seeing what Condor can
+do for their HTC applications. I certainly believe that industry could
+benefit from all these idle cycles -- if they only knew how to utilize them.
+
+  "Over the last year we've restructured our software so that it relies less
+on Unix-specific functionality. We hope to have the first round for NT by the
+end of the summer. Condor normally provides checkpointing of applications and
+redirection of I/O, but the first versions for NT will not provide those --
+only resource allocation and management. However, our goal for the end of the
+year is to have a full-featured supported version for NT.
+
+  HPCwire: Are you planning to create a version fully compatible with both
+operating systems?
+
+  LIVNY: "Yes -- although obviously it won't be able to do migrate jobs
+between UNIX and NT. Right now we're running across architectures; at UW we
+have a heterogeneous environment composed of 6 or 7 different UNIX/flavor
+combinations. Soon NT machines will come in as submission sites or
+cycle-servers and will co-exist in the UNIX environment. We see no technical
+obstacles to this."
+
+  HPCwire: Are there any further points you would like to emphasize?
+
+  LIVNY: "It is very important to be able to harness the enormous amount of
+computing power we already have at our fingertips -- whether this is done
+through Condor or another way. We have focused too long on the problem of how
+to run a single application, and we have not paid enough attention to how to
+run 100 or 1000. I have one user at the University of Washington who
+regularly submits 2000 jobs at one keystroke."
+
+--------------------
+Alan Beck is editor in chief of HPCwire. Comments are always welcome and
+should be directed to editor@hpcwire.tgc.com
+
+************************************************************************** 
+                      H P C w i r e   S P O N S O R S                       
+
+       Product specifications and company information in this section are   
+             available to both subscribers and non-subscribers.             
+                                                                            
+  [ ] 936) Sony                             [ ] 905) MAXSTRAT
+  [ ] 934) HP/Convex Tech. Ctr.             [ ] 930) HNSX Supercomputers
+  [ ] 909) Fujitsu                          [ ] 902) IBM Corp.
+  [ ] 937) Digital Equipment                [ ] 932) Portland Group
+  [ ] 938) Visual Numerics                  [ ] 940) Eudora
+  [ ] 941) HAL Computers                    [ ] 942) Sun Microsystems
+  [ ] 921) Silicon Graphics/Cray Research   [ ] 943) Northrop Grumman
+  [ ] 944) Raytheon E-Systems
+   Send info requests (an X-marked copy of this message) to more@tgc.com
+*************************************************************************** 
+Copyright 1997 HPCwire. Redistribution of this article is forbidden by law
+without the expressed written consent of the publisher. For a free trial 
+subscription to HPCwire, send e-mail to trial@hpcwire.tgc.com.
+
+
+
+

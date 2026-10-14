@@ -1,0 +1,10 @@
+title: Barry Van Veen
+image: /images/vanveen.jpg
+description: >
+  The bio-signal processing laboratory develops statistical signal processing
+  methods for biomedical problems.  We use CHTC for casual network modeling of
+  brain electrical activity.  We develop methods for identifying network models
+  from noninvasive measures of electric/ magnetic fields at the scalp, or
+  invasive measures of the electric fields at or in the cortex, such as electrocorticography.
+  Model identification involves high throughput computing applied to large datasets
+  consisting of hundreds of spatial channels each containing thousands of time samples.

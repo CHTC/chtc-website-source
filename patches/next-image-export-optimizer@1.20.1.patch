@@ -1,0 +1,20 @@
+diff --git a/dist/utils/downloadImagesInBatches.js b/dist/utils/downloadImagesInBatches.js
+index 1cef9946c6d3fe85e8c9af1612afb44ada7c0547..9267ea45bf49cd178e31da1ba84e626907cd51dd 100644
+--- a/dist/utils/downloadImagesInBatches.js
++++ b/dist/utils/downloadImagesInBatches.js
+@@ -42,8 +42,13 @@ async function downloadImage(url, filename, folder) {
+                 imageFormat = "jpg";
+             }
+             // Check if filename already has an extension that matches the image format
+-            const regex = new RegExp(`.${imageFormat}$`, "i");
+-            const hasMatchingExtension = regex.test(filename);
++            // `.jpeg` and `.jpg` are the same format. Without this, a URL ending
++            // in `.jpeg` is saved as `<name>.jpeg.jpg`, so the variants are
++            // generated as `<name>.jpeg-opt-<width>.WEBP` while the runtime
++            // loader — which takes the extension straight from the URL — asks
++            // for `<name>-opt-<width>.WEBP` and gets a 404.
++            const equivalentFormats = imageFormat === "jpg" ? ["jpg", "jpeg"] : [imageFormat];
++            const hasMatchingExtension = equivalentFormats.some((format) => new RegExp(`\\.${format}$`, "i").test(filename));
+             // Add appropriate extension to filename based on image format
+             const formattedFilename = hasMatchingExtension
+                 ? filename

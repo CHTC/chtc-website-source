@@ -1,0 +1,657 @@
+[
+  {
+    "source": "/uw-research-computing/agent-recommendations.html",
+    "destination": "/uw-research-computing/agent-recommendations/",
+    "text": "AI Agents on CHTC APs and Login Nodes"
+  },
+  {
+    "source": "/uw-research-computing/annex.html",
+    "destination": "/uw-research-computing/annex/",
+    "text": "Adding External Resources with HTCondor Annex"
+  },
+  {
+    "source": "/uw-research-computing/apptainer-build.html",
+    "destination": "/uw-research-computing/apptainer-build/",
+    "text": "Building an Apptainer Container"
+  },
+  {
+    "source": "/uw-research-computing/apptainer-hpc.html",
+    "destination": "/uw-research-computing/apptainer-hpc/",
+    "text": "Using Apptainer Containers on HPC"
+  },
+  {
+    "source": "/uw-research-computing/apptainer-htc-advanced-example.html",
+    "destination": "/uw-research-computing/apptainer-htc-advanced-example/",
+    "text": "Advanced Apptainer Example - SUMO"
+  },
+  {
+    "source": "/uw-research-computing/apptainer-htc.html",
+    "destination": "/uw-research-computing/apptainer-htc/",
+    "text": "Use Custom Software in Jobs Using Apptainer"
+  },
+  {
+    "source": "/uw-research-computing/archived/hpc-transition-2023.html",
+    "destination": "/uw-research-computing/archived/hpc-transition-2023/",
+    "text": "Transitioning to a New HPC Cluster"
+  },
+  {
+    "source": "/uw-research-computing/archived/tensorflow-singularity-wait.html",
+    "destination": "/uw-research-computing/archived/tensorflow-singularity-wait/",
+    "text": "Running Tensorflow Jobs"
+  },
+  {
+    "source": "/uw-research-computing/basic-shell-commands.html",
+    "destination": "/uw-research-computing/basic-shell-commands/",
+    "text": "Quick reference: Basic shell commands"
+  },
+  {
+    "source": "/uw-research-computing/bioinformatics-cafe.html",
+    "destination": "/uw-research-computing/bioinformatics-cafe/",
+    "text": "Bioinformatics Café @ CHTC"
+  },
+  {
+    "source": "/uw-research-computing/check-quota.html",
+    "destination": "/uw-research-computing/check-quota/",
+    "text": "Check Disk Quota and Usage"
+  },
+  {
+    "source": "/uw-research-computing/checkpointing.html",
+    "destination": "/uw-research-computing/checkpointing/",
+    "text": "Checkpointing Jobs"
+  },
+  {
+    "source": "/uw-research-computing/chtc-services.html",
+    "destination": "/uw-research-computing/chtc-services/",
+    "text": "CHTC Services for Research Computing"
+  },
+  {
+    "source": "/uw-research-computing/cite-chtc.html",
+    "destination": "/uw-research-computing/cite-chtc/",
+    "text": "Citing CHTC Resources"
+  },
+  {
+    "source": "/uw-research-computing/conda-installation.html",
+    "destination": "/uw-research-computing/conda-installation/",
+    "text": "Create a Portable Python Installation with Miniconda"
+  },
+  {
+    "source": "/uw-research-computing/condor-submit-quick-ref.html",
+    "destination": "/uw-research-computing/condor-submit-quick-ref/",
+    "text": "Quick reference: HTCondor submit file options"
+  },
+  {
+    "source": "/uw-research-computing/configure-ssh.html",
+    "destination": "/uw-research-computing/configure-ssh/",
+    "text": "Automate CHTC login"
+  },
+  {
+    "source": "/uw-research-computing/connecting.html",
+    "destination": "/uw-research-computing/connecting/",
+    "text": "Log in to CHTC"
+  },
+  {
+    "source": "/uw-research-computing/cst.html",
+    "destination": "/uw-research-computing/cst/",
+    "text": "Use CST"
+  },
+  {
+    "source": "/uw-research-computing/dask.html",
+    "destination": "/uw-research-computing/dask/",
+    "text": "Using Dask at CHTC"
+  },
+  {
+    "source": "/uw-research-computing/docker-build.html",
+    "destination": "/uw-research-computing/docker-build/",
+    "text": "Build a Docker Container Image"
+  },
+  {
+    "source": "/uw-research-computing/docker-jobs.html",
+    "destination": "/uw-research-computing/docker-jobs/",
+    "text": "Running HTC Jobs Using Docker Containers"
+  },
+  {
+    "source": "/uw-research-computing/docker-test.html",
+    "destination": "/uw-research-computing/docker-test/",
+    "text": "Explore and Test Docker Containers"
+  },
+  {
+    "source": "/uw-research-computing/dos-unix.html",
+    "destination": "/uw-research-computing/dos-unix/",
+    "text": "Windows / Linux Incompatibility"
+  },
+  {
+    "source": "/uw-research-computing/email-list.html",
+    "destination": "/uw-research-computing/email-list/",
+    "text": "Sign up for our email list!"
+  },
+  {
+    "source": "/uw-research-computing/facilitation-team.html",
+    "destination": "/uw-research-computing/facilitation-team/",
+    "text": "The Facilitation Team"
+  },
+  {
+    "source": "/uw-research-computing/file-avail-largedata.html",
+    "destination": "/uw-research-computing/file-avail-largedata/",
+    "text": "Manage large data in /staging"
+  },
+  {
+    "source": "/uw-research-computing/file-avail-s3.html",
+    "destination": "/uw-research-computing/file-avail-s3/",
+    "text": "Managing Large Data in HTC Jobs with S3 Buckets"
+  },
+  {
+    "source": "/uw-research-computing/form.html",
+    "destination": "/uw-research-computing/form/",
+    "text": "Request a CHTC Account"
+  },
+  {
+    "source": "/uw-research-computing/get-help.html",
+    "destination": "/uw-research-computing/get-help/",
+    "text": "Get Help"
+  },
+  {
+    "source": "/uw-research-computing/get-started.html",
+    "destination": "/uw-research-computing/get-started/",
+    "text": "Getting Started With CHTC"
+  },
+  {
+    "source": "/uw-research-computing/get-submit-node.html",
+    "destination": "/uw-research-computing/get-submit-node/",
+    "text": "Getting a Submit Node"
+  },
+  {
+    "source": "/uw-research-computing/github-remote-access.html",
+    "destination": "/uw-research-computing/github-remote-access/",
+    "text": "Access a Private GitHub Repository Remotely"
+  },
+  {
+    "source": "/uw-research-computing/globus.html",
+    "destination": "/uw-research-computing/globus/",
+    "text": "Use Globus to Transfer Files to and from CHTC"
+  },
+  {
+    "source": "/uw-research-computing/gpu-jobs.html",
+    "destination": "/uw-research-computing/gpu-jobs/",
+    "text": "Use GPUs"
+  },
+  {
+    "source": "/uw-research-computing/gpu-lab.html",
+    "destination": "/uw-research-computing/gpu-lab/",
+    "text": "Welcome to the CHTC GPU Lab"
+  },
+  {
+    "source": "/uw-research-computing/hello-containers.html",
+    "destination": "/uw-research-computing/hello-containers/",
+    "text": "Practice Building Apptainer Containers on CHTC"
+  },
+  {
+    "source": "/uw-research-computing/high-memory-jobs.html",
+    "destination": "/uw-research-computing/high-memory-jobs/",
+    "text": "Submit High Memory Jobs"
+  },
+  {
+    "source": "/uw-research-computing/howto_overview.html",
+    "destination": "/uw-research-computing/howto_overview/",
+    "text": "CHTC Tools for Matlab, R, and Python Portability"
+  },
+  {
+    "source": "/uw-research-computing/hpc-check-quota.html",
+    "destination": "/uw-research-computing/hpc-check-quota/",
+    "text": "Check Disk Quota and Usage"
+  },
+  {
+    "source": "/uw-research-computing/hpc-custom-modules.html",
+    "destination": "/uw-research-computing/hpc-custom-modules/",
+    "text": "Create and manage custom modules"
+  },
+  {
+    "source": "/uw-research-computing/hpc-el9-spack.html",
+    "destination": "/uw-research-computing/hpc-el9-spack/",
+    "text": "Recreating Spack Installs on a New Operating System"
+  },
+  {
+    "source": "/uw-research-computing/hpc-job-monitoring.html",
+    "destination": "/uw-research-computing/hpc-job-monitoring/",
+    "text": "Reviewing Job Information Using SLURM"
+  },
+  {
+    "source": "/uw-research-computing/hpc-job-submission.html",
+    "destination": "/uw-research-computing/hpc-job-submission/",
+    "text": "Submitting and Managing Jobs Using SLURM"
+  },
+  {
+    "source": "/uw-research-computing/hpc-known-issues.html",
+    "destination": "/uw-research-computing/hpc-known-issues/",
+    "text": "Known Issues on the HPC"
+  },
+  {
+    "source": "/uw-research-computing/hpc-overview.html",
+    "destination": "/uw-research-computing/hpc-overview/",
+    "text": "HPC System Overview"
+  },
+  {
+    "source": "/uw-research-computing/hpc-quick-ref.html",
+    "destination": "/uw-research-computing/hpc-quick-ref/",
+    "text": "Quick reference: Slurm and HPC commands"
+  },
+  {
+    "source": "/uw-research-computing/hpc-software.html",
+    "destination": "/uw-research-computing/hpc-software/",
+    "text": "Use Software on the HPC Cluster"
+  },
+  {
+    "source": "/uw-research-computing/hpc-spack-install.html",
+    "destination": "/uw-research-computing/hpc-spack-install/",
+    "text": "Install Software Using Spack"
+  },
+  {
+    "source": "/uw-research-computing/hpc-spack-modules.html",
+    "destination": "/uw-research-computing/hpc-spack-modules/",
+    "text": "Create Custom Modules Using Spack"
+  },
+  {
+    "source": "/uw-research-computing/hpc-spack-setup.html",
+    "destination": "/uw-research-computing/hpc-spack-setup/",
+    "text": "Set Up Spack on HPC"
+  },
+  {
+    "source": "/uw-research-computing/htc-basic-scripting-bash.html",
+    "destination": "/uw-research-computing/htc-basic-scripting-bash/",
+    "text": "Basic scripting in shell script"
+  },
+  {
+    "source": "/uw-research-computing/htc-basic-scripting-julia.html",
+    "destination": "/uw-research-computing/htc-basic-scripting-julia/",
+    "text": "Basic scripting in Julia"
+  },
+  {
+    "source": "/uw-research-computing/htc-basic-scripting-python.html",
+    "destination": "/uw-research-computing/htc-basic-scripting-python/",
+    "text": "Basic scripting in Python"
+  },
+  {
+    "source": "/uw-research-computing/htc-basic-scripting-r.html",
+    "destination": "/uw-research-computing/htc-basic-scripting-r/",
+    "text": "Basic scripting in R script"
+  },
+  {
+    "source": "/uw-research-computing/htc-basic-scripting.html",
+    "destination": "/uw-research-computing/htc-basic-scripting/",
+    "text": "Basic Scripting and Job Submission with Arguments"
+  },
+  {
+    "source": "/uw-research-computing/htc-docker-to-apptainer.html",
+    "destination": "/uw-research-computing/htc-docker-to-apptainer/",
+    "text": "Convert Docker images to Apptainer images"
+  },
+  {
+    "source": "/uw-research-computing/htc-interactive-gpu-jobs.html",
+    "destination": "/uw-research-computing/htc-interactive-gpu-jobs/",
+    "text": "Interactive GPU Jobs"
+  },
+  {
+    "source": "/uw-research-computing/htc-job-file-transfer.html",
+    "destination": "/uw-research-computing/htc-job-file-transfer/",
+    "text": "Use and transfer data in jobs on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/htc-known-issues.html",
+    "destination": "/uw-research-computing/htc-known-issues/",
+    "text": "Known Issues on the HTC"
+  },
+  {
+    "source": "/uw-research-computing/htc-modules-transition-to-el9.html",
+    "destination": "/uw-research-computing/htc-modules-transition-to-el9/",
+    "text": "HTC Modules Transition to EL9"
+  },
+  {
+    "source": "/uw-research-computing/htc-modules.html",
+    "destination": "/uw-research-computing/htc-modules/",
+    "text": "Use Software Available in Modules"
+  },
+  {
+    "source": "/uw-research-computing/htc-monitor-jobs.html",
+    "destination": "/uw-research-computing/htc-monitor-jobs/",
+    "text": "Monitor your jobs"
+  },
+  {
+    "source": "/uw-research-computing/htc-overview.html",
+    "destination": "/uw-research-computing/htc-overview/",
+    "text": "System Overview"
+  },
+  {
+    "source": "/uw-research-computing/htc-passing-arguments-multiple.html",
+    "destination": "/uw-research-computing/htc-passing-arguments-multiple/",
+    "text": "Practice: Passing Multiple Arguments to Multiple Jobs with One Submit File"
+  },
+  {
+    "source": "/uw-research-computing/htc-passing-arguments.html",
+    "destination": "/uw-research-computing/htc-passing-arguments/",
+    "text": "Practice: Passing Arguments from the Submit File to the Executable Script"
+  },
+  {
+    "source": "/uw-research-computing/htc-roadmap.html",
+    "destination": "/uw-research-computing/htc-roadmap/",
+    "text": "Roadmap to getting started"
+  },
+  {
+    "source": "/uw-research-computing/htc-uwdf-researchdrive.html",
+    "destination": "/uw-research-computing/htc-uwdf-researchdrive/",
+    "text": "Directly transfer files between ResearchDrive and your jobs"
+  },
+  {
+    "source": "/uw-research-computing/htc/dagman-simple-example.html",
+    "destination": "/uw-research-computing/htc/dagman-simple-example/",
+    "text": "Simple Example of a DAGMan workflow"
+  },
+  {
+    "source": "/uw-research-computing/htc/dagman-workflows.html",
+    "destination": "/uw-research-computing/htc/dagman-workflows/",
+    "text": "Overview: Submit Workflows with HTCondor's DAGMan"
+  },
+  {
+    "source": "/uw-research-computing/htc/tutorial-dagman-intermediate.html",
+    "destination": "/uw-research-computing/htc/tutorial-dagman-intermediate/",
+    "text": "Intermediate DAGMan: Uses and Features"
+  },
+  {
+    "source": "/uw-research-computing/htcondor-job-submission.html",
+    "destination": "/uw-research-computing/htcondor-job-submission/",
+    "text": "Practice: Submit HTC Jobs using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/htcondor-quick-ref.html",
+    "destination": "/uw-research-computing/htcondor-quick-ref/",
+    "text": "Quick reference: HTCondor commands"
+  },
+  {
+    "source": "/uw-research-computing/inter-submit.html",
+    "destination": "/uw-research-computing/inter-submit/",
+    "text": "Compiling or Testing Code with an Interactive Job"
+  },
+  {
+    "source": "/uw-research-computing/java-jobs.html",
+    "destination": "/uw-research-computing/java-jobs/",
+    "text": "Running Java Jobs"
+  },
+  {
+    "source": "/uw-research-computing/julia-jobs.html",
+    "destination": "/uw-research-computing/julia-jobs/",
+    "text": "Running Julia Jobs"
+  },
+  {
+    "source": "/uw-research-computing/licensed-software.html",
+    "destination": "/uw-research-computing/licensed-software/",
+    "text": "Use Licensed Software"
+  },
+  {
+    "source": "/uw-research-computing/machine-learning-htc.html",
+    "destination": "/uw-research-computing/machine-learning-htc/",
+    "text": "Machine learning/AI workflows on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/matlab-jobs.html",
+    "destination": "/uw-research-computing/matlab-jobs/",
+    "text": "Running Matlab Jobs"
+  },
+  {
+    "source": "/uw-research-computing/meet-with-us.html",
+    "destination": "/uw-research-computing/meet-with-us/",
+    "text": "Meet With Us"
+  },
+  {
+    "source": "/uw-research-computing/multiple-jobs.html",
+    "destination": "/uw-research-computing/multiple-jobs/",
+    "text": "Submitting Multiple Jobs Using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/ood-job-composer.html",
+    "destination": "/uw-research-computing/ood-job-composer/",
+    "text": "Submit jobs and create templates with the Job Composer"
+  },
+  {
+    "source": "/uw-research-computing/ood.html",
+    "destination": "/uw-research-computing/ood/",
+    "text": "Open OnDemand"
+  },
+  {
+    "source": "/uw-research-computing/os-request-htc.html",
+    "destination": "/uw-research-computing/os-request-htc/",
+    "text": "Use Custom Linux Versions in CHTC"
+  },
+  {
+    "source": "/uw-research-computing/python-jobs.html",
+    "destination": "/uw-research-computing/python-jobs/",
+    "text": "Running Python Jobs"
+  },
+  {
+    "source": "/uw-research-computing/quota-request.html",
+    "destination": "/uw-research-computing/quota-request/",
+    "text": "Request a Quota Change"
+  },
+  {
+    "source": "/uw-research-computing/r-jobs.html",
+    "destination": "/uw-research-computing/r-jobs/",
+    "text": "Running R Jobs"
+  },
+  {
+    "source": "/uw-research-computing/researcher-forum-2026.html",
+    "destination": "/uw-research-computing/researcher-forum-2026/",
+    "text": "CHTC Researcher Forum 2026"
+  },
+  {
+    "source": "/uw-research-computing/researcher-forum/2026.html",
+    "destination": "/uw-research-computing/researcher-forum/2026/",
+    "text": "Researcher Forum 2026 Highlights"
+  },
+  {
+    "source": "/uw-research-computing/scaling-htc.html",
+    "destination": "/uw-research-computing/scaling-htc/",
+    "text": "Scale Beyond Local HTC Capacity"
+  },
+  {
+    "source": "/uw-research-computing/security.html",
+    "destination": "/uw-research-computing/security/",
+    "text": "Security Policies for Using CHTC"
+  },
+  {
+    "source": "/uw-research-computing/sign-in.html",
+    "destination": "/uw-research-computing/sign-in/",
+    "text": "Sign In for Office Hours"
+  },
+  {
+    "source": "/uw-research-computing/singularity-hpc.html",
+    "destination": "/uw-research-computing/singularity-hpc/",
+    "text": "Using Software in a Container on the HPC Cluster"
+  },
+  {
+    "source": "/uw-research-computing/singularity-htc.html",
+    "destination": "/uw-research-computing/singularity-htc/",
+    "text": "Use Apptainer (Singularity) Environments"
+  },
+  {
+    "source": "/uw-research-computing/software-overview-htc.html",
+    "destination": "/uw-research-computing/software-overview-htc/",
+    "text": "Overview: How to Use Software"
+  },
+  {
+    "source": "/uw-research-computing/staging-transition.html",
+    "destination": "/uw-research-computing/staging-transition/",
+    "text": "Staging directory transition"
+  },
+  {
+    "source": "/uw-research-computing/tensorflow-singularity.html",
+    "destination": "/uw-research-computing/tensorflow-singularity/",
+    "text": "Running Tensorflow Jobs"
+  },
+  {
+    "source": "/uw-research-computing/testing-jobs.html",
+    "destination": "/uw-research-computing/testing-jobs/",
+    "text": "Importance of Testing"
+  },
+  {
+    "source": "/uw-research-computing/thanks.html",
+    "destination": "/uw-research-computing/thanks/",
+    "text": "Account Request Submitted"
+  },
+  {
+    "source": "/uw-research-computing/transfer-data-researchdrive.html",
+    "destination": "/uw-research-computing/transfer-data-researchdrive/",
+    "text": "Transfer Files Between CHTC and ResearchDrive"
+  },
+  {
+    "source": "/uw-research-computing/transfer-files-computer.html",
+    "destination": "/uw-research-computing/transfer-files-computer/",
+    "text": "Transfer Files between CHTC and your Computer"
+  },
+  {
+    "source": "/uw-research-computing/user-expectations.html",
+    "destination": "/uw-research-computing/user-expectations/",
+    "text": "Policies and Expectations for Using CHTC"
+  },
+  {
+    "source": "/uw-research-computing/variable-memory.html",
+    "destination": "/uw-research-computing/variable-memory/",
+    "text": "Request variable memory"
+  },
+  {
+    "source": "/uw-research-computing/vs-code.html",
+    "destination": "/uw-research-computing/vs-code/",
+    "text": "Connect to CHTC with VS Code"
+  },
+  {
+    "source": "/uw-research-computing/index.html",
+    "destination": "/uw-research-computing/",
+    "text": "UW Research Computing Home"
+  },
+  {
+    "source": "/uw-research-computing/how-tos.html",
+    "destination": "/uw-research-computing/how-tos/",
+    "text": "How To's"
+  },
+  {
+    "source": "/uw-research-computing/htc/guides.html",
+    "destination": "/uw-research-computing/htc/guides/",
+    "text": "HTC Computing Guides"
+  },
+  {
+    "source": "/uw-research-computing/hpc/guides.html",
+    "destination": "/uw-research-computing/hpc/guides/",
+    "text": "HPC Computing Guides"
+  },
+  {
+    "source": "/uw-research-computing/user-portal.html",
+    "destination": "/uw-research-computing/user-portal/",
+    "text": "CHTC User Portal"
+  },
+  {
+    "source": "/uw-research-computing/learning-resources.html",
+    "destination": "/uw-research-computing/learning-resources/",
+    "text": "Learning Resources"
+  },
+  {
+    "source": "/uw-research-computing/other-resources.html",
+    "destination": "/uw-research-computing/other-resources/",
+    "text": "Other Resources"
+  },
+  {
+    "source": "/uw-research-computing/archived/software-overview-htc.html",
+    "destination": "/uw-research-computing/software-overview-htc/",
+    "text": "Overview: How to Use Software"
+  },
+  {
+    "source": "/uw-research-computing/archived/software-overview-htc/",
+    "destination": "/uw-research-computing/software-overview-htc/",
+    "text": "Overview: How to Use Software"
+  },
+  {
+    "source": "/uw-research-computing/condor_q.html",
+    "destination": "/uw-research-computing/htc-monitor-jobs/",
+    "text": "Monitor your jobs"
+  },
+  {
+    "source": "/uw-research-computing/condor_q/",
+    "destination": "/uw-research-computing/htc-monitor-jobs/",
+    "text": "Monitor your jobs"
+  },
+  {
+    "source": "/uw-research-computing/dagman-workflows.html",
+    "destination": "/uw-research-computing/htc/dagman-workflows/",
+    "text": "Overview: Submit Workflows with HTCondor's DAGMan"
+  },
+  {
+    "source": "/uw-research-computing/dagman-workflows/",
+    "destination": "/uw-research-computing/htc/dagman-workflows/",
+    "text": "Overview: Submit Workflows with HTCondor's DAGMan"
+  },
+  {
+    "source": "/uw-research-computing/multiple-job-dirs.html",
+    "destination": "/uw-research-computing/multiple-jobs/#option-3-organize-jobs-into-individual-directories",
+    "text": "Submitting Multiple Jobs Using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/multiple-job-dirs/",
+    "destination": "/uw-research-computing/multiple-jobs/#option-3-organize-jobs-into-individual-directories",
+    "text": "Submitting Multiple Jobs Using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/file-avail-squid.html",
+    "destination": "/uw-research-computing/htc-job-file-transfer/",
+    "text": "Use and transfer data in jobs on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/file-avail-squid/",
+    "destination": "/uw-research-computing/htc-job-file-transfer/",
+    "text": "Use and transfer data in jobs on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/file-availability.html",
+    "destination": "/uw-research-computing/htc-job-file-transfer/",
+    "text": "Use and transfer data in jobs on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/file-availability/",
+    "destination": "/uw-research-computing/htc-job-file-transfer/",
+    "text": "Use and transfer data in jobs on the HTC system"
+  },
+  {
+    "source": "/uw-research-computing/guides.html",
+    "destination": "/uw-research-computing/how-tos/",
+    "text": "UW Research Computing"
+  },
+  {
+    "source": "/uw-research-computing/guides/",
+    "destination": "/uw-research-computing/how-tos/",
+    "text": "UW Research Computing"
+  },
+  {
+    "source": "/uw-research-computing/helloworld.html",
+    "destination": "/uw-research-computing/htcondor-job-submission/",
+    "text": "Practice: Submit HTC Jobs using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/helloworld/",
+    "destination": "/uw-research-computing/htcondor-job-submission/",
+    "text": "Practice: Submit HTC Jobs using HTCondor"
+  },
+  {
+    "source": "/uw-research-computing/mpi-jobs.html",
+    "destination": "/uw-research-computing/htc-modules/",
+    "text": "Use Software Available in Modules"
+  },
+  {
+    "source": "/uw-research-computing/mpi-jobs/",
+    "destination": "/uw-research-computing/htc-modules/",
+    "text": "Use Software Available in Modules"
+  },
+  {
+    "source": "/uw-research-computing/use-submit-node.html",
+    "destination": "/uw-research-computing/htc-overview/",
+    "text": "System Overview"
+  },
+  {
+    "source": "/uw-research-computing/use-submit-node/",
+    "destination": "/uw-research-computing/htc-overview/",
+    "text": "System Overview"
+  }
+]

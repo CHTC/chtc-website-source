@@ -1,0 +1,23 @@
+[
+  {"source":"/people.html","destination":"/people/","text":"Our Staff"},
+  {"source":"/jobs.html","destination":"/jobs/","text":"Available Positions"},
+  {"source":"/projects.html","destination":"/projects/","text":"CHTC Partners Using CHTC Technologies and Services"},
+  {"source":"/internships.html","destination":"/internships/","text":"The Path to Internship and Fellowship Opportunities"},
+  {"source":"/research.html","destination":"/research/","text":"Research Publications and Technical Information"},
+  {"source":"/fellowships/fellows.html","destination":"/fellowships/fellows/","text":"CHTC Fellows"},
+  {"source":"/staff/docs/Adding_News_Articles.html","destination":"/staff/docs/Adding_News_Articles/","text":"Adding News Articles"},
+  {"source":"/staff/docs/Schedule_Calendar.html","destination":"/staff/docs/Schedule_Calendar/","text":"Schedule Calendar"},
+  {"source":"/fellowships/reports/2024/ben-staehle.html","destination":"/fellowships/reports/2024/ben-staehle/","text":"Tracking Server Inventory and Elevation"},
+  {"source":"/fellowships/reports/2024/kristina-zhao.html","destination":"/fellowships/reports/2024/kristina-zhao/","text":"Integrating Pelican with Pytorch"},
+  {"source":"/fellowships/reports/2024/neha-talluri.html","destination":"/fellowships/reports/2024/neha-talluri/","text":"Where In The World Am I?"},
+  {"source":"/fellowships/reports/2024/patrick-brophy.html","destination":"/fellowships/reports/2024/patrick-brophy/","text":"Expanding Pelican Origin Monitoring"},
+  {"source":"/fellowships/reports/2024/pratham-patel.html","destination":"/fellowships/reports/2024/pratham-patel/","text":"Enhancing The OSG Container Image Build System"},
+  {"source":"/fellowships/reports/2024/ryan-boone.html","destination":"/fellowships/reports/2024/ryan-boone/","text":"Pool Exerciser"},
+  {"source":"/fellowships/reports/2024/thinh-nguyen.html","destination":"/fellowships/reports/2024/thinh-nguyen/","text":"Machine Learning for OSPool Failure Classification"},
+  {"source":"/fellowships/reports/2024/wil-cram.html","destination":"/fellowships/reports/2024/wil-cram/","text":"Monitoring Schedd Performance"},
+  {"source":"/fellowships/reports/2025/kashika-mahajan.html","destination":"/fellowships/reports/2025/kashika-mahajan/","text":"Research Facilitation Project"},
+  {"source":"/fellowships/reports/2025/sandhya-nayar.html","destination":"/fellowships/reports/2025/sandhya-nayar/","text":"Final Report: Smart Aggregation and Indexing with the Archive Librarian"},
+  {"source":"/fellowships/reports/2025/william-jiang.html","destination":"/fellowships/reports/2025/william-jiang/","text":"Integrating Pelican and Globus"},
+  {"source":"/fellowships/reports/2026/daniella-wright.html","destination":"/fellowships/reports/2026/daniella-wright/","text":"Bytes of Knowledge"},
+  {"source":"/fellowships/reports/2026/snikitha-siddavatam.html","destination":"/fellowships/reports/2026/snikitha-siddavatam/","text":"Monte Carlo Estimation of π on HTCondor: Understanding Throughput Using a Standardized Workflow"}
+]

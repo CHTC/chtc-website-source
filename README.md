@@ -1,63 +1,48 @@
-# NextJS Static Website Template
+# CHTC Website
 
-Fully functional website template using Next.js for use by the CHTC.
+The public website of the Center for High Throughput Computing (chtc.cs.wisc.edu), built with Next.js (App Router, static export), Material UI and `@chtc/web-components`.
 
-Provides a basic structure for building static websites with Next.js with a couple nice to haves:
+It replaces the Jekyll site. Editorial content is **not** stored here: news articles, events, presentations and the staff list are fetched at build time from the shared CHTC content repositories (`CHTC/Articles`, `CHTC/Events`, `CHTC/Presentations`, `CHTC/staff-list`) and filtered to entries whose `publish_on` includes `chtc`. The research-computing documentation (`content/uw-research-computing/`), the hand-authored pages under `app/`, and the YAML data under `content/` are local to this repository.
 
-- Solves rehydration errors when using Material UI with Next.js.
-- Theming integration with Material UI and CHTC Web Components.
-- Setting up CI/CD with GitHub Actions to deploy to GitHub Pages or other static hosting.
-- Starting points for sitemap, robots.txt, SEO Metadata, and Analytics.
+## Develop
 
-Please raise any issues with this template in an issue on the repository!
-
-# NPM Stack
-
-## Next.js
-
-React framework used for building the static website.
-
-https://nextjs.org/
-
-## Material UI
-
-Used for components, icons, and theming.
-
-You can find the CHTC, OSG, and Pelican MUI themes in `@chtc/web-components/themes`.
-
-https://mui.com/
-
-### Styling with the SX prop
-
-https://mui.com/system/getting-started/usage/
-
-Material UI uses the `sx` prop for styling components. This allows you to apply styles directly to components using a JavaScript object syntax.
-
-Since we integrate with MUI themes, you can use the sx prop to access theme values like colors, spacing, and typography.
-
-## CHTC Web Components
-
-Reusable components and themes for CHTC websites.
-
-https://path-cc.io/web-components/ for now, but moving to https://chtc.github.io/web-components/
-
-# Development
-
-## Docker
-
-This is the easiest, if you have something quick I would do this.
-
-Run the command below and navigate to http://localhost:3000.
-
-```shell
-docker compose up
+```bash
+pnpm install
+export GITHUB_TOKEN=$(gh auth token)   # avoids GitHub API rate limits during content fetches
+pnpm dev
 ```
 
-## PNPM
+`pnpm dev` runs Turbopack on http://localhost:3000.
 
-[Install pnpm](https://pnpm.io/installation) and run `pnpm install` (only need to do it once).
+## Build
 
-Run `pnpm run dev`.
+```bash
+pnpm build
+```
 
-This will be the fastest if you aren't on linux.
+`pnpm build` runs, in order: `prebuild` (clears the remote-image manifest shards), `next build` (static export into `out/`), then `postbuild` which validates every remote image the pages recorded, generates the optimised image variants (`next-image-export-optimizer`), writes the sitemap, and emits a meta-refresh stub for every legacy URL (`static-redirects.json` + `redirects/*.json` + rules computed from the content repositories).
 
+`npx next build` on its own skips pre/postbuild; use `pnpm build` whenever images, redirects or the sitemap matter.
+
+Content fetched from GitHub is cached in `.next/cache/fetch-cache` for an hour; `rm -rf .next/cache` to force a refresh.
+
+## Checks
+
+```bash
+npx tsc --noEmit
+pnpm lint
+pnpm compare:migration        # coverage of the legacy site's URLs (needs ../chtc-website-source/_site)
+python3 scripts/audit-export.py out   # metadata / canonical / image audits over the export
+```
+
+## Layout
+
+- `app/` — routes. `page.tsx` is always a server component; client-side pieces live in `view.tsx` or `_components/`.
+- `components/` — shared components (Header, Footer, MarkdownContainer, …).
+- `content/` — local content: documentation markdown and menus, jobs, projects, fellowships.
+- `utils/` — the thin site-specific wrappers over the library's content getters (`'chtc'` filter + remote image recording), metadata helpers.
+- `public/` — static assets; `public/images` is the image optimiser's source folder.
+- `scripts/` — build-time scripts (redirects, image validation, migration comparison, audits).
+- `site.config.ts` — the site's identity (name, description, share image) read by the layout, manifest and metadata helpers.
+
+See `MIGRATION_HANDOFF.md` for the migration's decisions and `.ai/instructions.md` for coding conventions.

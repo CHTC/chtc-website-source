@@ -1,0 +1,47 @@
+[
+  {
+    "source": "/events.html",
+    "destination": "/events/",
+    "text": "Events"
+  },
+  {
+    "source": "/presentations.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/CDIS_eventpage.html",
+    "destination": "/jobs/",
+    "text": "Open Positions"
+  },
+  {
+    "source": "/events/demo.html",
+    "destination": "/events/2022/11/03/gpu-ml-demo/",
+    "text": "GPU/Machine Learning Demo"
+  },
+  {
+    "source": "/events/demo/",
+    "destination": "/events/2022/11/03/gpu-ml-demo/",
+    "text": "GPU/Machine Learning Demo"
+  },
+  {
+    "source": "/events/extended-office-hours.html",
+    "destination": "/events/2022/11/01/extended-office-hours/",
+    "text": "CHTC Extended (In-Person) Office Hours"
+  },
+  {
+    "source": "/events/2025/03/throughput-computing-week-2025.html",
+    "destination": "/events/2025/06/02/throughput-computing-week/",
+    "text": "Throughput Computing Week 2025"
+  },
+  {
+    "source": "/events/2025/04/throughput-computing-week-2025.html",
+    "destination": "/events/2025/06/02/throughput-computing-week/",
+    "text": "Throughput Computing Week 2025"
+  },
+  {
+    "source": "/events/2025/05/throughput-computing-week-2025.html",
+    "destination": "/events/2025/06/02/throughput-computing-week/",
+    "text": "Throughput Computing Week 2025"
+  }
+]

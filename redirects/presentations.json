@@ -1,0 +1,402 @@
+[
+  {
+    "source": "/presentations/2023/10/15/osdf-use-cases.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2023/10/15/pelican-introduction-ccstar.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2023/10/15/technical-osdf-integration-details.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2023/11/20/advancing-the-osdf-platform.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2023/12/04/using-research-computing.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2024/01/19/making-datasets-accessible-pelican.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2024/02/02/advancing-science-by-delivering-data.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2024/06/18/move-your-data-with-pelican.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2025/02/03/connecting-with-the-osdf.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2025/02/06/using-scientific-data-via-pelican-osdf.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2025/06/02/can-i-have-my.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/can-i-have-my/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/02/fermilabs-transition-to-token.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/fermilabs-transition-to-token/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/02/our-current-vision-for.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/our-current-vision-for/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/02/placement-tokens-capability-based.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/placement-tokens-capability-based/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/02/state-of-osg.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/state-of-osg/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/02/the-pelican-in-flight.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/02/the-pelican-in-flight/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/03/supporting-research-computing.html",
+    "destination": "/presentations/2025/06/03/supporting-research-computing-/",
+    "text": "Supporting Research Computing @ Syracuse University"
+  },
+  {
+    "source": "/presentations/2025/06/04/a-tape-robot-for.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/a-tape-robot-for/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/collaboration-services-usage.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/collaboration-services--usage/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/computing-requirements-and-challenges.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/computing-requirements-and-challenges/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/data-everywhere-using-and.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/data-everywhere-using-and/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/data-processing-in-xenonnt.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/data-processing-in-xenonnt/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/duct-tape-dags-and.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/duct-tape-dags-and/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/ewms-in-action-a.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/ewms-in-action-a/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/hollistic-cost-analysis-of.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/hollistic-cost-analysis-of/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/icecube-and-path-services.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/icecube-and-path-services/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/managing-maintaining-and-monitoring.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/managing-maintaining-and-monitoring/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/monitoring-and-diagnostics-to.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/monitoring-and-diagnostics-to/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/status-of-redtop-and.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/status-of-redtop-and/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/the-eps-disk-iplinary.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/the-eps-disk-iplinary/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/unbreaking-the-bird-debugging.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/unbreaking-the-bird-debugging/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/04/wrangling-complex-notebook-workflows.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/04/wrangling-complex-notebook-workflows/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/ara-distributed-inference-experiments.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/ara-distributed-inference-experiments/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/contouring-the-audio-fovea.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/contouring-the-audio-fovea/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/experiments-and-expansions-leveraging.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/experiments-and-expansions-leveraging/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/from-backend-to-interactive.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/from-backend-to-interactive/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/functional-throughput-computing.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/functional-throughput-computing/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/gpu-access-and-ai.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/gpu-access-and-ai/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/large-scale-dataset-curation.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/large-scale-dataset-curation/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/mapping-the-zymomonas-mobilis.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/mapping-the-zymomonas-mobilis/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/operating-a-federated-htcondor.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/operating-a-federated-htcondor/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/pegasus-wms-deployments-in.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/pegasus-wms-deployments-in/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/rolling-htcondor-upgrades-without.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/rolling-htcondor-upgrades-without/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/tighter-htcondor-and-kubernetes.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/tighter-htcondor-and-kubernetes/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/tracking-htcondor-uptime.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/tracking-htcondor-uptime/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/utilizing-htcondor-pelican-and.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/utilizing-htcondor-pelican-and/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/05/whats-new-whats-upcoming.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/05/whats-new-whats-upcoming/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/closing-remarks.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/closing-remarks/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/condorwho-are-you.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/condorwho-are-you/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/files-common-across-jobs.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/files-common-across-jobs/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/high-resolution-imaging-of.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/high-resolution-imaging-of/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/high-throughput-computing-for.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/high-throughput-computing-for/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/kingfisher-toward-explicit-space.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/kingfisher-toward-explicit-space/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/processing-mouse-brain-data.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/processing-mouse-brain-data/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/06/06/using-the-national-data.html",
+    "destination": "https://osg-htc.org/presentations/2025/06/06/using-the-national-data/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/21/cici-new-awards-overview.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/21/cici-new-awards-overview/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/21/lets-be-partners.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/21/lets-be-partners/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/21/ndp-national-scale-fabric.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/21/ndp-national-scale-fabric/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/28/ai-cyber-lake.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/28/ai-cyber-lake/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/28/bripod.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/28/bripod/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/28/forcore.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/28/forcore/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/28/llm-dal.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/28/llm-dal/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/08/28/rootbeer.html",
+    "destination": "https://osg-htc.org/presentations/2025/08/28/rootbeer/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/04/canis.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/04/canis/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/04/dprov.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/04/dprov/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/04/repairt.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/04/repairt/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/04/scrypts-ai.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/04/scrypts-ai/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/04/wrap.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/04/wrap/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/11/cloudsec.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/11/cloudsec/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/11/hpcsafechain.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/11/hpcsafechain/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/11/mldl.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/11/mldl/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/11/safesci-tee.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/11/safesci-tee/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/11/secgpu4ai.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/11/secgpu4ai/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/25/foodguard.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/25/foodguard/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/25/grisl.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/25/grisl/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/25/mlaas.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/25/mlaas/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/25/qure.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/25/qure/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2025/09/25/safari.html",
+    "destination": "https://osg-htc.org/presentations/2025/09/25/safari/",
+    "text": "OSG Consortium presentation"
+  },
+  {
+    "source": "/presentations/2026/06/12/closing-remarks.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  },
+  {
+    "source": "/presentations/2026/06/12/wheres-the-big-data.html",
+    "destination": "/presentations/",
+    "text": "Presentations"
+  }
+]

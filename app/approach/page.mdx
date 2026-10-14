@@ -1,0 +1,69 @@
+import Figure from '@/components/Figure';
+import { Box, Button } from '@mui/material';
+import { listingMetadata } from '@/utils/metadata';
+
+export const metadata = listingMetadata(
+  'Our Approach',
+  'CHTC practices translational computer science: it develops high throughput computing technologies, deploys them as services for UW-Madison researchers, and learns from their feedback.',
+  '/approach/'
+);
+
+# Our Approach
+
+CHTC is a research center at UW - Madison and home to campus computing services.
+Housed across the Computer Science Department and Morgridge Institute for Research,
+we are practitioners of [translational computer science](https://doi.org/10.1109/MC.2019.2925650). CHTC develops technologies
+to advance [high throughput computing](/htc/), and then deploys those technologies and provides
+computing capacity to a broad community of researchers, with the goal of continuously
+responding to researcher feedback and enabling them to advance their work. Our
+leadership in the [Partnership to Advance Throughput Computing (PATh) Project](https://path-cc.io/)
+represents this commitment to developing tools and communities around them.
+
+<Figure
+  src='/images/homepage/translational-arrow-noun.png'
+  alt='The translational arrow: from laboratory, to locale, to communities, with a feedback loop back to the laboratory'
+  width={1694}
+  height={678}
+/>
+
+## As a Lab
+
+CHTC is a laboratory for the development of high throughput
+computing tools and methodologies, including software products like
+the [HTCondor Software Suite](https://htcondor.org) and the [Pelican Platform](https://pelicanplatform.org), and championing
+the practice of Research Computing Facilitation.
+
+<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mb: 2 }}>
+  <Button href='/technologies/' variant='contained'>View Technologies</Button>
+</Box>
+
+## As a Service Provider
+
+As part of our translational computer science mission, CHTC operates computing
+and facilitation services available to UW - Madison affiliates at no cost.
+Any researcher at UW - Madison, who has outgrown their
+current computing capacity (whether that be a laptop, desktop, server, or small cluster)
+can use CHTC's computing capacity to scale up their research. While our speciality
+is in HTC, we can support a wide variety of computing workloads - come talk to us or
+request an account!
+
+<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mb: 3 }}>
+  <Button href='/uw-research-computing/' variant='contained'>View UW Research Computing Overview</Button>
+  <Button href='/uw-research-computing/form/' variant='contained'>Request an Account</Button>
+</Box>
+
+CHTC also supports the operation of national computing infrastructure like the
+[Open Science Pool](https://osg-htc.org/services/ospool) and [Open Science Data Federation](https://osg-htc.org/services/osdf).
+
+## As a Center
+
+We bring our development activities and our services together under
+one roof in order to facilitate the exchange of information between the users and
+developers of our technologies. Without feedback on what researchers need to take
+their work to the next level (or just make computing more accessible), our research
+won't move forward. Our door (or email) is always open to hear about pain points and
+suggestions for improvement.
+
+<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+  <Button href='mailto:chtc@cs.wisc.edu' variant='contained'>Email us!</Button>
+</Box>

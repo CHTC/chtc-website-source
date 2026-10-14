@@ -1,0 +1,79 @@
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import Figure from '@/components/Figure';
+import { listingMetadata } from '@/utils/metadata';
+
+export const metadata = listingMetadata(
+  'What is High Throughput Computing?',
+  'High Throughput Computing (HTC) completes as much work as possible over weeks or months by running independent tasks across many computers as they become available.',
+  '/htc/'
+);
+
+# What is High Throughput Computing?
+
+In computing, **throughput** is a measure of the number of computing tasks a system can complete over time.
+
+**High Throughput Computing (HTC)** is an approach to computing that focuses on completing as much work as possible, integrated over weeks or months, by running **independent tasks** across **multiple computers** as they become available.
+
+<Figure
+  src='/images/htc-workflow.webp'
+  alt='Animation showing independent computing tasks being distributed across multiple available computers.'
+  width={1467}
+  height={936}
+  maxWidth={600}
+  unoptimized
+  caption='In high throughput computing, independent tasks are distributed across available computers to complete more work over time.'
+/>
+
+### What kinds of computations work well with the HTC approach?
+
+Throughput Computing approaches work particularly well with workloads that can be expressed as groups of independent tasks. Tasks that do not rely on one another can run efficiently across available computing resources.
+
+<TableContainer sx={{ my: 3, border: 1, borderColor: 'divider', borderRadius: 3, bgcolor: 'background.paper' }}>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Workload Examples</TableCell>
+        <TableCell>Why HTC?</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {[
+        ['🧬 Genomics', 'Samples can be analyzed independently.'],
+        ['🖼️ Image Processing', 'Each image can be processed separately.'],
+        ['🤖 Machine Learning', 'Training runs or model settings can be tested at the same time.'],
+        ['🔬 Parameter Sweeps', 'Each set of parameters can run as its own job.'],
+      ].map(([name, why]) => (
+        <TableRow key={name}>
+          <TableCell sx={{ whiteSpace: 'nowrap' }}>{name}</TableCell>
+          <TableCell>{why}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+</TableContainer>
+
+### Where did HTC come from?
+
+The concept of **High Throughput Computing (HTC)** was developed by researchers at the University of Wisconsin-Madison in the 1990s.
+
+<Figure
+  src='/images/team/team_photos/team-1998.jpg'
+  alt='Members of the HTCondor team in 1998'
+  width={696}
+  height={476}
+  maxWidth={600}
+  caption='The HTCondor team in 1998, during the early development of High Throughput Computing.'
+/>
+
+At the time, much of the computing community focused on High Performance Computing (HPC) and measuring how quickly a computer could perform calculations using a metric called *floating point operations per second (FLOPS)*.
+
+Researchers recognized that some scientists cared less about the number operations the environment can provide them per second or minute and more about how many operations can be completed per month or per year. This idea led to the development of High Throughput Computing (HTC).
+
+In 1996, researchers first explained the difference between High Throughput Computing (HTC) and High Performance Computing (HPC) during a [seminar](https://web.archive.org/web/20000229050436/http://cesdis.gsfc.nasa.gov/admin/cesdis.seminars/71196.html) at NASA's Goddard Space Flight Center and CERN. In 1997, HPCWire published an [interview](https://www.hpcwire.com/1997/06/27/high-throughput-computing-an-interview-with-miron-livny) on High Throughput Computing.
+
+### Ongoing work at CHTC
+
+Today, the [Center for High Throughput Computing (CHTC)](/) continues to build on the principles of High Throughput Computing and help researchers around the world accomplish more scientific work. CHTC is the home of the [HTCondor Software Suite](https://htcondor.org/) and [Pelican Platform](https://pelicanplatform.org/), two technologies that support HTC on large collections of heterogeneous computing resources that are distributed in both location and ownership. CHTC was also the original home of the term Research Computing Facilitation, a methodology developed to support end-users of computing approaches like HTC.
+
+* Learn more about our technologies: [Our Technologies](/technologies/)
+* See CHTC's research in HTC: [Our Research](/research/)

@@ -1,0 +1,34 @@
+- name: Guides
+  large: true
+  links:
+  - text: HTC Guides
+    url: htc/guides.html
+    icon: "bi bi-book"
+    description: |
+      Guides for the High Throughput Computing (HTC) system.
+  - text: HPC Guides
+    url: hpc/guides.html
+    icon: "bi bi-book"
+    description: |
+      Guides for the High Performance Computing (HPC) system.
+- name: Featured learning resources
+  # Cards come from _data/learning-resources.yml: entries marked `featured: true`,
+  # most recently updated first. `limit` caps how many are shown (default 3).
+  source: learning-resources
+  limit: 3
+  more:
+    text: See all learning resources
+    url: /uw-research-computing/learning-resources.html
+- name: Interactive computing
+  large: true
+  links:
+  - text: OpenOnDemand
+    url: https://ondemand.chtc.wisc.edu
+    icon: "bi bi-box-arrow-up-right"
+    description: |
+      Web-based interface to the HPC system.
+  - text: BadgerCompute
+    url: https://badgercompute.wisc.edu
+    icon: "bi bi-box-arrow-up-right"
+    description: |
+      Jupyter-based interactive computing.

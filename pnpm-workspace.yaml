@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+  sharp: false
+  unrs-resolver: false
+minimumReleaseAgeExclude:
+  - '@chtc/web-components'
+patchedDependencies:
+  next-image-export-optimizer@1.20.1: patches/next-image-export-optimizer@1.20.1.patch

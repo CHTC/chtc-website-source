@@ -33,3 +33,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# migration comparison output
+/migration-missing.txt
+
+# Claude
+.claude
+
+# Jetbrains
+.idea
+
+# Generated Images
+**/nextImageExportOptimizer/**
+**/next-image-export-optimizer-hashes.json
+/remoteImagesForOptimization/
+
+# Remote image manifest, written during `next build`
+/.remote-images.json
+/.remote-images/
+/.build-lock/

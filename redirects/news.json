@@ -1,0 +1,4 @@
+[
+  { "source": "/news.html", "destination": "/news/", "text": "News" },
+  { "source": "/news-navigation.html", "destination": "/news/", "text": "News" }
+]

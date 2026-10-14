@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import {Close, Forum, Menu} from "@mui/icons-material";
+import {Close, Menu} from "@mui/icons-material";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -37,7 +37,7 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 						aria-controls="menu-appbar"
 						aria-haspopup="true"
 						onClick={handleDrawerOpen}
-						color="inherit"
+						sx={{ color: 'text.primary' }}
 					>
 						<Menu />
 					</IconButton>
@@ -58,10 +58,10 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 					onKeyDown={handleDrawerClose}
 				>
 					<List sx={{pt: 0}}>
-						<Box bgcolor={'primary.main'} mb={3}>
+						<Box sx={{ bgcolor: 'common.white', borderBottom: 1, borderColor: 'divider' }} mb={2}>
 							<ListItem>
 								<Title />
-								<IconButton onClick={handleDrawerClose} sx={{marginLeft: 'auto', color: 'primary.contrastText'}}>
+								<IconButton onClick={handleDrawerClose} sx={{marginLeft: 'auto', color: 'text.primary'}} aria-label="close navigation menu">
 									<Close />
 								</IconButton>
 							</ListItem>
@@ -83,7 +83,13 @@ const MobileNavigationItem = ({ page }: { page: NavigationItem }) => {
   if (page.children && page.children.length > 0) {
     return <MobileNavigationFolder page={page} />;
   } else {
-		const href = `${page.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}/`
+		const raw = page.path ?? '';
+		const isExternal = /^https?:\/\//.test(raw);
+		// Internal paths get a trailing slash (matches `trailingSlash` export);
+		// external URLs are used verbatim.
+		const href = isExternal
+			? raw
+			: `${raw.replace(/\.mdx?$|\/index\.md$/, '').replace(/\/$/, '')}/`;
     return (
 			<Link href={href} color="inherit" underline={'none'}>
 				<ListItem disablePadding>

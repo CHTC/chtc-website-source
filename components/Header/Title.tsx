@@ -1,15 +1,16 @@
-import Link from "@mui/material/Link";
+import NextLink from "next/link";
+import Box from "@mui/material/Box";
 import Icon from "@/components/Header/Icon";
-import Typography from "@mui/material/Typography";
-import React from "react";
 
 const Title = () => (
-	<Link href={"/"} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={{lg: 3, xs: 1}} component={'a'}>
+	<Box
+		component={NextLink}
+		href="/"
+		aria-label="CHTC home"
+		sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: { lg: 3, xs: 1 }, py: 1 }}
+	>
 		<Icon />
-		<Typography variant="h4" sx={{color: 'primary.contrastText'}}>
-			BadgerCompute
-		</Typography>
-	</Link>
+	</Box>
 )
 
 export default Title;

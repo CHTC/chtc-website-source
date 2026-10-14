@@ -1,0 +1,123 @@
+[
+  {
+    "College": "Agricultural and Life Sciences",
+    "NumUsers": 189,
+    "NumProj": 98,
+    "NumDep": 14,
+    "HTCHours": 45364270,
+    "HPCHours": 1673382,
+    "HTCYears": 5179,
+    "HPCYears": 191,
+    "CollegeURL": "https:\/\/cals.wisc.edu\/"
+  },
+  {
+    "College": "Business",
+    "NumUsers": 3,
+    "NumProj": 3,
+    "NumDep": 3,
+    "HTCHours": 281528,
+    "HPCHours": 0,
+    "HTCYears": 32,
+    "HPCYears": 0,
+    "CollegeURL": "https:\/\/business.wisc.edu\/"
+  },
+  {
+    "College": "Education",
+    "NumUsers": 11,
+    "NumProj": 5,
+    "NumDep": 1,
+    "HTCHours": 1574322,
+    "HPCHours": 0,
+    "HTCYears": 180,
+    "HPCYears": 0,
+    "CollegeURL": "https:\/\/education.wisc.edu\/"
+  },
+  {
+    "College": "Engineering",
+    "NumUsers": 319,
+    "NumProj": 109,
+    "NumDep": 10,
+    "HTCHours": 26311885,
+    "HPCHours": 48426674,
+    "HTCYears": 3004,
+    "HPCYears": 5528,
+    "CollegeURL": "https:\/\/engineering.wisc.edu\/"
+  },
+  {
+    "College": "Institute for Environmental Studies",
+    "NumUsers": 6,
+    "NumProj": 4,
+    "NumDep": 1,
+    "HTCHours": 11333,
+    "HPCHours": 0,
+    "HTCYears": 1,
+    "HPCYears": 0,
+    "CollegeURL": "https:\/\/nelson.wisc.edu\/"
+  },
+  {
+    "College": "Law",
+    "NumUsers": 1,
+    "NumProj": 1,
+    "NumDep": 1,
+    "HTCHours": 38,
+    "HPCHours": 0,
+    "HTCYears": 0,
+    "HPCYears": 0,
+    "CollegeURL": "https:\/\/law.wisc.edu\/"
+  },
+  {
+    "College": "Letters and Sciences",
+    "NumUsers": 529,
+    "NumProj": 204,
+    "NumDep": 22,
+    "HTCHours": 51632230,
+    "HPCHours": 10684323,
+    "HTCYears": 5894,
+    "HPCYears": 1220,
+    "CollegeURL": "https:\/\/ls.wisc.edu\/"
+  },
+  {
+    "College": "Medicine and Public Health",
+    "NumUsers": 196,
+    "NumProj": 91,
+    "NumDep": 19,
+    "HTCHours": 26727079,
+    "HPCHours": 944963,
+    "HTCYears": 3051,
+    "HPCYears": 108,
+    "CollegeURL": "https:\/\/www.med.wisc.edu\/"
+  },
+  {
+    "College": "Off-Campus Collaborations",
+    "NumUsers": 92,
+    "NumProj": 37,
+    "NumDep": 14,
+    "HTCHours": 3270417,
+    "HPCHours": 10618970,
+    "HTCYears": 373,
+    "HPCYears": 1212,
+    "CollegeURL": ""
+  },
+  {
+    "College": "Pharmacy",
+    "NumUsers": 6,
+    "NumProj": 4,
+    "NumDep": 2,
+    "HTCHours": 84188,
+    "HPCHours": 43888,
+    "HTCYears": 10,
+    "HPCYears": 5,
+    "CollegeURL": "https:\/\/pharmacy.wisc.edu\/"
+  },
+  {
+    "College": "Veterinary Medicine",
+    "NumUsers": 8,
+    "NumProj": 8,
+    "NumDep": 3,
+    "HTCHours": 182604,
+    "HPCHours": 205,
+    "HTCYears": 21,
+    "HPCYears": 0,
+    "CollegeURL": "https:\/\/uwveterinarycare.wisc.edu\/"
+  }
+]

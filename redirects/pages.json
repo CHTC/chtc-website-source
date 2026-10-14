@@ -1,0 +1,15 @@
+[
+  { "source": "/about.html", "destination": "/about/", "text": "About" },
+  { "source": "/approach.html", "destination": "/approach/", "text": "Our Approach" },
+  { "source": "/htc.html", "destination": "/htc/", "text": "What is High Throughput Computing?" },
+  { "source": "/talk-to-us.html", "destination": "/talk-to-us/", "text": "Talk to Us" },
+  { "source": "/technologies.html", "destination": "/technologies/", "text": "Technologies" },
+  { "source": "/services.html", "destination": "/services/", "text": "Services" },
+  { "source": "/research-facilitation.html", "destination": "/research-facilitation/", "text": "Research Facilitation" },
+  { "source": "/branding.html", "destination": "/branding/", "text": "CHTC Branding" },
+  { "source": "/icon_credits.html", "destination": "/icon_credits/", "text": "Icon Credits" },
+  { "source": "/newsletter.html", "destination": "/newsletter/", "text": "HTC Newsletter" },
+  { "source": "/faculty-resources.html", "destination": "/faculty-resources/", "text": "Resources for Faculty and PIs" },
+  { "source": "/past_team_pictures.html", "destination": "/past_team_pictures/", "text": "HTCondor Team Pictures" },
+  { "source": "/HTC24.html", "destination": "/HTC24/", "text": "Save the Dates for Throughput Computing 2024" }
+]

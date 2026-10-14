@@ -1,0 +1,42 @@
+nav_items:
+  - id: get-started
+    name: Get Started
+    url: /uw-research-computing/form.html
+  - id: user-portal
+    name: User Portal
+    url: /uw-research-computing/user-portal
+  - id: menu-how-tos
+    name: How To's
+    url: /uw-research-computing/how-tos.html
+    sub_menu:
+      - url: /uw-research-computing/user-expectations.html
+        name: User Expectations
+      - url: /uw-research-computing/htc/guides.html
+        name: HTC Guides
+      - url: /uw-research-computing/hpc/guides.html
+        name: HPC Guides
+      - url: /uw-research-computing/cite-chtc.html
+        name: Cite CHTC Resources
+  - id: get-help
+    name: Get Help
+    url: /uw-research-computing/get-help.html
+  - id: menu-other-resources
+    name: Other Resources
+    url: /uw-research-computing/other-resources.html
+    sub_menu:
+      - url: "https://community.chtc.wisc.edu/"
+        name: CHTC Community Forum
+      - url: /uw-research-computing/bioinformatics-cafe
+        name: Bioinformatics Cafe
+      - url: /uw-research-computing/gpu-lab.html
+        name: CHTC GPU Lab
+      - url: "https://htcondor.org/manual/"
+        name: HTCondor Project
+      - url: http://www.neos-server.org/
+        name: NEOS Optimization Service
+      - url: http://www.osg-htc.org/
+        name: OSG Consortium
+      - url: http://wid.wisc.edu/
+        name: WID (Wisconsin Institute for Discovery)
+
+

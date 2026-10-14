@@ -1,0 +1,12 @@
+title: Phil Townsend
+image: /images/townsend.jpg
+description: >
+  Professor <strong>Phil Townsend</strong> of Forestry and Wildlife Ecology says
+  Our research (NASA & USDA Forest Service funded) strives to understand the outbreak
+  dynamic of major forest insect pests in North America through simulation modeling.
+  As part of this effort, we map forest species and their abundance using multi-temporal
+  Landsat satellite data. My colleagues have written an automatic variable selection
+  routine in MATLAB to preselect the most important image variables to model and map
+  forest species abundance. However, depending on the number of records and the initial
+  variables, this process can take weeks to run.  Hence, we seek resources to speed up
+  this process.
