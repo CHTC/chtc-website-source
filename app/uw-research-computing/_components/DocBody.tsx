@@ -4,7 +4,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import type { MDXComponents } from 'mdx/types';
 import { extractMarkdownImageUrls, recordRemoteImages } from '@/utils/remoteImages';
-import { docExcerpt, docHeadings, getDocs, type Doc } from '../_lib/docs';
+import { docExcerpt, getDocs, type Doc } from '../_lib/docs';
 import { docComponents } from './docComponents';
 import ExcerptTabs from './ExcerptTabs';
 
@@ -49,7 +49,7 @@ const DocExcerptTabs = async ({ flag, more }: { flag: 'software_icon' | 'basic_s
   }));
   const panels = await Promise.all(
     // Heading ids kept: the legacy page carried them too (`#quickstart-python`).
-    docs.map((doc) => render(docExcerpt(doc), docComponents([])))
+    docs.map((doc) => render(docExcerpt(doc), docComponents()))
   );
   return <ExcerptTabs tabs={tabs} panels={panels} />;
 };
@@ -58,7 +58,7 @@ const DocExcerptTabs = async ({ flag, more }: { flag: 'software_icon' | 'basic_s
 const DocBody = async ({ doc }: { doc: Doc }) => {
   recordRemoteImages(extractMarkdownImageUrls(doc.content));
   const components: MDXComponents = {
-    ...docComponents(docHeadings(doc)),
+    ...docComponents(),
     ExcerptTabs: DocExcerptTabs,
   };
   return <div className='chtc-doc'>{await render(doc.content, components)}</div>;

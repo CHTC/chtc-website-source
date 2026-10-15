@@ -2,7 +2,6 @@ import type { CSSProperties, ReactNode } from 'react';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Link, Typography } from '@mui/material';
 import type { MDXComponents } from 'mdx/types';
-import type { DocHeading } from '../_lib/docs';
 import {
   Button,
   ButtonRow,
@@ -14,7 +13,6 @@ import {
   File,
   Footnote,
   MiniBar,
-  TableOfContents,
   Terminal,
   Tip,
 } from './DocBlocks';
@@ -123,9 +121,8 @@ const heading =
 /**
  * The components a documentation page is rendered with: the markdown
  * elements restyled with MUI, and the blocks the MDX can use by name.
- * `headings` feeds this page's `<TableOfContents />`.
  */
-export function docComponents(headings: DocHeading[]): MDXComponents {
+export function docComponents(): MDXComponents {
   return {
     h1: heading('h2', 'h4'),
     h2: heading('h3', 'h5'),
@@ -164,7 +161,6 @@ export function docComponents(headings: DocHeading[]): MDXComponents {
     Column,
     Cards,
     Card,
-    TableOfContents: () => <TableOfContents headings={headings} />,
 
     GpuTable,
     FacilitatorGrid,

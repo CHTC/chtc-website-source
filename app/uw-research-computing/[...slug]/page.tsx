@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { listingMetadata } from '@/utils/metadata';
 import DocBody from '../_components/DocBody';
 import DocLayout from '../_components/DocLayout';
-import { getDoc, getDocs, sidebarMenus } from '../_lib/docs';
+import { docHeadings, getDoc, getDocs, sidebarMenus } from '../_lib/docs';
 
 type Params = Promise<{ slug: string[] }>;
 
@@ -25,7 +25,12 @@ export default async function Page({ params }: { params: Params }) {
   if (!doc) notFound();
 
   return (
-    <DocLayout title={doc.data.title} width={doc.data.width} menus={sidebarMenus(doc)}>
+    <DocLayout
+      title={doc.data.title}
+      width={doc.data.width}
+      menus={sidebarMenus(doc)}
+      headings={docHeadings(doc)}
+    >
       <DocBody doc={doc} />
     </DocLayout>
   );

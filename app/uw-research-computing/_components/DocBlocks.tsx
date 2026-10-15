@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-import { Box, Button as MuiButton, Link, List, ListItem, Paper, Typography } from '@mui/material';
-import type { DocHeading } from '../_lib/docs';
+import { Box, Button as MuiButton, Paper, Typography } from '@mui/material';
 
 /*
  * The building blocks the documentation MDX is written with. They replace
@@ -166,44 +165,3 @@ export const Card = ({ icon, title, children }: { icon?: string; title: string; 
     <Box sx={{ textAlign: 'left', '& > :last-child': { mb: 0 } }}>{children}</Box>
   </Paper>
 );
-
-/**
- * The page's table of contents, generated from its headings (the legacy
- * `components/directory.html` box, which every guide wrote out by hand).
- */
-export const TableOfContents = ({ headings }: { headings: DocHeading[] }) => {
-  if (headings.length === 0) return null;
-  const top = headings[0].depth;
-  return (
-    <Box
-      component='nav'
-      aria-label='Table of contents'
-      sx={{
-        display: 'inline-block',
-        minWidth: 'min(100%, 22rem)',
-        maxWidth: '100%',
-        mb: 4,
-        px: 3,
-        pt: 2,
-        pb: 1.5,
-        bgcolor: '#f7f7f7',
-        borderLeft: 4,
-        borderColor: 'primary.main',
-        borderRadius: '0 6px 6px 0',
-      }}
-    >
-      <Typography sx={{ fontWeight: 700, fontSize: '1.1rem', mb: 1 }}>Table of Contents</Typography>
-      <List dense disablePadding sx={{ listStyle: 'disc', pl: 2.5 }}>
-        {headings.map((heading) => (
-          <ListItem
-            key={heading.id}
-            disableGutters
-            sx={{ display: 'list-item', py: 0.25, pl: heading.depth > top ? 3 : 0 }}
-          >
-            <Link href={`#${heading.id}`}>{heading.text}</Link>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-};

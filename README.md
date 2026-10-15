@@ -20,7 +20,7 @@ pnpm dev
 pnpm build
 ```
 
-`pnpm build` runs, in order: `prebuild` (clears the remote-image manifest shards), `next build` (static export into `out/`), then `postbuild` which validates every remote image the pages recorded, generates the optimised image variants (`next-image-export-optimizer`), writes the sitemap, and emits a meta-refresh stub for every legacy URL (`static-redirects.json` + `redirects/*.json` + rules computed from the content repositories).
+`pnpm build` runs, in order: `prebuild` (clears the remote-image manifest shards), `next build` (static export into `out/`), then `postbuild` which validates every remote image the pages recorded, generates the optimised image variants (`next-image-export-optimizer`), writes the sitemap, emits a meta-refresh stub for every legacy URL (`static-redirects.json` + `redirects/*.json` + rules computed from the content repositories), and writes `llms.txt` and `llms-full.txt` (an index and the full Markdown text of the campus computing guides, for LLM consumption; `scripts/llms-full.mjs`).
 
 `npx next build` on its own skips pre/postbuild; use `pnpm build` whenever images, redirects or the sitemap matter.
 
@@ -78,7 +78,7 @@ MDX is GitHub-flavored markdown plus components, so:
 
 - **Links are absolute and end with a slash**: `/uw-research-computing/gpu-jobs/`. Anchors still work: `/uw-research-computing/gpu-jobs/#b-submit-jobs-using-gpus-in-chtc`.
 - **Headings** in the body start at `#`. The page title comes from the frontmatter and is the page's only `<h1>`; every heading in the body is rendered one level down, and each gets an `id` generated from its text.
-- **Table of contents.** Write `<TableOfContents />` where it should appear; it lists the page's top two heading levels. Nothing to keep in sync.
+- **Table of contents.** Every page gets an "On this page" list of its top two heading levels beside the body, generated from the headings. Nothing to write or keep in sync.
 - **Code blocks** use normal fences and are syntax highlighted. A `condor` fence is highlighted as a submit file. Wrap a fence in `<Terminal>` for a terminal session (dark) or `<File>` for a file's contents (blue rule); plain fences are for everything else.
 - **Callouts** are `<Tip header="Note about NetIDs">…</Tip>`; leave out `header` for a plain box.
 - **Other blocks**: `<Button href="…">` inside `<ButtonRow>`, `<Columns>` of `<Column>` (`accent` for the red rule, `width="30%"` for a fixed share), `<Cards>` of `<Card icon="…" title="…">`, `<MiniBar>` around a heading, `<CommandTable>` around a command table, `<Footnote>` under a table. Data-driven pieces are `<GpuTable owner="campus" />`, `<UpcomingEvents tag="…" limit={2} />`, `<ExcerptTabs flag="software_icon" more />` and `<FacilitatorGrid />`. All of them live in `app/uw-research-computing/_components/DocBlocks.tsx`.

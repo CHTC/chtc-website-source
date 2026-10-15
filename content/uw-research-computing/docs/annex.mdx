@@ -8,10 +8,6 @@ category: Special use cases
 
 HTCondor Annex lets you use resources from an external HPC allocation to run jobs submitted through your CHTC Access Point. This guide walks through creating an annex, transferring its setup files to [Expanse@SDSC](https://www.sdsc.edu/systems/expanse/), and launching GPU execution points through Slurm.
 
-
-<TableOfContents />
-
-
 > **Under development:** This guide and the HTCondor Annex workflow are actively being developed. Commands and configuration details may change. Please contact the CHTC facilitation team before getting started.
 
 Use an HTCondor Annex to make resources from your Expanse allocation available to jobs submitted from your CHTC Access Point. This example creates an annex named `my_annex` using a Slurm array of 24 jobs, each requesting one GPU, one CPU, and 32 GB of memory.
