@@ -1,0 +1,433 @@
+---
+title: Writing Documentation
+description: How the Campus Computing guides are written, where the files live, what goes in the frontmatter, and every building block with an example of how it renders.
+sidebar:
+  - staff
+noindex: true
+---
+
+The guides under `/uw-research-computing/` are MDX files in the website repository:
+GitHub-flavored Markdown plus a small set of components for the things plain Markdown cannot
+express, such as callouts, terminal sessions and side-by-side columns. This page is itself an
+MDX file, so every example below is rendered by the real thing.
+
+<Tip header="Where things live">
+
+- Guides: `content/uw-research-computing/docs/<name>.mdx` in the
+  [chtc-website-nextjs](https://github.com/CHTC/chtc-website-nextjs) repository. The file path
+  is the URL: `docs/gpu-jobs.mdx` is `/uw-research-computing/gpu-jobs/`, and `docs/htc/foo.mdx`
+  would be `/uw-research-computing/htc/foo/`.
+- Sidebar menus: `content/uw-research-computing/menus/htc-guide-menu.yml`, `hpc-guide-menu.yml`
+  and `staff-guide-menu.yml`.
+- Images: `public/images/`, referenced as `/images/...`.
+- The components themselves: `app/uw-research-computing/_components/DocBlocks.tsx`.
+
+</Tip>
+
+## Adding a guide
+
+1. Create `content/uw-research-computing/docs/<name>.mdx`. Use a short, lowercase, hyphenated
+   name; it becomes the URL.
+2. Start the file with frontmatter (see the next section). At minimum: `title`, `description`
+   and `sidebar`.
+3. Write the body. Headings start at `#` or `##`; the page title is rendered from the
+   frontmatter as the only `<h1>`, and every heading in the body is rendered one level down.
+4. Add the page to a sidebar menu so people can find it. The entry goes under one of the
+   sections in `htc-guide-menu.yml` or `hpc-guide-menu.yml`:
+
+   ```yaml
+   - text: "Submit jobs"
+     icon: Send
+     links:
+       - text: "My New Guide"
+         url: "/uw-research-computing/my-new-guide"
+   ```
+
+   The same YAML builds the HTC Guides and HPC Guides index pages, so the guide appears there
+   automatically. A guide listed in both menus shows just the sidebar it was reached from.
+5. Run the checks before opening a pull request:
+
+   ```shell
+   npx tsx scripts/check-docs.mts   # compiles every guide, reports every error at once
+   pnpm build                       # the full site
+   ```
+
+   Every pull request runs the build in GitHub Actions too, so a bad file is caught before
+   it is merged.
+
+Renaming or removing a guide changes its URL. Add the old URL to `redirects/docs.json` so
+existing links keep working; the build writes a redirect page for every entry.
+
+## Frontmatter
+
+The frontmatter is validated when the site builds. An unknown field or a wrong type fails the
+build and names the file, so typos cannot slip through.
+
+```yaml
+---
+title: Use GPUs
+description: How to request GPUs on the HTC system, which GPUs are available, and how to prepare software that uses them.
+sidebar:
+  - htc
+category: Special use cases
+---
+```
+
+| Field | Meaning |
+| --- | --- |
+| `title` | The page title, rendered as the `<h1>` and used in the browser tab. |
+| `description` | One or two sentences. Used for the meta description, search previews and the LLM index. |
+| `sidebar` | `[htc]`, `[hpc]`, `[htc, hpc]` or `[staff]`: which sidebars the page shows. Leave it out for a standalone page. |
+| `category`, `order` | Where the guide sits among the guides. Informational. |
+| `width` | `narrow` for long-form prose with no sidebar. |
+| `noindex` | `true` keeps the page out of search engines, the sitemap and the LLM export. Every page in `staff/` sets it. |
+| `software`, `software_icon`, `basic_scripting`, `icon`, `alt_title` | Used only by the software overview and basic-scripting tabs; see `<ExcerptTabs />` below. |
+
+## Markdown
+
+Everything in GitHub-flavored Markdown works: paragraphs, `**bold**`, `_italic_`, lists,
+links, images, tables, fenced code and blockquotes.
+
+### Headings and the table of contents
+
+Each heading gets an `id` made from its text, so `[link](#headings-and-the-table-of-contents)`
+jumps to this one. The "On this page" list beside every guide is generated from the top two
+heading levels. There is nothing to write or keep in sync.
+
+### Links
+
+Links to other pages on the site are absolute and end with a slash:
+`[GPU guide](/uw-research-computing/gpu-jobs/)`. Anchors work too:
+`/uw-research-computing/gpu-jobs/#b-submit-jobs-using-gpus-in-chtc`.
+
+### Code
+
+Fenced code is syntax highlighted by the language after the opening fence. `condor` highlights
+a submit file; `shell`, `python`, `r`, `yaml` and the other usual names work as expected.
+
+````markdown
+```condor
+executable = run.sh
+request_cpus = 1
+queue
+```
+````
+
+renders as
+
+```condor
+executable = run.sh
+request_cpus = 1
+queue
+```
+
+Two components dress a fence up for its content. `<Terminal>` is for a session at the prompt,
+and `<File>` for the contents of a file. Leave a blank line after the opening tag and before
+the closing one, as with every block component.
+
+````markdown
+<Terminal>
+
+```
+[alice@ap2001 ~]$ condor_q
+```
+
+</Terminal>
+
+<File>
+
+```shell
+#!/bin/bash
+python3 analyze.py "$1"
+```
+
+</File>
+````
+
+<Terminal>
+
+```
+[alice@ap2001 ~]$ condor_q
+```
+
+</Terminal>
+
+<File>
+
+```shell
+#!/bin/bash
+python3 analyze.py "$1"
+```
+
+</File>
+
+### Tables
+
+Tables need a header row and a separator line. Wrap a command reference in `<CommandTable>`
+to give the first two columns room, and put a note under a table in `<Footnote>`.
+
+````markdown
+<CommandTable>
+
+| Command | Use | Notes |
+| --- | --- | --- |
+| `condor_q` | List your jobs | Add `-nobatch` for one line per job |
+| `condor_rm <JobID>` | Remove a job | `condor_rm $USER` removes all of yours |
+
+</CommandTable>
+
+<Footnote>Job IDs look like `12345.0`.</Footnote>
+````
+
+<CommandTable>
+
+| Command | Use | Notes |
+| --- | --- | --- |
+| `condor_q` | List your jobs | Add `-nobatch` for one line per job |
+| `condor_rm <JobID>` | Remove a job | `condor_rm $USER` removes all of yours |
+
+</CommandTable>
+
+<Footnote>Job IDs look like `12345.0`.</Footnote>
+
+A table cell cannot hold a code block. For a multi-line snippet in a cell, join backticked
+lines with `<br />`.
+
+### Images
+
+Put images in `public/images/` and reference them from the root. Images under `/images/` are
+optimized at build time (resized, converted to WebP, given a blur placeholder); keep the
+original at a sensible size anyway, roughly 1,200 pixels wide at most.
+
+```markdown
+![Node A with an arrow pointing to Node B](/images/docs/simple-DAG_fig.png)
+
+<img src="/images/docs/simple-DAG_fig.png" alt="The same figure, 240 pixels wide" width="240" />
+```
+
+![Node A with an arrow pointing to Node B](/images/docs/simple-DAG_fig.png)
+
+<img src="/images/docs/simple-DAG_fig.png" alt="The same figure, 240 pixels wide" width="240" />
+
+The `<img>` form takes a `width` to render smaller than the column.
+
+## Callouts
+
+`<Tip>` is the box for notes, warnings and asides. Give it a `header` for a title bar, or
+leave it out for a plain box. Markdown inside works as usual.
+
+```markdown
+<Tip header="Before you start">
+
+You need a CHTC account. [Request one](/uw-research-computing/form/) if you do not have one.
+
+</Tip>
+
+<Tip>
+
+A box with no title.
+
+</Tip>
+```
+
+<Tip header="Before you start">
+
+You need a CHTC account. [Request one](/uw-research-computing/form/) if you do not have one.
+
+</Tip>
+
+<Tip>
+
+A box with no title.
+
+</Tip>
+
+## Buttons
+
+`<Button href="...">` is a call-to-action link. Put one or more inside `<ButtonRow>` to center
+them.
+
+```markdown
+<ButtonRow>
+
+<Button href="/uw-research-computing/form/">Request an account</Button>
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+
+</ButtonRow>
+```
+
+<ButtonRow>
+
+<Button href="/uw-research-computing/form/">Request an account</Button>
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+
+</ButtonRow>
+
+## Layout
+
+### Columns
+
+`<Columns>` lays `<Column>`s side by side; they stack on phones. `accent` draws the red rule on
+the left, `width="30%"` gives a column a fixed share, and `align="center"` centers its text.
+
+```markdown
+<Columns>
+
+<Column>
+
+#### When
+
+Third Thursday of each month, 3:00 to 4:30 PM.
+
+</Column>
+
+<Column accent>
+
+#### Where
+
+Morgridge Hall, Room 6631.
+
+</Column>
+
+</Columns>
+```
+
+<Columns>
+
+<Column>
+
+#### When
+
+Third Thursday of each month, 3:00 to 4:30 PM.
+
+</Column>
+
+<Column accent>
+
+#### Where
+
+Morgridge Hall, Room 6631.
+
+</Column>
+
+</Columns>
+
+### Cards
+
+`<Cards>` is a grid of `<Card>`s, each with an optional icon image and a title.
+
+```markdown
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+<Card icon="/uw-research-computing/guide-icons/noun_people_1188645.png" title="Expertise">
+
+A community of technical experts.
+
+</Card>
+
+</Cards>
+```
+
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+<Card icon="/uw-research-computing/guide-icons/noun_people_1188645.png" title="Expertise">
+
+A community of technical experts.
+
+</Card>
+
+</Cards>
+
+### Section headings with the UW bar
+
+`<MiniBar>` around a heading draws the short red rule above it, as on the Get Help page.
+
+```markdown
+<MiniBar>
+
+#### Email support
+
+</MiniBar>
+```
+
+<MiniBar>
+
+#### Email support
+
+</MiniBar>
+
+### Collapsed sections
+
+Plain `<details>` works for a section the reader opens on demand. Leave a blank line after the
+`<summary>` line so the body is parsed as Markdown.
+
+```markdown
+<details>
+<summary><strong>What should I bring?</strong></summary>
+
+Your laptop, project notes, and (if available) small test inputs.
+
+</details>
+```
+
+<details>
+<summary><strong>What should I bring?</strong></summary>
+
+Your laptop, project notes, and (if available) small test inputs.
+
+</details>
+
+## Data-driven pieces
+
+These pull in data at build time, so the page never goes stale.
+
+`<GpuTable owner="campus" />` renders the GPU servers from `data/gpus.yaml` with that owner:
+
+<GpuTable owner="campus" />
+
+`<UpcomingEvents tag="bioinformatics-cafe" limit={2} />` lists the next events carrying a
+tag from the events repository. Note the braces around the number. With no upcoming events it
+renders nothing:
+
+<UpcomingEvents tag="bioinformatics-cafe" limit={2} />
+
+`<ExcerptTabs flag="software_icon" more />` shows one tab per guide whose frontmatter sets the
+flag, each with that guide's excerpt (everything above a `{/* more */}` line, or its first
+paragraph). The software overview and basic-scripting pages use it. `<FacilitatorGrid />` is
+the facilitation team's photo grid from the staff list.
+
+## Things MDX is strict about
+
+MDX reads anything that looks like a tag or an expression as code, so a few characters need
+care outside of backticks and fences:
+
+- A `<` that is not a tag must be escaped: `\<1 GB`, `\<~10 hours`. Placeholders such as
+  `<JobID>` are fine inside backticks.
+- Braces must be escaped: `\{` and `\}`.
+- HTML must be valid JSX: `className` not `class`; `style={{ maxWidth: '60%' }}` not a
+  string; `<br />` and `<img ... />` self-closed; `{/* comment */}` instead of `<!-- -->`.
+- Blank lines around the contents of every block component, or the Markdown inside is
+  treated as inline text.
+- Indented code blocks are not supported; use fences.
+
+`npx tsx scripts/check-docs.mts` reports every problem across every guide in one run.
+
+## Icons in menus
+
+The `icon` on a menu section or link names a Material icon. The available names are in
+`components/GuideSidebar/GuideIcon.tsx`: `AccountTree`, `AssignmentTurnedIn`, `Computer`,
+`Description`, `Folder`, `GitHub`, `HelpOutline`, `Link`, `Memory`, `MenuBook`, `OpenInNew`,
+`RocketLaunch`, `Send` and `Star`. An unknown name fails the build; to add one, import it from
+`@mui/icons-material` in that file.

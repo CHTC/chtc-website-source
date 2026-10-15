@@ -1,0 +1,13 @@
+# Internal how-tos for CHTC staff. These pages are not indexed by search
+# engines (`noindex: true` in their frontmatter) and are not in the llms export.
+- text: "Staff docs"
+  icon: Folder
+  links:
+    - text: "Overview"
+      url: "/uw-research-computing/staff"
+    - text: "Writing documentation"
+      url: "/uw-research-computing/staff/writing-documentation"
+    - text: "Adding news articles"
+      url: "/uw-research-computing/staff/adding-news-articles"
+    - text: "Schedule calendar"
+      url: "/uw-research-computing/staff/schedule-calendar"
