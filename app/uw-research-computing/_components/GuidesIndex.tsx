@@ -87,7 +87,7 @@ const GuidesIndex = ({ title, sections }: { title: string; sections: MenuSection
           </Paper>
         ))}
       </Box>
-      <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+      <Box data-pagefind-ignore sx={{ display: { xs: 'none', lg: 'block' } }}>
         <Box sx={{ position: 'sticky', top: STICKY_TOP }}>
           <Typography component='h2' variant='h6' sx={{ mb: 1 }}>
             Guide Sections

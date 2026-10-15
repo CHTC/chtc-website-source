@@ -2,6 +2,7 @@
 
 import React, {useState} from "react";
 import Toolbar from "@mui/material/Toolbar";
+import SiteSearch from '@/components/SiteSearch';
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import {Close, Menu} from "@mui/icons-material";
@@ -44,6 +45,9 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 				</Grid>
 				<Grid size={'auto'}>
 					<Title />
+				</Grid>
+				<Grid size={'auto'}>
+					<SiteSearch variant="dialog" />
 				</Grid>
 			</Grid>
 			<Drawer

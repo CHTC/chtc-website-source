@@ -31,6 +31,7 @@ export default async function Page({ params }: { params: Params }) {
       width={doc.data.width}
       menus={sidebarMenus(doc)}
       headings={docHeadings(doc)}
+      searchable={!doc.data.noindex}
     >
       <DocBody doc={doc} />
     </DocLayout>

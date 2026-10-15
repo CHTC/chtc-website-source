@@ -95,7 +95,10 @@ export default function RootLayout({
           <CssBaseline />
           <Box component={"body"} sx={{ margin: 0, padding: 0, bgcolor: 'background.default', color: 'text.primary', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 						<Header pages={pages} />
-						{children}
+						{/* What Pagefind indexes: the page, minus the header and footer. */}
+						<Box data-pagefind-body sx={{ display: 'contents' }}>
+							{children}
+						</Box>
             <Footer />
           </Box>
         </ThemeProvider>

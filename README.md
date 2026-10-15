@@ -20,7 +20,7 @@ pnpm dev
 pnpm build
 ```
 
-`pnpm build` runs, in order: `prebuild` (clears the remote-image manifest shards), `next build` (static export into `out/`), then `postbuild` which validates every remote image the pages recorded, generates the optimised image variants (`next-image-export-optimizer`), writes the sitemap, emits a meta-refresh stub for every legacy URL (`static-redirects.json` + `redirects/*.json` + rules computed from the content repositories), and writes `llms.txt` and `llms-full.txt` (an index and the full Markdown text of the campus computing guides, for LLM consumption; `scripts/llms-full.mjs`).
+`pnpm build` runs, in order: `prebuild` (clears the remote-image manifest shards), `next build` (static export into `out/`), then `postbuild` which validates every remote image the pages recorded, generates the optimised image variants (`next-image-export-optimizer`), writes the sitemap, emits a meta-refresh stub for every legacy URL (`static-redirects.json` + `redirects/*.json` + rules computed from the content repositories), builds the site search index with [Pagefind](https://pagefind.app) (`out/pagefind/`; the header's search box loads it in the browser, so there is nothing to run and search is unavailable in `next dev`), and writes `llms.txt` and `llms-full.txt` (an index and the full Markdown text of the campus computing guides, for LLM consumption; `scripts/llms-full.mjs`).
 
 `npx next build` on its own skips pre/postbuild; use `pnpm build` whenever images, redirects or the sitemap matter.
 

@@ -34,9 +34,12 @@ const DocLayout = ({
   width = 'default',
   menus,
   headings,
+  searchable = true,
   children,
 }: {
   title: string;
+  /** `false` keeps the page out of the site search (internal pages). */
+  searchable?: boolean;
   /** `narrow` is for long-form prose (the legacy `character_optimized` layout). */
   width?: 'default' | 'narrow';
   menus: GuideMenu[];
@@ -53,7 +56,7 @@ const DocLayout = ({
   return (
     // `xl` rather than the site's usual `lg`: with a sidebar and the page
     // contents beside it, `lg` left the body itself only ~640px wide.
-    <Container maxWidth='xl'>
+    <Container maxWidth='xl' data-pagefind-ignore={searchable ? undefined : true}>
       <Box
         sx={{
           display: 'grid',
@@ -62,7 +65,7 @@ const DocLayout = ({
         }}
       >
         {hasSidebar && (
-          <Box component='aside' sx={{ ...stickySx, display: { xs: 'none', md: 'block' } }}>
+          <Box component='aside' data-pagefind-ignore sx={{ ...stickySx, display: { xs: 'none', md: 'block' } }}>
             <Suspense fallback={<GuideSidebar menus={menus} />}>
               <DocSidebar menus={menus} />
             </Suspense>
@@ -73,6 +76,7 @@ const DocLayout = ({
           {hasSidebar && (
             <Accordion
               disableGutters
+              data-pagefind-ignore
               sx={{ display: { xs: 'block', md: 'none' }, mb: 2, '&::before': { display: 'none' } }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -88,6 +92,7 @@ const DocLayout = ({
           {hasToc && (
             <Accordion
               disableGutters
+              data-pagefind-ignore
               sx={{ display: { xs: 'block', lg: 'none' }, mb: 3, '&::before': { display: 'none' } }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -101,7 +106,7 @@ const DocLayout = ({
           {children}
         </Box>
         {hasToc && (
-          <Box component='aside' sx={{ ...stickySx, display: { xs: 'none', lg: 'block' } }}>
+          <Box component='aside' data-pagefind-ignore sx={{ ...stickySx, display: { xs: 'none', lg: 'block' } }}>
             <TocNav headings={headings} />
           </Box>
         )}

@@ -114,6 +114,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
     <Box
       component='nav'
       aria-label='Campus Computing'
+      data-pagefind-ignore
       sx={{
         position: 'sticky',
         top: HEADER_HEIGHT,

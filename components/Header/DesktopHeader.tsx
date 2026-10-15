@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import NextLink from "next/link";
 import Toolbar from "@mui/material/Toolbar";
+import SiteSearch from '@/components/SiteSearch';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
@@ -137,6 +138,9 @@ const DesktopHeader = ({ pages }: { pages: NavigationItem[] }) => {
 					{pages.map((page) => (
 						<NavNode key={page.label} item={page} top />
 					))}
+				</Box>
+				<Box sx={{ ml: 'auto', flex: '0 0 auto' }}>
+					<SiteSearch variant="inline" />
 				</Box>
 			</Box>
 		</Toolbar>
