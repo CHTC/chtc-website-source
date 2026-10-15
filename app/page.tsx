@@ -465,14 +465,14 @@ const INSTITUTIONS = [
     href: 'https://www.wisc.edu/',
     image: { src: '/images/logos/UW_Logo.svg', width: 598, height: 201, alt: 'University of Wisconsin–Madison logo' },
     text:
-      'CHTC is the research computing center of the University of Wisconsin–Madison, hosted in the Department of Computer Sciences. Its services are free to all UW-Madison researchers, advancing the mission of the University in support of the Wisconsin Idea.',
+      'CHTC is the research computing center of the University of Wisconsin–Madison, hosted in the College of AI. Its services are free to all UW-Madison researchers, advancing the mission of the University in support of the Wisconsin Idea.',
   },
   {
     title: 'Morgridge Institute for Research',
     href: 'https://morgridge.org/',
     image: { src: '/images/logos/Morgridge_Logo.svg', width: 204, height: 70, alt: 'Morgridge Institute for Research logo' },
     text:
-      'The Morgridge Institute for Research is a private, biomedical research institute located on the UW-Madison campus. Morgridge’s Research Computing Theme is a unique partner with CHTC, investing in the vision of HTC and its ability to advance basic research.',
+      'The Morgridge Institute for Research is a private, biomedical research institute located on the UW-Madison campus. Morgridge’s Research Computing Theme is a unique partner with CHTC, investing in the vision of HTC and its ability to advance research in other domains.',
   },
 ];
 
