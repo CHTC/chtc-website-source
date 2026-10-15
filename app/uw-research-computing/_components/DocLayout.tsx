@@ -71,7 +71,8 @@ const DocLayout = ({
             </Suspense>
           </Box>
         )}
-        <Box sx={{ maxWidth, width: '100%', mx: hasSidebar ? 0 : 'auto' }}>
+        {/* Guides rank above news and other pages in the site search. */}
+        <Box data-pagefind-weight='2' sx={{ maxWidth, width: '100%', mx: hasSidebar ? 0 : 'auto' }}>
           <PageTitle>{title}</PageTitle>
           {hasSidebar && (
             <Accordion

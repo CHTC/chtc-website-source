@@ -42,6 +42,16 @@ export function loadPagefind(): Promise<Pagefind> {
   return instance;
 }
 
+/** True for the Campus Computing guides, which the result list puts first. */
+export function isGuide(url: string): boolean {
+  return url.replace(process.env.NEXT_PUBLIC_BASE_PATH ?? '', '').startsWith('/uw-research-computing/');
+}
+
+/** A page title without the site name Pagefind may have read from `<title>`. */
+export function cleanTitle(data: PagefindResultData): string {
+  return (data.meta.title || data.url).replace(/\s+[—–-]\s+Center for High Throughput Computing$/, '');
+}
+
 /** "Campus Computing", "News", … from a result's path, for the result list. */
 export function sectionOf(url: string): string {
   const path = url.replace(process.env.NEXT_PUBLIC_BASE_PATH ?? '', '');

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import NextLink from 'next/link';
 import {
   Box,
   CircularProgress,
@@ -8,7 +9,6 @@ import {
   DialogContent,
   IconButton,
   InputAdornment,
-  Link,
   List,
   ListItemButton,
   Paper,
@@ -18,9 +18,11 @@ import {
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
-import { loadPagefind, sectionOf, type PagefindResultData } from './pagefind';
+import { cleanTitle, isGuide, loadPagefind, sectionOf, type PagefindResultData } from './pagefind';
 
 const MAX_RESULTS = 8;
+/** How many of Pagefind's ranked results to fetch before the guides are moved up. */
+const CANDIDATES = 16;
 
 type Status = 'idle' | 'searching' | 'done' | 'unavailable';
 
@@ -43,9 +45,10 @@ function useSearch(term: string) {
         const pagefind = await loadPagefind();
         const search = await pagefind.debouncedSearch(query, {}, 200);
         if (!search || cancelled) return; // superseded by a newer term
-        const data = await Promise.all(search.results.slice(0, MAX_RESULTS).map((r) => r.data()));
+        const data = await Promise.all(search.results.slice(0, CANDIDATES).map((r) => r.data()));
         if (cancelled) return;
-        setResults(data);
+        // Guides first, each group in Pagefind's own ranking order.
+        setResults([...data.filter((d) => isGuide(d.url)), ...data.filter((d) => !isGuide(d.url))].slice(0, MAX_RESULTS));
         setStatus('done');
       } catch {
         if (!cancelled) setStatus('unavailable');
@@ -99,17 +102,16 @@ const ResultList = ({
       {results.map((result) => (
         <ListItemButton
           key={result.url}
-          component={Link}
+          component={NextLink}
           href={result.url}
           role='option'
-          underline='none'
           onClick={onPick}
           sx={{ display: 'block', px: 2, py: 1.25, borderBottom: 1, borderColor: 'divider', '&:last-child': { border: 0 } }}
         >
           <Typography variant='caption' sx={{ color: 'primary.main', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             {sectionOf(result.url)}
           </Typography>
-          <Typography sx={{ fontWeight: 600, lineHeight: 1.3, color: 'text.primary' }}>{result.meta.title || result.url}</Typography>
+          <Typography sx={{ fontWeight: 600, lineHeight: 1.3, color: 'text.primary' }}>{cleanTitle(result)}</Typography>
           <Typography
             variant='body2'
             component='p'
@@ -170,11 +172,14 @@ export default function SiteSearch({ variant }: { variant: 'inline' | 'dialog' }
       fullWidth
       autoComplete='off'
       slotProps={{
-        input: {
+        // The ARIA combobox attributes belong on the <input> itself.
+        htmlInput: {
           'aria-label': 'Search the site',
           'aria-controls': listboxId,
           'aria-expanded': open && status !== 'idle',
           role: 'combobox',
+        },
+        input: {
           startAdornment: (
             <InputAdornment position='start'>
               <SearchIcon fontSize='small' />
@@ -221,7 +226,13 @@ export default function SiteSearch({ variant }: { variant: 'inline' | 'dialog' }
         placement='bottom-end'
         sx={{ zIndex: (theme) => theme.zIndex.modal }}
       >
-        <Paper elevation={6} sx={{ mt: 0.5, width: 420, maxWidth: 'calc(100vw - 32px)', borderRadius: 2, overflow: 'hidden' }}>
+        <Paper
+          elevation={6}
+          // Keep focus in the field while a result is clicked: the Popper is
+          // portalled, so a blur would otherwise close it before the click lands.
+          onMouseDown={(event) => event.preventDefault()}
+          sx={{ mt: 0.5, width: 420, maxWidth: 'calc(100vw - 32px)', borderRadius: 2, overflow: 'hidden' }}
+        >
           {list}
         </Paper>
       </Popper>
