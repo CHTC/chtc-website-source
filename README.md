@@ -39,7 +39,7 @@ python3 scripts/audit-export.py out   # metadata / canonical / image audits over
 
 - `app/` — routes. `page.tsx` is always a server component; client-side pieces live in `view.tsx` or `_components/`.
 - `components/` — shared components (Header, Footer, MarkdownContainer, …).
-- `content/` — local content: documentation markdown and menus, jobs, projects, fellowships.
+- `content/` — local content: documentation MDX and menus, jobs, fellowships.
 - `utils/` — the thin site-specific wrappers over the library's content getters (`'chtc'` filter + remote image recording), metadata helpers.
 - `public/` — static assets; `public/images` is the image optimiser's source folder.
 - `scripts/` — build-time scripts (redirects, image validation, migration comparison, audits).
@@ -55,7 +55,7 @@ The site moved from Jekyll to Next.js in October 2026. The content you used to e
 
 | What you edited before | Where it is now |
 | --- | --- |
-| `_uw-research-computing/<name>.md` | `content/uw-research-computing/docs/<name>.md` |
+| `_uw-research-computing/<name>.md` | `content/uw-research-computing/docs/<name>.mdx` |
 | `_data/htc-guide-menu.yml`, `_data/hpc-guide-menu.yml`, `_data/uw-research-computing-menu.yml` | `content/uw-research-computing/menus/` (same file names, same shape) |
 | `_data/user-portal-menu.yaml`, `_data/user-portal-sections.yaml` | `content/uw-research-computing/menus/` |
 | `_data/learning-resources.yml`, `_data/gpus.yaml` | `content/uw-research-computing/data/` |
@@ -72,63 +72,61 @@ To preview your change locally, follow **Develop** above. Every pull request aga
 
 ### Editing a guide
 
-Guides are the markdown files in `content/uw-research-computing/docs/`. The file path is the URL: `docs/gpu-jobs.md` is `/uw-research-computing/gpu-jobs/` and `docs/htc/foo.md` would be `/uw-research-computing/htc/foo/`.
+Guides are the MDX files in `content/uw-research-computing/docs/`. The file path is the URL: `docs/gpu-jobs.mdx` is `/uw-research-computing/gpu-jobs/` and `docs/htc/foo.mdx` would be `/uw-research-computing/htc/foo/`.
 
-The files are GitHub-flavored markdown and are no longer run through Jekyll, so:
+MDX is GitHub-flavored markdown plus components, so:
 
-- **No Liquid.** `{% include %}`, `{% capture %}`, `{{ site.… }}` and `{% comment %}` are not processed and will appear as literal text.
-- **Links are absolute and end with a slash**: `/uw-research-computing/gpu-jobs/`, not `gpu-jobs.html` or `{{ '/uw-research-computing/gpu-jobs' | relative_url }}`. Anchors still work: `/uw-research-computing/gpu-jobs/#b-submit-jobs-using-gpus-in-chtc`.
-- **Headings** in the body start at `#`. The page title comes from the frontmatter and is the page's only `<h1>`; every heading in the body is rendered one level down, and each gets an `id` generated from its text, so the old empty `<span name="…">` anchors are not needed.
-- **Table of contents.** The Liquid TOC block became a plain HTML wrapper with a markdown list inside. Copy this, or leave it out:
+- **Links are absolute and end with a slash**: `/uw-research-computing/gpu-jobs/`. Anchors still work: `/uw-research-computing/gpu-jobs/#b-submit-jobs-using-gpus-in-chtc`.
+- **Headings** in the body start at `#`. The page title comes from the frontmatter and is the page's only `<h1>`; every heading in the body is rendered one level down, and each gets an `id` generated from its text.
+- **Table of contents.** Write `<TableOfContents />` where it should appear; it lists the page's top two heading levels. Nothing to keep in sync.
+- **Code blocks** use normal fences and are syntax highlighted. A `condor` fence is highlighted as a submit file. Wrap a fence in `<Terminal>` for a terminal session (dark) or `<File>` for a file's contents (blue rule); plain fences are for everything else.
+- **Callouts** are `<Tip header="Note about NetIDs">…</Tip>`; leave out `header` for a plain box.
+- **Other blocks**: `<Button href="…">` inside `<ButtonRow>`, `<Columns>` of `<Column>` (`accent` for the red rule, `width="30%"` for a fixed share), `<Cards>` of `<Card icon="…" title="…">`, `<MiniBar>` around a heading, `<CommandTable>` around a command table, `<Footnote>` under a table. Data-driven pieces are `<GpuTable owner="campus" />`, `<UpcomingEvents tag="…" limit={2} />`, `<ExcerptTabs flag="software_icon" more />` and `<FacilitatorGrid />`. All of them live in `app/uw-research-computing/_components/DocBlocks.tsx`.
+- **Leave a blank line** after an opening component tag and before its closing tag; otherwise the markdown inside is treated as inline text.
+- **Raw HTML** (`<details>`, `<iframe>`, `<img>`) works but must be valid JSX: `className` not `class`, `style={{ maxWidth: '60%' }}` not a string, `<br />` and `<img … />` self-closed, `{/* comments */}` not `<!-- -->`. A `<` or `{` in prose that is not a tag must be escaped: `\<1 GB`, `\{`.
+- **Tables** need a header row and a `|---|---|` separator line. HTML tables with multi-line cells do not compile; use a pipe table with `<br />` instead.
+- `npx tsx scripts/check-docs.mts` compiles every guide and reports every error at once; `next build` stops at the first.
 
-  ```html
-  <div class="uw-toc">
-  <p class="uw-toc-title">Table of Contents</p>
+Frontmatter is validated at build (`app/uw-research-computing/_lib/docs.ts`); an unknown field or a wrong type fails the build with the file name.
 
-  - [Available CHTC GPUs](#a-available-chtc-gpus)
-  - [Submit jobs using GPUs](#b-submit-jobs-using-gpus-in-chtc)
+| Field | Meaning |
+| --- | --- |
+| `title` | The page title, rendered as the `<h1>`. |
+| `description` | One or two sentences for the meta description and search previews. |
+| `sidebar` | `[htc]`, `[hpc]` or `[htc, hpc]`: which guide sidebars the page shows. Leave out for a standalone page. |
+| `category`, `order` | Where the guide sits among the guides (informational). |
+| `width` | `narrow` for long-form prose. |
+| `software`, `software_icon`, `basic_scripting`, `icon`, `alt_title` | Used by the software overview and basic-scripting tabs. |
 
-  </div>
-  ```
-
-- **Code blocks** use normal fences and are syntax highlighted. A `condor` fence is highlighted as a submit file.
-- **Tables** need a header row and a `|---|---|` separator line (kramdown was forgiving about this; GitHub markdown is not).
-- **kramdown attribute syntax** (`{: .class}`, `{:target="_blank"}`) does not work. Use an HTML tag instead.
-- Raw HTML (`<details>`, `<iframe>`, `<table>`, tip boxes like `<div class="md-tip">`) works as before. Leave a blank line after an opening block tag before writing markdown inside it, otherwise the markdown is treated as HTML text.
-- `<script>` tags are stripped.
-
-Frontmatter is mostly what it was. `title`, `layout` and `guide` are still used; `highlighter` and `published` are ignored. One field is new and worth filling in: `description`, a sentence or two used as the page's meta description and in search-engine previews. (The migration generated one from each guide's first paragraph.) `legacy_url` records where the page lived on the Jekyll site and is informational only.
+A page's excerpt (shown on those tabs) is everything before a `{/* more */}` line, or its first paragraph.
 
 ### Adding a guide and placing it in a sidebar
 
-1. Create `content/uw-research-computing/docs/<name>.md` with this frontmatter:
+1. Create `content/uw-research-computing/docs/<name>.mdx` with this frontmatter:
 
    ```yaml
    ---
-   layout: guide          # `guide` for HTC pages, `hpc_layout` for HPC pages
    title: My New Guide
    description: One or two sentences describing the page.
-   guide:
-     category: Special use cases
-     tag:
-       - htc              # `htc`, `hpc`, or both; this picks which sidebar menu is shown
+   sidebar:
+     - htc                # `htc`, `hpc`, or both; this picks which sidebar menu is shown
+   category: Special use cases
    ---
    ```
 
-   Nothing registers the file. The build finds every `.md` under `docs/` and makes a page for it at `/uw-research-computing/<name>/`.
+   Nothing registers the file. The build finds every `.mdx` under `docs/` and makes a page for it at `/uw-research-computing/<name>/`.
 
 2. Add a link to the sidebar in `content/uw-research-computing/menus/htc-guide-menu.yml` or `hpc-guide-menu.yml`. The entry goes under one of the existing sections (or a new one) and looks like the others:
 
    ```yaml
    - text: "Submit jobs"
-     icon: "bi bi-send"
+     icon: Send
      links:
        - text: "My New Guide"
          url: "/uw-research-computing/my-new-guide"
-         icon: ""
    ```
 
-   The same YAML also builds the HTC Guides and HPC Guides index pages, so the guide appears there automatically. Icons are Bootstrap Icons class names, as before; the common ones are mapped to equivalent icons at build.
+   The same YAML also builds the HTC Guides and HPC Guides index pages, so the guide appears there automatically. `icon` is optional and names a Material icon from the list in `components/GuideSidebar/GuideIcon.tsx` (`RocketLaunch`, `Send`, `MenuBook`, `OpenInNew`, …); an unknown name fails the build. A guide that is in both sidebars gets `?compute-type=` on its menu links so it shows only the sidebar it was reached from.
 
 3. The section's top navigation (Get Started, User Portal, How To's, …) is `menus/uw-research-computing-menu.yml`, unchanged in shape. The site-wide header menu is now the `pages` array in `app/layout.tsx`, which is TypeScript rather than YAML; ask a developer or copy an existing entry.
 

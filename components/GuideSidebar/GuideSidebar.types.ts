@@ -7,7 +7,7 @@ export interface MenuLink {
   text: string;
   /** Site path (trailing slash) or absolute URL; absent on a folder. */
   url?: string;
-  /** Bootstrap Icons class from the legacy data, e.g. `bi bi-book`. */
+  /** A named icon, e.g. `MenuBook`; see `GuideIcon`. */
   icon?: string;
   highlight?: boolean;
   links?: MenuLink[];
@@ -22,5 +22,11 @@ export interface MenuSection {
 /** One titled menu ("HTC guides"); a page can show more than one. */
 export interface GuideMenu {
   title: string;
+  /**
+   * Which compute type the menu is for (`htc`, `hpc`). A page that shows
+   * several menus can be asked for just one through the `compute-type`
+   * query parameter.
+   */
+  id?: string;
   sections: MenuSection[];
 }

@@ -1,11 +1,7 @@
-import type { CSSProperties, ReactNode } from 'react';
 import ExportedImage from 'next-image-export-optimizer';
-import { Box, Button, Link, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import Markdown, { type Components } from 'react-markdown';
-import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 
 /*
  * Event bodies are raw HTML from the content repository, and their `<img>`
@@ -17,8 +13,6 @@ const FALLBACK_IMAGE_WIDTH = 1200;
 const FALLBACK_IMAGE_HEIGHT = 800;
 /** The body column is two thirds of a default `md` container at most. */
 const BODY_IMAGE_SIZES = '(max-width: 900px) 100vw, 600px';
-/** The docs column is at most ~900px wide beside the guide sidebar. */
-const DOCS_IMAGE_SIZES = '(max-width: 900px) 100vw, 900px';
 
 /** Parse an HTML dimension attribute, which arrives as a string. */
 const toPixels = (value: unknown): number | undefined => {
@@ -27,31 +21,18 @@ const toPixels = (value: unknown): number | undefined => {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
 };
 
-/**
- * `default` is the long-standing look used for event bodies and fellowship
- * reports. `docs` is the UW Research Computing documentation: GFM tables,
- * heading ids (the documents' tables of contents link to them), syntax
- * highlighting, and raw HTML attributes (`class`, `id`, `style`) kept, since
- * the converted documents carry kramdown classes such as `md-term` and
- * `md-tip` as wrapper `<div>`s.
- */
-export type MarkdownVariant = 'default' | 'docs';
-
 export interface MarkdownContainerProps {
   content: string;
-  /** Rendering profile; defaults to `default`. */
-  variant?: MarkdownVariant;
-  /**
-   * Extra element renderers, merged over the variant's own. Custom tag names
-   * written into the markdown as raw HTML (`<gpu-table>`) can be mapped here.
-   */
+  /** Extra element renderers, merged over the defaults. */
   components?: Components;
 }
 
-/* ------------------------------------------------------------------------ */
-/* default variant — unchanged                                              */
-/* ------------------------------------------------------------------------ */
-
+/**
+ * Markdown from the shared content repositories (event bodies, fellowship
+ * reports): GitHub-flavored text with raw HTML allowed, restyled with MUI.
+ * The research-computing documentation is MDX and does not come through
+ * here; see `app/uw-research-computing/_components/DocBody.tsx`.
+ */
 const defaultComponents: Components = {
   h1: ({ children }) => (
     <Typography variant='h4' component={'h2'} gutterBottom>
@@ -133,167 +114,10 @@ const defaultComponents: Components = {
   div: ({ children }) => <Box>{children}</Box>,
 };
 
-/* ------------------------------------------------------------------------ */
-/* docs variant                                                             */
-/* ------------------------------------------------------------------------ */
-
-/** Anchored headings must clear the sticky site header when jumped to. */
-const HEADING_SX = { scrollMarginTop: '96px', mt: 4, mb: 1.5 } as const;
-
-/**
- * Documents use `#` for their top sections while the layout already renders
- * the page title as the one `<h1>`, so every level moves down one; the
- * visual scale follows the element.
- */
-const docsHeading =
-  (component: 'h2' | 'h3' | 'h4' | 'h5' | 'h6', variant: 'h4' | 'h5' | 'h6' | 'subtitle1' | 'subtitle2') =>
-  // eslint-disable-next-line react/display-name
-  ({ children, id, className, style }: { children?: ReactNode; id?: string; className?: string; style?: CSSProperties }) => (
-    <Typography
-      component={component}
-      variant={variant}
-      id={id}
-      className={className}
-      style={style}
-      sx={{ ...HEADING_SX, ...(variant.startsWith('subtitle') ? { fontWeight: 700 } : {}) }}
-    >
-      {children}
-    </Typography>
-  );
-
-/** next-image-export-optimizer can only re-encode these. */
-const OPTIMIZABLE_LOCAL = /^\/images\/.+\.(jpe?g|png|webp|avif)$/i;
-const OPTIMIZABLE_REMOTE = /^https?:\/\/.+\.(jpe?g|png|gif|webp|avif)(\?.*)?$/i;
-
-const docsComponents: Components = {
-  h1: docsHeading('h2', 'h4'),
-  h2: docsHeading('h3', 'h5'),
-  h3: docsHeading('h4', 'h6'),
-  h4: docsHeading('h5', 'subtitle1'),
-  h5: docsHeading('h6', 'subtitle2'),
-  h6: docsHeading('h6', 'subtitle2'),
-  p: ({ children, className, style, id }) => (
-    <Typography
-      variant='body1'
-      component='p'
-      id={id}
-      className={className}
-      style={style}
-      sx={{ lineHeight: 1.7, mb: 2 }}
-    >
-      {children}
-    </Typography>
-  ),
-  a: ({ children, href, className, id, title, target }) => {
-    // Legacy Bootstrap call-to-action links (`class="btn btn-primary"`).
-    if (className?.split(/\s+/).includes('btn')) {
-      const outlined = className.includes('btn-outline');
-      return (
-        <Button
-          href={href ?? '#'}
-          variant={outlined ? 'outlined' : 'contained'}
-          color='primary'
-          id={id}
-          sx={{ m: 0.5 }}
-        >
-          {children}
-        </Button>
-      );
-    }
-    return (
-      <Link href={href ?? '#'} className={className} id={id} title={title} target={target}>
-        {children}
-      </Link>
-    );
-  },
-  img: ({ src, alt, width, height, style, className, title }) => {
-    if (typeof src !== 'string' || src === '') return null;
-    const declaredWidth = toPixels(width);
-    const declaredHeight = toPixels(height);
-
-    if (OPTIMIZABLE_LOCAL.test(src) || OPTIMIZABLE_REMOTE.test(src)) {
-      return (
-        <ExportedImage
-          src={src}
-          alt={alt ?? ''}
-          title={title}
-          className={className}
-          width={declaredWidth ?? FALLBACK_IMAGE_WIDTH}
-          height={declaredHeight ?? FALLBACK_IMAGE_HEIGHT}
-          sizes={declaredWidth ? `(max-width: ${declaredWidth}px) 100vw, ${declaredWidth}px` : DOCS_IMAGE_SIZES}
-          style={{
-            maxWidth: '100%',
-            width: declaredWidth ? `${declaredWidth}px` : undefined,
-            height: 'auto',
-            ...style,
-          }}
-        />
-      );
-    }
-
-    // Icons and SVGs (guide-icons, logos) are served as they are.
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        alt={alt ?? ''}
-        title={title}
-        className={className}
-        width={declaredWidth}
-        height={declaredHeight}
-        style={{ maxWidth: '100%', ...style }}
-      />
-    );
-  },
-  table: ({ children, className, style }) => (
-    <Box className='md-table-scroll' sx={{ overflowX: 'auto', mb: 2 }}>
-      <table className={className} style={style}>
-        {children}
-      </table>
-    </Box>
-  ),
-  div: ({ children, className, id, style, title }) => (
-    <div className={className} id={id} style={style} title={title}>
-      {children}
-    </div>
-  ),
-};
-
-const DOCS_HIGHLIGHT_OPTIONS = {
-  // Fences in the documents name `condor` (submit files: `key = value`
-  // lines and `#` comments, which the ini grammar reads well) and
-  // `dockerfile`, which is not in the bundled common set.
-  aliases: { ini: ['condor'], bash: ['dockerfile', 'console', 'term'] },
-  plainText: ['text', 'txt', 'plain'],
-};
-
-const MarkdownContainer = ({
-  content,
-  variant = 'default',
-  components,
-}: MarkdownContainerProps) => {
-  if (variant === 'docs') {
-    return (
-      <div className='chtc-doc'>
-        <Markdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSlug, [rehypeHighlight, DOCS_HIGHLIGHT_OPTIONS]]}
-          components={{ ...docsComponents, ...components }}
-        >
-          {content}
-        </Markdown>
-      </div>
-    );
-  }
-
-  return (
-    <Markdown
-      rehypePlugins={[rehypeRaw]}
-      components={{ ...defaultComponents, ...components }}
-    >
-      {content}
-    </Markdown>
-  );
-};
+const MarkdownContainer = ({ content, components }: MarkdownContainerProps) => (
+  <Markdown rehypePlugins={[rehypeRaw]} components={{ ...defaultComponents, ...components }}>
+    {content}
+  </Markdown>
+);
 
 export default MarkdownContainer;

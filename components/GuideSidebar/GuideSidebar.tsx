@@ -22,10 +22,10 @@ export interface GuideSidebarProps {
   menus: GuideMenu[];
 }
 
-/** Paths compare without fragment and with a trailing slash. */
+/** Paths compare without query or fragment and with a trailing slash. */
 const pagePath = (url: string | undefined) => {
   if (!url) return undefined;
-  const bare = url.split('#')[0];
+  const bare = url.split(/[?#]/)[0];
   return bare.endsWith('/') ? bare : `${bare}/`;
 };
 

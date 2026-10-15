@@ -15,7 +15,7 @@ interface RawResource {
 export interface LearningResource {
   text: string;
   url: string;
-  /** A Bootstrap Icons class (`bi bi-github`) or an image path/URL. */
+  /** A named icon (`GitHub`, see `GuideIcon`) or an image path/URL. */
   icon: string;
   description: string;
   tags: string[];
@@ -41,7 +41,7 @@ export function learningResources(): LearningResource[] {
   const all = readYaml<RawResource[]>('data/learning-resources.yml').map((raw) => ({
     text: raw.text,
     url: raw.url,
-    icon: raw.icon || 'bi bi-github',
+    icon: raw.icon || 'GitHub',
     description: (raw.description ?? '').trim(),
     tags: raw.tags ?? [],
     updated: isoDay(raw.last_updated ?? raw['last updated']),

@@ -1,19 +1,32 @@
+import type { ReactNode } from 'react';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Typography } from '@mui/material';
 
+type PartnerTileProps = {
+  title: string;
+  href: string;
+  image: { src: string; width: number; height: number; alt: string };
+  /** Optional blurb under the name; tiles without one are logo-and-name only. */
+  children?: ReactNode;
+  /** Painted height of the logo, in px. */
+  logoHeight?: number;
+};
+
 /**
- * A logo-and-name tile linking to a partner project; the legacy
+ * A card linking to a partner project or institution: a logo, a name and,
+ * optionally, a short description. Descends from the legacy
  * `title-img-card.html` include.
  */
 export default function PartnerTile({
   title,
   href,
   image,
-}: {
-  title: string;
-  href: string;
-  image: { src: string; width: number; height: number; alt: string };
-}) {
+  children,
+  logoHeight = 88,
+}: PartnerTileProps) {
+  // The widest logos (UW-Madison, FabAID) are ~3.5:1, so cap the srcset there.
+  const sizes = `${Math.round(logoHeight * 3.5)}px`;
+
   return (
     <Box
       component='a'
@@ -23,7 +36,7 @@ export default function PartnerTile({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: children ? 'flex-start' : 'center',
         gap: 2,
         p: 3,
         textDecoration: 'none',
@@ -40,20 +53,24 @@ export default function PartnerTile({
         },
       }}
     >
-      <Box sx={{ height: 88, display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ height: logoHeight, display: 'flex', alignItems: 'center' }}>
         <ExportedImage
           src={image.src}
           alt={image.alt}
           width={image.width}
           height={image.height}
-          // Painted 88px tall, so the widest of these (xDD, ~1.5:1) is ~130px.
-          sizes='130px'
+          sizes={sizes}
           style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain' }}
         />
       </Box>
-      <Typography variant='h6' component='h3'>
+      <Typography variant='h6' component='h3' sx={{ textAlign: 'center' }}>
         {title}
       </Typography>
+      {children && (
+        <Typography variant='body2' sx={{ textAlign: 'center', lineHeight: 1.6, color: 'text.secondary' }}>
+          {children}
+        </Typography>
+      )}
     </Box>
   );
 }

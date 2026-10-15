@@ -1,43 +1,54 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import GithubSlugger from 'github-slugger';
 import { load } from 'js-yaml';
-import type { GuideMenu, MenuLink, MenuSection } from '@/components/GuideSidebar';
+import { z } from 'zod';
+import { isGuideIconName, type GuideMenu, type MenuLink, type MenuSection } from '@/components/GuideSidebar';
+import { COMPUTE_TYPE_PARAM, COMPUTE_TYPES, type ComputeType } from './computeType';
 
 /**
  * Build-time access to the UW Research Computing documentation.
  *
- * The documents and their menus were ported from the legacy Jekyll
- * `_uw-research-computing` collection by `scripts/convert-legacy-docs.mjs`
- * into `content/uw-research-computing/`. They are markdown strings rendered
- * through `MarkdownContainer` (never MDX), one static page each.
+ * The documents live in `content/uw-research-computing/docs/` as MDX with
+ * the frontmatter below; `DocBody` compiles each one with the components in
+ * `docComponents.tsx`, one static page each. The menus beside them are YAML.
  */
+
 export const SECTION = '/uw-research-computing';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'uw-research-computing');
 const DOCS_DIR = path.join(CONTENT_DIR, 'docs');
 
-/** Frontmatter of a converted document (the legacy fields are kept as-is). */
-export interface DocFrontmatter {
-  title: string;
-  /** Legacy Jekyll layout: `guide`, `hpc_layout`, `file_avail`, `markdown-page`, `content`, … */
-  layout: string;
-  description: string;
-  /** Where the page lived on the Jekyll site, e.g. `/uw-research-computing/x.html`. */
-  legacy_url: string;
-  guide?: {
-    category?: string;
-    /** `htc`/`hpc` select the sidebar menu. A string is matched as a substring, as Liquid's `contains` did. */
-    tag?: string | string[];
-    order?: number;
-  };
+/** A document's frontmatter. Unknown fields are a build error. */
+const Frontmatter = z.strictObject({
+  title: z.string().min(1),
+  /** A sentence or two for the meta description and search previews. */
+  description: z.string().min(1),
+  /** Which guide sidebars the page appears in; none for a standalone page. */
+  sidebar: z.array(z.enum(['htc', 'hpc'])).optional(),
+  /** Section of the guides the page belongs to, e.g. `Get started`. */
+  category: z.string().optional(),
+  order: z.number().optional(),
+  /** `narrow` for long-form prose. */
+  width: z.enum(['narrow']).optional(),
+  alt_title: z.string().optional(),
   /** Software quick-start pages: shown as tabs on the software overview. */
-  software?: string;
-  software_icon?: string;
+  software: z.string().optional(),
+  software_icon: z.string().optional(),
   /** Basic-scripting pages: shown as tabs on the basic-scripting guide. */
-  basic_scripting?: boolean;
-  icon?: string;
-  excerpt_separator?: string;
+  basic_scripting: z.boolean().optional(),
+  icon: z.string().optional(),
+});
+
+export type DocFrontmatter = z.infer<typeof Frontmatter>;
+
+function parseFrontmatter(data: unknown, file: string): DocFrontmatter {
+  const result = Frontmatter.safeParse(data);
+  if (!result.success) {
+    throw new Error(`Invalid frontmatter in docs/${file}:\n${z.prettifyError(result.error)}`);
+  }
+  return result.data;
 }
 
 export interface Doc {
@@ -53,7 +64,7 @@ function walk(dir: string): string[] {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) return walk(full);
-    return entry.name.endsWith('.md') ? [full] : [];
+    return entry.name.endsWith('.mdx') ? [full] : [];
   });
 }
 
@@ -65,12 +76,12 @@ export function getDocs(): Doc[] {
   cache = walk(DOCS_DIR)
     .map((file) => {
       const rel = path.relative(DOCS_DIR, file).split(path.sep).join('/');
-      const slug = rel.replace(/\.md$/, '').split('/');
+      const slug = rel.replace(/\.mdx$/, '').split('/');
       const { data, content } = matter(fs.readFileSync(file, 'utf8'));
       return {
         slug,
         path: `${SECTION}/${slug.join('/')}/`,
-        data: data as DocFrontmatter,
+        data: parseFrontmatter(data, rel),
         content,
       };
     })
@@ -83,16 +94,67 @@ export function getDoc(slug: string[]): Doc | undefined {
   return getDocs().find((doc) => doc.slug.join('/') === key);
 }
 
+/** Marks where a document's excerpt ends. */
+const EXCERPT_SEPARATOR = '{/* more */}';
+
 /**
- * The text before the document's excerpt separator, or its first paragraph
+ * The text before the document's excerpt marker, or its first paragraph
  * (Jekyll's rule for `page.excerpt`).
  */
 export function docExcerpt(doc: Doc): string {
-  const separator = doc.data.excerpt_separator;
-  if (separator && doc.content.includes(separator)) {
-    return doc.content.split(separator)[0].trim();
+  if (doc.content.includes(EXCERPT_SEPARATOR)) {
+    return doc.content.split(EXCERPT_SEPARATOR)[0].trim();
   }
   return doc.content.trim().split(/\n\s*\n/)[0];
+}
+
+/* Headings ------------------------------------------------------------------- */
+
+export interface DocHeading {
+  /** Markdown depth (`##` is 2). */
+  depth: number;
+  text: string;
+  /** The id rehype-slug gives the rendered heading. */
+  id: string;
+}
+
+/** Heading text as rehype-slug sees it: markdown and tags stripped. */
+const plainText = (markdown: string) =>
+  markdown
+    .replace(/`([^`]*)`/g, '$1')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/(\*\*|__|\*|_)(.+?)\1/g, '$2')
+    .replace(/\\(.)/g, '$1')
+    .trim();
+
+/**
+ * The headings a document's `<TableOfContents />` lists: its top two levels,
+ * with the same ids rehype-slug assigns when the body is rendered. Fenced
+ * code is skipped; raw `<h2 id="…">` tags count too.
+ */
+export function docHeadings(doc: Doc): DocHeading[] {
+  const slugger = new GithubSlugger();
+  const found: DocHeading[] = [];
+  let inFence = false;
+  for (const line of doc.content.split('\n')) {
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const md = /^(#{1,3})\s+(.+?)\s*#*\s*$/.exec(line);
+    if (md) {
+      const text = plainText(md[2]);
+      found.push({ depth: md[1].length, text, id: slugger.slug(text) });
+      continue;
+    }
+    const html = /^\s*<h([1-3])\b[^>]*\bid="([^"]+)"[^>]*>(.*?)<\/h\1>/.exec(line);
+    if (html) found.push({ depth: Number(html[1]), text: plainText(html[3]), id: html[2] });
+  }
+  if (found.length === 0) return [];
+  const top = Math.min(...found.map((h) => h.depth));
+  return found.filter((h) => h.depth <= top + 1);
 }
 
 /* ------------------------------------------------------------------------ */
@@ -119,45 +181,69 @@ export function normalizeUrl(url: string | undefined): string | undefined {
   return hash ? `${p}#${hash}` : p;
 }
 
+/** An `icon:` in the menus must name an icon `GuideIcon` can draw. */
+function checkIcon(icon: unknown, context: string): string | undefined {
+  if (!icon) return undefined;
+  if (!isGuideIconName(icon)) throw new Error(`Unknown icon "${icon}" on ${context}`);
+  return icon;
+}
+
 function normalizeLinks(links: MenuLink[] | undefined): MenuLink[] | undefined {
   return links?.map((link) => ({
     text: String(link.text).trim(),
     url: normalizeUrl(link.url),
-    icon: link.icon || undefined,
+    icon: checkIcon(link.icon, `menu link "${link.text}"`),
     highlight: link.highlight || undefined,
     links: normalizeLinks(link.links ?? undefined),
   }));
 }
 
-function loadGuideMenu(file: string): MenuSection[] {
+let docsByPath: Map<string, Doc> | undefined;
+
+/** The document at a site path (query and fragment ignored), if any. */
+function docAt(url: string): Doc | undefined {
+  docsByPath ??= new Map(getDocs().map((doc) => [doc.path, doc]));
+  const bare = url.split(/[?#]/)[0];
+  return docsByPath.get(bare.endsWith('/') ? bare : `${bare}/`);
+}
+
+/** True when a guide appears in more than one sidebar. */
+function isShared(doc: Doc): boolean {
+  return COMPUTE_TYPES.filter((type) => doc.data.sidebar?.includes(type)).length > 1;
+}
+
+/** Add `?compute-type=` to this menu's links to guides that are also in the other menu. */
+function markSharedLinks(links: MenuLink[] | undefined, type: ComputeType): MenuLink[] | undefined {
+  return links?.map((link) => {
+    let url = link.url;
+    if (url && !/^[a-z][a-z0-9+.-]*:/i.test(url) && !url.includes('?')) {
+      const doc = docAt(url);
+      if (doc && isShared(doc)) {
+        const [pathPart, hash] = url.split('#');
+        url = `${pathPart}?${COMPUTE_TYPE_PARAM}=${type}${hash ? `#${hash}` : ''}`;
+      }
+    }
+    return { ...link, url, links: markSharedLinks(link.links, type) };
+  });
+}
+
+function loadGuideMenu(file: string, type: ComputeType): MenuSection[] {
   return readYaml<MenuSection[]>(`menus/${file}`).map((section) => ({
     text: String(section.text).trim(),
-    icon: section.icon || undefined,
-    links: normalizeLinks(section.links) ?? [],
+    icon: checkIcon(section.icon, `menu section "${section.text}"`),
+    links: markSharedLinks(normalizeLinks(section.links), type) ?? [],
   }));
 }
 
-export const htcGuideMenu = (): MenuSection[] => loadGuideMenu('htc-guide-menu.yml');
-export const hpcGuideMenu = (): MenuSection[] => loadGuideMenu('hpc-guide-menu.yml');
+export const htcGuideMenu = (): MenuSection[] => loadGuideMenu('htc-guide-menu.yml', 'htc');
+export const hpcGuideMenu = (): MenuSection[] => loadGuideMenu('hpc-guide-menu.yml', 'hpc');
 
-/** True when Liquid's `page.guide.tag contains name` was. */
-function tagged(tag: string | string[] | undefined, name: string): boolean {
-  if (!tag) return false;
-  return Array.isArray(tag) ? tag.includes(name) : String(tag).includes(name);
-}
-
-const SIDEBAR_LAYOUTS = new Set(['guide', 'hpc_layout', 'file_avail']);
-
-/**
- * The guide menus the legacy sidebar showed for a document: chosen by its
- * `guide.tag` (HTC, HPC or both), and only on the guide layouts.
- */
+/** The guide menus shown beside a document, per its `sidebar` frontmatter. */
 export function sidebarMenus(doc: Doc): GuideMenu[] {
-  if (!SIDEBAR_LAYOUTS.has(doc.data.layout)) return [];
-  const tag = doc.data.guide?.tag;
+  const sidebar = doc.data.sidebar ?? [];
   const menus: GuideMenu[] = [];
-  if (tagged(tag, 'htc')) menus.push({ title: 'HTC guides', sections: htcGuideMenu() });
-  if (tagged(tag, 'hpc')) menus.push({ title: 'HPC guides', sections: hpcGuideMenu() });
+  if (sidebar.includes('htc')) menus.push({ id: 'htc', title: 'HTC guides', sections: htcGuideMenu() });
+  if (sidebar.includes('hpc')) menus.push({ id: 'hpc', title: 'HPC guides', sections: hpcGuideMenu() });
   return menus;
 }
 

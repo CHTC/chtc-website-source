@@ -3,12 +3,12 @@
   links:
   - text: HTC Guides
     url: htc/guides.html
-    icon: "bi bi-book"
+    icon: MenuBook
     description: |
       Guides for the High Throughput Computing (HTC) system.
   - text: HPC Guides
     url: hpc/guides.html
-    icon: "bi bi-book"
+    icon: MenuBook
     description: |
       Guides for the High Performance Computing (HPC) system.
 - name: Featured learning resources
@@ -24,11 +24,11 @@
   links:
   - text: OpenOnDemand
     url: https://ondemand.chtc.wisc.edu
-    icon: "bi bi-box-arrow-up-right"
+    icon: OpenInNew
     description: |
       Web-based interface to the HPC system.
   - text: BadgerCompute
     url: https://badgercompute.wisc.edu
-    icon: "bi bi-box-arrow-up-right"
+    icon: OpenInNew
     description: |
       Jupyter-based interactive computing.

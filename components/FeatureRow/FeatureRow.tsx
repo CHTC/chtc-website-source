@@ -12,6 +12,8 @@ type FeatureRowProps = {
   imageFirst?: boolean;
   /** Cap on the image's painted width, in px. */
   imageMaxWidth?: number;
+  /** Corner radius for the image, in px; for photos rather than logos. */
+  imageBorderRadius?: number;
   children: ReactNode;
 };
 
@@ -28,6 +30,7 @@ export default function FeatureRow({
   image,
   imageFirst = false,
   imageMaxWidth = 280,
+  imageBorderRadius,
   children,
 }: FeatureRowProps) {
   const picture = (
@@ -37,7 +40,14 @@ export default function FeatureRow({
       width={image.width}
       height={image.height}
       sizes={`${imageMaxWidth}px`}
-      style={{ width: '100%', height: 'auto', maxWidth: imageMaxWidth, display: 'block', margin: '0 auto' }}
+      style={{
+        width: '100%',
+        height: 'auto',
+        maxWidth: imageMaxWidth,
+        display: 'block',
+        margin: '0 auto',
+        borderRadius: imageBorderRadius,
+      }}
     />
   );
 

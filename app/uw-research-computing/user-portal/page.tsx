@@ -64,7 +64,7 @@ const PortalCard = ({ link }: { link: PortalLink }) => (
       '&:hover': { borderColor: 'primary.main', boxShadow: '0 8px 24px rgba(31, 39, 51, 0.08)' },
     }}
   >
-    <ResourceIcon icon={link.icon ?? 'bi bi-link-45deg'} size={26} />
+    <ResourceIcon icon={link.icon ?? 'Link'} size={26} />
     <Typography component='span' sx={{ fontWeight: 700, fontSize: '1.15rem', lineHeight: 1.3 }}>
       {link.text}
     </Typography>

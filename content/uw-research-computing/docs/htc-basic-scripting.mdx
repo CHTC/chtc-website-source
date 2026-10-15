@@ -1,0 +1,47 @@
+---
+title: Basic Scripting and Job Submission with Arguments
+description: Many executables require arguments to perform tasks. This page shows you basic examples of how different programming languages take arguments, and how wrapper scripts can be written to pass arguments.
+sidebar:
+  - htc
+category: Submit jobs
+---
+
+<TableOfContents />
+
+
+## Purpose
+
+Many executables require arguments to perform tasks. This page shows you basic examples of how different programming languages take arguments, and how wrapper scripts can be written to pass arguments.
+
+## What is an argument?
+
+In a computational workflow, how do you tell the computer what script to run, what data file to read, or which parameters to use? These inputs are typically passed as *arguments*, which your program is configured to read.
+
+For example, on the command line, the `sleep` program takes in one argument, a non-negative number, then pauses for that number of seconds. If we run the following code,
+```
+sleep 60
+```
+the computer pauses for 60 seconds. In this example:
+* `sleep` is the executable.
+* `60` is the argument.
+
+## What is a wrapper script, and why should I write one?
+
+While the above example is simple, what if you need something more complex, like a workflow? Your workflow might need some pre- or post-processing, if/else statements, or iterations.
+
+> **Wrapper scripts** are a way to package simple computational workflows in one executable script, allowing computations to be run in noninteractive batches.
+
+## Using arguments in different programming languages
+
+Let's see how different programming languages might take an argument. Each tab contains different expressions of simple program, `echo-next`, that prints our next argument (we'll use `data.csv`) to the terminal. Example wrapper scripts and HTCondor submit files are also included.
+
+
+<ExcerptTabs flag="basic_scripting" />
+
+
+## Next steps
+Practice with a more complex example, including submitting multiple jobs with different arguments: [Practice: Passing Arguments from the Submit File to the Executable Script](/uw-research-computing/htc-passing-arguments/)
+
+## See also
+* [Submitting Multiple Jobs Using HTCondor](/uw-research-computing/multiple-jobs/)
+* [Overview: How to Use Software](/uw-research-computing/software-overview-htc/)

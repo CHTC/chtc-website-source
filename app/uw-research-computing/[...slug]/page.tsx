@@ -25,8 +25,8 @@ export default async function Page({ params }: { params: Params }) {
   if (!doc) notFound();
 
   return (
-    <DocLayout title={doc.data.title} layout={doc.data.layout} menus={sidebarMenus(doc)}>
-      <DocBody content={doc.content} />
+    <DocLayout title={doc.data.title} width={doc.data.width} menus={sidebarMenus(doc)}>
+      <DocBody doc={doc} />
     </DocLayout>
   );
 }

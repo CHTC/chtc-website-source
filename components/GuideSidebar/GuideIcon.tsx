@@ -1,51 +1,53 @@
 import type { SvgIconProps } from '@mui/material';
-import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
-import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import ComputerOutlinedIcon from '@mui/icons-material/ComputerOutlined';
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import LinkIcon from '@mui/icons-material/Link';
-import MemoryOutlinedIcon from '@mui/icons-material/MemoryOutlined';
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import type { ComponentType } from 'react';
+import AccountTree from '@mui/icons-material/AccountTreeOutlined';
+import AssignmentTurnedIn from '@mui/icons-material/AssignmentTurnedInOutlined';
+import Computer from '@mui/icons-material/ComputerOutlined';
+import Description from '@mui/icons-material/DescriptionOutlined';
+import Folder from '@mui/icons-material/FolderOutlined';
+import GitHub from '@mui/icons-material/GitHub';
+import HelpOutline from '@mui/icons-material/HelpOutline';
+import Link from '@mui/icons-material/Link';
+import Memory from '@mui/icons-material/MemoryOutlined';
+import MenuBook from '@mui/icons-material/MenuBookOutlined';
+import OpenInNew from '@mui/icons-material/OpenInNew';
+import RocketLaunch from '@mui/icons-material/RocketLaunchOutlined';
+import Send from '@mui/icons-material/SendOutlined';
+import Star from '@mui/icons-material/StarOutline';
 
 /**
- * The legacy menus and data name Bootstrap Icons (`bi bi-rocket-takeoff`);
- * these are their closest Material equivalents.
+ * The icons the menus and data files can name (`icon: Send`). Add a Material
+ * icon here to make it available; the name is what the YAML uses.
  */
-const ICONS: Record<string, ComponentType<SvgIconProps>> = {
-  'bi-rocket-takeoff': RocketLaunchOutlinedIcon,
-  'bi-send': SendOutlinedIcon,
-  'bi-file-earmark-text': DescriptionOutlinedIcon,
-  'bi-pc-display': ComputerOutlinedIcon,
-  'bi-diagram-2': AccountTreeOutlinedIcon,
-  'bi-cpu': MemoryOutlinedIcon,
-  'bi-question-circle': HelpOutlineIcon,
-  'bi-box-arrow-up-right': OpenInNewIcon,
-  'bi-book': MenuBookOutlinedIcon,
-  'bi-clipboard-check': AssignmentTurnedInOutlinedIcon,
-  'bi-folder': FolderOutlinedIcon,
-  'bi-link-45deg': LinkIcon,
-  'bi-star-fill': StarOutlineIcon,
-  'bi-github': GitHubIcon,
-};
+const ICONS = {
+  AccountTree,
+  AssignmentTurnedIn,
+  Computer,
+  Description,
+  Folder,
+  GitHub,
+  HelpOutline,
+  Link,
+  Memory,
+  MenuBook,
+  OpenInNew,
+  RocketLaunch,
+  Send,
+  Star,
+} as const;
 
-/** Whether `name` is a Bootstrap Icons class this module can draw. */
-export function hasGuideIcon(name: string | undefined): boolean {
-  return !!name && name.split(/\s+/).some((part) => part in ICONS);
+export type GuideIconName = keyof typeof ICONS;
+
+export const GUIDE_ICON_NAMES = Object.keys(ICONS) as GuideIconName[];
+
+/** Whether `name` is an icon this module can draw. */
+export function isGuideIconName(name: unknown): name is GuideIconName {
+  return typeof name === 'string' && name in ICONS;
 }
 
-/** Render a legacy `bi bi-*` class as a Material icon (nothing if unknown). */
+/** Draw a named icon (nothing if unknown). */
 const GuideIcon = ({ name, ...props }: { name?: string } & SvgIconProps) => {
-  const key = name?.split(/\s+/).find((part) => part in ICONS);
-  if (!key) return null;
-  const Icon = ICONS[key];
+  if (!isGuideIconName(name)) return null;
+  const Icon = ICONS[name];
   return <Icon {...props} />;
 };
 
