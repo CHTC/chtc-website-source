@@ -67,7 +67,7 @@ export const CommandTable = ({ children }: { children: ReactNode }) => (
 export const MiniBar = ({ children }: { children: ReactNode }) => (
   <Box
     sx={{
-      '& > :is(h2, h3, h4)::before': {
+      '& > :is(h2, h3, h4, h5)::before': {
         content: '""',
         display: 'block',
         width: '2rem',

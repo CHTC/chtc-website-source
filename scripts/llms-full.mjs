@@ -53,6 +53,8 @@ function pageToMarkdown(html) {
   const root = parse(html, { comment: false });
   const body = root.querySelector('.chtc-doc');
   if (!body) return null;
+  // Internal pages (`noindex` in the frontmatter) stay out of the export too.
+  if (/noindex/.test(root.querySelector('meta[name="robots"]')?.getAttribute('content') ?? '')) return null;
 
   // Permalink and icon-only anchors.
   for (const a of body.querySelectorAll('a')) {
@@ -78,7 +80,11 @@ function docSlugs() {
   const walk = (dir, rel) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.isDirectory()) walk(path.join(dir, entry.name), rel ? `${rel}/${entry.name}` : entry.name);
-      else if (entry.name.endsWith('.mdx')) slugs.push((rel ? `${rel}/` : '') + entry.name.replace(/\.mdx$/, ''));
+      else if (entry.name.endsWith('.mdx')) {
+        // `staff/index.mdx` is the page for `staff/` itself, as in docs.ts.
+        const name = entry.name.replace(/\.mdx$/, '');
+        slugs.push(name === 'index' ? rel : (rel ? `${rel}/` : '') + name);
+      }
     }
   };
   walk(DOCS_DIR, '');
@@ -143,7 +149,7 @@ function main() {
       }
       const page = pageToMarkdown(fs.readFileSync(file, 'utf8'));
       if (!page?.md) {
-        console.warn(`[llms] no guide body in ${slug}, skipping`);
+        if (page !== null) console.warn(`[llms] no guide body in ${slug}, skipping`);
         continue;
       }
       const title = page.title || slug;

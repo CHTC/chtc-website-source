@@ -7,13 +7,12 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 /*
- * Markdown (and raw HTML) for the fellowship reports, staff docs, job and
+ * Markdown (and raw HTML) for the fellowship reports, job and
  * fellowship descriptions and the research list.
  *
  * `components/MarkdownContainer` is the site-wide renderer, but it has no
  * GitHub-flavoured tables and drops heading ids, and these documents rely on
- * both: the reports carry pipe tables, the staff docs link to their own
- * headings from a table of contents. Rather than change the shared component
+ * both: the reports carry pipe tables and link to their own headings. Rather than change the shared component
  * this is a superset of it for this route group.
  */
 

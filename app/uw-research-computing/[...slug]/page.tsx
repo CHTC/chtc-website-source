@@ -17,7 +17,8 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const doc = getDoc((await params).slug);
   if (!doc) return {};
-  return listingMetadata(doc.data.title, doc.data.description, doc.path);
+  const metadata = listingMetadata(doc.data.title, doc.data.description, doc.path);
+  return doc.data.noindex ? { ...metadata, robots: { index: false, follow: false } } : metadata;
 }
 
 export default async function Page({ params }: { params: Params }) {

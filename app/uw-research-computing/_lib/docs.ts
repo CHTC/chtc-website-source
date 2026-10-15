@@ -26,7 +26,9 @@ const Frontmatter = z.strictObject({
   /** A sentence or two for the meta description and search previews. */
   description: z.string().min(1),
   /** Which guide sidebars the page appears in; none for a standalone page. */
-  sidebar: z.array(z.enum(['htc', 'hpc'])).optional(),
+  sidebar: z.array(z.enum(['htc', 'hpc', 'staff'])).optional(),
+  /** Keep the page out of search engines, the sitemap and the llms export (internal docs). */
+  noindex: z.boolean().optional(),
   /** Section of the guides the page belongs to, e.g. `Get started`. */
   category: z.string().optional(),
   order: z.number().optional(),
@@ -76,7 +78,8 @@ export function getDocs(): Doc[] {
   cache = walk(DOCS_DIR)
     .map((file) => {
       const rel = path.relative(DOCS_DIR, file).split(path.sep).join('/');
-      const slug = rel.replace(/\.mdx$/, '').split('/');
+      // `staff/index.mdx` is the page for `/staff/` itself.
+      const slug = rel.replace(/\.mdx$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean);
       const { data, content } = matter(fs.readFileSync(file, 'utf8'));
       return {
         slug,
@@ -227,16 +230,18 @@ function markSharedLinks(links: MenuLink[] | undefined, type: ComputeType): Menu
   });
 }
 
-function loadGuideMenu(file: string, type: ComputeType): MenuSection[] {
+function loadGuideMenu(file: string, type: ComputeType | 'staff'): MenuSection[] {
   return readYaml<MenuSection[]>(`menus/${file}`).map((section) => ({
     text: String(section.text).trim(),
     icon: checkIcon(section.icon, `menu section "${section.text}"`),
-    links: markSharedLinks(normalizeLinks(section.links), type) ?? [],
+    links: (type === 'staff' ? normalizeLinks(section.links) : markSharedLinks(normalizeLinks(section.links), type)) ?? [],
   }));
 }
 
 export const htcGuideMenu = (): MenuSection[] => loadGuideMenu('htc-guide-menu.yml', 'htc');
 export const hpcGuideMenu = (): MenuSection[] => loadGuideMenu('hpc-guide-menu.yml', 'hpc');
+/** Internal how-tos for CHTC staff; nothing in it is shared with the other menus. */
+export const staffGuideMenu = (): MenuSection[] => loadGuideMenu('staff-guide-menu.yml', 'staff');
 
 /** The guide menus shown beside a document, per its `sidebar` frontmatter. */
 export function sidebarMenus(doc: Doc): GuideMenu[] {
@@ -244,6 +249,7 @@ export function sidebarMenus(doc: Doc): GuideMenu[] {
   const menus: GuideMenu[] = [];
   if (sidebar.includes('htc')) menus.push({ id: 'htc', title: 'HTC guides', sections: htcGuideMenu() });
   if (sidebar.includes('hpc')) menus.push({ id: 'hpc', title: 'HPC guides', sections: hpcGuideMenu() });
+  if (sidebar.includes('staff')) menus.push({ id: 'staff', title: 'Staff docs', sections: staffGuideMenu() });
   return menus;
 }
 

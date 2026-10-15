@@ -63,6 +63,7 @@ The site moved from Jekyll to Next.js in October 2026. The content you used to e
 | `fellowships/index.md`, `_data/fellowships/*` | `content/fellowships/program.md`, `content/fellowships/reports/<year>/` |
 | `_data/main-menu.yml` | the `pages` array in `app/layout.tsx` |
 | Top-level pages (`htc.md`, `talk-to-us.md`, `faculty-resources.md`, …) | `app/<name>/page.mdx` or `app/<name>/page.tsx` |
+| `staff/docs/*.md` | `content/uw-research-computing/docs/staff/*.mdx` (internal, `noindex`) |
 | `_news`, `_events`, `_presentations`, `staff-list` submodules | gone; fetched at build from `CHTC/Articles`, `CHTC/Events`, `CHTC/Presentations`, `CHTC/staff-list` |
 | `_includes/`, `_layouts/`, `_sass/` | React components in `components/` and `app/uw-research-computing/_components/`, theme in `app/theme.ts`, `app/globals.css` |
 | `.well-known/` | `public/.well-known/` (unchanged) |
@@ -99,6 +100,8 @@ Frontmatter is validated at build (`app/uw-research-computing/_lib/docs.ts`); an
 | `software`, `software_icon`, `basic_scripting`, `icon`, `alt_title` | Used by the software overview and basic-scripting tabs. |
 
 A page's excerpt (shown on those tabs) is everything before a `{/* more */}` line, or its first paragraph.
+
+The same material, with every block rendered as an example, is on the site at `/uw-research-computing/staff/writing-documentation/` (source: `content/uw-research-computing/docs/staff/writing-documentation.mdx`). Pages under `docs/staff/` are internal: they set `noindex: true`, which keeps them out of search engines, the sitemap and the llms export.
 
 ### Adding a guide and placing it in a sidebar
 

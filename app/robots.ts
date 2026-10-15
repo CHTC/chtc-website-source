@@ -7,7 +7,8 @@ export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: {
 			allow: ['/'],
-			disallow: [],
+			// Internal staff documentation.
+			disallow: ['/uw-research-computing/staff/'],
 		},
 		sitemap: `${siteConfig.url}/sitemap.xml`,
 		host: siteConfig.url,
