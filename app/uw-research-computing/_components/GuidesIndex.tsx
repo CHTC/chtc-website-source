@@ -1,6 +1,7 @@
 import { Box, Container, Link, List, ListItem, Paper, Typography } from '@mui/material';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { GuideIcon, type MenuLink, type MenuSection } from '@/components/GuideSidebar';
+import { SCROLL_MARGIN, STICKY_TOP } from '../_lib/layout';
 import PageTitle from './PageTitle';
 
 /** Jekyll's `slugify`: the section anchors the legacy pages linked to. */
@@ -76,7 +77,7 @@ const GuidesIndex = ({ title, sections }: { title: string; sections: MenuSection
                 component='h2'
                 variant='h5'
                 id={slugify(section.text)}
-                sx={{ display: 'flex', alignItems: 'center', gap: 1, m: 0, scrollMarginTop: '96px' }}
+                sx={{ display: 'flex', alignItems: 'center', gap: 1, m: 0, scrollMarginTop: `${SCROLL_MARGIN}px` }}
               >
                 <GuideIcon name={section.icon} />
                 {section.text}
@@ -87,7 +88,7 @@ const GuidesIndex = ({ title, sections }: { title: string; sections: MenuSection
         ))}
       </Box>
       <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-        <Box sx={{ position: 'sticky', top: 96 }}>
+        <Box sx={{ position: 'sticky', top: STICKY_TOP }}>
           <Typography component='h2' variant='h6' sx={{ mb: 1 }}>
             Guide Sections
           </Typography>

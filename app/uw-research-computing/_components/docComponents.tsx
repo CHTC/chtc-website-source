@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Link, Typography } from '@mui/material';
 import type { MDXComponents } from 'mdx/types';
+import { SCROLL_MARGIN } from '../_lib/layout';
 import {
   Button,
   ButtonRow,
@@ -90,8 +91,8 @@ const DocImage = ({ src, alt, title, width, height, style, className, loading }:
 
 /* Headings ------------------------------------------------------------------ */
 
-/** Anchored headings must clear the sticky site header when jumped to. */
-const HEADING_SX = { scrollMarginTop: '96px', mt: 4, mb: 1.5 } as const;
+/** Anchored headings must clear the sticky bars when jumped to. */
+const HEADING_SX = { scrollMarginTop: `${SCROLL_MARGIN}px`, mt: 4, mb: 1.5 } as const;
 
 type HeadingProps = { children?: ReactNode; id?: string; className?: string; style?: CSSProperties };
 

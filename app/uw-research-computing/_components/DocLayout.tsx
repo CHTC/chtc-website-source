@@ -3,6 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Typograp
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import GuideSidebar, { type GuideMenu } from '@/components/GuideSidebar';
 import type { DocHeading } from '../_lib/docs';
+import { STICKY_TOP } from '../_lib/layout';
 import DocSidebar from './DocSidebar';
 import PageTitle from './PageTitle';
 import TocNav from './TocNav';
@@ -13,9 +14,9 @@ const TOC_WIDTH = '220px';
 /** A sticky side column; both the guide sidebar and the page contents use it. */
 const stickySx = {
   position: 'sticky',
-  top: 80,
+  top: STICKY_TOP,
   alignSelf: 'start',
-  maxHeight: 'calc(100vh - 96px)',
+  maxHeight: `calc(100vh - ${STICKY_TOP + 16}px)`,
   overflowY: 'auto',
   pt: 5,
   pb: 2,

@@ -16,9 +16,11 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import type { SectionNavItem } from '../_lib/docs';
+import { HEADER_HEIGHT, SECTION_NAV_HEIGHT } from '../_lib/layout';
 
 const isExternal = (url: string) => /^[a-z]+:/i.test(url);
 const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
@@ -56,23 +58,48 @@ const DropdownItem = ({ item, active }: { item: SectionNavItem; active: boolean 
 };
 
 const navButtonSx = (active: boolean) => ({
-  color: active ? 'primary.main' : 'text.primary',
+  color: 'common.white',
+  opacity: active ? 1 : 0.85,
   fontWeight: active ? 700 : 500,
   borderRadius: 0,
   borderBottom: '3px solid',
-  borderColor: active ? 'primary.main' : 'transparent',
+  borderColor: active ? 'common.white' : 'transparent',
   py: 1.25,
   px: 1.5,
   whiteSpace: 'nowrap',
+  '&:hover': { opacity: 1, bgcolor: 'rgba(255, 255, 255, 0.08)' },
 });
 
 /**
  * The Campus Computing sub-navigation from the legacy
  * `_includes/navbar/uw-research-computing-navbar.html`, fed by
  * `_data/uw-research-computing-menu.yml`. Sits under the global header on
- * every page of the section.
+ * every page of the section and stays there as the page scrolls, as a red
+ * bar so the section reads as a place of its own.
  */
 const HOME = '/uw-research-computing/';
+
+/** Index of the guides as plain text, for pasting into an LLM (see scripts/llms-full.mjs). */
+const LLMS_TXT = '/llms.txt';
+
+const LlmsButton = ({ sx }: { sx?: object }) => (
+  <Button
+    component='a'
+    href={LLMS_TXT}
+    size='small'
+    variant='outlined'
+    startIcon={<AutoAwesomeIcon />}
+    sx={{
+      color: 'common.white',
+      borderColor: 'rgba(255, 255, 255, 0.6)',
+      whiteSpace: 'nowrap',
+      '&:hover': { borderColor: 'common.white', bgcolor: 'rgba(255, 255, 255, 0.1)' },
+      ...sx,
+    }}
+  >
+    Use with LLMs
+  </Button>
+);
 
 const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
   const pathname = withSlash(usePathname() ?? '/');
@@ -87,7 +114,16 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
     <Box
       component='nav'
       aria-label='Campus Computing'
-      sx={{ bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}
+      sx={{
+        position: 'sticky',
+        top: HEADER_HEIGHT,
+        // Under the site header's dropdowns, above the page's sticky columns.
+        zIndex: (theme) => theme.zIndex.appBar - 1,
+        minHeight: SECTION_NAV_HEIGHT,
+        bgcolor: 'primary.main',
+        color: 'common.white',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+      }}
     >
       <Container maxWidth='lg'>
         {/* Desktop */}
@@ -100,10 +136,13 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
             aria-current={atHome ? 'page' : undefined}
             sx={{
               fontWeight: 700,
-              color: atHome ? 'primary.main' : 'text.secondary',
+              color: 'common.white',
+              opacity: atHome ? 1 : 0.9,
               mr: 2,
-              fontSize: '0.9rem',
-              '&:hover': { color: 'primary.main' },
+              fontSize: '0.95rem',
+              letterSpacing: '0.02em',
+              textTransform: 'uppercase',
+              '&:hover': { opacity: 1 },
             }}
           >
             Campus Computing
@@ -117,6 +156,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
               </Button>
             )
           )}
+          <LlmsButton sx={{ ml: 'auto', my: 0.75 }} />
         </Box>
 
         {/* Phone */}
@@ -127,7 +167,7 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
               href={HOME}
               underline='hover'
               aria-current={atHome ? 'page' : undefined}
-              sx={{ fontWeight: 700, color: atHome ? 'primary.main' : 'text.primary', py: 1, flexGrow: 1 }}
+              sx={{ fontWeight: 700, color: 'common.white', py: 1, flexGrow: 1 }}
             >
               Campus Computing
             </Link>
@@ -135,14 +175,14 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
               onClick={() => setMobileOpen((o) => !o)}
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? 'Close section menu' : 'Open section menu'}
-              sx={{ color: 'text.primary' }}
+              sx={{ color: 'common.white' }}
             >
               <MenuIcon />
               <KeyboardArrowDownIcon fontSize='small' sx={{ transform: mobileOpen ? 'rotate(180deg)' : 'none' }} />
             </IconButton>
           </Box>
           <Collapse in={mobileOpen}>
-            <List dense sx={{ pb: 1 }}>
+            <List dense sx={{ pb: 1, '& .MuiListItemButton-root': { color: 'common.white' } }}>
               {items.map((item) => (
                 <Box key={item.label}>
                   <ListItemButton
@@ -166,6 +206,9 @@ const SectionNav = ({ items }: { items: SectionNavItem[] }) => {
                   ))}
                 </Box>
               ))}
+              <Box sx={{ px: 2, pt: 1 }}>
+                <LlmsButton />
+              </Box>
             </List>
           </Collapse>
         </Box>

@@ -118,7 +118,8 @@ const PARTNERS = [
 
 const DesktopHeader = ({ pages }: { pages: NavigationItem[] }) => {
 	return (
-		<Toolbar disableGutters>
+		// Extra vertical room so the logo bar reads as the site's main header.
+		<Toolbar disableGutters sx={{ py: 1.25 }}>
 			<Box sx={{ display: 'flex', alignItems: 'center', width: '100%', gap: 1.5 }}>
 				<Box sx={{ flex: '0 0 auto' }}>
 					<Title />

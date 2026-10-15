@@ -28,7 +28,7 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 	const handleDrawerClose = () => setNavOpen(false);
 
 	return (
-		<Toolbar disableGutters>
+		<Toolbar disableGutters sx={{ py: 0.75 }}>
 			<Grid container justifyContent="space-between" alignItems="center" flexGrow={1}>
 				<Grid size={'auto'}>
 					<IconButton

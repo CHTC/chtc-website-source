@@ -73,7 +73,7 @@ code.hljs { padding: 3px 5px; }
 .chtc-doc img { max-width: 100%; height: auto; }
 .chtc-doc iframe { max-width: 100%; border: 0; }
 .chtc-doc iframe[src*="youtube"] { aspect-ratio: 16 / 9; height: auto; }
-.chtc-doc [id] { scroll-margin-top: 96px; }
+.chtc-doc [id] { scroll-margin-top: 72px; } /* under the sticky section bar (SCROLL_MARGIN) */
 
 /* Inline and block code -------------------------------------------------- */
 .chtc-doc :not(pre) > code {

@@ -6,9 +6,9 @@ import { Box, Button, Container, Link } from '@mui/material';
 
 /**
  * The thin red bar above the navigation, as on the legacy site: the two
- * parent organisations on the left; on the right a link that swaps between
- * the User Portal and the CHTC home page depending on which half of the site
- * the visitor is in, and the Request Account button.
+ * parent organisations on the left; on the right a link to the User Portal
+ * (outside the Campus Computing section, which has its own navigation) and
+ * the Request Account button.
  */
 const SECTION = '/uw-research-computing';
 
@@ -29,7 +29,11 @@ export default function GlobalBar() {
 
   return (
     <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-      <Container maxWidth='lg' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+      {/* As tall as the Campus Computing section bar, so the two red bars match. */}
+      <Container
+        maxWidth='lg'
+        sx={{ minHeight: 48, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}
+      >
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Link href='https://cai.wisc.edu/' sx={linkSx} aria-label='UW-Madison College of Computing, Data & Information Sciences'>
             UW-Madison CAI
@@ -39,11 +43,7 @@ export default function GlobalBar() {
           </Link>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-          {inSection ? (
-            <Link component={NextLink} href='/' sx={{ ...linkSx, display: { xs: 'none', sm: 'inline' } }}>
-              Go to CHTC Home
-            </Link>
-          ) : (
+          {!inSection && (
             <Link component={NextLink} href={`${SECTION}/user-portal/`} sx={{ ...linkSx, display: { xs: 'none', sm: 'inline' } }}>
               Go to User Portal
             </Link>
