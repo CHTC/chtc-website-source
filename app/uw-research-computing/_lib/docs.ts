@@ -70,11 +70,30 @@ function walk(dir: string): string[] {
   });
 }
 
+declare global {
+  // Augmenting @types/node's `Require` has to go through its namespace.
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace NodeJS {
+    interface Require {
+      /** Bundler API (webpack and Turbopack), not Node's. */
+      context(directory: string, recursive: boolean, filter: RegExp): unknown;
+    }
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  // The documents are read with `fs`, which the dev server does not watch.
+  // Referencing them here makes a save refresh the open page.
+  require.context('../../../content/uw-research-computing/docs', true, /\.mdx$/);
+}
+
 let cache: Doc[] | undefined;
 
 /** Every document, sorted by path (the order Jekyll listed the collection in). */
 export function getDocs(): Doc[] {
-  if (cache) return cache;
+  // `next dev` keeps this module loaded, so caching there would serve the
+  // first read of every file until the server restarts.
+  if (cache && process.env.NODE_ENV === 'production') return cache;
   cache = walk(DOCS_DIR)
     .map((file) => {
       const rel = path.relative(DOCS_DIR, file).split(path.sep).join('/');
