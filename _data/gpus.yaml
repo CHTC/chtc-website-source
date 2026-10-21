@@ -1,56 +1,171 @@
-- number_of_servers: 2
-  names: gpu2000, gpu2001
-  gpus_per_server: 2
-  gpu_type: Tesla P100-PCIE-16GB
-  hardware_generation: 6.0
-  gpu_memory: 16GB
-  owner: campus
-- number_of_servers: 1
-  names: gpulab2003
-  gpus_per_server: 8
-  gpu_type: NVIDIA GeForce RTX 2080 Ti
-  hardware_generation: 7.5
-  gpu_memory: 10GB
-  owner: campus
-- number_of_servers: 2
-  names: gpulab2004, gpulab2005
-  gpus_per_server: 4
-  gpu_type: NVIDIA A100-SXM4-40GB
-  hardware_generation: 8.0
-  gpu_memory: 40GB
-  owner: campus
-- number_of_servers: 8
-  names: gpu2003 - gpu2010
-  gpus_per_server: 4
-  gpu_type: NVIDIA A100-SXM4-80GB
-  hardware_generation: 8.0
-  gpu_memory: 80GB
-  owner: campus
-- number_of_servers: 3
-  names: gpu4000 - gpu4002
-  gpus_per_server: 10
-  gpu_type: NVIDIA L40
-  hardware_generation: 8.9
-  gpu_memory: 45GB
-  owner: campus
-- number of servers: 2
-  names: gpu4005 - gpu4006
-  gpus_per_server: 8
-  gpu_type: NVIDIA L40S
-  hardware_generation: 8.9
-  gpu_memory: 45GB
-  owner: campus
-- number_of_servers: 1
-  names: gpu4003
-  gpus_per_server: 8
-  gpu_type: NVIDIA H100 80GB HBM3
+- gpu_name: RTX PRO 6000
+  gpu_type: NVIDIA RTX PRO 6000 Blackwell Server Edition
+  hardware_generation: 12.0
+  gpu_memory: 96GB
+  gpus_minimum_memory: 94 GB
+  shared_memory: false
+  open_gpus: 12
+  backfill_gpus: 20
+  open_servers:
+    - lli-chtcgpu6000
+    - sgomezgpu6000
+- gpu_name: H200 NVL
+  gpu_type: NVIDIA H200 NVL
   hardware_generation: 9.0
-  gpu_memory: 80GB
-  owner: campus
-- number_of_servers: 2
-  names: gpu4004, hsharma-chtcgpu4000
-  gpus_per_server: 8
+  gpu_memory: 141GB
+  gpus_minimum_memory: 139 GB
+  shared_memory: false
+  open_gpus: 0
+  backfill_gpus: 4
+  open_servers: []
+- gpu_name: H200
   gpu_type: NVIDIA H200
   hardware_generation: 9.0
   gpu_memory: 141GB
-  owner: campus
+  gpus_minimum_memory: 139 GB
+  shared_memory: false
+  open_gpus: 34
+  backfill_gpus: 26
+  open_servers:
+    - dbrundage-chtcgpu5000
+    - gpu4004
+    - gpu5000
+    - gpu5001
+    - hsharma-chtcgpu4000
+- gpu_name: H100 80GB
+  gpu_type: NVIDIA H100 80GB HBM3
+  hardware_generation: 9.0
+  gpu_memory: 80GB
+  gpus_minimum_memory: 79 GB
+  shared_memory: false
+  open_gpus: 8
+  backfill_gpus: 8
+  open_servers:
+    - gpu4003
+- gpu_name: L40
+  gpu_type: NVIDIA L40
+  hardware_generation: 8.9
+  gpu_memory: 48GB
+  gpus_minimum_memory: 44 GB
+  shared_memory: false
+  open_gpus: 27
+  backfill_gpus: 57
+  open_servers:
+    - gpu4000
+    - gpu4001
+    - gpu4002
+- gpu_name: L40S
+  gpu_type: NVIDIA L40S
+  hardware_generation: 8.9
+  gpu_memory: 48GB
+  gpus_minimum_memory: 44 GB
+  shared_memory: false
+  open_gpus: 22
+  backfill_gpus: 82
+  open_servers:
+    - gpu4005
+    - gpu4006
+    - zliu-chtcgpu5000
+- gpu_name: A40
+  gpu_type: NVIDIA A40
+  hardware_generation: 8.6
+  gpu_memory: 48GB
+  gpus_minimum_memory: 44 GB
+  shared_memory: false
+  open_gpus: 0
+  backfill_gpus: 8
+  open_servers: []
+- gpu_name: A100 80GB
+  gpu_type: NVIDIA A100-SXM4-80GB
+  hardware_generation: 8.0
+  gpu_memory: 80GB
+  gpus_minimum_memory: 79 GB
+  shared_memory: false
+  open_gpus: 16
+  backfill_gpus: 12
+  open_servers:
+    - gpu2005
+    - gpu2006
+    - gpu2009
+    - gpu2010
+- gpu_name: A100 40GB
+  gpu_type: NVIDIA A100-SXM4-40GB
+  hardware_generation: 8.0
+  gpu_memory: 40GB
+  gpus_minimum_memory: 39 GB
+  shared_memory: false
+  open_gpus: 8
+  backfill_gpus: 20
+  open_servers:
+    - gpulab2004
+    - gpulab2005
+- gpu_name: A100 80GB, MIG slice (3g.40gb)
+  gpu_type: NVIDIA A100-SXM4-80GB MIG 3g.40gb
+  hardware_generation: 8.0
+  gpu_memory: 40GB
+  gpus_minimum_memory: 39 GB
+  shared_memory: false
+  open_gpus: 8
+  backfill_gpus: 0
+  open_servers:
+    - gpu2011
+- gpu_name: A30
+  gpu_type: NVIDIA A30
+  hardware_generation: 8.0
+  gpu_memory: 24GB
+  gpus_minimum_memory: 23 GB
+  shared_memory: false
+  open_gpus: 0
+  backfill_gpus: 8
+  open_servers: []
+- gpu_name: Quadro RTX 8000
+  gpu_type: Quadro RTX 8000
+  hardware_generation: 7.5
+  gpu_memory: 48GB
+  gpus_minimum_memory: 47 GB
+  shared_memory: false
+  open_gpus: 1
+  backfill_gpus: 0
+  open_servers:
+    - patel0000
+- gpu_name: Quadro RTX 6000
+  gpu_type: Quadro RTX 6000
+  hardware_generation: 7.5
+  gpu_memory: 24GB
+  gpus_minimum_memory: 23 GB
+  shared_memory: false
+  open_gpus: 0
+  backfill_gpus: 1
+  open_servers: []
+- gpu_name: RTX 2080 Ti
+  gpu_type: NVIDIA GeForce RTX 2080 Ti
+  hardware_generation: 7.5
+  gpu_memory: 11GB
+  gpus_minimum_memory: 10 GB
+  shared_memory: false
+  open_gpus: 19
+  backfill_gpus: 16
+  open_servers:
+    - gpulab2003
+    - vetsigian0000
+    - vetsigian0001
+- gpu_name: GTX 1080 Ti
+  gpu_type: NVIDIA GeForce GTX 1080 Ti
+  hardware_generation: 6.1
+  gpu_memory: 11GB
+  gpus_minimum_memory: 10 GB
+  shared_memory: false
+  open_gpus: 0
+  backfill_gpus: 4
+  open_servers: []
+- gpu_name: P100 16GB
+  gpu_type: Tesla P100-PCIE-16GB
+  hardware_generation: 6.0
+  gpu_memory: 16GB
+  gpus_minimum_memory: 15 GB
+  shared_memory: false
+  open_gpus: 4
+  backfill_gpus: 4
+  open_servers:
+    - gpu2000
+    - gpu2001

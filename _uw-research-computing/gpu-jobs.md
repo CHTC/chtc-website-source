@@ -59,41 +59,110 @@ determine:
 {% endcapture %}
 {% include /components/directory.html title="Table of Contents" %}
 
-# A. Available CHTC GPUs
+# A. Available GPUs
 
-## 1. GPU Lab
+CHTC's open capacity GPUs are available to any user of the high throughput computing (HTC) system. They are provided by the [CHTC GPU Lab](gpu-lab.html). Researchers also own GPUs on CHTC. When these cards are not in use by their owners, your jobs can run on them if you opt in as backfill. CHTC users can also access GPUs on the OSPool, which has an average of 275 GPUs available per hour. See [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details on accessing backfill or the OSPool. 
 
-CHTC has a set of GPUs that are available for use by any CHTC user with an 
-account on our high throughput computing (HTC) system
-via the [CHTC GPU Lab](gpu-lab.html), which includes templates and a campus GPU community.
+{% assign open_total = 0 %}
+{% assign backfill_total = 0 %}
+{% assign backfill_only_total = 0 %}
+{% assign any_shared_memory = false %}
+{% for gpu in site.data.gpus %}
+  {% assign open_total = open_total | plus: gpu.open_gpus %}
+  {% assign backfill_total = backfill_total | plus: gpu.backfill_gpus %}
+  {% if gpu.open_gpus == 0 %}
+    {% assign backfill_only_total = backfill_only_total | plus: gpu.backfill_gpus %}
+  {% endif %}
+  {% if gpu.shared_memory %}{% assign any_shared_memory = true %}{% endif %}
+{% endfor %}
+{% assign all_total = open_total | plus: backfill_total %}
 
-Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
-the capacity of the GPU Lab to run their work. 
+<style>
+  .gpu-table th, .gpu-table td { padding: 0.3em 0.75em; vertical-align: bottom; }
+  .gpu-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .gpu-table .group { text-align: center; border-bottom: 1px solid currentColor; }
+  .gpu-table tfoot td { font-weight: bold; border-top: 2px solid currentColor; }
+</style>
 
-<table class="gtable">
-  <tr>
-    <th>Number of Servers</th>
-    <th>Names</th>
-    <th>GPUs / Server</th>
-    <th>GPU Type (<code>DeviceName</code>)</th>
-    <th>Hardware Generation <code>Capability</code></th>
-    <th>GPU Memory <code>GlobalMemoryMB</code></th>
-  </tr>
-  {% for gpu in site.data.gpus %}
-	{% if gpu.owner != "campus" %}
-		{% continue %}
-    {% endif %}
-
-  <tr>
-	<td>{{ gpu.number_of_servers }}</td>
-	<td>{{ gpu.names }}</td>
-	<td>{{ gpu.gpus_per_server }}</td>
-	<td>{{ gpu.gpu_type }}</td>
-	<td>{{ gpu.hardware_generation }}</td>
-	<td>{{ gpu.gpu_memory }}</td>
-  </tr>
-  {% endfor %}
+<table class="gtable gpu-table">
+  <thead>
+    <tr>
+      <th rowspan="2">GPU Name</th>
+      <th rowspan="2" class="num">Hardware Generation <br><small>(<code>GPUs_Capability</code>)</small></th>
+      <th rowspan="2" class="num">GPU Memory (VRAM)<br><small>(<code>gpus_minimum_memory</code>)<sup>†</sup></small></th>
+      <th colspan="3" class="group">Number of GPUs</th>
+    </tr>
+    <tr>
+      <th class="num">Open capacity</th>
+      <th class="num">Backfill</th>
+      <th class="num">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for gpu in site.data.gpus %}
+    {% if gpu.open_gpus == 0 %}{% continue %}{% endif %}
+    <tr>
+      <td>{{ gpu.gpu_name }}{% if gpu.shared_memory %}<sup>§</sup>{% endif %}{% if gpu.gpu_type contains "MIG" %}<sup>‡</sup>{% endif %}</td>
+      <td class="num">{{ gpu.hardware_generation }}</td>
+      <td class="num"><code>{{ gpu.gpus_minimum_memory }}</code></td>
+      <td class="num">{{ gpu.open_gpus }}</td>
+      <td class="num">{{ gpu.backfill_gpus }}</td>
+      <td class="num">{{ gpu.open_gpus | plus: gpu.backfill_gpus }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total, all GPU types</td>
+      <td class="num">{{ open_total }}</td>
+      <td class="num">{{ backfill_total }}</td>
+      <td class="num">{{ all_total }}</td>
+    </tr>
+  </tfoot>
 </table>
+
+<details>
+  <summary>GPU types available only through backfill</summary>
+  <table class="gtable gpu-table">
+    <thead>
+      <tr>
+        <th>GPU Name</th>
+        <th class="num">Capability</th>
+        <th class="num">Memory<sup>†</sup></th>
+        <th class="num">GPUs</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for gpu in site.data.gpus %}
+      {% if gpu.open_gpus > 0 %}{% continue %}{% endif %}
+      <tr>
+        <td>{{ gpu.gpu_name }}{% if gpu.shared_memory %}<sup>§</sup>{% endif %}{% if gpu.gpu_type contains "MIG" %}<sup>‡</sup>{% endif %}</td>
+        <td class="num">{{ gpu.hardware_generation }}</td>
+        <td class="num"><code>{{ gpu.gpus_minimum_memory }}</code></td>
+        <td class="num">{{ gpu.backfill_gpus }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">Total</td>
+        <td class="num">{{ backfill_only_total }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</details>
+
+<p class="table-notes">
+  <sup>†</sup> The largest <code>gpus_minimum_memory</code> value that still matches
+  this GPU. A higher value excludes it. A lower value also matches GPUs with less
+  memory.<br>
+  {% if any_shared_memory %}
+  <sup>§</sup> The CPU and GPU share one pool of memory. Memory your job uses on the
+  CPU leaves less for the GPU.<br>
+  {% endif %}
+  <sup>‡</sup> A MIG slice is part of one A100 GPU. It has 40&nbsp;GB of memory but
+  about 40% of the computing power of a full A100. Two slices share one A100.
+</p>
 
 ### Special GPU Lab Policies
 
@@ -110,11 +179,6 @@ the capacity of the GPU Lab to run their work.
 ### Interactive GPU jobs
 There are a certain number of slots in the GPU Lab reserved for interactive use.
 Learn more about [interactive GPU jobs](htc-interactive-gpu-jobs).
-
-## 2. Other Capacity
-
-There is additional dedicated and backfill GPU capacity available in CHTC and beyond; 
-see [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details. 
 
 # B. Submit Jobs Using GPUs in CHTC
 
