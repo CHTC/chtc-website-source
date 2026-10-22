@@ -44,7 +44,7 @@ export default function PartnerTile({
         bgcolor: 'background.paper',
         border: 1,
         borderColor: 'divider',
-        borderRadius: 4,
+        borderRadius: 1,
         transition: 'box-shadow .2s ease, transform .2s ease, border-color .2s ease',
         '&:hover': {
           transform: 'translateY(-3px)',

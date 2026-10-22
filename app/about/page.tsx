@@ -50,7 +50,7 @@ export default function Page() {
                   justifyContent: 'space-between',
                   px: 2.5,
                   py: 2,
-                  borderRadius: 3,
+                  borderRadius: 1,
                   border: 1,
                   borderColor: 'divider',
                   bgcolor: 'background.paper',

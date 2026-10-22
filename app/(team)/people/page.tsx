@@ -55,7 +55,7 @@ export default async function Page() {
         }
       />
 
-      <Box sx={{ bgcolor: 'grey.100', pt: 1, pb: 4 }}>
+      <Box sx={{ bgcolor: 'background.default', pt: 1, pb: 4 }}>
         <Container maxWidth='xl'>
           <Typography variant='h1' sx={{ mt: 4 }}>
             Our Staff

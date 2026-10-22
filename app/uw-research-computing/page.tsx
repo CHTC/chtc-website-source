@@ -261,7 +261,7 @@ export default async function Page() {
           src={`${SECTION}/campus_map.html`}
           title='Interactive Campus Map'
           loading='lazy'
-          sx={{ width: '100%', height: 400, border: 0, borderRadius: 2 }}
+          sx={{ width: '100%', height: 400, border: 0, borderRadius: 1 }}
         />
 
         <PageTitle component='h2'>Impact Stories</PageTitle>

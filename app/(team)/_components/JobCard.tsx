@@ -7,7 +7,7 @@ export default function JobCard({ job }: { job: Job }) {
   const href = job.button?.href;
 
   return (
-    <Paper elevation={3} sx={{ p: { xs: 2.5, md: 4 }, mb: 3, borderRadius: 2 }}>
+    <Paper elevation={3} sx={{ p: { xs: 2.5, md: 4 }, mb: 3, borderRadius: 1 }}>
       <Box sx={{ width: '2rem', height: 3, bgcolor: 'primary.main', borderRadius: 2, mb: 1 }} />
       <Typography id={slugify(job.title)} variant='h5' component='h3' sx={{ scrollMarginTop: 96 }}>
         {href ? <Link href={href}>{job.title}</Link> : job.title}

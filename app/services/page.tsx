@@ -19,7 +19,7 @@ export default function Page() {
       <Box
         sx={{
           p: { xs: 3, md: 4 },
-          borderRadius: 4,
+          borderRadius: 1,
           border: 1,
           borderColor: 'divider',
           bgcolor: 'background.paper',

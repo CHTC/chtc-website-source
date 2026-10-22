@@ -100,7 +100,7 @@ const defaultComponents: Components = {
           maxWidth: '100%',
           width: declaredWidth ? `${declaredWidth}px` : undefined,
           height: 'auto',
-          borderRadius: 12,
+          borderRadius: 10,
           margin: '1rem 0',
         }}
       />

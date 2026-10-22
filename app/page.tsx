@@ -8,6 +8,7 @@ import { getSiteEvents } from '@/utils/events';
 import { listingMetadata } from '@/utils/metadata';
 import { siteConfig } from '@/site.config';
 import FeatureRow, { FeatureText } from '@/components/FeatureRow';
+import MiniBarHeading from '@/components/MiniBarHeading';
 import UsageStats from './_components/UsageStats';
 import PartnerTile from './_components/PartnerTile';
 
@@ -30,6 +31,16 @@ const OSG_ORANGE = '#f6a32a';
 
 /** The legacy article that the announcement bar points at. */
 const ANNOUNCEMENT_ARTICLE = 'behind-nobel-winning-icecube-discoveries';
+
+/**
+ * The sections below the hero alternate between the page grey and white
+ * bands, with a rule between them, so each reads as its own block.
+ */
+const SECTION_BAND_SX = {
+  py: { xs: 6, md: 8 },
+  borderTop: 1,
+  borderColor: 'divider',
+} as const;
 
 
 export default async function Home() {
@@ -115,7 +126,8 @@ export default async function Home() {
       {/* Intro */}
       <Container maxWidth='lg' sx={{ py: { xs: 5, md: 7 } }}>
         <Box sx={{ maxWidth: '80ch', mx: "auto" }}>
-          <Typography variant='h1' sx={{ fontSize: { xs: '2.25rem', md: '3rem' }, mb: 3 }}>
+          {/* Sized so the name fits on one line in the 80ch column on desktop. */}
+          <Typography variant='h1' sx={{ fontSize: { xs: '2.25rem', md: '2.75rem' }, mb: 3 }}>
             Center for High Throughput Computing
           </Typography>
           <Typography sx={{ fontSize: '1.2rem', fontWeight: 600, lineHeight: 1.6, mb: 3 }}>
@@ -169,7 +181,7 @@ export default async function Home() {
       </Container>
 
       {/* Hero story / News / Events, over the spotlight's banner image (as on osg-htc.org) */}
-      <Box component='section' sx={{ position: 'relative', py: 4, bgcolor: 'grey.100' }}>
+      <Box component='section' sx={{ position: 'relative', py: 4, bgcolor: 'background.default' }}>
         {heroStory?.banner_src && (
           // A CSS background-image would bypass the export optimizer, so the
           // banner is an image positioned behind the cards.
@@ -297,132 +309,128 @@ export default async function Home() {
       <UsageStats />
 
       {/* Technologies and methodologies */}
-      <Container maxWidth='lg' sx={{ pt: { xs: 4, md: 6 }, pb: { xs: 4, md: 6 } }}>
-        <Typography
-          variant='h4'
-          component='h2'
-          sx={{ textAlign: 'center', mb: { xs: 1, md: 2 } }}
-        >
-          Technologies and Methodologies
-        </Typography>
-        <FeatureRow
-          title='HTCSS'
-          image={{ src: '/images/logos/CondorAlpha.png', width: 384, height: 327, alt: 'Hand drawn image of a Condor' }}
-          imageFirst
-          imageMaxWidth={260}
-        >
-          <FeatureText>
-            The <Link href='https://htcondor.org'>HTCondor Software Suite (HTCSS)</Link> provides
-            sites and users with the ability to manage and execute HTC workloads. Whether it’s
-            managing a single laptop or 250,000 cores at CERN, HTCondor helps solve computational
-            problems through the application of the HTC principles.
-          </FeatureText>
-        </FeatureRow>
-        <FeatureRow
-          title='Pelican'
-          image={{ src: '/images/logos/Pelican.png', width: 6659, height: 6584, alt: 'Pelican logo' }}
-          imageFirst
-          imageMaxWidth={260}
-        >
-          <FeatureText>
-            A data transfer service, <Link href='https://pelicanplatform.org'>Pelican</Link>{' '}
-            facilitates the ability for researchers to access and transfer data from where it is
-            stored to where it needs to run. Inspired by the 2022 White House Office of Science
-            and Technology Policy (OSTP) proposition to make all government funded research data
-            publicly accessible, Pelican works to efficiently transfer this open data to
-            researchers who require it. Pelican provides an open-source software platform for
-            federating dataset repositories together and delivering the objects to computing
-            capacity such as the <Link href='https://osg-htc.org/ospool'>OSPool</Link>.
-          </FeatureText>
-        </FeatureRow>
-        <FeatureRow
-          title='Research Facilitation'
-          href='/research-facilitation/'
-          image={{
-            src: '/images/facilitators_square.jpg',
-            width: 1335,
-            height: 1335,
-            alt: 'A CHTC research computing facilitator working with a researcher at a laptop',
-          }}
-          imageFirst
-          imageMaxWidth={260}
-          imageBorderRadius={16}
-        >
-          <FeatureText>
-            CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
-            their goals. The Research Facilitation approach emphasizes teaching users skills and
-            methodologies to manage &amp; automate workloads on resources like those at CHTC, the
-            campus, or across the world.
-          </FeatureText>
-        </FeatureRow>
-      </Container>
+      <Box component='section' sx={SECTION_BAND_SX}>
+        <Container maxWidth='lg'>
+          <MiniBarHeading center sx={{ mb: { xs: 1, md: 2 } }}>
+            Technologies and Methodologies
+          </MiniBarHeading>
+          <FeatureRow
+            title='HTCSS'
+            image={{ src: '/images/logos/CondorAlpha.png', width: 384, height: 327, alt: 'Hand drawn image of a Condor' }}
+            imageFirst
+            imageMaxWidth={260}
+          >
+            <FeatureText>
+              The <Link href='https://htcondor.org'>HTCondor Software Suite (HTCSS)</Link> provides
+              sites and users with the ability to manage and execute HTC workloads. Whether it’s
+              managing a single laptop or 250,000 cores at CERN, HTCondor helps solve computational
+              problems through the application of the HTC principles.
+            </FeatureText>
+          </FeatureRow>
+          <FeatureRow
+            title='Pelican'
+            image={{ src: '/images/logos/Pelican.png', width: 6659, height: 6584, alt: 'Pelican logo' }}
+            imageFirst
+            imageMaxWidth={260}
+          >
+            <FeatureText>
+              A data transfer service, <Link href='https://pelicanplatform.org'>Pelican</Link>{' '}
+              facilitates the ability for researchers to access and transfer data from where it is
+              stored to where it needs to run. Inspired by the 2022 White House Office of Science
+              and Technology Policy (OSTP) proposition to make all government funded research data
+              publicly accessible, Pelican works to efficiently transfer this open data to
+              researchers who require it. Pelican provides an open-source software platform for
+              federating dataset repositories together and delivering the objects to computing
+              capacity such as the <Link href='https://osg-htc.org/ospool'>OSPool</Link>.
+            </FeatureText>
+          </FeatureRow>
+          <FeatureRow
+            title='Research Facilitation'
+            href='/research-facilitation/'
+            image={{
+              src: '/images/facilitators_square.jpg',
+              width: 1335,
+              height: 1335,
+              alt: 'A CHTC research computing facilitator working with a researcher at a laptop',
+            }}
+            imageFirst
+            imageMaxWidth={260}
+            imageBorderRadius={10}
+          >
+            <FeatureText>
+              CHTC’s Research Facilitation team empowers researchers to utilize computing to achieve
+              their goals. The Research Facilitation approach emphasizes teaching users skills and
+              methodologies to manage &amp; automate workloads on resources like those at CHTC, the
+              campus, or across the world.
+            </FeatureText>
+          </FeatureRow>
+        </Container>
+      </Box>
 
       {/* Local and national services */}
-      <Container maxWidth='lg' sx={{ pb: { xs: 4, md: 6 } }}>
-        <Typography
-          variant='h4'
-          component='h2'
-          sx={{ textAlign: 'center', mb: { xs: 1, md: 2 } }}
-        >
-          Local and National Services
-        </Typography>
-        <FeatureRow
-          title='Campus Computing'
-          href='/uw-research-computing/'
-          image={{ src: '/images/microscope.svg', width: 291, height: 406, alt: 'Microscope' }}
-          imageMaxWidth={200}
-        >
-          <FeatureText>
-            CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison campus; this
-            resource, which is free and shared, aims to advance the mission of the University of
-            Wisconsin in support of the Wisconsin Idea. Researchers can place their workloads on
-            an access point at CHTC and utilize the resources at CHTC, across the campus, and
-            across the nation.
-          </FeatureText>
-        </FeatureRow>
-        <FeatureRow
-          title='OSPool'
-          href='https://osg-htc.org/services/ospool/'
-          image={{ src: '/images/logos/OSPool_Logo.png', width: 3544, height: 3530, alt: 'OSPool logo' }}
-          imageMaxWidth={240}
-        >
-          <FeatureText>
-            The <Link href='https://osg-htc.org/services/ospool/'>Open Science Pool (OSPool)</Link>{' '}
-            is a source of computing capacity accessible to any researcher affiliated with a US
-            academic institution, with no proposal, no allocation and no cost. Operated by CHTC
-            as part of the OSG Consortium, the OSPool provides fair-share access to compute and
-            storage capacity contributed by university campuses and government-supported
-            supercomputing institutions across the nation.
-          </FeatureText>
-          <Chip
-            label='Operated by the CHTC via the OSG Consortium'
-            size='small'
-            sx={{ mt: 2, bgcolor: OSG_ORANGE, color: 'common.black', fontWeight: 600 }}
-          />
-        </FeatureRow>
-        <FeatureRow
-          title='OSDF'
-          href='https://osg-htc.org/services/osdf/'
-          image={{ src: '/images/logos/OSDF_Logo.png', width: 3504, height: 3502, alt: 'OSDF logo' }}
-          imageMaxWidth={240}
-        >
-          <FeatureText>
-            The <Link href='https://osg-htc.org/services/osdf/'>Open Science Data Federation (OSDF)</Link>{' '}
-            connects disparate dataset repositories into a single, nation-wide data distribution
-            network. Built on Pelican and operated by CHTC, the OSDF lets users and institutions
-            share data files and storage capacity, delivering datasets to browsers, Jupyter
-            notebooks and HTC environments such as the OSPool.
-          </FeatureText>
-          <Chip
-            label='Operated by the CHTC via the OSG Consortium'
-            size='small'
-            sx={{ mt: 2, bgcolor: OSG_ORANGE, color: 'common.black', fontWeight: 600 }}
-          />
-        </FeatureRow>
-      </Container>
+      <Box component='section' sx={{ ...SECTION_BAND_SX, bgcolor: 'background.paper' }}>
+        <Container maxWidth='lg'>
+          <MiniBarHeading center sx={{ mb: { xs: 1, md: 2 } }}>
+            Local and National Services
+          </MiniBarHeading>
+          <FeatureRow
+            title='Campus Computing'
+            href='/uw-research-computing/'
+            image={{ src: '/images/microscope.svg', width: 291, height: 406, alt: 'Microscope' }}
+            imageMaxWidth={200}
+          >
+            <FeatureText>
+              CHTC manages over 20,000 cores and dozens of GPUs for the UW-Madison campus; this
+              resource, which is free and shared, aims to advance the mission of the University of
+              Wisconsin in support of the Wisconsin Idea. Researchers can place their workloads on
+              an access point at CHTC and utilize the resources at CHTC, across the campus, and
+              across the nation.
+            </FeatureText>
+          </FeatureRow>
+          <FeatureRow
+            title='OSPool'
+            href='https://osg-htc.org/services/ospool/'
+            image={{ src: '/images/logos/OSPool_Logo.png', width: 3544, height: 3530, alt: 'OSPool logo' }}
+            imageMaxWidth={240}
+          >
+            <FeatureText>
+              The <Link href='https://osg-htc.org/services/ospool/'>Open Science Pool (OSPool)</Link>{' '}
+              is a source of computing capacity accessible to any researcher affiliated with a US
+              academic institution, with no proposal, no allocation and no cost. Operated by CHTC
+              as part of the OSG Consortium, the OSPool provides fair-share access to compute and
+              storage capacity contributed by university campuses and government-supported
+              supercomputing institutions across the nation.
+            </FeatureText>
+            <Chip
+              label='Operated by the CHTC via the OSG Consortium'
+              size='small'
+              sx={{ mt: 2, bgcolor: OSG_ORANGE, color: 'common.black', fontWeight: 600 }}
+            />
+          </FeatureRow>
+          <FeatureRow
+            title='OSDF'
+            href='https://osg-htc.org/services/osdf/'
+            image={{ src: '/images/logos/OSDF_Logo.png', width: 3504, height: 3502, alt: 'OSDF logo' }}
+            imageMaxWidth={240}
+          >
+            <FeatureText>
+              The <Link href='https://osg-htc.org/services/osdf/'>Open Science Data Federation (OSDF)</Link>{' '}
+              connects disparate dataset repositories into a single, nation-wide data distribution
+              network. Built on Pelican and operated by CHTC, the OSDF lets users and institutions
+              share data files and storage capacity, delivering datasets to browsers, Jupyter
+              notebooks and HTC environments such as the OSPool.
+            </FeatureText>
+            <Chip
+              label='Operated by the CHTC via the OSG Consortium'
+              size='small'
+              sx={{ mt: 2, bgcolor: OSG_ORANGE, color: 'common.black', fontWeight: 600 }}
+            />
+          </FeatureRow>
+        </Container>
+      </Box>
 
       {/* Projects and partners */}
-      <Box component='section' sx={{ bgcolor: 'grey.100', py: { xs: 6, md: 8 } }}>
+      <Box component='section' sx={SECTION_BAND_SX}>
         <Container maxWidth='lg'>
           <Typography variant='h6' component='h2' sx={{ mb: 2, color: 'text.secondary' }}>
             Supporting Institutions

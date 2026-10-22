@@ -6,6 +6,7 @@ import type { MDXComponents } from 'mdx/types';
 import { extractMarkdownImageUrls, recordRemoteImages } from '@/utils/remoteImages';
 import { docExcerpt, getDocs, type Doc } from '../_lib/docs';
 import remarkJsxImages from '../_lib/remarkJsxImages';
+import remarkUnlinkButtons from '../_lib/remarkUnlinkButtons';
 import { docComponents } from './docComponents';
 import ExcerptTabs from './ExcerptTabs';
 
@@ -27,7 +28,7 @@ async function render(source: string, components: MDXComponents) {
       // `limit={2}` and `style={{…}}` must survive.
       blockJS: false,
       mdxOptions: {
-        remarkPlugins: [remarkGfm, remarkJsxImages],
+        remarkPlugins: [remarkGfm, remarkJsxImages, remarkUnlinkButtons],
         rehypePlugins: [rehypeSlug, [rehypeHighlight, HIGHLIGHT_OPTIONS]],
       },
     },

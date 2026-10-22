@@ -18,7 +18,7 @@ export const Tip = ({ header, children }: { header?: string; children: ReactNode
       my: 2.5,
       border: 2,
       borderColor: ACCENT,
-      borderRadius: 1.5,
+      borderRadius: 1,
       overflow: 'hidden',
       bgcolor: 'background.paper',
     }}
@@ -39,7 +39,7 @@ export const Tip = ({ header, children }: { header?: string; children: ReactNode
 export const Terminal = ({ children }: { children: ReactNode }) => (
   <Box
     sx={{
-      '& pre': { bgcolor: '#484848', color: '#f0f0f0', borderLeft: 0, borderRadius: 1.5 },
+      '& pre': { bgcolor: '#484848', color: '#f0f0f0', borderLeft: 0, borderRadius: 1 },
       '& pre code': { color: '#f0f0f0' },
       '& .hljs-keyword, & .hljs-built_in': { color: '#ffab70' },
       '& .hljs-string, & .hljs-regexp': { color: '#9ecbff' },
@@ -152,7 +152,7 @@ export const Cards = ({ children }: { children: ReactNode }) => (
 
 /** An icon, a titled heading and some copy. */
 export const Card = ({ icon, title, children }: { icon?: string; title: string; children: ReactNode }) => (
-  <Paper variant='outlined' sx={{ p: 2.5, borderRadius: 3, textAlign: 'center', height: '100%' }}>
+  <Paper variant='outlined' sx={{ p: 2.5, borderRadius: 1, textAlign: 'center', height: '100%' }}>
     {icon && (
       // eslint-disable-next-line @next/next/no-img-element
       <img src={icon} alt='' style={{ maxHeight: 120, width: 'auto', display: 'block', margin: '0 auto 0.75rem' }} />

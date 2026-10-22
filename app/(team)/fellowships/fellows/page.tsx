@@ -21,7 +21,7 @@ export default async function Page() {
   );
 
   return (
-    <Box sx={{ bgcolor: 'grey.100', pt: 1, pb: 4 }}>
+    <Box sx={{ bgcolor: 'background.default', pt: 1, pb: 4 }}>
       <Container maxWidth='xl'>
         <MiniBarHeading component='h1' variant='h2'>
           CHTC Fellows

@@ -231,7 +231,7 @@ export default function SiteSearch({ variant }: { variant: 'inline' | 'dialog' }
           // Keep focus in the field while a result is clicked: the Popper is
           // portalled, so a blur would otherwise close it before the click lands.
           onMouseDown={(event) => event.preventDefault()}
-          sx={{ mt: 0.5, width: 420, maxWidth: 'calc(100vw - 32px)', borderRadius: 2, overflow: 'hidden' }}
+          sx={{ mt: 0.5, width: 420, maxWidth: 'calc(100vw - 32px)', borderRadius: 1, overflow: 'hidden' }}
         >
           {list}
         </Paper>

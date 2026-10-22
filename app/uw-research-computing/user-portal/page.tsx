@@ -100,7 +100,7 @@ export default function Page() {
         <Box>
           {sections.map((section) => (
             <Box component='section' key={section.name} sx={{ mb: 5 }}>
-              <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', px: 2, py: 1.25, borderRadius: 2 }}>
+              <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', px: 2, py: 1.25, borderRadius: 1 }}>
                 <Typography component='h2' variant='h5' sx={{ m: 0 }}>
                   {section.name}
                 </Typography>

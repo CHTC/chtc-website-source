@@ -77,7 +77,7 @@ export default function Page() {
       <Typography variant='subtitle1' component='p' color='text.secondary' sx={{ fontWeight: 700, mb: 1.5 }}>
         {past ? 'Past Event' : 'Upcoming Event'} | July 8–12, 2024
       </Typography>
-      <Box sx={{ borderRadius: 4, overflow: 'hidden', mb: 3 }}>
+      <Box sx={{ borderRadius: 1, overflow: 'hidden', mb: 3 }}>
         <ExportedImage
           src='/images/events/Throughput-Computing-2024-BannerCHTC.jpg'
           alt='Throughput Computing 2024'

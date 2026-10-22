@@ -40,7 +40,7 @@ export default function Figure({
           sizes={`(max-width: ${maxWidth + 48}px) 100vw, ${maxWidth}px`}
           unoptimized={unoptimized}
           priority={priority}
-          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12 }}
+          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 10 }}
         />
       </Box>
       {caption && (

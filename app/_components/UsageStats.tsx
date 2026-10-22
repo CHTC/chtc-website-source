@@ -41,7 +41,12 @@ export default function UsageStats() {
   ];
 
   return (
-    <Box component='section' aria-labelledby='usage-heading' sx={{ py: { xs: 6, md: 8 } }}>
+    <Box
+      component='section'
+      aria-labelledby='usage-heading'
+      // A white band, set apart from the grey sections around it on the home page.
+      sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.paper', borderTop: 1, borderColor: 'divider' }}
+    >
       <Container maxWidth='lg'>
         <MiniBarHeading center>
           <span id='usage-heading'>Last Year Serving UW-Madison</span>
@@ -70,7 +75,7 @@ export default function UsageStats() {
 
       <Container maxWidth='md' sx={{ mt: 4 }}>
         <TableContainer
-          sx={{ border: 1, borderColor: 'divider', borderRadius: 3, bgcolor: 'background.paper' }}
+          sx={{ border: 1, borderColor: 'divider', borderRadius: 1, bgcolor: 'background.paper' }}
         >
           <Table size='small' aria-label='CHTC usage by college over the last year'>
             <TableHead>

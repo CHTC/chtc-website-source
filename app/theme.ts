@@ -27,10 +27,11 @@ const theme = createTheme(baseTheme, {
   palette: {
     primary: { contrastText: '#ffffff' },
     background: {
-      default: '#f7f8fa',
+      // Dark enough that white cards stand out from the page.
+      default: '#eef0f3',
       paper: '#ffffff',
     },
-    divider: 'rgba(31, 39, 51, 0.10)',
+    divider: 'rgba(31, 39, 51, 0.14)',
   },
   typography: {
     h1: { fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.08 },
@@ -70,7 +71,7 @@ const theme = createTheme(baseTheme, {
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: ({ theme }: { theme: Theme }) => ({
-          borderRadius: 16,
+          borderRadius: theme.shape.borderRadius,
           border: `1px solid ${theme.palette.divider}`,
           transition: 'box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease',
           '&:hover': {
@@ -83,8 +84,18 @@ const theme = createTheme(baseTheme, {
     },
     MuiPaper: {
       styleOverrides: {
-        rounded: { borderRadius: 16 },
+        rounded: ({ theme }: { theme: Theme }) => ({ borderRadius: theme.shape.borderRadius }),
       },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        // Outlined collapsibles (FAQs) need a firmer edge than a divider.
+        root: { '&.MuiPaper-outlined': { borderColor: 'rgba(31, 39, 51, 0.28)' } },
+      },
+    },
+    MuiStack: {
+      // Space with `gap`, not margins, so wrapped rows (tag chips) are spaced too.
+      defaultProps: { useFlexGap: true },
     },
     MuiChip: {
       styleOverrides: {

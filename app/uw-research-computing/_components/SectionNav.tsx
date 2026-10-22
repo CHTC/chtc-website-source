@@ -15,6 +15,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  Tooltip,
 } from '@mui/material';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -40,18 +41,16 @@ const DropdownItem = ({ item, active }: { item: SectionNavItem; active: boolean 
         {item.label}
       </Button>
       <Menu anchorEl={anchor} open={!!anchor} onClose={() => setAnchor(null)}>
-        {[{ label: `${item.label} overview`, path: item.path }, ...(item.children ?? [])].map(
-          (child) => (
-            <MenuItem
-              key={child.path}
-              component={isExternal(child.path) ? 'a' : NextLink}
-              href={child.path}
-              onClick={() => setAnchor(null)}
-            >
-              {child.label}
-            </MenuItem>
-          )
-        )}
+        {(item.children ?? []).map((child) => (
+          <MenuItem
+            key={child.path}
+            component={isExternal(child.path) ? 'a' : NextLink}
+            href={child.path}
+            onClick={() => setAnchor(null)}
+          >
+            {child.label}
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );
@@ -83,22 +82,24 @@ const HOME = '/uw-research-computing/';
 const LLMS_TXT = '/llms.txt';
 
 const LlmsButton = ({ sx }: { sx?: object }) => (
-  <Button
-    component='a'
-    href={LLMS_TXT}
-    size='small'
-    variant='outlined'
-    startIcon={<AutoAwesomeIcon />}
-    sx={{
-      color: 'common.white',
-      borderColor: 'rgba(255, 255, 255, 0.6)',
-      whiteSpace: 'nowrap',
-      '&:hover': { borderColor: 'common.white', bgcolor: 'rgba(255, 255, 255, 0.1)' },
-      ...sx,
-    }}
-  >
-    Use with LLMs
-  </Button>
+  <Tooltip title='Give your LLM this link to ask it about CHTC docs.'>
+    <Button
+      component='a'
+      href={LLMS_TXT}
+      size='small'
+      variant='outlined'
+      startIcon={<AutoAwesomeIcon />}
+      sx={{
+        color: 'common.white',
+        borderColor: 'rgba(255, 255, 255, 0.6)',
+        whiteSpace: 'nowrap',
+        '&:hover': { borderColor: 'common.white', bgcolor: 'rgba(255, 255, 255, 0.1)' },
+        ...sx,
+      }}
+    >
+      Use with LLMs
+    </Button>
+  </Tooltip>
 );
 
 const SectionNav = ({ items }: { items: SectionNavItem[] }) => {

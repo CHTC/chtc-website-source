@@ -66,7 +66,7 @@ export default function Page() {
                   justifyContent: 'center',
                   p: 3,
                   minHeight: 140,
-                  borderRadius: 3,
+                  borderRadius: 1,
                   border: 1,
                   borderColor: 'divider',
                   bgcolor: logo.dark ? 'secondary.main' : 'background.paper',

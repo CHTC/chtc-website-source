@@ -27,7 +27,7 @@ export default function Page() {
           height: 320,
           border: 1,
           borderColor: 'divider',
-          borderRadius: 3,
+          borderRadius: 1,
           bgcolor: 'common.white',
           mt: 2,
         }}
