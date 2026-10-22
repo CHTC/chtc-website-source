@@ -18,6 +18,7 @@ const eslintConfig = [
       "out/**",
       "node_modules/**",
       "public/**",
+      ".unlighthouse/**",
       "next-env.d.ts",
     ],
   },
