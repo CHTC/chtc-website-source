@@ -52,3 +52,6 @@ next-env.d.ts
 /.remote-images.json
 /.remote-images/
 /.build-lock/
+
+# Unlighthouse reports
+/.unlighthouse/

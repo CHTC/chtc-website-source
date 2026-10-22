@@ -1,4 +1,7 @@
+import fs from 'fs';
+import path from 'path';
 import type { CSSProperties, ReactNode } from 'react';
+import { imageSize } from 'image-size';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Link, Typography } from '@mui/material';
 import type { MDXComponents } from 'mdx/types';
@@ -30,7 +33,9 @@ const OPTIMIZABLE_REMOTE = /^https?:\/\/.+\.(jpe?g|png|gif|webp|avif)(\?.*)?$/i;
 /*
  * Doc images rarely declare dimensions. `ExportedImage` needs both — for the
  * placeholder's aspect ratio and to cap the srcset — while the CSS decides
- * the rendered size, so an assumed landscape ratio is safe.
+ * the rendered size. Files under `public/` are measured at build time;
+ * remote images get an assumed landscape ratio, which is safe because the
+ * CSS keeps `height: auto`.
  */
 const FALLBACK_WIDTH = 1200;
 const FALLBACK_HEIGHT = 800;
@@ -41,6 +46,29 @@ const DOCS_IMAGE_SIZES = '(max-width: 900px) 100vw, 900px';
 const toPixels = (value: unknown): number | undefined => {
   const parsed = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
+};
+
+/** A CSS length in pixels (`300`, `'300px'`); anything relative is `undefined`. */
+const cssPixels = (value: unknown): number | undefined => {
+  if (typeof value === 'number') return value > 0 ? value : undefined;
+  const match = /^\s*(\d+(?:\.\d+)?)px\s*$/.exec(String(value ?? ''));
+  return match ? Number(match[1]) : undefined;
+};
+
+/**
+ * Intrinsic size of an image served from `public/`. Without it a small
+ * picture would be stretched to the column: the srcset's `w` descriptors make
+ * the browser size the image to `sizes`, not to its pixels.
+ */
+const localDimensions = (src: string): { width: number; height: number } | undefined => {
+  if (!src.startsWith('/')) return undefined;
+  try {
+    const file = path.join(process.cwd(), 'public', decodeURI(src.split(/[?#]/)[0]));
+    const { width, height } = imageSize(fs.readFileSync(file));
+    return width && height ? { width, height } : undefined;
+  } catch {
+    return undefined;
+  }
 };
 
 type ImgProps = {
@@ -60,17 +88,48 @@ const DocImage = ({ src, alt, title, width, height, style, className, loading }:
   const declaredHeight = toPixels(height);
 
   if (OPTIMIZABLE_LOCAL.test(src) || OPTIMIZABLE_REMOTE.test(src)) {
+    const intrinsic = localDimensions(src);
+    // A declared width is what the image renders at; otherwise a local file
+    // renders at its own width. `maxWidth` only ever shrinks either.
+    const renderWidth = declaredWidth ?? intrinsic?.width;
+    const imageWidth = renderWidth ?? FALLBACK_WIDTH;
+    const imageHeight =
+      declaredHeight ??
+      (intrinsic ? Math.round((intrinsic.height * imageWidth) / intrinsic.width) : FALLBACK_HEIGHT);
+    // With a fixed width, `maxWidth` and a document's `maxHeight` would clamp
+    // each side separately and squash the image, so a pixel `maxHeight` is
+    // folded into the width up front. `width: auto` is no way out: the
+    // optimizer never upscales, so the srcset's `w` descriptors overstate
+    // small images and the browser would shrink them.
+    const maxHeight = cssPixels(style?.maxHeight);
+    const fitWidth =
+      renderWidth && maxHeight
+        ? Math.min(renderWidth, Math.round((maxHeight * imageWidth) / imageHeight))
+        : renderWidth;
     return (
       <ExportedImage
         src={src}
         alt={alt ?? ''}
         title={title}
         className={className}
-        width={declaredWidth ?? FALLBACK_WIDTH}
-        height={declaredHeight ?? FALLBACK_HEIGHT}
-        sizes={declaredWidth ? `(max-width: ${declaredWidth}px) 100vw, ${declaredWidth}px` : DOCS_IMAGE_SIZES}
+        width={imageWidth}
+        height={imageHeight}
+        // Narrower than the column, the image's own width is the better hint.
+        sizes={
+          renderWidth && renderWidth < 900
+            ? `(max-width: ${renderWidth}px) 100vw, ${renderWidth}px`
+            : DOCS_IMAGE_SIZES
+        }
         priority={loading === 'eager'}
-        style={{ maxWidth: '100%', width: declaredWidth ? `${declaredWidth}px` : undefined, height: 'auto', ...style }}
+        style={{
+          maxWidth: '100%',
+          width: fitWidth ? `${fitWidth}px` : undefined,
+          height: 'auto',
+          // Not a pixel cap, so it cannot be folded into the width: letterbox
+          // rather than squash.
+          ...(style?.maxHeight && !maxHeight ? { objectFit: 'contain' as const } : {}),
+          ...style,
+        }}
       />
     );
   }
@@ -142,6 +201,8 @@ export function docComponents(): MDXComponents {
       </Link>
     ),
     img: (props) => <DocImage {...(props as ImgProps)} />,
+    // Literal `<img>` tags, renamed by `remarkJsxImages`.
+    DocImage: (props: ImgProps) => <DocImage {...props} />,
     table: ({ children, className, style }) => (
       <Box sx={{ overflowX: 'auto', mb: 2 }}>
         <table className={className} style={style}>

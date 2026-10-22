@@ -1,3 +1,39 @@
+diff --git a/dist/ExportedImage.js b/dist/ExportedImage.js
+index 7e87bfbf8a1e03cfb4c74f6ed20c14d301acfbd4..339977be86cea300dcc161e3f74ed22c07729555 100644
+--- a/dist/ExportedImage.js
++++ b/dist/ExportedImage.js
+@@ -91,7 +91,12 @@ function urlToFilename(url) {
+ }
+ const imageURLForRemoteImage = ({ src, width, basePath, }) => {
+     const encodedSrc = urlToFilename(src);
+-    return generateImageURL(encodedSrc, width, basePath, true);
++    const generatedImageURL = generateImageURL(encodedSrc, width, basePath, true);
++    // generateImageURL hands back its input when the extension is one it does
++    // not optimize. For a remote image that input is the hashed filename, not
++    // a URL — an extensionless URL becomes `<hash>./<path>`, which resolves
++    // against the page and 404s — so fall back to the original image instead.
++    return generatedImageURL === encodedSrc ? src : generatedImageURL;
+ };
+ const optimizedLoader = ({ src, width, basePath, }) => {
+     const isStaticImage = typeof src === "object";
+diff --git a/dist/legacy/ExportedImage.js b/dist/legacy/ExportedImage.js
+index fbebbc0891140aef600be4dc7f9b769740044f2e..12313b4666140d82857cef2a753a7561862ae51d 100644
+--- a/dist/legacy/ExportedImage.js
++++ b/dist/legacy/ExportedImage.js
+@@ -79,7 +79,12 @@ function urlToFilename(url) {
+ }
+ const imageURLForRemoteImage = ({ src, width, basePath, }) => {
+     const encodedSrc = urlToFilename(src);
+-    return generateImageURL(encodedSrc, width, basePath, true);
++    const generatedImageURL = generateImageURL(encodedSrc, width, basePath, true);
++    // generateImageURL hands back its input when the extension is one it does
++    // not optimize. For a remote image that input is the hashed filename, not
++    // a URL — an extensionless URL becomes `<hash>./<path>`, which resolves
++    // against the page and 404s — so fall back to the original image instead.
++    return generatedImageURL === encodedSrc ? src : generatedImageURL;
+ };
+ const optimizedLoader = ({ src, width, basePath, }) => {
+     const isStaticImage = typeof src === "object";
 diff --git a/dist/utils/downloadImagesInBatches.js b/dist/utils/downloadImagesInBatches.js
 index 1cef9946c6d3fe85e8c9af1612afb44ada7c0547..9267ea45bf49cd178e31da1ba84e626907cd51dd 100644
 --- a/dist/utils/downloadImagesInBatches.js

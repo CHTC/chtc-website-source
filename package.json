@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint .",
     "analyze": "ANALYZE=true next build",
-    "compare:migration": "tsx scripts/compare-migration.mjs"
+    "compare:migration": "tsx scripts/compare-migration.mjs",
+    "unlighthouse:live": "unlighthouse --config-file unlighthouse.config.ts"
   },
   "dependencies": {
     "@chtc/web-components": "^2.0.10",
@@ -28,6 +29,7 @@
     "@socialgouv/matomo-next": "^1.11.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
+    "image-size": "^2.0.4",
     "js-yaml": "^5.4.3",
     "next": "^16.1.5",
     "next-image-export-optimizer": "^1.20.1",
@@ -56,6 +58,7 @@
     "tsx": "^4.22.4",
     "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "unlighthouse": "^0.19.1"
   }
 }
