@@ -5,7 +5,9 @@ import { Box, Typography } from '@mui/material';
 type PartnerTileProps = {
   title: string;
   href: string;
-  image: { src: string; width: number; height: number; alt: string };
+  image?: { src: string; width: number; height: number; alt: string };
+  /** Drawn in place of `image`, for a logo that is a component (`FabAIDWordmark`). */
+  logo?: ReactNode;
   /** Optional blurb under the name; tiles without one are logo-and-name only. */
   children?: ReactNode;
   /** Painted height of the logo, in px. */
@@ -21,10 +23,11 @@ export default function PartnerTile({
   title,
   href,
   image,
+  logo,
   children,
   logoHeight = 88,
 }: PartnerTileProps) {
-  // The widest logos (UW-Madison, FabAID) are ~3.5:1, so cap the srcset there.
+  // The widest logos (UW-Madison) are ~3.5:1, so cap the srcset there.
   const sizes = `${Math.round(logoHeight * 3.5)}px`;
 
   return (
@@ -54,14 +57,17 @@ export default function PartnerTile({
       }}
     >
       <Box sx={{ height: logoHeight, display: 'flex', alignItems: 'center' }}>
-        <ExportedImage
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          sizes={sizes}
-          style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain' }}
-        />
+        {logo ??
+          (image && (
+            <ExportedImage
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              sizes={sizes}
+              style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain' }}
+            />
+          ))}
       </Box>
       <Typography variant='h6' component='h3' sx={{ textAlign: 'center' }}>
         {title}

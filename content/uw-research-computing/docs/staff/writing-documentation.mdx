@@ -6,10 +6,12 @@ sidebar:
 noindex: true
 ---
 
+import Chip from '@mui/material/Chip';
+
 The guides under `/uw-research-computing/` are MDX files in the website repository:
-GitHub-flavored Markdown plus a small set of components for the things plain Markdown cannot
-express, such as callouts, terminal sessions and side-by-side columns. This page is itself an
-MDX file, so every example below is rendered by the real thing.
+GitHub-flavored Markdown plus a standard set of components for the things plain Markdown
+cannot express, such as callouts, terminal sessions and side-by-side columns. This page is
+itself an MDX file, so every example below is rendered by the real thing.
 
 <Tip header="Where things live">
 
@@ -20,7 +22,8 @@ MDX file, so every example below is rendered by the real thing.
 - Sidebar menus: `content/uw-research-computing/menus/htc-guide-menu.yml`, `hpc-guide-menu.yml`
   and `staff-guide-menu.yml`.
 - Images: `public/images/`, referenced as `/images/...`.
-- The components themselves: `app/uw-research-computing/_components/DocBlocks.tsx`.
+- The standard components: `app/uw-research-computing/_components/docComponents.tsx` lists
+  every one; [Doc components](/uw-research-computing/staff/doc-components/) documents them.
 
 </Tip>
 
@@ -210,6 +213,27 @@ original at a sensible size anyway, roughly 1,200 pixels wide at most.
 <img src="/images/docs/simple-DAG_fig.png" alt="The same figure, 240 pixels wide" width="240" />
 
 The `<img>` form takes a `width` to render smaller than the column.
+
+## Components
+
+Every component on this page is part of the standard set: use it by name, with no import.
+[Doc components](/uw-research-computing/staff/doc-components/) lists them all with an example
+of each.
+
+Anything else can be imported at the top of the file, below the frontmatter, from the site's
+code (`@/components/...`) or a package such as MUI:
+
+```markdown
+import Chip from '@mui/material/Chip';
+
+<Chip label="Imported" color="primary" />
+```
+
+<Chip label="Imported" color="primary" />
+
+A tag that is neither standard nor imported, such as a typo like `<Tipp>`, fails `check-docs`
+with `unknown component`. To add a component to the standard set, see
+[Adding your own component](/uw-research-computing/staff/doc-components/#adding-your-own-component).
 
 ## Callouts
 

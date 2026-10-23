@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import GithubSlugger from 'github-slugger';
 import { load } from 'js-yaml';
+import type { MDXContent } from 'mdx/types';
+import type { Toc } from '@stefanprobst/rehype-extract-toc';
 import { z } from 'zod';
 import { isGuideIconName, type GuideMenu, type MenuLink, type MenuSection } from '@/components/GuideSidebar';
 import { COMPUTE_TYPE_PARAM, COMPUTE_TYPES, type ComputeType } from './computeType';
@@ -11,8 +12,12 @@ import { COMPUTE_TYPE_PARAM, COMPUTE_TYPES, type ComputeType } from './computeTy
  * Build-time access to the UW Research Computing documentation.
  *
  * The documents live in `content/uw-research-computing/docs/` as MDX with
- * the frontmatter below; `DocBody` compiles each one with the components in
- * `docComponents.tsx`, one static page each. The menus beside them are YAML.
+ * the frontmatter below, one static page each. `@next/mdx` compiles every
+ * document into a module (`importDoc`). The standard components in
+ * `docComponents.tsx` are available by name; anything else a document
+ * imports, like any other module. The frontmatter is also read here with
+ * gray-matter, because the menus and listings need every document's without
+ * rendering any. The menus beside them are YAML.
  */
 
 export const SECTION = '/uw-research-computing';
@@ -58,7 +63,10 @@ export interface Doc {
   slug: string[];
   /** Site path with trailing slash. */
   path: string;
+  /** Path below the docs directory, without `.mdx`. */
+  file: string;
   data: DocFrontmatter;
+  /** The MDX body, for scanning (remote images); rendering goes through `importDoc`. */
   content: string;
 }
 
@@ -68,23 +76,6 @@ function walk(dir: string): string[] {
     if (entry.isDirectory()) return walk(full);
     return entry.name.endsWith('.mdx') ? [full] : [];
   });
-}
-
-declare global {
-  // Augmenting @types/node's `Require` has to go through its namespace.
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace NodeJS {
-    interface Require {
-      /** Bundler API (webpack and Turbopack), not Node's. */
-      context(directory: string, recursive: boolean, filter: RegExp): unknown;
-    }
-  }
-}
-
-if (process.env.NODE_ENV === 'development') {
-  // The documents are read with `fs`, which the dev server does not watch.
-  // Referencing them here makes a save refresh the open page.
-  require.context('../../../content/uw-research-computing/docs', true, /\.mdx$/);
 }
 
 let cache: Doc[] | undefined;
@@ -103,6 +94,7 @@ export function getDocs(): Doc[] {
       return {
         slug,
         path: `${SECTION}/${slug.join('/')}/`,
+        file: rel.replace(/\.mdx$/, ''),
         data: parseFrontmatter(data, rel),
         content,
       };
@@ -116,18 +108,19 @@ export function getDoc(slug: string[]): Doc | undefined {
   return getDocs().find((doc) => doc.slug.join('/') === key);
 }
 
-/** Marks where a document's excerpt ends. */
-const EXCERPT_SEPARATOR = '{/* more */}';
+/** What `@next/mdx` compiles a document into. */
+export interface DocModule {
+  default: MDXContent;
+  frontmatter: DocFrontmatter;
+  tableOfContents: Toc;
+}
 
 /**
- * The text before the document's excerpt marker, or its first paragraph
- * (Jekyll's rule for `page.excerpt`).
+ * The compiled document. The template literal is what lets the bundler find
+ * every file under `docs/` and compile each one.
  */
-export function docExcerpt(doc: Doc): string {
-  if (doc.content.includes(EXCERPT_SEPARATOR)) {
-    return doc.content.split(EXCERPT_SEPARATOR)[0].trim();
-  }
-  return doc.content.trim().split(/\n\s*\n/)[0];
+export function importDoc(doc: Doc): Promise<DocModule> {
+  return import(`@/content/uw-research-computing/docs/${doc.file}.mdx`);
 }
 
 /* Headings ------------------------------------------------------------------- */
@@ -140,40 +133,19 @@ export interface DocHeading {
   id: string;
 }
 
-/** Heading text as rehype-slug sees it: markdown and tags stripped. */
-const plainText = (markdown: string) =>
-  markdown
-    .replace(/`([^`]*)`/g, '$1')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, '')
-    .replace(/(\*\*|__|\*|_)(.+?)\1/g, '$2')
-    .replace(/\\(.)/g, '$1')
-    .trim();
-
 /**
- * The headings a document's `<TableOfContents />` lists: its top two levels,
- * with the same ids rehype-slug assigns when the body is rendered. Fenced
- * code is skipped; raw `<h2 id="…">` tags count too.
+ * The headings a document's `<TableOfContents />` lists: the top two of its
+ * first three levels, from the `tableOfContents` the document exports.
  */
-export function docHeadings(doc: Doc): DocHeading[] {
-  const slugger = new GithubSlugger();
+export function docHeadings(toc: Toc): DocHeading[] {
   const found: DocHeading[] = [];
-  let inFence = false;
-  for (const line of doc.content.split('\n')) {
-    if (/^\s*(```|~~~)/.test(line)) {
-      inFence = !inFence;
-      continue;
+  const walk = (entries: Toc) => {
+    for (const entry of entries) {
+      if (entry.depth <= 3 && entry.id) found.push({ depth: entry.depth, text: entry.value, id: entry.id });
+      if (entry.children) walk(entry.children);
     }
-    if (inFence) continue;
-    const md = /^(#{1,3})\s+(.+?)\s*#*\s*$/.exec(line);
-    if (md) {
-      const text = plainText(md[2]);
-      found.push({ depth: md[1].length, text, id: slugger.slug(text) });
-      continue;
-    }
-    const html = /^\s*<h([1-3])\b[^>]*\bid="([^"]+)"[^>]*>(.*?)<\/h\1>/.exec(line);
-    if (html) found.push({ depth: Number(html[1]), text: plainText(html[3]), id: html[2] });
-  }
+  };
+  walk(toc);
   if (found.length === 0) return [];
   const top = Math.min(...found.map((h) => h.depth));
   return found.filter((h) => h.depth <= top + 1);

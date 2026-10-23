@@ -10,6 +10,7 @@ import { siteConfig } from '@/site.config';
 import FeatureRow, { FeatureText } from '@/components/FeatureRow';
 import MiniBarHeading from '@/components/MiniBarHeading';
 import UsageStats from './_components/UsageStats';
+import FabAIDWordmark from './_components/FabAIDWordmark';
 import PartnerTile from './_components/PartnerTile';
 
 const DESCRIPTION =
@@ -496,7 +497,7 @@ const PROJECTS = [
   {
     title: 'FabAID',
     href: 'https://fabaid.io/',
-    image: { src: '/images/logos/FabAID_Logo.svg', width: 853, height: 240, alt: 'FabAID logo' },
+    logo: <FabAIDWordmark size={64} />,
     text:
       'FabAID is a national fabric of open data services for data-intensive and AI-driven research, operated by CHTC. It builds on the OSDF and Pelican to make research datasets available wherever the computing is.',
   },

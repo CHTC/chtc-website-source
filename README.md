@@ -77,16 +77,18 @@ Guides are the MDX files in `content/uw-research-computing/docs/`. The file path
 
 MDX is GitHub-flavored markdown plus components, so:
 
+- **The standard components need no import**: `<Tip>`, `<Terminal>`, `<Columns>` and the rest below are available by name. [Doc components](/uw-research-computing/staff/doc-components/) lists every one with an example. Anything else, from the site or a package, is imported at the top of the file, below the frontmatter: `import Chip from '@mui/material/Chip';`.
+
 - **Links are absolute and end with a slash**: `/uw-research-computing/gpu-jobs/`. Anchors still work: `/uw-research-computing/gpu-jobs/#b-submit-jobs-using-gpus-in-chtc`.
 - **Headings** in the body start at `#`. The page title comes from the frontmatter and is the page's only `<h1>`; every heading in the body is rendered one level down, and each gets an `id` generated from its text.
 - **Table of contents.** Every page gets an "On this page" list of its top two heading levels beside the body, generated from the headings. Nothing to write or keep in sync.
 - **Code blocks** use normal fences and are syntax highlighted. A `condor` fence is highlighted as a submit file. Wrap a fence in `<Terminal>` for a terminal session (dark) or `<File>` for a file's contents (blue rule); plain fences are for everything else.
 - **Callouts** are `<Tip header="Note about NetIDs">…</Tip>`; leave out `header` for a plain box.
-- **Other blocks**: `<Button href="…">` inside `<ButtonRow>`, `<Columns>` of `<Column>` (`accent` for the red rule, `width="30%"` for a fixed share), `<Cards>` of `<Card icon="…" title="…">`, `<MiniBar>` around a heading, `<CommandTable>` around a command table, `<Footnote>` under a table. Data-driven pieces are `<GpuTable owner="campus" />`, `<UpcomingEvents tag="…" limit={2} />`, `<ExcerptTabs flag="software_icon" more />` and `<FacilitatorGrid />`. All of them live in `app/uw-research-computing/_components/DocBlocks.tsx`.
+- **Other blocks**: `<Button href="…">` inside `<ButtonRow>`, `<Columns>` of `<Column>` (`accent` for the red rule, `width="30%"` for a fixed share), `<Cards>` of `<Card icon="…" title="…">`, `<MiniBar>` around a heading, `<CommandTable>` around a command table, `<Footnote>` under a table. Data-driven pieces are `<GpuTable owner="campus" />`, `<UpcomingEvents tag="…" limit={2} />`, `<ExcerptTabs flag="software_icon" more />` and `<FacilitatorGrid />`. The standard set is the map in `app/uw-research-computing/_components/docComponents.tsx`.
 - **Leave a blank line** after an opening component tag and before its closing tag; otherwise the markdown inside is treated as inline text.
 - **Raw HTML** (`<details>`, `<iframe>`, `<img>`) works but must be valid JSX: `className` not `class`, `style={{ maxWidth: '60%' }}` not a string, `<br />` and `<img … />` self-closed, `{/* comments */}` not `<!-- -->`. A `<` or `{` in prose that is not a tag must be escaped: `\<1 GB`, `\{`.
 - **Tables** need a header row and a `|---|---|` separator line. HTML tables with multi-line cells do not compile; use a pipe table with `<br />` instead.
-- `npx tsx scripts/check-docs.mts` compiles every guide and reports every error at once; `next build` stops at the first.
+- `npx tsx scripts/check-docs.mts` compiles every guide and reports every error at once, including a component that is neither standard nor imported; `next build` stops at the first.
 
 Frontmatter is validated at build (`app/uw-research-computing/_lib/docs.ts`); an unknown field or a wrong type fails the build with the file name.
 

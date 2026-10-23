@@ -60,3 +60,4 @@ export function formatCloseDate(seconds: number): string {
   const get = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
   return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')} ${get('dayPeriod')}`;
 }
+

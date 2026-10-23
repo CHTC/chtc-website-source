@@ -5,7 +5,7 @@ applyTo: "**/*.tsx, **/*.ts, **/*.jsx, **/*.js, **/*.css"
 
 # Next.js Static Site Best Practices for LLMs (2026)
 
-_Last updated: January 2026 (aligned to Next.js 16.1.1)_
+_Last updated: October 2026 (aligned to Next.js 16.1.1)_
 
 Please go here to see the latest version: [https://raw.githubusercontent.com/CHTC/nextjs-template/refs/heads/main/.ai/instructions.md](https://raw.githubusercontent.com/CHTC/nextjs-template/refs/heads/main/.ai/instructions.md)
 
@@ -13,7 +13,7 @@ This document summarizes the latest authoritative best practices for building st
 
 ## Overview
 
-Next.js is used as a static website generator for a JAMstack frontend. Dynamic data fetching and interactivity are handled via API routes and client components. 
+Next.js is used as a static website generator for a JAMstack frontend. Dynamic data fetching and interactivity are handled via API routes and client components.
 
 ---
 
@@ -99,7 +99,13 @@ Every page starts as a server component in page.tsx, so that it can interact wit
 - **Themes:** The CHTC, OSG, and Pelican MUI themes are available in `@chtc/web-components/themes`.
 - **Documentation:** For comprehensive Material UI documentation, visit [https://mui.com/](https://mui.com/).
 
-### 4.1. Styling with the SX Prop
+### 4.1. Build Custom Components on MUI
+
+- **MUI components are the base for all custom components.** Compose new components from MUI primitives (e.g., `Box`, `Stack`, `Typography`, `Button`, `Card`) rather than raw HTML elements or other UI libraries.
+- **Extend, don't replace:** If an MUI component covers the need, wrap or extend it (forwarding its props) instead of building an equivalent from scratch.
+- **Styling:** Style custom components with the `sx` prop and theme values so they stay consistent with the active theme.
+
+### 4.2. Styling with the SX Prop
 
 - **The `sx` prop** is Material UI's recommended approach for styling components. It accepts a JavaScript object with CSS properties and gives you direct access to theme values.
 - **Theme Integration:** Since your project integrates with MUI themes, use the `sx` prop to access theme values like colors, spacing, typography, and breakpoints.

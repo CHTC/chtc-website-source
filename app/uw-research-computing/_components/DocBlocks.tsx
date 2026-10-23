@@ -152,7 +152,7 @@ export const Cards = ({ children }: { children: ReactNode }) => (
 
 /** An icon, a titled heading and some copy. */
 export const Card = ({ icon, title, children }: { icon?: string; title: string; children: ReactNode }) => (
-  <Paper variant='outlined' sx={{ p: 2.5, borderRadius: 1, textAlign: 'center', height: '100%' }}>
+  <Paper variant='outlined' sx={{ p: 2.5, borderRadius: 1, height: '100%' }}>
     {icon && (
       // eslint-disable-next-line @next/next/no-img-element
       <img src={icon} alt='' style={{ maxHeight: 120, width: 'auto', display: 'block', margin: '0 auto 0.75rem' }} />
@@ -162,6 +162,6 @@ export const Card = ({ icon, title, children }: { icon?: string; title: string; 
         {title}
       </Typography>
     </MiniBar>
-    <Box sx={{ textAlign: 'left', '& > :last-child': { mb: 0 } }}>{children}</Box>
+    <Box sx={{ '& > :last-child': { mb: 0 } }}>{children}</Box>
   </Paper>
 );

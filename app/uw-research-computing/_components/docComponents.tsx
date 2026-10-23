@@ -180,7 +180,9 @@ const heading =
 
 /**
  * The components a documentation page is rendered with: the markdown
- * elements restyled with MUI, and the blocks the MDX can use by name.
+ * elements restyled with MUI, the two names the remark plugins write, and
+ * the standard blocks, which a document uses by name without an import.
+ * `DocBody` adds `ExcerptTabs`, which renders documents itself.
  */
 export function docComponents(): MDXComponents {
   return {
@@ -210,6 +212,19 @@ export function docComponents(): MDXComponents {
         </table>
       </Box>
     ),
+    // `mdx-components.tsx` restyles these (and wraps the page in a Container)
+    // for the `page.mdx` pages; documents style them through `.chtc-doc` in
+    // globals.css, so they render as the plain elements.
+    wrapper: ({ children }) => <>{children}</>,
+    ul: (props) => <ul {...props} />,
+    ol: (props) => <ol {...props} />,
+    li: (props) => <li {...props} />,
+    blockquote: (props) => <blockquote {...props} />,
+    code: (props) => <code {...props} />,
+    pre: (props) => <pre {...props} />,
+    hr: (props) => <hr {...props} />,
+    // Everything after the excerpt (`remarkDocExcerpt`).
+    DocMore: ({ children }: { children?: ReactNode }) => <>{children}</>,
 
     Tip,
     Terminal,

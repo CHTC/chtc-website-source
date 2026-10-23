@@ -37,8 +37,9 @@ next-env.d.ts
 # migration comparison output
 /migration-missing.txt
 
-# Claude
-.claude
+# Claude: local settings stay out; project skills are shared
+.claude/*
+!.claude/skills/
 
 # Jetbrains
 .idea

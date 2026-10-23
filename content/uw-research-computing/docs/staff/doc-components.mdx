@@ -1,0 +1,563 @@
+---
+title: Doc Components
+description: Every component the Campus Computing guides use, with its options, a guide that uses it, and one example of how it renders.
+sidebar:
+  - staff
+noindex: true
+---
+
+import Alert from '@mui/material/Alert';
+import Grid from '@mui/material/Grid';
+
+The standard components the guides use, in alphabetical order, each with one example and how
+it renders. A guide uses them by name, with no import. A tag that is neither standard nor
+imported fails `npx tsx scripts/check-docs.mts` with `unknown component`. For how guides are
+written more generally, see
+[Writing documentation](/uw-research-computing/staff/writing-documentation/).
+
+Leave a blank line after every opening tag and before every closing tag, as in the examples;
+otherwise the Markdown inside is treated as inline text.
+
+## Built on MUI
+
+These components are built from [MUI](https://mui.com/material-ui/all-components/) (Material
+UI) components, styled with the site's theme, so `primary` is CHTC red. When none of the
+components here fit, a guide can import an MUI component directly. Each component's MUI page
+lists its options; spacing and colors can be adjusted with the
+[`sx` prop](https://mui.com/system/getting-started/the-sx-prop/).
+
+```markdown
+import Alert from '@mui/material/Alert';
+
+<Alert severity="info">
+
+Maintenance is scheduled for Tuesday morning.
+
+</Alert>
+```
+
+<Alert severity="info">
+
+Maintenance is scheduled for Tuesday morning.
+
+</Alert>
+
+## Adding your own component
+
+A component used in a single guide can live anywhere in the repository; import it at the top
+of the guide by its path, like any other. One that several guides will use belongs in the
+standard set:
+
+1. Create `app/uw-research-computing/_components/<Name>.tsx`:
+
+   ```tsx
+   import type { ReactNode } from 'react';
+   import { Box } from '@mui/material';
+
+   /** A gray panel. */
+   const Panel = ({ children }: { children: ReactNode }) => (
+     <Box sx={{ bgcolor: 'grey.100', p: 2, borderRadius: 1, my: 2 }}>{children}</Box>
+   );
+
+   export default Panel;
+   ```
+
+   It is a server component, rendered once when the site is built. A component that reacts to
+   clicks or keeps state needs `'use client';` as its first line.
+2. Add it to the map in `app/uw-research-computing/_components/docComponents.tsx`: import it
+   at the top, then list it with the others at the end of `docComponents()`:
+
+   ```tsx
+   import Panel from './Panel';
+   // …
+       UpcomingEvents,
+       Panel,
+     };
+   ```
+3. Use it in any guide by name:
+
+   ```markdown
+   <Panel>
+
+   Markdown inside works as usual.
+
+   </Panel>
+   ```
+4. Add a section for it to this page, with an example.
+
+## All automatically imported components
+
+| Component | What it is |
+| --- | --- |
+| [`Button`](#button) | A red call-to-action link. |
+| [`ButtonRow`](#buttonrow) | A centered row of buttons. |
+| [`Card`](#card) | An icon, a title and some text, inside `Cards`. |
+| [`Cards`](#cards) | A grid of cards. |
+| [`Column`](#column) | One column, inside `Columns`. |
+| [`Columns`](#columns) | Side-by-side columns that stack on phones. |
+| [`CommandTable`](#commandtable) | A command reference table with wide first columns. |
+| [`ExcerptTabs`](#excerpttabs) | One tab per guide with a frontmatter flag, showing each guide's excerpt. |
+| [`FacilitatorGrid`](#facilitatorgrid) | The facilitation team's photos, from the staff list. |
+| [`File`](#file) | A code block showing a file's contents. |
+| [`Footnote`](#footnote) | A small note under a table. |
+| [`GpuTable`](#gputable) | The GPU servers from `data/gpus.yaml`. |
+| [`MiniBar`](#minibar) | A short red bar above a heading. |
+| [`Terminal`](#terminal) | A code block showing a terminal session. |
+| [`Tip`](#tip) | A callout box, with an optional title bar. |
+| [`UpcomingEvents`](#upcomingevents) | The next events with a tag, from the events repository. |
+
+The components are defined in `app/uw-research-computing/_components/`, and the standard set
+is the map in `docComponents.tsx` there.
+
+## Button
+
+A red call-to-action link. Put it in a [`ButtonRow`](#buttonrow).
+
+- `href` (required): where it links.
+
+Used in [Sign up for our email list](/uw-research-computing/email-list/).
+
+```markdown
+<ButtonRow>
+
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+
+</ButtonRow>
+```
+
+<ButtonRow>
+
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+
+</ButtonRow>
+
+## ButtonRow
+
+A centered row of [`Button`](#button)s that wraps on narrow screens. No options.
+
+Used in [CHTC Researcher Forum 2026](/uw-research-computing/researcher-forum-2026/).
+
+```markdown
+<ButtonRow>
+
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+<Button href="/uw-research-computing/meet-with-us/">Meet with us</Button>
+
+</ButtonRow>
+```
+
+<ButtonRow>
+
+<Button href="/uw-research-computing/get-help/">Get help</Button>
+<Button href="/uw-research-computing/meet-with-us/">Meet with us</Button>
+
+</ButtonRow>
+
+## Card
+
+An icon, a title with a red bar above it, and some text. Put it in [`Cards`](#cards).
+
+- `title` (required): the card's heading.
+- `icon`: an image path, usually from `/uw-research-computing/guide-icons/`.
+
+Used in [Welcome to the CHTC GPU Lab](/uw-research-computing/gpu-lab/).
+
+```markdown
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+</Cards>
+```
+
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+</Cards>
+
+## Cards
+
+A grid of [`Card`](#card)s: as many per row as fit, one per row on phones. No options.
+
+Used in [Bioinformatics Café](/uw-research-computing/bioinformatics-cafe/).
+
+```markdown
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+<Card icon="/uw-research-computing/guide-icons/noun_people_1188645.png" title="Expertise">
+
+A community of technical experts.
+
+</Card>
+
+</Cards>
+```
+
+<Cards>
+
+<Card icon="/uw-research-computing/guide-icons/noun_gpu_2528527.png" title="Hardware">
+
+A pool of shared GPU servers managed by CHTC.
+
+</Card>
+
+<Card icon="/uw-research-computing/guide-icons/noun_people_1188645.png" title="Expertise">
+
+A community of technical experts.
+
+</Card>
+
+</Cards>
+
+## Column
+
+One column. Put it in [`Columns`](#columns).
+
+- `accent`: a red rule down the left side.
+- `width`: a fixed share of the row, such as `"30%"`. Without it the columns share the row
+  equally.
+- `align="center"`: center the column's contents.
+
+Used in [Get help](/uw-research-computing/get-help/).
+
+```markdown
+<Columns>
+
+<Column width="30%">
+
+A narrow column on the left.
+
+</Column>
+
+<Column accent>
+
+A wider column with the red rule.
+
+</Column>
+
+</Columns>
+```
+
+<Columns>
+
+<Column width="30%">
+
+A narrow column on the left.
+
+</Column>
+
+<Column accent>
+
+A wider column with the red rule.
+
+</Column>
+
+</Columns>
+
+## Columns
+
+Side-by-side [`Column`](#column)s that stack on phones. No options.
+
+For more control over the layout, such as different widths at different screen sizes, use
+MUI's [`Grid`](https://mui.com/material-ui/react-grid/) instead; see the example after this one.
+
+Used in [CHTC Researcher Forum 2026](/uw-research-computing/researcher-forum-2026/).
+
+```markdown
+<Columns>
+
+<Column align="center">
+
+### Register
+
+</Column>
+
+<Column accent align="center">
+
+### Present a poster
+
+</Column>
+
+</Columns>
+```
+
+<Columns>
+
+<Column align="center">
+
+### Register
+
+</Column>
+
+<Column accent align="center">
+
+### Present a poster
+
+</Column>
+
+</Columns>
+
+With `Grid`, each item's `size` is its share of a 12-part row, per screen size: here the
+items stack on phones (`xs`) and split two thirds to one third from tablets up (`md`).
+
+```markdown
+import Grid from '@mui/material/Grid';
+
+<Grid container spacing={3}>
+
+<Grid size={{ xs: 12, md: 8 }}>
+
+Two thirds of the row on wider screens.
+
+</Grid>
+
+<Grid size={{ xs: 12, md: 4 }}>
+
+One third.
+
+</Grid>
+
+</Grid>
+```
+
+<Grid container spacing={3}>
+
+<Grid size={{ xs: 12, md: 8 }}>
+
+Two thirds of the row on wider screens.
+
+</Grid>
+
+<Grid size={{ xs: 12, md: 4 }}>
+
+One third.
+
+</Grid>
+
+</Grid>
+
+## CommandTable
+
+Wraps a Markdown table of commands so the first two columns get room. No options.
+
+Used in [Quick reference: HTCondor commands](/uw-research-computing/htcondor-quick-ref/).
+
+```markdown
+<CommandTable>
+
+| Command | Use | Notes |
+| --- | --- | --- |
+| `condor_submit <submit_file>` | submits job(s) as specified by `submit_file` | |
+| `condor_rm <job_ID>` | removes the job(s) associated with `job_ID` | |
+
+</CommandTable>
+```
+
+<CommandTable>
+
+| Command | Use | Notes |
+| --- | --- | --- |
+| `condor_submit <submit_file>` | submits job(s) as specified by `submit_file` | |
+| `condor_rm <job_ID>` | removes the job(s) associated with `job_ID` | |
+
+</CommandTable>
+
+## ExcerptTabs
+
+One tab per guide whose frontmatter sets the flag, in file order. Each tab shows that guide's
+excerpt: everything above a `{/* more */}` line, or its first paragraph.
+
+- `flag` (required): `software_icon` (the software guides) or `basic_scripting` (the
+  basic-scripting guides). The tab's label is the guide's `software` field, or its `title`.
+- `more`: add a "More information" link to each guide.
+
+Used in [How to Use Software](/uw-research-computing/software-overview-htc/) and
+[Basic Scripting and Job Submission](/uw-research-computing/htc-basic-scripting/).
+
+```markdown
+<ExcerptTabs flag="basic_scripting" />
+```
+
+<ExcerptTabs flag="basic_scripting" />
+
+## FacilitatorGrid
+
+The facilitation team's photos and names, from the staff list. No options.
+
+Used in [The Facilitation Team](/uw-research-computing/facilitation-team/).
+
+```markdown
+<FacilitatorGrid />
+```
+
+<FacilitatorGrid />
+
+## File
+
+Wraps a code fence that shows a file's contents, giving it a blue rule. No options. Use
+[`Terminal`](#terminal) for commands typed at a prompt.
+
+Used in [Build a Docker Container Image](/uw-research-computing/docker-build/).
+
+````markdown
+<File>
+
+```condor
+executable = run.sh
+log = job.log
+queue
+```
+
+</File>
+````
+
+<File>
+
+```condor
+executable = run.sh
+log = job.log
+queue
+```
+
+</File>
+
+## Footnote
+
+A small gray note under a table. No options.
+
+Used in [Manage large data in /staging](/uw-research-computing/file-avail-largedata/).
+
+```markdown
+| Size | Where |
+| --- | --- |
+| Under 1 GB | `/home`<sup>*</sup> |
+
+<Footnote>
+
+<sup>*</sup> Compress many small files into one before transferring them.
+
+</Footnote>
+```
+
+| Size | Where |
+| --- | --- |
+| Under 1 GB | `/home`<sup>*</sup> |
+
+<Footnote>
+
+<sup>*</sup> Compress many small files into one before transferring them.
+
+</Footnote>
+
+## GpuTable
+
+A table of the GPU servers in `data/gpus.yaml` that have this owner.
+
+- `owner`: whose servers to list. Defaults to `"campus"`.
+
+Used in [Use GPUs](/uw-research-computing/gpu-jobs/).
+
+```markdown
+<GpuTable owner="campus" />
+```
+
+<GpuTable owner="campus" />
+
+## MiniBar
+
+Puts a short red bar above the heading inside it. No options.
+
+Used in [Get help](/uw-research-computing/get-help/).
+
+```markdown
+<MiniBar>
+
+## A heading with a bar
+
+</MiniBar>
+```
+
+<MiniBar>
+
+## A heading with a bar
+
+</MiniBar>
+
+## Terminal
+
+Wraps a code fence that shows a terminal session, giving it a dark background. No options.
+Use [`File`](#file) for a file's contents.
+
+Used in [Transfer Files between CHTC and your Computer](/uw-research-computing/transfer-files-computer/).
+
+````markdown
+<Terminal>
+
+```shell
+[alice@ap2002]$ condor_submit job.sub
+1 job(s) submitted to cluster 12345.
+```
+
+</Terminal>
+````
+
+<Terminal>
+
+```shell
+[alice@ap2002]$ condor_submit job.sub
+1 job(s) submitted to cluster 12345.
+```
+
+</Terminal>
+
+## Tip
+
+A callout box for notes, warnings and asides. Markdown inside works as usual.
+
+- `header`: a title bar. Leave it out for a plain box.
+
+Used in [Machine learning/AI workflows on the HTC system](/uw-research-computing/machine-learning-htc/).
+
+```markdown
+<Tip header="Note about NetIDs">
+
+Log in with your NetID, not your full email address.
+
+</Tip>
+```
+
+<Tip header="Note about NetIDs">
+
+Log in with your NetID, not your full email address.
+
+</Tip>
+
+## UpcomingEvents
+
+The next events with a tag, from the events repository. Shows nothing when none are coming up.
+
+- `tag`: only events with this tag. Without it, all events.
+- `limit`: how many to show, in braces because it is a number: `limit={2}`. Defaults to 2.
+
+Used in [Bioinformatics Café](/uw-research-computing/bioinformatics-cafe/).
+
+```markdown
+<UpcomingEvents tag="bioinformatics-cafe" limit={2} />
+```
+
+<UpcomingEvents tag="bioinformatics-cafe" limit={2} />

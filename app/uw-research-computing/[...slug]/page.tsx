@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { listingMetadata } from '@/utils/metadata';
 import DocBody from '../_components/DocBody';
 import DocLayout from '../_components/DocLayout';
-import { docHeadings, getDoc, getDocs, sidebarMenus } from '../_lib/docs';
+import { docHeadings, getDoc, getDocs, importDoc, sidebarMenus } from '../_lib/docs';
 
 type Params = Promise<{ slug: string[] }>;
 
@@ -24,16 +24,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function Page({ params }: { params: Params }) {
   const doc = getDoc((await params).slug);
   if (!doc) notFound();
+  const { default: Content, tableOfContents } = await importDoc(doc);
 
   return (
     <DocLayout
       title={doc.data.title}
       width={doc.data.width}
       menus={sidebarMenus(doc)}
-      headings={docHeadings(doc)}
+      headings={docHeadings(tableOfContents)}
       searchable={!doc.data.noindex}
     >
-      <DocBody doc={doc} />
+      <DocBody doc={doc} Content={Content} />
     </DocLayout>
   );
 }

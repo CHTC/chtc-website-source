@@ -7,6 +7,8 @@
       url: "/uw-research-computing/staff"
     - text: "Writing documentation"
       url: "/uw-research-computing/staff/writing-documentation"
+    - text: "Doc components"
+      url: "/uw-research-computing/staff/doc-components"
     - text: "Adding news articles"
       url: "/uw-research-computing/staff/adding-news-articles"
     - text: "Schedule calendar"
