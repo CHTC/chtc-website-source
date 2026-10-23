@@ -26,8 +26,9 @@ const stickySx = {
  * A documentation page: the guide sidebar on the left (for pages that are
  * in one; a guide in both menus shows just one of them when reached with
  * `?compute-type=`, see `DocSidebar`), the title and body in the middle, and
- * the page's own headings on the right. On narrower screens the side
- * columns fold into collapsed panels above the body instead.
+ * the page's own headings on the right. Without a guide sidebar the body is
+ * centered on the page, with the headings beside it on the right. On narrower
+ * screens the side columns fold into collapsed panels above the body instead.
  */
 const DocLayout = ({
   title,
@@ -50,8 +51,15 @@ const DocLayout = ({
   const hasToc = headings.length > 1;
   const maxWidth = width === 'narrow' ? 760 : 1000;
 
+  // Without a sidebar, the body sits between two flexible columns that share
+  // the spare width equally, which centers it on the page; the right one holds
+  // the page contents and never shrinks below them, so on narrower screens
+  // the body moves left only as far as it has to.
+  const centered = !hasSidebar && hasToc;
   const columns = (withToc: boolean) =>
-    [hasSidebar && SIDEBAR_WIDTH, 'minmax(0, 1fr)', withToc && hasToc && TOC_WIDTH].filter(Boolean).join(' ');
+    withToc && centered
+      ? `minmax(0, 1fr) minmax(0, ${maxWidth}px) minmax(${TOC_WIDTH}, 1fr)`
+      : [hasSidebar && SIDEBAR_WIDTH, 'minmax(0, 1fr)', withToc && hasToc && TOC_WIDTH].filter(Boolean).join(' ');
 
   return (
     // `xl` rather than the site's usual `lg`: with a sidebar and the page
@@ -72,7 +80,10 @@ const DocLayout = ({
           </Box>
         )}
         {/* Guides rank above news and other pages in the site search. */}
-        <Box data-pagefind-weight='2' sx={{ maxWidth, width: '100%', mx: hasSidebar ? 0 : 'auto' }}>
+        <Box
+          data-pagefind-weight='2'
+          sx={{ maxWidth, width: '100%', mx: hasSidebar ? 0 : 'auto', gridColumn: centered ? { lg: 2 } : undefined }}
+        >
           <PageTitle>{title}</PageTitle>
           {hasSidebar && (
             <Accordion
@@ -107,7 +118,11 @@ const DocLayout = ({
           {children}
         </Box>
         {hasToc && (
-          <Box component='aside' data-pagefind-ignore sx={{ ...stickySx, display: { xs: 'none', lg: 'block' } }}>
+          <Box
+            component='aside'
+            data-pagefind-ignore
+            sx={{ ...stickySx, display: { xs: 'none', lg: 'block' }, width: centered ? TOC_WIDTH : undefined }}
+          >
             <TocNav headings={headings} />
           </Box>
         )}
