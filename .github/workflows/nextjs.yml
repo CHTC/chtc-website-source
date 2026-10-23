@@ -93,6 +93,40 @@ jobs:
         with:
           path: ./out
 
+  # Check every link in the built site; the job fails if any are broken.
+  # Only links within the site are checked: external sites go down and
+  # rate-limit often enough that checking them would fail PRs for nothing
+  # (external-links.yml checks those daily).
+  link-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+    env:
+      SITE_ROOT: ${{ github.workspace }}/_site
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+      - name: Extract built site
+        run: |
+          mkdir -p "$SITE_ROOT"
+          tar -xf artifact.tar -C "$SITE_ROOT"
+      # `public/doc/` is an archive of decades-old papers and manuals, served
+      # as they were; their broken image references predate this site.
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          args: >-
+            --offline --no-progress
+            --root-dir '${{ env.SITE_ROOT }}'
+            --index-files index.html
+            --fallback-extensions html
+            --exclude-path '${{ env.SITE_ROOT }}/doc'
+            '${{ env.SITE_ROOT }}/**/*.html'
+
   # Deployment job if you are serving from GitHub Pages
   deploy-pages:
     if: github.event_name != 'pull_request' && github.ref =='refs/heads/main'

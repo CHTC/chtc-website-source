@@ -23,15 +23,15 @@ export const siteConfig = {
   /**
    * The site-wide share image.
    *
-   * `app/opengraph-image.png` already covers every page that does not define
+   * `app/opengraph-image.jpg` already covers every page that does not define
    * its own `openGraph` block. A page that does define one has to name an
    * image explicitly, because Next replaces the inherited block wholesale
    * rather than merging it — this is that same file.
    */
   shareImage: {
-    url: '/opengraph-image.png',
-    width: 1200,
-    height: 628,
+    url: '/opengraph-image.jpg',
+    width: 1203,
+    height: 630,
     alt: 'Center for High Throughput Computing — UW-Madison',
   },
 } as const;

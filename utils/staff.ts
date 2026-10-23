@@ -35,15 +35,28 @@ export async function getStaff(website: Website): Promise<Staff[]> {
   );
 }
 
+/**
+ * A personal link written without its scheme (`www.linkedin.com/in/…`) would
+ * be read as a path on this site, so it gets `https://`.
+ */
+function absoluteUrl(url: string | undefined): string | undefined {
+  if (!url || /^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('/')) return url;
+  return `https://${url}`;
+}
+
 async function getStaffMember(path: string, website: Website): Promise<Staff> {
   const text = await getRawFile(ORGANIZATION, REPO, path, BRANCH);
   const data = load(text) as Staff;
-
-  return {
+  const merged = {
     ...data,
     // The per-site block (`chtc:`) overrides the shared fields, so a person can
     // carry a different title, weight or promoted flag on each team page.
     ...data?.[website],
+  };
+
+  return {
+    ...merged,
+    website: absoluteUrl(merged.website),
     image: new URL(data.image, IMAGE_BASE_URL).toString(),
   };
 }

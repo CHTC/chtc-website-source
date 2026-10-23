@@ -653,5 +653,15 @@
     "source": "/uw-research-computing/use-submit-node/",
     "destination": "/uw-research-computing/htc-overview/",
     "text": "System Overview"
+  },
+  {
+    "source": "/uw-research-computing/os-transition-htc.html",
+    "destination": "/uw-research-computing/os-request-htc/",
+    "text": "Use Custom Linux Versions in CHTC"
+  },
+  {
+    "source": "/uw-research-computing/os-transition-htc/",
+    "destination": "/uw-research-computing/os-request-htc/",
+    "text": "Use Custom Linux Versions in CHTC"
   }
 ]

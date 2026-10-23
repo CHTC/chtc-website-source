@@ -274,13 +274,17 @@ mv my-container.sif <replace with your staging directory>
 <Tip header="💡 Your path to your staging directory">
 
 Your path to your staging directory is unique! It should have the following format:
+
 ```
 /staging/<first letter of your NetID>/<NetID>
 ```
+
 For example, if your NetID is `bbadger`, your path to your staging directory is:
+
 ```
 /staging/b/bbadger
 ```
+
 And you should move your container, like so:
 
 <Terminal>
@@ -392,7 +396,7 @@ Therefore, we recommend using
 container_image = file:///staging/path/to/my-container.sif
 ```
 
-If you are using `want_campus_pools` or `want_ospool` as described in our [Scale Beyond Local HTC Capacity](/uw-research-computing/scale-htc/) guide, then you should instead use: 
+If you are using `want_campus_pools` or `want_ospool` as described in our [Scale Beyond Local HTC Capacity](/uw-research-computing/scaling-htc/) guide, then you should instead use: 
 
 ```
 container_image = osdf:///chtc/staging/path/to/my-container.sif

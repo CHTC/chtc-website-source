@@ -23,7 +23,7 @@ import { siteConfig } from "@/site.config";
  * copied into an inherited `openGraph` block, so anything named here would
  * stick on every page. Left unset, Next fills og:title and og:description
  * from each page's own title and description. The shared og:image comes from
- * `opengraph-image.png` in this folder, which applies to every route.
+ * `opengraph-image.jpg` in this folder, which applies to every route.
  */
 export const metadata: Metadata = {
   title: siteConfig.name,
