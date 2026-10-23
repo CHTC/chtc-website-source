@@ -474,7 +474,7 @@ const INSTITUTIONS = [
     href: 'https://www.wisc.edu/',
     image: { src: '/images/logos/UW_Logo.svg', width: 598, height: 201, alt: 'University of Wisconsin–Madison logo' },
     text:
-      'CHTC is the research computing center of the University of Wisconsin–Madison, hosted in the College of AI. Its services are free to all UW-Madison researchers, advancing the mission of the University in support of the Wisconsin Idea.',
+      'CHTC is a research computing center of the University of Wisconsin–Madison, hosted in the College of AI. Its services are free to all UW-Madison researchers, advancing the mission of the University in support of the Wisconsin Idea.',
   },
   {
     title: 'Morgridge Institute for Research',
@@ -492,7 +492,7 @@ const PROJECTS = [
     href: 'https://path-cc.io/',
     image: { src: '/images/logos/PATh_Logo.png', width: 300, height: 300, alt: 'PATh logo' },
     text:
-      'The Partnership to Advance Throughput Computing (PATh) is a partnership between CHTC and OSG, funded by a major investment from NSF, that advances HTC nationally through support for HTCSS and a fabric of services for the science and engineering community.',
+      'The Partnership to Advance Throughput Computing (PATh) brings together organizations and projects committed to address the needs of the rapidly growing community of faculty and students who are embracing Distributed High Throughput Computing (dHTC) technologies and services to advance their research.',
   },
   {
     title: 'FabAID',

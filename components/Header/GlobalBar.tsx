@@ -1,14 +1,14 @@
+// A client component because the buttons pass `NextLink` (a function) to MUI's
+// `component` prop, which a server component cannot hand to a client one.
 'use client';
 
 import NextLink from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Box, Button, Container, Link } from '@mui/material';
 
 /**
  * The thin red bar above the navigation, as on the legacy site: the two
- * parent organisations on the left; on the right a link to the User Portal
- * (outside the Campus Computing section, which has its own navigation) and
- * the Request Account button.
+ * parent organisations on the left; on the right the Talk to Us and Request
+ * Account buttons.
  */
 const SECTION = '/uw-research-computing';
 
@@ -23,10 +23,19 @@ const linkSx = {
   '&:hover': { textDecoration: 'underline' },
 } as const;
 
-export default function GlobalBar() {
-  const pathname = usePathname() ?? '/';
-  const inSection = pathname.startsWith(SECTION);
+const buttonSx = {
+  bgcolor: 'common.white',
+  color: 'text.primary',
+  fontSize: '0.8rem',
+  px: 1.25,
+  py: 0.25,
+  my: 0.5,
+  borderRadius: 1,
+  whiteSpace: 'nowrap',
+  '&:hover': { bgcolor: 'grey.100' },
+} as const;
 
+export default function GlobalBar() {
   return (
     <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
       {/* As tall as the Campus Computing section bar, so the two red bars match. */}
@@ -43,26 +52,16 @@ export default function GlobalBar() {
           </Link>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-          {!inSection && (
-            <Link component={NextLink} href={`${SECTION}/user-portal/`} sx={{ ...linkSx, display: { xs: 'none', sm: 'inline' } }}>
-              Go to User Portal
-            </Link>
-          )}
+          {/* Hidden on phones, where it would crowd the bar; the menu has it under About. */}
           <Button
             component={NextLink}
-            href={`${SECTION}/form/`}
+            href='/talk-to-us/'
             size='small'
-            sx={{
-              bgcolor: 'common.white',
-              color: 'text.primary',
-              fontSize: '0.8rem',
-              px: 1.25,
-              py: 0.25,
-              my: 0.5,
-              borderRadius: 1,
-              '&:hover': { bgcolor: 'grey.100' },
-            }}
+            sx={{ ...buttonSx, display: { xs: 'none', sm: 'inline-flex' } }}
           >
+            Talk to Us
+          </Button>
+          <Button component={NextLink} href={`${SECTION}/form/`} size='small' sx={buttonSx}>
             Request Account
           </Button>
         </Box>

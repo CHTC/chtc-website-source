@@ -63,13 +63,17 @@ const pages: NavigationItem[] = [
 	{
 		label: 'About',
 		children: [
-			{ label: 'About CHTC', path: '/about' },
 			{ label: 'Talk To Us', path: '/talk-to-us' },
 			{ label: 'Our Approach', path: '/approach' },
 			{ label: 'What is HTC?', path: '/htc' },
-			{ label: 'Our Customers', path: '/projects' },
-			{ label: 'Staff', path: '/people' },
-			{ label: 'Open Positions', path: '/jobs' },
+			{
+				label: 'Staff',
+				children: [
+					{ label: 'Staff', path: '/people' },
+					{ label: 'Fellows', path: '/fellowships' },
+					{ label: 'Open Positions', path: '/jobs' },
+				],
+			},
 			{ label: 'Research', path: '/research' },
 		],
 	},

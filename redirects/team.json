@@ -1,8 +1,9 @@
 [
   {"source":"/people.html","destination":"/people/","text":"Our Staff"},
   {"source":"/jobs.html","destination":"/jobs/","text":"Available Positions"},
-  {"source":"/projects.html","destination":"/projects/","text":"CHTC Partners Using CHTC Technologies and Services"},
-  {"source":"/internships.html","destination":"/internships/","text":"The Path to Internship and Fellowship Opportunities"},
+  {"source":"/projects.html","destination":"/","text":"CHTC home"},
+  {"source":"/internships.html","destination":"/jobs/","text":"Available Positions"},
+  {"source":"/internships/","destination":"/jobs/","text":"Available Positions"},
   {"source":"/research.html","destination":"/research/","text":"Research Publications and Technical Information"},
   {"source":"/fellowships/fellows.html","destination":"/fellowships/fellows/","text":"CHTC Fellows"},
   {"source":"/staff/docs/Adding_News_Articles.html","destination":"/uw-research-computing/staff/adding-news-articles/","text":"Adding News Articles"},

@@ -1,5 +1,6 @@
 [
-  { "source": "/about.html", "destination": "/about/", "text": "About" },
+  { "source": "/about.html", "destination": "/", "text": "CHTC home" },
+  { "source": "/about/", "destination": "/", "text": "CHTC home" },
   { "source": "/approach.html", "destination": "/approach/", "text": "Our Approach" },
   { "source": "/htc.html", "destination": "/htc/", "text": "What is High Throughput Computing?" },
   { "source": "/talk-to-us.html", "destination": "/talk-to-us/", "text": "Talk to Us" },

@@ -10,7 +10,7 @@ import FellowCard from './_components/FellowCard';
 import fellowsBanner from '@/public/images/CHTC_Fellows.png';
 
 export const metadata = listingMetadata(
-  'The Center for High Throughput Computing Fellows Program',
+  'CHTC Fellows Program',
   'A paid summer program in which undergraduate and graduate students work with CHTC mentors on research computing, cyberinfrastructure and facilitation projects.',
   '/fellowships/'
 );

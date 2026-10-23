@@ -3,7 +3,7 @@
 # `announcement` renders as the highlighted box under the title; delete it to hide the box.
 # The "Featured Fellow" card is drawn from the staff-list at the
 # <!-- featured-fellow --> marker below.
-title: The Center for High Throughput Computing Fellows Program
+title: CHTC Fellows Program
 announcement: Application for the Summer 2027 Fellows Program are now open.
 ---
 

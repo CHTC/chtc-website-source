@@ -1,14 +1,15 @@
-import { Box, Button, Container, Divider, Grid, Link, Paper, Typography } from '@mui/material';
+import { Alert, Box, Container, Divider, Grid, Link, Paper, Typography } from '@mui/material';
 import { listingMetadata } from '@/utils/metadata';
 import JobCard from '../_components/JobCard';
 import MiniBarHeading from '../_components/MiniBarHeading';
 import PageHero from '../_components/PageHero';
-import { getOpenJobs, slugify } from '../_lib/jobs';
+import { getProgramPage } from '../_lib/fellowships';
+import { getOpenJobs, slugify, type Job } from '../_lib/jobs';
 import emileWorking from '@/public/images/Emile_Working.jpg';
 
 export const metadata = listingMetadata(
   'Available Positions',
-  'Full-time positions, student hourly jobs, fellowships and internships with the Center for High Throughput Computing at UW–Madison.',
+  'Full-time positions, student hourly jobs and fellowships with the Center for High Throughput Computing at UW–Madison.',
   '/jobs/'
 );
 
@@ -18,10 +19,31 @@ const P = ({ children }: { children: React.ReactNode }) => (
   </Typography>
 );
 
+/**
+ * The Fellows Program as a posting. Its headline is the announcement on the
+ * fellowships page (`content/fellowships/program.md`), so the two pages agree
+ * on whether applications are open.
+ */
+function fellowshipPosting(): Job {
+  return {
+    slug: 'chtc-fellows-program',
+    title: 'CHTC Fellows Program',
+    type: 'Fellowship',
+    institution: 'Center for High Throughput Computing',
+    header: getProgramPage().announcement,
+    text:
+      'A paid summer program in which undergraduate and graduate students work with CHTC mentors ' +
+      'on a project in research computing, cyberinfrastructure or facilitation.',
+    button: { href: '/fellowships/', text: 'Learn More and Apply' },
+  };
+}
+
 export default function Page() {
   const jobs = getOpenJobs();
   const fullTime = jobs.filter((job) => job.type === 'Full Time');
+  // Internships and student hourly positions; they are listed here when open.
   const student = jobs.filter((job) => job.type === 'Internship');
+  const fellowship = fellowshipPosting();
 
   return (
     <>
@@ -53,17 +75,21 @@ export default function Page() {
               and from large high tech corporations to small animation teams.
             </P>
 
-            <Typography id='internships' variant='h4' component='h2' sx={{ mt: 4, mb: 1 }}>
-              Fellowships &amp; Internships
+            <Typography id='fellowships' variant='h4' component='h2' sx={{ mt: 4, mb: 2 }}>
+              Fellowships
             </Typography>
-            <P>
-              Our student programs provides undergraduate and graduate students with learning
-              opportunities in research computing, system administration, web development, and
-              communication.
-            </P>
-            <Button variant='contained' color='secondary' href='/internships/'>
-              Discover Active Fellowships and Internships
-            </Button>
+            <JobCard job={fellowship} />
+
+            {fullTime.length === 0 && student.length === 0 && (
+              <Alert severity='info' sx={{ mt: 2 }}>
+                There are no open jobs or internships right now. Open positions are listed here and
+                on the{' '}
+                <Link href='https://jobs.wisc.edu/jobs/search?page=1&query=chtc'>
+                  University&apos;s Position Vacancy List (PVL)
+                </Link>
+                .
+              </Alert>
+            )}
 
             {fullTime.length > 0 && (
               <>
@@ -180,20 +206,26 @@ export default function Page() {
                   </ul>
                 </>
               )}
+              {student.length > 0 && (
+                <>
+                  <Typography variant='h6' component='h2'>
+                    Student Positions
+                  </Typography>
+                  <ul>
+                    {student.map((job) => (
+                      <li key={job.slug}>
+                        <Link href={`#${slugify(job.title)}`}>{job.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
               <Typography variant='h6' component='h2'>
                 Fellowships
               </Typography>
               <ul>
                 <li>
                   <Link href='/fellowships/'>View Fellowships</Link>
-                </li>
-              </ul>
-              <Typography variant='h6' component='h2'>
-                Internships
-              </Typography>
-              <ul>
-                <li>
-                  <Link href='/internships/'>View Internships</Link>
                 </li>
               </ul>
             </Paper>
