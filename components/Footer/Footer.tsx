@@ -32,9 +32,9 @@ const MENU = [
   {
     label: 'About',
     items: [
-      { label: 'About CHTC', href: '/about/' },
       { label: 'Our Approach', href: '/approach/' },
       { label: 'Staff', href: '/people/' },
+      { label: 'Fellowships', href: '/fellowships/' },
       { label: 'Open Positions', href: '/jobs/' },
       { label: 'Research', href: '/research/' },
       { label: 'Talk To Us', href: '/talk-to-us/' },

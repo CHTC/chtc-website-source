@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import GuideSidebar, { type GuideMenu } from '@/components/GuideSidebar';
 import type { DocHeading } from '../_lib/docs';
 import { STICKY_TOP } from '../_lib/layout';
+import DocFeedback from './DocFeedback';
 import DocSidebar from './DocSidebar';
 import PageTitle from './PageTitle';
 import TocNav from './TocNav';
@@ -116,6 +117,7 @@ const DocLayout = ({
             </Accordion>
           )}
           {children}
+          <DocFeedback />
         </Box>
         {hasToc && (
           <Box

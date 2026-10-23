@@ -20,8 +20,6 @@
       url: /uw-research-computing/email-list
 - name: About and information
   links:
-    - text: About
-      url: /about
     - text: User expectations
       url: /uw-research-computing/user-expectations
     - text: Cite us
