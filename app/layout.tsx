@@ -63,9 +63,9 @@ const pages: NavigationItem[] = [
 	{
 		label: 'About',
 		children: [
-			{ label: 'Talk To Us', path: '/talk-to-us' },
-			{ label: 'Our Approach', path: '/approach' },
 			{ label: 'What is HTC?', path: '/htc' },
+			{ label: 'Our Approach', path: '/approach' },
+			{ label: 'Talk To Us', path: '/talk-to-us' },
 			{
 				label: 'Staff',
 				children: [
@@ -74,7 +74,6 @@ const pages: NavigationItem[] = [
 					{ label: 'Open Positions', path: '/jobs' },
 				],
 			},
-			{ label: 'Research', path: '/research' },
 		],
 	},
 ]

@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import ExportedImage from 'next-image-export-optimizer';
 import {
   Accordion,
@@ -16,6 +14,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ArticleCard } from '@chtc/web-components/content';
 import { articleHref, getSiteArticles } from '@/utils/articles';
 import { listingMetadata } from '@/utils/metadata';
+import UsageStatsRow from '../_components/UsageStatsRow';
 import PageTitle from './_components/PageTitle';
 import { SECTION } from './_lib/docs';
 
@@ -37,39 +36,6 @@ const USE_CASES = [
   'Forestry and Wildlife Analyses',
   'And More!',
 ];
-
-/** `int_to_small_format` from the legacy `index-v2.js`: 12345 → "12K". */
-function smallFormat(value: number): string {
-  if (value < 1e3) return value.toFixed(0);
-  if (value < 1e6) return `${(value / 1e3).toFixed(0)}K`;
-  if (value < 1e9) return `${(value / 1e6).toFixed(0)}M`;
-  if (value < 1e12) return `${(value / 1e9).toFixed(0)}B`;
-  return value.toFixed(0);
-}
-
-/**
- * The yearly totals the legacy page fetched in the browser from
- * `/assets/data/*.json`; the files are static, so they are summed at build.
- */
-function statistics() {
-  const dir = path.join(process.cwd(), 'public', 'assets', 'data');
-  const colleges = JSON.parse(fs.readFileSync(path.join(dir, 'chtc-data-summary.json'), 'utf8')) as {
-    NumProj: number;
-    HTCYears: number;
-    HPCYears: number;
-  }[];
-  const { InteractionCount } = JSON.parse(
-    fs.readFileSync(path.join(dir, 'interaction-count.json'), 'utf8')
-  ) as { InteractionCount: number };
-  const sum = (key: 'NumProj' | 'HTCYears' | 'HPCYears') =>
-    colleges.reduce((total, college) => total + (college[key] ?? 0), 0);
-  return [
-    { label: 'Facilitator Interactions', value: InteractionCount },
-    { label: 'Projects Supported', value: sum('NumProj') },
-    { label: 'HTC Core Years', value: sum('HTCYears') },
-    { label: 'HPC Core Years', value: sum('HPCYears') },
-  ];
-}
 
 const FAQS: { question: string; answer: React.ReactNode }[] = [
   {
@@ -206,29 +172,7 @@ export default async function Page() {
       <Container maxWidth='md'>
         <PageTitle component='h2'>Research Transformed Annually</PageTitle>
       </Container>
-      <Box sx={{ bgcolor: 'secondary.main', color: 'secondary.contrastText', py: 5 }}>
-        <Container maxWidth='md'>
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' },
-              gap: 3,
-              textAlign: 'center',
-            }}
-          >
-            {statistics().map((stat) => (
-              <Box key={stat.label}>
-                <Typography component='p' sx={{ fontSize: { xs: '3rem', md: '4.5rem' }, fontWeight: 700, lineHeight: 1 }}>
-                  {smallFormat(stat.value)}
-                </Typography>
-                <Typography component='p' variant='h6' sx={{ mt: 1 }}>
-                  {stat.label}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
-        </Container>
-      </Box>
+      <UsageStatsRow />
 
       <Container maxWidth='md'>
         <PageTitle component='h2'>Who We Are</PageTitle>
@@ -245,7 +189,22 @@ export default async function Page() {
 
         <PageTitle component='h2'>Frequently Asked Questions</PageTitle>
         {FAQS.map((faq) => (
-          <Accordion key={faq.question} disableGutters variant='outlined'>
+          <Accordion
+            key={faq.question}
+            disableGutters
+            variant='outlined'
+            sx={{
+              mb: 1.5,
+              // Each question is its own rounded card; MUI rounds only the
+              // first and last of a group, and draws a divider line above each.
+              borderRadius: 1,
+              '&:first-of-type, &:last-of-type': { borderRadius: 1 },
+              // Softer than the theme's outlined-accordion edge.
+              '&.MuiPaper-outlined': { borderColor: 'rgba(31, 39, 51, 0.1)' },
+              overflow: 'hidden',
+              '&::before': { display: 'none' },
+            }}
+          >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography sx={{ fontWeight: 600 }}>{faq.question}</Typography>
             </AccordionSummary>

@@ -1,8 +1,6 @@
-import ExportedImage from 'next-image-export-optimizer';
 import {
   Box,
   Container,
-  Grid,
   Link,
   Table,
   TableBody,
@@ -13,13 +11,7 @@ import {
 } from '@mui/material';
 import MiniBarHeading from '@/components/MiniBarHeading';
 import colleges from '@/public/assets/data/chtc-data-summary.json';
-import interactions from '@/public/assets/data/interaction-count.json';
-import StatCounter from './StatCounter';
-
-type College = (typeof colleges)[number];
-
-const sum = (key: 'NumProj' | 'HTCYears' | 'HPCYears') =>
-  colleges.reduce((total, college: College) => total + college[key], 0);
+import UsageStatsRow, { sumColleges as sum } from './UsageStatsRow';
 
 const cell = (value: number) => (value === 0 ? '–' : value.toLocaleString('en-US'));
 
@@ -33,13 +25,6 @@ const cell = (value: number) => (value === 0 ? '–' : value.toLocaleString('en-
  * working, and a change to them lands with the next build.
  */
 export default function UsageStats() {
-  const stats = [
-    { label: 'Facilitator Interactions', value: interactions.InteractionCount },
-    { label: 'Projects Supported', value: sum('NumProj') },
-    { label: 'HTC Core Years', value: sum('HTCYears') },
-    { label: 'HPC Core Years', value: sum('HPCYears') },
-  ];
-
   return (
     <Box
       component='section'
@@ -53,25 +38,7 @@ export default function UsageStats() {
         </MiniBarHeading>
       </Container>
 
-      {/* The circuit-board art is decoration behind the numbers. */}
-      <Box sx={{ position: 'relative', overflow: 'hidden', py: { xs: 5, md: 7 } }}>
-        <ExportedImage
-          src='/images/circuit_board_light.svg'
-          alt=''
-          fill
-          sizes='100vw'
-          style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0, opacity: 0.9 }}
-        />
-        <Container maxWidth='lg' sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={{ xs: 4, md: 2 }}>
-            {stats.map((stat) => (
-              <Grid key={stat.label} size={{ xs: 6, md: 3 }}>
-                <StatCounter value={stat.value} label={stat.label} />
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+      <UsageStatsRow />
 
       <Container maxWidth='md' sx={{ mt: 4 }}>
         <TableContainer

@@ -4,6 +4,7 @@
 
 import NextLink from 'next/link';
 import { Box, Button, Container, Link } from '@mui/material';
+import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 
 /**
  * The thin red bar above the navigation, as on the legacy site: the two
@@ -57,7 +58,12 @@ export default function GlobalBar() {
             component={NextLink}
             href='/talk-to-us/'
             size='small'
-            sx={{ ...buttonSx, display: { xs: 'none', sm: 'inline-flex' } }}
+            endIcon={<MessageOutlinedIcon aria-hidden='true' />}
+            sx={{
+              ...buttonSx,
+              display: { xs: 'none', sm: 'inline-flex' },
+              '& .MuiButton-endIcon': { ml: 0.75, '& > svg': { fontSize: '1rem' } },
+            }}
           >
             Talk to Us
           </Button>

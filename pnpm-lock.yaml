@@ -15,8 +15,8 @@ importers:
   .:
     dependencies:
       '@chtc/web-components':
-        specifier: ^2.0.11
-        version: 2.0.11(2bcbc20059a33e8c43048e4165b3f4fc)
+        specifier: ^2.0.13
+        version: 2.0.13(2bcbc20059a33e8c43048e4165b3f4fc)
       '@emotion/cache':
         specifier: ^11.14.0
         version: 11.14.0
@@ -216,8 +216,8 @@ packages:
     resolution: {integrity: sha512-CuNiSqg7+e1cO/GjffyMOm5Tt2jUF9CWHHnvQ/UkqvtkGfHdgwEC0wpmq7fkN3gxwpRnrAN0WzO3vREKmNolMQ==}
     engines: {node: '>=18'}
 
-  '@chtc/web-components@2.0.11':
-    resolution: {integrity: sha512-qobJ0kfHfc2+PghLINhkOviP8wE0+kIJBf4Q02D1FDHTv+ZD0/3Zk/ItG4E98xbW5aQID8k37iOwfRkoIZgjQA==}
+  '@chtc/web-components@2.0.13':
+    resolution: {integrity: sha512-Myudmz+OuJv0AEPsW6uxJyhzySg35hK4qpvdJ3Rfib5lcr8myJo6/ZQvbrovUS61x5tLq6jdc69WjZBrZZatAw==}
     peerDependencies:
       '@emotion/react': ^11.0.0
       '@emotion/styled': ^11.0.0
@@ -5948,7 +5948,7 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@chtc/web-components@2.0.11(2bcbc20059a33e8c43048e4165b3f4fc)':
+  '@chtc/web-components@2.0.13(2bcbc20059a33e8c43048e4165b3f4fc)':
     dependencies:
       '@11ty/gray-matter': 3.0.0
       '@emotion/react': 11.14.0(@types/react@19.3.0)(react@19.1.0)

@@ -28,7 +28,7 @@ const theme = createTheme(baseTheme, {
     primary: { contrastText: '#ffffff' },
     background: {
       // Dark enough that white cards stand out from the page.
-      default: '#eef0f3',
+      default: '#f4f4f4',
       paper: '#ffffff',
     },
     divider: 'rgba(31, 39, 51, 0.14)',
