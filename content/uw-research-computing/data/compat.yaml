@@ -1,0 +1,835 @@
+last_updated: '2026-09-23'
+notes:
+- HTCondor compares GPUs_DriverVersion as a real number, so a driver reporting CUDA support like "12.10" would sort BEFORE "12.9" -- not an issue for anything in this file today, but worth knowing if a future CUDA release hits a double-digit minor version.
+frameworks:
+  pytorch:
+    1.0.1:
+    - cuda_toolkit: '10.0'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '7.5'
+        excluded: []
+      n_compatible_gpus: 21
+      chip_names:
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 7.5) && (GPUs_DriverVersion >= 12.4)
+    1.1.0:
+    - cuda_toolkit: '10.0'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '7.5'
+        excluded: []
+      n_compatible_gpus: 21
+      chip_names:
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 7.5) && (GPUs_DriverVersion >= 12.4)
+    1.10.0:
+    - cuda_toolkit: '11.3'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '8.9'
+        excluded: []
+      n_compatible_gpus: 90
+      chip_names:
+      - A100
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 8.9) && (GPUs_DriverVersion >= 12.4)
+    1.11.0:
+    - cuda_toolkit: '11.3'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '8.9'
+        excluded: []
+      n_compatible_gpus: 90
+      chip_names:
+      - A100
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 8.9) && (GPUs_DriverVersion >= 12.4)
+    1.12.1:
+    - cuda_toolkit: '11.3'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 130
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    1.5.1:
+    - cuda_toolkit: '10.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '7.5'
+        excluded: []
+      n_compatible_gpus: 21
+      chip_names:
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 7.5) && (GPUs_DriverVersion >= 12.4)
+    1.6.0:
+    - cuda_toolkit: '10.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '7.5'
+        excluded: []
+      n_compatible_gpus: 21
+      chip_names:
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 7.5) && (GPUs_DriverVersion >= 12.4)
+    1.7.1:
+    - cuda_toolkit: '11.0'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '8.9'
+        excluded: []
+      n_compatible_gpus: 90
+      chip_names:
+      - A100
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 8.9) && (GPUs_DriverVersion >= 12.4)
+    1.8.1:
+    - cuda_toolkit: '10.2'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '7.5'
+        excluded: []
+      n_compatible_gpus: 21
+      chip_names:
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 7.5) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '11.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 130
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    1.9.1:
+    - cuda_toolkit: '11.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '6.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 130
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - P100
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.0.1:
+    - cuda_toolkit: '11.7'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded:
+        - '8.9'
+      n_compatible_gpus: 85
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4) && (GPUs_Capability != 8.9)
+    2.1.2:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.10.0:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '12.8'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '8.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 109
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    2.11.0:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    2.12.1:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    - cuda_toolkit: '13.2'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    2.13.0:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    - cuda_toolkit: '13.2'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    2.14.0:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    - cuda_toolkit: '13.2'
+      min_nvidia_driver_version: 590.48.01
+      min_driver_cuda: '13.1'
+      compute_capability:
+        min: '8.9'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 32
+      chip_names:
+      - H200
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.9) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 13.1)
+    2.2.2:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.3.1:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.4.1:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.4'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.5.1:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.1'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.4'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    2.6.0:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.4'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    2.7.1:
+    - cuda_toolkit: '11.8'
+      min_nvidia_driver_version: 550.54.14
+      min_driver_cuda: '12.4'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 126
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.4)
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '12.8'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    2.8.0:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '12.8'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '12.9'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '8.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 109
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    2.9.1:
+    - cuda_toolkit: '12.6'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '12.8'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '7.5'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 116
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      - RTX 2080 Ti
+      - RTX 8000
+      condor_requirements: requirements = (GPUs_Capability >= 7.5) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
+    - cuda_toolkit: '13.0'
+      min_nvidia_driver_version: 570.195.03
+      min_driver_cuda: '12.8'
+      compute_capability:
+        min: '8.0'
+        max: '9.0'
+        excluded: []
+      n_compatible_gpus: 109
+      chip_names:
+      - A100
+      - H100
+      - H200
+      - L40
+      - L40S
+      condor_requirements: requirements = (GPUs_Capability >= 8.0) && (GPUs_Capability <= 9.0) && (GPUs_DriverVersion >= 12.8)
