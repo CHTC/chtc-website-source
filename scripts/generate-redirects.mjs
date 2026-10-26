@@ -38,9 +38,22 @@ function targetFile(source) {
   return path.join(OUT_DIR, relative);
 }
 
+const isOffSite = (destination) => /^https?:\/\//i.test(destination) || destination.startsWith('//');
+
+/**
+ * This site's own page for a legacy `<path>.html` or `<path>` URL, if the
+ * export has one. Only meaningful before any stubs are written, since a stub
+ * at `<path>/index.html` would look like a page.
+ */
+function localPage(source) {
+  const page = source.replace(/\.html$/, '').replace(/\/+$/, '');
+  if (!page) return null;
+  return fs.existsSync(path.join(OUT_DIR, page.replace(/^\/+/, ''), 'index.html')) ? `${page}/` : null;
+}
+
 /** A destination may be an absolute URL or a site-relative path. */
 function resolveDestination(destination) {
-  if (/^https?:\/\//i.test(destination) || destination.startsWith('//')) {
+  if (isOffSite(destination)) {
     return destination;
   }
   return `${BASE_PATH}${destination.startsWith('/') ? '' : '/'}${destination}`;
@@ -119,7 +132,18 @@ async function main() {
     }
   }
 
-  const redirects = [...staticRedirects, ...dynamic];
+  // The off-site rules (mostly to osg-htc.org) are for content this site does
+  // not publish. When it does, because the content was since published here
+  // too or a hand-written rule predates it, the visitor belongs on this site's
+  // page. Decided before any stub is written; see localPage.
+  const keptLocal = [];
+  const redirects = [...staticRedirects, ...dynamic].map((entry) => {
+    if (!entry.source || !entry.destination || !isOffSite(entry.destination)) return entry;
+    const local = localPage(entry.source);
+    if (!local) return entry;
+    keptLocal.push(`${entry.source} (was ${entry.destination})`);
+    return { ...entry, destination: local };
+  });
 
   let written = 0;
   const skipped = [];
@@ -150,6 +174,12 @@ async function main() {
   }
 
   console.log(`[redirects] Generated ${written} redirect page(s) in ${path.relative(ROOT, OUT_DIR)}/`);
+  if (keptLocal.length) {
+    console.log(
+      `[redirects] Kept ${keptLocal.length} off-site redirect(s) on this site, which has the page:\n` +
+        keptLocal.map((s) => `  - ${s}`).join('\n')
+    );
+  }
   if (skipped.length) {
     console.warn(
       `[redirects] Skipped ${skipped.length} source(s) that collide with an existing page (showing up to 20):\n` +
