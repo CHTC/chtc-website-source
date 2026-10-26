@@ -88,10 +88,13 @@ jobs:
           pnpm run build
           find ./out | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
           printenv
+      # The Kubernetes deployment pulls this artifact, so it has to outlive
+      # the default single day.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+          retention-days: 90
 
   # Check every link in the built site; the job fails if any are broken.
   # Only links within the site are checked: external sites go down and
@@ -139,3 +142,35 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # The second copy: CHTC/chtc.github.io, which the CS department's web server
+  # serves as chtc.cs.wisc.edu.
+  deploy-csl:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+    env:
+      SITE_ROOT: ${{ github.workspace }}/_site
+      SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Download built site
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+      - name: Extract built site
+        run: |
+          mkdir -p "$SITE_ROOT"
+          tar -xf artifact.tar -C "$SITE_ROOT"
+      - name: Deploy to CHTC/chtc.github.io
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add - <<< "$DEPLOY_KEY"
+          .github/workflows/deploy-csl.sh "$SITE_ROOT"

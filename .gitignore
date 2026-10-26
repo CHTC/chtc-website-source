@@ -36,6 +36,8 @@ next-env.d.ts
 
 # migration comparison output
 /migration-missing.txt
+/live-migration-missing.txt
+/legacy-pages.html
 
 # Claude: local settings stay out; project skills are shared
 .claude/*

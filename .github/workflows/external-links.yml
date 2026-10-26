@@ -1,0 +1,139 @@
+name: Check external links
+
+# Links to other sites fail transiently often enough that one bad check means
+# little, so scripts/external-link-history.mjs keeps a record of when each
+# started failing, in the Actions cache, and this only fails for links that
+# have been broken for a week.
+
+on:
+  # Every day at 06:00 UTC: 1am Central in summer, midnight in winter.
+  schedule:
+    - cron: '0 6 * * *'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Finding and downloading the deploy workflow's build.
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SITE_ROOT: ${{ github.workspace }}/_site
+      HISTORY: external-link-history.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # The deploy workflow builds main several times a day and its artifact
+      # lasts a day, so there is normally one to reuse. Only when there is not
+      # does this build the site itself.
+      - name: Find latest build
+        id: latest
+        run: |
+          for run in $(gh run list --workflow nextjs.yml --branch main --status success \
+              --limit 5 --json databaseId -q '.[].databaseId'); do
+            if gh api "repos/${{ github.repository }}/actions/runs/$run/artifacts" \
+                -q '.artifacts[] | select(.name == "github-pages" and (.expired | not)) | .id' | grep -q .; then
+              echo "run-id=$run" >> "$GITHUB_OUTPUT"
+              echo "Using the build from run $run."
+              exit 0
+            fi
+          done
+          echo "No unexpired build found; building the site."
+      - name: Download built site
+        if: steps.latest.outputs.run-id
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          run-id: ${{ steps.latest.outputs.run-id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract built site
+        if: steps.latest.outputs.run-id
+        run: |
+          mkdir -p "$SITE_ROOT"
+          tar -xf artifact.tar -C "$SITE_ROOT"
+
+      # The fallback build. Same steps as nextjs.yml, restoring its caches
+      # without saving over them.
+      - name: Install pnpm
+        if: ${{ !steps.latest.outputs.run-id }}
+        uses: pnpm/action-setup@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: ${{ !steps.latest.outputs.run-id && 'pnpm' || '' }}
+      - name: Restore Next.js build cache
+        if: ${{ !steps.latest.outputs.run-id }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
+            ${{ runner.os }}-nextjs-
+      - name: Restore optimized images
+        if: ${{ !steps.latest.outputs.run-id }}
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            public/images/**/nextImageExportOptimizer
+            public/images/next-image-export-optimizer-hashes.json
+            remoteImagesForOptimization
+          key: ${{ runner.os }}-next-image-export-optimizer-${{ hashFiles('next.config.mjs', 'remoteOptimizedImages.js', 'patches/*.patch') }}-
+          restore-keys: |
+            ${{ runner.os }}-next-image-export-optimizer-${{ hashFiles('next.config.mjs', 'remoteOptimizedImages.js', 'patches/*.patch') }}-
+            ${{ runner.os }}-next-image-export-optimizer-
+      - name: Build with Next.js
+        if: ${{ !steps.latest.outputs.run-id }}
+        run: |
+          pnpm install
+          pnpm run build
+          mv out "$SITE_ROOT"
+
+      # Same never-repeating key as the build caches: an exact hit would skip
+      # the save, and the history has to be written back every run.
+      - name: Restore link history
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.HISTORY }}
+          key: external-link-history-${{ github.run_id }}
+          restore-keys: external-link-history-
+      # --scheme limits this to http(s) links; links within the site resolve
+      # to file:// and are nextjs.yml's link-check job. The extra accepted
+      # codes are sites refusing a bot rather than missing pages: 403 from
+      # publishers (most doi.org links land on one), 999 from LinkedIn, 418
+      # from bot filters, and 429 for being asked to slow down.
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          fail: false
+          jobSummary: false
+          format: json
+          output: lychee/external.json
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --root-dir '${{ env.SITE_ROOT }}'
+            --max-concurrency 32
+            --timeout 20
+            --max-retries 2
+            --accept '100..=103,200..=299,403,418,429,999'
+            --exclude-path '${{ env.SITE_ROOT }}/doc'
+            '${{ env.SITE_ROOT }}/**/*.html'
+      - name: Update link history
+        run: |
+          status=0
+          node scripts/external-link-history.mjs lychee/external.json "$HISTORY" external-links.md || status=$?
+          cat external-links.md >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+      - name: Save link history
+        if: always() && hashFiles(env.HISTORY) != ''
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.HISTORY }}
+          key: external-link-history-${{ github.run_id }}

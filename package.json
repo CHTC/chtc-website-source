@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "analyze": "ANALYZE=true next build",
     "compare:migration": "tsx scripts/compare-migration.mjs",
+    "check:live-migration": "node scripts/check-live-migration.mjs",
     "unlighthouse:live": "unlighthouse --config-file unlighthouse.config.ts"
   },
   "dependencies": {
