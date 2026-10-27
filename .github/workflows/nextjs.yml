@@ -22,6 +22,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  pull-requests: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -129,6 +130,17 @@ jobs:
             --fallback-extensions html
             --exclude-path '${{ env.SITE_ROOT }}/doc'
             '${{ env.SITE_ROOT }}/**/*.html'
+
+  # Publish the built site at https://<pr>-chtc-website-nextjs-chtc.website-preview.chtc.io/
+  # (CHTC/website-preview). The server authorizes the push with this run's OIDC
+  # token, which PRs from forks don't get, so those are skipped.
+  preview:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: build
+    permissions:
+      id-token: write
+      contents: read
+    uses: CHTC/website-preview/.github/workflows/push.yml@main
 
   # Deployment job if you are serving from GitHub Pages
   deploy-pages:
