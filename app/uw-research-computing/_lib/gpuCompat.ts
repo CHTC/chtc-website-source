@@ -2,27 +2,25 @@ import fs from 'fs';
 import path from 'path';
 import { FAILSAFE_SCHEMA, load } from 'js-yaml';
 
-/** One GPU type a build runs on, and how many of it CHTC has when the data says. */
-export interface CompatChip {
-  name: string;
-  count?: number;
-}
-
 /** One framework build: a version compiled against one CUDA toolkit. */
 export interface CompatBuild {
   cudaToolkit: string;
   minNvidiaDriverVersion: string;
+  /** The CUDA version the driver must support: `gpus_minimum_runtime`. */
   minDriverCuda: string;
   /** The compute capabilities it supports: `7.5 to 9.0, except 8.9`. */
   capabilityRange: string;
-  compatibleGpus: number;
-  chips: CompatChip[];
-  requirements: string;
+  /** The `gpus_*` submit file lines. */
+  submitLines: string;
+  /** Caveats, from the `# Note:` lines in the data. */
+  notes: string[];
 }
 
 export interface CompatVersion {
   version: string;
   builds: CompatBuild[];
+  /** The build that matches the most GPUs: the lowest runtime, then the widest capability range. */
+  defaultCudaToolkit: string;
 }
 
 export interface CompatFramework {
@@ -41,10 +39,7 @@ interface RawBuild {
   min_nvidia_driver_version: string;
   min_driver_cuda: string;
   compute_capability: { min: string; max: string; excluded?: string[] };
-  n_compatible_gpus: string;
-  /** GPU types and their counts (`A100: 40`), or just the names (`chip_names`). */
-  chips?: Record<string, string>;
-  chip_names?: string[];
+  /** `gpus_*` submit file lines, then any `# Note: ...` lines. */
   condor_requirements: string;
 }
 
@@ -55,11 +50,6 @@ interface RawCompat {
 
 const capabilityRange = ({ min, max, excluded = [] }: RawBuild['compute_capability']): string =>
   `${min} to ${max}` + (excluded.length ? `, except ${excluded.join(', ')}` : '');
-
-const chips = (build: RawBuild): CompatChip[] =>
-  build.chips
-    ? Object.entries(build.chips).map(([name, count]) => ({ name, count: Number(count) }))
-    : (build.chip_names ?? []).map((name) => ({ name }));
 
 const FRAMEWORK_LABELS: Record<string, string> = {
   pytorch: 'PyTorch',
@@ -78,11 +68,32 @@ const compareVersionsDescending = (a: string, b: string): number => {
   return 0;
 };
 
+const toBuild = (build: RawBuild): CompatBuild => {
+  const lines = build.condor_requirements.split('\n').map((line) => line.trim()).filter(Boolean);
+  return {
+    cudaToolkit: build.cuda_toolkit,
+    minNvidiaDriverVersion: build.min_nvidia_driver_version,
+    minDriverCuda: build.min_driver_cuda,
+    capabilityRange: capabilityRange(build.compute_capability),
+    submitLines: lines.filter((line) => !line.startsWith('#')).join('\n'),
+    notes: lines.filter((line) => line.startsWith('#')).map((line) => line.replace(/^#\s*(Note:\s*)?/, '')),
+  };
+};
+
+/** The build with the lowest `gpus_minimum_runtime`, then the widest capability range. */
+const broadest = (builds: RawBuild[]): RawBuild =>
+  [...builds].sort(
+    (a, b) =>
+      compareVersionsDescending(b.min_driver_cuda, a.min_driver_cuda) ||
+      compareVersionsDescending(b.compute_capability.min, a.compute_capability.min) ||
+      compareVersionsDescending(a.compute_capability.max, b.compute_capability.max)
+  )[0];
+
 /**
- * `content/uw-research-computing/data/compat.yaml`: which CHTC GPUs each
- * framework version and CUDA toolkit can run on. Read with the failsafe
- * schema so every value stays a string; the default schema would read a
- * version key such as `2.10` as the number 2.1.
+ * `content/uw-research-computing/data/compat.yaml`: the GPUs each framework
+ * version and CUDA toolkit can run on, as submit file lines. Read with the
+ * failsafe schema so every value stays a string; the default schema would
+ * read a version key such as `2.10` as the number 2.1.
  */
 export function loadGpuCompat(): GpuCompat {
   const file = path.join(process.cwd(), 'content', 'uw-research-computing', 'data', 'compat.yaml');
@@ -96,16 +107,9 @@ export function loadGpuCompat(): GpuCompat {
         .map(([version, builds]) => ({
           version,
           builds: builds
-            .map((build) => ({
-              cudaToolkit: build.cuda_toolkit,
-              minNvidiaDriverVersion: build.min_nvidia_driver_version,
-              minDriverCuda: build.min_driver_cuda,
-              capabilityRange: capabilityRange(build.compute_capability),
-              compatibleGpus: Number(build.n_compatible_gpus),
-              chips: chips(build),
-              requirements: build.condor_requirements,
-            }))
+            .map(toBuild)
             .sort((a, b) => compareVersionsDescending(b.cudaToolkit, a.cudaToolkit)),
+          defaultCudaToolkit: broadest(builds).cuda_toolkit,
         }))
         .sort((a, b) => compareVersionsDescending(a.version, b.version)),
     })),

@@ -1,18 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { Alert, Badge, Box, Button, Chip, MenuItem, Paper, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, MenuItem, Paper, Stack, TextField, Typography } from '@mui/material';
 import ContentCopy from '@mui/icons-material/ContentCopy';
-import type { CompatBuild, CompatFramework } from '../_lib/gpuCompat';
+import type { CompatFramework, CompatVersion } from '../_lib/gpuCompat';
 
-/** The build that runs on the most GPUs; the newest toolkit on a tie (builds come newest first). */
-const widest = (builds: CompatBuild[]): CompatBuild =>
-  builds.reduce((best, build) => (build.compatibleGpus > best.compatibleGpus ? build : best));
+/** The version's build for this toolkit, or the one that matches the most GPUs. */
+const buildFor = (version: CompatVersion, cudaToolkit: string) =>
+  version.builds.find((candidate) => candidate.cudaToolkit === cudaToolkit) ??
+  version.builds.find((candidate) => candidate.cudaToolkit === version.defaultCudaToolkit) ??
+  version.builds[0];
 
 /**
  * Cascading drop-downs: pick a framework, then one of its versions, then a
- * CUDA toolkit that version was built for, and see the submit file
- * requirements and which CHTC GPUs match. Rendered by `GpuCompatFinder`.
+ * CUDA toolkit that version was built for, and see the submit file lines
+ * that match the job to GPUs it can run on. Rendered by `GpuCompatFinder`.
  */
 const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
   const [frameworkId, setFrameworkId] = useState(frameworks[0].id);
@@ -21,25 +23,27 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
   const [versionId, setVersionId] = useState(framework.versions[0].version);
   const version = framework.versions.find(({ version }) => version === versionId) ?? framework.versions[0];
 
-  const [cudaToolkit, setCudaToolkit] = useState(widest(version.builds).cudaToolkit);
-  const build = version.builds.find((candidate) => candidate.cudaToolkit === cudaToolkit) ?? widest(version.builds);
-  const better = widest(version.builds);
+  const [cudaToolkit, setCudaToolkit] = useState(version.defaultCudaToolkit);
+  const build = buildFor(version, cudaToolkit);
 
   const [copied, setCopied] = useState(false);
-  const submitLines = `request_gpus = 1\n${build.requirements}`;
+  const submitLines = `request_gpus = 1\n${build.submitLines}`;
 
-  /** Keep the toolkit when the new version has it; otherwise the one with the most GPUs. */
+  /** Keep the toolkit when the new version has it; otherwise the one that matches the most GPUs. */
   const chooseVersion = (next: string, from = framework) => {
-    const builds = (from.versions.find(({ version }) => version === next) ?? from.versions[0]).builds;
-    setVersionId(next);
-    setCudaToolkit(builds.some((candidate) => candidate.cudaToolkit === cudaToolkit) ? cudaToolkit : widest(builds).cudaToolkit);
+    const nextVersion = from.versions.find(({ version }) => version === next) ?? from.versions[0];
+    setVersionId(nextVersion.version);
+    setCudaToolkit(buildFor(nextVersion, cudaToolkit).cudaToolkit);
     setCopied(false);
   };
 
   const chooseFramework = (next: string) => {
     const nextFramework = frameworks.find(({ id }) => id === next) ?? frameworks[0];
-    setFrameworkId(next);
-    chooseVersion(nextFramework.versions[0].version, nextFramework);
+    setFrameworkId(nextFramework.id);
+    // A toolkit means something different in another framework, so start from its default.
+    setVersionId(nextFramework.versions[0].version);
+    setCudaToolkit(nextFramework.versions[0].defaultCudaToolkit);
+    setCopied(false);
   };
 
   const copy = async () => {
@@ -101,45 +105,23 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
       </Stack>
 
       <Box sx={{ mt: 3 }}>
-        <Typography component='p' variant='h5' aria-live='polite' sx={{ fontWeight: 700 }}>
-          {build.compatibleGpus} GPUs match
-        </Typography>
-        <Typography component='p' variant='body2' sx={{ color: 'text.secondary', mb: 1.5 }}>
-          {framework.label} {version.version} with CUDA toolkit {build.cudaToolkit}
-        </Typography>
-        {/* Room above the chips for the count badges. */}
-        <Stack direction='row' useFlexGap spacing={2} sx={{ flexWrap: 'wrap', pt: 1, mb: 2 }}>
-          {build.chips.map(({ name, count }) => (
-            <Badge key={name} badgeContent={count} color='primary' max={999}>
-              <Chip
-                label={name}
-                size='small'
-                color='primary'
-                variant='outlined'
-                aria-label={count === undefined ? name : `${name}: ${count} GPUs`}
-              />
-            </Badge>
-          ))}
-        </Stack>
-
-        {better.compatibleGpus > build.compatibleGpus && (
-          <Alert severity='info' sx={{ mb: 2 }}>
-            {framework.label} {version.version} built for CUDA toolkit {better.cudaToolkit} matches{' '}
-            {better.compatibleGpus} GPUs. Use that build unless you need CUDA {build.cudaToolkit}.
-          </Alert>
-        )}
-
         <Stack direction='row' sx={{ alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
-          <Typography component='p' variant='subtitle2' sx={{ fontWeight: 700 }}>
-            Add to your submit file
+          <Typography component='p' variant='subtitle2' aria-live='polite' sx={{ fontWeight: 700 }}>
+            Add to your submit file for {framework.label} {version.version} with CUDA toolkit {build.cudaToolkit}
           </Typography>
-          <Button size='small' startIcon={<ContentCopy fontSize='small' />} onClick={copy}>
+          <Button size='small' startIcon={<ContentCopy fontSize='small' />} onClick={copy} sx={{ flexShrink: 0 }}>
             {copied ? 'Copied' : 'Copy'}
           </Button>
         </Stack>
         <Box component='pre' sx={{ whiteSpace: 'pre-wrap' }}>
           <code>{submitLines}</code>
         </Box>
+
+        {build.notes.map((note) => (
+          <Alert key={note} severity='warning' sx={{ mb: 2 }}>
+            {note}
+          </Alert>
+        ))}
 
         <Typography component='p' variant='body2' sx={{ color: 'text.secondary', mb: 0 }}>
           Compute capability {build.capabilityRange}. Needs NVIDIA driver {build.minNvidiaDriverVersion} or newer

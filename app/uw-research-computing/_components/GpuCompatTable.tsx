@@ -3,7 +3,7 @@ import { loadGpuCompat } from '../_lib/gpuCompat';
 
 /**
  * Every version of one framework from `data/compat.yaml`, with each CUDA
- * toolkit it was built for and the CHTC GPUs that build runs on. The full
+ * toolkit it was built for and the submit file lines for it. The full
  * listing under the `GpuCompatFinder` picker, so it is in the HTML for
  * search engines and readers without JavaScript.
  */
@@ -18,12 +18,8 @@ const GpuCompatTable = ({ framework }: { framework: string }) => {
           <tr>
             <th scope='col'>{entry.label} version</th>
             <th scope='col'>CUDA toolkit</th>
-            <th scope='col'>Matching GPUs</th>
-            <th scope='col'>GPU types</th>
-            <th scope='col'>
-              Compute capability (<code>GPUs_Capability</code>)
-            </th>
-            <th scope='col'>Submit file requirements</th>
+            <th scope='col'>Compute capability</th>
+            <th scope='col'>Submit file lines</th>
           </tr>
         </thead>
         <tbody>
@@ -36,15 +32,16 @@ const GpuCompatTable = ({ framework }: { framework: string }) => {
                   </th>
                 )}
                 <td>{build.cudaToolkit}</td>
-                <td>{build.compatibleGpus}</td>
-                <td>
-                  {build.chips
-                    .map(({ name, count }) => (count === undefined ? name : `${name} (${count})`))
-                    .join(', ')}
-                </td>
                 <td>{build.capabilityRange}</td>
                 <td>
-                  <code>{build.requirements}</code>
+                  <Box component='code' sx={{ whiteSpace: 'pre' }}>
+                    {build.submitLines}
+                  </Box>
+                  {build.notes.map((note) => (
+                    <Box key={note} component='small' sx={{ display: 'block', mt: 1 }}>
+                      Note: {note}
+                    </Box>
+                  ))}
                 </td>
               </tr>
             ))
