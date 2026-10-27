@@ -45,6 +45,10 @@ to delete data from any CHTC data location at at any time, to preserve
 systems performance, and are not responsible for data loss or file system
 corruption, which are possible in the absence of back-ups.
 
+**CHTC staff will remove old data with minimal notice.** For accounts who have submitted 
+and run less than 10 jobs in the past 2 years, we will provide up to two week's notice and 
+then deactivate accounts and remove data. 
+
 **CHTC is not HIPAA-compliant** and users should not bring HIPAA data into 
 CHTC services. If you have data security concerns or any questions about 
 data security in CHTC, [please get in touch](https://chtc.cs.wisc.edu/uw-research-computing/get-help.html)! 
