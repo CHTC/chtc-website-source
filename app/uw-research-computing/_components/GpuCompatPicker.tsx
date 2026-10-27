@@ -77,6 +77,7 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
           size='small'
           label={`${framework.label} version`}
           value={version.version}
+          disabled={framework.versions.length === 1}
           onChange={(event) => chooseVersion(event.target.value)}
         >
           {framework.versions.map(({ version }) => (
@@ -91,6 +92,8 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
           size='small'
           label='CUDA toolkit'
           value={build.cudaToolkit}
+          // Locked, not hidden: which toolkit the build uses is part of the answer.
+          disabled={version.builds.length === 1}
           onChange={(event) => {
             setCudaToolkit(event.target.value);
             setCopied(false);
