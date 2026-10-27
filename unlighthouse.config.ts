@@ -1,7 +1,7 @@
 // Defaults to the demo deployment, which stands in for production for now. To
 // scan a local build, serve it (`npx serve out -l 3000`) and set
 // UNLIGHTHOUSE_SITE=http://localhost:3000.
-const SITE = process.env.UNLIGHTHOUSE_SITE ?? 'https://chtc-nextjs.demo.chtc.io'
+const SITE = process.env.UNLIGHTHOUSE_SITE ?? 'https://chtc.cs.wisc.edu'
 
 /**
  * The path of a sitemap `<loc>`. Deployments built before the sitemap's
