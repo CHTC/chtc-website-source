@@ -140,6 +140,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      pull-requests: write
     uses: CHTC/website-preview/.github/workflows/push.yml@main
 
   # Deployment job if you are serving from GitHub Pages
