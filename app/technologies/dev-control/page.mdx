@@ -1,0 +1,136 @@
+import { listingMetadata } from '@/utils/metadata';
+
+export const metadata = listingMetadata(
+  'CHTC Software Development Controls for Cybersecurity',
+  'The policies and procedures CHTC follows to develop HTCondor and Pelican securely, aligned with CIS Critical Security Controls Section 18: Application Software Security.',
+  '/technologies/dev-control/'
+);
+
+# CHTC Software Development Controls for Cybersecurity
+
+_October 2026_
+
+Software Development controls cover the policies and procedures governing the development of all
+software produced and maintained by the Center for High Throughput Computing (CHTC), which
+currently includes the HTCondor Software Suite (HTCSS) and the Pelican Platform. Where applicable,
+these controls align with the
+[Center for Internet Security (CIS) Critical Security Controls Version 7.1 Section 18: Application Software Security](https://www.cisecurity.org/controls/v7-1),
+which provides guidelines to manage the security life cycle of all developed software to prevent,
+detect, and correct security weaknesses.
+
+## Establish Secure Coding Practices (CIS 18.1)
+
+CHTC software products implement a comprehensive set of secure coding practices. For example,
+HTCSS follows the principle of least privilege by running critical services with
+minimal-permission service accounts, escalating to elevated privileges only when necessary. The
+team enforces secure coding practices through mandatory code review: all code contributions must
+be submitted as pull requests against a topic branch, undergo peer review by at least one human
+core developer (and typically also by at least one AI, currently GitHub Copilot), and be
+documented in the review record before merging to the main branch. These security practices
+extend to the software release process to ensure authenticity and prevent unauthorized
+distribution. Production packages for flagship products, such as HTCSS and Pelican, are
+cryptographically signed using an offline key stored on a hardware security module (YubiKey).
+Additionally, except for fully automated nightly test builds, the production release process
+requires human approval and multifactor authentication.
+
+## Only use up-to-date and trusted third-party components (CIS 18.4)
+
+CHTC software uses third-party components pulled from widely-adopted and public repositories
+which provide source code for inspection such as the Extra Packages for Enterprise Linux (or
+EPEL) repository or the Python Package Index (PyPI). Software signatures or source checksums are
+verified on build. CHTC developers inspect and review the list of third-party components for
+freshness before the start of each new stable release series.
+
+## Use only standardized and extensively reviewed encryption algorithms (CIS 18.5)
+
+CHTC software is standardized on using only routines provided by system (OpenSSL) or language
+runtime (Go) libraries on all platforms for all secure hashing and encryption routines. CHTC
+developers have collaborated with Raytheon Corporation to ensure that each release of HTCSS is
+accompanied by a version that adheres to the Federal Information Processing Standards (FIPS) in
+order to act in accordance with the Federal Information Security Management Act of 2002 (FISMA)
+and the Federal Information Security Modernization Act of 2014 (FISMA2014).
+
+## Apply static and dynamic analysis tools (CIS 18.7)
+
+To ensure adherence to secure coding practices, the development process incorporates both static
+and dynamic analysis tools as appropriate for each product's technology stack. For example, HTCSS
+undergoes nightly static analysis using Coverity from Black Duck Software, along with
+dependency-vulnerability scanning tools such as Dependabot and GitHub code scanning; for dynamic
+analysis of HTCSS Linux the software team will use Valgrind on each relevant daemon or service
+that has privileged access. Because HTCSS is written primarily in C++, its analysis toolchain
+differs from that used for Pelican, which is developed mostly in Golang. In addition, CHTC plans
+to investigate leveraging AI in the code review process as well as utilize an automated workflow
+system in which a frontier AI assistant is invoked weekly against each CHTC codebase to attempt
+to discover security vulnerabilities, with any findings triaged by the development team. At the
+time of this writing, CHTC utilizes Claude Mythos from Anthropic to scan for vulnerabilities.
+Discovered vulnerabilities are converted into a development ticket targeted for resolution before
+the next public release.
+
+## Process to accept and address reports of software vulnerabilities (CIS 18.8)
+
+CHTC follows a well-defined process to both accept and address reports of vulnerabilities of its
+major software products. This procedure was developed in coordination with the Red Hat Security
+Team at such time that Red Hat integrated HTCSS technologies into their commercially supported
+product offerings. Security vulnerabilities discovered by individuals outside of the core CHTC
+development team are confidentially reported via per-project security email addresses; each
+address has limited distribution to just the CHTC Security Czar(s) and the Technical Lead of the
+affected project. When a vulnerability is reported externally, we ask the reporter to keep the
+report confidential for at least 90 days to give us time to coordinate a fix and release.
+
+The CHTC Security Czar role is staffed by either a single czar or a team of two (one representing
+HTCSS, one representing Pelican), who must operate in lockstep on assessments and release
+decisions; where two czars disagree, the CHTC Director serves as tiebreaker. Allowing either
+structure (rather than requiring a pair) lets the role be staffed pragmatically as CHTC project
+headcount and staffing evolves. The Security Czar(s) run the release process for any security
+release, and the role is expected to rotate among senior developers periodically so that
+institutional knowledge of the process is shared across the team. The Security Czar(s) then assess
+the report against the Common Vulnerability Scoring System (CVSS) and classify it as one of:
+(a) a routine bug, fixed in the normal release cycle with no embargo; (b) a security advisory,
+fixed in the next normal release and called out in the release announcement — typically a CVSS
+Low issue that is not remotely exploitable in a default configuration; or (c) a security release,
+requiring the expedited process below — typically CVSS Medium or higher, or any vulnerability
+that permits unauthorized code execution, privilege escalation, credential disclosure, or remote
+denial of service against a default deployment. The CVSS score is a useful quantitative tool to
+understand vulnerabilities and their impact; however, "security czar" structure allows
+qualitative understanding to override. Security announcements are being migrated to per-project
+GitHub Security Advisories as the primary disclosure channel. A vulnerability classified as a
+security release will be handled via the following steps:
+
+1. Request a Common Vulnerabilities and Exposures Database Identifier (CVE ID) from MITRE,
+   without providing any vulnerability details. Note: when changing to GitHub Security Advisories
+   (GHSA), the GHSA is established first and then CVE comes at the end of the process.
+2. Work on the code patch/fix in private:
+   <ol type="a">
+     <li>Via a private ticket readable by just small group of developers</li>
+     <li>With code on a private (non-public) git branch</li>
+     <li>With commit messages that are purposely opaque and simply reference the private ticket without additional details</li>
+   </ol>
+3. While the code remedy is being developed, coordinate a public release date (typically 4 to 6
+   weeks forward) for the security release with downstream providers of the affected CHTC
+   software (e.g. OSG, Fedora, Debian, etc.) and critical stakeholders, as we want to enable
+   i) all providers to publicly release the security fix on the same day, and ii) all critical
+   stakeholders to upgrade their deployments on the same day as the public release or as close as
+   possible. This contact list of providers and critical stakeholders will be always kept up to
+   date, and includes close collaborators, commercial entities with a support agreement from CHTC,
+   as well as government agencies and laboratories. In addition, pre-release fixed binaries will
+   be made available on request to these stakeholders under confidentiality, so that critical
+   deployments can be upgraded before the security release is made public.
+4. On the agreed public release date, provide the fixed binaries, and disclose just the risk
+   assessment and version information into the CVE database to enable sites to determine if they
+   are vulnerable. Details about the vulnerability are not provided at this time.
+5. Embargo the full vulnerability details for a minimum of 30 days to allow time for sites to
+   upgrade.
+6. Only after the embargo period expires may all software development artifacts and detailed CVE
+   information be made public.
+
+For each product, a web page archiving all Vulnerability Reports will be maintained; for example,
+for HTCSS this web page is
+[https://htcondor.org/security/vulnerabilities/](https://htcondor.org/security/vulnerabilities/)
+and for Pelican it is [https://pelicanplatform.org/security](https://pelicanplatform.org/security).
+
+## Maintain separate environments for production and nonproduction systems (CIS 18.9)
+
+Developers working on software will not deploy software onto production systems except in
+exceptional circumstances. Instead, developers will make snapshots of software releases available
+via native packaging and container repositories for administrators of production systems to
+deploy in a controlled manner.
