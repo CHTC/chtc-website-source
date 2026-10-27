@@ -4,11 +4,11 @@
 
 import NextLink from 'next/link';
 import { Box, Button, Container, Link } from '@mui/material';
-import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 
 /**
  * The thin red bar above the navigation, as on the legacy site: the two
- * parent organisations on the left; on the right the Talk to Us and Request
+ * parent organisations on the left; on the right the User Portal and Request
  * Account buttons.
  */
 const SECTION = '/uw-research-computing';
@@ -53,19 +53,19 @@ export default function GlobalBar() {
           </Link>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-          {/* Hidden on phones, where it would crowd the bar; the menu has it under About. */}
+          {/* Hidden on phones, where it would crowd the bar; the menu has it under Campus Computing. */}
           <Button
             component={NextLink}
-            href='/talk-to-us/'
+            href={`${SECTION}/user-portal/`}
             size='small'
-            endIcon={<MessageOutlinedIcon aria-hidden='true' />}
+            endIcon={<DescriptionOutlinedIcon aria-hidden='true' />}
             sx={{
               ...buttonSx,
               display: { xs: 'none', sm: 'inline-flex' },
               '& .MuiButton-endIcon': { ml: 0.75, '& > svg': { fontSize: '1rem' } },
             }}
           >
-            Talk to Us
+            User Portal
           </Button>
           <Button component={NextLink} href={`${SECTION}/form/`} size='small' sx={buttonSx}>
             Request Account
