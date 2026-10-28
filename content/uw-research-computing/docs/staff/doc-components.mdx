@@ -100,7 +100,7 @@ standard set:
 | [`FacilitatorGrid`](#facilitatorgrid) | The facilitation team's photos, from the staff list. |
 | [`File`](#file) | A code block showing a file's contents. |
 | [`Footnote`](#footnote) | A small note under a table. |
-| [`GpuTable`](#gputable) | The GPU servers from `data/gpus.yaml`. |
+| [`GpuTable`](#gputable) | The GPUs in the HTC pool, from `data/gpus.yaml`. |
 | [`MiniBar`](#minibar) | A short red bar above a heading. |
 | [`Terminal`](#terminal) | A code block showing a terminal session. |
 | [`Tip`](#tip) | A callout box, with an optional title bar. |
@@ -466,17 +466,17 @@ Used in [Manage large data in /staging](/uw-research-computing/file-avail-larged
 
 ## GpuTable
 
-A table of the GPU servers in `data/gpus.yaml` that have this owner.
-
-- `owner`: whose servers to list. Defaults to `"campus"`.
+The GPUs in the HTC pool, from `data/gpus.yaml`: each type with open capacity and its open,
+backfill and total counts, a collapsed table of the types available only through backfill, and
+the notes under both. No options.
 
 Used in [Use GPUs](/uw-research-computing/gpu-jobs/).
 
 ```markdown
-<GpuTable owner="campus" />
+<GpuTable />
 ```
 
-<GpuTable owner="campus" />
+<GpuTable />
 
 ## MiniBar
 
