@@ -21,7 +21,7 @@ This guide explains how to connect to CHTC using VS Code, best practices for usi
 
 <Tip header="Confirm access">
 
-Before starting, make sure that you can login to CHTC "normally" via a plain terminal, as described in our [Log in to CHTC guide](/uw-research-computing/connecting.md).
+Before starting, make sure that you can login to CHTC via a plain terminal, as described in our [Log in to CHTC guide](/uw-research-computing/connecting.md).
 
 </Tip>
 
@@ -94,7 +94,7 @@ The window will refresh, after which you should be able to see your home directo
 
 ## Connect again
 
-> This assumes that you've already completed the initial set-up on the current device!
+This assumes that you've already completed the initial set-up on the current device!
 
 * Option 1: ["Open Recent"](#option-1-open-recent)
 * Option 2: ["Connect to Host"](#option-2-connect-to-host)
@@ -151,7 +151,7 @@ Regardless of whether you are using HTCondor or Slurm, you will still need to su
 To access the built-in terminal with VS Code, 
 
 * go to "Terminal" and click "New Terminal",
-* use the `Ctrl`+`\`` keyboard shortcut, or
+* use the `Ctrl`+ `\` keyboard shortcut, or
 * right-click a file or directory and select "Open in integrated terminal". 
 
 This will open a terminal in your VS Code window.
@@ -160,19 +160,12 @@ In this terminal window, you can run the usual HTCondor or Slurm commands for su
 Remember to `cd` into the correct directory first!
 
 
-<div class="md-tip-header">
+<Tip header="⚠️ Interactive jobs">
 
-> ### ⚠️ Interactive jobs
+When you submit an interactive job via the terminal, **only that terminal** is connected to the interactive job.
+The rest of the VS Code interface (including new terminals) are still connected to the access point!
 
-</div>
-
-
-<div class="md-tip">
-
-> When you submit an interactive job via the terminal, **only that terminal** is connected to the interactive job.
-> The rest of the VS Code interface (including new terminals) are still connected to the access point!
-
-</div>
+</Tip>
 
 
 ### Extensions
