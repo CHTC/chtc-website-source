@@ -136,6 +136,8 @@
       url: "/uw-research-computing/gpu-jobs"
     - text: "Interactive GPU Jobs"
       url: "/uw-research-computing/htc-interactive-gpu-jobs"
+    - text: "Match ML frameworks and CUDA to GPUs"
+      url: "/uw-research-computing/gpu-compatibility"
     - text: "Scale beyond local HTC capacity"
       url: "/uw-research-computing/scaling-htc"
     - text: "Submit high memory jobs"

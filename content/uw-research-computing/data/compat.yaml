@@ -1,0 +1,1138 @@
+last_updated: '2026-10-23'
+notes:
+  - HTCondor compares these gpus_* attributes as real numbers, so a value like "12.10" would sort BEFORE "12.9" -- not an issue for anything in this file today, but worth knowing if a future CUDA release hits a double-digit minor version.
+  - An entry with a forward_compatibility block worked on drivers whose own CUDA version is an older major release than its cuda_toolkit only through NVIDIA's CUDA forward-compatibility libraries, which the tested container images bundle. Running the same container needs nothing extra; installing the framework any other way (pip, conda) on such a driver needs the matching cuda-compat package installed too (https://docs.nvidia.com/deploy/cuda-compatibility/). Forward compatibility only works on datacenter GPUs, not GeForce cards.
+frameworks:
+  pytorch:
+    1.0.1:
+      - cuda_toolkit: '10.0'
+        cudnn_version: '7402'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+    1.1.0:
+      - cuda_toolkit: '10.0'
+        cudnn_version: '7501'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+    1.10.0:
+      - cuda_toolkit: '11.3'
+        cudnn_version: '8200'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+    1.11.0:
+      - cuda_toolkit: '11.3'
+        cudnn_version: '8200'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+    1.12.1:
+      - cuda_toolkit: '11.3'
+        cudnn_version: '8302'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    1.5.1:
+      - cuda_toolkit: '10.1'
+        cudnn_version: '7603'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+    1.6.0:
+      - cuda_toolkit: '10.1'
+        cudnn_version: '7603'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+    1.7.1:
+      - cuda_toolkit: '11.0'
+        cudnn_version: '8005'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+    1.8.1:
+      - cuda_toolkit: '10.2'
+        cudnn_version: '7605'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '11.1'
+        cudnn_version: '8005'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    1.9.1:
+      - cuda_toolkit: '11.1'
+        cudnn_version: '8005'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.0.1:
+      - cuda_toolkit: '11.7'
+        cudnn_version: '8500'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded:
+            - '8.9'
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+          # Note: Compute capability 8.9 does NOT actually work despite falling in this range -- exclude it separately if your scheduler can express that.
+    2.1.2:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8700'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.1'
+        cudnn_version: '8902'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.10.0:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '12.8'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '13.0'
+        cudnn_version: '91501'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        forward_compatibility:
+          required_below_driver_cuda: '13.0'
+          worked_on_driver_cuda:
+            - '12.8'
+          worked_on_compute_capability:
+            - '8.0'
+            - '8.9'
+            - '9.0'
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+          # Note: On drivers below CUDA 13.0, this only works through NVIDIA's forward-compatibility libraries (bundled in the tested container; datacenter GPUs only) -- outside that container, install cuda-compat or require gpus_minimum_runtime = 13.0.
+    2.11.0:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.8'
+        cudnn_version: '91900'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13.0'
+        cudnn_version: '91900'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    2.12.1:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13.0'
+        cudnn_version: '92000'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+      - cuda_toolkit: '13.2'
+        cudnn_version: '92000'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    2.13.0:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13.0'
+        cudnn_version: '92000'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+      - cuda_toolkit: '13.2'
+        cudnn_version: '92000'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    2.14.0:
+      - cuda_toolkit: '12.6'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13.0'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 13.1
+      - cuda_toolkit: '13.2'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 13.1
+    2.14.1:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13.0'
+        cudnn_version: '92400'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+      - cuda_toolkit: '13.2'
+        cudnn_version: '92400'
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    2.2.2:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8700'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.1'
+        cudnn_version: '8902'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.3.1:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8700'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.1'
+        cudnn_version: '8902'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.4.1:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.1'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.4'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.5.1:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.1'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.4'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.6.0:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.4'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.6'
+        cudnn_version: '90501'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+    2.7.1:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '90100'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '12.6'
+        cudnn_version: '90501'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '12.8'
+        cudnn_version: '90701'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+    2.8.0:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '12.8'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '12.9'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+    2.9.1:
+      - cuda_toolkit: '12.6'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '12.8'
+        cudnn_version: '91002'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+      - cuda_toolkit: '13.0'
+        cudnn_version: '91300'
+        min_nvidia_driver_version: 570.195.03
+        min_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        forward_compatibility:
+          required_below_driver_cuda: '13.0'
+          worked_on_driver_cuda:
+            - '12.8'
+          worked_on_compute_capability:
+            - '8.0'
+            - '8.9'
+            - '9.0'
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+          # Note: on drivers below CUDA 13.0, this only works through NVIDIA's forward-compatibility libraries (bundled in the tested container; datacenter GPUs only) -- outside that container, install cuda-compat or require gpus_minimum_runtime = 13.0.
+  tensorflow:
+    2.10.1:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.11.1:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.12.0:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.13.0:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.14.0:
+      - cuda_toolkit: '11.8'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.15.0:
+      - cuda_toolkit: '12.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.16.2:
+      - cuda_toolkit: '12.3'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.17.0:
+      - cuda_toolkit: '12.3'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.18.0:
+      - cuda_toolkit: 12.5.1
+        cudnn_version: '9'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.19.0:
+      - cuda_toolkit: 12.5.1
+        cudnn_version: '9'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.20.0:
+      - cuda_toolkit: 12.5.1
+        cudnn_version: '9'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    2.21.0:
+      - cuda_toolkit: 12.5.1
+        cudnn_version: '9'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.3.4:
+      - cuda_toolkit: '10.1'
+        cudnn_version: '7'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+    2.4.3:
+      - cuda_toolkit: '11.0'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.5.1:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.6.1:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.7.4:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.8.4:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    2.9.3:
+      - cuda_toolkit: '11.2'
+        cudnn_version: '8'
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+  jax:
+    0.10.2:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    0.11.2:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    0.12.0:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    0.4.38:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+    0.5.3:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    0.6.2:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+    0.7.2:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    0.8.3:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+    0.9.2:
+      - cuda_toolkit: '12'
+        cudnn_version: null
+        min_nvidia_driver_version: 550.54.14
+        min_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+      - cuda_toolkit: '13'
+        cudnn_version: null
+        min_nvidia_driver_version: 590.48.01
+        min_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
