@@ -49,22 +49,14 @@ If you have questions or comments specifically about this change in policy, plea
 
 </Tip>
 
-# A. Available CHTC GPUs
+# A. Available GPUs
 
-## 1. GPU Lab
+CHTC's open capacity GPUs are available to any user of the high throughput computing (HTC) system. They are provided by the [CHTC GPU Lab](/uw-research-computing/gpu-lab/). Researchers also own GPUs on CHTC. When these cards are not in use by their owners, your jobs can run on them if you opt in as backfill. CHTC users can also access GPUs on the OSPool, which has an average of 275 GPUs available per hour. See [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details on accessing backfill or the OSPool. 
 
-CHTC has a set of GPUs that are available for use by any CHTC user with an 
-account on our high throughput computing (HTC) system
-via the [CHTC GPU Lab](/uw-research-computing/gpu-lab/), which includes templates and a campus GPU community.
-
-Our expectation is that most, if not all, of CHTC users running GPU jobs should utilize 
-the capacity of the GPU Lab to run their work. 
+<GpuTable />
 
 
-<GpuTable owner="campus" />
-
-
-### Special GPU Lab Policies
+## Special GPU Lab Policies
 
  **Jobs running on GPU Lab servers have time limits and job number limits 
 (differing from CHTC defaults across the rest of the HTC System).**
@@ -77,14 +69,9 @@ the capacity of the GPU Lab to run their work.
   | Long  | 7 days | up to 4 GPUs in use |
 
 
-### Interactive GPU jobs
+## Interactive GPU jobs
 There are a certain number of slots in the GPU Lab reserved for interactive use.
 Learn more about [interactive GPU jobs](/uw-research-computing/htc-interactive-gpu-jobs/).
-
-## 2. Other Capacity
-
-There is additional dedicated and backfill GPU capacity available in CHTC and beyond; 
-see [GPU capacity beyond the GPU Lab](#c-gpu-capacity-beyond-the-chtc-gpu-lab) for details. 
 
 # B. Submit Jobs Using GPUs in CHTC
 
