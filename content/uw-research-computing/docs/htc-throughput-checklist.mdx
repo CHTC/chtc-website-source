@@ -1,15 +1,17 @@
 ---
-title: Checklist for Better Throughput
+title: Checklist for better throughput
 description: Whether you're submitting 1 job or 10,000 jobs, this checklist has easy changes that can help you get better throughput on the HTC system.
 sidebar:
   - htc
 category: Submit jobs
 ---
 
+{/*
 <!--
 This guide is intended to follow the action/application "How-to Guides" square of diataxis.fr
 Technically, it's more of a collection of such guides with the same overall goal.
 -->
+*/}
 
 Whether you're submitting 1 job or 10,000 jobs,
 this checklist has easy changes that can help you get better throughput on the HTC system.
@@ -23,9 +25,9 @@ this checklist has easy changes that can help you get better throughput on the H
 Are you requesting more resources than your job is actually using?
 Those "wasted" resources are dragging down your throughput!
 
-1. Check your actual usage
-2. Reduce your request
-3. Automatically retry rare overusage
+1. **Check your actual usage**
+2. **Reduce your request**
+3. **Automatically retry rare overusage**
 
 <Tip header="Testing is okay">
 
@@ -39,7 +41,8 @@ then start tuning the resource requests.
 
 ### Check your actual usage
 
-#### Use the log file
+<details>
+<summary><strong>📜 Use the log file</strong></summary>
 
 In the log file of a job that successfully completed,
 look for the table under the "Job terminated" log entry.
@@ -79,7 +82,11 @@ log = test.log
 
 </Tip>
 
-#### Use job history
+</details>
+
+
+<details>
+<summary><strong>📚 Use job history</strong></summary>
 
 If the job has completed "recently",
 HTCondor will have a record of the job in the AP's history.
@@ -112,15 +119,10 @@ condor_history CLUSTER_ID -af:hj, CpusUsage RequestCPUs MemoryUsage RequestMemor
 
 </Terminal>
 
-#### Use prototype tool
+</details>
 
-<Tip header="Feedback welcome">
-
-These commands are under active development!
-
-Please let us know if you have any feedback.
-
-</Tip>
+<details>
+<summary><strong>🧪 Use prototype tool</strong></summary>
 
 As of HTCondor version 26.1, there is a prototype tool to help you
 with collecting and analyzing resource usage.
@@ -152,6 +154,16 @@ htcondor cluster analytics CLUSTER_ID
 
 This will report a breakdown of your jobs' resource usage,
 along with recommendations on what to set your resource requests to!
+
+<Tip header="Feedback welcome">
+
+These commands are under active development!
+
+Please let us know if you have any feedback.
+
+</Tip>
+
+</details>
 
 ### Reduce your request
 
@@ -206,8 +218,13 @@ Most of your jobs will run just fine on their first execution requesting 1 GB.
 For the ones that run out of memory on the first attempt,
 HTCondor will automatically retry them with a request of 5 GB.
 
-For more information,
-see the [Request variable memory](/uw-research-computing/variable-memory) guide.
+For more information, see the following guide:
+
+<ButtonRow>
+
+<Button href="/uw-research-computing/variable-memory">Request variable memory</Button>
+
+</ButtonRow>
 
 ## Remove unnecessary requirements
 
@@ -224,7 +241,11 @@ You probably don't want to remove the entire line, just the specific statement.
 
 </Tip>
 
-### Operating system
+You should make sure you have a good reason for any line that you've included in your submit file,
+otherwise it could be a requirement that is limiting your throughput.
+
+<details>
+<summary><strong>🖥️ Operating system requirements</strong></summary>
 
 If you are using a container, then you don't need to worry about operating system!
 Then you can remove any statements that look like
@@ -232,13 +253,16 @@ Then you can remove any statements that look like
 * `OpSysMajorVer < 8`
 * `OpSysMajorVer >= 8`
 
-and so on.
+and so on from your `requirements` expression.
 
 Even if you aren't using a container,
 you should remove statements that limit your job to using `OpSysMajorVer` of only 7 or 8 -
 very few such machines remain in the pool at this time.
 
-### File transfers
+</details>
+
+<details>
+<summary><strong>💾 File transfer requirements</strong></summary>
 
 Double-check your list of input and output file transfers in your submit file.
 
@@ -249,11 +273,16 @@ In that case, you can remove any statements with
 * `HasCHTCStaging == true`
 * `HasCHTCProjects == true`
 
+from your `requirements` expression.
+
 If you are using the `file://` prefix
 or otherwise accessing the `/staging` or `/project` directories from directly inside of your job,
 such a requirement ensures you can access those directories.
 
-### CPU architecture
+</details>
+
+<details>
+<summary><strong>💻 CPU architecture</strong></summary>
 
 Remove statements that target specific CPU chips, such as
 
@@ -272,15 +301,18 @@ If the software was compiled for a specific type of CPU,
 then it may require these statements may be required.
 In that case, removing these lines may lead to an `Illegal instruction` error.
 
-### GPU architecture
+</details>
+
+<details>
+<summary><strong>⚡ GPU architecture</strong></summary>
 
 In our testing, the exact GPU used to run a calculation is not important,
 so long as the GPU is compatible with your software.
 
 First, we strongly recommend that you remove any statements targeting a specific device, e.g.,
 
-* `require_gpus = DeviceName == 'DeviceName = "NVIDIA H200 NVL"'`
-* `GPUs_DeviceName == 'DeviceName = "NVIDIA H200 NVL"'`
+* `require_gpus = (DeviceName == "NVIDIA H200 NVL")`
+* `requirements = (GPUs_DeviceName == "NVIDIA H200 NVL")`
 
 unless you are explicitly attempting to benchmark a calculation against that GPU.
 
@@ -298,7 +330,10 @@ This will help you decide the exact values to request for capability!
 
 </Tip>
 
-### Avoiding bad machines
+</details>
+
+<details>
+<summary><strong>❌ Avoiding bad machines</strong></summary>
 
 If you've had jobs repeatedly fail on a bad machine,
 you may have added a requirement for your job to avoid running on that machine.
@@ -310,61 +345,87 @@ requirements = (Machine != "e4023.chtc.wisc.edu") && (Machine != "e4039.chtc.wis
 ```
 
 This should only be a **temporary** workaround and only after you've notified us!
-Remove such statements unless there is an active issue.
+**Remove such statements unless there is an active issue.**
 
-### Miscellaneous
+</details>
 
-* **Scaling out tests**: in our [Scaling beyond local HTC capacity](/uw-research-computing/checkpointing),
-    guide, there's a section on "Testing jobs outside CHTC" where we have the line
+<details>
+<summary><strong>📈 Scaling out tests</strong></summary>
 
-    ```
-    requirements = (Poolname =!= "CHTC")
-    ```
+In our [Scaling beyond local HTC capacity](/uw-research-computing/checkpointing),
+guide, there's a section on "Testing jobs outside CHTC" where we have the line
 
-    Unless you really don't want to run on CHTC, remove this line.
+```
+requirements = (Poolname =!= "CHTC")
+```
 
-* **Build jobs**: For installing software or installling containers.
-    Remove this line for regular jobs.
+Unless you really don't want to run on CHTC, remove this line.
 
-    ```
-    +IsBuildJob = true
-    ```
+</details>
 
-* **CHTC software**: for licensed software,
-    per our [Use Licensed Software](/uw-research-computing/licensed-software) guide,
-    only the module-based installation needs
+<details>
+<summary><strong>🛠️ Build job</strong></summary>
 
-    ```
-    requirements = (HasChtcSoftware == true)
-    ```
+We have machines dedicated for building containers and compiling software.
+The following line in your submit file limits your job to these machines:
 
-    If you are using the **container** version, you can remove this line.
+```
++IsBuildJob = true
+```
+
+**Remove this line for regular jobs.**
+
+</details>
+
+<details>
+<summary><strong>📃 Licensed software</strong></summary>
+
+To use the module-based licensed software, as described in our
+[Use Licensed Software](/uw-research-computing/licensed-software) guide,
+the submit file needs this requirement: 
+
+```
+requirements = (HasChtcSoftware == true)
+```
+
+If you are using the **container** version,
+or if you are not using licensed software,
+you can remove this line.
+
+</details>
 
 
 ## Scale out with backfill and the OSPool
 
 The more machines your jobs can run on, the more throughput you can achieve.
 
-1. Use "is_resumable" backfill to leverage idle CHTC servers.
+1. **Use "is_resumable" backfill to leverage idle CHTC servers.**
 
     If you have shorter jobs, particularly ones that require a GPU,
     use the `+is_resumable = true` option to run on idle nodes prioritized for other researchers.
-    For more information, see our [Checkpointing guide](/uw-research-computing/checkpointing).
+    For more information, see the **Checkpointing Jobs** guide.
 
-2. Use "want_campus_pools" backfill to run on idle UW-Madison servers connected to CHTC.
+2. **Use "want_campus_pools" backfill to run on idle UW-Madison servers connected to CHTC.**
 
     If your jobs are "portable", but you want them to stay on the UW-Madison campus,
     use the `want_campus_pools = true` option to run on idle servers across the campus.
-    For more information,
-    see our [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc) guide.
+    For more information, see the **Scale beyond local HTC capacity** guide.
 
-3. Use "want_ospool" to run on idle servers available through the national OSPool system.
+3. **Use "want_ospool" to run on idle servers available through the national OSPool system.**
 
     If your jobs are "portable" and you're willing to run them anywhere in the US,
     use the `want_ospool = true` option to send your jobs to the national OSPool system.
-    For more information,
-    see our [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc) guide.
+    For more information, see the **Scale beyond local HTC capacity** guide.
 
+
+<ButtonRow>
+
+<Button href="/uw-research-computing/checkpointing">Checkpointing guide</Button>
+<Button href="/uw-research-computing/scaling-htc">Scale beyond local HTC capacity</Button>
+
+</ButtonRow>
+
+{/*
 ## Looking for more?
 
 Did you pass the checklist and want to improve your throughput even more?
@@ -379,6 +440,7 @@ If you're up for it, check out our related guide:
 
 The facilitation team is also happy to discuss strategies to help improve the throughput
 for your specific project.
+*/}
 
 ## Related pages
 
