@@ -4,7 +4,7 @@
 # The "Featured Fellow" card is drawn from the staff-list at the
 # <!-- featured-fellow --> marker below.
 title: CHTC Fellows Program
-announcement: Up to 4 Fellowships Available for the Summer 2027 Fellows Program! Applications Close November 8.
+announcement: CHTC Fellows Applications Close November 8. Up to 4 Fellowship Positions Available for Summer 2027.
 ---
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
