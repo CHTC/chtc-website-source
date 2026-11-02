@@ -4,7 +4,7 @@
 # The "Featured Fellow" card is drawn from the staff-list at the
 # <!-- featured-fellow --> marker below.
 title: CHTC Fellows Program
-announcement: Application for the Summer 2027 Fellows Program are now open.
+announcement: Up to 4 Fellowships Available for the Summer 2027 Fellows Program! Applications Close November 8.
 ---
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
@@ -13,7 +13,7 @@ The Program aims to provide opportunities for undergraduate and graduate student
 
 ## How it Works
 
-Applicants can apply for a CHTC Fellowship for Summer 2027 beginning in mid-September 2026. Interviews will begin November 2026. Following a successful interview, Fellows candidates will be matched with a potential fellows project to consider based upon their interests and qualifications. With the help of mentor(s), the Fellows candidate will have the opportunity to flesh out and develop a project proposal for investigation and execution during the summer. 
+Applicants can apply now for a CHTC Fellowship for Summer 2027. **There are opportunities for up 4 Fellows' positions. Apply soon as applications close Sunday, November 8.** Invitations to interview will be  be sent by November 13. Interviews will commence the week of November 16. Following a successful interview, Fellows candidates will be matched with a potential fellows project to consider based upon their interests and qualifications. With the help of mentor(s), the Fellows candidate will have the opportunity to flesh out and develop a project proposal for investigation and execution during the summer. 
 
 During the summer, the Fellows will work on their project under the guidance of their mentor(s) and with the support of the CHTC team. The Fellows will also collaborate with their Fellows cohort and engage in educational and social activities during the program. 
 
