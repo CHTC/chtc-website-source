@@ -5,7 +5,7 @@ import MiniBarHeading from '../_components/MiniBarHeading';
 import PageHero from '../_components/PageHero';
 import { byName, getTeam, hasStatus, type TeamMember } from '../_lib/team';
 import { LeaderCard, TeamCard } from './_components/TeamCard';
-import teamPhoto from '@/public/images/team/team_photos/team-2025.jpg';
+import teamPhoto from '@/public/images/team/team_photos/team-2026.jpg';
 
 export const metadata = listingMetadata(
   'Our Staff',
@@ -45,11 +45,11 @@ export default async function Page() {
     <>
       <PageHero
         src={teamPhoto}
-        alt='2025 CHTC Team Photo'
+        alt='2026 CHTC Team Photo'
         height={{ xs: 240, sm: 400, md: 600 }}
         caption={
           <>
-            2025 CHTC Team Picture.{' '}
+            2026 CHTC Team Picture.{' '}
             <Link href='/past_team_pictures/'>View old team photos</Link>
           </>
         }
