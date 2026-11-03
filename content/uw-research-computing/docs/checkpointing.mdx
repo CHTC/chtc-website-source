@@ -470,42 +470,29 @@ Always test a single checkpointing job before scaling up to identify odd or unin
 
 To determine if your job is successfully creating and saving checkpoint files, you can investigate checkpoint files once they have been transferred to `/spool`.
 
-1. Navigate to `/var/lib/condor/spool`.
+1. Get the path to your spooled files with `condor_evicted_files`. The path will begin with `/var/lib/condor/spool/` and include the `Cluster` and `Process` ID numbers associated with your job.
 
 
     <Terminal>
 
     ```
-    [user@ap2002 ~]$ cd /var/lib/condor/spool
-    [user@ap2002 spool]$ ls -p
-    1084/  2340/  3913/  549/   7633/  7683/  7694/  800/   checkpoint-cleanup/  schedd_daemon_history
-    1572/  2369/  3914/  550/   7676/  7684/  7695/  8353/  epoch_history        schedd_daemon_history.20260728T215929
-    1968/  2406/  4138/  586/   7677/  7685/  7696/  8455/  history              spool_version
-    2018/  2544/  4251/  6069/  7678/  7686/  7697/  8510/  library.db
-    2325/  2829/  4253/  6130/  7679/  7687/  7698/  8566/  library.db-shm
-    2327/  2997/  4624/  6854/  7680/  7688/  7699/  9019/  library.db-wal
-    2336/  3231/  538/   7550/  7681/  7689/  7700/  9463/  local_univ_execute/
-    2338/  3610/  546/   7591/  7682/  7693/  7701/  9592/  lost+found/
+    [user@ap2002 ~]$ condor_evicted_files <job_id>
+    /var/lib/condor/spool/5971/0/cluster16075971.proc0.subproc0
     ```
 
     </Terminal>
-
-
-    The directories in this folder are the **last four digits of a job's cluster ID** with leading zeros removed. **Sub folders are labeled with the process ID for each job**.
+ 
+1. `cd` into the directory to investigate the checkpoint files. You can run the one-line command below to enter the directory for your checkpoint files.
     
-1. To investigate the checkpoint files, look at your job's ID and navigate to the correct directory. 
-    
-    For example, for `17870068.220`, navigate to the directory `68` in a subdirectory called `220`.
-
-
     <Terminal>
-
     ```
-    [user@ap2002 spool]$ cd 68
-    [user@ap2002 68]$ cd 220
+    condor_evicted_files <job_id> | xargs -n1 cd
     ```
-
     </Terminal>
+
+    <Tip header="⚠️ Read-only operations">
+    We recommend running read-only commands here — any edits to the files could affect your currently running jobs. Copy files back to your home directory if you'd like to edit them.
+    </Tip>
 
 
 ### Run a test by evicting your job
