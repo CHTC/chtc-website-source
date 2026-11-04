@@ -176,8 +176,13 @@
   },
   {
     "source": "/uw-research-computing/gpu-lab.html",
-    "destination": "/uw-research-computing/gpu-lab/",
-    "text": "Welcome to the CHTC GPU Lab"
+    "destination": "/uw-research-computing/gpu-jobs/",
+    "text": "Use GPUs"
+  },
+  {
+    "source": "/uw-research-computing/gpu-lab/",
+    "destination": "/uw-research-computing/gpu-jobs/",
+    "text": "Use GPUs"
   },
   {
     "source": "/uw-research-computing/hello-containers.html",
@@ -286,7 +291,12 @@
   },
   {
     "source": "/uw-research-computing/htc-interactive-gpu-jobs.html",
-    "destination": "/uw-research-computing/htc-interactive-gpu-jobs/",
+    "destination": "/uw-research-computing/gpu-jobs/interactive/",
+    "text": "Interactive GPU Jobs"
+  },
+  {
+    "source": "/uw-research-computing/htc-interactive-gpu-jobs/",
+    "destination": "/uw-research-computing/gpu-jobs/interactive/",
     "text": "Interactive GPU Jobs"
   },
   {

@@ -1,0 +1,126 @@
+---
+title: Choose and Size Your GPU
+description: How to choose the GPU memory, hardware generation, CPUs and memory your GPU jobs request, estimate what training and inference jobs need, and check what they used.
+sidebar:
+  - htc
+category: Use GPUs
+order: 4
+---
+
+Every requirement you add narrows the set of GPUs your job can run on, and so adds time in the
+queue. Ask for the least specific GPU that will work: when possible, write your code so that it
+can run across GPU types and without needing the latest version of CUDA.
+
+# GPUs on our system
+
+<GpuTable />
+
+# Request GPU memory and hardware generation
+
+If your software or code requires a certain "capability" of GPU (see the table above) or a
+certain amount of GPU memory, you can request them with these submit file options.
+
+To request a range of capabilities:
+
+```condor
+gpus_minimum_capability = <version>
+gpus_maximum_capability = <version>
+```
+
+To request a minimum amount of GPU memory:
+
+```condor
+gpus_minimum_memory = <quantity in MB>
+```
+
+`gpus_minimum_memory` is GPU memory (VRAM). It is separate from `request_memory`, which is the
+memory (RAM) of the server the GPU is in.
+
+More information on these options is in the
+[HTCondor manual](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability).
+
+# Estimate the GPU memory and RAM you need
+
+{/* TODO: rules of thumb for VRAM and RAM.
+  - Training: parameters x bytes per parameter, plus gradients, optimizer state and activations.
+  - Inference (including LLMs): parameters x bytes per parameter (by precision), plus KV cache.
+  - RAM: at least as much as the data and model the job loads before moving them to the GPU.
+Then point to the next section: run a test job and check what it used. */}
+
+# Request CPUs and memory
+
+It is important to still request at least one CPU per job to do the processing that is not
+well-suited to the GPU.
+
+{/* TODO: more CPUs for data loading (e.g. PyTorch DataLoader workers); typical CPUs and memory per
+GPU; multi-GPU jobs need more CPUs to feed each GPU. */}
+
+# Check what your job used
+
+{/* TODO: teach reading the resource usage table at the end of the job's .log file (GPUs, GPU
+memory, CPUs, memory, disk), and adjusting requests from a test job before submitting many. */}
+
+# Use more than one GPU
+
+It is possible to request multiple GPUs. Before doing so, make sure you are using code that can
+use multiple GPUs, and submit a test job to confirm it works before submitting more. Also keep
+track of how long jobs run compared with how long they wait: the time you save by using multiple
+GPUs may not be worth the extra time the job will likely wait in the queue.
+
+{/* TODO: how to tell if code uses multiple GPUs (DataParallel, DistributedDataParallel,
+accelerate); request more CPUs with more GPUs. */}
+
+# Smaller GPU slices (MIG)
+
+{/* TODO: what MIG slices are, which cards are divided, how much VRAM a slice has, and when a
+slice is enough. */}
+
+# Complex GPU requirements
+
+If your jobs have more complex requirements than the capability and memory options above, you can
+use the more general submit file option `require_gpus` to build a custom requirement. Contact the
+facilitators at chtc@cs.wisc.edu if you think you need this option.
+
+# Explore CHTC's GPUs with condor_status
+
+You can find information about GPUs in CHTC with the `condor_status` command. All of our servers
+with GPUs have a `TotalGPUs` attribute greater than zero, so you can find GPU servers by running:
+
+<Terminal>
+
+```
+[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
+```
+
+</Terminal>
+
+To print specific information about a GPU server and its GPUs, use the "auto-format" option for
+`condor_status` and the names of specific server attributes. When querying attributes with
+`condor_status`, add a `GPUs_` prefix to the attribute name. For example, the table above can be
+mostly recreated with the attributes `Machine`, `TotalGpus`, `GPUs_DeviceName` and
+`GPUs_Capability`:
+
+<Terminal>
+
+```
+[alice@submit]$ condor_status -constraint 'Gpus > 0' \
+                -af Machine TotalGpus GPUs_DeviceName GPUs_Capability
+```
+
+</Terminal>
+
+HTCondor also tracks other GPU-related attributes for each server, including:
+
+| Attribute | Explanation |
+| --- | --- |
+| `Gpus` | Number of GPUs in an individual job slot on a server (one server can be divided into slots to run multiple jobs). |
+| `TotalGPUs` | The total number of GPUs on a server. |
+| (`GPUs_`)`DeviceName` | The type of GPU card. |
+| (`GPUs_`)`Capability` | Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when requiring a specific type of GPU. [Wikipedia](https://en.wikipedia.org/wiki/CUDA#GPUs_supported) has a table showing the compute capability for specific GPU architectures and cards. More details on what the capability numbers mean are on the [NVIDIA website](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities). |
+| (`GPUs_`)`DriverVersion` | **Not** the version of CUDA on the server or the NVIDIA driver version, but the maximum CUDA runtime version supported by the NVIDIA driver on the server. |
+| (`GPUs_`)`GlobalMemoryMb` | Amount of memory available on the GPU card. |
+
+# Related pages
+
+- [GPU quick start](/uw-research-computing/gpu-jobs/quickstart/)
+- [Troubleshoot GPU jobs](/uw-research-computing/gpu-jobs/troubleshooting/)

@@ -1,0 +1,72 @@
+---
+title: Set Up GPU Software
+description: How to get GPU-enabled software into your CHTC jobs with containers, CHTC's recipes or compiled code, and how CUDA versions relate to the GPUs' drivers.
+sidebar:
+  - htc
+category: Use GPUs
+order: 3
+---
+
+# Does your software use GPUs?
+
+Before using GPUs in CHTC, make sure that GPUs will actually make your program run faster. This
+means that the code or software you are using has the special programming required to use GPUs,
+and that your particular task uses it.
+
+{/* TODO: common cases - PyTorch, TensorFlow, JAX, CUDA code; warn about CPU-only builds of
+frameworks that run on a GPU without using it. */}
+
+# Use a container (recommended)
+
+{/* TODO: Apptainer as the recommended path. Build from a GPU base image or a CHTC recipe; link
+/uw-research-computing/apptainer-htc/. */}
+
+## GPU recipes
+
+{/* TODO: a table of GPU recipes in CHTC/recipes and CHTC/templates-GPUs, with framework, CUDA
+version, whether it was GPU-tested, and the last-tested date. Link each one to its folder, not
+the repository root. */}
+
+## Docker
+
+CHTC's GPU servers can run Docker containers that use GPUs. If you can find or create a Docker
+image with your software, you can use it to run your jobs in CHTC. See our
+[Docker guide](/uw-research-computing/docker-jobs/) for how to use Docker in CHTC.
+
+{/* TODO: the old page recommended "nvidia/cuda" images tagged 12.1.1-devel
+(https://hub.docker.com/r/nvidia/cuda/tags?page=1&name=12.1.1-devel). Update to a current tag
+or drop the specific recommendation. */}
+
+# CUDA versions and GPU drivers
+
+{/* TODO: explain that the CUDA runtime in your software must be supported by the server's
+driver. GPUs_DriverVersion is not the CUDA version or the driver version, but the maximum CUDA
+runtime version the driver supports. Advice: bundle the CUDA runtime with your software and avoid
+requiring the newest CUDA, so jobs can run on more servers. */}
+
+# Compiled code
+
+You can use our usual methods of creating a portable installation of a software package (as in
+our R and Python guides) to run on GPUs. Most of our build servers and GPU servers have copies of
+the CUDA runtime that you can use to compile code. To get onto one of these servers, submit an
+interactive job, following the instructions in our
+[interactive job guide](/uw-research-computing/inter-submit/), or submit a GPU job submit file with
+the interactive flag for `condor_submit`. Once on a build or GPU server, see which CUDA versions
+are available by looking at the path `/usr/local/cuda-*`.
+
+We strongly recommend software installation strategies that include the CUDA runtime in the
+final installed code, so that jobs can run on servers even if a different version of the CUDA
+runtime is installed (or there is no runtime at all). For compiled code, look for flags that
+enable static linking, or use a container.
+
+# Check that your software sees the GPU
+
+{/* TODO: a quick test to put at the top of a job script, e.g.
+python3 -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))".
+Note that nvidia-smi only works if the container includes it. */}
+
+# Related pages
+
+- [Use Apptainer containers](/uw-research-computing/apptainer-htc/)
+- [Use Docker containers](/uw-research-computing/docker-jobs/)
+- [Machine learning jobs](/uw-research-computing/machine-learning-htc/)

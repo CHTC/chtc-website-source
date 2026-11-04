@@ -1,0 +1,53 @@
+---
+title: Get More GPUs
+description: How to run GPU jobs beyond CHTC's shared GPU Lab, on research group GPUs as backfill, in campus pools and on the OSPool.
+sidebar:
+  - htc
+category: Use GPUs
+order: 6
+---
+
+Beyond the CHTC GPU Lab, your jobs can run on more GPUs. These GPUs do not have the GPU Lab's
+[time limits and job limits](/uw-research-computing/gpu-jobs/quickstart/#gpu-job-limits), but
+jobs on them may be interrupted. Jobs that run in a few hours or less, or that
+[checkpoint](/uw-research-computing/gpu-jobs/checkpointing/), are a good fit.
+
+All GPU jobs need `request_gpus` in their submit file, even if they are not using the GPU Lab.
+
+# Research group GPUs (backfill)
+
+Certain GPU servers in CHTC are prioritized for the research groups that own them, but run other
+jobs when their owners are not using them. Jobs running on these servers can be interrupted.
+For shorter jobs, or jobs that checkpoint, this is not a drawback, and these servers add
+capacity.
+
+We recommend that all GPU jobs opt in. Add this line to your submit file:
+
+```condor
++is_resumable = true
+```
+
+{/* TODO: what happens when a job is interrupted (it goes back to idle and restarts from its last
+checkpoint, or from the start without one). The old page said backfill jobs "forfeit our otherwise
+guaranteed runtime of 72 hours"; update that to match the GPU Lab tiers. */}
+
+{/* The old page had a section on the "gzk" servers (no /staging, no Docker). No gzk machines
+were in the pool on 2026-11-04, so it was left out. Add it back if they still exist. */}
+
+# Campus pools and the OSPool
+
+CHTC is a member of the [OSG Consortium](https://osg-htc.org/) and can use GPUs in the
+[OSPool](https://osg-htc.org/about/open_science_pool/). CHTC is also a member of the UW Grid, a
+campus computing network where groups share computing capacity, including idle GPUs.
+
+See [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/) to find out whether
+your jobs are good candidates for the UW Grid or the OSPool.
+
+{/* TODO: what must change before opting in (containers, osdf:// transfers, no /staging); the
+submit file options (want_campus_pools, want_ospool); how to test; whether it is self-service or
+needs a facilitator. */}
+
+# Related pages
+
+- [Checkpoint GPU jobs](/uw-research-computing/gpu-jobs/checkpointing/)
+- [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/)
