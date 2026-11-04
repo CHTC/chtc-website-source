@@ -486,7 +486,7 @@ To determine if your job is successfully creating and saving checkpoint files, y
     
     <Terminal>
     ```
-    condor_evicted_files <job_id> | xargs -n1 cd
+    cd $(condor_evicted_files <job_id>)
     ```
     </Terminal>
 
