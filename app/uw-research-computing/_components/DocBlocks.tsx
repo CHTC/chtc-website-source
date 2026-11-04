@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Box, Button as MuiButton, Paper, Typography } from '@mui/material';
+import { Box, Button as MuiButton, Link, Paper, Typography } from '@mui/material';
 
 /*
  * The building blocks the documentation MDX is written with. They replace
@@ -150,16 +150,54 @@ export const Cards = ({ children }: { children: ReactNode }) => (
   </Box>
 );
 
-/** An icon, a titled heading and some copy. */
-export const Card = ({ icon, title, children }: { icon?: string; title: string; children: ReactNode }) => (
-  <Paper variant='outlined' sx={{ p: 2.5, borderRadius: 1, height: '100%' }}>
+/**
+ * An icon, a titled heading and some copy. With `href`, the title is a link
+ * stretched over the whole card, so clicking anywhere on the card follows it.
+ */
+export const Card = ({
+  icon,
+  title,
+  href,
+  children,
+}: {
+  icon?: string;
+  title: string;
+  /** Makes the whole card a link to this page. */
+  href?: string;
+  children: ReactNode;
+}) => (
+  <Paper
+    variant='outlined'
+    sx={{
+      p: 2.5,
+      borderRadius: 1,
+      height: '100%',
+      position: href ? 'relative' : undefined,
+      ...(href && {
+        transition: 'border-color 0.15s, box-shadow 0.15s',
+        '&:hover': { borderColor: 'primary.main', boxShadow: 2 },
+        '&:focus-within': { outline: 2, outlineColor: 'primary.main', outlineOffset: 2 },
+      }),
+    }}
+  >
     {icon && (
       // eslint-disable-next-line @next/next/no-img-element
       <img src={icon} alt='' style={{ maxHeight: 120, width: 'auto', display: 'block', margin: '0 auto 0.75rem' }} />
     )}
     <MiniBar>
       <Typography component='h3' variant='h6' sx={{ mb: 1 }}>
-        {title}
+        {href ? (
+          <Link
+            href={href}
+            underline='hover'
+            color='inherit'
+            sx={{ '&::after': { content: '""', position: 'absolute', inset: 0 }, '&:focus-visible': { outline: 'none' } }}
+          >
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
       </Typography>
     </MiniBar>
     <Box sx={{ '& > :last-child': { mb: 0 } }}>{children}</Box>
