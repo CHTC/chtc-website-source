@@ -1,9 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { Alert, Box, Button, MenuItem, Paper, Stack, TextField, Typography } from '@mui/material';
+import {
+  Alert,
+  Autocomplete,
+  Box,
+  Button,
+  Chip,
+  MenuItem,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
 import ContentCopy from '@mui/icons-material/ContentCopy';
-import type { CompatFramework, CompatVersion } from '../_lib/gpuCompat';
+import type { CompatBuild, CompatFramework, CompatVersion } from '../_lib/gpuCompat';
+import GpuCompatNote from './GpuCompatNote';
 
 /** The version's build for this toolkit, or the one that matches the most GPUs. */
 const buildFor = (version: CompatVersion, cudaToolkit: string) =>
@@ -12,11 +24,50 @@ const buildFor = (version: CompatVersion, cudaToolkit: string) =>
   version.builds[0];
 
 /**
- * Cascading drop-downs: pick a framework, then one of its versions, then a
- * CUDA toolkit that version was built for, and see the submit file lines
- * that match the job to GPUs it can run on. Rendered by `GpuCompatFinder`.
+ * Versions that start with what was typed, so `2.1` offers 2.1.x and 2.10.x to
+ * 2.19.x and `0.4.3` offers 0.4.38. A full release such as `v2.14.3` also
+ * finds the `2.14.x` entry that covers it.
  */
-const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
+const filterVersions = (options: string[], { inputValue }: { inputValue: string }) => {
+  const typed = inputValue.trim().replace(/^v/i, '').toLowerCase();
+  return options.filter((option) => {
+    const minor = option.endsWith('.x') ? option.slice(0, -2) : undefined;
+    return option.startsWith(typed) || (minor !== undefined && typed.startsWith(`${minor}.`));
+  });
+};
+
+/** Every GPU model, filled when the build runs on it and outlined and struck through when it doesn't. */
+const GpuModels = ({ build, gpuModels }: { build: CompatBuild; gpuModels: string[] }) => (
+  <Box sx={{ mb: 3 }}>
+    <Typography component='p' variant='subtitle2' aria-live='polite' sx={{ fontWeight: 700, mb: 1 }}>
+      Runs on {build.gpuCount} GPUs ({build.gpuModels.length} of {gpuModels.length} models)
+    </Typography>
+    <Box component='ul' sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, listStyle: 'none', '&&': { p: 0, m: 0 }, '&& > li': { m: 0 } }}>
+      {gpuModels.map((model) => {
+        const compatible = build.gpuModels.includes(model);
+        return (
+          <li key={model}>
+            <Chip
+              size='small'
+              label={model}
+              color={compatible ? 'success' : 'default'}
+              variant={compatible ? 'filled' : 'outlined'}
+              aria-label={`${model}: ${compatible ? 'compatible' : 'not compatible'}`}
+              sx={compatible ? undefined : { color: 'text.disabled', textDecoration: 'line-through' }}
+            />
+          </li>
+        );
+      })}
+    </Box>
+  </Box>
+);
+
+/**
+ * Pick a framework, type or choose one of its versions, then a CUDA toolkit
+ * that version was built for, and see the GPUs it runs on and the submit file
+ * lines that match the job to them. Rendered by `GpuCompatFinder`.
+ */
+const GpuCompatPicker = ({ frameworks, gpuModels }: { frameworks: CompatFramework[]; gpuModels: string[] }) => {
   const [frameworkId, setFrameworkId] = useState(frameworks[0].id);
   const framework = frameworks.find(({ id }) => id === frameworkId) ?? frameworks[0];
 
@@ -30,8 +81,8 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
   const submitLines = `request_gpus = 1\n${build.submitLines}`;
 
   /** Keep the toolkit when the new version has it; otherwise the one that matches the most GPUs. */
-  const chooseVersion = (next: string, from = framework) => {
-    const nextVersion = from.versions.find(({ version }) => version === next) ?? from.versions[0];
+  const chooseVersion = (next: string) => {
+    const nextVersion = framework.versions.find(({ version }) => version === next) ?? framework.versions[0];
     setVersionId(nextVersion.version);
     setCudaToolkit(buildFor(nextVersion, cudaToolkit).cudaToolkit);
     setCopied(false);
@@ -71,21 +122,21 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
             ))}
           </TextField>
         )}
-        <TextField
-          select
+        <Autocomplete
           fullWidth
           size='small'
-          label={`${framework.label} version`}
+          disableClearable
+          autoHighlight
+          options={framework.versions.map(({ version }) => version)}
+          filterOptions={filterVersions}
           value={version.version}
           disabled={framework.versions.length === 1}
-          onChange={(event) => chooseVersion(event.target.value)}
-        >
-          {framework.versions.map(({ version }) => (
-            <MenuItem key={version} value={version}>
-              {version}
-            </MenuItem>
-          ))}
-        </TextField>
+          onChange={(_, next) => chooseVersion(next)}
+          noOptionsText='No tested version matches'
+          renderInput={(params) => (
+            <TextField {...params} label={`${framework.label} version`} placeholder='Type a version, like 2.4' />
+          )}
+        />
         <TextField
           select
           fullWidth
@@ -108,8 +159,10 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
       </Stack>
 
       <Box sx={{ mt: 3 }}>
+        <GpuModels build={build} gpuModels={gpuModels} />
+
         <Stack direction='row' sx={{ alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
-          <Typography component='p' variant='subtitle2' aria-live='polite' sx={{ fontWeight: 700 }}>
+          <Typography component='p' variant='subtitle2' sx={{ fontWeight: 700 }}>
             Add to your submit file for {framework.label} {version.version} with CUDA toolkit {build.cudaToolkit}
           </Typography>
           <Button size='small' startIcon={<ContentCopy fontSize='small' />} onClick={copy} sx={{ flexShrink: 0 }}>
@@ -122,13 +175,22 @@ const GpuCompatPicker = ({ frameworks }: { frameworks: CompatFramework[] }) => {
 
         {build.notes.map((note) => (
           <Alert key={note} severity='warning' sx={{ mb: 2 }}>
-            {note}
+            <GpuCompatNote note={note} />
           </Alert>
         ))}
 
         <Typography component='p' variant='body2' sx={{ color: 'text.secondary', mb: 0 }}>
-          Compute capability {build.capabilityRange}. Needs NVIDIA driver {build.minNvidiaDriverVersion} or newer
-          (supports CUDA {build.minDriverCuda}).
+          Compute capability {build.capabilityRange}.{' '}
+          {'image' in build.tested ? (
+            <>
+              Tested with <code>{build.tested.image}</code>.
+            </>
+          ) : (
+            <>
+              Tested with an image built from <code>{build.tested.baseImage}</code> with{' '}
+              <code>pip install {build.tested.pipInstall}</code>.
+            </>
+          )}
         </Typography>
       </Box>
     </Paper>

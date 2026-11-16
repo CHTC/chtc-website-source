@@ -6,8 +6,8 @@ import GpuCompatPicker from './GpuCompatPicker';
  * data is read at build time and handed to the client-side picker.
  */
 const GpuCompatFinder = () => {
-  const { frameworks } = loadGpuCompat();
-  return <GpuCompatPicker frameworks={frameworks} />;
+  const { frameworks, gpuModels } = loadGpuCompat();
+  return <GpuCompatPicker frameworks={frameworks} gpuModels={gpuModels} />;
 };
 
 export default GpuCompatFinder;

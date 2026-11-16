@@ -1,6 +1,6 @@
 ---
-title: Match Your ML Framework and CUDA Version to GPUs
-description: Pick PyTorch, TensorFlow or JAX, its version and the CUDA toolkit it was built with to get the submit file lines that send your job to a GPU it can run on.
+title: Find compatible GPUs
+description: Pick PyTorch, TensorFlow or JAX, its version and the CUDA toolkit it was built with to see which GPUs it runs on and get the submit file lines that send your job to them.
 sidebar:
   - htc
 category: Special use cases
@@ -10,8 +10,8 @@ import GpuCompatFinder from '@/app/uw-research-computing/_components/GpuCompatFi
 import GpuCompatTable from '@/app/uw-research-computing/_components/GpuCompatTable';
 import Typography from '@mui/material/Typography';
 
-Choose what your software uses below, then copy the lines into your submit file so HTCondor
-only matches your job to GPUs that can run it.
+Choose what your software uses below to see which GPUs can run it, then copy the lines into
+your submit file so HTCondor only matches your job to those GPUs.
 
 <Typography variant="subtitle2" component="div" sx={{ mb: 2 }}>
 Each release of a framework such as PyTorch, TensorFlow or JAX is built for a range of GPUs and needs a recent
@@ -24,18 +24,12 @@ with errors such as `no kernel image is available for execution on the device` o
 
 # All versions
 
-Every version and CUDA toolkit combination we have tested, with the compute capabilities it
-supports and the same submit file lines the picker above gives you. Add `request_gpus = 1` (or
-more) as well.
-
-## PyTorch
+Every version and CUDA toolkit combination we have tested, with the GPUs it runs on and the
+same submit file lines the picker above gives you. Select a framework to show its table. Add
+`request_gpus = 1` (or more) as well.
 
 <GpuCompatTable framework="pytorch" />
 
-## TensorFlow
-
 <GpuCompatTable framework="tensorflow" />
-
-## JAX
 
 <GpuCompatTable framework="jax" />
