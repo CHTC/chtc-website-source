@@ -58,7 +58,11 @@ export default function TocNav({ headings }: { headings: DocHeading[] }) {
           const isActive = heading.id === active;
           return (
             <ListItem key={heading.id} disablePadding>
+              {/* A plain anchor, not next/link: the router ignores a click on
+                  the hash already in the URL, so a second click on the same
+                  entry would not scroll back to it. */}
               <Link
+                component='a'
                 href={`#${heading.id}`}
                 underline='none'
                 aria-current={isActive ? 'location' : undefined}

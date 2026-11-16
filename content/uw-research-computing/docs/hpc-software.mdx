@@ -1,5 +1,5 @@
 ---
-title: Use Software on the HPC Cluster
+title: Overview and available modules
 description: This page describes how to install and run software on CHTC's HPC Cluster.
 sidebar:
   - hpc
@@ -9,29 +9,17 @@ order: 0
 
 This page describes how to install and run software on CHTC's HPC Cluster. 
 
-Contents
-========
+# Overview
 
-1.  [General Software Policies](#1-general-software-policies)
-2.  [Using Pre-Installed Software in Modules](#2-using-pre-installed-software-in-modules)
-3.  [Installing Software on the Cluster](#3-installing-software-on-the-cluster)
-4.  [Using Software in Jobs](#4-using-software-in-jobs)
+Most software on the HPC cluster is self-managed by users, with a limited number of libraries or software managed by CHTC.
 
-# 1. General Software Policies
-
-In CHTC, we install a minimal set of software for use 
-on our systems. On the HPC Cluster, CHTC staff manage installations of 
-the following types of programs: 
-
-* Compilation tools and common dependencies (e.g. MPI, different GCC versions)
-* Software that requires a shared license (e.g. COMSOL)
-
-Information on how to access CHTC-managed installations is in the next 
-section of this guide. If you need to use a program not in that group, the instructions 
-for creating your own installation follow. 
-
-If you have questions or concerns about installing your own software or 
-the available dependencies, contact the facilitation team at chtc@cs.wisc.edu. 
+Software is available through the following routes:
+1. **Install your own software using modules**. Users may load modules (e.g., MPI, compilers, etc.) to install their own software in their `/home` directory.
+1. **Install your own software using Apptainer**. Users may use Apptainer to install their software. This can be helpful in tricky installations that have numerous or complicated prerequisites.
+1. **Install your own software using Spack**. Spack is an HPC software tool that helps manage dependencies and software environments.
+1. **CHTC-managed modules**. We install a minimal set of libraries and software.
+   * Compilation tools and common dependencies (e.g. MPI, different GCC versions)
+   * Software that requires a shared license (e.g. COMSOL)
 
 # 2. Using Pre-Installed Software in Modules
 

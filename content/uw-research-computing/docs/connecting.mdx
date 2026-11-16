@@ -16,12 +16,13 @@ If you don't have an account, see our [getting started](/uw-research-computing/g
 
 ## Before you log in
 
-After obtaining a CHTC account, you will need the following to log into our CHTC access points:
+You will need the following to log into our CHTC access points:
 
 * [Duo Multi-factor authentication (MFA)](https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/)
-* [a connection to the campus network or Virtual Private Network (VPN)](https://it.wisc.edu/services/wiscvpn/)
-* a username and password (typically your UW-Madison NetID and password)
-* an [SSH program](#ssh-programs), such as a terminal
+* [A connection to the campus network or Virtual Private Network (VPN)](https://it.wisc.edu/services/wiscvpn/)
+* Username and password (typically your UW-Madison NetID and password)
+* [Access point information](#hostname--access-point-information)
+* An [SSH program](#ssh-programs), such as a terminal
 
 
 ## Log in
@@ -44,7 +45,11 @@ See [this table](#ssh-programs) for a list of terminal/SSH programs.
     </Terminal>
 
 
-2. You will be prompted for your password, then for Duo MFA authentication.
+1. Enter your password after you are prompted. You will not see `*` characters appear while you are typing your password but be assured that you are entering your password.
+
+1. You will be prompted for Duo MFA authentication.
+    * **Option 1:** Type `1` and press the `ENTER` key to send a push to your MFA device. Approve the push request on your device.
+    * **Option 2:** Enter the code from your Duo MFA app or fob then press `ENTER`.
 
 
 <Tip header="🎞️ Demo: Log into a CHTC access point">
@@ -77,7 +82,7 @@ This is a non-exhaustive list of programs that can be used to log into CHTC serv
 | | [MobaXTerm](https://mobaxterm.mobatek.net/) | terminal, SSH client, file-transfer utility | ✓ | |
 | | [WinSCP](https://winscp.net/eng/index.php) | file-transfer utility | ✓ |
 | | [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | SSH client | ✓ | |
-| Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [setup](https://code.visualstudio.com/docs/remote/ssh-tutorial) (ignore steps on creating a virtual machine) |
+| Linux, MacOS, Windows | [VSCode](https://code.visualstudio.com/) | terminal, limited file-transfer utility, integrated code editor | only on MacOS/Linux/WSL | [Connect to CHTC with VS Code](/uw-research-computing/vs-code) |
 | Linux, MacOS, Chrome, and more | [Mosh](https://mosh.org/) | terminal | X | |
 
 ## Hostname / Access point information
@@ -89,6 +94,7 @@ Please use the access point specified in your welcome email.
   | --- |
   | `ap2001.chtc.wisc.edu` |
   | `ap2002.chtc.wisc.edu` |
+  | `learn.chtc.wisc.edu` (for most courses) | 
 
 
     | High Performance Computing (HPC) System |
@@ -99,5 +105,6 @@ Please use the access point specified in your welcome email.
 ## Related pages
 
 * [Automate CHTC log in](/uw-research-computing/configure-ssh/)
+* [Connect to CHTC with VS Code](/uw-research-computing/vs-code)
 * [Basic shell commands](/uw-research-computing/basic-shell-commands/)
 * [Transfer files to/from CHTC and your computer](/uw-research-computing/transfer-files-computer/)

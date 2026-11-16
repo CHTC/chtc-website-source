@@ -26,10 +26,11 @@ const photo = (file: string, width: number, height: number, alt: string): Photo 
 });
 
 const YEARS: Year[] = [
+  { year: '2026', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2026', href: 'https://agenda.hep.wisc.edu/event/2432/' }, photos: [photo('team-2026.jpg', 2000, 800, 'HTCondor Team June 2026')] },
   { year: '2025', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2025', href: 'https://agenda.hep.wisc.edu/event/2297/' }, photos: [photo('team-2025.jpg', 1932, 855, 'HTCondor Team June 2025')] },
-  { year: '2024', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2024', href: 'https://agenda.hep.wisc.edu/event/1579/' }, photos: [photo('team-2024.jpg', 1920, 682, 'HTCondor Team May 2024')] },
-  { year: '2023', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2023', href: 'https://agenda.hep.wisc.edu/event/1579/' }, photos: [photo('team-2023.jpg', 1920, 659, 'HTCondor Team May 2023')] },
-  { year: '2022', event: { prefix: 'The CHTC Team at', name: 'HTCondor Week 2022', href: 'https://agenda.hep.wisc.edu/event/1579/' }, photos: [photo('team-2022.jpg', 1920, 727, 'HTCondor Team May 2022')] },
+  { year: '2024', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2024', href: 'https://agenda.hep.wisc.edu/event/2175/' }, photos: [photo('team-2024.jpg', 1920, 682, 'HTCondor Team May 2024')] },
+  { year: '2023', event: { prefix: 'The CHTC Team at', name: 'Throughput Computing 2023', href: 'https://agenda.hep.wisc.edu/event/2014/' }, photos: [photo('team-2023.jpg', 1920, 659, 'HTCondor Team May 2023')] },
+  { year: '2022', event: { prefix: 'The CHTC Team at', name: 'HTCondor Week 2022', href: 'https://agenda.hep.wisc.edu/event/1733/' }, photos: [photo('team-2022.jpg', 1920, 727, 'HTCondor Team May 2022')] },
   { year: '2021', event: { prefix: 'The HTCondor Team at', name: 'HTCondor Week 2021', href: 'https://agenda.hep.wisc.edu/event/1579/', suffix: ', May 2021.' }, photos: [photo('team-2021.jpg', 800, 550, 'HTCondor Team May 2021')] },
   { year: '2020', event: { prefix: 'The HTCondor Team at', name: 'HTCondor Week 2020', href: 'https://agenda.hep.wisc.edu/event/1440/', suffix: ', May 2020.' }, photos: [photo('team-2020.jpg', 1000, 563, 'HTCondor Team May 2020')] },
   { year: '2019', event: { prefix: 'The HTCondor Team at', name: 'HTCondor Week 2019', href: 'https://agenda.hep.wisc.edu/event/1325/', suffix: ', May 2019.' }, photos: [photo('team-2019.jpg', 4000, 2250, 'HTCondor Team May 2019')] },

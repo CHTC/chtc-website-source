@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Button, Card, Chip, Container, Grid, Link, Paper, Typography } from '@mui/material';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import SchoolIcon from '@mui/icons-material/School';
 import { formatEventDate, formatLongDate, splitEvents } from '@chtc/web-components/content';
 import { articleHref, getSiteArticles } from '@/utils/articles';
 import { getSiteEvents } from '@/utils/events';
@@ -12,6 +12,7 @@ import MiniBarHeading from '@/components/MiniBarHeading';
 import UsageStats from './_components/UsageStats';
 import FabAIDWordmark from './_components/FabAIDWordmark';
 import PartnerTile from './_components/PartnerTile';
+import AnnouncementBar from './_components/AnnouncementBar';
 
 const DESCRIPTION =
   'The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped by insight from all fields.';
@@ -30,9 +31,6 @@ export const metadata: Metadata = {
 /** The OSG Consortium's primary brand orange, from the osg-htc.org theme. */
 const OSG_ORANGE = '#f6a32a';
 
-/** The legacy article that the announcement bar points at. */
-const ANNOUNCEMENT_ARTICLE = 'behind-nobel-winning-icecube-discoveries';
-
 /**
  * The sections below the hero alternate between the page grey and white
  * bands, with a rule between them, so each reads as its own block.
@@ -48,8 +46,6 @@ export default async function Home() {
   const articles = (await getSiteArticles()).filter(
     (article) => article.type === 'news' || article.type === 'user'
   );
-  const announcement = articles.find((a) => a.slug.at(-1) === ANNOUNCEMENT_ARTICLE);
-
   const news = articles.filter((a) => a.type === 'news').slice(0, 4);
   // Only `user` articles are user spotlights; the one with a banner leads.
   const spotlights = articles.filter((a) => a.type === 'user');
@@ -59,38 +55,14 @@ export default async function Home() {
 
   return (
     <Box component='main'>
-      {/* Announcement bar */}
-      <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', py: 1.25, px: 2 }}>
-        <Container
-          maxWidth='lg'
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 1.5,
-            textAlign: 'center',
-          }}
-        >
-          <EmojiEventsIcon fontSize='small' aria-hidden='true' />
-          <Typography variant='body2' component='span' sx={{ fontWeight: 600 }}>
-            Francis Halzen awarded the 2026 Nobel Prize, marking the 4th received by HTCondor users!
-          </Typography>
-          <Button
-            href={announcement ? articleHref(announcement) : '/news/'}
-            size='small'
-            variant='contained'
-            sx={{
-              bgcolor: 'common.white',
-              color: 'primary.main',
-              py: 0.25,
-              '&:hover': { bgcolor: 'grey.100' },
-            }}
-          >
-            Read More
-          </Button>
-        </Container>
-      </Box>
+      <AnnouncementBar
+        icon={<SchoolIcon fontSize='small' />}
+        href='/fellowships/'
+        linkLabel='Learn More'
+      >
+        CHTC Fellows Applications Close November 8! Up to 4 Fellowship Positions Available for
+        Summer 2027
+      </AnnouncementBar>
 
       {/* Hero: the translational-computing graphic. It is an illustration
           with text in it, so it is shown whole at its own aspect ratio (not
