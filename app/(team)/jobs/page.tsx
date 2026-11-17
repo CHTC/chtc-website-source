@@ -34,7 +34,7 @@ function fellowshipPosting(): Job {
     text:
       'A paid summer program in which undergraduate and graduate students work with CHTC mentors ' +
       'on a project in research computing, cyberinfrastructure or facilitation.',
-    button: { href: '/fellowships/', text: 'Learn More and Apply' },
+    button: { href: '/fellowships/', text: 'Learn More' },
   };
 }
 

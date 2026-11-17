@@ -4,7 +4,7 @@
 # The "Featured Fellow" card is drawn from the staff-list at the
 # <!-- featured-fellow --> marker below.
 title: CHTC Fellows Program
-announcement: CHTC Fellows Applications Close November 8. Up to 4 Fellowship Positions Available for Summer 2027.
+announcement: Applications for the Summer 2027 CHTC Fellows Program are now closed.
 ---
 
 The CHTC Fellows Program trains students in the development and use of cyberinfrastructure through a summer program where participants will work with mentors on delivering a project that will make an impact on the nation’s science.
@@ -13,7 +13,7 @@ The Program aims to provide opportunities for undergraduate and graduate student
 
 ## How it Works
 
-Applicants can apply now for a CHTC Fellowship for Summer 2027. **There are opportunities for up 4 Fellows' positions. Apply soon as applications close Sunday, November 8.** Invitations to interview will be  be sent by November 13. Interviews will commence the week of November 16. Following a successful interview, Fellows candidates will be matched with a potential fellows project to consider based upon their interests and qualifications. With the help of mentor(s), the Fellows candidate will have the opportunity to flesh out and develop a project proposal for investigation and execution during the summer. 
+Applications for the Summer 2027 CHTC Fellowships closed on November 8. Applications for the next cohort typically open in the fall. Following a successful interview, Fellows candidates will be matched with a potential fellows project to consider based upon their interests and qualifications. With the help of mentor(s), the Fellows candidate will have the opportunity to flesh out and develop a project proposal for investigation and execution during the summer. 
 
 During the summer, the Fellows will work on their project under the guidance of their mentor(s) and with the support of the CHTC team. The Fellows will also collaborate with their Fellows cohort and engage in educational and social activities during the program. 
 
@@ -21,7 +21,7 @@ Fellows will receive a stipend for participating in the Program, during their fe
 
 ## Applying
 
-To apply, send an email to <chtc-fellows@g-groups.wisc.edu> with the following information:
+Applications for Summer 2027 are closed. When applications are open, send an email to <chtc-fellows@g-groups.wisc.edu> with the following information:
 
 A resume/CV (in PDF format) with contact information. Be sure to include your full name, email address, the name of your university or college and your current or planned major and/or area of study.
 

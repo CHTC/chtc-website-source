@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Button, Card, Chip, Container, Grid, Link, Paper, Typography } from '@mui/material';
-import SchoolIcon from '@mui/icons-material/School';
 import { formatEventDate, formatLongDate, splitEvents } from '@chtc/web-components/content';
 import { articleHref, getSiteArticles } from '@/utils/articles';
 import { getSiteEvents } from '@/utils/events';
@@ -12,7 +11,6 @@ import MiniBarHeading from '@/components/MiniBarHeading';
 import UsageStats from './_components/UsageStats';
 import FabAIDWordmark from './_components/FabAIDWordmark';
 import PartnerTile from './_components/PartnerTile';
-import AnnouncementBar from './_components/AnnouncementBar';
 
 const DESCRIPTION =
   'The Center for High Throughput Computing (CHTC), established in 2006, aims to bring the power of High Throughput Computing to all fields of research, and to allow the future of HTC to be shaped by insight from all fields.';
@@ -55,15 +53,6 @@ export default async function Home() {
 
   return (
     <Box component='main'>
-      <AnnouncementBar
-        icon={<SchoolIcon fontSize='small' />}
-        href='/fellowships/'
-        linkLabel='Learn More'
-      >
-        CHTC Fellows Applications Close November 8! Up to 4 Fellowship Positions Available for
-        Summer 2027
-      </AnnouncementBar>
-
       {/* Hero: the translational-computing graphic. It is an illustration
           with text in it, so it is shown whole at its own aspect ratio (not
           cropped to a box), with a portrait-ish version for phones.
