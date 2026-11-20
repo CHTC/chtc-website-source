@@ -32,6 +32,8 @@
           url: "/uw-research-computing/inter-submit"
         - text: "Monitor your jobs"
           url: "/uw-research-computing/htc-monitor-jobs"
+        - text: "Checklist for better throughput"
+          url: "/uw-research-computing/htc-throughput-checklist"
     - text: "Arguments and shell scripting "
       links:
         - text: "Basic scripting and job submission with arguments"
