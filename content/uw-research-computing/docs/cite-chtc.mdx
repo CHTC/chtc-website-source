@@ -1,47 +1,46 @@
 ---
-title: Citing CHTC Resources
+title: Cite CHTC Resources
 description: In order to track our scientific impact we ask that users cite the following DOI in all publications that have benefited from our services.
 ---
-
-In a Publication
-----------------
 
 In order to track our scientific impact we ask that users cite the following DOI in all publications
 that have benefited from our services.
 
+## CHTC resources (HTC/HPC)
+
 > Center for High Throughput Computing. (2006). Center for High Throughput Computing. doi:10.21231/GNT1-HW21
 
+<ButtonRow>
+<Button href="/assets/bibtex/chtc.bib">Download BibTex file</Button>
+</ButtonRow>
 
-For your convenience, a [BibTex file](/assets/bibtex/chtc.bib) containing the above reference is been provided.
+## OSPool resources
 
-(Last updated Feb, 2023)
+Use this if you've used the OSPool (added `want_ospool = true` in your submit files).
 
-[Appropriate acknowledgement of OSG resources is described here](https://osg-htc.org/acknowledging)
-  
+> 1. Pordes, R., Petravick, D., Kramer, B., Olson, D., Livny, M., Roy, A., Avery, P., Blackburn, K., Wenaus, T., Würthwein, F., Foster, I., Gardner, R., Wilde, M., Blatecky, A., McGee, J., & Quick, R. (2007). The open science grid. J. Phys. Conf. Ser., 78, 012057. https://doi.org/10.1088/1742-6596/78/1/012057
+> 1. Sfiligoi, I., Bradley, D. C., Holzman, B., Mhashilkar, P., Padhi, S., & Wurthwein, F. (2009). The pilot way to grid resources using glideinWMS. 2009 WRI World Congress on Computer Science and Information Engineering, 2, 428–432. https://doi.org/10.1109/CSIE.2009.950
+> 1. OSG. (2006). OSPool. OSG. https://doi.org/10.21231/906P-4D78
+> 1. OSG. (2015). Open Science Data Federation. OSG. https://doi.org/10.21231/0KVZ-VE57
+
+and include in the text the following acknowledgement:
+
+> This research was done using services provided by the OSG Consortium [1,2,3,4], which is supported by the National Science Foundation awards #2030508 and #2323298.
+
+<ButtonRow>
+<Button href="https://osg-htc.org/osg.bib">Download BibTex file</Button>
+</ButtonRow>
+
+## Alphafold3
+
+If you've used our Alphafold3 pipeline, please cite the following:
+
+> 1. Morales, D., Lin, B., Rynge, M., Koch, C. L., Bockelman, B., & Livny, M. 2026. Running AlphaFold3 on Distributed High-Throughput Computing Infrastructure: Scaling Workloads and Enabling Ultra-Large Predictions. Proceedings of the Practice and Experience in Advanced Research Computing 2026: Resilient Roots + Empowered Communities. Association for Computing Machinery, New York, NY, USA, Article 34, 1–5. https://doi.org/10.1145/3785462.3815874
+> 1. Morales, D. A., A. Owen, and C. Koch. Predicting Protein Structures with AlphaFold3 on the CHTC GPU Capacity. V. v1.0.0. Zenodo, released March 26, 2026. https://doi.org/10.5281/zenodo.19239059.
+>  
+
+<ButtonRow>
+<Button href="/assets/bibtex/af3.bib">Download BibTex file</Button>
+</ButtonRow>
+
 <br />
-
-For a Grant Proposal
---------------------
-
-(Feel free to modify the below text, use only certain paragraphs, or contact us for more input or customizable letters of support.)
-
-The University of Wisconsin-Madison (UW-Madison) campus is an excellent match for meeting the computational needs of this project. Existing UW-Madison technology infrastructure supported by the CHTC can be readily leveraged, including CPU capacity, network connectivity, storage availability, and middleware connectivity. The UW-Madison has invested in the CHTC as the primary provider of shared, computing resources to campus researchers. All standard CHTC services are provided free-of-charge to UW-Madison researchers, their projects, and collaborators. But perhaps most important, the UW-Madison has significant staff experience and core competency in deploying, managing, and using computational technology.
-
-The CHTC is home to over 20 full-time staff with a proven track record of making compute middleware work for scientists. Far beyond just being familiar with the deployment and use of such software, UW staff has been intimately involved in its design and implementation. Dedicated Research Computing Facilitators are available to provide training to all CHTC users and are available to consult on computational practices for achieving the best scientific throughput. As always, CHTC will be happy to provide consulting to ensure optimal use of its facilities, and development of robust, reproducible methods for scalable computing.
-
-
-The UW-Madison maintains multiple compute clusters (including the largest of these operated by CHTC) across campus that are managed using either HTCondor or SLURM with support from CHTC. These clusters are connected by HTCondor technology to share resources with each other and with other institutions around the world via [OSG services](https://osg-htc.org/). Local computing capacity directly enabled by CHTC includes:
-
-- High-Throughput Computing (HTC) resources totaling about 30,000 CPU cores in support of research. Temporary file space for large individual files can support up to hundreds of terabytes of total working data. For single computing runs needing significant memory on a single server, the CHTC maintains several multi-core servers with terabytes of memory.
-
-  - When on-campus resources are fully utilized, CHTC leverages [OSG services](https://osg-htc.org/) to provision additional opportunistic resources from multiple external sites.
-
-- A High-Performance Computing (HPC) cluster consisting of roughly 7,000 tightly coupled cores. Compute nodes have 64 or 128 cores each, and 512 GB RAM, and are networked with 200 Gbps Infiniband, with access to a shared file system and resources managed via Slurm.
-
-- An origin server where users can make research data available through the [Open Science Data Federation](https://osg-htc.org/services/osdf.html) and an on-campus cache server which allows external jobs to cache files locally.
-
-In the last year, CHTC made possible the use of more than 40,000 core years of computing work for campus researchers, supporting over 300 projects across a wide range of research domains. Temporary storage space for large files can support up to hundreds of terabytes of total working data. Should these resources not be sufficient for the project, the CHTC can also engage computing resources from across the campus grid and the [OS Pool](https://osg-htc.org/services/open_science_pool.html), an NSF-supported and expanding alliance of more than 100 universities, national laboratories, scientific collaborations, and software developers.
-
-The UW–Madison network currently comprises a 200Gbps backbone and WAN connectivity with 160Gbps to the Discovery building. The equipment is located on the “Research Backbone Network”, which allows for friction-free (e.g., no middlebox devices such as firewalls on the data path) to the nation’s research and education networks. Redundancy is built into the network and its supporting infrastructure. An equitable funding model assures that network resources are kept current. The UW has been fundamental to the establishment of the Broadband Optical Research Education And Science network (BOREAS). This Regional Optical Network (RON) connects to the CIC OmniPoP in Chicago, providing a high-speed gateway to various research networks, including Internet2, ESNet, CERN, and other global research networks. BOREAS, along with our participation in the Northern Tier Network Consortium, provides various options to connect at very high speeds to research partners with shared or dedicated bandwidth
-
-(Last updated May 3, 2024)

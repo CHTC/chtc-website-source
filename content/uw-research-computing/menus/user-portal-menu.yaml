@@ -1,3 +1,9 @@
+- name: About and information
+  links:
+    - text: User expectations
+      url: /uw-research-computing/user-expectations
+    - text: Cite us
+      url: /uw-research-computing/cite-chtc
 - name: Support
   links:
     - text: Get Help
@@ -18,9 +24,3 @@
       url: /uw-research-computing/bioinformatics-cafe
     - text: Sign up for our email list
       url: /uw-research-computing/email-list
-- name: About and information
-  links:
-    - text: User expectations
-      url: /uw-research-computing/user-expectations
-    - text: Cite us
-      url: /uw-research-computing/cite-chtc

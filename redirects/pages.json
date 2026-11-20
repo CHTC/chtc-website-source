@@ -10,7 +10,8 @@
   { "source": "/branding.html", "destination": "/branding/", "text": "CHTC Branding" },
   { "source": "/icon_credits.html", "destination": "/icon_credits/", "text": "Icon Credits" },
   { "source": "/newsletter.html", "destination": "/newsletter/", "text": "HTC Newsletter" },
-  { "source": "/faculty-resources.html", "destination": "/faculty-resources/", "text": "Resources for Faculty and PIs" },
+  { "source": "/faculty-resources.html", "destination": "/uw-research-computing/faculty-resources/", "text": "Resources for Faculty and PIs" },
+  { "source": "/faculty-resources", "destination": "/uw-research-computing/faculty-resources/", "text": "Resources for Faculty and PIs" },
   { "source": "/past_team_pictures.html", "destination": "/past_team_pictures/", "text": "HTCondor Team Pictures" },
   { "source": "/HTC24.html", "destination": "/HTC24/", "text": "Save the Dates for Throughput Computing 2024" }
 ]

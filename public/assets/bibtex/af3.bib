@@ -1,0 +1,28 @@
+@inbook{10.1145/3785462.3815874,
+author = {Morales, Daniel A and Lin, Brian and Rynge, Mats and Koch, Christina L and Bockelman, Brian and Livny, Miron},
+title = {Running AlphaFold3 on Distributed High-Throughput Computing Infrastructure: Scaling Workloads and Enabling Ultra-Large Predictions},
+year = {2026},
+isbn = {9798400723773},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3785462.3815874},
+abstract = {AlphaFold&nbsp;3 (AF3) enables atomic-resolution prediction of biomolecular complexes, driving rapidly growing demand across the life sciences. However, its ∼ 750,GB reference database has effectively confined production deployments to systems with shared parallel filesystems, creating a major barrier for scalability. Distributed high-throughput computing (dHTC) platforms offer vast, heterogeneous compute capacity, but fundamentally lack the shared data infrastructure assumed by AF3. We present a data-aware deployment of AF3 for dHTC, implemented on the Center for High Throughput Computing (CHTC) and the Open Science Pool (OSPool). The workflow is decomposed into a CPU-bound data pipeline that executes on nodes with locally staged, scheduler-advertised databases, and a GPU-bound inference pipeline that opportunistically scales across distributed resources. Using CUDA Unified Virtual Memory (UVM), we extend inference beyond physical GPU limits, enabling predictions of ultra-large complexes that exceed device vRAM. By elevating dataset locality to a schedulable resource via HTCondor ClassAds, we eliminate prohibitive per-job data transfers and enable efficient, federated execution. Beyond scaling throughput, we demonstrate that dHTC can support previously infeasible workloads. Together, these results establish dHTC as a viable—and in some regimes superior— execution model for data-intensive structural biology workflows and provide a general blueprint for deploying large, data-intensive applications on distributed cyberinfrastructure.},
+booktitle = {Proceedings of the Practice and Experience in Advanced Research Computing 2026: Resilient Roots + Empowered Communities},
+articleno = {34},
+numpages = {5}
+}
+
+@software{morales_2026_19239059,
+  author       = {Morales, Daniel A. and
+                  Owen, Andrew and
+                  Koch, Christina},
+  title        = {Predicting Protein Structures with AlphaFold3 on
+                   the CHTC GPU Capacity
+                  },
+  month        = mar,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.19239059},
+  url          = {https://doi.org/10.5281/zenodo.19239059},
+}

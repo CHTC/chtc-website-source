@@ -46,7 +46,7 @@ const pages: NavigationItem[] = [
 		label: 'Campus Computing',
 		children: [
 			{ label: 'Campus Computing Services', path: '/uw-research-computing' },
-			{ label: 'Resources for Faculty', path: '/faculty-resources' },
+			{ label: 'Resources for Faculty', path: '/uw-research-computing/faculty-resources' },
 			{ label: 'User Portal', path: '/uw-research-computing/user-portal' },
 		],
 	},
