@@ -45,6 +45,8 @@ const Frontmatter = z.strictObject({
   software_icon: z.string().optional(),
   /** Basic-scripting pages: shown as tabs on the basic-scripting guide. */
   basic_scripting: z.boolean().optional(),
+  /** Account-request pages: shown as tabs on the account request form page */
+  account_request: z.boolean().optional(),
   icon: z.string().optional(),
 });
 
