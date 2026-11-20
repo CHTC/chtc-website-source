@@ -85,7 +85,7 @@ const FAQS: { question: string; answer: React.ReactNode }[] = [
         CHTC services are available at <strong>no cost</strong> to UW-Madison researchers, their
         projects, and approved collaborators. There is no ceiling to use CHTC shared computing
         resources. For start-up packages, purchasing hardware, or other special needs, see our{' '}
-        <Link href='/faculty-resources/'>Faculty Resources</Link>.
+        <Link href='faculty-resources'>Faculty Resources</Link>.
       </>
     ),
   },
