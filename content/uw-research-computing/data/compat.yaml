@@ -1,0 +1,2890 @@
+last_updated: '2026-10-30'
+notes:
+- HTCondor compares the gpus_* values in condor_requirements as numbers, so a CUDA version like 12.10 would count as lower than 12.9. No version in this file has a two-digit minor number yet.
+- A forward_compatibility block means the entry worked on an older driver only because the tested container image includes NVIDIA's forward-compatibility libraries. Using the same image needs nothing extra. If you install the framework another way, such as pip or conda, also install NVIDIA's cuda-compat package (https://docs.nvidia.com/deploy/cuda-compatibility/). Forward compatibility works only on datacenter GPUs, not GeForce cards.
+frameworks:
+  pytorch:
+    0.4.X:
+      '9':
+        tested_versions:
+        - 0.4.1
+        tested_image: docker://pytorch/pytorch:0.4.1-cuda9-cudnn7-devel
+        build_recipe: null
+        cudnn_version: 7.1.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.0.X:
+      '10.0':
+        tested_versions:
+        - 1.0.1
+        tested_image: docker://pytorch/pytorch:1.0.1-cuda10.0-cudnn7-devel
+        build_recipe: null
+        cudnn_version: 7.4.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.1.X:
+      '10.0':
+        tested_versions:
+        - 1.1.0
+        tested_image: docker://pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-devel
+        build_recipe: null
+        cudnn_version: 7.5.1
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.10.X:
+      '11.3':
+        tested_versions:
+        - 1.10.0
+        tested_image: docker://pytorch/pytorch:1.10.0-cuda11.3-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.2.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        n_compatible_gpus: 90
+        chip_names:
+        - A100
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.11.X:
+      '11.3':
+        tested_versions:
+        - 1.11.0
+        tested_image: docker://pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.2.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        n_compatible_gpus: 90
+        chip_names:
+        - A100
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.12.X:
+      '11.3':
+        tested_versions:
+        - 1.12.1
+        tested_image: docker://pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.3.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H100, H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 29-32 minutes per job in our tests. A newer version avoids the delay.
+    1.13.X:
+      '11.6':
+        tested_versions:
+        - 1.13.1
+        tested_image: docker://pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.3.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - 'Needs one extra step: PyTorch 1.13 doesn''t see the GPU when CUDA_VISIBLE_DEVICES lists GPU IDs (GPU-...), which is how HTCondor sets it (https://github.com/pytorch/pytorch/issues/90543). Our tests passed after converting the IDs to numbers before importing torch: look up each listed GPU''s index with NVIDIA''s NVML library (libnvidia-ml, through ctypes or the pynvml package; containers often lack nvidia-smi), then set CUDA_DEVICE_ORDER=PCI_BUS_ID and CUDA_VISIBLE_DEVICES to those indices. PyTorch 1.12 and 2.0+ don''t need it.'
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 27-36 minutes per job in our tests. A newer version avoids the delay.
+    1.5.X:
+      '10.1':
+        tested_versions:
+        - 1.5.1
+        tested_image: docker://pytorch/pytorch:1.5.1-cuda10.1-cudnn7-devel
+        build_recipe: null
+        cudnn_version: 7.6.3
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.6.X:
+      '10.1':
+        tested_versions:
+        - 1.6.0
+        tested_image: docker://pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel
+        build_recipe: null
+        cudnn_version: 7.6.3
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.7.X:
+      '11.0':
+        tested_versions:
+        - 1.7.1
+        tested_image: docker://pytorch/pytorch:1.7.1-cuda11.0-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.0.5
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '8.9'
+          excluded: []
+        n_compatible_gpus: 90
+        chip_names:
+        - A100
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 8.9
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.8.X:
+      '10.2':
+        tested_versions:
+        - 1.8.1
+        tested_image: docker://pytorch/pytorch:1.8.1-cuda10.2-cudnn7-devel
+        build_recipe: null
+        cudnn_version: 7.6.5
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+      '11.1':
+        tested_versions:
+        - 1.8.1
+        tested_image: docker://pytorch/pytorch:1.8.1-cuda11.1-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.0.5
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H100, H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 37-43 minutes per job in our tests. A newer version avoids the delay.
+    1.9.X:
+      '11.1':
+        tested_versions:
+        - 1.9.1
+        tested_image: docker://pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.0.5
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H100, H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 43-47 minutes per job in our tests. A newer version avoids the delay.
+    2.0.X:
+      '11.7':
+        tested_versions:
+        - 2.0.1
+        tested_image: docker://pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.5.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded:
+          - '8.9'
+        n_compatible_gpus: 87
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile and torchvision's GPU transforms. Those GPUs are left out of the lines above. If your code doesn't use torch.compile or torchvision's GPU transforms, it can run there too.
+        - 'On compute capability 8.9 (L40, L40S), everything we tested worked except torchaudio''s GPU mel spectrogram and torchvision''s GPU transforms. The lines above include those GPUs. If your code uses torchaudio''s GPU mel spectrogram or torchvision''s GPU transforms, also add: requirements = (GPUs_Capability != 8.9)'
+        - On compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition), everything we tested worked except torch.compile and torchvision's GPU transforms. Those GPUs are left out of the lines above. If your code doesn't use torch.compile or torchvision's GPU transforms, it can run there too.
+        - This build has no native code for compute capability 9.0 (H100, H200). It still works there, but compiles its GPU code every time it starts, which took 35-36 minutes per job in our tests. A newer version avoids the delay.
+    2.1.X:
+      '11.8':
+        tested_versions:
+        - 2.1.2
+        tested_image: docker://pytorch/pytorch:2.1.2-cuda11.8-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.7.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+        - On compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition), everything we tested worked except torch.compile and torchaudio's GPU mel spectrogram. Those GPUs are left out of the lines above. If your code doesn't use torch.compile or torchaudio's GPU mel spectrogram, it can run there too.
+      '12.1':
+        tested_versions:
+        - 2.1.2
+        tested_image: docker://pytorch/pytorch:2.1.2-cuda12.1-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.9.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.10.X:
+      '12.6':
+        tested_versions:
+        - 2.10.0
+        tested_image: docker://pytorch/pytorch:2.10.0-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 118
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.8':
+        tested_versions:
+        - 2.10.0
+        tested_image: docker://pytorch/pytorch:2.10.0-cuda12.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 130
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes: []
+      '13.0':
+        tested_versions:
+        - 2.10.0
+        tested_image: docker://pytorch/pytorch:2.10.0-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.15.1
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        forward_compatibility:
+          required_below_driver_cuda: '13.0'
+          worked_on_driver_cuda:
+          - '12.8'
+          worked_on_compute_capability:
+          - '8.0'
+          - '8.9'
+          - '9.0'
+        n_compatible_gpus: 125
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On drivers older than CUDA 13.0, this worked only because the tested image includes NVIDIA's forward-compatibility libraries, which work on datacenter GPUs only. If you install it another way, such as pip or conda, add the cuda-compat package or use gpus_minimum_runtime = 13.0.
+    2.11.X:
+      '12.6':
+        tested_versions:
+        - 2.11.0
+        tested_image: docker://pytorch/pytorch:2.11.0-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.8':
+        tested_versions:
+        - 2.11.0
+        tested_image: docker://pytorch/pytorch:2.11.0-cuda12.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.19.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+      '13.0':
+        tested_versions:
+        - 2.11.0
+        tested_image: docker://pytorch/pytorch:2.11.0-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.19.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    2.12.X:
+      '12.6':
+        tested_versions:
+        - 2.12.1
+        tested_image: docker://pytorch/pytorch:2.12.1-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '13.0':
+        tested_versions:
+        - 2.12.1
+        tested_image: docker://pytorch/pytorch:2.12.1-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.20.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+      '13.2':
+        tested_versions:
+        - 2.12.1
+        tested_image: docker://pytorch/pytorch:2.12.1-cuda13.2-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.20.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    2.13.X:
+      '12.6':
+        tested_versions:
+        - 2.13.0
+        tested_image: docker://pytorch/pytorch:2.13.0-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '13.0':
+        tested_versions:
+        - 2.13.0
+        tested_image: docker://pytorch/pytorch:2.13.0-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.20.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+      '13.2':
+        tested_versions:
+        - 2.13.0
+        tested_image: docker://pytorch/pytorch:2.13.0-cuda13.2-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.20.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    2.14.X:
+      '12.6':
+        tested_versions:
+        - 2.14.0
+        - 2.14.1
+        tested_image: docker://pytorch/pytorch:2.14.1-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '13.0':
+        tested_versions:
+        - 2.14.0
+        - 2.14.1
+        tested_image: docker://pytorch/pytorch:2.14.1-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.24.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+      '13.2':
+        tested_versions:
+        - 2.14.0
+        - 2.14.1
+        tested_image: docker://pytorch/pytorch:2.14.1-cuda13.2-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.24.0
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    2.2.X:
+      '11.8':
+        tested_versions:
+        - 2.2.2
+        tested_image: docker://pytorch/pytorch:2.2.2-cuda11.8-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.7.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+        - On compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition), everything we tested worked except torch.compile and torchaudio's GPU mel spectrogram. Those GPUs are left out of the lines above. If your code doesn't use torch.compile or torchaudio's GPU mel spectrogram, it can run there too.
+      '12.1':
+        tested_versions:
+        - 2.2.2
+        tested_image: docker://pytorch/pytorch:2.2.2-cuda12.1-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.9.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.3.X:
+      '11.8':
+        tested_versions:
+        - 2.3.1
+        tested_image: docker://pytorch/pytorch:2.3.1-cuda11.8-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.7.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+        - On compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition), everything we tested worked except torch.compile and torchaudio's GPU mel spectrogram. Those GPUs are left out of the lines above. If your code doesn't use torch.compile or torchaudio's GPU mel spectrogram, it can run there too.
+      '12.1':
+        tested_versions:
+        - 2.3.1
+        tested_image: docker://pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
+        build_recipe: null
+        cudnn_version: 8.9.2
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.4.X:
+      '11.8':
+        tested_versions:
+        - 2.4.1
+        tested_image: docker://pytorch/pytorch:2.4.1-cuda11.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.1':
+        tested_versions:
+        - 2.4.1
+        tested_image: docker://pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.4':
+        tested_versions:
+        - 2.4.1
+        tested_image: docker://pytorch/pytorch:2.4.1-cuda12.4-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.5.X:
+      '11.8':
+        tested_versions:
+        - 2.5.1
+        tested_image: docker://pytorch/pytorch:2.5.1-cuda11.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.1':
+        tested_versions:
+        - 2.5.1
+        tested_image: docker://pytorch/pytorch:2.5.1-cuda12.1-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.4':
+        tested_versions:
+        - 2.5.1
+        tested_image: docker://pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.6.X:
+      '11.8':
+        tested_versions:
+        - 2.6.0
+        tested_image: docker://pytorch/pytorch:2.6.0-cuda11.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.4':
+        tested_versions:
+        - 2.6.0
+        tested_image: docker://pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.6':
+        tested_versions:
+        - 2.6.0
+        tested_image: docker://pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.5.1
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 118
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+    2.7.X:
+      '11.8':
+        tested_versions:
+        - 2.7.1
+        tested_image: docker://pytorch/pytorch:2.7.1-cuda11.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.1.0
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.6':
+        tested_versions:
+        - 2.7.1
+        tested_image: docker://pytorch/pytorch:2.7.1-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.5.1
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 118
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.8':
+        tested_versions:
+        - 2.7.1
+        tested_image: docker://pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.7.1
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 130
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes: []
+    2.8.X:
+      '12.6':
+        tested_versions:
+        - 2.8.0
+        tested_image: docker://pytorch/pytorch:2.8.0-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 118
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.8':
+        tested_versions:
+        - 2.8.0
+        tested_image: docker://pytorch/pytorch:2.8.0-cuda12.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 130
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes: []
+      '12.9':
+        tested_versions:
+        - 2.8.0
+        tested_image: docker://pytorch/pytorch:2.8.0-cuda12.9-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 125
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - 'Can''t use the GPU on compute capability 7.5 (RTX 2080 Ti) with a driver for CUDA 12.8: the image includes NVIDIA''s forward-compatibility library for its newer CUDA, which works only on datacenter GPUs, so CUDA fails to start (error 804). Those GPUs need a driver for this image''s CUDA version or newer.'
+    2.9.X:
+      '12.6':
+        tested_versions:
+        - 2.9.1
+        tested_image: docker://pytorch/pytorch:2.9.1-cuda12.6-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 118
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except torch.compile. Those GPUs are left out of the lines above. If your code doesn't use torch.compile, it can run there too.
+      '12.8':
+        tested_versions:
+        - 2.9.1
+        tested_image: docker://pytorch/pytorch:2.9.1-cuda12.8-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.10.2
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 130
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes: []
+      '13.0':
+        tested_versions:
+        - 2.9.1
+        tested_image: docker://pytorch/pytorch:2.9.1-cuda13.0-cudnn9-devel
+        build_recipe: null
+        cudnn_version: 9.13.0
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '8.0'
+          max: '12.0'
+          excluded: []
+        forward_compatibility:
+          required_below_driver_cuda: '13.0'
+          worked_on_driver_cuda:
+          - '12.8'
+          worked_on_compute_capability:
+          - '8.0'
+          - '8.9'
+          - '9.0'
+        n_compatible_gpus: 125
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - On drivers older than CUDA 13.0, this worked only because the tested image includes NVIDIA's forward-compatibility libraries, which work on datacenter GPUs only. If you install it another way, such as pip or conda, add the cuda-compat package or use gpus_minimum_runtime = 13.0.
+  tensorflow:
+    1.0.X:
+      '8.0':
+        tested_versions:
+        - 1.0.1
+        tested_image: docker://tensorflow/tensorflow:1.0.1-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 6.0, 7.5, 8.0, 8.9, 9.0 and 12.0 (A100, H200, L40S, P100, RTX 2080 Ti, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 2-7 minutes per job in our tests. A newer version avoids the delay.
+    1.1.X:
+      '8.0':
+        tested_versions:
+        - 1.1.0
+        tested_image: docker://tensorflow/tensorflow:1.1.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 6.0, 7.5, 8.0, 8.9, 9.0 and 12.0 (H200, L40, L40S, P100, RTX 2080 Ti, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 3-7 minutes per job in our tests. A newer version avoids the delay.
+    1.10.X:
+      '9.0':
+        tested_versions:
+        - 1.10.1
+        tested_image: docker://tensorflow/tensorflow:1.10.1-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.11.X:
+      '9.0':
+        tested_versions:
+        - 1.11.0
+        tested_image: docker://tensorflow/tensorflow:1.11.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '6.0'
+          max: '6.0'
+          excluded: []
+        n_compatible_gpus: 4
+        chip_names:
+        - P100
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 6.0
+          gpus_minimum_runtime = 12.8
+        notes: []
+    1.12.X:
+      '9.0':
+        tested_versions:
+        - 1.12.3
+        tested_image: null
+        build_recipe:
+          base_image: tensorflow/tensorflow:1.12.0-gpu-py3
+          pip_install: tensorflow-gpu==1.12.3
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 570.195.03
+        oldest_tested_driver_cuda: '12.8'
+        compute_capability:
+          min: '6.0'
+          max: '6.0'
+          excluded: []
+        n_compatible_gpus: 4
+        chip_names:
+        - P100
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 6.0
+          gpus_minimum_runtime = 12.8
+        notes:
+        - Don't use the official 1.12.3 image; it doesn't work. These results come from an image built from tensorflow/tensorflow:1.12.0-gpu-py3 with pip install tensorflow-gpu==1.12.3. Build one the same way for your own jobs.
+    1.13.X:
+      '10.0':
+        tested_versions:
+        - 1.13.2
+        tested_image: docker://tensorflow/tensorflow:1.13.2-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.14.X:
+      '10.0':
+        tested_versions:
+        - 1.14.0
+        tested_image: docker://tensorflow/tensorflow:1.14.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.15.X:
+      '10.0':
+        tested_versions:
+        - 1.15.5
+        tested_image: docker://tensorflow/tensorflow:1.15.5-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.2.X:
+      '8.0':
+        tested_versions:
+        - 1.2.1
+        tested_image: docker://tensorflow/tensorflow:1.2.1-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 6.0, 7.5, 8.0, 8.9, 9.0 and 12.0 (H200, L40S, P100, RTX 2080 Ti, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 2-7 minutes per job in our tests. A newer version avoids the delay.
+    1.3.X:
+      '8.0':
+        tested_versions:
+        - 1.3.0
+        tested_image: docker://tensorflow/tensorflow:1.3.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 7.5, 8.0, 8.9, 9.0 and 12.0 (H200, L40, L40S, RTX 2080 Ti, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 5-8 minutes per job in our tests. A newer version avoids the delay.
+    1.4.X:
+      '8.0':
+        tested_versions:
+        - 1.4.1
+        tested_image: docker://tensorflow/tensorflow:1.4.1-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 6.0, 7.5, 8.0, 8.9, 9.0 and 12.0 (H200, L40S, P100, RTX 2080 Ti, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 3-9 minutes per job in our tests. A newer version avoids the delay.
+    1.5.X:
+      '9.0':
+        tested_versions:
+        - 1.5.1
+        tested_image: null
+        build_recipe:
+          base_image: tensorflow/tensorflow:1.6.0-gpu-py3
+          pip_install: tensorflow-gpu==1.5.1
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes:
+        - Don't use the official 1.5.1 image; it doesn't work. These results come from an image built from tensorflow/tensorflow:1.6.0-gpu-py3 with pip install tensorflow-gpu==1.5.1. Build one the same way for your own jobs.
+    1.6.X:
+      '9.0':
+        tested_versions:
+        - 1.6.0
+        tested_image: docker://tensorflow/tensorflow:1.6.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 7.5 (RTX 2080 Ti). It still works there, but compiles its GPU code every time it starts, which took 3-4 minutes per job in our tests. A newer version avoids the delay.
+    1.7.X:
+      '9.0':
+        tested_versions:
+        - 1.7.1
+        tested_image: null
+        build_recipe:
+          base_image: tensorflow/tensorflow:1.6.0-gpu-py3
+          pip_install: tensorflow-gpu==1.7.1
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes:
+        - Don't use the official 1.7.1 image; it doesn't work. These results come from an image built from tensorflow/tensorflow:1.6.0-gpu-py3 with pip install tensorflow-gpu==1.7.1. Build one the same way for your own jobs.
+    1.8.X:
+      '9.0':
+        tested_versions:
+        - 1.8.0
+        tested_image: docker://tensorflow/tensorflow:1.8.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    1.9.X:
+      '9.0':
+        tested_versions:
+        - 1.9.0
+        tested_image: docker://tensorflow/tensorflow:1.9.0-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.0.X:
+      '10.0':
+        tested_versions:
+        - 2.0.4
+        tested_image: docker://tensorflow/tensorflow:2.0.4-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.1.X:
+      '10.1':
+        tested_versions:
+        - 2.1.2
+        tested_image: docker://tensorflow/tensorflow:2.1.2-gpu
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 8.0, 8.9, 9.0 and 12.0 (H200, L40, L40S, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 22-30 minutes per job in our tests. A newer version avoids the delay.
+    2.10.X:
+      '11.2':
+        tested_versions:
+        - 2.10.1
+        tested_image: docker://tensorflow/tensorflow:2.10.1-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 19-22 minutes per job in our tests. A newer version avoids the delay.
+    2.11.X:
+      '11.2':
+        tested_versions:
+        - 2.11.1
+        tested_image: docker://tensorflow/tensorflow:2.11.1-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.12.X:
+      '11.8':
+        tested_versions:
+        - 2.12.0
+        tested_image: docker://tensorflow/tensorflow:2.12.0-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took about 3 minutes per job in our tests. A newer version avoids the delay.
+    2.13.X:
+      '11.8':
+        tested_versions:
+        - 2.13.0
+        tested_image: docker://tensorflow/tensorflow:2.13.0-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took about 3 minutes per job in our tests. A newer version avoids the delay.
+    2.14.X:
+      '11.8':
+        tested_versions:
+        - 2.14.0
+        tested_image: docker://tensorflow/tensorflow:2.14.0-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took about 3 minutes per job in our tests. A newer version avoids the delay.
+    2.15.X:
+      '12.2':
+        tested_versions:
+        - 2.15.0
+        tested_image: docker://tensorflow/tensorflow:2.15.0.post1-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 12.0 (RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took about 2 minutes per job in our tests. A newer version avoids the delay.
+    2.16.X:
+      '12.3':
+        tested_versions:
+        - 2.16.2
+        tested_image: docker://tensorflow/tensorflow:2.16.2-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 132
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.17.X:
+      '12.3':
+        tested_versions:
+        - 2.17.0
+        tested_image: docker://tensorflow/tensorflow:2.17.0-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 132
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.18.X:
+      12.5.1:
+        tested_versions:
+        - 2.18.0
+        tested_image: docker://tensorflow/tensorflow:2.18.0-gpu
+        build_recipe: null
+        cudnn_version: '9'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 132
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.19.X:
+      12.5.1:
+        tested_versions:
+        - 2.19.0
+        tested_image: docker://tensorflow/tensorflow:2.19.0-gpu
+        build_recipe: null
+        cudnn_version: '9'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 132
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.2.X:
+      '10.1':
+        tested_versions:
+        - 2.2.3
+        tested_image: docker://tensorflow/tensorflow:2.2.3-gpu-py3
+        build_recipe: null
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 8.0, 8.9, 9.0 and 12.0 (H200, L40, L40S, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 19-26 minutes per job in our tests. A newer version avoids the delay.
+    2.20.X:
+      12.5.1:
+        tested_versions:
+        - 2.20.0
+        tested_image: docker://tensorflow/tensorflow:2.20.0-gpu
+        build_recipe: null
+        cudnn_version: '9'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 128
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.21.X:
+      12.5.1:
+        tested_versions:
+        - 2.21.0
+        tested_image: docker://tensorflow/tensorflow:2.21.0-gpu
+        build_recipe: null
+        cudnn_version: '9'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.3.X:
+      '10.1':
+        tested_versions:
+        - 2.3.4
+        tested_image: docker://tensorflow/tensorflow:2.3.4-gpu
+        build_recipe: null
+        cudnn_version: '7'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '7.5'
+          excluded: []
+        n_compatible_gpus: 19
+        chip_names:
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 7.5
+          gpus_minimum_runtime = 12.4
+        notes: []
+    2.4.X:
+      '11.0':
+        tested_versions:
+        - 2.4.3
+        tested_image: docker://tensorflow/tensorflow:2.4.3-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 23-27 minutes per job in our tests. A newer version avoids the delay.
+    2.5.X:
+      '11.2':
+        tested_versions:
+        - 2.5.1
+        tested_image: docker://tensorflow/tensorflow:2.5.1-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 18-20 minutes per job in our tests. A newer version avoids the delay.
+    2.6.X:
+      '11.2':
+        tested_versions:
+        - 2.6.1
+        tested_image: docker://tensorflow/tensorflow:2.6.1-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 17-20 minutes per job in our tests. A newer version avoids the delay.
+    2.7.X:
+      '11.2':
+        tested_versions:
+        - 2.7.4
+        tested_image: docker://tensorflow/tensorflow:2.7.4-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 18-21 minutes per job in our tests. A newer version avoids the delay.
+    2.8.X:
+      '11.2':
+        tested_versions:
+        - 2.8.4
+        tested_image: docker://tensorflow/tensorflow:2.8.4-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 18-21 minutes per job in our tests. A newer version avoids the delay.
+    2.9.X:
+      '11.2':
+        tested_versions:
+        - 2.9.3
+        tested_image: docker://tensorflow/tensorflow:2.9.3-gpu
+        build_recipe: null
+        cudnn_version: '8'
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - This build has no native code for compute capability 9.0 and 12.0 (H200, RTX PRO 6000 Blackwell Server Edition). It still works there, but compiles its GPU code every time it starts, which took 18-21 minutes per job in our tests. A newer version avoids the delay.
+  jax:
+    0.10.2:
+      '12':
+        tested_versions:
+        - 0.10.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.10.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.10.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.10.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    0.11.2:
+      '12':
+        tested_versions:
+        - 0.11.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.11.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.11.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.11.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    0.12.0:
+      '12':
+        tested_versions:
+        - 0.12.0
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.12.0"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.12.0
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.12.0"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    0.4.38:
+      '12':
+        tested_versions:
+        - 0.4.38
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.4.38"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '9.0'
+          excluded: []
+        n_compatible_gpus: 132
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 9.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - 'On Blackwell (compute capability 12.0, RTX PRO 6000) this version failed in our tests only because the CUDA compiler (ptxas) installed with it was too old for that GPU. With a newer one every test passed: also install nvidia-cuda-nvcc-cu12>=12.8 (pip install "nvidia-cuda-nvcc-cu12>=12.8"). Our builds use packages from when this JAX was released, so a fresh install may already have it.'
+    0.5.3:
+      '12':
+        tested_versions:
+        - 0.5.3
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.5.3"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    0.6.2:
+      '12':
+        tested_versions:
+        - 0.6.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.6.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '6.0'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 144
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - P100
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 6.0
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes: []
+    0.7.2:
+      '12':
+        tested_versions:
+        - 0.7.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.7.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.7.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.7.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    0.8.3:
+      '12':
+        tested_versions:
+        - 0.8.3
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.8.3"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.8.3
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.8.3"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+    0.9.2:
+      '12':
+        tested_versions:
+        - 0.9.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda12]==0.9.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 550.54.14
+        oldest_tested_driver_cuda: '12.4'
+        compute_capability:
+          min: '7.5'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 140
+        chip_names:
+        - A100
+        - H100
+        - H200
+        - L40
+        - L40S
+        - RTX 2080 Ti
+        - RTX 8000
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 7.5
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 12.4
+        notes:
+        - On compute capability 6.0 (P100), everything we tested worked except convolutions. Those GPUs are left out of the lines above. If your code doesn't use convolutions, it can run there too.
+      '13':
+        tested_versions:
+        - 0.9.2
+        tested_image: null
+        build_recipe:
+          base_image: python:3.12-slim
+          pip_install: '"jax[cuda13]==0.9.2"'
+        cudnn_version: null
+        oldest_tested_nvidia_driver: 590.48.01
+        oldest_tested_driver_cuda: '13.1'
+        compute_capability:
+          min: '8.9'
+          max: '12.0'
+          excluded: []
+        n_compatible_gpus: 46
+        chip_names:
+        - H200
+        - L40S
+        - RTX PRO 6000 Blackwell Server Edition
+        condor_requirements: |-
+          gpus_minimum_capability = 8.9
+          gpus_maximum_capability = 12.0
+          gpus_minimum_runtime = 13.1
+        notes: []
+unverified_versions: {}
