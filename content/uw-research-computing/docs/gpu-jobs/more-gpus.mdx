@@ -1,53 +1,53 @@
 ---
 title: Get More GPUs
-description: How to run GPU jobs beyond CHTC's shared GPU Lab, on research group GPUs as backfill, in campus pools and on the OSPool.
+description: How to run GPU jobs beyond CHTC's open capacity, on research group GPUs as backfill, in campus pools, and on the OSPool.
 sidebar:
   - htc
 category: Use GPUs
 order: 6
 ---
 
-Beyond the CHTC GPU Lab, your jobs can run on more GPUs. These GPUs do not have the GPU Lab's
-[time limits and job limits](/uw-research-computing/gpu-jobs/quickstart/#gpu-job-limits), but
-jobs on them may be interrupted. Jobs that run in a few hours or less, or that
-[checkpoint](/uw-research-computing/gpu-jobs/checkpointing/), are a good fit.
+Beyond the open capacity at CHTC, your jobs can run on many more GPUs with only small modifications to your submit file and workflow. Jobs on these GPUs can be interrupted when their owners want to use them again, so are best suited for jobs that run in under 4-6 hours (or [checkpoint](/uw-research-computing/checkpointing/) that often!). 
 
-All GPU jobs need `request_gpus` in their submit file, even if they are not using the GPU Lab.
+All GPU jobs need `request_gpus` in their submit file, even if they are not using CHTC open capacity.
 
-# Research group GPUs (backfill)
+# Research-group GPUs (backfill)
 
-Certain GPU servers in CHTC are prioritized for the research groups that own them, but run other
-jobs when their owners are not using them. Jobs running on these servers can be interrupted.
-For shorter jobs, or jobs that checkpoint, this is not a drawback, and these servers add
-capacity.
+Certain GPU servers in CHTC are prioritized for the research groups that own them, but run other jobs when their owners are not using them. Jobs running on these servers can be interrupted, so do not have a guaranteed 72 hour runtime. Your job will receive a SIGTERM signal and have 10 minutes to vacate before being killed. This means you should implement checkpointing for any job that runs on this machine. You may also be able to get more than 1 GPU and higher CPU and memory amounts on these machines. Most of these machines have `/staging` mounted, so work with the requirement `HasCHTCStaging == true`.
 
-We recommend that all GPU jobs opt in. Add this line to your submit file:
+We recommend that all GPU jobs opt in and that you write your code to make use of these machines from the start as they add a significant amount of capacity. Add this line to your submit file:
 
 ```condor
 +is_resumable = true
 ```
 
-{/* TODO: what happens when a job is interrupted (it goes back to idle and restarts from its last
-checkpoint, or from the start without one). The old page said backfill jobs "forfeit our otherwise
-guaranteed runtime of 72 hours"; update that to match the GPU Lab tiers. */}
-
-{/* The old page had a section on the "gzk" servers (no /staging, no Docker). No gzk machines
-were in the pool on 2026-11-04, so it was left out. Add it back if they still exist. */}
-
 # Campus pools and the OSPool
 
-CHTC is a member of the [OSG Consortium](https://osg-htc.org/) and can use GPUs in the
-[OSPool](https://osg-htc.org/about/open_science_pool/). CHTC is also a member of the UW Grid, a
-campus computing network where groups share computing capacity, including idle GPUs.
+CHTC is a member of the [OSG Consortium](https://osg-htc.org/) and can use GPUs in the [OSPool](https://osg-htc.org/about/open_science_pool/). CHTC is also a member of the UW Grid, a campus computing network where groups share computing capacity, including idle GPUs. Resources in each of these pools constantly change, but generally can support jobs that require 1 GPU with 20-80 GB of VRAM, 16 GB of memory, 1-16 CPU cores, and 20 GB of input/output per job. See [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/) to find out whether your jobs are good candidates for the UW Grid or the OSPool and learn more about these resources. 
 
-See [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/) to find out whether
-your jobs are good candidates for the UW Grid or the OSPool.
+The OSPool dynamically adds GPUs when current GPU jobs slots are near capacity. To view the current snapshot of GPUs that are being used on the OSPool and the available CPU cores, VRAM, memory, and disk space, run:
 
-{/* TODO: what must change before opting in (containers, osdf:// transfers, no /staging); the
-submit file options (want_campus_pools, want_ospool); how to test; whether it is self-service or
-needs a facilitator. */}
+ <Terminal>
+```
+ condor_status -pool cm-1.ospool.osg-htc.org -constraint 'GPUs > 0' -af GPUs_DeviceName CPUs GPUs_GlobalMemoryMb/1024 Memory/1024 Disk/1024/1024 | sort | uniq -c
+```
+ </Terminal>
+ 
+Jobs that run on the OSPool do not have access to `/staging`, so must transfer data from `/staging` by using an `osdf:///` URL from the `/staging` directory. You can still transfer files from `/home` as you normally would. Additionally, Apptainer is supported across the OSPool and some campus pools, whereas Docker is not. You can convert a Docker container to Apptainer following this [guide](/uw-research-computing/apptainer-build). See [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/) for more information.
+
+- To access the OSPool:
+
+  ```condor
+  want_ospool = true
+  ```
+
+- To access campus pools:
+
+  ```condor
+  want_campus_pools = true
+  ```
 
 # Related pages
 
-- [Checkpoint GPU jobs](/uw-research-computing/gpu-jobs/checkpointing/)
+- [Checkpoint jobs](/uw-research-computing/checkpointing/)
 - [Scale beyond local HTC capacity](/uw-research-computing/scaling-htc/)

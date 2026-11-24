@@ -7,16 +7,11 @@ category: Use GPUs
 order: 1
 ---
 
-This page is a minimal guide for experienced HTC users who want to start using GPUs in their
-jobs at CHTC. If you are new to GPUs or to CHTC, start with
-[Run your first GPU job](/uw-research-computing/gpu-jobs/first-job/).
+This page is a minimal guide for experienced HTC users who want to start using GPUs in their jobs at CHTC. {/* TODO: restore when first-job is published: If you are new to GPUs or to CHTC, start with [Run your first GPU job](/uw-research-computing/gpu-jobs/first-job/). */}
 
 # GPU job limits
 
 **GPU jobs have different time limits and job number limits than jobs that only use CPUs.**
-
-{/* TODO: confirm the "long" limit before release. It is 7 days today and is planned to drop to
-3 days. This table is the only place on the GPU pages that states the tiers; other pages link here. */}
 
 | Job length | Maximum runtime | Per-user limitation |
 | --- | --- | --- |
@@ -24,94 +19,100 @@ jobs at CHTC. If you are new to GPUs or to CHTC, start with
 | Medium | 24 hrs | 1/3 of CHTC GPU Lab GPUs |
 | Long | 3 days | up to 4 GPUs in use |
 
-# GPU submit file options
+# Available GPUs
 
-Add the following lines to your submit file to use GPUs and set the GPU job's characteristics:
+CHTC's open capacity GPUs are available to any user of the high throughput computing (HTC) system. They are provided by the [CHTC GPU Lab](/uw-research-computing/gpu-jobs/#the-chtc-gpu-lab). Researchers also own GPUs on CHTC. When these cards are not in use by their owners, your jobs can run on them if you opt in as backfill. CHTC users can also access GPUs on the [OSPool](https://osg-htc.org/about/open_science_pool/), which has an average of 275 GPUs available per hour. See [get more GPUs](/uw-research-computing/gpu-jobs/more-gpus/) for details on accessing backfill or the OSPool for GPU jobs. Most GPU jobs start within a few hours after submission, although multi-GPU jobs can take a day or more to match. 
 
-- **Request GPUs (required)**: All jobs that use GPUs must request GPUs in their submit file (along with the usual requests for CPUs, memory, and disk). The maximum number of GPUs that can be used in one job is 4.
+During peak usage times (e.g., before machine learning conference deadlines), throughput can be limited to a few jobs running at the same time. Please plan ahead as we are unable to prioritize open capacity machines for specific researchers given demand. We highly encourage you to write your code so it works on both the CHTC pool and OSPool to enable the highest throughput at peak times. 
+
+<GpuTable />
+
+
+# Basic GPU submit file options
+
+Add the following lines to your submit file to use GPUs and set the GPU job's characteristics. Only requesting the latest and greatest chips can be tempting, as these cards can run several times faster than previous generations. However, these chips are in high demand, so jobs may take a long time to match, ultimately leading to longer completion times when running many jobs. We find that users complete their jobs fastest when they allow their jobs to run on any chip that supports their work. If possible, write your code to run across GPU types and use [widely supported versions of CUDA](/uw-research-computing/gpu-jobs/gpu-compatibility/).
+
+- **Request GPUs (required):** All jobs that use GPUs must request GPUs in their submit file (along with the usual requests for CPUs, memory, and disk). The maximum number of GPUs that can be used in one job is 8-10, depending on the type of card.
 
   ```condor
   request_gpus = 1
   ```
 
-- **Use the CHTC GPU Lab (recommended)**: Opts your job into CHTC's shared GPUs.
-
-  ```condor
-  +WantGPULab = true
-  ```
-
-- **Specify job length (optional)**: Set the maximum duration of your job as "short", "medium", or "long", based on the runtime limits in the [table above](#gpu-job-limits). If a job is not finished by the specified time, it will be evicted and put on hold. The shorter the job length, the more jobs you can run at once. The default is "medium".
+- **Specify job length (optional):** Set the maximum duration of your job as "short", "medium", or "long", based on the runtime limits in the [table above](#gpu-job-limits). If a job is not finished by the specified time, it will be evicted, put on hold, and any files not saved in a checkpoint will be lost. The shorter the job length, the more jobs you can run at once. The default is "medium".
 
   ```condor
   +GPUJobLength = "short"
   ```
 
-- **Run as backfill (recommended)**: Lets your job also run on research group GPUs when their owners are not using them. These jobs can be interrupted, so use this with jobs that run in a few hours or less, or that [checkpoint](/uw-research-computing/gpu-jobs/checkpointing/). See [Get more GPUs](/uw-research-computing/gpu-jobs/more-gpus/).
+- **Specify GPU memory (optional):** Set the minimum GPU memory (VRAM) *per card* your job needs. Jobs receive the full VRAM of a card, except on cards divided into smaller [MIG slices](/uw-research-computing/gpu-jobs/choose-gpu/). See the [table above](#available-gpus) for the VRAM of each card.
+
+  ```condor
+  gpus_minimum_memory = <quantity in MB>M
+  ```
+
+- **Request a specific GPU hardware generation (optional):** Some software requires certain generations of GPU hardware (called "compute capability"). You can set the minimum and maximum generations. See the [table above](#available-gpus) for the compute capability of each card.
+
+  ```condor
+  gpus_minimum_capability = <compute capability>
+  gpus_maximum_capability = <compute capability>
+  ```
+- **Request a specific CUDA version (optional)**: CHTC's GPUs are made by NVIDIA and use the CUDA toolkit (which has an associated CUDA runtime of the same version number). Many software packages written for GPUs require you use a specific version of the CUDA toolkit, which requires the execute point it runs on to have specific NVIDIA drivers. To match to an execute point guaranteed to have everything needed to run your job, specify the CUDA toolkit version you are using. More information about compatibility between machine learning frameworks (e.g., PyTorch, TensorFlow, JAX) and our GPUs can be found [here](/uw-research-computing/gpu-jobs/gpu-compatibility/).   
+
+  ```condor
+  gpus_minimum_runtime = <CUDA toolkit version you are using> #e.g., 12.4
+  ```
+
+- **Run as backfill (optional, but recommended):** Lets your job also run on research group GPUs when their owners are not using them. These jobs can be interrupted, so use this with jobs that run in a few hours or less, or that [checkpoint](/uw-research-computing/checkpointing/). See [Get more GPUs](/uw-research-computing/gpu-jobs/more-gpus/).
 
   ```condor
   +is_resumable = true
   ```
 
-- **Specify GPU memory (VRAM)**: Set the minimum GPU memory *per card* your job needs. Jobs receive the full VRAM of a card, except on cards divided into smaller [MIG slices](/uw-research-computing/gpu-jobs/choose-gpu/). See the [table below](#gpus-on-our-system) for the VRAM of each card.
+- **Use a container (optional, but recommended)**: A container bundles your software and its GPU libraries (such as CUDA), so your job runs the same way on any GPU server with suitable drivers, regardless of the version of CUDA installed on that server. You can use an existing image from Docker Hub or NVIDIA, or build your own with Apptainer. See [set up GPU software](/uw-research-computing/gpu-jobs/software/) for how to choose or build a container.
 
   ```condor
-  gpus_minimum_memory = <quantity in MB>
+  # A Docker image
+  container_image = docker://<image name>:<tag>    # e.g., docker://pytorch/pytorch:2.11.0-cuda12.8-cudnn9-devel
+
+  # An Apptainer image in /staging
+  container_image = osdf:///chtc/staging/<path to your .sif file>    # e.g., osdf:///chtc/staging/b/bbadger/my-container.sif
+
+  # Note: a submit file can only have one container_image line. 
   ```
 
-- **Request a specific GPU hardware generation (optional)**: Some software requires certain generations of GPU hardware (called "compute capability"). You can set the minimum and maximum generations. See the [table below](#gpus-on-our-system) for the compute capability of each card.
-
-  ```condor
-  gpus_minimum_capability = <version>
-  gpus_maximum_capability = <version>
-  ```
-
-{/* TODO: "Request a specific CUDA version" - the draft bullet stopped at "Most CHTC GPUs are made
-by NVIDIA". Explain that DriverVersion is the highest CUDA runtime the driver supports, and link
-to the software page. Old draft notes:
-  It may be tempting to add requirements for specific GPU servers or types of GPU cards. However,
-  when possible, it is best to write your code so that it can run across GPU types and without
-  needing the latest version of CUDA.
-  More information: https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability
-*/}
-
-- **Indicate software or data requirements using `requirements`**: If your data is large enough to use our `/staging` data system (see [Manage large data in /staging](/uw-research-computing/file-avail-largedata/)), or you are using modules or other software in our shared `/software` system, include the needed requirements.
-
-- **Complex GPU requirements**: If your jobs have more complex requirements than the capability and memory options above, you can use the more general submit file option `require_gpus` to build a custom requirement. Contact the facilitators at chtc@cs.wisc.edu if you think you need it. See [Choose and size your GPU](/uw-research-computing/gpu-jobs/choose-gpu/).
 
 # Sample submit file
 
-A sample submit file is shown below. There are also example submit files and job scripts in the
-[GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) in CHTC's GitHub
-organization. This submit file also works for
-[interactive GPU jobs](/uw-research-computing/gpu-jobs/interactive/).
-
-{/* TODO: add a container_image line once the containers section below is written. */}
+A sample submit file is shown below. There are also example submit files and job scripts in the [GPU Job Templates repository](https://github.com/CHTC/templates-GPUs) in CHTC's GitHub organization. This submit file also works for [interactive GPU jobs](/uw-research-computing/gpu-jobs/interactive/).
 
 <File>
 
 ```condor
-# gpu-lab.sub
-# sample submit file for GPU Lab jobs
+# gpu.sub
+# sample submit file for GPU jobs
 
-universe = vanilla
+# Software container (PyTorch 2.11 with CUDA 12.8)
+container_image = docker://pytorch/pytorch:2.11.0-cuda12.8-cudnn9-devel
+
+#Logging, output, and error files
 log = job_$(Cluster)_$(Process).log
-error = job_$(Cluster)_$(Process).err
 output = job_$(Cluster)_$(Process).out
-
-# Fill in with whatever executable you're using
-executable = run_gpu_job.sh
-#arguments =
+error = job_$(Cluster)_$(Process).err
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-# Uncomment and add input files that are in /home
-# transfer_input_files =
 
-# Uncomment and add custom requirements
-# requirements =
+# The name of the executable you are running
+executable = run_gpu_job.sh
 
-+WantGPULab = true
+# Length of GPU job
 +GPUJobLength = "short"
+
+# Specific hardware generation and CUDA toolkit version your software needs.
+# These match the container above; see our GPU compatibility tool for others.
+gpus_minimum_capability = 7.5
+gpus_maximum_capability = 12.0
+gpus_minimum_runtime = 12.4
 
 # Also run on backfill GPUs. Jobs can be interrupted, so checkpoint
 # jobs that run longer than a few hours.
@@ -127,18 +128,40 @@ queue 1
 
 </File>
 
-# GPUs on our system
+# Advanced GPU submit file options
 
-<GpuTable />
+You can indicate advanced requirements for jobs with requirements lines. `requirements` describes properties of the machine and `require_gpus` describes properties of the individual GPUs. Each submit file can only have **one** `requirements` line and **one** `require_gpus` line. Attributes can be chained together with Boolean operators (&&, ||). If you have questions on complex submit file options, please reach out to the facilitators.
 
-# Containers and recipes
+  ```condor
+  requirements = 
+  require_gpus = 
+  ```
 
-{/* TODO: two or three sentences on using a container with GPU software, then links to
-/uw-research-computing/gpu-jobs/software/ and the specific GPU recipes on GitHub. */}
+- **Indicate software or data storage requirements:** If your data is large enough to use our `/staging` data system (see [Manage large data in /staging](/uw-research-computing/file-avail-largedata/)), or you are using modules or other software in our shared `/software` system, include the needed requirements.
+
+  ```condor
+  requirements = (HasCHTCStaging == true) && (HasCHTCSoftware == true)
+  ```
+
+- **Indicate specific chips:** Your job may require specific GPU types due the capabilities of that generation, such as using double-precision computing (FP64) on the A100, H100, and H200 GPUs. To match by a specific chip, use the GPUs' `DeviceName`. To find the exact name of a chip, run the following command on the AP:
+
+  ```shell
+  condor_status -constraint 'GPUs>0 && PrioritizedProjects==""&& BackfillSlot is undefined'  -af GPUs_DeviceName | sort | uniq 
+  ```
+
+  Use those names in your submit file:
+
+  ```condor
+  require_gpus = (DeviceName == "NVIDIA A100-SXM4-80GB") || (DeviceName == "NVIDIA H100 80GB HBM3") || (DeviceName == "NVIDIA H200") 
+  ```
+
+  More information can be found in the documentation: https://htcondor.readthedocs.io/en/latest/man-pages/htcondor-jdl.html#require_gpus
 
 # Related pages
 
-- [Run your first GPU job](/uw-research-computing/gpu-jobs/first-job/)
-- [Set up GPU software](/uw-research-computing/gpu-jobs/software/)
+{/* TODO: restore when first-job is published.
+- [A Beginner's Guide to Run your first GPU job](/uw-research-computing/gpu-jobs/first-job/)
+*/}
+- [GPU software](/uw-research-computing/gpu-jobs/software/)
 - [Choose and size your GPU](/uw-research-computing/gpu-jobs/choose-gpu/)
-- [Checkpoint GPU jobs](/uw-research-computing/gpu-jobs/checkpointing/)
+- [Checkpoint jobs](/uw-research-computing/checkpointing/)

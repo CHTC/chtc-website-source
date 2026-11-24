@@ -7,106 +7,143 @@ category: Use GPUs
 order: 4
 ---
 
-Every requirement you add narrows the set of GPUs your job can run on, and so adds time in the
-queue. Ask for the least specific GPU that will work: when possible, write your code so that it
-can run across GPU types and without needing the latest version of CUDA.
+Requesting resources for GPU-accelerated software can be much more complicated than for CPU-only programs. This page is intended to provide guidance on matching your GPU-job to the correct resources on our system. If you have questions, please come to office hours and talk with a facilitator.
 
-# GPUs on our system
+A few important definitions:
+
+- **CPU:** A computer's general-purpose processor. In GPU jobs, CPUs run your main program, load and prepare data, and send work to the GPU.
+- **GPU:** A processor that does many simple calculations at the same time. This makes it much faster than a CPU for tasks like training AI models and some scientific simulations.
+- **Memory (RAM):** The computer's working memory, used by the CPUs. It holds your program and the data waiting to be sent to the GPU.
+- **GPU memory (VRAM):** The GPU's own memory. It holds the model and the data the GPU is working on. If your job needs more VRAM than the GPU has, it usually fails rather than slowing down.
+- **Disk:** Storage space for your input files, outputs, containers, and model files while your job runs.
+
+## Chose your CPU, memory, and disk requests
+
+**CPUs:** GPU code often requires at least one CPU core to load data onto the GPU, coordinate work within a program, and handle preprocessing. Keeping a GPU busy can require many CPU cores, sometimes 20 or more. Determining the number of CPUs your job needs requires some trial and error. All of CHTC's machines and many of the slots on the OSPool have at least 4 CPUs per GPU, so this is often a good starting spot. After your job, check you `log` file table to see how much of your GPU and CPU request was used. If all of your CPUs were used and the GPU utilization was low, increase the number of CPUs. If your GPU was full but you did not use all of the CPUs, reduce the requested number of CPUs. If both are nearly fully used, you have likely found a good balance for your job. 
+
+**Memory:** Your job's RAM holds the software, the data waiting to go to the GPU, and anything your code keeps on the CPU. The model's working memory stays on the GPU. For most jobs, RAM needs are less than the VRAM they use. You can usually request a few GB for the software plus the data your job holds in memory. Your job needs more if it loads a whole dataset into memory instead of reading it in batches, loads the full model into RAM before moving it to the GPU, or keeps part of the model on the CPU (e.g., some mixture-of-experts models).
+
+**Disk:** Disk space must be sufficient to fit data, checkpoints, model weights (for AI work), and containers. These can quickly reach 100s of GB.
+
+On your AP, you can run the command `gpu-inventory` to see the number of CPUs, amount of memory, and disk space each type of GPU node along with how many nodes of that type we have. We also list the average of each resource per GPU to give you a sense of scale of what resources you can request on these machines. CPUs, memory, and disk space are divided between all of the jobs on that machine, so requesting more than the average per GPU may mean your jobs will wait longer in the queue for those resources to become available. The smaller your request, the faster it will match and the more that can run concurrently. 
+
+<Terminal>
+```
+[bbadger@ap2001]$ gpu-inventory
+
+== CHTC open capacity GPU machines ==
+Count  GPU Type                           GPUs  CPUs  Avg. CPUs  Memory   Avg. Memory  VRAM  Disk  Compute
+                                                        per GPU    (GB)  per GPU (GB)  (GB)  (TB)  Cap.
+    2  NVIDIA GB10                           1    20         20     118           119   122   3.3  12.1
+    2  NVIDIA RTX PRO 6000 Blackwell         8    48          6     752            94    95  27.9  12.0
+    1  NVIDIA H100 80GB HBM3                 8   160         20    2012           252    79  27.9  9.0
+    5  NVIDIA H200                           8   192         24    1003           125   140  27.9  9.0
+...
+```
+</Terminal>
+
+# Chose which types of GPUs to use
+
+For some workloads, the type of GPU matters. GPUs with a tensor core can speed deep learning algorithms whereas those with a ray tracing core (e.g., on the RTX cards) can be used with rendering and some simulations. Some scientific software requires specific floating-point precision support, such as FP64 versus FP16/BF16. Specific versions of popular machine learning frameworks (e.g., PyTorch, TensorFlow, and JAX) can require certain generations of GPU hardware, driver versions, and CUDA version. See our page on [GPU compatibility](/uw-research-computing/gpu-jobs/gpu-compatibility/) for more information. Instructions on how to request certain cards can be found on the [quickstart guide](/uw-research-computing/gpu-jobs/quickstart).
+
+As with all jobs, smaller resource requests enable you to run your job on more machines. This is particularly true of GPUs. High-end GPUs, like the H200s, can run some tasks several times faster than older hardware. However, these cards are in high-demand from jobs that need high VRAM (80 GB or more), so requesting just those cards can mean waiting in the queue for a long time. If your job can run on GPUs with less VRAM, you may be able to run on many more GPUs at once and finish your work faster. Profiling your code to reduce VRAM usage so it can run on more GPUs is often worth the effort. After a test run, check your log files to see whether the resources you requested were the right size for your job. In general, ask for the least specific GPU requirements that will work. When possible, write your code so that it can run across GPU types and does not need the latest version of CUDA.
+
+CHTC's open capacity GPUs are available to any user of the high throughput computing system. Researchers also own GPUs on CHTC. When these cards are not in use by their owners, your jobs can run on them if you opt in as backfill. CHTC users can also access GPUs on the [OSPool](https://osg-htc.org/about/open_science_pool/), which has an average of 275 GPUs available per hour. 
 
 <GpuTable />
 
-# Request GPU memory and hardware generation
+# Estimate the GPU memory (VRAM) you need
 
-If your software or code requires a certain "capability" of GPU (see the table above) or a
-certain amount of GPU memory, you can request them with these submit file options.
+If your software exceeds the amount of VRAM a GPU has, the job often fails, rather than run slowly like it would on a CPU-only system. For AI tasks, GPUs need to have enough VRAM to fit a model's weights and additional information depending on the task. Every model has a number of parameters encoded at a certain level of precision. The higher the the number of parameters or the higher the precision, the larger the model. Common precision formats you may see and the number of bytes can be found in the table.
 
-To request a range of capabilities:
+| Bits per parameter | Bytes per parameter | Common formats | Typical use |
+| --- | --- | --- | --- |
+| 4 | 0.5 | INT4, FP4, NF4, Q4_K_M | Quantized models for inference; most common on consumer GPUs |
+| 6 | 0.75 | FP6, Q6_K | Quantized models for inference; closer to full quality |
+| 8 | 1 | FP8, INT8 | Fast inference; training on H100 and newer GPUs|
+| 16 | 2 | FP16, BF16 | Most training and inference |
+| 32 | 4 | FP32, TF32 | Optimizer states and master weights in training |
+| 64 | 8 | FP64 | Scientific simulations; rarely used for AI |
+
+To calculate the size of a model, multiply the number of parameters by the bytes per parameter (e.g., 1 billion parameters at FP8 requires 1 GB of VRAM).
+
+The minimum amount of VRAM you must request in your job (`gpus_minimum_memory` in MB) depends on the task:
+
+## AI Inference
+
+  Inference is using a pre-trained model (e.g., large language model (LLM)) to analyze your data, answer prompts, make predictions, or generate output. The VRAM an inference job needs is roughly:
+
+  **VRAM ≈ model weights + key-value cache + overhead**
+
+  - **Model weights:** Multiply the number of parameters by the bytes per parameter (table above) or add up the `.safetensors` file sizes on the model's [Hugging Face](https://huggingface.co/) page.
+  - **Key-value (KV) cache:** As a model reads and writes text, it stores the results in the KV cache, which grows with context length (tokens in the prompt and response) and the number of prompts run at once: 
+    
+    KV cache (bytes) = 2 × layers × KV heads × head dimension × bytes per value × context length × prompts
+
+    For models from [Hugging Face](https://huggingface.co/), you can find this information in the model's `config.json` file under the fields `num_hidden_layers`, `num_key_value_heads` and `head_dim` (or `hidden_size` ÷ `num_attention_heads`).
+  - **Overhead:** Add 1–2 GB for CUDA and other working memory.
+    
+For example: Llama 3.1 8B in BF16 with an 8K-token context: 16 GB + 1 GB + 2 GB ≈ 19 GB (19,000 MB), so you should add to your submit file:
 
 ```condor
-gpus_minimum_capability = <version>
-gpus_maximum_capability = <version>
+  gpus_minimum_memory = 20000M
 ```
+  
+## AI training and fine-tuning
 
-To request a minimum amount of GPU memory:
+  Training builds a model from scratch by updating all of its parameters over many passes through your data, which is broken into small groups called batches. Fine-tuning takes a pre-trained model and trains it further on your data or task. Both need much more VRAM than inference. Besides the weights, the GPU holds gradients (how much each parameter should change), optimizer states (the optimizer's running memory of past updates), and activations (intermediate results kept for each batch).
+
+  **VRAM ≈ weights + gradients + optimizer states + activations + overhead**
+
+  - **Weights, gradients and optimizer states:** About 16 bytes total for each parameter, assuming the common setup of mixed-precision training&mdash;weights and gradients in 16-bit, plus a 32-bit copy of the weights&mdash;with the Adam optimizer, which keeps two 32-bit running averages per parameter.
+  - **Activations:** These grow with batch and input size, making them hard to pre-calculate. Start with a test job on a small batch to measure. Doubling the batch size roughly doubles the activation memory.
+  - **Overhead:** Add 1–2 GB for CUDA and other working memory.
+
+  How much you train decides which formula applies:
+
+  - **Training from scratch and full fine-tuning** update every parameter, so they need the full 16 bytes per parameter. A 1 billion parameter model needs about 16 GB before activations; a 7 billion parameter model needs about 112 GB.
+  - **Parameter-efficient fine-tuning**, such as low-rank adaption (LoRA), freezes the original model and trains a small set of added parameters (usually under 1% of the model). VRAM must hold the model weights at full precision (16-bit) plus activations plus overhead. Quantized LoRA (QLoRA) loads the frozen model at 4-bit, so a 7 billion parameter model can be fine-tuned on a single 16–24 GB GPU.
+
+For example: LoRA fine-tuning Llama 3.1 8B in BF16 with a small batch: 16 GB + 1 GB + 6 GB + 2 GB ≈ 25 GB (25,000 MB), so you should add to your submit file:
 
 ```condor
-gpus_minimum_memory = <quantity in MB>
+gpus_minimum_memory = 25000M
 ```
 
-`gpus_minimum_memory` is GPU memory (VRAM). It is separate from `request_memory`, which is the
-memory (RAM) of the server the GPU is in.
+# Use more or less than one GPU
 
-More information on these options is in the
-[HTCondor manual](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html#gpus_minimum_capability).
+## Multiple GPUs
 
-# Estimate the GPU memory and RAM you need
+You may find after calculating your software's VRAM requirement that you need to use more than one GPU to fit everything. Requesting multiple GPUs is as simple as increasing  `request_gpus` to the number you need. Depending on the card, you can request up to 8-10 GPUs. You get the full VRAM allocation of each card you request, so you may also be able to use several cards in place of one large card.
 
-{/* TODO: rules of thumb for VRAM and RAM.
-  - Training: parameters x bytes per parameter, plus gradients, optimizer state and activations.
-  - Inference (including LLMs): parameters x bytes per parameter (by precision), plus KV cache.
-  - RAM: at least as much as the data and model the job loads before moving them to the GPU.
-Then point to the next section: run a test job and check what it used. */}
+Requesting more GPUs does not split the work automatically and requires your software to be written to use more than one GPU. For example, in PyTorch, look for `DistributedDataParallel`, `torchrun`, Hugging Face `accelerate`, or a `device_map="auto"` setting when the model loads. If you are not sure, run a short test with 2 GPUs and check the GPU usage in your job's `log` file. If it reports about one GPU's worth of use, your code is only using one GPU.
 
-# Request CPUs and memory
+An additional factor to consider when using multiple GPUs is how fast the cards can share data with each other. All of the GPUs in a job are on the same server, but they may be connected by the server's standard connection (PCIe) or by NVIDIA's much faster direct link between cards (NVLink). This matters most for jobs that split one model across several GPUs, because the cards exchange data at every step. Jobs that keep a full copy of the model on each GPU and only combine results occasionally, or that run independent work on each GPU, are much less affected. If your job splits a model across GPUs, consider requesting GPUs that have NVLink, such as the H100s, the H200s, and most A100s. Run a short test on both kinds of GPUs to see whether the difference matters for your job. You may wait much longer to use a node with an NVLink than one without, so you may still complete your job earlier by letting it use the first available node regardless of whether it has NVLink.
 
-It is important to still request at least one CPU per job to do the processing that is not
-well-suited to the GPU.
+## Smaller GPU slices (MIG)
 
-{/* TODO: more CPUs for data loading (e.g. PyTorch DataLoader workers); typical CPUs and memory per
-GPU; multi-GPU jobs need more CPUs to feed each GPU. */}
-
-# Check what your job used
-
-{/* TODO: teach reading the resource usage table at the end of the job's .log file (GPUs, GPU
-memory, CPUs, memory, disk), and adjusting requests from a test job before submitting many. */}
-
-# Use more than one GPU
-
-It is possible to request multiple GPUs. Before doing so, make sure you are using code that can
-use multiple GPUs, and submit a test job to confirm it works before submitting more. Also keep
-track of how long jobs run compared with how long they wait: the time you save by using multiple
-GPUs may not be worth the extra time the job will likely wait in the queue.
-
-{/* TODO: how to tell if code uses multiple GPUs (DataParallel, DistributedDataParallel,
-accelerate); request more CPUs with more GPUs. */}
-
-# Smaller GPU slices (MIG)
-
-{/* TODO: what MIG slices are, which cards are divided, how much VRAM a slice has, and when a
-slice is enough. */}
-
-# Complex GPU requirements
-
-If your jobs have more complex requirements than the capability and memory options above, you can
-use the more general submit file option `require_gpus` to build a custom requirement. Contact the
-facilitators at chtc@cs.wisc.edu if you think you need this option.
+Some of our larger GPUs are divided into smaller, independent slices using NVIDIA's Multi-Instance GPU (MIG) feature. Each slice works like its own smaller GPU, with a fixed share of the card's VRAM. Your job can match a slice if its `gpus_minimum_memory` is no larger than the slice's VRAM.
 
 # Explore CHTC's GPUs with condor_status
 
-You can find information about GPUs in CHTC with the `condor_status` command. All of our servers
-with GPUs have a `TotalGPUs` attribute greater than zero, so you can find GPU servers by running:
+You can find more information about GPUs and their machines in CHTC with the `condor_status` command. All of our servers with GPUs have a `TotalGPUs` attribute greater than zero, so you can find GPU servers by running:
 
 <Terminal>
 
 ```
-[alice@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
+[bbucky@submit]$ condor_status -compact -constraint 'TotalGpus > 0'
 ```
 
 </Terminal>
 
-To print specific information about a GPU server and its GPUs, use the "auto-format" option for
-`condor_status` and the names of specific server attributes. When querying attributes with
-`condor_status`, add a `GPUs_` prefix to the attribute name. For example, the table above can be
-mostly recreated with the attributes `Machine`, `TotalGpus`, `GPUs_DeviceName` and
-`GPUs_Capability`:
+To print specific information about a GPU server and its GPUs, use the "auto-format" option for `condor_status` and the names of specific server attributes. When querying attributes with `condor_status`, add a `GPUs_` prefix to the attribute name. For example, the table above can be mostly recreated with the attributes `Machine`, `TotalGpus`, `GPUs_DeviceName` and `GPUs_Capability`:
 
 <Terminal>
 
 ```
-[alice@submit]$ condor_status -constraint 'Gpus > 0' \
+[bbucky@submit]$ condor_status -constraint 'Gpus > 0' \
                 -af Machine TotalGpus GPUs_DeviceName GPUs_Capability
 ```
-
 </Terminal>
 
 HTCondor also tracks other GPU-related attributes for each server, including:
@@ -115,12 +152,17 @@ HTCondor also tracks other GPU-related attributes for each server, including:
 | --- | --- |
 | `Gpus` | Number of GPUs in an individual job slot on a server (one server can be divided into slots to run multiple jobs). |
 | `TotalGPUs` | The total number of GPUs on a server. |
+| `Cpus` | Number of CPUs in the slot. Compare with `Gpus` to see the CPUs available per GPU. |
+| `Memory` | Memory (RAM) in the slot, in MB. |
+| `Disk` | Disk space in the slot, in KB. |
+| `PrioritizedProjects` | The research groups that own the server. Empty for CHTC's open capacity GPUs. |
+| `BackfillSlot` | `true` on backfill slots, which only run jobs with `+is_resumable = true`. |
 | (`GPUs_`)`DeviceName` | The type of GPU card. |
-| (`GPUs_`)`Capability` | Represents various capabilities of the GPU. Can be used as a proxy for the GPU card type when requiring a specific type of GPU. [Wikipedia](https://en.wikipedia.org/wiki/CUDA#GPUs_supported) has a table showing the compute capability for specific GPU architectures and cards. More details on what the capability numbers mean are on the [NVIDIA website](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities). |
+| (`GPUs_`)`Capability` | The GPU's compute capability, NVIDIA's version number for its hardware generation (e.g., 8.0 for the A100). Used by `gpus_minimum_capability` and `gpus_maximum_capability`. |
 | (`GPUs_`)`DriverVersion` | **Not** the version of CUDA on the server or the NVIDIA driver version, but the maximum CUDA runtime version supported by the NVIDIA driver on the server. |
-| (`GPUs_`)`GlobalMemoryMb` | Amount of memory available on the GPU card. |
+| (`GPUs_`)`GlobalMemoryMb` | The GPU's memory (VRAM) in MB. Used by `gpus_minimum_memory`. |
 
 # Related pages
 
 - [GPU quick start](/uw-research-computing/gpu-jobs/quickstart/)
-- [Troubleshoot GPU jobs](/uw-research-computing/gpu-jobs/troubleshooting/)
+{/* TODO: restore when troubleshooting is published.- [Troubleshoot GPU jobs](/uw-research-computing/gpu-jobs/troubleshooting/) */}

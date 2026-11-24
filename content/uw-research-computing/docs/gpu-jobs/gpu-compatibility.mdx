@@ -3,30 +3,22 @@ title: Find compatible GPUs
 description: Pick PyTorch, TensorFlow or JAX, its version and the CUDA toolkit it was built with to see which GPUs it runs on and get the submit file lines that send your job to them.
 sidebar:
   - htc
-category: Special use cases
+category: Use GPUs
 ---
 
 import GpuCompatFinder from '@/app/uw-research-computing/_components/GpuCompatFinder';
 import GpuCompatTable from '@/app/uw-research-computing/_components/GpuCompatTable';
 import Typography from '@mui/material/Typography';
 
-Choose what your software uses below to see which GPUs can run it, then copy the lines into
-your submit file so HTCondor only matches your job to those GPUs.
+The software you run on a GPU, such as a language model, an image classifier, or a protein structure tool, frequently depends on a machine learning framework like PyTorch, TensorFlow, or JAX. Each release of these frameworks is built for a specific range of GPUs and needs a minimum NVIDIA driver to run. If your job lands on a machine with GPUs or drivers outside that range, it may crash with an error such as `no kernel image is available for execution on the device` or `CUDA driver version is insufficient for CUDA runtime version`. It may also run but take far longer than usual. If you are not sure which framework your software uses, check its installation instructions, its requirements file, or its model page (e.g., most Hugging Face models use PyTorch). 
 
-<Typography variant="subtitle2" component="div" sx={{ mb: 2 }}>
-Each release of a framework such as PyTorch, TensorFlow or JAX is built for a range of GPUs and needs a recent
-enough NVIDIA driver. A job that lands on an older or newer GPU than its build supports fails
-with errors such as `no kernel image is available for execution on the device` or
-`CUDA driver version is insufficient`.
-</Typography>
+In the table below, select your framework, its version, and the CUDA toolkit version you are using in the table below to see how many and what type of GPUs can run your software. Then copy the lines it gives you into your submit file, and HTCondor will only send your job to GPUs that can run it. We also provide the container image we used for testing and other notes.
 
 <GpuCompatFinder />
 
 # All versions
 
-Every version and CUDA toolkit combination we have tested, with the GPUs it runs on and the
-same submit file lines the picker above gives you. Select a framework to show its table. Add
-`request_gpus = 1` (or more) as well.
+Every version and CUDA toolkit combination we have tested, with the GPUs it runs on and the same submit file lines the picker above gives you. Select a framework to show its table. Add `request_gpus = 1` (or more) as well.
 
 <GpuCompatTable framework="pytorch" />
 

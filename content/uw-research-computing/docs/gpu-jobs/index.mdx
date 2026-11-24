@@ -7,13 +7,7 @@ category: Use GPUs
 order: 0
 ---
 
-GPUs (Graphics Processing Units) run very large numbers of simple calculations in parallel.
-Programs written to use them, such as machine learning frameworks, image processing and some
-simulations, can run ten or more times faster than on CPUs. CHTC's HTC system has shared GPUs
-that any CHTC user can run jobs on, plus more capacity through backfill and the OSPool.
-
-{/* TODO: one or two sentences on "Is a GPU right for my work?" - a GPU only helps when the
-software was written to use one (CUDA, PyTorch, TensorFlow, JAX...). Link to the software page. */}
+GPUs (Graphics Processing Units) run very large numbers of simple calculations in parallel. Programs written to use them, such as machine learning frameworks, image processing, and some simulations, can run many times faster than on CPUs. CHTC's High Throughput Computing (HTC) system has shared GPUs that any CHTC user can run jobs on, plus more capacity through backfill and the OSPool. 
 
 # Start here
 
@@ -21,19 +15,21 @@ software was written to use one (CUDA, PyTorch, TensorFlow, JAX...). Link to the
 
 <Card title="Quick start" href="/uw-research-computing/gpu-jobs/quickstart/">
 
-Already run HTC jobs? Get the submit file options, limits and the list of GPUs.
+Already run HTC jobs? Get the submit file options and list of GPU resources.
 
 </Card>
 
+{/* TODO: restore when the first-job page is published.
 <Card title="Your first GPU job" href="/uw-research-computing/gpu-jobs/first-job/">
 
 New to GPUs at CHTC? Walk through a complete GPU job, step by step.
 
 </Card>
+*/}
 
 <Card title="Software and containers" href="/uw-research-computing/gpu-jobs/software/">
 
-Get GPU-enabled software into your job with containers and CHTC's recipes.
+Use GPU-enabled software in your job with containers and CHTC's recipes.
 
 </Card>
 
@@ -49,7 +45,14 @@ Pick GPU memory and hardware, estimate memory needs, and use more than one GPU.
 
 </Card>
 
-<Card title="Checkpoint GPU jobs" href="/uw-research-computing/gpu-jobs/checkpointing/">
+<Card title="Find compatible GPUs" href="/uw-research-computing/gpu-jobs/gpu-compatibility/">
+
+See which GPUs your PyTorch, TensorFlow or JAX version runs on, and get the submit file lines.
+
+</Card>
+
+{/* TODO: point to /uw-research-computing/gpu-jobs/checkpointing/ when that page is published. */}
+<Card title="Checkpoint jobs" href="/uw-research-computing/checkpointing/">
 
 Save progress so jobs can resume, run past time limits, and use backfill GPUs.
 
@@ -57,7 +60,7 @@ Save progress so jobs can resume, run past time limits, and use backfill GPUs.
 
 <Card title="Get more GPUs" href="/uw-research-computing/gpu-jobs/more-gpus/">
 
-Run on research group GPUs as backfill, campus pools and the OSPool.
+Run on research group GPUs as backfill, campus pools, and the OSPool.
 
 </Card>
 
@@ -69,34 +72,26 @@ Run on research group GPUs as backfill, campus pools and the OSPool.
 
 <Card title="Interactive GPU jobs" href="/uw-research-computing/gpu-jobs/interactive/">
 
-Test and debug on a GPU interactively, for up to 4 hours.
+Test and debug on a GPU interactively for up to 4 hours.
 
 </Card>
 
+{/* TODO: restore when the troubleshooting page is published.
 <Card title="Troubleshooting" href="/uw-research-computing/gpu-jobs/troubleshooting/">
 
 Jobs that will not start, run out of GPU memory, or do not see the GPU.
 
 </Card>
+*/}
 
 </Cards>
 
 # The CHTC GPU Lab
 
-{/* Moved from the retired gpu-lab page. TODO: decide how much of this to keep. */}
+CHTC's shared GPUs are provided by the CHTC GPU Lab, created by a [UW2020-funded project](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/) to expand shared GPU computing at UW-Madison. The CHTC GPU Lab mailing list announces new GPU hardware and GPU-related events, asks GPU users for feedback, and shares best practices for GPU computing at CHTC. To join, email [chtc-gpu-lab+managers@g-groups.wisc.edu](mailto:chtc-gpu-lab+managers@g-groups.wisc.edu) and ask to be added. The list administrators review each request.
 
-CHTC's shared GPUs are provided by the CHTC GPU Lab, created by a
-[UW2020-funded project](https://research.wisc.edu/funding/uw2020/round-5-projects/enabling-graphics-processing-unit-based-data-science/)
-to expand shared GPU computing at UW-Madison. More extended examples are in the
-[GPU job templates on GitHub](https://github.com/CHTC/templates-GPUs).
-
-The CHTC GPU Lab mailing list announces new GPU hardware and GPU-related events, asks GPU users
-for feedback, and shares best practices for GPU computing at CHTC. To join, email
-[chtc-gpu-lab+managers@g-groups.wisc.edu](mailto:chtc-gpu-lab+managers@g-groups.wisc.edu) and
-ask to be added. The list administrators review each request.
-
-> The CHTC GPU Lab is led by Anthony Gitter, Christina Koch, Brian Bockelman, and Miron Livny.
-> The original UW2020 project was led by Anthony Gitter, Lauren Michael, Brian Bockelman, and
-> Miron Livny and funded by the Office of the Vice Chancellor for Research and Graduate
-> Education and the Wisconsin Alumni Research Foundation. For more information about the
-> CHTC GPU Lab, contact [Anthony Gitter](https://www.biostat.wisc.edu/~gitter/index.html).
+The CHTC GPU Lab is led by Anthony Gitter, Christina Koch, Brian Bockelman, and Miron Livny.
+The original UW2020 project was led by Anthony Gitter, Lauren Michael, Brian Bockelman, and
+Miron Livny and funded by the Office of the Vice Chancellor for Research and Graduate
+Education and the Wisconsin Alumni Research Foundation. For more information about the
+CHTC GPU Lab, contact [Anthony Gitter](https://www.biostat.wisc.edu/~gitter/index.html).
